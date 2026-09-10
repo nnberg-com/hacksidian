@@ -21,6 +21,7 @@ import tinycss2
 
 from . import VERSION
 from .templates import atlas_css
+from .obsidian import load_style
 from .render import (ESC, CONTRACT_VERSION, clean_dom, model_foundation, parser,
                      render_markdown, render_properties, serialize_inner, split_frontmatter)
 
@@ -134,7 +135,7 @@ def wrapped_document(title: str, body: str, styles: str, script: bool = True) ->
             ('<script src="../../preview.js"></script>' if script else '') + '</body></html>\n')
 
 
-def preview(technique: Technique):
+def preview(technique: Technique, obsidian=None):
     t = technique
     anchor = str(t.metadata.get('source_anchor') or t.id)
     if not re.fullmatch(r'[\w-]+', anchor):
@@ -167,6 +168,19 @@ def preview(technique: Technique):
             f'<section id="{ESC(key, quote=True)}"><p>Цель ссылки: {ESC(key)}</p>'
             '<a href="#sample">Вернуться к примеру</a></section>' for key in missing_fragments) + '</aside>'
     base = (HERE / 'static' / 'preview.css').read_text()
+    if obsidian:
+        # These classes activate the unmodified working snippets inside an isolated frame.
+        root = html.fragment_fromstring(body, create_parent='div')
+        for el in root.xpath('.//*[contains(concat(" ",normalize-space(@class)," ")," markdown-preview-view ") or contains(concat(" ",normalize-space(@class)," ")," markdown-source-view ")]'):
+            el.set('class', el.get('class','') + ' callmered-coloring')
+        body = serialize_inner(root)
+        css = atlas_css(t.directory, lambda p: p.read_text(), use_preview=False)
+        # Only frame layout belongs to the browser adapter. Typography comes from Obsidian.
+        frame = 'body{display:block;position:static;contain:none;height:auto;overflow:auto;margin:0;padding:16px} .markdown-preview-view{height:auto;overflow:visible} '
+        document = wrapped_document(t.metadata['title'], body, frame + css)
+        document = document.replace('<style>', '<link rel="stylesheet" href="../../obsidian.css"><style>', 1)
+        document = document.replace('<body>', '<body class="' + obsidian.classes + '">', 1)
+        return document, mode, missing_fragments
     return wrapped_document(t.metadata['title'], body, base + '\n' + foundation + '\n' + t.css), mode, missing_fragments
 
 
@@ -176,7 +190,7 @@ def check_resources(document: str, css: str, directory: Path, source: Path):
     links = []
     for node in root.xpath('//*[@src]|//link[@href]'):
         url = node.get('src') or node.get('href')
-        if url == '../../preview.js':
+        if url in ('../../preview.js', '../../obsidian.css'):
             continue
         links.append(url)
     links += [m[1] for m in re.finditer(r'url\(\s*["\']?([^"\')\s]+)', css)]
@@ -269,17 +283,38 @@ def copy_inputs(t: Technique, destination: Path, source: Path, language: str, re
         reads[str(path.relative_to(source))] = hashlib.sha256(data).hexdigest()
 
 
-def compile_catalogue(source: Path, language: str):
+def compile_catalogue(source: Path, language: str, obsidian=None):
     techniques, categories = load(source, language)
     rendered = []
     for t in techniques:
-        document, mode, targets = preview(t)
+        document, mode, targets = preview(t, obsidian)
         remote = check_resources(document, t.css + '\n' + t.model_css, t.directory, source)
         rendered.append((t, document, mode, targets, remote))
     return rendered, categories
 
 
-def build(source: Path, output: Path, language: str):
+
+def themed_shell(document, obsidian, prefix=''):
+    if not obsidian:
+        return document
+    root = html.document_fromstring(document)
+    head = root.find('head')
+    base = html.Element('link', rel='stylesheet', href=prefix+'obsidian.css')
+    head.insert(0, base)
+    head.append(html.Element('link', rel='stylesheet', href=prefix+'obsidian-shell.css'))
+    body = root.find('body')
+    body.set('class', (body.get('class', '')+' '+obsidian.classes+' hacksidian-atlas-shell').strip())
+    return '<!doctype html>\n'+html.tostring(root, encoding='unicode')
+
+
+def discover_obsidian_config(source):
+    for directory in [source.resolve(), *source.resolve().parents]:
+        config = directory / '.obsidian'
+        if (config / 'appearance.json').is_file():
+            return config
+    return None
+
+def build(source: Path, output: Path, language: str, obsidian=None):
     source, output = source.resolve(), output.resolve()
     if source == output or output.is_relative_to(source) or source.is_relative_to(output):
         raise ValueError('The build output must be outside the source catalogue')
@@ -287,11 +322,13 @@ def build(source: Path, output: Path, language: str):
         marker = output / 'build-report.json'
         if not marker.is_file() or json.loads(marker.read_text()).get('owner') != OWNER:
             raise ValueError(f'Refusing to replace a directory not owned by this generator: {output}')
-    rendered, categories = compile_catalogue(source, language)
+    rendered, categories = compile_catalogue(source, language, obsidian)
     output.parent.mkdir(parents=True, exist_ok=True)
     staging = Path(tempfile.mkdtemp(prefix='.atlas-build-', dir=output.parent))
     entries, inputs = [], {}
     try:
+        if obsidian:
+            (staging / 'obsidian.css').write_text(obsidian.css)
         for t, document, mode, targets, remote in rendered:
             folder = staging / 'recipes' / t.id
             folder.mkdir(parents=True)
@@ -300,7 +337,7 @@ def build(source: Path, output: Path, language: str):
             inputs[str(card_path.relative_to(source))] = hashlib.sha256(card_path.read_bytes()).hexdigest()
             (folder / 'snippet.css').write_text(t.css)
             (folder / 'preview.html').write_text(document)
-            (folder / 'index.html').write_text(recipe_page(t, categories[t.metadata['category']], language, bool(t.model)))
+            (folder / 'index.html').write_text(themed_shell(recipe_page(t, categories[t.metadata['category']], language, bool(t.model)), obsidian, '../../'))
             if t.model:
                 model_doc = html.document_fromstring(t.model)
                 clean_dom(model_doc)
@@ -318,6 +355,9 @@ def build(source: Path, output: Path, language: str):
         for p in (HERE / 'static').iterdir():
             if p.name != 'preview.css':
                 shutil.copy2(p, staging / p.name)
+        if obsidian:
+            index = staging / 'index.html'
+            index.write_text(themed_shell(index.read_text(), obsidian))
         payload = json.dumps({'entries': entries, 'categories': categories}, ensure_ascii=False).replace('</', '<\\/')
         (staging / 'catalog.js').write_text('window.ATLAS = ' + payload + ';\n')
         versions = {name: importlib.metadata.version(name) for name in ['markdown-it-py', 'mdit-py-plugins', 'PyYAML', 'lxml', 'tinycss2']}
@@ -328,7 +368,8 @@ def build(source: Path, output: Path, language: str):
                   'inputs': inputs, 'input_digest': hashlib.sha256(json.dumps(inputs, sort_keys=True).encode()).hexdigest(),
                   'context_targets': {e['id']: e['context_targets'] for e in entries if e['context_targets']},
                   'remote_resources': {e['id']: e['remote_resources'] for e in entries if e['remote_resources']},
-                  'legacy_atlas_required': False}
+                  'legacy_atlas_required': False,
+                  'obsidian_style': {'theme': obsidian.theme, 'classes': obsidian.classes, 'sources': obsidian.sources} if obsidian else None}
         (staging / 'build-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
         backup = None
         if output.exists():
@@ -355,6 +396,10 @@ def main(argv=None):
         p = sub.add_parser(name)
         p.add_argument('--source', type=Path, default=DEFAULT_SOURCE)
         p.add_argument('--lang', default='ru')
+        style_options = p.add_mutually_exclusive_group()
+        style_options.add_argument('--obsidian-config', type=Path, help='Read the local theme and enabled snippets from this config directory; by default discover the source vault')
+        style_options.add_argument('--standalone', action='store_true', help='Explicitly build without the Obsidian theme')
+        p.add_argument('--obsidian-app', type=Path, default=Path('/Applications/Obsidian.app/Contents/Resources/obsidian.asar'))
         if name == 'build':
             p.add_argument('--output', type=Path, default=DEFAULT_OUTPUT)
     serve = sub.add_parser('serve', help='Serve an existing build on localhost')
@@ -362,11 +407,15 @@ def main(argv=None):
     serve.add_argument('--port', type=int, default=8765)
     args = cli.parse_args(argv)
     try:
+        config = None
+        if args.command in ('build', 'check') and not args.standalone:
+            config = args.obsidian_config or discover_obsidian_config(args.source)
+        obsidian = load_style(config, args.obsidian_app) if config else None
         if args.command == 'build':
-            report = build(args.source, args.output, args.lang)
-            print(json.dumps({'output': str(args.output.resolve()), 'techniques': report['techniques'], 'modes': report['modes']}, ensure_ascii=False))
+            report = build(args.source, args.output, args.lang, obsidian)
+            print(json.dumps({'output': str(args.output.resolve()), 'techniques': report['techniques'], 'modes': report['modes'], 'theme': obsidian.theme if obsidian else None}, ensure_ascii=False))
         elif args.command == 'check':
-            rendered, categories = compile_catalogue(args.source.resolve(), args.lang)
+            rendered, categories = compile_catalogue(args.source.resolve(), args.lang, obsidian)
             print(json.dumps({'valid': True, 'techniques': len(rendered), 'categories': len(categories)}, ensure_ascii=False))
         else:
             if not (args.output / 'index.html').is_file():

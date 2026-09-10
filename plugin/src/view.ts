@@ -102,7 +102,9 @@ export class ConversationView extends ItemView {
       this.hackEl.createDiv({ text: hack.title });
       this.hackEl.createDiv({ cls: "setting-item-description", text: `Сниппет: ${hack.spec.target.replace(/^m-/, "")} · Без LLM` });
       const button = this.hackEl.createEl("button", { text: "Применить hack", cls: "mod-cta" });
+      button.dataset.noCss = String(!hack.spec.hasCss);
       button.disabled = this.busy || !hack.spec.hasCss;
+      for (const requirement of hack.spec.requirements ?? []) this.hackEl.createDiv({ cls: "setting-item-description", text: requirement });
       if (!hack.spec.hasCss) this.hackEl.createDiv({ text: "У этого приёма нет собственного CSS." });
       button.addEventListener("click", () => void this.applyHack());
     }
@@ -141,7 +143,7 @@ export class ConversationView extends ItemView {
 
   setStatus(message: string, busy = false): void {
     this.busy = busy;
-    for (const button of this.hackEl.querySelectorAll("button")) button.disabled = busy;
+    this.hackEl.querySelectorAll("button").forEach(button => { button.disabled = busy || button.dataset.noCss === "true"; });
     this.statusEl.setText(message);
     this.statusEl.toggleClass("is-busy", busy);
     this.contentEl.toggleClass("is-busy", busy);

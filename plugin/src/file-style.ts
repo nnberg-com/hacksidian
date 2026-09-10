@@ -1,4 +1,4 @@
-import { readFile, writeFile, rename } from "node:fs/promises";
+import { readFile, writeFile, rename, unlink } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { compileStyle, type ModularStyle } from "./style-modules";
@@ -19,24 +19,31 @@ export async function readFileStyle(directory: string): Promise<ModularStyle> {
 }
 
 // A conversation changes exactly one file. Never rebuild source files from saved plugin state.
-export async function writeFileStyle(directory: string, expected: ModularStyle, next: ModularStyle): Promise<void> {
+export async function writeFileStyle(directory: string, expected: ModularStyle, next: ModularStyle, allowMultiple = false): Promise<void> {
   compileStyle(next);
   const current = await readFileStyle(directory);
   if (JSON.stringify(current) !== JSON.stringify(expected)) throw new Error("CSS-файлы изменились. Ответ не применён; повторите запрос.");
   if (next.modules.length !== current.modules.length || next.modules.some((m, i) => m.id !== current.modules[i].id || m.component !== current.modules[i].component)) throw new Error("Изменение manifest требует отдельной миграции.");
   const changed = next.modules.filter((m, i) => m.css !== current.modules[i].css);
-  if (changed.length > 1) throw new Error("За одну операцию можно изменить только один CSS-файл.");
+  if (!allowMultiple && changed.length > 1) throw new Error("За одну операцию можно изменить только один CSS-файл.");
   if (!changed.length) return;
   const manifest = JSON.parse(await readFile(path.join(directory, "hacksidian-manifest.json"), "utf8"));
-  const entry = manifest.modules.find((e: Entry) => e.id === changed[0].id) as Entry;
-  const filename = path.join(directory, entry.file);
-  const temporary = `${filename}.${randomUUID()}.tmp`;
-  // Recheck immediately before replacing the selected file.
-  await writeFile(temporary, changed[0].css, "utf8");
-  if (JSON.stringify(await readFileStyle(directory)) !== JSON.stringify(expected)) {
-    const { unlink } = await import("node:fs/promises");
-    await unlink(temporary);
-    throw new Error("CSS-файлы изменились во время сохранения.");
+  const staged: {file: string; temporary: string; before: string}[] = [];
+  const replaced: typeof staged = [];
+  try {
+    for (const module of changed) {
+      const entry = manifest.modules.find((e: Entry) => e.id === module.id) as Entry;
+      const file = path.join(directory, entry.file);
+      const temporary = `${file}.${randomUUID()}.tmp`;
+      await writeFile(temporary, module.css, "utf8");
+      staged.push({file, temporary, before: current.modules.find(m => m.id === module.id)!.css});
+    }
+    if (JSON.stringify(await readFileStyle(directory)) !== JSON.stringify(expected)) throw new Error("CSS-файлы изменились во время сохранения.");
+    for (const file of staged) { await rename(file.temporary, file.file); replaced.push(file); }
+  } catch (error) {
+    for (const file of replaced.reverse()) await writeFile(file.file, file.before, "utf8");
+    throw error;
+  } finally {
+    for (const file of staged) await unlink(file.temporary).catch(error => { if (error.code !== "ENOENT") throw error; });
   }
-  await rename(temporary, filename);
 }

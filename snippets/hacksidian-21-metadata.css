@@ -1,13 +1,12 @@
-/* Требует 00-settings.css. Область: Reading view, класс callmered-coloring. */
+/* Свойства заметки. Базовый сниппет группы; приёмы добавляются ниже. */
+
 
 .markdown-preview-view.callmered-coloring .metadata-container,
 .markdown-preview-view.callmered-coloring .metadata-content,
 .markdown-preview-view.callmered-coloring .metadata-properties,
 .markdown-preview-view.callmered-coloring .metadata-add-button,
 .markdown-preview-view.callmered-coloring .metadata-property,
-.markdown-preview-view.callmered-coloring .frontmatter-container,
-.markdown-preview-view.callmered-coloring .mod-header,
-.markdown-preview-view.callmered-coloring .inline-title {
+.markdown-preview-view.callmered-coloring .frontmatter-container {
   max-height: 0 !important;
   min-height: 0 !important;
   height: 0 !important;

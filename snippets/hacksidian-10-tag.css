@@ -1,0 +1,61 @@
+/* Теги. Базовый сниппет группы; приёмы добавляются ниже. */
+.markdown-preview-view.callmered-coloring {
+  --hs-tag-code-text: var(--cmr-color-code-text);
+  --hs-tag-radius-inline: 12px;
+  --hs-tag-heading-inline-padding-y: 0.01em;
+  --hs-tag-tag-font-family: var(--hs-tag-font-code);
+  --hs-tag-font-code: 'MesloLGS Nerd Font Mono', ui-monospace, monospace;
+  --hs-tag-inline-pad-y: 0.04em;
+  --hs-tag-inline-pad-x: 0.76em;
+  --hs-tag-inline-margin: 0 0.04em;
+}
+
+.markdown-preview-view.callmered-coloring {
+  --tag-color: var(--hs-tag-code-text);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --tag-background: var(--cmr-color-cyan);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --tag-background-hover: var(--cmr-color-cyan);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --tag-radius: var(--hs-tag-radius-inline);
+}
+
+.markdown-preview-view.callmered-coloring :is(h1, h2, h3, h4, h5, h6) :is(code, mark, a.tag) {
+  padding-top: var(--hs-tag-heading-inline-padding-y) !important;
+  padding-bottom: var(--hs-tag-heading-inline-padding-y) !important;
+}
+
+.markdown-preview-view.callmered-coloring a.tag,
+.markdown-preview-view.callmered-coloring a.tag:hover,
+.markdown-preview-view.callmered-coloring .metadata-property[data-property-key='tags'] .multi-select-pill {
+  font-family: var(--hs-tag-tag-font-family);
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.markdown-preview-view.callmered-coloring a.tag,
+.markdown-preview-view.callmered-coloring a.tag:hover,
+.markdown-preview-view.callmered-coloring .metadata-property[data-property-key='tags'] .multi-select-pill {
+  padding-top: var(--hs-tag-inline-pad-y) !important;
+  padding-bottom: var(--hs-tag-inline-pad-y) !important;
+  padding-inline-start: var(--hs-tag-inline-pad-x) !important;
+  padding-inline-end: var(--hs-tag-inline-pad-x) !important;
+  margin: var(--hs-tag-inline-margin) !important;
+  border-radius: var(--hs-tag-radius-inline) !important;
+  border-width: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring a.tag,
+.markdown-preview-view.callmered-coloring a.tag:hover,
+.markdown-preview-view.callmered-coloring .metadata-property[data-property-key='tags'] .multi-select-pill {
+  color: var(--hs-tag-code-text) !important;
+  background-color: var(--cmr-color-cyan) !important;
+  border-color: var(--cmr-color-cyan) !important;
+  text-decoration: none !important;
+}

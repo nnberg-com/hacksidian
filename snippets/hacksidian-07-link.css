@@ -1,0 +1,72 @@
+/* Ссылки. Базовый сниппет группы; приёмы добавляются ниже. */
+.markdown-preview-view.callmered-coloring {
+  --hs-link-external-icon: var(--cmr-color-external-icon);
+  --hs-link-unresolved-link: var(--cmr-color-unresolved-link);
+  --hs-link-external-icon-size: 0.78em;
+  --hs-link-external-icon-gap: 0.24em;
+  --hs-link-external-icon-offset-y: -1px;
+}
+
+.markdown-preview-view.callmered-coloring {
+  --link-color: var(--cmr-color-cyan);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --link-color-hover: var(--cmr-color-cyan);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --link-external-color: var(--cmr-color-cyan);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --link-external-color-hover: var(--cmr-color-cyan);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --link-external-decoration-color: var(--hs-link-external-icon);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --link-unresolved-color: var(--hs-link-unresolved-link);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --link-unresolved-decoration-color: var(--hs-link-unresolved-link);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --link-unresolved-opacity: 1;
+}
+
+.markdown-preview-view.callmered-coloring a,
+.markdown-preview-view.callmered-coloring a:hover,
+.markdown-preview-view.callmered-coloring a.external-link {
+  color: var(--cmr-color-cyan);
+}
+
+.markdown-preview-view.callmered-coloring a.external-link {
+  background-image: none !important;
+  padding-inline-end: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring a.external-link::after {
+  content: '↗';
+  display: inline-block !important;
+  color: var(--hs-link-external-icon);
+  font-size: var(--hs-link-external-icon-size);
+  line-height: 1;
+  margin-left: var(--hs-link-external-icon-gap);
+  position: relative;
+  top: var(--hs-link-external-icon-offset-y);
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  background-image: none !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(a.internal-link.is-unresolved, a.is-unresolved, .internal-link.is-unresolved),
+.markdown-preview-view.callmered-coloring :is(a.internal-link.is-unresolved, a.is-unresolved, .internal-link.is-unresolved):hover {
+  color: var(--hs-link-unresolved-link) !important;
+  opacity: 1 !important;
+  text-decoration-color: var(--hs-link-unresolved-link) !important;
+}

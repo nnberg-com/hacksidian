@@ -11,7 +11,7 @@ vi.mock('obsidian', () => ({
 vi.mock('../src/capture', () => ({captureReadingView:vi.fn(async()=> 'image-base64')}));
 vi.mock('../src/context', () => ({collectComputedStyleContext:vi.fn(()=> 'computed styles')}));
 vi.mock('../src/storage', () => ({ styleDirectory: () => state.directory }));
-vi.mock('../src/snippets', () => ({ installSnippetTemplates: vi.fn(), refreshNativeSnippets: vi.fn() }));
+vi.mock('../src/snippets', () => ({ installSnippetTemplates: vi.fn(), refreshNativeSnippets: vi.fn(), migrateSnippetGroups: vi.fn(async()=>[]) }));
 import CallMeRedPlugin from '../src/main';
 import { captureReadingView } from '../src/capture';
 import { OpenAIResponsesProvider } from '../src/provider';
@@ -28,8 +28,8 @@ async function setup(){
  await plugin.loadPluginData();
  return plugin;
 }
-test('actual commit and Undo restore all ten files, including after plugin reload',async()=>{
- let plugin=await setup();const before=await readFileStyle(dir);expect(before.modules).toHaveLength(10);
+test('actual commit and Undo restore all group files, including after plugin reload',async()=>{
+ let plugin=await setup();const before=await readFileStyle(dir);expect(before.modules).toHaveLength(22);
  const selected=before.modules[0];await plugin.commitModuleUpdate('test-change',selected.id,selected.css.replace('#110f00','#120f00'));
  expect((await readFileStyle(dir)).modules[0].css).not.toBe(selected.css);
  await plugin.savePluginData();expect(state.data.state.activeCss).toBeUndefined();expect(state.data.state.style).toBeUndefined();
@@ -40,7 +40,7 @@ test('actual commit and Undo restore all ten files, including after plugin reloa
 test('actual Undo never overwrites a newer manual edit',async()=>{
  const plugin=await setup();const before=await readFileStyle(dir);const m=before.modules[0];
  await plugin.commitModuleUpdate('test-change',m.id,m.css+'\n/* change */\n');
- const file=path.join(dir,'hacksidian-00-settings.css');await writeFile(file,(await readFile(file,'utf8'))+'\n/* manual */\n');
+ const file=path.join(dir,'hacksidian-00-palette.css');await writeFile(file,(await readFile(file,'utf8'))+'\n/* manual */\n');
  await expect(plugin.undo()).rejects.toThrow('вручную');expect(await readFile(file,'utf8')).toContain('manual');
 });
 test('old structure is a retained history boundary, not an Undo target',async()=>{
@@ -51,7 +51,7 @@ test('old structure is a retained history boundary, not an Undo target',async()=
 
 test('later loads never seed templates, including when a working snippet was deleted', async()=>{
  await setup();
- await rm(path.join(dir,'hacksidian-00-settings.css'));
+ await rm(path.join(dir,'hacksidian-00-palette.css'));
  const plugin=new CallMeRedPlugin({} as any,{} as any);
  await expect(plugin.loadPluginData()).rejects.toThrow();
  expect(installSnippetTemplates).not.toHaveBeenCalled();
@@ -125,4 +125,17 @@ test('clear history refuses during an active operation and preserves history on 
  vi.spyOn(plugin,'savePluginData').mockRejectedValueOnce(new Error('disk error'));
  await expect(plugin.clearHistory()).rejects.toThrow('disk error');
  expect(plugin.state.turns).toHaveLength(1);expect(plugin.state.versions).toEqual(versions);
+});
+
+test('direct hack application changes only its group, records Undo and never calls an LLM',async()=>{
+ const plugin=await setup();const before=await readFileStyle(dir);
+ (plugin as any).app={vault:{configDir:'.obsidian',adapter:{read:async()=>readFile(path.join(dir,'hacksidian-manifest.json'),'utf8')}}};
+ vi.spyOn(plugin,'getCurrentHack').mockResolvedValue({id:'text-demo',title:'Demo',path:'atlas/! hacks/text-demo/text-demo.md',spec:{format:1,target:'g-text',hasCss:true,atlas:{scope:'.x',class:'.x'},snippet:{scope:'.callmered-coloring.markdown-preview-view',class:'.callmered-coloring'}},template:'{{scope}} p {letter-spacing:.02em}',dependencies:''});
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration');
+ try{
+  expect(await plugin.applyCurrentHack('atlas/! hacks/text-demo/text-demo.md')).toBe(true);
+  const after=await readFileStyle(dir);expect(after.modules.filter((m,i)=>m.css!==before.modules[i].css).map(m=>m.id)).toEqual(['g-text']);
+  const n=plugin.state.versions.length;expect(await plugin.applyCurrentHack('atlas/! hacks/text-demo/text-demo.md')).toBe(false);expect(plugin.state.versions).toHaveLength(n);
+  expect(create).not.toHaveBeenCalled();await plugin.undo();expect(await readFileStyle(dir)).toEqual(before);
+ }finally{create.mockRestore();}
 });

@@ -1,0 +1,62 @@
+/* Текст. Базовый сниппет группы; приёмы добавляются ниже. */
+.markdown-preview-view.callmered-coloring {
+  --hs-text-font-text: 'Onest', ui-sans-serif, system-ui, sans-serif;
+  --hs-text-text: var(--cmr-color-text);
+  --hs-text-text-size: 18px;
+  --hs-text-weight-normal: 400;
+  --hs-text-line-height-body: 1.5;
+  --hs-text-para-gap: 18px;
+}
+
+.markdown-preview-view.callmered-coloring {
+  --font-text: var(--hs-text-font-text);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --font-interface: var(--hs-text-font-text);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --text-normal: var(--hs-text-text);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --text-muted: var(--hs-text-text);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --text-accent: var(--cmr-color-cyan);
+}
+
+.markdown-preview-view.callmered-coloring {
+  --interactive-accent: var(--cmr-color-cyan);
+}
+
+.markdown-preview-view.callmered-coloring {
+  color: var(--hs-text-text) !important;
+  font-family: var(--hs-text-font-text);
+  font-size: var(--hs-text-text-size);
+  font-weight: var(--hs-text-weight-normal);
+  line-height: var(--hs-text-line-height-body);
+}
+
+.markdown-preview-view.callmered-coloring :is(p, li, table, th, td, blockquote, .callout, .callout-content, .callout-title, .callout-title-inner) {
+  color: var(--hs-text-text);
+  font-family: var(--hs-text-font-text);
+  font-size: var(--hs-text-text-size);
+  font-weight: var(--hs-text-weight-normal);
+  line-height: var(--hs-text-line-height-body);
+}
+
+.markdown-preview-view.callmered-coloring p:has(+ :is(ul, ol)),
+.markdown-preview-view.callmered-coloring .el-p:has(+ :is(.el-ul, .el-ol)) > p,
+.markdown-preview-view.callmered-coloring p + :is(ul, ol),
+.markdown-preview-view.callmered-coloring .el-p + :is(.el-ul, .el-ol) > :is(ul, ol) {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring p + p,
+.markdown-preview-view.callmered-coloring .el-p + .el-p > p {
+  margin-top: var(--hs-text-para-gap) !important;
+}

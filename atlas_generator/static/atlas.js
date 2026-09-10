@@ -7,7 +7,7 @@ const controls = ['search', 'category', 'format', 'interactive'].map(byId);
 const BATCH = 8;
 let selected = '', filtered = entries, loaded = 0;
 const frames = new Map();
-byId('total').textContent = `${entries.length.toLocaleString('ru')} приёмов · ${Object.keys(window.ATLAS.categories).length} категорий`;
+byId('total').textContent = `${entries.length.toLocaleString('ru')} приёмов · ${Object.keys(window.ATLAS.categories).length} групп`;
 for (const [id, category] of Object.entries(window.ATLAS.categories).sort((a,b)=>a[1].title.localeCompare(b[1].title,'ru'))) {
   const option = document.createElement('option'); option.value = id; option.textContent = category.title; byId('category').append(option);
 }

@@ -4,8 +4,9 @@ import type { ModularStyle } from './style-modules';
 export interface HackSpec {
   format: number;
   target: string;
-  atlas: { scope: string; class: string };
-  snippet: { scope: string; class: string };
+  atlas: { scope: string; class: string; [key: string]: string };
+  snippet: { scope: string; class: string; [key: string]: string };
+  requirements?: string[];
   hasCss: boolean;
 }
 export interface HackContext {
@@ -25,7 +26,6 @@ export function hackId(path: string, tags: unknown): string | null {
 
 export function bindTemplate(template: string, bindings: HackSpec['snippet']): string {
   return template.replace(/\{\{(\w+)\}\}/g, (_, key: string) => {
-    if (key !== 'scope' && key !== 'class') throw new Error(`Неизвестный параметр CSS: ${key}`);
     if (typeof bindings[key] !== 'string') throw new Error(`Не задан параметр CSS: ${key}`);
     return bindings[key];
   });
@@ -41,16 +41,20 @@ export function compileHack(hack: HackContext): string {
   const root = postcss.parse(dependencies.toString() + '\n' + bindTemplate(hack.template, hack.spec.snippet));
   const variables = new Map<string, string>();
   const animations = new Map<string, string>();
+  const counters = new Map<string, string>();
+  root.walkAtRules('counter-style', rule => { counters.set(rule.params.trim(), `hack-${hack.id}-${rule.params.trim()}`); });
   root.walkDecls(d => { if (d.prop.startsWith('--') && !nativeVariable.test(d.prop)) variables.set(d.prop, `--hack-${hack.id}-${d.prop.slice(2)}`); });
   root.walkAtRules(/keyframes$/i, rule => { animations.set(rule.params.trim(), `hack-${hack.id}-${rule.params.trim()}`); });
   root.walkDecls(d => {
     if (variables.has(d.prop)) d.prop = variables.get(d.prop)!;
     d.value = d.value.replace(/var\(\s*(--[\w-]+)/g, (full, name: string) => variables.has(name) ? full.replace(name, variables.get(name)!) : full);
     if (/^(?:-webkit-)?animation(?:-name)?$/.test(d.prop)) d.value = d.value.replace(/[a-zA-Z_][\w-]*/g, name => animations.get(name) ?? name);
+    if (/^list-style(?:-type)?$/.test(d.prop) || ['system','fallback'].includes(d.prop)) d.value = d.value.replace(/[a-zA-Z_][\w-]*/g, name => counters.get(name) ?? name);
     if (/url\(\s*["']?(?!data:)[^\s"')]/i.test(d.value)) throw new Error('Приём содержит внешний или относительный CSS-ресурс.');
   });
   root.walkAtRules(rule => {
     if (/keyframes$/i.test(rule.name)) rule.params = animations.get(rule.params.trim())!;
+    else if (rule.name === 'counter-style') rule.params = counters.get(rule.params.trim())!;
     else if (!['media','supports','container','layer','starting-style'].includes(rule.name.toLowerCase())) throw new Error(`Неподдерживаемое правило @${rule.name}.`);
   });
   root.walkRules(rule => {

@@ -1,0 +1,47 @@
+/* Цитаты. Базовый сниппет группы; приёмы добавляются ниже. */
+.markdown-preview-view.callmered-coloring {
+  --hs-quote-text: var(--cmr-color-text);
+  --hs-quote-callout-text-size: 24px;
+  --hs-quote-line-height-body: 1.5;
+  --hs-quote-callout-padding: 12px calc(24px + var(--hs-quote-side-line-width)) 12px 0;
+  --hs-quote-side-line-width: 16px;
+  --hs-quote-radius-inline: 12px;
+  --hs-quote-quote: var(--cmr-color-quote);
+}
+
+.markdown-preview-view.callmered-coloring blockquote:not(:has(.callout)) {
+  position: relative;
+  color: var(--hs-quote-text) !important;
+  font-size: var(--hs-quote-callout-text-size) !important;
+  line-height: var(--hs-quote-line-height-body);
+  background-color: transparent !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-radius: 0 !important;
+  padding: var(--hs-quote-callout-padding) !important;
+}
+
+.markdown-preview-view.callmered-coloring blockquote:not(:has(.callout))::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--hs-quote-side-line-width);
+  border-radius: var(--hs-quote-radius-inline);
+  background-color: var(--hs-quote-quote);
+}
+
+.markdown-preview-view.callmered-coloring blockquote:not(:has(.callout)) :is(p, li) {
+  color: var(--hs-quote-text) !important;
+  font-size: var(--hs-quote-callout-text-size) !important;
+  line-height: var(--hs-quote-line-height-body);
+}
+
+.markdown-preview-view.callmered-coloring blockquote:not(:has(.callout)) > :first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring blockquote:not(:has(.callout)) > :last-child {
+  margin-bottom: 0 !important;
+}

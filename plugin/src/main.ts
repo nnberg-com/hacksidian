@@ -1,3 +1,4 @@
+import { splitLegacyStyle } from "./snippet-groups";
 import {
   MarkdownView,
   Notice,
@@ -6,7 +7,7 @@ import {
   WorkspaceLeaf,
 } from "obsidian";
 import { readFileStyle, writeFileStyle } from "./file-style";
-import { installSnippetTemplates, refreshNativeSnippets } from "./snippets";
+import { installSnippetTemplates, refreshNativeSnippets, migrateSnippetGroups } from "./snippets";
 import { styleDirectory } from "./storage";
 import { captureReadingView } from "./capture";
 import { collectComputedStyleContext } from "./context";
@@ -102,7 +103,16 @@ export default class CallMeRedPlugin extends Plugin {
       await refreshNativeSnippets(this.app, names);
       await this.saveData({ ...data, snippetsInstalled: true });
     }
+    const names = await migrateSnippetGroups(styleDirectory(this));
+    if (names.length) await refreshNativeSnippets(this.app, names);
     const savedState = data?.state ?? {};
+    // Historical values are regrouped too, so old Undo steps remain usable.
+    for (const version of savedState.versions ?? []) {
+      if (version.style?.modules[0]?.id === "m-00-settings") {
+        version.style = splitLegacyStyle(version.style);
+        version.css = compileStyle(version.style);
+      }
+    }
     const style = await readFileStyle(styleDirectory(this));
     this.state = {
       activeCss: compileStyle(style), style,
@@ -325,7 +335,7 @@ export default class CallMeRedPlugin extends Plugin {
     }
     if (compileStyle(current) !== latest.css) throw new Error("CSS изменён вручную. Undo не перезаписывает ручные изменения.");
     const restored = previous.style ?? importStyle(previous.css);
-    await writeFileStyle(styleDirectory(this), current, restored);
+    await writeFileStyle(styleDirectory(this), current, restored, true);
     this.state.versions.pop();
     await this.reloadFileStyle();
     await this.savePluginData();

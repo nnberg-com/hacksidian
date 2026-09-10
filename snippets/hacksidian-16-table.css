@@ -1,0 +1,21 @@
+/* Таблицы. Базовый сниппет группы; приёмы добавляются ниже. */
+.markdown-preview-view.callmered-coloring {
+  --hs-table-text: var(--cmr-color-text);
+  --hs-table-table-gap: 18px;
+  --hs-table-radius: 4px;
+}
+
+.markdown-preview-view.callmered-coloring table {
+  color: var(--hs-table-text);
+  margin-top: var(--hs-table-table-gap) !important;
+  margin-bottom: var(--hs-table-table-gap);
+  border-radius: var(--hs-table-radius) !important;
+}
+
+.markdown-preview-view.callmered-coloring .el-table {
+  margin-top: var(--hs-table-table-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring .el-table > table {
+  margin-top: 0 !important;
+}

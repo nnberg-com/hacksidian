@@ -1,4 +1,15 @@
-/* Требует 00-settings.css. Область: Reading view, класс callmered-coloring. */
+/* Сноски. Базовый сниппет группы; приёмы добавляются ниже. */
+.markdown-preview-view.callmered-coloring {
+  --hs-footnote-footnote: var(--cmr-color-rule);
+  --hs-footnote-text-size: 18px;
+  --hs-footnote-line-height-body: 1.5;
+  --hs-footnote-footnote-number-space: 1.7em;
+  --hs-footnote-font-text: 'Onest', ui-sans-serif, system-ui, sans-serif;
+  --hs-footnote-weight-normal: 400;
+  --hs-footnote-footnote-highlight: var(--cmr-color-footnote-highlight);
+  --hs-footnote-radius: 4px;
+  --hs-footnote-footnote-target-shadow: 0 0 0 4px var(--hs-footnote-footnote-highlight);
+}
 
 .markdown-preview-view.callmered-coloring .footnotes,
 .markdown-preview-view.callmered-coloring section.footnotes {
@@ -6,9 +17,9 @@
   margin-inline-start: 0 !important;
   padding-left: 0 !important;
   padding-inline-start: 0 !important;
-  color: var(--cmr-footnote) !important;
-  font-size: var(--cmr-text-size) !important;
-  line-height: var(--cmr-line-height-body) !important;
+  color: var(--hs-footnote-footnote) !important;
+  font-size: var(--hs-footnote-text-size) !important;
+  line-height: var(--hs-footnote-line-height-body) !important;
 }
 
 .markdown-preview-view.callmered-coloring .footnotes ol,
@@ -27,11 +38,11 @@
   position: relative;
   margin-left: 0 !important;
   margin-inline-start: 0 !important;
-  padding-left: var(--cmr-footnote-number-space) !important;
-  padding-inline-start: var(--cmr-footnote-number-space) !important;
-  color: var(--cmr-footnote) !important;
-  font-size: var(--cmr-text-size) !important;
-  line-height: var(--cmr-line-height-body) !important;
+  padding-left: var(--hs-footnote-footnote-number-space) !important;
+  padding-inline-start: var(--hs-footnote-footnote-number-space) !important;
+  color: var(--hs-footnote-footnote) !important;
+  font-size: var(--hs-footnote-text-size) !important;
+  line-height: var(--hs-footnote-line-height-body) !important;
 }
 
 .markdown-preview-view.callmered-coloring .footnotes li::marker,
@@ -47,18 +58,18 @@
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--cmr-footnote) !important;
-  font-family: var(--cmr-font-text);
-  font-size: var(--cmr-text-size) !important;
-  font-weight: var(--cmr-weight-normal) !important;
-  line-height: var(--cmr-line-height-body) !important;
+  color: var(--hs-footnote-footnote) !important;
+  font-family: var(--hs-footnote-font-text);
+  font-size: var(--hs-footnote-text-size) !important;
+  font-weight: var(--hs-footnote-weight-normal) !important;
+  line-height: var(--hs-footnote-line-height-body) !important;
 }
 
 .markdown-preview-view.callmered-coloring .footnotes :is(p, a),
 .markdown-preview-view.callmered-coloring section.footnotes :is(p, a) {
-  color: var(--cmr-footnote) !important;
-  font-size: var(--cmr-text-size) !important;
-  line-height: var(--cmr-line-height-body) !important;
+  color: var(--hs-footnote-footnote) !important;
+  font-size: var(--hs-footnote-text-size) !important;
+  line-height: var(--hs-footnote-line-height-body) !important;
 }
 
 .markdown-preview-view.callmered-coloring .footnotes p,
@@ -69,15 +80,15 @@
 .markdown-preview-view.callmered-coloring .footnotes .footnote-backref,
 .markdown-preview-view.callmered-coloring section.footnotes .footnote-backref {
   color: var(--cmr-color-cyan) !important;
-  font-size: var(--cmr-text-size) !important;
-  line-height: var(--cmr-line-height-body) !important;
+  font-size: var(--hs-footnote-text-size) !important;
+  line-height: var(--hs-footnote-line-height-body) !important;
 }
 
 .markdown-preview-view.callmered-coloring .footnotes :is(li, .footnote-item):is(:target, .is-flashing),
 .markdown-preview-view.callmered-coloring section.footnotes :is(li, .footnote-item):is(:target, .is-flashing) {
-  background-color: var(--cmr-footnote-highlight) !important;
-  border-radius: var(--cmr-radius) !important;
-  box-shadow: var(--cmr-footnote-target-shadow) !important;
+  background-color: var(--hs-footnote-footnote-highlight) !important;
+  border-radius: var(--hs-footnote-radius) !important;
+  box-shadow: var(--hs-footnote-footnote-target-shadow) !important;
 }
 
 .markdown-preview-view.callmered-coloring .footnotes :is(li, .footnote-item):is(:target, .is-flashing)::before,

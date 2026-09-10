@@ -125,3 +125,6 @@
   width: 100%;
   resize: vertical;
 }
+
+.hacksidian-hack { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--background-modifier-border); border-radius: var(--radius-m); }
+.hacksidian-hack button { align-self: flex-start; }

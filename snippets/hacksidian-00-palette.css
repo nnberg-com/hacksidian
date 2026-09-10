@@ -1,0 +1,25 @@
+/* Палитра и темы. Базовый сниппет группы; приёмы добавляются ниже. */
+.markdown-preview-view.callmered-coloring {
+    --cmr-color-quote-rgb: 129, 127, 111;
+    --cmr-color-red-rgb: 157, 0, 6;
+    --cmr-color-brown-rgb: 172, 82, 9;
+    --cmr-color-purple-rgb: 124, 51, 222;
+    --cmr-color-green-rgb: 154, 154, 0;
+    --cmr-color-cyan-rgb: 8, 132, 155;
+    --cmr-color-text: #110f00;
+    --cmr-color-blue: #0a6fc3;
+    --cmr-color-cyan: rgb(var(--cmr-color-cyan-rgb));
+    --cmr-color-green: rgb(var(--cmr-color-green-rgb));
+    --cmr-color-purple: rgb(var(--cmr-color-purple-rgb));
+    --cmr-color-brown: rgb(var(--cmr-color-brown-rgb));
+    --cmr-color-red: rgb(var(--cmr-color-red-rgb));
+    --cmr-color-orange: #d6670e;
+    --cmr-color-yellow: #f3ac06;
+    --cmr-color-quote: rgb(var(--cmr-color-quote-rgb));
+    --cmr-color-rule: #b0ae9c;
+    --cmr-color-unresolved-link: #3fb3cd;
+    --cmr-color-code-block-bg: #2b291f;
+    --cmr-color-code-text: #fefbe5;
+    --cmr-color-external-icon: #9a9a9a;
+    --cmr-color-footnote-highlight: #fef5de
+}
