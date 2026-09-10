@@ -1,0 +1,163 @@
+[
+  {
+    "page": "Длинная статья",
+    "elements": [
+      {
+        "selector": "pre",
+        "color": "rgb(254, 251, 229)",
+        "fontSize": "18px",
+        "background": "rgb(43, 41, 31)"
+      },
+      {
+        "selector": "pre code .token",
+        "color": "rgb(124, 51, 222)",
+        "fontSize": "15.75px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "blockquote",
+        "color": "rgb(17, 15, 0)",
+        "fontSize": "24px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "img",
+        "color": "rgb(17, 15, 0)",
+        "fontSize": "18px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "ul > li",
+        "color": "rgb(17, 15, 0)",
+        "fontSize": "18px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "li.task-list-item",
+        "color": "rgb(176, 174, 156)",
+        "fontSize": "18px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "table",
+        "color": "rgb(17, 15, 0)",
+        "fontSize": "18px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": ".callout",
+        "color": "rgb(17, 15, 0)",
+        "fontSize": "24px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": ".footnotes",
+        "color": "rgb(176, 174, 156)",
+        "fontSize": "18px",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "width": 881,
+    "scrollWidth": 881
+  },
+  {
+    "page": "Списки и задачи в длинной статье",
+    "elements": [
+      {
+        "selector": "ul > li",
+        "color": "rgb(17, 15, 0)",
+        "fontSize": "18px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "pre",
+        "color": "rgb(254, 251, 229)",
+        "fontSize": "18px",
+        "background": "rgb(43, 41, 31)"
+      },
+      {
+        "selector": "pre code .token",
+        "color": "rgb(124, 51, 222)",
+        "fontSize": "15.75px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "li.task-list-item",
+        "color": "rgb(176, 174, 156)",
+        "fontSize": "18px",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "width": 881,
+    "scrollWidth": 881
+  },
+  {
+    "page": "Выноски",
+    "elements": [
+      {
+        "selector": ".callout",
+        "color": "rgb(17, 15, 0)",
+        "fontSize": "24px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "pre",
+        "color": "rgb(254, 251, 229)",
+        "fontSize": "18px",
+        "background": "rgb(43, 41, 31)"
+      },
+      {
+        "selector": "pre code .token",
+        "color": "rgb(124, 51, 222)",
+        "fontSize": "15.75px",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "width": 881,
+    "scrollWidth": 881
+  },
+  {
+    "page": "Код в длинном тексте",
+    "elements": [
+      {
+        "selector": "pre",
+        "color": "rgb(254, 251, 229)",
+        "fontSize": "18px",
+        "background": "rgb(43, 41, 31)"
+      },
+      {
+        "selector": "pre code .token",
+        "color": "rgb(124, 51, 222)",
+        "fontSize": "15.75px",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "width": 881,
+    "scrollWidth": 881
+  },
+  {
+    "page": "Формулы и сноски в длинной статье",
+    "elements": [
+      {
+        "selector": "pre",
+        "color": "rgb(254, 251, 229)",
+        "fontSize": "18px",
+        "background": "rgb(43, 41, 31)"
+      },
+      {
+        "selector": "pre code .token",
+        "color": "rgb(124, 51, 222)",
+        "fontSize": "15.75px",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": ".footnotes",
+        "color": "rgb(176, 174, 156)",
+        "fontSize": "18px",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "width": 881,
+    "scrollWidth": 881
+  }
+]

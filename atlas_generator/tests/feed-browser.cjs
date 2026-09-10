@@ -1,0 +1,63 @@
+const {chromium} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const assert = require('node:assert/strict');
+(async () => {
+  const browser = await chromium.launch({channel: 'chrome', headless: true});
+  try {
+    const page = await browser.newPage({viewport: {width: 1440, height: 1000}});
+    const errors = []; page.on('pageerror', e => errors.push(e.message));
+    await page.goto(process.env.ATLAS_URL || 'http://127.0.0.1:8765/');
+    await page.waitForFunction(() => document.querySelector('#feed iframe')?.style.height);
+    assert.equal(await page.locator('#results a').count(), 1395);
+    assert.equal(await page.locator('.feed-card').count(), 8);
+    async function sameOrder() {
+      assert(await page.evaluate(() => {
+        const left = [...document.querySelectorAll('#results a')].map(n=>n.dataset.id);
+        const right = [...document.querySelectorAll('.feed-card')].map(n=>n.dataset.id);
+        return right.every((id,i)=>id===left[i]);
+      }), 'Sidebar and feed must have identical order');
+    }
+    await sameOrder();
+    assert(await page.locator('#feed iframe[src]').count() < 8, 'Only nearby cards load');
+    const card = page.frames().find(f => f.url().includes('callout-board/index.html'));
+    const visual = await card.locator('.visual-column').boundingBox();
+    const detail = await card.locator('.details-column').boundingBox();
+    assert(visual.x + visual.width <= detail.x, 'Demo left, details right');
+    assert(await card.locator('.sources a[href^="https://"]').count() > 0);
+    const before = await page.locator('#feed iframe').first().evaluate(n => n.offsetHeight);
+    await card.locator('details summary').first().click();
+    await page.waitForFunction(height => document.querySelector('#feed iframe').offsetHeight > height, before);
+    await page.evaluate(() => {const r = document.querySelector('.reader'); r.scrollTop = r.scrollHeight;});
+    await page.waitForFunction(() => document.querySelectorAll('.feed-card').length > 8);
+    await sameOrder();
+    await page.selectOption('#interactive', 'true');
+    await sameOrder();
+    assert((await page.locator('#results-count').innerText()).includes('264'));
+    const allowed = await page.evaluate(() => new Set(window.ATLAS.entries.filter(e=>e.interactive).map(e=>e.id)).size);
+    assert.equal(allowed, 264);
+    assert(await page.locator('.feed-card').evaluateAll(cards=>cards.every(c=>window.ATLAS.entries.find(e=>e.id===c.dataset.id).interactive)));
+    await page.fill('#search','no-such-technique-zzzz');
+    assert.equal(await page.locator('.feed-card').count(),0);
+    assert(await page.locator('#feed-empty').isVisible());
+    await page.selectOption('#interactive','');
+    await page.fill('#search','');
+    const jump = page.locator('#results a').nth(30);
+    const id = await jump.getAttribute('data-id'); await jump.click();
+    await page.waitForFunction(id => {
+      const c = [...document.querySelectorAll('.feed-card')].find(n=>n.dataset.id===id);
+      return c && Math.abs(c.getBoundingClientRect().top-document.querySelector('.reader').getBoundingClientRect().top)<10;
+    }, id);
+    await page.fill('#search', 'callout-board');
+    await page.frameLocator('#feed iframe').first().frameLocator('.preview-frame iframe').locator('.callout').first().waitFor();
+    await page.fill('#search', '');
+    await page.frameLocator('#feed iframe').first().frameLocator('.preview-frame iframe').locator('.callout').first().waitFor();
+    await page.setViewportSize({width:1440,height:1600});
+    await page.screenshot({path: '/tmp/atlas-feed.png'});
+    await page.setViewportSize({width:320,height:700});
+    await page.locator('#back').click();
+    await page.locator('#results a').first().click();
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),320);
+    assert(await page.locator('.reader').isVisible());
+    assert.deepEqual(errors, []);
+    console.log('PASS: lazy batches, scroll loading, card resizing, filter replacement, empty state, sidebar jump, mobile.');
+  } finally { await browser.close(); }
+})().catch(e=>{console.error(e);process.exit(1)});

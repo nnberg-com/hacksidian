@@ -1,0 +1,31 @@
+.markdown-preview-view.callmered-coloring a,
+.markdown-preview-view.callmered-coloring a:hover,
+.markdown-preview-view.callmered-coloring a.external-link { color: var(--cmr-cyan); }
+
+.markdown-preview-view.callmered-coloring a.external-link {
+  background-image: none !important;
+  padding-inline-end: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring a.external-link::after {
+  content: '↗';
+  display: inline-block !important;
+  color: var(--cmr-external-icon);
+  font-size: 0.78em;
+  line-height: 1;
+  margin-left: 0.24em;
+  position: relative;
+  top: -1px;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  border-bottom: 0 !important;
+  background-image: none !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(a.internal-link.is-unresolved, a.is-unresolved, .internal-link.is-unresolved),
+.markdown-preview-view.callmered-coloring :is(a.internal-link.is-unresolved, a.is-unresolved, .internal-link.is-unresolved):hover {
+  color: var(--cmr-unresolved-link) !important;
+  opacity: 1 !important;
+  text-decoration-color: var(--cmr-unresolved-link) !important;
+}
+

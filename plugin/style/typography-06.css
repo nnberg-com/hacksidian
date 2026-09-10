@@ -1,0 +1,5 @@
+.markdown-preview-view.callmered-coloring :is(em, i) {
+  color: var(--cmr-rule) !important;
+  font-style: normal !important;
+}
+

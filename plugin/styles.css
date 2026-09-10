@@ -1,0 +1,127 @@
+.callmered-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.callmered-toolbar {
+  display: flex;
+  gap: 4px;
+}
+
+.callmered-status,
+.callmered-coverage,
+.callmered-usage {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  line-height: 1.35;
+}
+
+.callmered-status {
+  min-height: 1.4em;
+  transition:
+    color 120ms ease,
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.callmered-status.is-busy {
+  position: relative;
+  padding: 10px 12px 10px 38px;
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-semibold);
+  background: var(--background-modifier-hover);
+  border: 1px solid var(--interactive-accent);
+  border-radius: var(--radius-m);
+  box-shadow: inset 3px 0 0 var(--interactive-accent);
+}
+
+.callmered-status.is-busy::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  width: 13px;
+  height: 13px;
+  margin-top: -7px;
+  border: 2px solid color-mix(in srgb, var(--interactive-accent) 25%, transparent);
+  border-top-color: var(--interactive-accent);
+  border-radius: 50%;
+  animation: callmered-spin 700ms linear infinite;
+}
+
+.callmered-panel.is-busy .callmered-composer {
+  opacity: 0.72;
+}
+
+@keyframes callmered-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .callmered-status.is-busy::before {
+    animation-duration: 1400ms;
+  }
+}
+
+.callmered-coverage.is-warning {
+  color: var(--text-warning);
+}
+
+.callmered-conversation {
+  flex: 1;
+  min-height: 120px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.callmered-turn {
+  padding: 8px 10px;
+  border-radius: var(--radius-m);
+  white-space: pre-wrap;
+}
+
+.callmered-turn-user {
+  background: var(--background-secondary);
+}
+
+.callmered-turn-user.is-pending {
+  outline: 1px solid color-mix(in srgb, var(--interactive-accent) 40%, transparent);
+}
+
+.callmered-turn-system {
+  color: var(--text-muted);
+  border-left: 2px solid var(--interactive-accent);
+  border-radius: 0;
+}
+
+.callmered-turn-label {
+  margin-bottom: 3px;
+  color: var(--text-faint);
+  font-size: var(--font-ui-smaller);
+}
+
+.callmered-turn-usage {
+  margin-top: 0.45rem;
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.callmered-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.callmered-input {
+  width: 100%;
+  resize: vertical;
+}

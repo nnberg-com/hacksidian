@@ -1,0 +1,54 @@
+(async ({ beforeName, afterName, reportPrefix, kind }) => {
+  const fs = require("node:fs/promises");
+  const root = "/Users/op/dev/olgapavlova/hacksidian/plugin/style-recovery/2026-09-07";
+  if (app.vault.adapter.getBasePath() !== "/Users/op/vaults/callmered") throw new Error("Wrong vault");
+  const plugin = app.plugins.plugins["callmered-poc"];
+  const before = await fs.readFile(`${root}/${beforeName}.css`, "utf8");
+  const after = await fs.readFile(`${root}/${afterName}.css`, "utf8");
+  if (plugin.state.activeCss !== before) throw new Error("Active CSS changed since preparation");
+  const properties = ["color", "background-color", "font-family", "font-size", "font-weight", "line-height", "width", "height", "padding", "margin", "border-radius", "border-color", "border-width", "left", "right", "top", "bottom", "content", "display", "position"];
+  const result = { checkedElements: 0, differences: [], pages: [], radius: null };
+  const paint = () => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  try {
+    for (const name of ["Длинная статья", "Списки и задачи в длинной статье", "Выноски", "Код в длинном тексте", "Формулы и сноски в длинной статье", "Ссылки и изображения в длинной статье", "Структура и типографика длинной статьи"]) {
+      await plugin.openColoring(`Раскраски/${name}.md`);
+      await new Promise(resolve => setTimeout(resolve, 600));
+      const context = await plugin.getCurrentColoringContext();
+      const preview = context.view.containerEl.querySelector(".markdown-preview-view");
+      result.radius = getComputedStyle(preview).getPropertyValue("--radius-l").trim();
+      for (const fraction of [0, 0.25, 0.5, 0.75, 1]) {
+        preview.scrollTop = fraction * (preview.scrollHeight - preview.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 100));
+        const elements = [preview, ...preview.querySelectorAll("*")];
+        const snapshot = () => elements.map(element => [null, "::before", "::after", "::marker"].map(pseudo => {
+          const style = getComputedStyle(element, pseudo);
+          return properties.map(property => style.getPropertyValue(property));
+        }));
+        const original = snapshot();
+        plugin.applyPreviewCss(after);
+        await paint();
+        const updated = snapshot();
+        for (let i = 0; i < elements.length; i++) {
+          if (JSON.stringify(original[i]) !== JSON.stringify(updated[i])) result.differences.push({name, fraction, tag: elements[i].tagName, class: elements[i].className, original: original[i], updated: updated[i]});
+        }
+        result.checkedElements += elements.length;
+        plugin.applyPreviewCss(before);
+        await paint();
+      }
+      result.pages.push(name);
+    }
+  } finally {
+    plugin.applyPreviewCss(before);
+  }
+  await fs.writeFile(`${root}/${reportPrefix}-verification.json`, JSON.stringify(result, null, 2));
+  if (result.differences.length) throw new Error(`Computed styles differ: ${result.differences.length}; original CSS retained`);
+  if (plugin.state.activeCss !== before) throw new Error("Active CSS changed during verification");
+  const snippet = await app.vault.adapter.read(".obsidian/snippets/callmered-current.css");
+  if (snippet !== before) throw new Error("Snippet differs from runtime CSS");
+  const id = crypto.randomUUID();
+  await plugin.commitCssVersion(id, after, "recovery");
+  await plugin.savePluginData();
+  await fs.writeFile(`${root}/${reportPrefix}-application.json`, JSON.stringify({id, createdAt: new Date().toISOString(), kind, checkedElements: result.checkedElements}, null, 2));
+  await plugin.openColoring("Раскраски/Выноски.md");
+  return {id, checkedElements: result.checkedElements};
+})

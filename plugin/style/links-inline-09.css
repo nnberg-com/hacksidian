@@ -1,0 +1,32 @@
+.markdown-preview-view.callmered-coloring :not(pre) > code {
+  font-family: var(--cmr-inline-code-font-family) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.markdown-preview-view.callmered-coloring mark {
+  font-family: var(--cmr-mark-font-family) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.markdown-preview-view.callmered-coloring a.tag, .markdown-preview-view.callmered-coloring a.tag:hover, .markdown-preview-view.callmered-coloring .metadata-property[data-property-key='tags'] .multi-select-pill {
+  font-family: var(--cmr-tag-font-family) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.markdown-preview-view.callmered-coloring :not(pre) > code,
+.markdown-preview-view.callmered-coloring mark,
+.markdown-preview-view.callmered-coloring a.tag,
+.markdown-preview-view.callmered-coloring a.tag:hover,
+.markdown-preview-view.callmered-coloring .metadata-property[data-property-key='tags'] .multi-select-pill {
+  padding-top: var(--cmr-inline-pad-y) !important;
+  padding-bottom: var(--cmr-inline-pad-y) !important;
+  padding-inline-start: var(--cmr-inline-pad-x) !important;
+  padding-inline-end: var(--cmr-inline-pad-x) !important;
+  margin: var(--cmr-inline-margin) !important;
+  border-radius: var(--cmr-inline-radius) !important;
+  border-width: 0 !important;
+}
+

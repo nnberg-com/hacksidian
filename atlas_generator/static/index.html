@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hacksidian — атлас приёмов</title><link rel="stylesheet" href="atlas.css"><script defer src="catalog.js"></script><script defer src="atlas.js"></script></head>
+<body>
+<header class="masthead"><a class="brand" href="./index.html">Hacksidian<span> / Атлас приёмов</span></a><span id="total"></span><button id="back" hidden>← К списку</button></header>
+<main class="workspace"><aside class="catalogue" aria-label="Каталог приёмов">
+<div class="filters"><label for="search">Найти приём</label><input id="search" type="search" placeholder="Название, свойство CSS, содержание…" autocomplete="off">
+<label class="sr-only" for="category">Категория</label><select id="category"><option value="">Все категории</option></select>
+<div class="filter-row"><label class="sr-only" for="format">Формат</label><select id="format"><option value="">Все форматы</option><option value="markdown">Markdown</option><option value="html">HTML</option><option value="properties">Properties</option></select>
+<label class="sr-only" for="interactive">Движение и взаимодействие</label><select id="interactive" title="Взаимодействие, прокрутка или автоматическая анимация"><option value="">Все приёмы</option><option value="true">Интерактивные</option><option value="false">Статические</option></select></div>
+<p id="results-count" aria-live="polite"></p></div>
+<nav id="results" aria-label="Результаты поиска"></nav><p class="empty" id="empty" hidden>Ничего не найдено. Попробуйте другой запрос или сбросьте фильтры.</p>
+</aside><section class="reader" aria-label="Отфильтрованные приёмы" tabindex="0"><div id="feed"></div><p id="feed-empty" class="empty" hidden>Нет приёмов, соответствующих фильтрам.</p><button id="load-more" hidden>Загрузить следующие приёмы</button></section></main>
+</body></html>

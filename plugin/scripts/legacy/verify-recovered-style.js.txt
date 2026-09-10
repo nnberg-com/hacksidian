@@ -1,0 +1,38 @@
+(async () => {
+  const fs = require("node:fs/promises");
+  const root = "/Users/op/dev/olgapavlova/hacksidian/plugin/style-recovery/2026-09-07";
+  if (app.vault.adapter.getBasePath() !== "/Users/op/vaults/callmered") throw new Error("Wrong vault");
+  const plugin = app.plugins.plugins["callmered-poc"];
+  const expected = await fs.readFile(`${root}/restored.css`, "utf8");
+  if (plugin.state.activeCss !== expected) throw new Error("Runtime CSS mismatch");
+  const results = [];
+  const pages = ["Длинная статья", "Списки и задачи в длинной статье", "Выноски", "Код в длинном тексте", "Формулы и сноски в длинной статье"];
+  for (const page of pages) {
+    await plugin.openColoring(`Раскраски/${page}.md`);
+    await new Promise(resolve => setTimeout(resolve, 800));
+    const context = await plugin.getCurrentColoringContext();
+    const preview = context.view.containerEl.querySelector(".markdown-preview-view");
+    const elements = [];
+    // Reading view virtualizes distant sections; scroll through the document first.
+    for (let top = 0; top < preview.scrollHeight; top += Math.max(300, preview.clientHeight / 2)) {
+      preview.scrollTop = top;
+      await new Promise(resolve => setTimeout(resolve, 30));
+      for (const selector of ["ul > li", "li.task-list-item", "blockquote", ".callout", "table", "pre", "img", ".footnotes", "pre code .token"]) {
+        const element = preview.querySelector(selector);
+        if (!element || elements.some(item => item.selector === selector)) continue;
+        const style = getComputedStyle(element);
+        elements.push({selector, color: style.color, fontSize: style.fontSize, background: style.backgroundColor});
+      }
+    }
+    results.push({page, elements, width: preview.clientWidth, scrollWidth: preview.scrollWidth});
+  }
+  await plugin.openColoring("Раскраски/Выноски.md");
+  await new Promise(resolve => setTimeout(resolve, 700));
+  const context = await plugin.getCurrentColoringContext();
+  const preview = context.view.containerEl.querySelector(".markdown-preview-view");
+  preview.scrollTop = 0;
+  await new Promise(resolve => setTimeout(resolve, 100));
+  preview.querySelector(".callout")?.scrollIntoView({block: "center"});
+  await fs.writeFile(`${root}/runtime-verification.json`, JSON.stringify(results, null, 2));
+  return results;
+})()

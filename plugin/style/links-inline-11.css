@@ -1,0 +1,19 @@
+.markdown-preview-view.callmered-coloring :not(pre) > code {
+  color: var(--cmr-code-text) !important;
+  background-color: var(--cmr-green) !important;
+}
+
+.markdown-preview-view.callmered-coloring mark {
+  color: var(--cmr-text) !important;
+  background-color: var(--cmr-yellow) !important;
+}
+
+.markdown-preview-view.callmered-coloring a.tag,
+.markdown-preview-view.callmered-coloring a.tag:hover,
+.markdown-preview-view.callmered-coloring .metadata-property[data-property-key='tags'] .multi-select-pill {
+  color: var(--cmr-code-text) !important;
+  background-color: var(--cmr-cyan) !important;
+  border-color: var(--cmr-cyan) !important;
+  text-decoration: none !important;
+}
+

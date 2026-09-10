@@ -1,0 +1,10 @@
+{
+  "modules": 17,
+  "identicalMigration": true,
+  "rejectedMonolith": true,
+  "neighborsUnchanged": true,
+  "undoRestored": true,
+  "savedModulesMatch": true,
+  "directory": "CallMeRed/Style/54efa1bc68dddc12d00f15728a8cfd55fc469d9b7966b3866083aa4df6cff221",
+  "createdAt": "2026-09-07T09:37:40.828Z"
+}

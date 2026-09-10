@@ -1,0 +1,87 @@
+/* Требует 00-settings.css. Область: Reading view, класс callmered-coloring. */
+
+.markdown-preview-view.callmered-coloring .footnotes,
+.markdown-preview-view.callmered-coloring section.footnotes {
+  margin-left: 0 !important;
+  margin-inline-start: 0 !important;
+  padding-left: 0 !important;
+  padding-inline-start: 0 !important;
+  color: var(--cmr-footnote) !important;
+  font-size: var(--cmr-text-size) !important;
+  line-height: var(--cmr-line-height-body) !important;
+}
+
+.markdown-preview-view.callmered-coloring .footnotes ol,
+.markdown-preview-view.callmered-coloring section.footnotes ol {
+  counter-reset: cmr-footnote;
+  margin-left: 0 !important;
+  margin-inline-start: 0 !important;
+  padding-left: 0 !important;
+  padding-inline-start: 0 !important;
+  list-style: none !important;
+}
+
+.markdown-preview-view.callmered-coloring .footnotes li,
+.markdown-preview-view.callmered-coloring section.footnotes li {
+  counter-increment: cmr-footnote;
+  position: relative;
+  margin-left: 0 !important;
+  margin-inline-start: 0 !important;
+  padding-left: var(--cmr-footnote-number-space) !important;
+  padding-inline-start: var(--cmr-footnote-number-space) !important;
+  color: var(--cmr-footnote) !important;
+  font-size: var(--cmr-text-size) !important;
+  line-height: var(--cmr-line-height-body) !important;
+}
+
+.markdown-preview-view.callmered-coloring .footnotes li::marker,
+.markdown-preview-view.callmered-coloring section.footnotes li::marker {
+  content: '' !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring .footnotes li::before,
+.markdown-preview-view.callmered-coloring section.footnotes li::before {
+  content: counter(cmr-footnote) '.';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--cmr-footnote) !important;
+  font-family: var(--cmr-font-text);
+  font-size: var(--cmr-text-size) !important;
+  font-weight: var(--cmr-weight-normal) !important;
+  line-height: var(--cmr-line-height-body) !important;
+}
+
+.markdown-preview-view.callmered-coloring .footnotes :is(p, a),
+.markdown-preview-view.callmered-coloring section.footnotes :is(p, a) {
+  color: var(--cmr-footnote) !important;
+  font-size: var(--cmr-text-size) !important;
+  line-height: var(--cmr-line-height-body) !important;
+}
+
+.markdown-preview-view.callmered-coloring .footnotes p,
+.markdown-preview-view.callmered-coloring section.footnotes p {
+  display: inline;
+}
+
+.markdown-preview-view.callmered-coloring .footnotes .footnote-backref,
+.markdown-preview-view.callmered-coloring section.footnotes .footnote-backref {
+  color: var(--cmr-color-cyan) !important;
+  font-size: var(--cmr-text-size) !important;
+  line-height: var(--cmr-line-height-body) !important;
+}
+
+.markdown-preview-view.callmered-coloring .footnotes :is(li, .footnote-item):is(:target, .is-flashing),
+.markdown-preview-view.callmered-coloring section.footnotes :is(li, .footnote-item):is(:target, .is-flashing) {
+  background-color: var(--cmr-footnote-highlight) !important;
+  border-radius: var(--cmr-radius) !important;
+  box-shadow: var(--cmr-footnote-target-shadow) !important;
+}
+
+.markdown-preview-view.callmered-coloring .footnotes :is(li, .footnote-item):is(:target, .is-flashing)::before,
+.markdown-preview-view.callmered-coloring section.footnotes :is(li, .footnote-item):is(:target, .is-flashing)::before {
+  left: 0;
+  top: 0;
+}

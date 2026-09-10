@@ -1,0 +1,151 @@
+/* Требует 00-settings.css. Область: Reading view, класс callmered-coloring. */
+
+.markdown-preview-view.callmered-coloring {
+  color: var(--cmr-text) !important;
+  font-family: var(--cmr-font-text);
+  font-size: var(--cmr-text-size);
+  font-weight: var(--cmr-weight-normal);
+  line-height: var(--cmr-line-height-body);
+  padding-inline-start: var(--cmr-page-padding) !important;
+  padding-inline-end: var(--cmr-page-padding) !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(p, li, table, th, td, blockquote, .callout, .callout-content, .callout-title, .callout-title-inner) {
+  color: var(--cmr-text);
+  font-family: var(--cmr-font-text);
+  font-size: var(--cmr-text-size);
+  font-weight: var(--cmr-weight-normal);
+  line-height: var(--cmr-line-height-body);
+}
+
+.markdown-preview-view.callmered-coloring :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--cmr-text) !important;
+  font-family: var(--cmr-font-text);
+  font-weight: var(--cmr-weight-bold) !important;
+  line-height: var(--cmr-line-height-heading) !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring h1 {
+  font-size: var(--cmr-h1-font-size) !important;
+  letter-spacing: var(--cmr-h1-letter-spacing);
+  margin-top: var(--cmr-h1-margin-top) !important;
+}
+
+.markdown-preview-view.callmered-coloring h2 {
+  color: var(--cmr-h2) !important;
+  font-size: var(--cmr-h2-font-size) !important;
+  font-weight: var(--cmr-weight-normal) !important;
+  line-height: var(--cmr-line-height-body) !important;
+  letter-spacing: normal;
+  margin-top: var(--cmr-h2-rule-gap) !important;
+  padding-top: var(--cmr-h2-rule-gap) !important;
+  padding-bottom: var(--cmr-h2-rule-gap) !important;
+  border-top: var(--cmr-intro-border) !important;
+  border-bottom: var(--cmr-intro-border) !important;
+}
+
+.markdown-preview-view.callmered-coloring h3 {
+  font-size: var(--cmr-h3-font-size) !important;
+  line-height: var(--cmr-h3-line-height) !important;
+  letter-spacing: var(--cmr-h3-letter-spacing);
+  margin-top: var(--cmr-h3-margin-top) !important;
+}
+
+.markdown-preview-view.callmered-coloring h4 {
+  font-size: var(--cmr-h4-font-size) !important;
+  line-height: var(--cmr-h4-line-height) !important;
+  letter-spacing: var(--cmr-h4-letter-spacing);
+  margin-top: var(--cmr-h4-margin-top) !important;
+}
+
+.markdown-preview-view.callmered-coloring h5 {
+  font-size: var(--cmr-h5-font-size) !important;
+  line-height: var(--cmr-h5-line-height) !important;
+  letter-spacing: var(--cmr-h5-letter-spacing);
+  margin-top: var(--cmr-h5-margin-top) !important;
+}
+
+.markdown-preview-view.callmered-coloring h6 {
+  font-size: var(--cmr-h6-size) !important;
+  line-height: var(--cmr-h6-line-height) !important;
+  letter-spacing: 0;
+  margin-top: var(--cmr-h6-margin-top) !important;
+}
+
+.markdown-preview-view.callmered-coloring .el-h2:has(+ .el-p) {
+  margin-bottom: var(--cmr-h2-after-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring .el-h2 + .el-p,
+.markdown-preview-view.callmered-coloring .el-h2 + .el-p > p,
+.markdown-preview-view.callmered-coloring h2 + p {
+  margin-top: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring h2:has(+ p) {
+  margin-bottom: var(--cmr-h2-after-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring .el-h3:has(+ .el-p) {
+  margin-bottom: var(--cmr-h3-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring .el-h4:has(+ .el-p) {
+  margin-bottom: var(--cmr-h4-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring .el-h5:has(+ .el-p) {
+  margin-bottom: var(--cmr-h5-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring .el-h6:has(+ .el-p) {
+  margin-bottom: var(--cmr-h6-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring h3:has(+ p) {
+  margin-bottom: var(--cmr-h3-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring h4:has(+ p) {
+  margin-bottom: var(--cmr-h4-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring h5:has(+ p) {
+  margin-bottom: var(--cmr-h5-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring h6:has(+ p) {
+  margin-bottom: var(--cmr-h6-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(h1, h3, h4, h5, h6) + :is(p, ul, ol, blockquote, pre, .callout),
+.markdown-preview-view.callmered-coloring :is(.el-h1, .el-h3, .el-h4, .el-h5, .el-h6) + :is(.el-p, .el-ul, .el-ol, .el-blockquote, .el-pre, .el-div) > :is(p, ul, ol, blockquote, pre, .callout),
+.markdown-preview-view.callmered-coloring p:has(+ :is(ul, ol)),
+.markdown-preview-view.callmered-coloring .el-p:has(+ :is(.el-ul, .el-ol)) > p,
+.markdown-preview-view.callmered-coloring p + :is(ul, ol),
+.markdown-preview-view.callmered-coloring .el-p + :is(.el-ul, .el-ol) > :is(ul, ol) {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring p + p,
+.markdown-preview-view.callmered-coloring .el-p + .el-p > p {
+  margin-top: var(--cmr-para-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring pre + h4,
+.markdown-preview-view.callmered-coloring .el-pre + .el-h4 > h4 {
+  margin-top: var(--cmr-heading-after-code-gap) !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(em, i) {
+  color: var(--cmr-rule) !important;
+  font-style: normal !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(h1, h2, h3, h4, h5, h6) :is(code, mark, a.tag) {
+  padding-top: var(--cmr-heading-inline-padding-y) !important;
+  padding-bottom: var(--cmr-heading-inline-padding-y) !important;
+}

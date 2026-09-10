@@ -1,0 +1,242 @@
+/* CallMeRed starts from Obsidian's default light appearance. */
+
+.markdown-preview-view.callmered-coloring {
+  --cmr-text: #110f00;
+  --cmr-blue: #0a6fc3;
+  --cmr-cyan: #08849b;
+  --cmr-cyan-rgb: 8, 132, 155;
+  --cmr-green: #9a9a00;
+  --cmr-purple: #7c33de;
+  --cmr-brown: #ac5209;
+  --cmr-red: #9d0006;
+  --cmr-orange: #d6670e;
+  --cmr-yellow: #f3ac06;
+  --cmr-quote: #817f6f;
+  --cmr-rule: #b0ae9c;
+  --cmr-h2: #b0ae9c;
+  --cmr-unresolved-link: #3fb3cd;
+  --cmr-code-block-bg: #2b291f;
+  --cmr-code-text: #fefbe5;
+  --cmr-external-icon: #9a9a9a;
+  --cmr-footnote-highlight: #fef5de;
+  --cmr-para-gap: 18px;
+  --cmr-h2-rule-gap: 28px;
+  --cmr-h2-after-gap: 28px;
+  --cmr-h3-gap: 10px;
+  --cmr-h4-gap: 9px;
+  --cmr-h5-gap: 8px;
+  --cmr-h6-gap: 7px;
+  --cmr-inline-pad-y: 0.04em;
+  --cmr-inline-pad-x: 0.76em;
+  --cmr-inline-radius: var(--radius-l);
+  --cmr-inline-margin: 0 0.04em;
+  --cmr-h6-size: 27.75px;
+  --cmr-page-margin: 72px;
+  --font-text: 'Onest', ui-sans-serif, system-ui, sans-serif;
+  --font-interface: 'Onest', ui-sans-serif, system-ui, sans-serif;
+  --font-monospace: 'MesloLGS Nerd Font Mono', ui-monospace, monospace;
+  --link-color: var(--cmr-cyan);
+  --link-color-hover: var(--cmr-cyan);
+  --link-external-color: var(--cmr-cyan);
+  --link-external-color-hover: var(--cmr-cyan);
+  --link-external-decoration-color: var(--cmr-external-icon);
+  --link-unresolved-color: var(--cmr-unresolved-link);
+  --link-unresolved-decoration-color: var(--cmr-unresolved-link);
+  --link-unresolved-opacity: 1;
+  --text-normal: var(--cmr-text);
+  --text-muted: var(--cmr-text);
+  --text-accent: var(--cmr-cyan);
+  --interactive-accent: var(--cmr-cyan);
+  --tag-color: var(--cmr-code-text);
+  --tag-background: var(--cmr-cyan);
+  --tag-background-hover: var(--cmr-cyan);
+  --tag-radius: var(--cmr-inline-radius);
+  --code-normal: var(--cmr-code-text);
+  --code-comment: var(--cmr-green);
+  --code-function: var(--cmr-yellow);
+  --code-important: var(--cmr-red);
+  --code-keyword: var(--cmr-purple);
+  --code-operator: var(--cmr-code-text);
+  --code-property: var(--cmr-purple);
+  --code-punctuation: var(--cmr-code-text);
+  --code-string: var(--cmr-green);
+  --code-tag: var(--cmr-red);
+  --code-value: var(--cmr-yellow);
+  color: var(--cmr-text) !important;
+  font-family: 'Onest', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-inline-start: max(32px, var(--cmr-page-margin)) !important;
+  padding-inline-end: max(32px, var(--cmr-page-margin)) !important;
+}
+
+.markdown-preview-view.callmered-coloring .metadata-container,
+.markdown-preview-view.callmered-coloring .metadata-content,
+.markdown-preview-view.callmered-coloring .metadata-properties,
+.markdown-preview-view.callmered-coloring .metadata-add-button,
+.markdown-preview-view.callmered-coloring .metadata-property,
+.markdown-preview-view.callmered-coloring .frontmatter-container,
+.markdown-preview-view.callmered-coloring .mod-header,
+.markdown-preview-view.callmered-coloring .inline-title {
+  max-height: 0 !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-width: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(p, li, table, th, td) {
+  color: var(--cmr-text);
+  font-family: 'Onest', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.markdown-preview-view.callmered-coloring :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--cmr-text) !important;
+  font-family: 'Onest', ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1.12 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring h1 { font-size: 64.5px !important; letter-spacing: -0.035em; margin-top: 24px !important; }
+.markdown-preview-view.callmered-coloring h2 { color: var(--cmr-h2) !important; font-size: 24px !important; font-weight: 400 !important; line-height: 1.5 !important; letter-spacing: normal; margin-top: var(--cmr-h2-rule-gap) !important; padding-top: var(--cmr-h2-rule-gap) !important; padding-bottom: var(--cmr-h2-rule-gap) !important; border-top: 0.5px solid var(--cmr-rule) !important; border-bottom: 0.5px solid var(--cmr-rule) !important; }
+.markdown-preview-view.callmered-coloring h3 { font-size: 42px !important; line-height: calc(1em + var(--cmr-h3-gap)) !important; letter-spacing: -0.018em; margin-top: 22px !important; }
+.markdown-preview-view.callmered-coloring h4 { font-size: 36px !important; line-height: calc(1em + var(--cmr-h4-gap)) !important; letter-spacing: -0.012em; margin-top: 18px !important; }
+.markdown-preview-view.callmered-coloring h5 { font-size: 31.5px !important; line-height: calc(1em + var(--cmr-h5-gap)) !important; letter-spacing: -0.006em; margin-top: 16px !important; }
+.markdown-preview-view.callmered-coloring h6 { font-size: var(--cmr-h6-size) !important; line-height: calc(1em + var(--cmr-h6-gap)) !important; letter-spacing: 0; margin-top: 14px !important; }
+
+.markdown-preview-view.callmered-coloring .el-h2:has(+ .el-p) { margin-bottom: var(--cmr-h2-after-gap) !important; }
+.markdown-preview-view.callmered-coloring .el-h2 + .el-p,
+.markdown-preview-view.callmered-coloring .el-h2 + .el-p > p,
+.markdown-preview-view.callmered-coloring h2 + p { margin-top: 0 !important; }
+.markdown-preview-view.callmered-coloring h2:has(+ p) { margin-bottom: var(--cmr-h2-after-gap) !important; }
+.markdown-preview-view.callmered-coloring .el-h3:has(+ .el-p) { margin-bottom: var(--cmr-h3-gap) !important; }
+.markdown-preview-view.callmered-coloring .el-h4:has(+ .el-p) { margin-bottom: var(--cmr-h4-gap) !important; }
+.markdown-preview-view.callmered-coloring .el-h5:has(+ .el-p) { margin-bottom: var(--cmr-h5-gap) !important; }
+.markdown-preview-view.callmered-coloring .el-h6:has(+ .el-p) { margin-bottom: var(--cmr-h6-gap) !important; }
+.markdown-preview-view.callmered-coloring h3:has(+ p) { margin-bottom: var(--cmr-h3-gap) !important; }
+.markdown-preview-view.callmered-coloring h4:has(+ p) { margin-bottom: var(--cmr-h4-gap) !important; }
+.markdown-preview-view.callmered-coloring h5:has(+ p) { margin-bottom: var(--cmr-h5-gap) !important; }
+.markdown-preview-view.callmered-coloring h6:has(+ p) { margin-bottom: var(--cmr-h6-gap) !important; }
+
+.markdown-preview-view.callmered-coloring p + p,
+.markdown-preview-view.callmered-coloring .el-p + .el-p > p { margin-top: var(--cmr-para-gap) !important; }
+.markdown-preview-view.callmered-coloring pre + h4,
+.markdown-preview-view.callmered-coloring .el-pre + .el-h4 > h4 { margin-top: 36px !important; }
+
+.markdown-preview-view.callmered-coloring a,
+.markdown-preview-view.callmered-coloring a:hover,
+.markdown-preview-view.callmered-coloring a.external-link { color: var(--cmr-cyan); }
+
+.markdown-preview-view.callmered-coloring a.external-link {
+  background-image: none !important;
+  padding-inline-end: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring a.external-link::after {
+  content: '↗';
+  display: inline-block !important;
+  color: var(--cmr-external-icon);
+  font-size: 0.78em;
+  line-height: 1;
+  margin-left: 0.24em;
+  position: relative;
+  top: -1px;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  border-bottom: 0 !important;
+  background-image: none !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(a.internal-link.is-unresolved, a.is-unresolved, .internal-link.is-unresolved),
+.markdown-preview-view.callmered-coloring :is(a.internal-link.is-unresolved, a.is-unresolved, .internal-link.is-unresolved):hover {
+  color: var(--cmr-unresolved-link) !important;
+  opacity: 1 !important;
+  text-decoration-color: var(--cmr-unresolved-link) !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(em, i) {
+  color: var(--cmr-rule) !important;
+  font-style: normal !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(del, s) {
+  color: var(--cmr-rule) !important;
+  text-decoration-line: line-through !important;
+  text-decoration-color: var(--cmr-rule) !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(code, pre, pre code) { font-family: 'MesloLGS Nerd Font Mono', ui-monospace, monospace !important; }
+
+.markdown-preview-view.callmered-coloring :not(pre) > code,
+.markdown-preview-view.callmered-coloring mark,
+.markdown-preview-view.callmered-coloring a.tag,
+.markdown-preview-view.callmered-coloring a.tag:hover {
+  font-family: 'MesloLGS Nerd Font Mono', ui-monospace, monospace !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  padding-top: var(--cmr-inline-pad-y) !important;
+  padding-bottom: var(--cmr-inline-pad-y) !important;
+  padding-inline-start: var(--cmr-inline-pad-x) !important;
+  padding-inline-end: var(--cmr-inline-pad-x) !important;
+  margin: var(--cmr-inline-margin) !important;
+  border-radius: var(--cmr-inline-radius) !important;
+  border-width: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(h1, h2, h3, h4, h5, h6) :is(code, mark, a.tag) {
+  padding-top: 0.01em !important;
+  padding-bottom: 0.01em !important;
+}
+
+.markdown-preview-view.callmered-coloring :not(pre) > code {
+  color: var(--cmr-code-text) !important;
+  background-color: var(--cmr-green) !important;
+}
+
+.markdown-preview-view.callmered-coloring mark {
+  color: var(--cmr-text) !important;
+  background-color: var(--cmr-yellow) !important;
+}
+
+.markdown-preview-view.callmered-coloring a.tag,
+.markdown-preview-view.callmered-coloring a.tag:hover {
+  color: var(--cmr-code-text) !important;
+  background-color: var(--cmr-cyan) !important;
+  border-color: var(--cmr-cyan) !important;
+  text-decoration: none !important;
+}
+
+.markdown-preview-view.callmered-coloring pre {
+  color: var(--cmr-code-text) !important;
+  background-color: var(--cmr-code-block-bg) !important;
+  border-color: var(--cmr-code-block-bg) !important;
+  border-radius: var(--cmr-inline-radius) !important;
+}
+
+.markdown-preview-view.callmered-coloring pre code {
+  color: var(--cmr-code-text) !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring pre code :is(.token.keyword, .token.atrule, .token.property, .token.namespace, .hljs-keyword, .hljs-selector-tag, .hljs-attr, .hljs-attribute, .hljs-property) { color: var(--cmr-purple) !important; }
+.markdown-preview-view.callmered-coloring pre code :is(.token.string, .token.char, .token.attr-value, .token.inserted, .token.comment, .token.prolog, .token.doctype, .token.cdata, .hljs-string, .hljs-regexp, .hljs-addition, .hljs-comment, .hljs-quote) { color: var(--cmr-green) !important; }
+.markdown-preview-view.callmered-coloring pre code :is(.token.number, .token.boolean, .token.constant, .token.symbol, .token.function, .token.class-name, .token.builtin, .hljs-number, .hljs-literal, .hljs-title, .hljs-title.function_, .hljs-title.class_, .hljs-built_in, .hljs-type, .hljs-variable, .hljs-template-variable, .hljs-params) { color: var(--cmr-yellow) !important; }
+.markdown-preview-view.callmered-coloring pre code :is(.token.important, .token.deleted, .token.regex, .token.tag, .hljs-deletion, .hljs-tag, .hljs-name, .hljs-meta, .hljs-doctag) { color: var(--cmr-red) !important; }
+.markdown-preview-view.callmered-coloring pre code :is(.token.operator, .token.punctuation, .hljs-operator, .hljs-punctuation) { color: var(--cmr-code-text) !important; }
+
+.markdown-preview-view.callmered-coloring img { border-radius: var(--cmr-inline-radius) !important; }

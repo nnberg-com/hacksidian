@@ -1,0 +1,90 @@
+{
+  "format": 1,
+  "modules": [
+    {
+      "id": "foundation-01",
+      "component": "foundation",
+      "file": "foundation-01.css"
+    },
+    {
+      "id": "obsidian-02",
+      "component": "obsidian",
+      "file": "obsidian-02.css"
+    },
+    {
+      "id": "typography-03",
+      "component": "typography",
+      "file": "typography-03.css"
+    },
+    {
+      "id": "lists-04",
+      "component": "lists",
+      "file": "lists-04.css"
+    },
+    {
+      "id": "links-inline-05",
+      "component": "links-inline",
+      "file": "links-inline-05.css"
+    },
+    {
+      "id": "typography-06",
+      "component": "typography",
+      "file": "typography-06.css"
+    },
+    {
+      "id": "links-inline-07",
+      "component": "links-inline",
+      "file": "links-inline-07.css"
+    },
+    {
+      "id": "code-08",
+      "component": "code",
+      "file": "code-08.css"
+    },
+    {
+      "id": "links-inline-09",
+      "component": "links-inline",
+      "file": "links-inline-09.css"
+    },
+    {
+      "id": "typography-10",
+      "component": "typography",
+      "file": "typography-10.css"
+    },
+    {
+      "id": "links-inline-11",
+      "component": "links-inline",
+      "file": "links-inline-11.css"
+    },
+    {
+      "id": "code-12",
+      "component": "code",
+      "file": "code-12.css"
+    },
+    {
+      "id": "quotes-callouts-13",
+      "component": "quotes-callouts",
+      "file": "quotes-callouts-13.css"
+    },
+    {
+      "id": "tables-14",
+      "component": "tables",
+      "file": "tables-14.css"
+    },
+    {
+      "id": "media-15",
+      "component": "media",
+      "file": "media-15.css"
+    },
+    {
+      "id": "footnotes-16",
+      "component": "footnotes",
+      "file": "footnotes-16.css"
+    },
+    {
+      "id": "syntax-17",
+      "component": "syntax",
+      "file": "syntax-17.css"
+    }
+  ]
+}

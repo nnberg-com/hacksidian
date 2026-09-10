@@ -1,0 +1,55 @@
+{
+  "format": 1,
+  "modules": [
+    {
+      "id": "m-00-settings",
+      "component": "foundation",
+      "file": "hacksidian-00-settings.css"
+    },
+    {
+      "id": "m-10-reading",
+      "component": "reading",
+      "file": "hacksidian-10-reading.css"
+    },
+    {
+      "id": "m-20-links-and-highlights",
+      "component": "links-and-highlights",
+      "file": "hacksidian-20-links-and-highlights.css"
+    },
+    {
+      "id": "m-30-lists-and-tasks",
+      "component": "lists-and-tasks",
+      "file": "hacksidian-30-lists-and-tasks.css"
+    },
+    {
+      "id": "m-40-quotes-and-callouts",
+      "component": "quotes-and-callouts",
+      "file": "hacksidian-40-quotes-and-callouts.css"
+    },
+    {
+      "id": "m-50-tables",
+      "component": "tables",
+      "file": "hacksidian-50-tables.css"
+    },
+    {
+      "id": "m-60-code",
+      "component": "code",
+      "file": "hacksidian-60-code.css"
+    },
+    {
+      "id": "m-70-images",
+      "component": "images",
+      "file": "hacksidian-70-images.css"
+    },
+    {
+      "id": "m-80-footnotes",
+      "component": "footnotes",
+      "file": "hacksidian-80-footnotes.css"
+    },
+    {
+      "id": "m-90-hide-note-header",
+      "component": "hide-note-header",
+      "file": "hacksidian-90-hide-note-header.css"
+    }
+  ]
+}

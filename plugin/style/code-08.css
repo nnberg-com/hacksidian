@@ -1,0 +1,2 @@
+.markdown-preview-view.callmered-coloring :is(code, pre, pre code) { font-family: var(--cmr-font-code) !important; }
+

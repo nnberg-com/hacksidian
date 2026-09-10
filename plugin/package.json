@@ -1,0 +1,30 @@
+{
+  "name": "callmered-poc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Conversational visual grooming proof of concept for Obsidian Reading view.",
+  "scripts": {
+    "build": "node esbuild.config.mjs production",
+    "style:build": "node dist/style-cli.cjs build style dist/callmered-current.css",
+    "dev": "node esbuild.config.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run test && npm run build",
+    "install:vault": "npm run build && node scripts/install-vault.mjs"
+  },
+  "devDependencies": {
+    "@types/fontkit": "^2.0.9",
+    "@types/node": "^24.0.0",
+    "builtin-modules": "^5.0.0",
+    "esbuild": "^0.25.0",
+    "obsidian": "latest",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  },
+  "dependencies": {
+    "fontkit": "^2.0.4",
+    "html-to-image": "^1.11.13",
+    "postcss": "^8.5.0"
+  }
+}

@@ -1,0 +1,25 @@
+// Run through Obsidian CLI eval, in the dedicated vault. No API request.
+(async () => {
+  const fs = require("node:fs/promises");
+  const root = "/Users/op/dev/olgapavlova/hacksidian/plugin/style-recovery/2026-09-07";
+  if (app.vault.adapter.getBasePath() !== "/Users/op/vaults/callmered") throw new Error("Wrong vault");
+  const plugin = app.plugins.plugins["callmered-poc"];
+  if (!plugin) throw new Error("Plugin is not loaded");
+  const css = await fs.readFile(`${root}/restored.css`, "utf8");
+  if (plugin.state.activeCss === css) return "Recovery already applied";
+  const expected = await fs.readFile(`${root}/palette-before.css`, "utf8");
+  if (plugin.state.activeCss.trim() !== expected.trim()) throw new Error("Active CSS has changed since inspection");
+  const snippet = await app.vault.adapter.read(".obsidian/snippets/callmered-current.css");
+  if (snippet.trim() !== expected.trim()) throw new Error("Snippet has changed since inspection");
+  await plugin.openColoring("Раскраски/Длинная статья.md");
+  await new Promise(resolve => setTimeout(resolve, 500));
+  const before = await plugin.captureCurrentColoring("recovery-before");
+  const id = crypto.randomUUID();
+  await plugin.commitCssVersion(id, css, "recovery");
+  await plugin.savePluginData();
+  await new Promise(resolve => setTimeout(resolve, 500));
+  const after = await plugin.captureCurrentColoring("recovery-after");
+  const evidence = { id, createdAt: new Date().toISOString(), before: before.absolutePath, after: after.absolutePath, source: "recovery", userReaction: null };
+  await fs.writeFile(`${root}/application.json`, JSON.stringify(evidence, null, 2));
+  return evidence;
+})()

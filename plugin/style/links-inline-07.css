@@ -1,0 +1,6 @@
+.markdown-preview-view.callmered-coloring :is(del, s) {
+  color: var(--cmr-rule) !important;
+  text-decoration-line: line-through !important;
+  text-decoration-color: var(--cmr-rule) !important;
+}
+

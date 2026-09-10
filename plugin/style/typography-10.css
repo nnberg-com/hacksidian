@@ -1,0 +1,5 @@
+.markdown-preview-view.callmered-coloring :is(h1, h2, h3, h4, h5, h6) :is(code, mark, a.tag) {
+  padding-top: 0.01em !important;
+  padding-bottom: 0.01em !important;
+}
+

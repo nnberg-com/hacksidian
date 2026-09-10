@@ -1,0 +1,5 @@
+/* Требует 00-settings.css. Область: Reading view, класс callmered-coloring. */
+
+.markdown-preview-view.callmered-coloring img {
+  border-radius: var(--cmr-radius-inline) !important;
+}

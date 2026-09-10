@@ -1,0 +1,9 @@
+.markdown-preview-view.callmered-coloring table {
+  color: var(--cmr-text);
+  margin-top: 18px !important;
+  margin-bottom: 18px;
+  border-radius: var(--cmr-radius) !important;
+}
+
+.markdown-preview-view.callmered-coloring .el-table { margin-top: 18px !important; }
+.markdown-preview-view.callmered-coloring .el-table > table { margin-top: 0 !important; }

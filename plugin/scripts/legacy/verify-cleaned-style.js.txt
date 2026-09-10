@@ -1,0 +1,3 @@
+eval(require("node:fs").readFileSync("/Users/op/dev/olgapavlova/hacksidian/plugin/scripts/verify-style-refactor.js", "utf8"))({
+  beforeName: "normalized", afterName: "cleaned", reportPrefix: "cleanup", kind: "inline-typography-refactor"
+})

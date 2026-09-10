@@ -1,0 +1,116 @@
+.markdown-preview-view.callmered-coloring :is(ul, ol) {
+  margin-inline-start: 0 !important;
+  padding-inline-start: 2em !important;
+}
+
+.markdown-preview-view.callmered-coloring ul:not(.contains-task-list) {
+  list-style-type: none !important;
+  list-style-position: outside !important;
+}
+
+.markdown-preview-view.callmered-coloring ul:not(.contains-task-list) > li {
+  position: relative;
+  padding-inline-start: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring ul:not(.contains-task-list) > li::marker {
+  content: '' !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring ul:not(.contains-task-list) > li > .list-bullet {
+  width: 0 !important;
+  min-width: 0 !important;
+  color: transparent !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+}
+
+.markdown-preview-view.callmered-coloring ul:not(.contains-task-list) > li > .list-bullet::after {
+  content: '' !important;
+  width: 0 !important;
+  height: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.markdown-preview-view.callmered-coloring ul:not(.contains-task-list) > li::before {
+  content: '—';
+  position: absolute;
+  left: -1.05em;
+  color: var(--cmr-list-marker) !important;
+  font-family: var(--cmr-font-text) !important;
+  font-size: var(--cmr-text-size);
+  font-weight: 400;
+  line-height: var(--cmr-line-height-body);
+}
+
+.markdown-preview-view.callmered-coloring ol {
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(ul, ol) :is(ul, ol) {
+  margin-top: 0.25em !important;
+  margin-bottom: 0.25em !important;
+  padding-inline-start: 2em !important;
+}
+
+.markdown-preview-view.callmered-coloring li::marker {
+  color: var(--cmr-list-marker) !important;
+  font-family: var(--cmr-font-text) !important;
+  font-size: var(--cmr-text-size) !important;
+  font-weight: 400 !important;
+}
+
+.markdown-preview-view.callmered-coloring ul.contains-task-list { list-style: none !important; }
+.markdown-preview-view.callmered-coloring li.task-list-item { padding-inline-start: 0 !important; }
+
+.markdown-preview-view.callmered-coloring li.task-list-item > input.task-list-item-checkbox,
+.markdown-preview-view.callmered-coloring li.task-list-item > .task-list-item-checkbox {
+  margin-inline-start: -1.55em !important;
+  margin-inline-end: 0.55em !important;
+  border-radius: var(--cmr-radius) !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(ul, ol)::before,
+.markdown-preview-view.callmered-coloring :is(ul, ol) :is(ul, ol)::before,
+.markdown-preview-view.callmered-coloring.markdown-rendered.show-indentation-guide :is(ul, ol)::before,
+.markdown-preview-view.callmered-coloring.markdown-rendered.show-indentation-guide li > :is(ul, ol)::before,
+.markdown-preview-view.callmered-coloring .markdown-rendered.show-indentation-guide :is(ul, ol)::before,
+.markdown-preview-view.callmered-coloring .markdown-rendered.show-indentation-guide li > :is(ul, ol)::before {
+  content: '' !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  border-inline-start-width: 0 !important;
+  border-left-width: 0 !important;
+  border-inline-start-color: transparent !important;
+  border-left-color: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.markdown-preview-view.callmered-coloring :is(ul, ol) :is(ul, ol),
+.markdown-preview-view.callmered-coloring.markdown-rendered.show-indentation-guide li > :is(ul, ol),
+.markdown-preview-view.callmered-coloring .markdown-rendered.show-indentation-guide li > :is(ul, ol) {
+  border-inline-start-width: 0 !important;
+  border-left-width: 0 !important;
+  border-inline-start-color: transparent !important;
+  border-left-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.markdown-preview-view.callmered-coloring li.task-list-item.is-checked,
+.markdown-preview-view.callmered-coloring li.task-list-item.is-checked > p,
+.markdown-preview-view.callmered-coloring li.task-list-item.is-checked *:not(input) {
+  color: var(--cmr-done-task) !important;
+  text-decoration: none !important;
+}
+
+.markdown-preview-view.callmered-coloring li.task-list-item.is-checked input.task-list-item-checkbox,
+.markdown-preview-view.callmered-coloring li.task-list-item.is-checked .task-list-item-checkbox {
+  color: var(--cmr-done-task) !important;
+  border-color: var(--cmr-done-task) !important;
+}
+

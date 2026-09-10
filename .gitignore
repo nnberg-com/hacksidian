@@ -1,0 +1,10 @@
+.venv-atlas/
+build/
+__pycache__/
+
+# Python bytecode and macOS metadata
+*.py[cod]
+.DS_Store
+
+# Generated plugin verification report
+/snippet-runtime-verification.json
