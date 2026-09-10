@@ -1,0 +1,5 @@
+(version 1)
+(allow default)
+(deny file-read* file-write* (subpath "/Users/op/dev/sobakapav/callmered"))
+(deny file-read* file-write* (subpath "/Users/op/vaults/callmered"))
+(deny file-read* file-write* (subpath "/Users/op/vaults/op/! P R O/callmered"))
