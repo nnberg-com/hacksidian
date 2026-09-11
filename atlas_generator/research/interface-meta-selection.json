@@ -1,0 +1,317 @@
+{
+  "date": "2026-09-11",
+  "source_urls": {
+    "tabs": "https://docs.obsidian.md/Reference/CSS%20variables/Components/Tabs",
+    "styling": "https://docs.obsidian.md/Reference/CSS%20variables/About%20styling",
+    "colors": "https://docs.obsidian.md/Reference/CSS%20variables/Foundations/Colors",
+    "focus": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible",
+    "minimal": "https://github.com/kepano/obsidian-minimal/blob/master/docs/Plugins/Minimal%20Theme%20Settings.md",
+    "container": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries",
+    "motion": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion",
+    "touch": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/pointer",
+    "contrast": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-contrast",
+    "print": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing",
+    "supports": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@supports"
+  },
+  "techniques": [
+    {
+      "id": "interface-focused-pane",
+      "ru": "Рамка панели с фокусом",
+      "en": "Focus outline for a pane",
+      "purpose": "Не потерять текущую панель, когда открыты несколько заметок.",
+      "epurpose": "Keep track of the current pane when several notes are open.",
+      "how": "Рамка появляется у контейнера workspace-leaf, пока фокус находится внутри него. :has ограничивает действие панелью с оформленной заметкой.",
+      "ehow": "An outline follows keyboard focus inside a workspace-leaf. :has limits it to the pane containing a styled note.",
+      "action": "Нажмите кнопку или перейдите Tab внутрь модели, затем переведите фокус в соседний блок.",
+      "eaction": "Click a model button or Tab into the pane, then move focus outside it.",
+      "limit": "Это индикатор DOM-фокуса, а не сохранённого состояния активной вкладки. Класс контейнера зависит от версии Obsidian.",
+      "elimit": "This tracks DOM focus, not the saved active-tab state. The container class depends on the Obsidian version.",
+      "refs": [
+        "focus",
+        "styling"
+      ],
+      "interactive": true,
+      "digests": []
+    },
+    {
+      "id": "interface-active-tab",
+      "ru": "Выразительная активная вкладка",
+      "en": "Distinct active tab",
+      "purpose": "Быстро отличать текущую вкладку от соседних без смены всей темы.",
+      "epurpose": "Distinguish the active tab without replacing the theme.",
+      "how": "Документированные переменные вкладок задаются на группе, содержащей оформленную заметку.",
+      "ehow": "Documented tab variables are set on the tab group containing a styled note.",
+      "action": "Сравните активную вкладку в двух моделях. В Obsidian переключитесь между вкладками одной группы.",
+      "eaction": "Compare the active tabs in both models. In Obsidian, switch between tabs within one group.",
+      "limit": "Настройка касается всей группы вкладок, пока в ней присутствует оформленная заметка. Тема может переопределить переменные.",
+      "elimit": "The whole tab group is affected while it contains a styled note. Themes can override these variables.",
+      "refs": [
+        "tabs"
+      ],
+      "interactive": false,
+      "digests": []
+    },
+    {
+      "id": "interface-readable-tabs",
+      "ru": "Больше места названиям вкладок",
+      "en": "More room for tab titles",
+      "purpose": "Различать заметки с длинными похожими именами.",
+      "epurpose": "Tell apart notes with long, similar names.",
+      "how": "Ширина и размер шрифта задаются через переменные Obsidian. В модели эти переменные питают размеры условных вкладок.",
+      "ehow": "Obsidian variables control tab width and font size. The model uses the same variables for its illustrative tabs.",
+      "action": "Сравните обрезание названий; уменьшите ширину окна.",
+      "eaction": "Compare title truncation, then narrow the window.",
+      "limit": "Когда вкладок много, приложение всё равно сжимает их. Это не отключает ограничения полосы вкладок.",
+      "elimit": "Many open tabs still force shrinking. This does not remove tab-strip constraints.",
+      "refs": [
+        "tabs"
+      ],
+      "interactive": false,
+      "digests": []
+    },
+    {
+      "id": "interface-quiet-actions",
+      "ru": "Тихая панель действий",
+      "en": "Quiet pane actions",
+      "purpose": "Уменьшить визуальный шум кнопок, сохранив доступ к ним.",
+      "epurpose": "Reduce visual noise while keeping pane actions available.",
+      "how": "Адаптация идеи focus mode: приглушаются только действия панели. Hover и focus-within возвращают полную видимость; сенсорные экраны исключены.",
+      "ehow": "An adaptation of focus mode: only pane actions are muted. Hover and focus-within restore full visibility; touch devices are excluded.",
+      "action": "Наведите указатель на панель, затем пройдите по кнопкам клавишей Tab.",
+      "eaction": "Hover the pane, then Tab through its buttons.",
+      "limit": "Кнопки остаются видимыми и доступными. Это не полное скрытие интерфейса из Minimal; CSS написан отдельно.",
+      "elimit": "Buttons remain visible and usable. This is not Minimal’s full interface-hiding implementation; the CSS is independently written.",
+      "refs": [
+        "minimal",
+        "focus"
+      ],
+      "interactive": true,
+      "digests": []
+    },
+    {
+      "id": "interface-wrap-breadcrumbs",
+      "ru": "Путь заметки без обрезания",
+      "en": "Wrapping note breadcrumbs",
+      "purpose": "Видеть папку и длинное имя заметки в узкой панели.",
+      "epurpose": "Read the folder and long note name in a narrow pane.",
+      "how": "Заголовку разрешена переменная высота, а пути — перенос строк.",
+      "ehow": "The pane header can grow vertically and its breadcrumb can wrap.",
+      "action": "Уменьшите ширину окна и сравните два длинных пути.",
+      "eaction": "Narrow the window and compare the two long paths.",
+      "limit": "Селекторы view-header и view-header-title-container взяты из локального app.css, а не публичного API. Требуют проверки после обновлений.",
+      "elimit": "The view-header and view-header-title-container selectors come from local app.css, not a public API. Recheck them after updates.",
+      "refs": [
+        "styling"
+      ],
+      "interactive": false,
+      "digests": []
+    },
+    {
+      "id": "interface-roomy-actions",
+      "ru": "Кнопки панели с удобной областью нажатия",
+      "en": "Roomier pane action targets",
+      "purpose": "Уменьшить промахи по маленьким кнопкам заголовка.",
+      "epurpose": "Reduce missed clicks on small pane header buttons.",
+      "how": "Увеличивается область нажатия, а не размер символа. Изменение ограничено действиями панели.",
+      "ehow": "The hit area grows without enlarging the icon. The change is limited to pane actions.",
+      "action": "Сравните размеры кнопок в моделях и нажмите их. Кнопки модели не запускают команды.",
+      "eaction": "Compare target sizes and click the model buttons. Model buttons do not execute commands.",
+      "limit": "В очень узкой панели длинный заголовок получит меньше места. 36 px — выбранный размер, не заявление о соответствии стандарту доступности.",
+      "elimit": "A narrow pane leaves less room for its title. 36 px is a design choice, not an accessibility-conformance claim.",
+      "refs": [
+        "styling"
+      ],
+      "interactive": false,
+      "digests": []
+    },
+    {
+      "id": "interface-header-surface",
+      "ru": "Отдельная поверхность заголовка",
+      "en": "A distinct pane header surface",
+      "purpose": "Отделить управление заметкой от её содержимого.",
+      "epurpose": "Separate note controls from note content.",
+      "how": "Переменные file-header из локального app.css меняют фон, границу и насыщенность заголовка. Цвета берутся из текущей темы.",
+      "ehow": "File-header variables found in local app.css change the surface, border, and font weight. Colors follow the current theme.",
+      "action": "Сравните границу заголовка в двух моделях. В Obsidian проверьте светлую и тёмную темы.",
+      "eaction": "Compare the header boundary in both models. In Obsidian, check light and dark themes.",
+      "limit": "Тема может рисовать собственный заголовок и не использовать эти переменные. Проверено наличие переменных в локальном CSS, не нативное отображение.",
+      "elimit": "A custom theme may render its own header without these variables. Their presence in local CSS is verified; native rendering is not.",
+      "refs": [
+        "styling",
+        "colors"
+      ],
+      "interactive": false,
+      "digests": []
+    },
+    {
+      "id": "interface-keyboard-focus",
+      "ru": "Заметный клавиатурный фокус",
+      "en": "Visible keyboard focus",
+      "purpose": "Понимать, какую кнопку активирует Enter при работе без мыши.",
+      "epurpose": "See which control Enter will activate when working without a mouse.",
+      "how": ":focus-visible использует эвристику браузера и выделяет фокус при клавиатурном вводе.",
+      "ehow": ":focus-visible follows the browser’s heuristic to show keyboard focus.",
+      "action": "Щёлкните рядом с моделью, затем нажимайте Tab и Shift+Tab.",
+      "eaction": "Click near the model, then press Tab and Shift+Tab.",
+      "limit": "CSS не делает неклавиатурные элементы фокусируемыми и не задаёт порядок переходов. Итоговый контраст зависит от темы.",
+      "elimit": "CSS does not make inaccessible controls focusable or define tab order. Final contrast depends on the theme.",
+      "refs": [
+        "focus"
+      ],
+      "interactive": true,
+      "digests": []
+    },
+    {
+      "id": "meta-pane-container",
+      "ru": "Адаптация к ширине панели",
+      "en": "Adapt to pane width",
+      "purpose": "Сделать одну заметку удобной и в узком split, и на широком экране.",
+      "epurpose": "Keep one note readable in both a narrow split and a wide pane.",
+      "how": "Container query измеряет ширину контейнера заметки, а не всего окна. Узкая версия уплотняет цитаты и таблицы.",
+      "ehow": "A container query measures the note container rather than the whole window. Narrow panes compact quotes and tables.",
+      "action": "Откройте preview отдельно и сузьте окно до 420 px; в Obsidian измените ширину split.",
+      "eaction": "Open preview separately and narrow it below 420 px; in Obsidian resize the split pane.",
+      "limit": "CSS containment может влиять на позиционирование расширений. Таблицу с большим числом колонок всё равно потребуется прокручивать.",
+      "elimit": "CSS containment can affect positioned plugin elements. Very wide tables will still need scrolling.",
+      "refs": [
+        "container"
+      ],
+      "interactive": true,
+      "digests": []
+    },
+    {
+      "id": "meta-reduced-motion",
+      "ru": "Уважать уменьшение движения",
+      "en": "Honor reduced motion",
+      "purpose": "Отключать декоративные переходы по системному предпочтению пользователя.",
+      "epurpose": "Disable decorative transitions when the user requests reduced motion.",
+      "how": "Системный media query отключает CSS-анимацию, переходы и плавную прокрутку только внутри оформленной заметки.",
+      "ehow": "The system media query disables CSS animations, transitions, and smooth scrolling only within the styled note.",
+      "action": "Наведите на ссылку до и после включения системной настройки уменьшения движения.",
+      "eaction": "Hover a link before and after enabling the system’s reduced-motion setting.",
+      "limit": "Видео, GIF и JavaScript-анимация не останавливаются. Важную информацию нельзя передавать только движением.",
+      "elimit": "Videos, GIFs, and JavaScript animations are not stopped. Essential information must not rely on motion alone.",
+      "refs": [
+        "motion"
+      ],
+      "interactive": true,
+      "digests": []
+    },
+    {
+      "id": "meta-touch-targets",
+      "ru": "Крупные цели для сенсорного ввода",
+      "en": "Larger targets for touch input",
+      "purpose": "Разнести ссылки и чекбоксы на устройстве с неточным основным указателем.",
+      "epurpose": "Space out links and checkboxes for a coarse primary pointer.",
+      "how": "pointer:coarse проверяет основной способ ввода, а не название устройства или ширину экрана.",
+      "ehow": "pointer:coarse checks the primary input capability, not a device name or viewport width.",
+      "action": "Откройте на сенсорном устройстве либо эмулируйте coarse pointer. Простого сужения окна недостаточно.",
+      "eaction": "Use a touch device or emulate a coarse pointer. Narrowing a desktop window alone is insufficient.",
+      "limit": "На гибридном устройстве основным указателем может остаться мышь. Inline-ссылки могут увеличить высоту строк.",
+      "elimit": "A hybrid device can still report a mouse as its primary pointer. Inline links may increase line height.",
+      "refs": [
+        "touch"
+      ],
+      "interactive": true,
+      "digests": [
+        "todo"
+      ]
+    },
+    {
+      "id": "meta-print-links",
+      "ru": "Адреса ссылок на бумаге",
+      "en": "Link destinations on paper",
+      "purpose": "Сохранить адреса источников в распечатке конспекта или задания.",
+      "epurpose": "Keep source addresses in printed notes or assignments.",
+      "how": "В печатном media-режиме CSS добавляет адрес после внешней ссылки. На экране текст не меняется.",
+      "ehow": "Print CSS appends the destination to external links. Screen text is unchanged.",
+      "action": "Откройте preview отдельно и вызовите печать. В Obsidian проверьте экспорт заметки в PDF.",
+      "eaction": "Open preview separately and invoke print. In Obsidian, check PDF export.",
+      "limit": "В адресе могут быть приватные параметры; проверьте ссылки перед передачей PDF. Внутренние wikilinks не раскрываются.",
+      "elimit": "URLs may contain private parameters; review links before sharing a PDF. Internal wikilinks are not expanded.",
+      "refs": [
+        "print"
+      ],
+      "interactive": false,
+      "digests": [
+        "teach"
+      ]
+    },
+    {
+      "id": "meta-print-pagination",
+      "ru": "Печатные страницы без одиноких заголовков",
+      "en": "Keep headings with printed content",
+      "purpose": "Не оставлять заголовок на нижней строке страницы учебного материала.",
+      "epurpose": "Avoid leaving a heading alone at the bottom of a printed page.",
+      "how": "Правила break-after, break-inside, orphans и widows задают предпочтения разбиения на страницы.",
+      "ehow": "break-after, break-inside, orphans, and widows express pagination preferences.",
+      "action": "В отдельном preview откройте печать и меняйте размер бумаги, масштаб и поля.",
+      "eaction": "Print the standalone preview and change paper size, scale, and margins.",
+      "limit": "Это пожелания движку печати. Блок длиннее страницы всё равно разорвётся; эффект зависит от размера бумаги.",
+      "elimit": "These are hints to the print engine. Blocks taller than a page still split; results depend on paper size.",
+      "refs": [
+        "print"
+      ],
+      "interactive": false,
+      "digests": [
+        "teach"
+      ]
+    },
+    {
+      "id": "meta-higher-contrast",
+      "ru": "Усиление границ по системной настройке",
+      "en": "Stronger boundaries on request",
+      "purpose": "Сделать структуры заметки различимее при запросе повышенного контраста.",
+      "epurpose": "Make note structure more distinct when higher contrast is requested.",
+      "how": "prefers-contrast усиливает границы и подчёркивания, сохраняя цветовую систему текущей темы.",
+      "ehow": "prefers-contrast strengthens borders and underlines while preserving the current theme’s color system.",
+      "action": "Включите системный повышенный контраст или эмуляцию prefers-contrast: more.",
+      "eaction": "Enable higher contrast in the OS or emulate prefers-contrast: more.",
+      "limit": "Это не режим forced-colors и не автоматическая проверка WCAG. Обработка настройки различается между платформами.",
+      "elimit": "This is not forced-colors mode or an automatic WCAG check. Platforms expose the preference differently.",
+      "refs": [
+        "contrast"
+      ],
+      "interactive": true,
+      "digests": []
+    },
+    {
+      "id": "meta-follow-obsidian-theme",
+      "ru": "Следовать теме Obsidian, а не системе",
+      "en": "Follow the Obsidian theme",
+      "purpose": "Согласовать выделения с темой приложения, даже если она отличается от темы ОС.",
+      "epurpose": "Keep highlights aligned with the app theme even when it differs from the OS theme.",
+      "how": "Ветви theme-light и theme-dark читают состояние Obsidian. prefers-color-scheme здесь намеренно не используется.",
+      "ehow": "theme-light and theme-dark follow Obsidian’s state. prefers-color-scheme is deliberately not used.",
+      "action": "В Obsidian переключите тему. В HTML действует снимок темы на момент сборки: после смены темы пересоберите атлас.",
+      "eaction": "Switch the theme in Obsidian. HTML uses the build-time theme snapshot: rebuild after changing it.",
+      "limit": "Браузерный preview не синхронизируется с Obsidian в реальном времени. В standalone-сборке без классов темы ветви не активируются.",
+      "elimit": "Browser preview is not live-synced with Obsidian. A standalone build without theme classes does not activate these branches.",
+      "refs": [
+        "styling",
+        "colors"
+      ],
+      "interactive": false,
+      "digests": []
+    },
+    {
+      "id": "meta-progressive-color",
+      "ru": "Современный цвет с запасным вариантом",
+      "en": "Modern color with a fallback",
+      "purpose": "Добавить мягкую тонировку без потери границы в старом движке.",
+      "epurpose": "Add a soft tint without losing the border in an older engine.",
+      "how": "Сначала объявлена работоспособная база. @supports включает color-mix только при поддержке свойства и значения.",
+      "ehow": "A usable baseline comes first. @supports enables color-mix only when the property/value pair is supported.",
+      "action": "Сравните результат с базовыми правилами CSS; временно отключите блок @supports в инструментах разработчика.",
+      "eaction": "Compare the result with baseline CSS; temporarily disable the @supports block in developer tools.",
+      "limit": "Поддержка синтаксиса не гарантирует достаточный контраст. Итоговые цвета зависят от темы.",
+      "elimit": "Syntax support does not guarantee sufficient contrast. Final colors depend on the theme.",
+      "refs": [
+        "supports",
+        "colors"
+      ],
+      "interactive": false,
+      "digests": []
+    }
+  ]
+}

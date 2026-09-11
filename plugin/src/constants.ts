@@ -2,9 +2,11 @@ import type { CallMeRedSettings, PersistedState } from "./types";
 
 export const VIEW_TYPE_CALLMERED = "callmered-conversation";
 export const CSS_UNDO_LIMIT = 50;
-export const PROMPT_VERSION = "poc-3-modules";
+export const PROMPT_VERSION = "poc-4-language";
 
 export const DEFAULT_SETTINGS: CallMeRedSettings = {
+  interfaceLanguage: "auto",
+  contentLanguage: "auto",
   provider: "openai",
   providerProfiles: {},
   customModel: false,

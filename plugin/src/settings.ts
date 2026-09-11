@@ -1,3 +1,4 @@
+import { t, numberLocale } from "../i18n";
 import { App, Notice, PluginSettingTab, Setting, type TextComponent } from "obsidian";
 import { PROVIDERS, switchProvider } from "./llm-catalog";
 import { pricingKey } from "./pricing";
@@ -19,16 +20,32 @@ export class CallMeRedSettingTab extends PluginSettingTab {
     containerEl.empty();
     containerEl.createEl("h2", { text: "Hacksidian" });
 
+    new Setting(containerEl).setName(t("settings.interface_language"))
+      .setDesc(t("settings.interface_language_description"))
+      .addDropdown(dropdown => dropdown.addOptions({ auto: t("settings.language_auto"), ru: "Русский", en: "English" })
+        .setValue(this.plugin.settings.interfaceLanguage).onChange(async value => {
+          this.plugin.settings.interfaceLanguage = value as "auto" | "ru" | "en";
+          await this.plugin.updateLanguage();
+          this.display();
+        }));
+    new Setting(containerEl).setName(t("settings.content_language"))
+      .setDesc(t("settings.content_description"))
+      .addDropdown(dropdown => dropdown.addOptions({ auto: t("settings.content_auto"), ru: "Русский", en: "English" })
+        .setValue(this.plugin.settings.contentLanguage).onChange(async value => {
+          this.plugin.settings.contentLanguage = value as "auto" | "ru" | "en";
+          await this.plugin.savePluginData();
+        }));
+
     new Setting(containerEl)
-      .setName("Отправлять в LLM скриншот страницы")
-      .setDesc("Выключите для экономии токенов. Модель продолжит получать текст страницы, CSS и вашу реакцию.")
+      .setName(t("settings.send_a_page_screenshot_to_the_llm"))
+      .setDesc(t("settings.turn_off_to_save_tokens_the_model"))
       .addToggle((toggle) => toggle.setValue(this.plugin.settings.sendScreenshot).onChange(async (enabled) => {
         this.plugin.settings.sendScreenshot = enabled;
         await this.plugin.savePluginData();
       }));
 
     containerEl.createEl("h3", { text: "LLM" });
-    new Setting(containerEl).setName("Провайдер")
+    new Setting(containerEl).setName(t("settings.provider"))
       .addDropdown(dropdown => dropdown.addOptions(Object.fromEntries(Object.entries(PROVIDERS).map(([id, p]) => [id, p.name])))
         .setValue(this.plugin.settings.provider).onChange(async value => {
           switchProvider(this.plugin.settings, value as ProviderId);
@@ -36,8 +53,8 @@ export class CallMeRedSettingTab extends PluginSettingTab {
           this.display();
         }));
     new Setting(containerEl)
-      .setName("API-ключ")
-      .setDesc(`Ключ для ${PROVIDERS[this.plugin.settings.provider].name}. Ключи провайдеров хранятся отдельно в данных плагина.`)
+      .setName(t("settings.api_key"))
+      .setDesc(t("settings.key_for_provider_keys_are_stored_separately", { p0: PROVIDERS[this.plugin.settings.provider].name }))
       .addText((text) => {
         text.inputEl.type = "password";
         text.inputEl.autocomplete = "off";
@@ -50,15 +67,15 @@ export class CallMeRedSettingTab extends PluginSettingTab {
 
     const models = PROVIDERS[this.plugin.settings.provider].models;
     const custom = "__custom__";
-    const modelSetting = new Setting(containerEl).setName("Модель")
-      .setDesc("Доступность модели зависит от вашего аккаунта у выбранного провайдера.");
-    const customSetting = new Setting(containerEl).setName("ID другой модели")
-      .setDesc("Доступен только при выборе «Другая модель». Нужны структурированные ответы и, для скриншотов, изображения.");
+    const modelSetting = new Setting(containerEl).setName(t("settings.model"))
+      .setDesc(t("settings.model_availability_depends_on_your_account_with"));
+    const customSetting = new Setting(containerEl).setName(t("settings.custom_model_id"))
+      .setDesc(t("settings.available_only_when_custom_model_is_selected"));
     customSetting.settingEl.style.display = this.plugin.settings.customModel ? "" : "none";
     let customInput: TextComponent;
     customSetting.addText(text => {
       customInput = text;
-      text.setPlaceholder("ID модели").setValue(this.plugin.settings.model)
+      text.setPlaceholder(t("settings.model_id")).setValue(this.plugin.settings.model)
         .setDisabled(!this.plugin.settings.customModel).onChange(async value => {
           if (!this.plugin.settings.customModel) return;
           this.plugin.settings.model = value.trim();
@@ -68,7 +85,7 @@ export class CallMeRedSettingTab extends PluginSettingTab {
           this.priceTimer = setTimeout(() => void updatePrices(), 600);
         });
     });
-    modelSetting.addDropdown(dropdown => dropdown.addOptions(models).addOption(custom, "Другая модель")
+    modelSetting.addDropdown(dropdown => dropdown.addOptions(models).addOption(custom, t("settings.custom_model"))
       .setValue(this.plugin.settings.customModel ? custom : this.plugin.settings.model)
       .onChange(async value => {
         this.plugin.settings.customModel = value === custom;
@@ -80,9 +97,9 @@ export class CallMeRedSettingTab extends PluginSettingTab {
         void updatePrices();
       }));
 
-    containerEl.createEl("h3", { text: "Оценка стоимости" });
-    new Setting(containerEl).setName("Автоматически рассчитывать стоимость")
-      .setDesc("Загружать стандартные платные тарифы с официального сайта. Для ручного ввода выключите эту опцию.")
+    containerEl.createEl("h3", { text: t("settings.cost_estimate") });
+    new Setting(containerEl).setName(t("settings.calculate_costs_automatically"))
+      .setDesc(t("settings.load_standard_paid_pricing_from_the_official"))
       .addToggle(toggle => toggle.setValue(this.plugin.settings.autoPricing).onChange(async enabled => {
         this.plugin.settings.autoPricing = enabled;
         await this.plugin.savePluginData();
@@ -90,9 +107,9 @@ export class CallMeRedSettingTab extends PluginSettingTab {
       }));
     const priceInputs: Array<{ field: "input" | "cached" | "output"; input: TextComponent; key: "inputPricePerMillion" | "cachedInputPricePerMillion" | "outputPricePerMillion" }> = [];
     for (const [name, field, key] of [
-      ["Вход, $ за 1 млн токенов", "input", "inputPricePerMillion"],
-      ["Кэшированный вход, $ за 1 млн токенов", "cached", "cachedInputPricePerMillion"],
-      ["Выход, $ за 1 млн токенов", "output", "outputPricePerMillion"],
+      [t("settings.input_per_1m_tokens"), "input", "inputPricePerMillion"],
+      [t("settings.cached_input_per_1m_tokens"), "cached", "cachedInputPricePerMillion"],
+      [t("settings.output_per_1m_tokens"), "output", "outputPricePerMillion"],
     ] as const) {
       new Setting(containerEl).setName(name).addText(input => {
         priceInputs.push({field, input, key});
@@ -105,8 +122,8 @@ export class CallMeRedSettingTab extends PluginSettingTab {
       });
     }
     const priceStatus = containerEl.createDiv({cls: "setting-item-description"});
-    const refreshSetting = new Setting(containerEl).setName("Официальные тарифы")
-      .addButton(button => button.setButtonText("Обновить").onClick(() => void updatePrices(true)));
+    const refreshSetting = new Setting(containerEl).setName(t("settings.official_pricing"))
+      .addButton(button => button.setButtonText(t("settings.refresh")).onClick(() => void updatePrices(true)));
     const updatePrices = async (force = false): Promise<void> => {
       const settings = this.plugin.settings;
       const key = pricingKey(settings.provider, settings.model);
@@ -121,8 +138,8 @@ export class CallMeRedSettingTab extends PluginSettingTab {
       };
       showValues();
       priceStatus.empty();
-      if (!automatic) { priceStatus.setText("Оценка по вашим тарифам. История прошлых расходов не пересчитывается."); return; }
-      priceStatus.setText("Загружаю официальный тариф…");
+      if (!automatic) { priceStatus.setText(t("settings.estimate_based_on_your_prices_past_costs")); return; }
+      priceStatus.setText(t("settings.loading_official_pricing"));
       try {
         await this.plugin.refreshPricing(force);
         if (renderId !== this.renderId || !settings.autoPricing || key !== pricingKey(settings.provider, settings.model)) return;
@@ -130,20 +147,21 @@ export class CallMeRedSettingTab extends PluginSettingTab {
         priceStatus.empty();
         const quote = settings.pricing;
         if (!quote || quote.key !== key) return;
-        priceStatus.createEl("a", {text: "Официальный источник", href: quote.source});
-        priceStatus.createSpan({text: ` · Проверено: ${new Date(quote.fetchedAt).toLocaleString("ru-RU")}. Кэш тарифа — 24 часа.`});
-        if (quote.highContext) priceStatus.createDiv({text: `Для входа от ${quote.highContext.threshold.toLocaleString("ru-RU")} токенов применяется повышенный тариф.`});
+        priceStatus.createEl("a", {text: t("settings.official_source"), href: quote.source});
+        priceStatus.createSpan({text: t("settings.checked_prices_are_cached_for_24_hours", { p0: new Date(quote.fetchedAt).toLocaleString(numberLocale()) })});
+        if (quote.highContext) priceStatus.createDiv({text: t("settings.a_higher_rate_applies_to_inputs_of", { p0: quote.highContext.threshold.toLocaleString(numberLocale()) })});
       } catch (error) {
         if (renderId !== this.renderId || !settings.autoPricing || key !== pricingKey(settings.provider, settings.model)) return;
         settings.pricing = undefined;
         showValues();
-        priceStatus.setText(`Тариф недоступен: ${error instanceof Error ? error.message : String(error)} Стоимость будет показана как неизвестная. Можно выключить автоматический расчёт и ввести тариф вручную.`);
+        priceStatus.setText(t("settings.pricing_unavailable_cost_will_be_shown_as", { p0: error instanceof Error ? error.message : String(error) }));
       }
     };
     void updatePrices();
 
     new Setting(containerEl)
-      .setName("Папка раскрасок")
+      .setName(t("settings.samples_folder"))
+      .setDesc(t("settings.folder_description"))
       .addText((text) =>
         text.setValue(this.plugin.settings.coloringsFolder).onChange(async (value) => {
           this.plugin.settings.coloringsFolder = value.trim() || "! P R O/hacksidian/playground";
@@ -151,21 +169,21 @@ export class CallMeRedSettingTab extends PluginSettingTab {
         }),
       );
 
-    new Setting(containerEl).setName("Очистить историю")
-      .setDesc("Удаляет весь чат и все шаги Undo. Текущий стиль и настройки сохраняются.")
-      .addButton(button => button.setButtonText("Очистить историю").setWarning().onClick(async () => {
+    new Setting(containerEl).setName(t("settings.clear_history"))
+      .setDesc(t("settings.deletes_the_entire_chat_and_all_undo"))
+      .addButton(button => button.setButtonText(t("settings.clear_history")).setWarning().onClick(async () => {
         button.setDisabled(true);
         try {
           await this.plugin.clearHistory();
-          new Notice("История Hacksidian очищена.");
+          new Notice(t("settings.hacksidian_history_cleared"));
         } catch (error) {
           new Notice(error instanceof Error ? error.message : String(error));
         } finally { button.setDisabled(false); }
       }));
 
-    containerEl.createEl("h3", { text: "Языки текста" });
+    containerEl.createEl("h3", { text: t("settings.font_coverage_languages") });
     containerEl.createEl("p", {
-      text: "LLM сможет выбирать только установленные шрифты, в которых есть все знаки выбранных локалей.",
+      text: t("settings.the_llm_can_select_only_installed_fonts"),
     });
     for (const locale of LOCALE_OPTIONS) {
       new Setting(containerEl).setName(locale.label).addToggle((toggle) =>
@@ -174,7 +192,7 @@ export class CallMeRedSettingTab extends PluginSettingTab {
           enabled ? selected.add(locale.id) : selected.delete(locale.id);
           if (selected.size === 0) {
             toggle.setValue(true);
-            new Notice("Нужна хотя бы одна локаль.");
+            new Notice(t("settings.select_at_least_one_locale"));
             return;
           }
           this.plugin.settings.supportedLocales = [...selected];
@@ -189,11 +207,11 @@ export class CallMeRedSettingTab extends PluginSettingTab {
   }
 
   private async updateFontStatus(element: HTMLElement, force = false): Promise<void> {
-    element.setText("Ищу совместимые установленные шрифты…");
+    element.setText(t("settings.looking_for_compatible_installed_fonts"));
     try {
       const result = await this.plugin.getCompatibleFonts(force);
       element.setText(
-        `Найдено совместимых семейств: ${result.families.length}. Проверено файлов: ${result.scannedFiles}.`,
+        t("settings.compatible_families_found_files_checked", { p0: result.families.length, p1: result.scannedFiles }),
       );
     } catch (error) {
       element.setText(error instanceof Error ? error.message : String(error));

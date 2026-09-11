@@ -1,0 +1,15 @@
+/* Shared geometry for inert interface models. Recipe CSS is included separately. */
+.hacksidian-interface-model{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.hacksidian-interface-model .workspace-tabs{position:relative;display:block;flex:none;height:auto;border:1px solid var(--background-modifier-border,#aaa);border-radius:8px;overflow:hidden;min-width:0}
+.hacksidian-interface-model .workspace-tab-header-container{position:relative;display:flex;gap:3px;height:auto;background:var(--background-secondary,#eee);padding:7px;overflow:hidden}
+.hacksidian-interface-model .workspace-tab-header{position:relative;display:block;flex:none;width:var(--tab-width,140px);max-width:var(--tab-max-width,160px);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--tab-font-size,12px);font-weight:var(--tab-font-weight,400);padding:6px}
+.hacksidian-interface-model .workspace-tab-header.is-active{background:var(--tab-background-active,transparent);color:var(--tab-text-color-focused-active-current,var(--text-normal))}
+.hacksidian-interface-model .workspace-leaf{position:relative;display:block;height:auto;min-width:0}
+.hacksidian-interface-model .view-header{display:flex;align-items:center;gap:8px;padding:8px;background:var(--file-header-background,transparent);border-bottom:var(--file-header-border,1px solid transparent);font-weight:var(--file-header-font-weight,400)}
+.hacksidian-interface-model .view-header-breadcrumbs{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.hacksidian-interface-model .view-actions{display:flex;align-items:center}
+.hacksidian-interface-model .clickable-icon{font:inherit;min-width:24px;min-height:24px;padding:2px;border:1px solid var(--background-modifier-border,#aaa);border-radius:4px;color:var(--text-normal);background:var(--background-primary,#fff)}
+.hacksidian-interface-model .hacksidian-model-note{position:relative;height:auto;padding:18px;min-height:120px}
+.hacksidian-interface-model .hacksidian-model-caption{font-size:12px;color:var(--text-muted);margin-block:6px}
+.hacksidian-source-model .cm-editor,.hacksidian-source-model .cm-scroller,.hacksidian-source-model .cm-content{position:relative;height:auto;overflow:visible}
+.hacksidian-source-model .cm-line{padding:8px;white-space:pre-wrap}

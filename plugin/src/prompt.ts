@@ -2,6 +2,7 @@ import { PROMPT_VERSION } from "./constants";
 
 export interface PromptContext {
   userText: string;
+  interfaceLanguage?: import("../i18n").Language;
   coloringPath: string;
   markdown: string;
   modulesJson: string;
@@ -10,7 +11,6 @@ export interface PromptContext {
   availableColorings: string[];
   compatibleFonts: string[];
   localeLabels: string[];
-  missingCoverage: string[];
 }
 
 export const SYSTEM_PROMPT = `You are the visual iteration engine for Hacksidian.
@@ -34,10 +34,15 @@ The CSS shorthand property \`font\` is forbidden in every declaration. Never out
 
 If the user explicitly asks to see another coloring, choose switch_coloring and return one path from the supplied list. If they ask to undo, choose no_change because Undo is handled locally.
 
+Respond to the user in the language of their latest question or reaction, even when it differs from the interface or document language. If that language cannot be determined (for example, an emoji-only message), use the PLUGIN INTERFACE LANGUAGE supplied in the turn context. Apply this rule to the message field, including clarifying questions. Preserve the language of the document unless the user explicitly requests translation. Never translate CSS identifiers, paths, or response schema keys.
+
 Return only data matching the response schema. Prompt version: ${PROMPT_VERSION}.`;
 
 export function buildTurnPrompt(context: PromptContext): string {
-  return `CURRENT COLORING PATH
+  return `PLUGIN INTERFACE LANGUAGE (fallback for replies only)
+${context.interfaceLanguage === "ru" ? "Russian (ru)" : "English (en)"}
+
+CURRENT COLORING PATH
 ${context.coloringPath}
 
 USER'S VERBATIM REACTION
@@ -60,9 +65,6 @@ ${context.compatibleFonts.join("\n")}
 
 AVAILABLE COLORINGS
 ${context.availableColorings.join("\n") || "(none)"}
-
-FEATURES NO LONGER PRESENT IN THE USER-EDITED COLORING
-${context.missingCoverage.join(", ") || "(none)"}
 
 PRIOR TURNS IN THIS SESSION (VERBATIM USER TEXT + OPERATIONAL SYSTEM MESSAGE)
 ${JSON.stringify(context.conversation, null, 2)}

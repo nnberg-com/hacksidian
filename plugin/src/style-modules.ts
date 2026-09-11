@@ -1,3 +1,4 @@
+import { t } from "../i18n";
 import postcss, { type ChildNode } from "postcss";
 import { validateGeneratedCss } from "./css";
 
@@ -49,11 +50,11 @@ export function importStyle(css: string): ModularStyle {
 }
 
 export function compileStyle(style: ModularStyle): string {
-  if (style.format !== 1 || !Array.isArray(style.modules) || !style.modules.length) throw new Error("Неверный формат модульного стиля.");
+  if (style.format !== 1 || !Array.isArray(style.modules) || !style.modules.length) throw new Error(t("style-modules.invalid_modular_style_format"));
   const ids = new Set<string>();
   for (const module of style.modules) {
-    if (!/^[a-z][a-z0-9-]*$/.test(module.id) || ids.has(module.id)) throw new Error("Неверный или повторный ID CSS-модуля.");
-    if (typeof module.css !== "string" || typeof module.component !== "string") throw new Error("Неверный CSS-модуль.");
+    if (!/^[a-z][a-z0-9-]*$/.test(module.id) || ids.has(module.id)) throw new Error(t("style-modules.invalid_or_duplicate_css_module_id"));
+    if (typeof module.css !== "string" || typeof module.component !== "string") throw new Error(t("style-modules.invalid_css_module"));
     ids.add(module.id);
     postcss.parse(module.css);
   }
@@ -78,10 +79,10 @@ function contract(css: string): string {
 export function replaceStyleModule(style: ModularStyle, id: string, css: string, fonts?: string[]): ModularStyle {
   compileStyle(style);
   const selected = style.modules.find(module => module.id === id);
-  if (!selected) throw new Error(`Неизвестный CSS-модуль: ${id}.`);
+  if (!selected) throw new Error(t("style-modules.unknown_css_module", { p0: id }));
   const bootstrap = style.modules.length === 1 && contract(selected.css) === "[]";
   if (!bootstrap && contract(selected.css) !== contract(css)) {
-    throw new Error("Изменён структурный контракт CSS-модуля. Разрешено менять значения, сохраняя селекторы и свойства.");
+    throw new Error(t("style-modules.the_css_module_s_structural_contract_changed"));
   }
   const candidate = postcss.parse(css);
   if (!bootstrap) {

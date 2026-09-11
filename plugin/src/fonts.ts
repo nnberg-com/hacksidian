@@ -1,12 +1,13 @@
+import { t } from "../i18n";
 import { execFile } from "node:child_process";
 import * as fontkit from "fontkit";
 import type { Font, FontCollection } from "fontkit";
 import type { SupportedLocale } from "./types";
 
 export const LOCALE_OPTIONS: Array<{ id: SupportedLocale; label: string; sample: string }> = [
-  { id: "ru-Cyrl", label: "Русская кириллица", sample: "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя" },
-  { id: "sr-Cyrl", label: "Сербская кириллица", sample: "АБВГДЂЕЖЗИЈКЛЉМНЊОПРСТЋУФХЦЧЏШабвгдђежзијклљмнњопрстћуфхцчџш" },
-  { id: "he", label: "Иврит", sample: "אבגדהוזחטיךכלםמןנסעףפץצקרשת" },
+  { id: "ru-Cyrl", get label() { return t("fonts.russian"); }, sample: "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя" },
+  { id: "sr-Cyrl", get label() { return t("fonts.serbian"); }, sample: "АБВГДЂЕЖЗИЈКЛЉМНЊОПРСТЋУФХЦЧЏШабвгдђежзијклљмнњопрстћуфхцчџш" },
+  { id: "he", get label() { return t("fonts.hebrew"); }, sample: "אבגדהוזחטיךכלםמןנסעףפץצקרשת" },
 ];
 
 export interface FontDiscoveryResult {
@@ -62,9 +63,9 @@ export function fontSupportsLocales(font: Pick<Font, "hasGlyphForCodePoint">, lo
 
 export async function discoverCompatibleFonts(locales: SupportedLocale[]): Promise<FontDiscoveryResult> {
   if (process.platform !== "darwin") {
-    throw new Error("Автоматическое обнаружение шрифтов в PoC пока реализовано только для macOS.");
+    throw new Error(t("fonts.macos_only"));
   }
-  if (locales.length === 0) throw new Error("Выберите хотя бы одну поддерживаемую локаль.");
+  if (locales.length === 0) throw new Error(t("fonts.select_locale"));
 
   const raw = await execSystemProfiler();
   const report = JSON.parse(raw) as SystemProfilerFonts;

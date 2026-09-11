@@ -1,3 +1,4 @@
+import { t } from "../i18n";
 import postcss, { type Rule } from 'postcss';
 import type { ModularStyle } from './style-modules';
 
@@ -59,7 +60,7 @@ function nativeOwner(prop:string):string {
  * Palette variables stay shared. Unknown structures are never guessed.
  */
 export function splitLegacyStyle(style: ModularStyle): ModularStyle {
- if (style.modules.map(m=>m.id).join('|') !== ['00-settings','10-reading','20-links-and-highlights','30-lists-and-tasks','40-quotes-and-callouts','50-tables','60-code','70-images','80-footnotes','90-hide-note-header'].map(s=>'m-'+s).join('|')) throw new Error('Неизвестная исходная структура сниппетов.');
+ if (style.modules.map(m=>m.id).join('|') !== ['00-settings','10-reading','20-links-and-highlights','30-lists-and-tasks','40-quotes-and-callouts','50-tables','60-code','70-images','80-footnotes','90-hide-note-header'].map(s=>'m-'+s).join('|')) throw new Error(t("snippet-groups.unknown_source_snippet_structure"));
  const roots = new Map(GROUPS.map(([id])=>[id,postcss.root()]));
  const settings = new Map<string, {value:string;important:boolean}>();
  let scope='.markdown-preview-view.callmered-coloring';
@@ -68,9 +69,9 @@ export function splitLegacyStyle(style: ModularStyle): ModularStyle {
   const root=postcss.parse(module.css);
   for (const node of root.nodes) {
    if(node.type==='comment')continue;
-   if(node.type!=='rule')throw new Error(`Нужно явно распределить ${node.type} из ${module.id}.`);
+   if(node.type!=='rule')throw new Error(t("snippet-groups.explicitly_assign_from", { p0: node.type, p1: module.id }));
    if(module.id==='m-00-settings') {
-    if(root.nodes.filter(n=>n.type==='rule').length!==1)throw new Error('Нужно явно распределить дополнительные правила настроек.');
+    if(root.nodes.filter(n=>n.type==='rule').length!==1)throw new Error(t("snippet-groups.explicitly_assign_additional_settings_rules"));
     scope=node.selector;
     node.walkDecls(d=>{
      if(d.prop.startsWith('--cmr-'))settings.set(d.prop,{value:d.value,important:!!d.important});

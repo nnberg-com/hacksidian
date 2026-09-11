@@ -4,8 +4,8 @@
  const root = `${app.vault.configDir}/snippets`;
  if (app.vault.adapter.getBasePath() !== '/Users/op/vaults/op') throw new Error('Wrong vault');
  await app.plugins.loadManifests();
- if (!app.plugins.plugins['callmered-poc']) await app.plugins.enablePlugin('callmered-poc');
- const plugin = app.plugins.plugins['callmered-poc'];
+ if (!app.plugins.plugins['hacksidian']) await app.plugins.enablePlugin('hacksidian');
+ const plugin = app.plugins.plugins['hacksidian'];
  if (!plugin?.reloadFileStyle) throw new Error('Reload the current Hacksidian build first');
  await plugin.reloadFileStyle();
  const manifest = JSON.parse(await app.vault.adapter.read(`${root}/hacksidian-manifest.json`));
@@ -30,8 +30,8 @@
  const selectedName = names[0];
  try {
   app.customCss.setCssEnabledStatus(selectedName, false);
-  await app.plugins.disablePlugin('callmered-poc');
-  await app.plugins.enablePlugin('callmered-poc');
+  await app.plugins.disablePlugin('hacksidian');
+  await app.plugins.enablePlugin('hacksidian');
   if (app.customCss.enabledSnippets.has(selectedName)) throw new Error('Restart re-enabled a disabled snippet');
  } finally {
   app.customCss.setCssEnabledStatus(selectedName, enabledBefore.includes(selectedName));

@@ -1,5 +1,9 @@
+import { t, setLanguageResolver, resolveInterfaceLanguage, resolveContentLanguage, type Language } from "../i18n";
+import { selectColoringPaths } from "./content-language";
 import { splitLegacyStyle } from "./snippet-groups";
 import {
+  getLanguage,
+  parseYaml,
   MarkdownView,
   Notice,
   Plugin,
@@ -12,7 +16,6 @@ import { styleDirectory } from "./storage";
 import { captureReadingView } from "./capture";
 import { collectComputedStyleContext } from "./context";
 import { CSS_UNDO_LIMIT, DEFAULT_SETTINGS, DEFAULT_STATE, PROMPT_VERSION, VIEW_TYPE_CALLMERED } from "./constants";
-import { inspectMarkdownCoverage, type CoverageResult } from "./coverage";
 import { compileStyle, importStyle, replaceStyleModule } from "./style-modules";
 import { discoverCompatibleFonts, LOCALE_OPTIONS, type FontDiscoveryResult } from "./fonts";
 import { buildTurnPrompt, SYSTEM_PROMPT } from "./prompt";
@@ -41,7 +44,35 @@ export default class CallMeRedPlugin extends Plugin {
   private fontDiscoveryKey = "";
   private fontDiscoveryPromise: Promise<FontDiscoveryResult> | null = null;
 
+  get interfaceLanguage(): Language {
+    return resolveInterfaceLanguage(this.settings.interfaceLanguage, getLanguage());
+  }
+
+  get contentLanguage(): Language {
+    return resolveContentLanguage(this.settings.contentLanguage, this.interfaceLanguage);
+  }
+
+  async updateLanguage(): Promise<void> {
+    await this.savePluginData();
+    for (const leaf of this.app.workspace.getLeavesOfType(VIEW_TYPE_CALLMERED)) {
+      if (leaf.view instanceof ConversationView) await leaf.view.refreshLanguage();
+    }
+    // Commands are registered objects; refreshing their names preserves callbacks.
+    for (const [id, key] of [
+      ["open-panel", "main.open_conversation_panel"],
+      ["next-coloring", "main.open_next_sample"],
+      ["undo-style", "main.undo_visual_iteration"],
+    ] as const) {
+      const command = this.languageCommands.get(id);
+      if (command) command.name = t(key);
+    }
+    this.ribbonEl?.setAttribute("aria-label", t("main.open_hacksidian"));
+  }
+  private languageCommands = new Map<string, { name: string }>();
+  private ribbonEl?: HTMLElement;
+
   async onload(): Promise<void> {
+    setLanguageResolver(() => this.interfaceLanguage);
     await this.loadPluginData();
     await this.savePluginData();
     await refreshNativeSnippets(this.app);
@@ -50,7 +81,7 @@ export default class CallMeRedPlugin extends Plugin {
       this.fileSyncBusy = true;
       void this.reloadFileStyle().then(() => { this.fileSyncError = ""; }).catch((error) => {
         const message = String(error);
-        if (message !== this.fileSyncError) new Notice(`CSS не обновлён: ${message}`);
+        if (message !== this.fileSyncError) new Notice(t("main.css_was_not_updated", { p0: message }));
         this.fileSyncError = message;
       }).finally(() => { this.fileSyncBusy = false; });
     }, 1000));
@@ -58,10 +89,10 @@ export default class CallMeRedPlugin extends Plugin {
     this.registerView(VIEW_TYPE_CALLMERED, (leaf) => new ConversationView(leaf, this));
     this.addSettingTab(new CallMeRedSettingTab(this.app, this));
 
-    this.addRibbonIcon("palette", "Открыть Hacksidian", () => void this.activateView());
-    this.addCommand({ id: "open-panel", name: "Открыть панель разговора", callback: () => void this.activateView() });
-    this.addCommand({ id: "next-coloring", name: "Открыть следующую раскраску", callback: () => void this.openNextColoring() });
-    this.addCommand({ id: "undo-style", name: "Undo визуальной итерации", callback: () => void this.undo() });
+    this.ribbonEl = this.addRibbonIcon("palette", t("main.open_hacksidian"), () => void this.activateView());
+    { const command = { id: "open-panel", name: t("main.open_conversation_panel"), callback: () => void this.activateView() }; const id = command.id; this.languageCommands.set(id, this.addCommand(command)); }
+    { const command = { id: "next-coloring", name: t("main.open_next_sample"), callback: () => void this.openNextColoring() }; const id = command.id; this.languageCommands.set(id, this.addCommand(command)); }
+    { const command = { id: "undo-style", name: t("main.undo_visual_iteration"), callback: () => void this.undo() }; const id = command.id; this.languageCommands.set(id, this.addCommand(command)); }
 
     this.registerEvent(
       this.app.workspace.on("active-leaf-change", (leaf) => {
@@ -87,7 +118,7 @@ export default class CallMeRedPlugin extends Plugin {
     let leaf: WorkspaceLeaf | null = this.app.workspace.getLeavesOfType(VIEW_TYPE_CALLMERED)[0] ?? null;
     if (!leaf) {
       leaf = this.app.workspace.getRightLeaf(false);
-      if (!leaf) throw new Error("Не удалось создать правую панель Hacksidian.");
+      if (!leaf) throw new Error(t("main.could_not_create_the_hacksidian_right_sidebar"));
       await leaf.setViewState({ type: VIEW_TYPE_CALLMERED, active: true });
     }
     await this.app.workspace.revealLeaf(leaf);
@@ -96,6 +127,8 @@ export default class CallMeRedPlugin extends Plugin {
   async loadPluginData(): Promise<void> {
     const data = (await this.loadData()) as PluginData | null;
     this.settings = { ...structuredClone(DEFAULT_SETTINGS), ...(data?.settings ?? {}) };
+    if (!["auto", "ru", "en"].includes(this.settings.interfaceLanguage)) this.settings.interfaceLanguage = "auto";
+    if (!["auto", "ru", "en"].includes(this.settings.contentLanguage)) this.settings.contentLanguage = "auto";
     if (!(this.settings.provider in PROVIDERS)) this.settings.provider = "openai";
     if (data?.settings?.customModel === undefined) this.settings.customModel = !(this.settings.model in PROVIDERS[this.settings.provider].models);
     if (!data?.snippetsInstalled) {
@@ -141,7 +174,7 @@ export default class CallMeRedPlugin extends Plugin {
       return record;
     });
     // Active CSS is read from files only. Snapshots below are historical Undo data.
-    const data = structuredClone({ snippetsInstalled: true, settings: this.settings, state: { versions: this.state.versions, turns: this.state.turns } });
+    const data = structuredClone({ snippetsInstalled: true, settings: this.settings, localization: { interfaceLanguage: this.interfaceLanguage, contentLanguage: this.contentLanguage }, state: { versions: this.state.versions, turns: this.state.turns } });
     const write = this.pendingSave.then(() => this.saveData(data));
     this.pendingSave = write.catch(() => {});
     await write;
@@ -151,36 +184,53 @@ export default class CallMeRedPlugin extends Plugin {
     file: TFile;
     view: MarkdownView;
     markdown: string;
-    coverage: CoverageResult;
   } | null> {
     const view = this.findMarkdownView();
     const file = view?.file;
     if (!view || !file) return null;
     const markdown = await this.app.vault.read(file);
-    return { file, view, markdown, coverage: inspectMarkdownCoverage(markdown) };
+    return { file, view, markdown };
+  }
+
+  getCurrentPage(): { path: string; title: string } | null {
+    const file = this.findMarkdownView()?.file;
+    if (!file) return null;
+    const cache = this.app.metadataCache.getFileCache(file);
+    const title = cache?.frontmatter?.title;
+    return { path: file.path, title: typeof title === "string" && title.trim()
+      ? title : cache?.headings?.find(heading => heading.level === 1)?.heading || file.basename };
   }
 
   async getCurrentHack(): Promise<HackContext | null> {
     const file = this.findMarkdownView()?.file;
     if (!file) return null;
-    const metadata = this.app.metadataCache.getFileCache(file)?.frontmatter;
-    const id = hackId(file.path, metadata?.tags);
-    if (!id) return null;
     const directory = file.path.slice(0, file.path.lastIndexOf("/"));
+    const folderId = directory.split("/").at(-1)!;
     const adapter = this.app.vault.adapter;
+    const commonPath = `${directory}/${folderId}.md`;
+    if (!await adapter.exists(commonPath)) return null;
+    const common = await adapter.read(commonPath);
+    const metadata = parseYaml(common.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? "") ?? {};
+    const id = hackId(file.path, metadata.tags);
+    if (!id) return null;
+    const language = file.basename.match(/^Description\.(ru|en)$/)?.[1] ?? this.contentLanguage;
+    const descriptionPath = `${directory}/Description.${language}.md`;
+    let title = id;
+    if (await adapter.exists(descriptionPath)) {
+      const description = await adapter.read(descriptionPath);
+      const localized = parseYaml(description.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? "") ?? {};
+      if (localized.translation_status !== "pending" && typeof localized.title === "string") title = localized.title;
+    }
     if (!await adapter.exists(`${directory}/hack.json`)) return null;
-    const [raw, template, dependencies] = await Promise.all([
-      adapter.read(`${directory}/hack.json`), adapter.read(`${directory}/recipe.template.css`), adapter.read(`${directory}/dependencies.template.css`),
-    ]);
-    return { id, path: file.path, title: typeof metadata?.title === "string" ? metadata.title : id,
-      spec: JSON.parse(raw) as HackSpec, template, dependencies };
+    const spec = JSON.parse(await adapter.read(`${directory}/hack.json`)) as HackSpec;
+    return { id, path: file.path, title, spec, css: await adapter.read(`${directory}/recipe.css`) };
   }
 
   async applyCurrentHack(expectedPath: string): Promise<boolean> {
     let changed = false;
     await this.withHistoryLock(async () => {
       const hack = await this.getCurrentHack();
-      if (!hack || hack.path !== expectedPath) throw new Error("Открытая карточка изменилась. Выберите приём заново.");
+      if (!hack || hack.path !== expectedPath) throw new Error(t("main.the_open_card_has_changed_select_the"));
       await this.reloadFileStyle();
       const result = addHack(this.state.style!, hack);
       if (result.changed) {
@@ -200,7 +250,7 @@ export default class CallMeRedPlugin extends Plugin {
   }
 
   private async withHistoryLock(operation: () => Promise<void>): Promise<void> {
-    if (this.historyBusy) throw new Error("Дождитесь завершения текущей операции Hacksidian.");
+    if (this.historyBusy) throw new Error(t("main.wait_for_the_current_hacksidian_operation_to"));
     this.historyBusy = true;
     try { await operation(); } finally { this.historyBusy = false; }
   }
@@ -223,12 +273,12 @@ export default class CallMeRedPlugin extends Plugin {
   private async runFeedback(userText: string, onStatus: (message: string) => void): Promise<void> {
     await this.reloadFileStyle();
     const context = await this.getCurrentColoringContext();
-    if (!context) throw new Error("Откройте раскраску в Reading view.");
-    if (context.view.getMode() !== "preview") throw new Error("PoC сейчас работает только в Reading view.");
+    if (!context) throw new Error(t("main.open_a_sample_in_reading_view"));
+    if (context.view.getMode() !== "preview") throw new Error(t("main.this_poc_currently_supports_reading_view_only"));
 
     const requestSettings = structuredClone(this.settings);
     if (requestSettings.autoPricing) {
-      onStatus("Загружаю официальный тариф модели…");
+      onStatus(t("main.loading_the_model_s_official_pricing"));
       try {
         requestSettings.pricing = await loadPricing(requestSettings.provider, requestSettings.model, requestSettings.pricing);
         if (this.settings.autoPricing && pricingKey(this.settings.provider, this.settings.model) === requestSettings.pricing.key) this.settings.pricing = requestSettings.pricing;
@@ -240,15 +290,16 @@ export default class CallMeRedPlugin extends Plugin {
     const turnId = crypto.randomUUID();
     let screenshotBase64: string | undefined;
     if (requestSettings.sendScreenshot) {
-      onStatus("Снимаю текущую раскраску для LLM…");
+      onStatus(t("main.capturing_the_current_sample_for_the_llm"));
       screenshotBase64 = await captureReadingView(context.view);
     }
 
     const availableColorings = this.getColoringFiles().map((file) => file.path);
-    onStatus("Проверяю установленные шрифты для выбранных языков…");
+    onStatus(t("main.checking_installed_fonts_for_the_selected_languages"));
     const fontDiscovery = await this.getCompatibleFonts();
     const prompt = buildTurnPrompt({
       userText,
+      interfaceLanguage: this.interfaceLanguage,
       coloringPath: context.file.path,
       markdown: context.markdown,
       modulesJson: JSON.stringify(styleAtStart.modules, null, 2),
@@ -262,10 +313,9 @@ export default class CallMeRedPlugin extends Plugin {
       localeLabels: LOCALE_OPTIONS.filter((option) => this.settings.supportedLocales.includes(option.id)).map(
         (option) => option.label,
       ),
-      missingCoverage: context.coverage.missing,
     });
 
-    onStatus("Жду ответ LLM… Новая раскраска появится здесь автоматически.");
+    onStatus(t("main.waiting_for_the_llm_the_new_appearance"));
     const provider = createProvider(requestSettings);
     const result = await provider.createIteration({
       instructions: SYSTEM_PROMPT,
@@ -274,10 +324,10 @@ export default class CallMeRedPlugin extends Plugin {
     });
 
     await this.reloadFileStyle();
-    if (JSON.stringify(this.state.style) !== JSON.stringify(styleAtStart) || this.state.activeCss !== cssAtStart) throw new Error("Стиль изменился во время запроса. Ответ не применён.");
+    if (JSON.stringify(this.state.style) !== JSON.stringify(styleAtStart) || this.state.activeCss !== cssAtStart) throw new Error(t("main.the_style_changed_during_the_request_the"));
 
     if (result.decision.action === "ask_question" && this.state.turns.some((turn) => turn.action === "ask_question")) {
-      throw new Error("Модель попыталась задать второй уточняющий вопрос; в PoC разрешён только один.");
+      throw new Error(t("main.the_model_tried_to_ask_a_second"));
     }
 
     if (result.decision.action === "update_css") {
@@ -285,7 +335,7 @@ export default class CallMeRedPlugin extends Plugin {
     } else if (result.decision.action === "switch_coloring") {
       await this.openColoring(result.decision.targetColoring);
     } else if (result.decision.action === "ask_question" && result.decision.message.length > 160) {
-      throw new Error("Модель попыталась задать слишком длинный уточняющий вопрос.");
+      throw new Error(t("main.the_model_s_clarifying_question_is_too"));
     }
 
     const record: TurnRecord = {
@@ -322,7 +372,7 @@ export default class CallMeRedPlugin extends Plugin {
 
   private async runUndo(): Promise<void> {
     if (this.state.versions.length <= 1) {
-      new Notice("Возвращаться пока некуда.");
+      new Notice(t("main.there_is_nothing_to_undo_yet"));
       return;
     }
     const latest = this.state.versions.at(-1)!;
@@ -330,23 +380,23 @@ export default class CallMeRedPlugin extends Plugin {
     const current = await readFileStyle(styleDirectory(this));
     const previousStyle = previous.style ?? importStyle(previous.css);
     if (previousStyle.modules.length !== current.modules.length || previousStyle.modules.some((m, i) => m.id !== current.modules[i].id || m.component !== current.modules[i].component)) {
-      new Notice("Начало истории текущей структуры CSS.");
+      new Notice(t("main.beginning_of_history_for_the_current_css"));
       return;
     }
-    if (compileStyle(current) !== latest.css) throw new Error("CSS изменён вручную. Undo не перезаписывает ручные изменения.");
+    if (compileStyle(current) !== latest.css) throw new Error(t("main.css_was_edited_manually_undo_does_not"));
     const restored = previous.style ?? importStyle(previous.css);
     await writeFileStyle(styleDirectory(this), current, restored, true);
     this.state.versions.pop();
     await this.reloadFileStyle();
     await this.savePluginData();
     await this.refreshView();
-    new Notice("Предыдущая визуальная версия возвращена.");
+    new Notice(t("main.the_previous_visual_version_has_been_restored"));
   }
 
   async openNextColoring(): Promise<void> {
     const files = this.getColoringFiles();
     if (files.length === 0) {
-      new Notice(`В папке ${this.settings.coloringsFolder} нет Markdown-раскрасок.`);
+      new Notice(t("main.there_are_no_markdown_samples_in", { p0: `${this.settings.coloringsFolder}/${this.contentLanguage}` }));
       return;
     }
     const currentPath = this.findMarkdownView()?.file?.path;
@@ -356,7 +406,7 @@ export default class CallMeRedPlugin extends Plugin {
 
   async openColoring(path: string): Promise<void> {
     const file = this.app.vault.getAbstractFileByPath(path);
-    if (!(file instanceof TFile) || file.extension !== "md") throw new Error(`Раскраска не найдена: ${path}`);
+    if (!(file instanceof TFile) || file.extension !== "md") throw new Error(t("main.sample_not_found", { p0: path }));
     let leaf = this.lastMarkdownLeaf;
     if (!leaf || !(leaf.view instanceof MarkdownView)) {
       leaf = this.app.workspace.getLeaf("tab");
@@ -414,15 +464,14 @@ export default class CallMeRedPlugin extends Plugin {
   }
 
   private getColoringFiles(): TFile[] {
-    const prefix = `${this.settings.coloringsFolder.replace(/\/$/, "")}/`;
-    return this.app.vault
-      .getMarkdownFiles()
-      .filter((file) => file.path.startsWith(prefix))
-      .sort((left, right) => left.path.localeCompare(right.path, "ru"));
+    const files = this.app.vault.getMarkdownFiles();
+    const paths = new Set(selectColoringPaths(files.map(file => file.path), this.settings.coloringsFolder, this.contentLanguage));
+    return files.filter(file => paths.has(file.path))
+      .sort((left, right) => left.path.localeCompare(right.path, this.contentLanguage));
   }
 
   private async commitCssVersion(id: string, css: string, source: "model" | "undo" | "recovery" | "hack", style = importStyle(css)): Promise<void> {
-    if (compileStyle(style) !== css) throw new Error("Сборка модулей не совпала с CSS.");
+    if (compileStyle(style) !== css) throw new Error(t("main.the_compiled_modules_do_not_match_the"));
     const expected = this.state.style ?? importStyle(this.state.activeCss);
     await writeFileStyle(styleDirectory(this), expected, style);
     if (this.state.versions.at(-1)?.css !== compileStyle(expected)) {

@@ -1,6 +1,6 @@
 import unittest
 from atlas_generator.obsidian import embed_resources
-from atlas_generator.templates import bind
+from atlas_generator.templates import atlas_css
 
 class ObsidianStyles(unittest.TestCase):
     def test_local_resources_are_embedded_without_fetching_external_urls(self):
@@ -13,9 +13,15 @@ class ObsidianStyles(unittest.TestCase):
         self.assertIn('data:font/woff2;base64,', css)
         self.assertIn('https://example.org/x.png', css)
 
-    def test_parameters_are_literal_and_missing_values_fail(self):
-        self.assertEqual(bind('{{scope}} {{element}}', {'scope':'.x', 'element':'p'}), '.x p')
-        with self.assertRaises(ValueError): bind('{{missing}}', {})
+    def test_recipe_is_returned_without_transformations(self):
+        from pathlib import Path
+        css = '/* preserved */\n.markdown-preview-view p { color: red; }\n'
+        paths = []
+        def read(path):
+            paths.append(path)
+            return css
+        self.assertEqual(atlas_css(Path('/example'), read), css)
+        self.assertEqual(paths, [Path('/example/recipe.css')])
 
     def test_shell_loads_theme_before_layout_and_adapter_after_it(self):
         from types import SimpleNamespace
@@ -42,3 +48,43 @@ class ObsidianStyles(unittest.TestCase):
             config.mkdir()
             (config/'appearance.json').write_text('{}')
             self.assertEqual(discover_obsidian_config(source), config.resolve())
+
+    def test_interface_model_has_native_controls_and_only_one_active_note_host(self):
+        from pathlib import Path
+        from types import SimpleNamespace
+        from lxml import html
+        from atlas_generator.build import preview
+        directory = Path('/Users/op/vaults/op/! P R O/hacksidian/atlas/! hacks/interface-readable-tabs')
+        from atlas_generator.render import split_frontmatter
+        _, body = split_frontmatter((directory/'Markdown.ru.md').read_text())
+        css = (directory/'recipe.css').read_text()
+        technique = SimpleNamespace(id='interface-readable-tabs', directory=directory,
+            metadata={'source_anchor':'test','format':'html','title':'Tabs'}, body=body,
+            css=css, language='ru', description_language='ru')
+        document, _, _ = preview(technique)
+        root = html.document_fromstring(document)
+        self.assertEqual(len(root.xpath('.//*[contains(concat(" ",normalize-space(@class)," ")," workspace-tabs ")]')), 2)
+        self.assertEqual(len(root.xpath('.//*[contains(concat(" ",normalize-space(@class)," ")," markdown-preview-view ")]')), 1)
+        self.assertNotIn('markdown-preview-view', root.get_element_by_id('sample').get('class'))
+        self.assertIn('--tab-width:220px', css)
+        self.assertNotIn('--hack-interface-readable-tabs-tab-width', css)
+        self.assertNotIn('.hx-', css)
+        self.assertIn(css, document)
+
+    def test_null_list_property_has_no_fake_none_pill(self):
+        from lxml import etree
+        from atlas_generator.render import property_value
+        holder=etree.Element('div')
+        property_value(holder,None,'list')
+        self.assertEqual(holder.xpath('.//*[contains(@class,"multi-select-pill")]'),[])
+        self.assertEqual(len(holder.xpath('.//*[@class="multi-select-input"]')),1)
+
+    def test_editor_example_retains_native_token_classes(self):
+        from pathlib import Path
+        from lxml import html
+        from atlas_generator.render import split_frontmatter,render_markdown
+        path=Path('/Users/op/vaults/op/! P R O/hacksidian/atlas/! hacks/tag-e077/Markdown.ru.md')
+        _,body=split_frontmatter(path.read_text())
+        root=html.fragment_fromstring(render_markdown(body,'tag-e077'),create_parent='div')
+        self.assertEqual(len(root.xpath('.//*[contains(concat(" ",@class," ")," cm-hashtag-begin ")]')),2)
+        self.assertEqual(len(root.xpath('.//*[contains(concat(" ",@class," ")," cm-active ")]')),1)

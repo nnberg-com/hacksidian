@@ -1,3 +1,4 @@
+import { t, numberLocale, currentLanguage } from "../i18n";
 import { ItemView, Notice, WorkspaceLeaf, setIcon } from "obsidian";
 import { formatCost } from "./cost";
 import { VIEW_TYPE_CALLMERED } from "./constants";
@@ -6,12 +7,13 @@ import type CallMeRedPlugin from "./main";
 export class ConversationView extends ItemView {
   private hackEl!: HTMLElement;
   private hackPath: string | null = null;
+  private hackRenderKey: string | null = null;
+  private hackResultEl!: HTMLElement;
   private refreshId = 0;
   private busy = false;
   private conversationEl!: HTMLElement;
   private statusEl!: HTMLElement;
   private usageEl!: HTMLElement;
-  private coverageEl!: HTMLElement;
   private inputEl!: HTMLTextAreaElement;
   private submitButton!: HTMLButtonElement;
   private toolbarButtons: HTMLButtonElement[] = [];
@@ -39,27 +41,28 @@ export class ConversationView extends ItemView {
     this.contentEl.empty();
     this.contentEl.addClass("callmered-panel");
 
+    this.hackRenderKey = null;
+    this.hackEl = this.contentEl.createDiv({ cls: "hacksidian-page-context" });
+
     const toolbar = this.contentEl.createDiv({ cls: "callmered-toolbar" });
     this.toolbarButtons = [
-      this.iconButton("file-symlink", "Следующая раскраска", () => void this.plugin.openNextColoring()),
-      this.iconButton("undo-2", "Undo", () => void this.plugin.undo()),
+      this.iconButton("file-symlink", t("view.next_sample"), () => void this.plugin.openNextColoring()),
+      this.iconButton("undo-2", t("view.undo"), () => void this.plugin.undo()),
     ];
     for (const button of this.toolbarButtons) toolbar.appendChild(button);
 
-    this.hackEl = this.contentEl.createDiv({ cls: "hacksidian-hack" });
-    this.hackEl.style.display = "none";
-
-    this.statusEl = this.contentEl.createDiv({ cls: "callmered-status", text: "Готово к работе." });
+    this.statusEl = this.contentEl.createDiv({ cls: "callmered-status", text: t("view.ready") });
     this.statusEl.setAttribute("role", "status");
     this.statusEl.setAttribute("aria-live", "polite");
-    this.coverageEl = this.contentEl.createDiv({ cls: "callmered-coverage" });
+    this.hackResultEl = this.contentEl.createDiv({ cls: "hacksidian-hack-result" });
+    this.hackResultEl.setAttribute("role", "status");
     this.conversationEl = this.contentEl.createDiv({ cls: "callmered-conversation" });
     this.usageEl = this.contentEl.createDiv({ cls: "callmered-usage" });
 
     const composer = this.contentEl.createDiv({ cls: "callmered-composer" });
     this.inputEl = composer.createEl("textarea", {
       cls: "callmered-input",
-      attr: { placeholder: "Что вы видите и чувствуете?", rows: "5" },
+      attr: { placeholder: t("view.request_placeholder"), rows: "3", "aria-label": t("view.request_placeholder") },
     });
     if (this.scope) {
       const submitFromShortcut = (event: KeyboardEvent): false | undefined => {
@@ -79,55 +82,64 @@ export class ConversationView extends ItemView {
       });
     }
     this.submitButton = composer.createEl("button", {
-      cls: "mod-cta",
-      text: "Показать следующий вариант",
-      attr: { "aria-keyshortcuts": "Meta+Enter", title: "Отправить — ⌘ Enter" },
+      cls: "mod-cta callmered-submit",
+      text: t("view.submit"),
+      attr: { "aria-keyshortcuts": "Meta+Enter", title: t("view.send_enter") },
     });
     this.submitButton.addEventListener("click", () => void this.submit());
 
     await this.refresh();
   }
 
+  async refreshLanguage(): Promise<void> {
+    // Update in place: preserve the draft, pending request and keyboard handlers.
+    this.toolbarButtons[0]?.setAttribute("aria-label", t("view.next_sample"));
+    this.toolbarButtons[1]?.setAttribute("aria-label", t("view.undo"));
+    this.inputEl.placeholder = t("view.request_placeholder");
+    this.inputEl.setAttribute("aria-label", t("view.request_placeholder"));
+    this.submitButton.title = t("view.send_enter");
+    this.submitButton.setText(t("view.submit"));
+    if (!this.busy) this.statusEl.setText(t("view.ready"));
+    await this.refresh();
+  }
+
   async refresh(): Promise<void> {
     if (!this.hackEl) return;
     const refreshId = ++this.refreshId;
+    const page = this.plugin.getCurrentPage();
     let hack;
     try { hack = await this.plugin.getCurrentHack(); }
     catch { hack = null; }
     if (refreshId !== this.refreshId) return;
-    this.hackEl.empty();
-    this.hackPath = hack?.path ?? null;
-    this.hackEl.style.display = hack ? "" : "none";
-    if (hack) {
-      this.hackEl.createDiv({ text: hack.title });
-      this.hackEl.createDiv({ cls: "setting-item-description", text: `Сниппет: ${hack.spec.target.replace(/^m-/, "")} · Без LLM` });
-      const button = this.hackEl.createEl("button", { text: "Применить hack", cls: "mod-cta" });
-      button.dataset.noCss = String(!hack.spec.hasCss);
-      button.disabled = this.busy || !hack.spec.hasCss;
-      for (const requirement of hack.spec.requirements ?? []) this.hackEl.createDiv({ cls: "setting-item-description", text: requirement });
-      if (!hack.spec.hasCss) this.hackEl.createDiv({ text: "У этого приёма нет собственного CSS." });
-      button.addEventListener("click", () => void this.applyHack());
+    // Focus changes can refresh this panel between pointerdown and click.
+    // Preserve the button node when the displayed card has not changed.
+    const renderKey = JSON.stringify([currentLanguage(), page, hack?.path, hack?.id, hack?.title, hack?.spec]);
+    if (renderKey !== this.hackRenderKey) {
+      this.hackRenderKey = renderKey;
+      this.hackEl.empty();
+      this.hackPath = hack?.path ?? null;
+      const heading = this.hackEl.createDiv({ cls: "hacksidian-page-heading" });
+      heading.createDiv({ cls: "hacksidian-page-title", text: hack?.title || page?.title || t("view.no_page"),
+        attr: { title: page?.path ?? "" } });
+      if (hack) {
+        const actions = heading.createDiv({ cls: "hacksidian-page-actions" });
+        const button = actions.createEl("button", { text: t("view.apply_hack"), cls: "mod-cta" });
+        button.dataset.noCss = String(!hack.spec.hasCss);
+        button.disabled = this.busy || !hack.spec.hasCss;
+        for (const requirement of hack.spec.requirements ?? []) this.hackEl.createDiv({ cls: "setting-item-description", text: requirement });
+        if (!hack.spec.hasCss) this.hackEl.createDiv({ text: t("view.this_technique_has_no_css_of_its") });
+        const path = hack.path;
+        button.addEventListener("click", () => void this.applyHack(path));
+      }
     }
-    const context = await this.plugin.getCurrentColoringContext();
-    if (refreshId !== this.refreshId) return;
-    this.coverageEl.removeClass("is-warning");
-    if (!context) {
-      this.coverageEl.setText("Откройте Markdown-раскраску в Reading view.");
-    } else if (context.coverage.missing.length === 0) {
-      this.coverageEl.setText(`Раскраска сохраняет все ${context.coverage.total} контрольных возможностей.`);
-    } else {
-      this.coverageEl.setText(`После правок не представлены: ${context.coverage.missing.join(", ")}.`);
-      this.coverageEl.addClass("is-warning");
-    }
-
     this.conversationEl.empty();
     for (const turn of this.plugin.state.turns) {
       const user = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-user" });
-      user.createDiv({ cls: "callmered-turn-label", text: "Вы" });
+      user.createDiv({ cls: "callmered-turn-label", text: t("view.you") });
       user.createDiv({ text: turn.userText });
       user.createDiv({
         cls: "callmered-turn-usage",
-        text: `${turn.usage.totalTokens.toLocaleString("ru-RU")} токенов · ${formatCost(turn.usage.estimatedCostUsd)}`,
+        text: t("view.tokens", { p0: turn.usage.totalTokens.toLocaleString(numberLocale()), p1: formatCost(turn.usage.estimatedCostUsd) }),
       });
       if (turn.systemMessage) {
         const system = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-system" });
@@ -137,7 +149,7 @@ export class ConversationView extends ItemView {
 
     const usage = this.plugin.totalUsage();
     this.usageEl.setText(
-      `API: ${usage.totalTokens.toLocaleString("ru-RU")} токенов · ${formatCost(usage.estimatedCostUsd)}`,
+      t("view.api_tokens", { p0: usage.totalTokens.toLocaleString(numberLocale()), p1: formatCost(usage.estimatedCostUsd) }),
     );
   }
 
@@ -149,21 +161,22 @@ export class ConversationView extends ItemView {
     this.contentEl.toggleClass("is-busy", busy);
     this.contentEl.setAttribute("aria-busy", String(busy));
     this.submitButton.disabled = busy;
-    this.submitButton.setText(busy ? "Подождите…" : "Показать следующий вариант");
+    this.submitButton.setText(t("view.submit"));
     this.inputEl.disabled = busy;
     for (const button of this.toolbarButtons) button.disabled = busy;
   }
 
-  private async applyHack(): Promise<void> {
-    if (!this.hackPath || this.busy) return;
-    const path = this.hackPath;
+  private async applyHack(path = this.hackPath): Promise<void> {
+    if (!path || this.busy) return;
     try {
-      this.setStatus("Подключаю CSS приёма…", true);
+      this.hackResultEl.setText(t("view.applying_technique_css"));
+      this.setStatus(t("view.applying_technique_css"), true);
       const changed = await this.plugin.applyCurrentHack(path);
-      this.setStatus(changed ? "Hack применён. Изменение можно отменить через Undo." : "Hack уже подключён.");
+      this.setStatus(changed ? t("view.hack_applied_you_can_revert_it_with") : t("view.hack_is_already_applied"));
     } catch (error) {
       this.setStatus(error instanceof Error ? error.message : String(error));
     }
+    this.hackResultEl.setText(this.statusEl.textContent ?? "");
     await this.refresh();
   }
 
@@ -183,23 +196,23 @@ export class ConversationView extends ItemView {
     this.inputEl.value = "";
     this.appendPendingTurn(text);
     try {
-      this.setStatus("Подготавливаю контекст…", true);
+      this.setStatus(t("view.preparing_context"), true);
       await this.plugin.processFeedback(text, (message) => this.setStatus(message, true));
-      this.setStatus("Новый вариант применён.");
+      this.setStatus(t("view.the_new_variation_has_been_applied"));
       await this.refresh();
     } catch (error) {
       await this.refresh();
       this.inputEl.value = text;
       this.setStatus(error instanceof Error ? error.message : String(error));
-      new Notice(this.statusEl.textContent ?? "Итерация не выполнена.");
+      new Notice(this.statusEl.textContent ?? t("view.the_iteration_could_not_be_completed"));
     }
   }
 
   private appendPendingTurn(text: string): void {
     const user = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-user is-pending" });
-    user.createDiv({ cls: "callmered-turn-label", text: "Вы" });
+    user.createDiv({ cls: "callmered-turn-label", text: t("view.you") });
     user.createDiv({ text });
-    user.createDiv({ cls: "callmered-turn-usage", text: "Отправлено · жду ответ" });
+    user.createDiv({ cls: "callmered-turn-usage", text: t("view.sent_waiting_for_a_response") });
     this.conversationEl.scrollTop = this.conversationEl.scrollHeight;
   }
 }

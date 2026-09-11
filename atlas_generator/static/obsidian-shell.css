@@ -16,3 +16,7 @@ html:has(body.theme-dark){color-scheme:dark;background:var(--background-primary,
 .hacksidian-atlas-shell pre{font-family:var(--font-monospace);background:var(--code-background);color:var(--code-normal)}
 .hacksidian-atlas-shell :focus-visible{outline-color:var(--interactive-accent)}
 @media(max-width:720px){.hacksidian-atlas-shell .workspace{display:block;height:calc(100dvh - 60px)}}
+
+/* Obsidian disables scroll chaining globally; embedded atlas cards must hand
+   wheel scrolling back to the surrounding feed at their scroll boundaries. */
+html,body.hacksidian-atlas-shell{overscroll-behavior:auto}

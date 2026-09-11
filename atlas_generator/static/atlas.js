@@ -3,12 +3,43 @@ const byId = id => document.getElementById(id);
 const entries = window.ATLAS.entries;
 const reader = document.querySelector('.reader');
 const feed = byId('feed');
-const controls = ['search', 'category', 'format', 'interactive'].map(byId);
+const controls = ['search', 'category', 'digest', 'format', 'interactive'].map(byId);
+const uiLanguage = window.ATLAS.uiLanguage || 'ru';
+const t = (key, values = {}) => window.ATLAS.i18n[key].replace(/\{(\w+)\}/g, (match, name) => String(values[name] ?? match));
+for (const [id, digest] of Object.entries(window.ATLAS.digests || {}).sort((a,b) => a[1].title.localeCompare(b[1].title, uiLanguage))) {
+  const option = document.createElement('option'); option.value = id;
+  option.textContent = digest.title + ' · ' + entries.filter(e => (e.digest || []).includes(id)).length;
+  byId('digest').append(option);
+}
+
+function collectionURL() {
+  const url = new URL(location.href);
+  url.search = ''; url.hash = '';
+  for (const control of controls) if (control.value) url.searchParams.set(control.id, control.value);
+  return url.href;
+}
+function restoreFilters() {
+  const params = new URLSearchParams(location.search);
+  for (const control of controls) {
+    const value = params.get(control.id) || '';
+    control.value = control.id === 'search' || [...control.options].some(option => option.value === value) ? value : '';
+  }
+}
+function selectedFromURL() {
+  try { return decodeURIComponent(location.hash.slice(1)); }
+  catch { return ''; }
+}
+function restoreCollection() {
+  restoreFilters();
+  render();
+  const id = selectedFromURL();
+  if (id) select(id, false);
+}
 const BATCH = 8;
 let selected = '', filtered = entries, loaded = 0;
 const frames = new Map();
-byId('total').textContent = `${entries.length.toLocaleString('ru')} приёмов · ${Object.keys(window.ATLAS.categories).length} групп`;
-for (const [id, category] of Object.entries(window.ATLAS.categories).sort((a,b)=>a[1].title.localeCompare(b[1].title,'ru'))) {
+byId('total').textContent = t('total', {count: entries.length.toLocaleString(uiLanguage), groups: Object.keys(window.ATLAS.categories).length});
+for (const [id, category] of Object.entries(window.ATLAS.categories).sort((a,b)=>a[1].title.localeCompare(b[1].title,uiLanguage))) {
   const option = document.createElement('option'); option.value = id; option.textContent = category.title; byId('category').append(option);
 }
 const near = new IntersectionObserver(items => {
@@ -52,7 +83,7 @@ function select(id, push = true) {
   if (!frame.hasAttribute('src')) frame.src = frame.dataset.url;
   // Offset is relative to the scrollable reader, including any outer header.
   reader.scrollTop += frame.parentElement.getBoundingClientRect().top - reader.getBoundingClientRect().top;
-  if (push) history.replaceState(null, '', '#' + encodeURIComponent(id));
+  if (push) history.replaceState(null, '', collectionURL() + '#' + encodeURIComponent(id));
   markCurrent(id);
 }
 function markCurrent(id) {
@@ -80,34 +111,36 @@ reader.addEventListener('scroll', () => {
   });
 });
 function render() {
-  const q = byId('search').value.trim().toLocaleLowerCase('ru').split(/\s+/).filter(Boolean);
+  const q = byId('search').value.trim().toLocaleLowerCase(uiLanguage).split(/\s+/).filter(Boolean);
   filtered = entries.filter(e => (!byId('category').value || e.category === byId('category').value)
+    && (!byId('digest').value || (e.digest || []).includes(byId('digest').value))
     && (!byId('format').value || e.format === byId('format').value)
     && (!byId('interactive').value || String(e.interactive) === byId('interactive').value)
     && q.every(word => e.search.includes(word)));
   selected = '';
+  const permalink = collectionURL();
+  byId('permalink').href = permalink;
   const list = byId('results'); list.replaceChildren();
   for (const [index, entry] of filtered.entries()) {
-    const a = document.createElement('a'); a.className = 'entry'; a.href = '#' + encodeURIComponent(entry.id); a.dataset.id = entry.id; a.dataset.position = index + 1;
+    const a = document.createElement('a'); a.className = 'entry'; a.href = permalink + '#' + encodeURIComponent(entry.id); a.dataset.id = entry.id; a.dataset.position = index + 1;
     const name = document.createElement('strong'); name.textContent = entry.title;
     const meta = document.createElement('small');
-    if (entry.interactive) { const dot = document.createElement('span'); dot.textContent = '●'; dot.className = 'dot'; dot.title = 'Взаимодействие, прокрутка или анимация'; meta.append(dot); }
+    if (entry.interactive) { const dot = document.createElement('span'); dot.textContent = '●'; dot.className = 'dot'; dot.title = t('interaction_hint'); meta.append(dot); }
     meta.append(document.createTextNode(entry.categoryTitle + ' · ' + entry.id)); a.append(name, meta);
     a.addEventListener('click', event => { event.preventDefault(); select(entry.id); }); list.append(a);
   }
-  byId('results-count').textContent = `${filtered.length.toLocaleString('ru')} найдено`;
+  byId('results-count').textContent = t('found', {count: filtered.length.toLocaleString(uiLanguage)});
   byId('empty').hidden = byId('feed-empty').hidden = !!filtered.length;
   near.disconnect(); tail.disconnect(); frames.clear(); feed.replaceChildren(); loaded = 0; reader.scrollTop = 0;
   appendBatch(); tail.observe(byId('load-more'));
   if (filtered.length) markCurrent(filtered[0].id);
 }
 for (const control of controls) control.addEventListener(control.id === 'search' ? 'input' : 'change', () => {
-  history.replaceState(null, '', location.pathname + location.search);
+  history.replaceState(null, '', collectionURL());
   render();
 });
 byId('load-more').addEventListener('click', () => appendBatch());
 byId('back').addEventListener('click', () => document.body.classList.remove('reading'));
-window.addEventListener('hashchange', () => select(decodeURIComponent(location.hash.slice(1)), false));
-render();
-const initial = decodeURIComponent(location.hash.slice(1));
-if (initial) select(initial, false);
+window.addEventListener('popstate', restoreCollection);
+window.addEventListener('hashchange', () => select(selectedFromURL(), false));
+restoreCollection();

@@ -76,6 +76,8 @@ export interface ProviderProfile {
 }
 
 export interface CallMeRedSettings {
+  interfaceLanguage: import('../i18n').InterfaceLanguage;
+  contentLanguage: import('../i18n').ContentLanguage;
   provider: ProviderId;
   providerProfiles: Partial<Record<ProviderId, ProviderProfile>>;
   customModel: boolean;

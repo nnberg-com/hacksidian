@@ -2,7 +2,7 @@
   const fs = require("node:fs/promises");
   const root = "/Users/op/dev/olgapavlova/hacksidian/plugin/style-recovery/2026-09-07";
   if (app.vault.adapter.getBasePath() !== "/Users/op/vaults/callmered") throw new Error("Wrong vault");
-  const plugin = app.plugins.plugins["callmered-poc"];
+  const plugin = app.plugins.plugins["hacksidian"];
   const expected = await fs.readFile(`${root}/restored.css`, "utf8");
   if (plugin.state.activeCss !== expected) throw new Error("Runtime CSS mismatch");
   const results = [];

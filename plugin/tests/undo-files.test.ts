@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 const state = vi.hoisted(() => ({ directory: '', data: {} as any, notices: [] as string[] }));
 vi.mock('obsidian', () => ({
+ getLanguage: () => 'ru',
  Plugin: class { async loadData(){return state.data;} async saveData(value: any){state.data=structuredClone(value);} },
  Notice: class { constructor(message: string){state.notices.push(message);} },
  ItemView: class {}, PluginSettingTab: class {}, MarkdownView: class {},
@@ -80,7 +81,7 @@ test.each([false,true])('feedback captures only when enabled (%s)', async(sendSc
  const plugin=await setup();
  plugin.settings.sendScreenshot=sendScreenshot;plugin.settings.autoPricing=false;
  vi.mocked(captureReadingView).mockClear();
- vi.spyOn(plugin,'getCurrentColoringContext').mockResolvedValue({file:{path:'test.md'},view:{getMode:()=> 'preview',containerEl:{}},markdown:'Test',coverage:{missing:[]}} as any);
+ vi.spyOn(plugin,'getCurrentColoringContext').mockResolvedValue({file:{path:'test.md'},view:{getMode:()=> 'preview',containerEl:{}},markdown:'Test'} as any);
  vi.spyOn(plugin as any,'getColoringFiles').mockReturnValue([]);
  vi.spyOn(plugin,'getCompatibleFonts').mockResolvedValue({families:[]} as any);
  const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({decision:{action:'no_change',message:'',css:'',moduleId:'',targetColoring:''},usage:{inputTokens:0,cachedInputTokens:0,outputTokens:0,totalTokens:0,estimatedCostUsd:0},responseId:'test'});
@@ -130,7 +131,7 @@ test('clear history refuses during an active operation and preserves history on 
 test('direct hack application changes only its group, records Undo and never calls an LLM',async()=>{
  const plugin=await setup();const before=await readFileStyle(dir);
  (plugin as any).app={vault:{configDir:'.obsidian',adapter:{read:async()=>readFile(path.join(dir,'hacksidian-manifest.json'),'utf8')}}};
- vi.spyOn(plugin,'getCurrentHack').mockResolvedValue({id:'text-demo',title:'Demo',path:'atlas/! hacks/text-demo/text-demo.md',spec:{format:1,target:'g-text',hasCss:true,atlas:{scope:'.x',class:'.x'},snippet:{scope:'.callmered-coloring.markdown-preview-view',class:'.callmered-coloring'}},template:'{{scope}} p {letter-spacing:.02em}',dependencies:''});
+ vi.spyOn(plugin,'getCurrentHack').mockResolvedValue({id:'text-demo',title:'Demo',path:'atlas/! hacks/text-demo/text-demo.md',spec:{format:2,target:'g-text',hasCss:true},css:'.markdown-preview-view p {letter-spacing:.02em}'});
  const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration');
  try{
   expect(await plugin.applyCurrentHack('atlas/! hacks/text-demo/text-demo.md')).toBe(true);
@@ -138,4 +139,39 @@ test('direct hack application changes only its group, records Undo and never cal
   const n=plugin.state.versions.length;expect(await plugin.applyCurrentHack('atlas/! hacks/text-demo/text-demo.md')).toBe(false);expect(plugin.state.versions).toHaveLength(n);
   expect(create).not.toHaveBeenCalled();await plugin.undo();expect(await readFileStyle(dir)).toEqual(before);
  }finally{create.mockRestore();}
+});
+
+test('interface and content languages persist independently across plugin reloads', async () => {
+ const plugin = await setup();
+ expect(plugin.settings.interfaceLanguage).toBe('auto');
+ expect(plugin.settings.contentLanguage).toBe('auto');
+ expect(plugin.interfaceLanguage).toBe('ru');
+ plugin.settings.interfaceLanguage = 'en';
+ plugin.settings.contentLanguage = 'ru';
+ await plugin.savePluginData();
+ const reloaded = new CallMeRedPlugin({} as any, {} as any);
+ await reloaded.loadPluginData();
+ expect(reloaded.interfaceLanguage).toBe('en');
+ expect(reloaded.contentLanguage).toBe('ru');
+});
+
+test('task-e30 update uses the normal apply path and Undo restores the installed old recipe', async () => {
+ const plugin = await setup();
+ const { compileStyle } = await import('../src/style-modules');
+ const current = await readFileStyle(dir);
+ const old = structuredClone(current);
+ old.modules.find(m => m.id === 'g-task')!.css += '\n/* hacksidian:hack:task-e30:start */\n.callmered-coloring.markdown-preview-view > ul {display:flex}\n/* hacksidian:hack:task-e30:end */\n';
+ await (plugin as any).commitCssVersion('old-task-e30', compileStyle(old), 'hack', old);
+ const recipe = '/Users/op/vaults/op/! P R O/hacksidian/atlas/! hacks/task-e30';
+ const hack = { id: 'task-e30', title: 'Completed last', path: 'atlas/! hacks/task-e30/task-e30.md',
+  spec: JSON.parse(await readFile(path.join(recipe, 'hack.json'), 'utf8')),
+  css: await readFile(path.join(recipe, 'recipe.css'), 'utf8') };
+ (plugin as any).app = { vault: { configDir: '.obsidian', adapter: { read: async () => readFile(path.join(dir, 'hacksidian-manifest.json'), 'utf8') } } };
+ vi.spyOn(plugin, 'getCurrentHack').mockResolvedValue(hack);
+ expect(await plugin.applyCurrentHack(hack.path)).toBe(true);
+ const updated = await readFileStyle(dir);
+ expect(updated.modules.find(m => m.id === 'g-task')!.css).toContain('ul.contains-task-list');
+ expect(await plugin.applyCurrentHack(hack.path)).toBe(false);
+ await plugin.undo();
+ expect(await readFileStyle(dir)).toEqual(old);
 });

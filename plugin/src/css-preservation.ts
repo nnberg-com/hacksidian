@@ -1,3 +1,4 @@
+import { t } from "../i18n";
 import postcss from "postcss";
 
 // Conservative guard until component patches replace complete-stylesheet responses.
@@ -29,13 +30,13 @@ export function validateCssPreservation(before: string, after: string): string[]
     const errors: string[] = [];
     for (const [selector, properties] of previous) {
       const remaining = next.get(selector);
-      if (!remaining) errors.push(`Удалён селектор: ${selector}.`);
+      if (!remaining) errors.push(t("css-preservation.selector_removed", { p0: selector }));
       else for (const property of properties) {
-        if (!remaining.has(property)) errors.push(`Удалено свойство ${property}: ${selector}.`);
+        if (!remaining.has(property)) errors.push(t("css-preservation.property_removed_from", { p0: property, p1: selector }));
       }
     }
     return errors;
   } catch {
-    return ["Не удалось проверить сохранность CSS: ошибка разбора."];
+    return [t("css-preservation.could_not_verify_css_preservation_parsing_failed")];
   }
 }

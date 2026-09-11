@@ -1,9 +1,13 @@
-import { readFile } from "node:fs/promises";
+import { readFile, mkdir, writeFile } from "node:fs/promises";
 import esbuild from "esbuild";
 import process from "node:process";
 import builtins from "builtin-modules";
 
 const production = process.argv[2] === "production";
+
+await mkdir(new URL("./dist/", import.meta.url), { recursive: true });
+await writeFile(new URL("./dist/styles.css", import.meta.url),
+  await readFile(new URL("./styles.css", import.meta.url), "utf8"));
 
 const snippetsRoot = new URL("../snippets/", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("hacksidian-manifest.json", snippetsRoot), "utf8"));

@@ -1,3 +1,4 @@
+import { t } from "../i18n";
 import { requestUrl } from "obsidian";
 import { calculateUsage } from "./cost";
 import { parseModelDecision, type OpenAIResponse } from "./response";
@@ -43,9 +44,9 @@ export class OpenAIResponsesProvider implements ModelProvider {
   constructor(private readonly settings: CallMeRedSettings) {}
 
   async createIteration(request: ProviderRequest): Promise<ProviderResult> {
-    if (!this.settings.apiKey.trim()) throw new Error("Добавьте API-ключ OpenAI в настройках Hacksidian.");
+    if (!this.settings.apiKey.trim()) throw new Error(t("provider.add_an_openai_api_key_in_hacksidian"));
 
-    if (!this.settings.model.trim()) throw new Error("Выберите модель OpenAI в настройках Hacksidian.");
+    if (!this.settings.model.trim()) throw new Error(t("provider.select_an_openai_model_in_hacksidian_settings"));
 
     const response = await requestUrl({
       url: "https://api.openai.com/v1/responses",
@@ -86,7 +87,7 @@ export class OpenAIResponsesProvider implements ModelProvider {
 
     if (response.status < 200 || response.status >= 300) {
       const detail = typeof response.text === "string" ? response.text.slice(0, 800) : "";
-      throw new Error(`OpenAI API вернул ${response.status}: ${detail}`);
+      throw new Error(t("provider.openai_api_returned", { p0: response.status, p1: detail }));
     }
 
     const body = response.json as OpenAIResponse;
@@ -110,8 +111,8 @@ class AlternativeProvider implements ModelProvider {
 
   async createIteration(request: ProviderRequest): Promise<ProviderResult> {
     const { provider, apiKey, model } = this.settings;
-    if (!apiKey.trim()) throw new Error('Добавьте API-ключ выбранного провайдера.');
-    if (!model.trim()) throw new Error('Выберите модель.');
+    if (!apiKey.trim()) throw new Error(t("provider.add_an_api_key_for_the_selected"));
+    if (!model.trim()) throw new Error(t("provider.select_a_model"));
     const image = this.settings.sendScreenshot ? request.screenshotBase64 : undefined;
     const claude = provider === 'anthropic';
     const url = claude ? 'https://api.anthropic.com/v1/messages' : provider === 'google'
@@ -135,11 +136,11 @@ class AlternativeProvider implements ModelProvider {
     if (claude) { headers['x-api-key'] = apiKey.trim(); headers['anthropic-version'] = '2023-06-01'; }
     else headers.Authorization = `Bearer ${apiKey.trim()}`;
     const response = await requestUrl({ url, method: 'POST', headers, body: JSON.stringify(payload), throw: false });
-    if (response.status < 200 || response.status >= 300) throw new Error(`${provider} API вернул ${response.status}: ${response.text.slice(0, 800)}`);
+    if (response.status < 200 || response.status >= 300) throw new Error(t("provider.api_returned", { p0: provider, p1: response.status, p2: response.text.slice(0, 800) }));
     const body = response.json;
     const stop = claude ? body.stop_reason : body.choices?.[0]?.finish_reason;
-    if (stop === 'max_tokens' || stop === 'length') throw new Error('Ответ LLM оборвался по лимиту выходных токенов.');
-    if (stop !== (claude ? 'end_turn' : 'stop')) throw new Error(`LLM не завершила ответ: ${stop ?? 'нет статуса'}.`);
+    if (stop === 'max_tokens' || stop === 'length') throw new Error(t("provider.the_llm_response_reached_the_output_token"));
+    if (stop !== (claude ? 'end_turn' : 'stop')) throw new Error(t("provider.the_llm_did_not_complete_its_response", { p0: stop ?? t("provider.no_status") }));
     const text = claude ? body.content?.filter((c: {type: string}) => c.type === 'text').map((c: {text: string}) => c.text).join('') : body.choices?.[0]?.message?.content;
     const usage = body.usage;
     const input = claude ? (usage?.input_tokens ?? 0) + (usage?.cache_read_input_tokens ?? 0) + (usage?.cache_creation_input_tokens ?? 0) : usage?.prompt_tokens;

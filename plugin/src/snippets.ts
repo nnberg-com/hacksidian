@@ -1,3 +1,4 @@
+import { t } from "../i18n";
 import { mkdir, writeFile, readFile, rename, unlink } from "node:fs/promises";
 import path from "node:path";
 import type { App } from "obsidian";
@@ -10,7 +11,7 @@ declare const __HACKSIDIAN_TEMPLATES__: Record<string, string>;
 export async function installSnippetTemplates(directory: string, templates = __HACKSIDIAN_TEMPLATES__): Promise<string[]> {
   await mkdir(directory, { recursive: true });
   for (const [file, content] of Object.entries(templates)) {
-    if (!/^hacksidian-[a-zA-Z0-9-]+\.(css|json)$/.test(file)) throw new Error("Неверный путь шаблона сниппета.");
+    if (!/^hacksidian-[a-zA-Z0-9-]+\.(css|json)$/.test(file)) throw new Error(t("snippets.invalid_snippet_template_path"));
     try {
       await writeFile(path.join(directory, file), content, { encoding: "utf8", flag: "wx" });
     } catch (error) {
@@ -51,7 +52,7 @@ export async function migrateSnippetGroups(directory: string): Promise<string[]>
       await writeFile(file, next.modules.find(m => m.id === entry.id)!.css, {flag: "wx"});
       created.push(file);
     }
-    if (JSON.stringify(await readFileStyle(directory)) !== JSON.stringify(before)) throw new Error("CSS изменился во время обновления структуры.");
+    if (JSON.stringify(await readFileStyle(directory)) !== JSON.stringify(before)) throw new Error(t("snippets.css_changed_while_updating_the_structure"));
     await writeFile(manifestPath + ".tmp", JSON.stringify(groupManifest, null, 2) + "\n");
     await rename(manifestPath + ".tmp", manifestPath);
   } catch (error) {

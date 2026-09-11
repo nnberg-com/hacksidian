@@ -253,7 +253,7 @@ def property_value(holder, value, kind=None):
             inp.set('placeholder', 'Пусто')
     elif kind == 'list':
         container = etree.SubElement(holder, 'div', {'class': 'multi-select-container'})
-        for item in value if isinstance(value, list) else [value]:
+        for item in (value if isinstance(value, list) else [] if value is None else [value]):
             pill = etree.SubElement(container, 'span', {'class': 'multi-select-pill'})
             etree.SubElement(pill, 'span', {'class': 'multi-select-pill-content'}).text = str(item)
             etree.SubElement(pill, 'span', {'class': 'multi-select-pill-remove-button', 'aria-hidden': 'true'}).text = '×'

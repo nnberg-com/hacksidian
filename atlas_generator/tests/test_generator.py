@@ -93,10 +93,12 @@ class BuildTests(unittest.TestCase):
         self.directory = self.source / '! hacks' / 'demo'
         self.directory.mkdir(parents=True)
         (self.source / '! categories').mkdir()
-        (self.source / '! categories' / 'text.md').write_text('---\ntitle: Текст\n---\n')
-        (self.directory / 'demo.md').write_text('---\ntags: []\ntitle: Demo\ncategory: text\nformat: markdown\ninteractive: false\n---\n\n## Зачем\n\nПроверка')
+        (self.source / '! categories' / 'text.md').write_text('---\ntitle: Текст\ntitle_en: Text\n---\n')
+        (self.directory / 'demo.md').write_text('---\ntags: []\ncategory: text\nformat: markdown\ninteractive: false\n---\n')
+        (self.directory / 'Description.ru.md').write_text('---\nlanguage: ru\ntitle: Пример\n---\n\n## Зачем\n\nПроверка')
+        (self.directory / 'Description.en.md').write_text('---\nlanguage: en\ntitle: Example\n---\n\n## Purpose\n\nA test')
         (self.directory / 'Markdown.ru.md').write_text('# First\n\n**Content**')
-        (self.directory / 'snippet.css').write_text('strong{color:blue}')
+        (self.directory / 'recipe.css').write_text('strong{color:blue}')
         self.output = self.root / 'output'
 
     def tearDown(self):
@@ -108,12 +110,61 @@ class BuildTests(unittest.TestCase):
         self.assertIn('First', first)
         self.assertFalse(report['legacy_atlas_required'])
         (self.directory / 'Markdown.ru.md').write_text('# Updated')
-        (self.directory / 'snippet.css').write_text('h1{color:red}')
+        (self.directory / 'recipe.css').write_text('h1{color:red}')
         build(self.source, self.output, 'ru')
         second = (self.output / 'recipes/demo/preview.html').read_text()
         self.assertIn('Updated', second)
         self.assertIn('h1{color:red}', second)
         self.assertNotIn('<strong>Content', second)
+
+    def add_digest(self, uid, title, title_en):
+        directory = self.source / '! digests'
+        directory.mkdir(exist_ok=True)
+        (directory / (uid + '.md')).write_text(f'---\ntitle: {title}\ntitle_en: {title_en}\n---\n')
+
+    def set_digests(self, value):
+        card = self.directory / 'demo.md'
+        card.write_text(card.read_text().replace('category: text', 'category: text\ndigest: ' + value))
+
+    def test_multiple_digests_and_independent_ui_language(self):
+        self.add_digest('todo', 'Задачи', 'Task management')
+        self.add_digest('teach', 'Преподавание', 'Teaching')
+        self.set_digests('[todo, teach]')
+        report = build(self.source, self.output, 'ru', ui_language='en')
+        catalog = json.loads((self.output / 'catalog.js').read_text().removeprefix('window.ATLAS = ').removesuffix(';\n'))
+        self.assertEqual(catalog['entries'][0]['digest'], ['todo', 'teach'])
+        self.assertEqual(catalog['digests']['todo']['title'], 'Task management')
+        self.assertEqual(catalog['uiLanguage'], 'en')
+        self.assertEqual(report['digests'], {'teach': 1, 'todo': 1})
+        card = html.parse(str(self.output / 'recipes/demo/index.html'))
+        self.assertEqual(card.xpath('//p[@aria-label="Digests"]/span/text()'), ['Task management', 'Teaching'])
+        self.assertIn('! digests/todo.md', report['inputs'])
+        self.assertTrue((self.output / 'recipes/demo/Markdown.ru.md').exists())
+        russian = build(self.source, self.output, 'ru')
+        self.assertNotEqual(report, russian)
+        self.assertIn('Задачи', (self.output / 'recipes/demo/index.html').read_text())
+
+    def test_invalid_digest_memberships_fail_before_replacing_build(self):
+        self.add_digest('todo', 'Задачи', 'Task management')
+        build(self.source, self.output, 'ru')
+        original = (self.output / 'catalog.js').read_bytes()
+        card = self.directory / 'demo.md'
+        source = card.read_text()
+        for value, error in [('todo', 'list of IDs'), ('[42]', 'list of IDs'),
+                             ('[todo, todo]', 'duplicate'), ('[unknown]', 'unknown'), ('null', 'list of IDs')]:
+            with self.subTest(value=value):
+                card.write_text(source)
+                self.set_digests(value)
+                with self.assertRaisesRegex(ValueError, error):
+                    build(self.source, self.output, 'ru')
+                self.assertEqual((self.output / 'catalog.js').read_bytes(), original)
+
+    def test_digest_requires_both_translations(self):
+        directory = self.source / '! digests'
+        directory.mkdir()
+        (directory / 'todo.md').write_text('---\ntitle: Tasks\n---\n')
+        with self.assertRaisesRegex(ValueError, 'title and title_en'):
+            build(self.source, self.output, 'ru')
 
     def test_repeated_build_is_deterministic(self):
         first = build(self.source, self.output, 'ru')
@@ -149,6 +200,64 @@ class BuildTests(unittest.TestCase):
     def test_unavailable_language_is_explicit(self):
         with self.assertRaisesRegex(ValueError, 'Markdown.en.md'):
             compile_catalogue(self.source, 'en')
+
+class LocalizationTests(unittest.TestCase):
+    setUp = BuildTests.setUp
+    tearDown = BuildTests.tearDown
+
+    def test_shared_card_has_no_localized_fields_and_description_drives_title(self):
+        build(self.source, self.output, 'ru')
+        self.assertIn('Пример', (self.output/'recipes/demo/index.html').read_text())
+        (self.directory/'Description.ru.md').write_text('---\nlanguage: ru\ntitle: Новое имя\n---\n## Зачем\nНовая причина')
+        build(self.source, self.output, 'ru')
+        self.assertIn('Новое имя', (self.output/'recipes/demo/index.html').read_text())
+        self.assertIn('Новая причина', (self.output/'recipes/demo/index.html').read_text())
+        self.assertNotIn('title:', (self.directory/'demo.md').read_text())
+
+    def test_english_shell_description_and_russian_example_are_independent(self):
+        report = build(self.source, self.output, 'ru', ui_language='en')
+        shell = html.parse(str(self.output/'index.html'))
+        recipe = html.parse(str(self.output/'recipes/demo/index.html'))
+        preview = html.parse(str(self.output/'recipes/demo/preview.html'))
+        self.assertEqual(shell.getroot().get('lang'), 'en')
+        self.assertEqual(recipe.getroot().get('lang'), 'en')
+        self.assertEqual(preview.getroot().get('lang'), 'ru')
+        self.assertIn('Find a technique', shell.getroot().text_content())
+        self.assertIn('Purpose', recipe.getroot().text_content())
+        self.assertIn('A test', recipe.getroot().text_content())
+        self.assertIn('Description.en.md', recipe.xpath('//a[contains(@href,"obsidian:")]/@href')[0])
+        self.assertIn('! hacks/demo/Description.en.md', report['inputs'])
+        self.assertNotIn('{{i18n:', (self.output/'index.html').read_text())
+        self.assertNotIn('Проверка', recipe.getroot().text_content())
+
+    def test_pending_translation_fails_without_overwriting_previous_build(self):
+        build(self.source, self.output, 'ru')
+        before = (self.output/'catalog.js').read_bytes()
+        (self.directory/'Description.en.md').write_text('---\nlanguage: en\ntranslation_status: pending\n---\n')
+        with self.assertRaisesRegex(ValueError, 'translation is not complete'):
+            build(self.source, self.output, 'ru', ui_language='en')
+        self.assertEqual((self.output/'catalog.js').read_bytes(),before)
+
+    def test_translated_metadata_cannot_override_technical_contract(self):
+        (self.directory/'Description.en.md').write_text('---\nlanguage: en\ntitle: Example\ncategory: other\n---\n')
+        with self.assertRaisesRegex(ValueError, 'technical fields'):
+            build(self.source, self.output, 'ru', ui_language='en')
+
+    def test_translation_inventory_and_runtime_language_resolution(self):
+        from atlas_generator.localization import translation_inventory, resolve_build_languages
+        inventory = translation_inventory(self.source)
+        self.assertEqual(inventory['languages']['ru']['complete'],1)
+        self.assertEqual(inventory['languages']['en']['complete'],0)
+        config = self.root/'.obsidian'
+        directory = config/'plugins/hacksidian'
+        directory.mkdir(parents=True)
+        (directory/'data.json').write_text(json.dumps({'settings':{'interfaceLanguage':'auto','contentLanguage':'ru'},'localization':{'interfaceLanguage':'en','contentLanguage':'ru'}}))
+        self.assertEqual(resolve_build_languages(config), ('ru','en'))
+        self.assertEqual(resolve_build_languages(config, 'en', 'ru'), ('en','ru'))
+        self.assertEqual(resolve_build_languages(None), ('en','en'))
+        (directory/'data.json').write_text(json.dumps({'settings':{'interfaceLanguage':'ru','contentLanguage':'auto'}}))
+        self.assertEqual(resolve_build_languages(config),('ru','ru'))
+        self.assertEqual(resolve_build_languages(config, interface='en'),('en','en'))
 
 
 if __name__ == '__main__':

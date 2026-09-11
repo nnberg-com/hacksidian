@@ -1,3 +1,4 @@
+import { t } from "../i18n";
 import postcss, { type AtRule, type Rule } from "postcss";
 
 const REQUIRED_SCOPES = [
@@ -28,12 +29,12 @@ export function validateGeneratedCss(css: string, compatibleFonts?: string[]): s
   try {
     root = postcss.parse(css);
   } catch (error) {
-    return [`CSS не разбирается: ${error instanceof Error ? error.message : String(error)}`];
+    return [t("css.could_not_parse_css", { p0: error instanceof Error ? error.message : String(error) })];
   }
 
   root.walkAtRules((rule) => {
     if (["import", "font-face", "namespace", "document"].includes(rule.name.toLowerCase())) {
-      errors.push(`Запрещено правило @${rule.name}.`);
+      errors.push(t("css.the_rule_is_not_allowed", { p0: rule.name }));
     }
   });
 
@@ -41,28 +42,28 @@ export function validateGeneratedCss(css: string, compatibleFonts?: string[]): s
     if (isInsideKeyframes(rule)) return;
     for (const selector of rule.selectors) {
       if (!REQUIRED_SCOPES.some((scope) => selector.includes(scope))) {
-        errors.push(`Селектор выходит за Markdown Reading view: ${selector}`);
+        errors.push(t("css.selector_is_outside_markdown_reading_view", { p0: selector }));
       }
       if (selector.includes("callmered-conversation") || selector.includes("callmered-panel")) {
-        errors.push(`Селектор затрагивает панель Hacksidian: ${selector}`);
+        errors.push(t("css.selector_affects_the_hacksidian_panel", { p0: selector }));
       }
     }
   });
 
   root.walkDecls((declaration) => {
     const value = declaration.value.toLowerCase().replace(/\s+/g, "");
-    if (/url\s*\(/i.test(declaration.value)) errors.push(`Запрещён url() в ${declaration.prop}.`);
+    if (/url\s*\(/i.test(declaration.value)) errors.push(t("css.url_is_not_allowed_in", { p0: declaration.prop }));
     if (FORBIDDEN_DECLARATIONS.has(`${declaration.prop.toLowerCase()}:${value}`)) {
-      errors.push(`Запрещено скрывать содержимое через ${declaration.prop}.`);
+      errors.push(t("css.hiding_content_with_is_not_allowed", { p0: declaration.prop }));
     }
     if (declaration.prop.toLowerCase() === "font") {
-      errors.push("Сокращённое свойство font запрещено; используйте отдельные свойства, включая font-family.");
+      errors.push(t("css.the_font_shorthand_is_not_allowed_use"));
     }
     if (compatibleFonts && declaration.prop.toLowerCase() === "font-family") {
       const allowed = new Set(compatibleFonts.map(normalizeFamily));
       for (const family of declaration.value.split(",").map(normalizeFamily)) {
         if (family.startsWith("var(")) continue;
-        if (!allowed.has(family)) errors.push(`Шрифт не прошёл проверку выбранных локалей: ${family}.`);
+        if (!allowed.has(family)) errors.push(t("css.font_does_not_cover_the_selected_locales", { p0: family }));
       }
     }
   });

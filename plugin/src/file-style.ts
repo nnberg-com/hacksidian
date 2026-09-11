@@ -1,3 +1,4 @@
+import { t } from "../i18n";
 import { readFile, writeFile, rename, unlink } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
@@ -6,10 +7,10 @@ import { compileStyle, type ModularStyle } from "./style-modules";
 interface Entry { id: string; component: string; file: string }
 export async function readFileStyle(directory: string): Promise<ModularStyle> {
   const manifest = JSON.parse(await readFile(path.join(directory, "hacksidian-manifest.json"), "utf8"));
-  if (manifest.format !== 1 || !Array.isArray(manifest.modules)) throw new Error("Неверный manifest CSS.");
+  if (manifest.format !== 1 || !Array.isArray(manifest.modules)) throw new Error(t("file-style.invalid_css_manifest"));
   const files = new Set<string>();
   const modules = await Promise.all(manifest.modules.map(async (entry: Entry) => {
-    if (!/^[a-zA-Z0-9-]+\.css$/.test(entry.file) || files.has(entry.file)) throw new Error("Неверный или повторный путь CSS.");
+    if (!/^[a-zA-Z0-9-]+\.css$/.test(entry.file) || files.has(entry.file)) throw new Error(t("file-style.invalid_or_duplicate_css_path"));
     files.add(entry.file);
     return { id: entry.id, component: entry.component, css: await readFile(path.join(directory, entry.file), "utf8") };
   }));
@@ -22,10 +23,10 @@ export async function readFileStyle(directory: string): Promise<ModularStyle> {
 export async function writeFileStyle(directory: string, expected: ModularStyle, next: ModularStyle, allowMultiple = false): Promise<void> {
   compileStyle(next);
   const current = await readFileStyle(directory);
-  if (JSON.stringify(current) !== JSON.stringify(expected)) throw new Error("CSS-файлы изменились. Ответ не применён; повторите запрос.");
-  if (next.modules.length !== current.modules.length || next.modules.some((m, i) => m.id !== current.modules[i].id || m.component !== current.modules[i].component)) throw new Error("Изменение manifest требует отдельной миграции.");
+  if (JSON.stringify(current) !== JSON.stringify(expected)) throw new Error(t("file-style.css_files_have_changed_the_response_was"));
+  if (next.modules.length !== current.modules.length || next.modules.some((m, i) => m.id !== current.modules[i].id || m.component !== current.modules[i].component)) throw new Error(t("file-style.changing_the_manifest_requires_a_separate_migration"));
   const changed = next.modules.filter((m, i) => m.css !== current.modules[i].css);
-  if (!allowMultiple && changed.length > 1) throw new Error("За одну операцию можно изменить только один CSS-файл.");
+  if (!allowMultiple && changed.length > 1) throw new Error(t("file-style.only_one_css_file_may_be_changed"));
   if (!changed.length) return;
   const manifest = JSON.parse(await readFile(path.join(directory, "hacksidian-manifest.json"), "utf8"));
   const staged: {file: string; temporary: string; before: string}[] = [];
@@ -38,7 +39,7 @@ export async function writeFileStyle(directory: string, expected: ModularStyle, 
       await writeFile(temporary, module.css, "utf8");
       staged.push({file, temporary, before: current.modules.find(m => m.id === module.id)!.css});
     }
-    if (JSON.stringify(await readFileStyle(directory)) !== JSON.stringify(expected)) throw new Error("CSS-файлы изменились во время сохранения.");
+    if (JSON.stringify(await readFileStyle(directory)) !== JSON.stringify(expected)) throw new Error(t("file-style.css_files_changed_while_saving"));
     for (const file of staged) { await rename(file.temporary, file.file); replaced.push(file); }
   } catch (error) {
     for (const file of replaced.reverse()) await writeFile(file.file, file.before, "utf8");
