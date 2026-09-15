@@ -6,8 +6,7 @@ export type SupportedLocale = "ru-Cyrl" | "sr-Cyrl" | "he";
 export interface ModelDecision {
   action: ModelAction;
   message: string;
-  css: string;
-  moduleId: string;
+  modules: import("./style-modules").StyleModule[];
   targetColoring: string;
 }
 
@@ -83,6 +82,7 @@ export interface CallMeRedSettings {
   customModel: boolean;
   autoPricing: boolean;
   pricing?: PricingQuote;
+  spendLimitUsd: number;
   sendScreenshot: boolean;
   apiKey: string;
   model: string;
@@ -91,4 +91,15 @@ export interface CallMeRedSettings {
   outputPricePerMillion: number;
   coloringsFolder: string;
   supportedLocales: SupportedLocale[];
+}
+
+export interface ApiAttempt {
+  id: string;
+  createdAt: string;
+  provider: string;
+  model: string;
+  promptVersion: string;
+  status: "pending" | "received" | "completed" | "failed" | "interrupted";
+  usage: UsageRecord;
+  responseId: string;
 }

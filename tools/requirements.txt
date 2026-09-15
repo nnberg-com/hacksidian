@@ -1,0 +1,2 @@
+# One-time catalogue localization migration
+PyYAML==6.0.3

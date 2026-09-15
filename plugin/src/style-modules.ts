@@ -63,38 +63,28 @@ export function compileStyle(style: ModularStyle): string {
   return css;
 }
 
-// Freeze rule order, selectors, at-rule conditions, properties and importance.
-// Values are the only editable part of an established module in this first version.
-function contract(css: string): string {
-  const root = postcss.parse(css);
-  const shape = (node: ChildNode): unknown => {
-    if (node.type === "comment") return null;
-    if (node.type === "decl") return ["decl", node.prop, !!node.important];
-    if (node.type === "rule") return ["rule", node.selectors, node.nodes.map(shape).filter(Boolean)];
-    return ["at", node.name, node.params, node.nodes?.map(shape).filter(Boolean)];
-  };
-  return JSON.stringify(root.nodes.map(shape).filter(Boolean));
-}
-
 export function replaceStyleModule(style: ModularStyle, id: string, css: string, fonts?: string[]): ModularStyle {
   compileStyle(style);
-  const selected = style.modules.find(module => module.id === id);
-  if (!selected) throw new Error(t("style-modules.unknown_css_module", { p0: id }));
-  const bootstrap = style.modules.length === 1 && contract(selected.css) === "[]";
-  if (!bootstrap && contract(selected.css) !== contract(css)) {
-    throw new Error(t("style-modules.the_css_module_s_structural_contract_changed"));
-  }
-  const candidate = postcss.parse(css);
-  if (!bootstrap) {
-    const oldDeclarations: string[] = [];
-    postcss.parse(selected.css).walkDecls(d => { oldDeclarations.push(d.toString()); });
-    let index = 0;
-    candidate.walkDecls(d => { if (d.toString() === oldDeclarations[index++]) d.remove(); });
-  }
-  const errors = validateGeneratedCss(candidate.toString(), fonts);
+  if (!style.modules.some(module => module.id === id)) throw new Error(t("style-modules.unknown_css_module", { p0: id }));
+  const errors = validateGeneratedCss(css, fonts);
   if (errors.length) throw new Error(errors.join(" "));
   const next: ModularStyle = { format: 1, modules: style.modules.map(module => module.id === id ? { ...module, css } : { ...module }) };
-  // Parse and validate the assembled result too, not just the replacement fragment.
   compileStyle(next);
-  return bootstrap ? importStyle(compileStyle(next)) : next;
+  return next;
+}
+
+// Only listed snippets are replaced. All other source bytes remain authoritative.
+export function applySnippetUpdates(style: ModularStyle, updates: StyleModule[]): ModularStyle {
+  const ids = new Set<string>();
+  for (const update of updates) {
+    const current = style.modules.find(module => module.id === update.id);
+    if (!current || current.component !== update.component || ids.has(update.id)) throw new Error(t("file-style.changing_the_manifest_requires_a_separate_migration"));
+    ids.add(update.id);
+  }
+  const next: ModularStyle = { format: 1, modules: style.modules.map(module => {
+    const update = updates.find(candidate => candidate.id === module.id);
+    return { ...(update ?? module) };
+  }) };
+  compileStyle(next);
+  return next;
 }

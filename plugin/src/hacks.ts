@@ -9,6 +9,7 @@ export interface HackSpec {
   hasCss: boolean;
 }
 export interface HackContext {
+  installed?: boolean;
   id: string;
   title: string;
   path: string;
@@ -54,4 +55,19 @@ export function addHack(style: ModularStyle, hack: HackContext): { style: Modula
   return { changed: true, style: { ...style, modules: style.modules.map(m => m.id !== selected.id ? m : {
     ...m, css: m.css.trimEnd() + '\n\n' + marker + '\n' + css + `/* hacksidian:hack:${hack.id}:end */\n`,
   }) } };
+}
+
+export function hasHack(style: ModularStyle | undefined, id: string): boolean {
+  return !!style?.modules.some(m => m.css.includes(`/* hacksidian:hack:${id}:start */`) || m.css.includes(`/* hacksidian:hack:${id}:end */`));
+}
+
+export function removeHack(style: ModularStyle, id: string): { style: ModularStyle; changed: boolean } {
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) throw new Error(t('hacks.invalid_technique_format'));
+  const startMarker = `/* hacksidian:hack:${id}:start */`, endMarker = `/* hacksidian:hack:${id}:end */`;
+  const matches = style.modules.filter(m => m.css.includes(startMarker) || m.css.includes(endMarker));
+  if (!matches.length) return { style, changed: false };
+  const module = matches[0], start = module.css.indexOf(startMarker), end = module.css.indexOf(endMarker);
+  if (matches.length !== 1 || start < 0 || end < start || module.css.split(startMarker).length !== 2 || module.css.split(endMarker).length !== 2) throw new Error(t('hacks.invalid_technique_format'));
+  if (module.css.slice(start + startMarker.length, end).includes('/* hacksidian:hack:')) throw new Error(t('hacks.invalid_technique_format'));
+  return { changed: true, style: { ...style, modules: style.modules.map(m => m !== module ? m : { ...m, css: m.css.slice(0, start) + m.css.slice(end + endMarker.length) }) } };
 }

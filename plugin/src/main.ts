@@ -1,10 +1,15 @@
+import { registerLiveExamples } from "./live-example";
 import { t, setLanguageResolver, resolveInterfaceLanguage, resolveContentLanguage, type Language } from "../i18n";
+import { validateGeneratedCss } from "./css";
+import { migrateAttempts, summarizeAttempts, unknownUsage } from "./api-ledger";
+import type { ApiAttempt } from "./types";
 import { selectColoringPaths } from "./content-language";
 import { splitLegacyStyle } from "./snippet-groups";
 import {
   getLanguage,
   parseYaml,
   MarkdownView,
+  MarkdownRenderer,
   Notice,
   Plugin,
   TFile,
@@ -16,7 +21,7 @@ import { styleDirectory } from "./storage";
 import { captureReadingView } from "./capture";
 import { collectComputedStyleContext } from "./context";
 import { CSS_UNDO_LIMIT, DEFAULT_SETTINGS, DEFAULT_STATE, PROMPT_VERSION, VIEW_TYPE_CALLMERED } from "./constants";
-import { compileStyle, importStyle, replaceStyleModule } from "./style-modules";
+import { applySnippetUpdates, compileStyle, importStyle, replaceStyleModule } from "./style-modules";
 import { discoverCompatibleFonts, LOCALE_OPTIONS, type FontDiscoveryResult } from "./fonts";
 import { buildTurnPrompt, SYSTEM_PROMPT } from "./prompt";
 import { createProvider } from "./provider";
@@ -24,16 +29,18 @@ import { CallMeRedSettingTab } from "./settings";
 import type { CallMeRedSettings, PersistedState, TurnRecord, UsageRecord } from "./types";
 import { loadPricing, pricingKey } from "./pricing";
 import { PROVIDERS } from "./llm-catalog";
-import { addHack, hackId, type HackContext, type HackSpec } from "./hacks";
+import { addHack, removeHack, hasHack, hackId, type HackContext, type HackSpec } from "./hacks";
 import { ConversationView } from "./view";
 
 interface PluginData {
+  apiAttempts?: ApiAttempt[];
   snippetsInstalled?: boolean;
   settings?: Partial<CallMeRedSettings>;
   state?: Partial<PersistedState>;
 }
 
 export default class CallMeRedPlugin extends Plugin {
+  apiAttempts: ApiAttempt[] = [];
   settings: CallMeRedSettings = { ...DEFAULT_SETTINGS };
   state: PersistedState = structuredClone(DEFAULT_STATE);
   private lastMarkdownLeaf: WorkspaceLeaf | null = null;
@@ -73,6 +80,7 @@ export default class CallMeRedPlugin extends Plugin {
 
   async onload(): Promise<void> {
     setLanguageResolver(() => this.interfaceLanguage);
+    registerLiveExamples(this);
     await this.loadPluginData();
     await this.savePluginData();
     await refreshNativeSnippets(this.app);
@@ -139,6 +147,7 @@ export default class CallMeRedPlugin extends Plugin {
     const names = await migrateSnippetGroups(styleDirectory(this));
     if (names.length) await refreshNativeSnippets(this.app, names);
     const savedState = data?.state ?? {};
+    this.apiAttempts = migrateAttempts(data?.apiAttempts, savedState.turns ?? []);
     // Historical values are regrouped too, so old Undo steps remain usable.
     for (const version of savedState.versions ?? []) {
       if (version.style?.modules[0]?.id === "m-00-settings") {
@@ -164,7 +173,7 @@ export default class CallMeRedPlugin extends Plugin {
     const changed = css !== this.state.activeCss;
     this.state.style = style;
     this.state.activeCss = css;
-    if (changed) await refreshNativeSnippets(this.app);
+    if (changed) { await refreshNativeSnippets(this.app); await this.refreshView(); }
   }
 
   async savePluginData(): Promise<void> {
@@ -174,7 +183,7 @@ export default class CallMeRedPlugin extends Plugin {
       return record;
     });
     // Active CSS is read from files only. Snapshots below are historical Undo data.
-    const data = structuredClone({ snippetsInstalled: true, settings: this.settings, localization: { interfaceLanguage: this.interfaceLanguage, contentLanguage: this.contentLanguage }, state: { versions: this.state.versions, turns: this.state.turns } });
+    const data = structuredClone({ apiAttempts: this.apiAttempts, snippetsInstalled: true, settings: this.settings, localization: { interfaceLanguage: this.interfaceLanguage, contentLanguage: this.contentLanguage }, state: { versions: this.state.versions, turns: this.state.turns } });
     const write = this.pendingSave.then(() => this.saveData(data));
     this.pendingSave = write.catch(() => {});
     await write;
@@ -192,13 +201,43 @@ export default class CallMeRedPlugin extends Plugin {
     return { file, view, markdown };
   }
 
-  getCurrentPage(): { path: string; title: string } | null {
-    const file = this.findMarkdownView()?.file;
-    if (!file) return null;
+  getCurrentPageContainer(): HTMLElement | null {
+    return this.findMarkdownView()?.containerEl ?? null;
+  }
+
+  async getCurrentPage(): Promise<{ path: string; title: string } | null> {
+    const view = this.findMarkdownView();
+    const file = view?.file;
+    if (!file || !view) return null;
+    const plainText = (element: HTMLElement) => {
+      const clone = element.cloneNode(true) as HTMLElement;
+      clone.querySelectorAll(".heading-collapse-indicator, .heading-anchor").forEach(node => node.remove());
+      clone.querySelectorAll("br").forEach(node => node.replaceWith(" "));
+      return (clone.textContent ?? "").replace(/\s+/g, " ").trim();
+    };
+    const heading = view.getMode() === "preview" ? view.containerEl.querySelector<HTMLElement>(".markdown-preview-view h1") : null;
+    if (heading && !Array.from(heading.querySelectorAll("code")).some(code => /^(?:=|\$=)/.test(code.textContent?.trim() ?? ""))) {
+      const title = plainText(heading);
+      if (title) return { path: file.path, title };
+    }
     const cache = this.app.metadataCache.getFileCache(file);
-    const title = cache?.frontmatter?.title;
-    return { path: file.path, title: typeof title === "string" && title.trim()
-      ? title : cache?.headings?.find(heading => heading.level === 1)?.heading || file.basename };
+    let source = cache?.headings?.find(heading => heading.level === 1)?.heading
+      || (typeof cache?.frontmatter?.title === "string" ? cache.frontmatter.title : file.basename);
+    const dataview = (this.app as unknown as { plugins: { plugins: Record<string, { api?: {
+      page(path: string): unknown;
+      evaluate(expression: string, context: unknown, origin: string): { successful: boolean; value?: unknown };
+    } }> } }).plugins?.plugins?.dataview?.api;
+    source = source.replace(/`=([^\`]+)`/g, (_match, expression: string) => {
+      try {
+        const result = dataview?.evaluate(expression.trim(), { this: dataview.page(file.path) }, file.path);
+        return result?.successful ? String(result.value ?? "") : "";
+      } catch { return ""; }
+    });
+    // Unsupported or still-pending inline code is never shown as the page title.
+    if (/`\$=/.test(source)) return { path: file.path, title: file.basename };
+    const container = document.createElement("div");
+    await MarkdownRenderer.render(this.app, source, container, file.path, this);
+    return { path: file.path, title: plainText(container) || file.basename };
   }
 
   async getCurrentHack(): Promise<HackContext | null> {
@@ -223,23 +262,25 @@ export default class CallMeRedPlugin extends Plugin {
     }
     if (!await adapter.exists(`${directory}/hack.json`)) return null;
     const spec = JSON.parse(await adapter.read(`${directory}/hack.json`)) as HackSpec;
-    return { id, path: file.path, title, spec, css: await adapter.read(`${directory}/recipe.css`) };
+    return { id, installed: hasHack(this.state.style, id), path: file.path, title, spec, css: await adapter.read(`${directory}/recipe.css`) };
   }
 
-  async applyCurrentHack(expectedPath: string): Promise<boolean> {
+  async applyCurrentHack(expectedPath: string, enabled = true): Promise<boolean> {
     let changed = false;
     await this.withHistoryLock(async () => {
       const hack = await this.getCurrentHack();
       if (!hack || hack.path !== expectedPath) throw new Error(t("main.the_open_card_has_changed_select_the"));
       await this.reloadFileStyle();
-      const result = addHack(this.state.style!, hack);
+      const result = enabled
+        ? (hasHack(this.state.style, hack.id) ? { style: this.state.style!, changed: false } : addHack(this.state.style!, hack))
+        : removeHack(this.state.style!, hack.id);
       if (result.changed) {
         await this.commitCssVersion(`hack-${hack.id}-${crypto.randomUUID()}`, compileStyle(result.style), "hack", result.style);
         changed = true;
       }
       const manifest = JSON.parse(await this.app.vault.adapter.read(`${this.app.vault.configDir}/snippets/hacksidian-manifest.json`));
       const entry = manifest.modules.find((m: {id: string}) => m.id === hack.spec.target);
-      if (entry) await refreshNativeSnippets(this.app, [entry.file.replace(/\.css$/, "")]);
+      if (enabled && entry) await refreshNativeSnippets(this.app, [entry.file.replace(/\.css$/, "")]);
       await this.refreshView();
     });
     return changed;
@@ -274,9 +315,12 @@ export default class CallMeRedPlugin extends Plugin {
     await this.reloadFileStyle();
     const context = await this.getCurrentColoringContext();
     if (!context) throw new Error(t("main.open_a_sample_in_reading_view"));
-    if (context.view.getMode() !== "preview") throw new Error(t("main.this_poc_currently_supports_reading_view_only"));
 
     const requestSettings = structuredClone(this.settings);
+    const spending = summarizeAttempts(this.apiAttempts);
+    if (requestSettings.spendLimitUsd > 0 && (spending.unknownCount > 0 || spending.knownCostUsd >= requestSettings.spendLimitUsd)) {
+      throw new Error(t("ledger.limit_reached"));
+    }
     if (requestSettings.autoPricing) {
       onStatus(t("main.loading_the_model_s_official_pricing"));
       try {
@@ -295,14 +339,15 @@ export default class CallMeRedPlugin extends Plugin {
     }
 
     const availableColorings = this.getColoringFiles().map((file) => file.path);
-    onStatus(t("main.checking_installed_fonts_for_the_selected_languages"));
-    const fontDiscovery = await this.getCompatibleFonts();
+    const fontDiscovery = await this.getCompatibleFonts(false, () => onStatus(t("main.checking_installed_fonts_for_the_selected_languages")));
+    const allowClarification = this.state.turns.at(-1)?.action !== "ask_question";
     const prompt = buildTurnPrompt({
+      allowClarification,
       userText,
       interfaceLanguage: this.interfaceLanguage,
       coloringPath: context.file.path,
       markdown: context.markdown,
-      modulesJson: JSON.stringify(styleAtStart.modules, null, 2),
+      modulesJson: JSON.stringify(styleAtStart.modules),
       computedStyles: collectComputedStyleContext(context.view.containerEl),
       conversation: this.state.turns.map((turn) => ({
         userText: turn.userText,
@@ -317,45 +362,71 @@ export default class CallMeRedPlugin extends Plugin {
 
     onStatus(t("main.waiting_for_the_llm_the_new_appearance"));
     const provider = createProvider(requestSettings);
-    const result = await provider.createIteration({
-      instructions: SYSTEM_PROMPT,
-      prompt,
-      screenshotBase64,
-    });
-
-    await this.reloadFileStyle();
-    if (JSON.stringify(this.state.style) !== JSON.stringify(styleAtStart) || this.state.activeCss !== cssAtStart) throw new Error(t("main.the_style_changed_during_the_request_the"));
-
-    if (result.decision.action === "ask_question" && this.state.turns.some((turn) => turn.action === "ask_question")) {
-      throw new Error(t("main.the_model_tried_to_ask_a_second"));
-    }
-
-    if (result.decision.action === "update_css") {
-      await this.commitModuleUpdate(turnId, result.decision.moduleId, result.decision.css, fontDiscovery.families);
-    } else if (result.decision.action === "switch_coloring") {
-      await this.openColoring(result.decision.targetColoring);
-    } else if (result.decision.action === "ask_question" && result.decision.message.length > 160) {
-      throw new Error(t("main.the_model_s_clarifying_question_is_too"));
-    }
-
-    const record: TurnRecord = {
-      id: turnId,
-      createdAt: new Date().toISOString(),
-      coloringPath: context.file.path,
-      userText,
-      changedModuleId: result.decision.action === "update_css" ? result.decision.moduleId : undefined,
-      action: result.decision.action,
-      systemMessage: result.decision.message,
-      provider: requestSettings.provider,
-      model: requestSettings.model,
-      promptVersion: PROMPT_VERSION,
-      usage: result.usage,
-      rawResponseId: result.responseId,
-    };
-
-    this.state.turns.push(record);
+    const attempt: ApiAttempt = { id: turnId, createdAt: new Date().toISOString(), provider: requestSettings.provider,
+      model: requestSettings.model, promptVersion: PROMPT_VERSION, status: "pending", usage: unknownUsage(), responseId: "" };
+    this.apiAttempts.push(attempt);
+    // Persist intent before sending; a crash must not silently erase an API attempt.
     await this.savePluginData();
-    await this.refreshView();
+    try {
+      const result = await provider.createIteration({
+        instructions: SYSTEM_PROMPT,
+        allowClarification,
+        prompt,
+        screenshotBase64,
+        onUsage: async (usage, responseId) => {
+          attempt.usage = usage; attempt.responseId = responseId; attempt.status = "received";
+          await this.savePluginData();
+        },
+      });
+      // Also supports providers returning a result without the receipt callback.
+      attempt.usage = result.usage; attempt.responseId = result.responseId;
+      await this.savePluginData();
+
+      await this.reloadFileStyle();
+      if (JSON.stringify(this.state.style) !== JSON.stringify(styleAtStart) || this.state.activeCss !== cssAtStart) throw new Error(t("main.the_style_changed_during_the_request_the"));
+
+      if (result.decision.action === "ask_question" && !allowClarification) {
+        throw new Error(t("main.the_model_tried_to_ask_a_second"));
+      }
+
+      if (result.decision.action === "update_css") {
+        const next = applySnippetUpdates(styleAtStart, result.decision.modules);
+        compileStyle(next);
+        for (const module of next.modules) {
+          if (styleAtStart.modules.find(old => old.id === module.id)?.css === module.css) continue;
+          const errors = validateGeneratedCss(module.css, fontDiscovery.families);
+          if (errors.length) throw new Error(errors.join(" "));
+        }
+        await this.commitCssVersion(turnId, compileStyle(next), "model", next);
+      } else if (result.decision.action === "switch_coloring") {
+        await this.openColoring(result.decision.targetColoring);
+      } else if (result.decision.action === "ask_question" && result.decision.message.length > 140) {
+        throw new Error(t("main.the_model_s_clarifying_question_is_too"));
+      }
+
+      const record: TurnRecord = {
+        id: turnId,
+        createdAt: new Date().toISOString(),
+        coloringPath: context.file.path,
+        userText,
+        action: result.decision.action,
+        systemMessage: result.decision.message,
+        provider: requestSettings.provider,
+        model: requestSettings.model,
+        promptVersion: PROMPT_VERSION,
+        usage: result.usage,
+        rawResponseId: result.responseId,
+      };
+
+      this.state.turns.push(record);
+      attempt.status = "completed";
+    } catch (error) {
+      attempt.status = "failed";
+      throw error;
+    } finally {
+      await this.savePluginData();
+      await this.refreshView();
+    }
   }
 
   async commitModuleUpdate(id: string, moduleId: string, css: string, fonts?: string[]): Promise<string> {
@@ -385,9 +456,10 @@ export default class CallMeRedPlugin extends Plugin {
     }
     if (compileStyle(current) !== latest.css) throw new Error(t("main.css_was_edited_manually_undo_does_not"));
     const restored = previous.style ?? importStyle(previous.css);
-    await writeFileStyle(styleDirectory(this), current, restored, true);
+    await writeFileStyle(styleDirectory(this), current, restored);
     this.state.versions.pop();
     await this.reloadFileStyle();
+    await refreshNativeSnippets(this.app);
     await this.savePluginData();
     await this.refreshView();
     new Notice(t("main.the_previous_visual_version_has_been_restored"));
@@ -425,17 +497,10 @@ export default class CallMeRedPlugin extends Plugin {
   }
 
   totalUsage(): UsageRecord {
-    return this.state.turns.reduce<UsageRecord>(
-      (total, turn) => ({
-        inputTokens: total.inputTokens + turn.usage.inputTokens,
-        cachedInputTokens: total.cachedInputTokens + turn.usage.cachedInputTokens,
-        outputTokens: total.outputTokens + turn.usage.outputTokens,
-        totalTokens: total.totalTokens + turn.usage.totalTokens,
-        estimatedCostUsd: total.estimatedCostUsd == null || turn.usage.estimatedCostUsd == null ? null : total.estimatedCostUsd + turn.usage.estimatedCostUsd,
-      }),
-      { inputTokens: 0, cachedInputTokens: 0, outputTokens: 0, totalTokens: 0, estimatedCostUsd: 0 },
-    );
+    return summarizeAttempts(this.apiAttempts).usage;
   }
+
+  spendingSummary() { return summarizeAttempts(this.apiAttempts); }
 
   async refreshPricing(force = false): Promise<void> {
     const { provider, model } = this.settings;
@@ -446,9 +511,10 @@ export default class CallMeRedPlugin extends Plugin {
     }
   }
 
-  getCompatibleFonts(force = false): Promise<FontDiscoveryResult> {
+  getCompatibleFonts(force = false, onScan?: () => void): Promise<FontDiscoveryResult> {
     const key = [...this.settings.supportedLocales].sort().join(",");
     if (force || !this.fontDiscoveryPromise || this.fontDiscoveryKey !== key) {
+      onScan?.();
       this.fontDiscoveryKey = key;
       this.fontDiscoveryPromise = discoverCompatibleFonts(this.settings.supportedLocales);
     }

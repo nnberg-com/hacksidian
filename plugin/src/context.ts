@@ -1,6 +1,10 @@
 const STYLE_PROPERTIES = [
   "color",
   "background-color",
+  "text-decoration-line",
+  "text-decoration-style",
+  "text-decoration-color",
+  "text-decoration-thickness",
   "font-family",
   "font-size",
   "font-weight",
@@ -44,5 +48,14 @@ export function collectComputedStyleContext(container: HTMLElement): string {
     }
   }
 
-  return JSON.stringify(result, null, 2);
+  return JSON.stringify({
+    computedStyles: result,
+    viewRoots: Array.from(container.querySelectorAll<HTMLElement>(".markdown-preview-view, .markdown-source-view")).map(element => ({ tag: element.tagName, classes: element.className })),
+    links: Array.from(container.querySelectorAll<HTMLAnchorElement>("a")).slice(0, 20).map(element => ({
+      text: element.textContent, classes: element.className,
+      decorationLine: window.getComputedStyle(element).textDecorationLine,
+      decorationStyle: window.getComputedStyle(element).textDecorationStyle,
+    })),
+    legacyColoringScopeMatches: container.querySelectorAll(".markdown-preview-view.callmered-coloring").length,
+  }, null, 2);
 }

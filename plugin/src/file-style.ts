@@ -19,14 +19,13 @@ export async function readFileStyle(directory: string): Promise<ModularStyle> {
   return style;
 }
 
-// A conversation changes exactly one file. Never rebuild source files from saved plugin state.
-export async function writeFileStyle(directory: string, expected: ModularStyle, next: ModularStyle, allowMultiple = false): Promise<void> {
+// The snippet set is fixed; an iteration may update any number of its files.
+export async function writeFileStyle(directory: string, expected: ModularStyle, next: ModularStyle): Promise<void> {
   compileStyle(next);
   const current = await readFileStyle(directory);
   if (JSON.stringify(current) !== JSON.stringify(expected)) throw new Error(t("file-style.css_files_have_changed_the_response_was"));
   if (next.modules.length !== current.modules.length || next.modules.some((m, i) => m.id !== current.modules[i].id || m.component !== current.modules[i].component)) throw new Error(t("file-style.changing_the_manifest_requires_a_separate_migration"));
   const changed = next.modules.filter((m, i) => m.css !== current.modules[i].css);
-  if (!allowMultiple && changed.length > 1) throw new Error(t("file-style.only_one_css_file_may_be_changed"));
   if (!changed.length) return;
   const manifest = JSON.parse(await readFile(path.join(directory, "hacksidian-manifest.json"), "utf8"));
   const staged: {file: string; temporary: string; before: string}[] = [];

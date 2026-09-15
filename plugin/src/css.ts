@@ -1,72 +1,60 @@
 import { t } from "../i18n";
-import postcss, { type AtRule, type Rule } from "postcss";
-
-const REQUIRED_SCOPES = [
-  '.workspace-leaf-content[data-type="markdown"]',
-  ".markdown-reading-view",
-  ".markdown-preview-view",
-];
-
-const FORBIDDEN_DECLARATIONS = new Set(["display:none", "visibility:hidden"]);
-
-function isInsideKeyframes(rule: Rule): boolean {
-  let parent = rule.parent as { type: string; name?: string; parent?: unknown } | undefined;
-  while (parent) {
-    if (parent.type === "atrule" && /keyframes$/i.test((parent as AtRule).name)) return true;
-    parent = parent.parent as typeof parent;
-  }
-  return false;
-}
+import postcss from "postcss";
 
 function normalizeFamily(value: string): string {
   return value.trim().replace(/^(['"])(.*)\1$/, "$2").toLowerCase();
 }
 
+// Font shorthand: skip optional style/weight/stretch, size and line-height.
+function shorthandFamilies(value: string): string | undefined {
+  const tokens = postcss.list.space(value);
+  const size = tokens.findIndex(token => /^(?:(?:\d*\.)?\d+(?:[a-z%]+)|(?:xx?-small|small|medium|large|xx?-large|xxx-large|smaller|larger)|(?:calc|min|max|clamp|var)\()/i.test(token));
+  if (size < 0) return undefined;
+  let start = size + 1;
+  if (tokens[start] === "/") start += 2;
+  else if (tokens[start]?.startsWith("/")) start++;
+  else if (tokens[size].endsWith("/")) start++;
+  return tokens.slice(start).join(" ");
+}
+
 export function validateGeneratedCss(css: string, compatibleFonts?: string[]): string[] {
   const errors: string[] = [];
   let root;
-
-  try {
-    root = postcss.parse(css);
-  } catch (error) {
+  try { root = postcss.parse(css); }
+  catch (error) {
     return [t("css.could_not_parse_css", { p0: error instanceof Error ? error.message : String(error) })];
   }
-
-  root.walkAtRules((rule) => {
-    if (["import", "font-face", "namespace", "document"].includes(rule.name.toLowerCase())) {
-      errors.push(t("css.the_rule_is_not_allowed", { p0: rule.name }));
+  if (!compatibleFonts) return [];
+  const allowed = new Set(compatibleFonts.map(normalizeFamily));
+  const globals = new Set(["inherit", "initial", "unset", "revert", "revert-layer"]);
+  const variables = new Map<string, string[]>();
+  root.walkDecls(declaration => {
+    if (declaration.prop.startsWith("--")) variables.set(declaration.prop, [...(variables.get(declaration.prop) ?? []), declaration.value]);
+  });
+  const check = (value: string, seen = new Set<string>()) => {
+    for (const item of postcss.list.comma(value)) {
+      const family = normalizeFamily(item);
+      if (globals.has(family)) continue;
+      const variable = /^var\(\s*(--[\w-]+)\s*(?:,([\s\S]*))?\)$/.exec(item.trim());
+      if (variable) {
+        if (!seen.has(variable[1])) {
+          const next = new Set(seen).add(variable[1]);
+          for (const resolved of variables.get(variable[1]) ?? []) check(resolved, next);
+          if (variable[2]) check(variable[2], next);
+        }
+        continue; // Existing theme/system variables remain usable.
+      }
+      if (!allowed.has(family)) errors.push(t("css.font_does_not_cover_the_selected_locales", { p0: family }));
+    }
+  };
+  root.walkDecls(declaration => {
+    const prop = declaration.prop.toLowerCase();
+    if (prop === "font-family") check(declaration.value);
+    if (prop === "font" && !globals.has(declaration.value.trim().toLowerCase())) {
+      const families = shorthandFamilies(declaration.value);
+      if (families) check(families);
+      else if (!/^var\(/.test(declaration.value.trim())) check(declaration.value);
     }
   });
-
-  root.walkRules((rule) => {
-    if (isInsideKeyframes(rule)) return;
-    for (const selector of rule.selectors) {
-      if (!REQUIRED_SCOPES.some((scope) => selector.includes(scope))) {
-        errors.push(t("css.selector_is_outside_markdown_reading_view", { p0: selector }));
-      }
-      if (selector.includes("callmered-conversation") || selector.includes("callmered-panel")) {
-        errors.push(t("css.selector_affects_the_hacksidian_panel", { p0: selector }));
-      }
-    }
-  });
-
-  root.walkDecls((declaration) => {
-    const value = declaration.value.toLowerCase().replace(/\s+/g, "");
-    if (/url\s*\(/i.test(declaration.value)) errors.push(t("css.url_is_not_allowed_in", { p0: declaration.prop }));
-    if (FORBIDDEN_DECLARATIONS.has(`${declaration.prop.toLowerCase()}:${value}`)) {
-      errors.push(t("css.hiding_content_with_is_not_allowed", { p0: declaration.prop }));
-    }
-    if (declaration.prop.toLowerCase() === "font") {
-      errors.push(t("css.the_font_shorthand_is_not_allowed_use"));
-    }
-    if (compatibleFonts && declaration.prop.toLowerCase() === "font-family") {
-      const allowed = new Set(compatibleFonts.map(normalizeFamily));
-      for (const family of declaration.value.split(",").map(normalizeFamily)) {
-        if (family.startsWith("var(")) continue;
-        if (!allowed.has(family)) errors.push(t("css.font_does_not_cover_the_selected_locales", { p0: family }));
-      }
-    }
-  });
-
   return [...new Set(errors)];
 }

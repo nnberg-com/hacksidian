@@ -144,3 +144,15 @@
 .hacksidian-page-heading { display: flex; align-items: center; gap: 12px; }
 .hacksidian-page-title { flex: 1; min-width: 0; overflow-wrap: anywhere; font-weight: var(--font-semibold); }
 .hacksidian-page-actions { display: flex; flex-shrink: 0; gap: 4px; }
+
+/* Atlas pilot: controls and viewport only; recipe rules use unique sample IDs. */
+.hacksidian-live-example { border: 1px solid var(--background-modifier-border); border-radius: var(--radius-m); padding: var(--size-4-3); margin-block: var(--p-spacing); }
+.hacksidian-live-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--size-4-2); margin-bottom: var(--size-4-3); }
+.hacksidian-live-toolbar button[aria-pressed="true"] { background: var(--interactive-accent); color: var(--text-on-accent); }
+.hacksidian-live-toolbar span, .hacksidian-live-example > small { color: var(--text-muted); font-size: var(--font-smaller); }
+.hacksidian-live-example > small { display: block; margin-top: var(--size-4-2); }
+.hacksidian-live-viewport { resize: horizontal; overflow: auto; max-width: 100%; min-width: min(180px, 100%); padding: var(--size-4-2); border: 1px dashed var(--background-modifier-border); }
+.hacksidian-live-sample.markdown-preview-view { height: auto; min-height: 0; padding: 0; overflow: visible; }
+/* Contain fixed/absolute content effects and give responsive recipes their preview container. */
+.hacksidian-live-viewport { contain: layout paint; container-type: inline-size; container-name: preview; isolation: isolate; }
+.hacksidian-live-viewport { max-height: 60vh; }

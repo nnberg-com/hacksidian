@@ -4,9 +4,7 @@ import type { MarkdownView } from "obsidian";
 
 /** Capture the current view for the model without persisting image history. */
 export async function captureReadingView(view: MarkdownView): Promise<string> {
-  if (view.getMode() !== "preview") throw new Error(t("capture.switch_the_document_to_reading_view_before"));
-
-  const preview = view.containerEl.querySelector<HTMLElement>(".markdown-preview-view");
+  const preview = view.getMode() === "preview" ? view.containerEl.querySelector<HTMLElement>(".markdown-preview-view") : view.containerEl;
   if (!preview) throw new Error(t("capture.the_visible_markdown_reading_view_could_not"));
 
   const rect = preview.getBoundingClientRect();

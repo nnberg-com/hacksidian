@@ -12,8 +12,27 @@ import sys
 import zipfile
 import yaml
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from atlas_generator.render import split_frontmatter
+def split_frontmatter(text: str) -> tuple[dict, str]:
+    if not text.startswith('---\n'):
+        return {}, text
+    match = re.match(r'\A---\n(.*?)\n---(?:\n|$)', text, re.S)
+    if not match:
+        raise ValueError('Unclosed YAML frontmatter')
+    class UniqueLoader(yaml.SafeLoader):
+        pass
+    def mapping(loader, node, deep=False):
+        result = {}
+        for key_node, value_node in node.value:
+            key = loader.construct_object(key_node, deep=deep)
+            if key in result:
+                raise ValueError(f'Duplicate YAML field: {key}')
+            result[key] = loader.construct_object(value_node, deep=deep)
+        return result
+    UniqueLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, mapping)
+    data = yaml.load(match[1], Loader=UniqueLoader)
+    if not isinstance(data, dict):
+        raise ValueError('YAML frontmatter must be a mapping')
+    return data, text[match.end():]
 
 CATEGORY_NAMES = {
  'callout':'Callouts', 'code':'Code blocks', 'emphasis':'Emphasis', 'footnote':'Footnotes',

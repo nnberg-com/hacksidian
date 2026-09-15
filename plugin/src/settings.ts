@@ -1,6 +1,7 @@
 import { t, numberLocale } from "../i18n";
 import { App, Notice, PluginSettingTab, Setting, type TextComponent } from "obsidian";
 import { PROVIDERS, switchProvider } from "./llm-catalog";
+import { formatCost } from "./cost";
 import { pricingKey } from "./pricing";
 import type { ProviderId } from "./types";
 import { LOCALE_OPTIONS } from "./fonts";
@@ -98,6 +99,20 @@ export class CallMeRedSettingTab extends PluginSettingTab {
       }));
 
     containerEl.createEl("h3", { text: t("settings.cost_estimate") });
+    new Setting(containerEl).setName(t("ledger.limit")).setDesc(t("ledger.limit_description"))
+      .addText(input => input.setValue(String(this.plugin.settings.spendLimitUsd)).onChange(async value => {
+        const amount = Number(value);
+        if (value.trim() && Number.isFinite(amount) && amount >= 0) { this.plugin.settings.spendLimitUsd = amount; await this.plugin.savePluginData(); }
+      }));
+    containerEl.createDiv({ text: t("ledger.history_note"), cls: "setting-item-description" });
+    const ledger = containerEl.createEl("details");
+    ledger.createEl("summary", { text: t("ledger.recent") });
+    for (const attempt of this.plugin.apiAttempts.slice(-30).reverse()) {
+      ledger.createDiv({ text: `${new Date(attempt.createdAt).toLocaleString(numberLocale())} · ${attempt.provider}/${attempt.model} · ${t(`ledger.${attempt.status}`)} · ${formatCost(attempt.usage.estimatedCostUsd)}` });
+      ledger.createDiv({ cls: "setting-item-description", text: t("ledger.tokens", {
+        p0: attempt.usage.inputTokens, p1: attempt.usage.cachedInputTokens, p2: attempt.usage.outputTokens,
+      }) });
+    }
     new Setting(containerEl).setName(t("settings.calculate_costs_automatically"))
       .setDesc(t("settings.load_standard_paid_pricing_from_the_official"))
       .addToggle(toggle => toggle.setValue(this.plugin.settings.autoPricing).onChange(async enabled => {

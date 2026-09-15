@@ -4,8 +4,7 @@ import { parseModelDecision, type OpenAIResponse } from "../src/response";
 const decision = {
   action: "update_css",
   message: "Готово.",
-  css: ".markdown-reading-view { color: black; }",
-  moduleId: "foundation-01",
+  modules: [{ id: "foundation-01", component: "foundation", css: "body { color: black; }" }],
   targetColoring: "",
 } as const;
 

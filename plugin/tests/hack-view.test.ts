@@ -14,7 +14,7 @@ class Element {
 }
 function setup(){
  const hack={id:'task-e30',path:'atlas/! hacks/task-e30/task-e30.md',title:'Task',spec:{target:'g-task',hasCss:true}};
- const plugin={getCurrentPage:vi.fn(()=>({path:'notes/page.md',title:'Current page'})),getCurrentHack:vi.fn(async()=>hack), getCurrentColoringContext:vi.fn(async()=>null),state:{turns:[]},totalUsage:()=>({totalTokens:0,estimatedCostUsd:0}),applyCurrentHack:vi.fn(async()=>true)};
+ const plugin={getCurrentPage:vi.fn(()=>({path:'notes/page.md',title:'Current page'})),getCurrentHack:vi.fn(async()=>hack), getCurrentColoringContext:vi.fn(async()=>null),state:{turns:[]},spendingSummary:()=>({count:0,knownCostUsd:0,unknownCount:0}),totalUsage:()=>({totalTokens:0,estimatedCostUsd:0}),applyCurrentHack:vi.fn(async()=>true)};
  const view=new ConversationView({} as any,plugin as any) as any;
  for(const key of ['hackEl','hackResultEl','conversationEl','usageEl','statusEl','submitButton','inputEl','contentEl'])view[key]=new Element();
  return {view,plugin,hack};
@@ -23,7 +23,7 @@ test('focus refresh preserves the apply button and handler for the same card',as
  const {view,plugin,hack}=setup();await view.refresh();const button=view.hackEl.querySelectorAll('button')[0];
  await view.refresh();expect(view.hackEl.querySelectorAll('button')[0]).toBe(button);
  button.listeners.click();
- await vi.waitFor(()=>expect(plugin.applyCurrentHack).toHaveBeenCalledWith(hack.path));
+ await vi.waitFor(()=>expect(plugin.applyCurrentHack).toHaveBeenCalledWith(hack.path, true));
  await vi.waitFor(()=>expect(view.hackResultEl.textContent).toContain('CSS'));
  const result=view.hackResultEl.textContent;await view.refresh();expect(view.hackResultEl.textContent).toBe(result);
 });
@@ -47,8 +47,20 @@ test('late page lookup cannot overwrite a newer page header',async()=>{
  const {view,plugin}=setup();
  let resolve:any;plugin.getCurrentHack.mockImplementationOnce(()=>new Promise(r=>{resolve=r}));
  const old=view.refresh();
+ await Promise.resolve();
  plugin.getCurrentPage.mockReturnValue({path:'new.md',title:'New page'});
  plugin.getCurrentHack.mockResolvedValue(null as any);await view.refresh();
  resolve(null);await old;
  expect(view.hackEl.children[0].children[0].textContent).toBe('New page');
+});
+
+test('installed block changes action to disable and reacts to external removal', async()=>{
+ const {view,plugin,hack}=setup();
+ (hack as any).installed=true;
+ await view.refresh(); const button=view.hackEl.querySelectorAll('button')[0];
+ expect(button.textContent).toBe('Выключить приём');button.listeners.click();
+ await vi.waitFor(()=>expect(plugin.applyCurrentHack).toHaveBeenCalledWith(hack.path,false));
+ await vi.waitFor(()=>expect(view.busy).toBe(false));
+ (hack as any).installed=false;await view.refresh();
+ expect(view.hackEl.querySelectorAll('button')[0].textContent).toBe('Применить приём');
 });

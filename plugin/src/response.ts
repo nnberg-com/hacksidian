@@ -33,8 +33,8 @@ function isModelDecision(value: unknown): value is ModelDecision {
     typeof candidate.action === "string" &&
     MODEL_ACTIONS.has(candidate.action as ModelAction) &&
     typeof candidate.message === "string" &&
-    typeof candidate.css === "string" &&
-    typeof candidate.moduleId === "string" &&
+    Array.isArray(candidate.modules) && candidate.modules.every(module =>
+      module && typeof module.id === "string" && typeof module.component === "string" && typeof module.css === "string") &&
     typeof candidate.targetColoring === "string"
   );
 }

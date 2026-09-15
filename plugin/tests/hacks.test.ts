@@ -1,5 +1,5 @@
 import {test,expect} from 'vitest';
-import {compileHack,addHack,hackId,type HackContext} from '../src/hacks';
+import {compileHack,addHack,removeHack,hasHack,hackId,type HackContext} from '../src/hacks';
 const hack:HackContext={id:'text-demo',title:'Demo',path:'atlas/! hacks/text-demo/text-demo.md',spec:{format:2,target:'g-text',hasCss:true},css:'/* authored CSS */\n.markdown-preview-view p { color: var(--text-accent); }\n'};
 test('binds only actual tagged cards and localized descriptions',()=>{
  expect(hackId(hack.path,['atlas/technique'])).toBe(hack.id);
@@ -20,4 +20,17 @@ test('updates a recipe in place, preserves other CSS, and repeating is a no-op',
  expect(updated.style.modules[0].css).toContain('color: blue');
  expect(updated.style.modules[0].css.split('hacksidian:hack:text-demo:start')).toHaveLength(2);
  expect(addHack(updated.style,{...hack,css:hack.css.replace('var(--text-accent)','blue')})).toEqual({style:updated.style,changed:false});
+});
+
+test('disable removes only the marked block, including manually modified CSS',()=>{
+ const base={format:1 as const,modules:[{id:'g-text',component:'text',css:'prefix\n/* hacksidian:hack:text-demo:start */\n.changed{color:red}\n/* hacksidian:hack:text-demo:end */\nsuffix'},{id:'g-link',component:'link',css:'untouched'}]};
+ expect(hasHack(base,hack.id)).toBe(true);
+ const result=removeHack(base,hack.id);expect(result.style.modules[0].css).toBe('prefix\n\nsuffix');
+ expect(result.style.modules[1]).toBe(base.modules[1]);expect(hasHack(result.style,hack.id)).toBe(false);
+ expect(removeHack(result.style,hack.id).changed).toBe(false);
+});
+test('malformed or duplicate blocks are never partially removed',()=>{
+ for(const css of ['/* hacksidian:hack:text-demo:start */ body{}','/* hacksidian:hack:text-demo:end */','/* hacksidian:hack:text-demo:start */ /* hacksidian:hack:text-demo:start */ /* hacksidian:hack:text-demo:end */']){
+  expect(()=>removeHack({format:1,modules:[{id:'g-text',component:'text',css}]},hack.id)).toThrow();
+ }
 });

@@ -20,7 +20,7 @@ For the 1,395 migrated techniques, English descriptions are marked pending and M
 
 The shell, buttons, search, filters, and detail labels are bilingual. `--ui-lang` selects interface and description language; `--lang` selects example language. By default, the generator reads the installed plugin's settings. The plugin saves the effective Obsidian language on startup and settings changes. Without settings, English is used. Explicit CLI arguments take precedence.
 
-CSS, hack.json, identifiers, categories, digest memberships, and assets stay shared. Category and digest names follow the UI language. Missing translations fail before replacing the previous build. See [Atlas generator](atlas-generator.md).
+CSS, hack.json, identifiers, categories, digest memberships, and assets stay shared. Category and digest names follow the UI language. Live examples use Markdown in the selected language without silently substituting missing translations. See [Live examples](../live-examples.md).
 
 ## Documentation
 
@@ -44,4 +44,4 @@ Note files use identical codes p001–p010 in both languages; p000 is the entry 
 
 88 unit tests, TypeScript, and the build passed. All 20 samples and 42 local links were checked. Live Obsidian checks confirmed both settings languages, panel placeholders and commands, independent content selection (10 samples per language), and 32 links through metadataCache. Original language settings were restored. No live LLM call was made.
 
-Atlas verification: 28 generator tests passed in `.venv-atlas`. Chrome checks covered the English shell and description on a bilingual fixture, the full Russian catalogue, filters, mobile width, and local images. In installed Obsidian, both the shared card and Description.ru.md resolve to the same technical technique with its localized title.
+The historical browser verification predates removal of that implementation. The current atlas runs inside Obsidian; see [Live examples](../live-examples.md) for validation.

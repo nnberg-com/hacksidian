@@ -7,7 +7,9 @@ vi.mock('obsidian', () => ({
  getLanguage: () => 'ru',
  Plugin: class { async loadData(){return state.data;} async saveData(value: any){state.data=structuredClone(value);} },
  Notice: class { constructor(message: string){state.notices.push(message);} },
+ MarkdownRenderChild: class {},
  ItemView: class {}, PluginSettingTab: class {}, MarkdownView: class {},
+ MarkdownRenderer: {render:vi.fn(async(_app:any,source:string,target:any)=>{target.textContent=source.replace(/<br\s*\/?>/gi," ").replace(/<[^>]*>/g,"").replace(/\[\[([^\]]+)\]\]/g,"$1");})},
 }));
 vi.mock('../src/capture', () => ({captureReadingView:vi.fn(async()=> 'image-base64')}));
 vi.mock('../src/context', () => ({collectComputedStyleContext:vi.fn(()=> 'computed styles')}));
@@ -84,7 +86,7 @@ test.each([false,true])('feedback captures only when enabled (%s)', async(sendSc
  vi.spyOn(plugin,'getCurrentColoringContext').mockResolvedValue({file:{path:'test.md'},view:{getMode:()=> 'preview',containerEl:{}},markdown:'Test'} as any);
  vi.spyOn(plugin as any,'getColoringFiles').mockReturnValue([]);
  vi.spyOn(plugin,'getCompatibleFonts').mockResolvedValue({families:[]} as any);
- const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({decision:{action:'no_change',message:'',css:'',moduleId:'',targetColoring:''},usage:{inputTokens:0,cachedInputTokens:0,outputTokens:0,totalTokens:0,estimatedCostUsd:0},responseId:'test'});
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({decision:{action:'no_change',message:'',modules: [],targetColoring:''},usage:{inputTokens:0,cachedInputTokens:0,outputTokens:0,totalTokens:0,estimatedCostUsd:0},responseId:'test'});
  try {
   await plugin.processFeedback('Test',()=>{});
   expect(captureReadingView).toHaveBeenCalledTimes(sendScreenshot ? 1 : 0);
@@ -155,7 +157,7 @@ test('interface and content languages persist independently across plugin reload
  expect(reloaded.contentLanguage).toBe('ru');
 });
 
-test('task-e30 update uses the normal apply path and Undo restores the installed old recipe', async () => {
+test('installed recipe cannot be reapplied; disable and enable both support Undo', async () => {
  const plugin = await setup();
  const { compileStyle } = await import('../src/style-modules');
  const current = await readFileStyle(dir);
@@ -168,10 +170,95 @@ test('task-e30 update uses the normal apply path and Undo restores the installed
   css: await readFile(path.join(recipe, 'recipe.css'), 'utf8') };
  (plugin as any).app = { vault: { configDir: '.obsidian', adapter: { read: async () => readFile(path.join(dir, 'hacksidian-manifest.json'), 'utf8') } } };
  vi.spyOn(plugin, 'getCurrentHack').mockResolvedValue(hack);
+ expect(await plugin.applyCurrentHack(hack.path)).toBe(false);
+ expect(await readFileStyle(dir)).toEqual(old);
+ expect(await plugin.applyCurrentHack(hack.path, false)).toBe(true);
+ const disabled = await readFileStyle(dir);
+ expect(disabled.modules.find(m => m.id === 'g-task')!.css).not.toContain('hacksidian:hack:task-e30:start');
+ expect(await plugin.applyCurrentHack(hack.path, false)).toBe(false);
  expect(await plugin.applyCurrentHack(hack.path)).toBe(true);
  const updated = await readFileStyle(dir);
  expect(updated.modules.find(m => m.id === 'g-task')!.css).toContain('ul.contains-task-list');
  expect(await plugin.applyCurrentHack(hack.path)).toBe(false);
  await plugin.undo();
+ expect(await readFileStyle(dir)).toEqual(disabled);
+ await plugin.undo();
  expect(await readFileStyle(dir)).toEqual(old);
+});
+
+test('paid failures survive clear history and reload; a spending threshold stops another API call',async()=>{
+ const plugin=await setup();
+ plugin.settings.autoPricing=false;plugin.settings.sendScreenshot=false;
+ vi.spyOn(plugin,'getCurrentColoringContext').mockResolvedValue({file:{path:'test.md'},view:{getMode:()=> 'preview',containerEl:{}},markdown:'test'} as any);
+ vi.spyOn(plugin,'getCompatibleFonts').mockResolvedValue({families:['Arial']} as any);
+ vi.spyOn(plugin as any,'getColoringFiles').mockReturnValue([]);
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockImplementation(async request=>{
+   expect(state.data.apiAttempts[0].status).toBe('pending');
+   await request.onUsage!({inputTokens:100,cachedInputTokens:0,outputTokens:10,totalTokens:110,estimatedCostUsd:0.1},'paid-failure');
+   expect(state.data.apiAttempts[0].usage.estimatedCostUsd).toBe(0.1);
+   throw new Error('Invalid paid CSS');
+ });
+ await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('Invalid paid CSS');
+ expect(plugin.state.turns).toHaveLength(0);expect(plugin.totalUsage().estimatedCostUsd).toBe(0.1);
+ expect(state.data.apiAttempts[0].status).toBe('failed');
+ await plugin.clearHistory();await plugin.loadPluginData();expect(plugin.totalUsage().estimatedCostUsd).toBe(0.1);
+ plugin.settings.spendLimitUsd=0.05;create.mockClear();
+ await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('Лимит');expect(create).not.toHaveBeenCalled();
+ create.mockRestore();
+});
+
+test('a model changes multiple snippets freely; Undo restores source and concurrent edits are not overwritten',async()=>{
+ const plugin=await setup();const before=await readFileStyle(dir), module=before.modules[0];
+ plugin.settings.autoPricing=false;plugin.settings.sendScreenshot=false;
+ vi.spyOn(plugin,'getCurrentColoringContext').mockResolvedValue({file:{path:'test.md'},view:{getMode:()=> 'preview',containerEl:{}},markdown:'test'} as any);
+ vi.spyOn(plugin,'getCompatibleFonts').mockResolvedValue({families:['Arial']} as any);
+ vi.spyOn(plugin as any,'getColoringFiles').mockReturnValue([]);
+ const nextModules=before.modules.map((m,i)=>({...m,css:i===0 ? m.css.replace('#110f00','#120f00') : i===1 ? 'body a { text-decoration-style: wavy; }\n.callmered-panel { border: 1px solid red; }' : m.css}));
+ const result={decision:{action:'update_css' as const,message:'done',modules:nextModules.slice(0,2),targetColoring:''},usage:{inputTokens:100,cachedInputTokens:0,outputTokens:10,totalTokens:110,estimatedCostUsd:0.1},responseId:'patch'};
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue(result);
+ await plugin.processFeedback('test',()=>{});
+ expect((await readFileStyle(dir)).modules[0].css).toBe(module.css.replace('#110f00','#120f00'));
+ expect(plugin.apiAttempts[0].status).toBe('completed');
+ expect((await readFileStyle(dir)).modules[1].css).toContain('text-decoration-style: wavy');
+ create.mockImplementationOnce(async()=>{await writeFile(path.join(dir,JSON.parse(await readFile(path.join(dir,'hacksidian-manifest.json'),'utf8')).modules[0].file),module.css+'\n/* manual */'); return result;});
+ await expect(plugin.processFeedback('stale',()=>{})).rejects.toThrow();
+ expect(plugin.totalUsage().estimatedCostUsd).toBe(0.2);expect(plugin.apiAttempts[1].status).toBe('failed');
+ await writeFile(path.join(dir,JSON.parse(await readFile(path.join(dir,'hacksidian-manifest.json'),'utf8')).modules[0].file),module.css.replace('#110f00','#120f00'));
+ await plugin.undo();expect(await readFileStyle(dir)).toEqual(before);
+ create.mockRestore();
+});
+
+test('font scan status is emitted only for a new scan, forced refresh or changed languages',async()=>{
+ const fonts=await import('../src/fonts');
+ const scan=vi.spyOn(fonts,'discoverCompatibleFonts').mockResolvedValue({families:['Arial'],scannedFiles:1,unreadableFiles:0,locales:[]});
+ try {
+  const plugin=await setup(),status=vi.fn();
+  await plugin.getCompatibleFonts(false,status);
+  await plugin.getCompatibleFonts(false,status);
+  expect(scan).toHaveBeenCalledTimes(1);expect(status).toHaveBeenCalledTimes(1);
+  await plugin.getCompatibleFonts(true,status);
+  plugin.settings.supportedLocales=['he'];
+  await plugin.getCompatibleFonts(false,status);
+  expect(scan).toHaveBeenCalledTimes(3);expect(status).toHaveBeenCalledTimes(3);
+ } finally {scan.mockRestore();}
+});
+
+test('page title uses rendered H1 and evaluates a pending Dataview heading without exposing source',async()=>{
+ const plugin=await setup();
+ const file={path:'notes/test.md',basename:'test'};
+ const element=(text='')=>({textContent:text,cloneNode(){return element(this.textContent);},querySelectorAll:()=>[]});
+ const rendered=element('hacksidian  ситуативный груминг Obsidian');
+ const view={file,getMode:()=> 'preview',containerEl:{querySelector:()=>rendered}};
+ vi.spyOn(plugin as any,'findMarkdownView').mockReturnValue(view);
+ expect(await plugin.getCurrentPage()).toEqual({path:file.path,title:'hacksidian ситуативный груминг Obsidian'});
+ const page={file:{name:'hacksidian'},desc:'ситуативный груминг [[Obsidian]]'};
+ const evaluate=vi.fn(()=>({successful:true,value:'<code>hacksidian</code><br/>ситуативный груминг [[Obsidian]]'}));
+ const expr='"<code>" + this.file.name + "</code><br/>" + this.desc';
+ (plugin as any).app={metadataCache:{getFileCache:()=>({headings:[{level:1,heading:String.fromCharCode(96)+'='+expr+String.fromCharCode(96)}]})},plugins:{plugins:{dataview:{api:{page:()=>page,evaluate}}}}};
+ view.containerEl.querySelector=()=>null as any;
+ vi.stubGlobal('document',{createElement:()=>element()});
+ try {
+  expect(await plugin.getCurrentPage()).toEqual({path:file.path,title:'hacksidian ситуативный груминг Obsidian'});
+  expect(evaluate).toHaveBeenCalledWith(expr,{this:page},file.path);
+ } finally {vi.unstubAllGlobals();}
 });

@@ -2,7 +2,7 @@ import type { CallMeRedSettings, PersistedState } from "./types";
 
 export const VIEW_TYPE_CALLMERED = "callmered-conversation";
 export const CSS_UNDO_LIMIT = 50;
-export const PROMPT_VERSION = "poc-4-language";
+export const PROMPT_VERSION = "poc-8-targeted-snippets";
 
 export const DEFAULT_SETTINGS: CallMeRedSettings = {
   interfaceLanguage: "auto",
@@ -12,6 +12,7 @@ export const DEFAULT_SETTINGS: CallMeRedSettings = {
   customModel: false,
   autoPricing: true,
   sendScreenshot: true,
+  spendLimitUsd: 0,
   apiKey: "",
   model: "gpt-5.6-terra",
   inputPricePerMillion: 2,

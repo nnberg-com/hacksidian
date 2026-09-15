@@ -26,8 +26,7 @@ test('migrates working values, removes old files, is idempotent; regrouped Undo 
   expect(await readdir(dir)).not.toContain('hacksidian-00-settings.css');expect(await readFile(path.join(dir,'unrelated.css'),'utf8')).toBe('keep');
   const prior=fixture();prior.modules[0].css=prior.modules[0].css.replace('10px','20px');
   const next=splitLegacyStyle(prior),current=await readFileStyle(dir);
-  await expect(writeFileStyle(dir,current,next)).rejects.toThrow('один CSS');
-  await writeFileStyle(dir,current,next,true);expect(await readFileStyle(dir)).toEqual(next);
-  await writeFileStyle(dir,next,current,true);expect(await readFileStyle(dir)).toEqual(current);
+  await writeFileStyle(dir,current,next);expect(await readFileStyle(dir)).toEqual(next);
+  await writeFileStyle(dir,next,current);expect(await readFileStyle(dir)).toEqual(current);
  }finally{await rm(dir,{recursive:true,force:true});}
 });
