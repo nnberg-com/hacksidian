@@ -24,7 +24,10 @@ export async function collectCatalog(adapter: { read(path: string): Promise<stri
       if (!hackId(file.path, meta.tags)) continue;
       const spec = JSON.parse(await adapter.read(`${directory}/hack.json`)) as HackSpec;
       if (spec.format !== 2 || typeof spec.hasCss !== 'boolean') throw new Error(`Invalid technique format: ${file.path}`);
-      const css = spec.hasCss ? await adapter.read(`${directory}/recipe.css`) : '';
+      // Theme research without a standalone CSS recipe is not a technique.
+      if (!spec.hasCss) continue;
+      const css = await adapter.read(`${directory}/recipe.css`);
+      if (!css.trim()) continue;
       entries.push(techniqueEntry(file.path, markdown, meta, spec, css));
       const links = meta.themes ?? [];
       if (!Array.isArray(links) || links.some(link => typeof link !== 'string')) throw new Error(`Invalid theme links: ${file.path}`);

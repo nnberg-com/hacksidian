@@ -1,11 +1,12 @@
+import { previewState } from './preview-state';
+import { activatePreviewTarget } from './live-example-target';
 import { Component, MarkdownRenderChild, MarkdownRenderer, Notice, Plugin, TFile } from 'obsidian';
 import { liveExampleIssue, resolveLiveUrls, scopeLiveExample } from './live-example-css';
-class LiveExample extends MarkdownRenderChild {
+export class LiveExample extends MarkdownRenderChild {
   private epoch = 0;
   private stopped = false;
   private renderer: Component | null = null;
   private timer: ReturnType<typeof setTimeout> | undefined;
-  private enabled = true;
   constructor(el: HTMLElement, private plugin: Plugin, private directory: string, private language: 'ru' | 'en') { super(el); }
   onload(): void {
     this.registerEvent(this.plugin.app.vault.on('modify', file => {
@@ -28,11 +29,8 @@ class LiveExample extends MarkdownRenderChild {
       if (this.renderer) this.removeChild(this.renderer);
       const owner = new Component(); this.renderer = owner; this.addChild(owner);
       this.containerEl.empty(); this.containerEl.addClass('hacksidian-live-example');
-      this.containerEl.createEl('hr');
-      const toolbar = this.containerEl.createDiv({ cls: 'hacksidian-live-toolbar' });
-      const button = toolbar.createEl('button', { cls: 'hacksidian-switch', attr: { role: 'switch', 'aria-label': ru ? 'Применить приём' : 'Apply technique' } });
-      button.disabled = !css.trim();
-      const status = toolbar.createEl('span', { attr: { 'aria-live': 'polite' } });
+      const preview = previewState(this.containerEl, this.directory);
+      this.containerEl.createEl('hr', { cls: 'hacksidian-live-separator' });
       const viewport = this.containerEl.createDiv({ cls: 'hacksidian-live-viewport' });
       const sample = viewport.createDiv({ cls: 'markdown-preview-view markdown-rendered hacksidian-live-sample' }); sample.id = id;
       // Keep checkbox experiments local; don't let the renderer write to the source Markdown.
@@ -49,18 +47,25 @@ class LiveExample extends MarkdownRenderChild {
           if (item) { item.classList.toggle('is-checked', checked); item.setAttribute('data-task', checked ? 'x' : ' '); }
         });
       }, { capture: true });
+      // Simulate :target only inside this example; never navigate the host note.
+      owner.registerDomEvent(sample, 'click', event => {
+        const link = (event.target as Element | null)?.closest('a');
+        const href = link?.getAttribute('href') || link?.getAttribute('data-href') || '';
+        if (!link) return;
+        const target = activatePreviewTarget(sample, href);
+        if (!target) return;
+        event.preventDefault(); event.stopPropagation();
+        target.scrollIntoView({ block: 'nearest' });
+      }, { capture: true });
       const style = this.containerEl.createEl('style');
-      const update = () => {
-        style.textContent = this.enabled ? scoped : '';
-        button.setAttribute('aria-checked', String(this.enabled));
-        status.textContent = !css.trim() ? (ru ? 'Штатный пример без дополнительного CSS' : 'Native example without additional CSS') : this.enabled ? (ru ? 'Приём включён' : 'Technique on') : (ru ? 'Исходное оформление' : 'Current styling');
-      };
-      owner.registerDomEvent(button, 'click', () => { this.enabled = !this.enabled; update(); }); update();
+      this.containerEl.createEl('hr', { cls: 'hacksidian-live-separator' });
+      const update = () => { style.textContent = preview.enabled ? scoped : ''; };
+      owner.register(preview.subscribe(update)); update();
       await MarkdownRenderer.render(this.plugin.app, markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, ''), sample, `${this.directory}/markdown.md`, owner);
       if (this.stopped || epoch !== this.epoch) return;
       sample.querySelectorAll<HTMLInputElement>('input[type=checkbox]').forEach(input => { input.disabled = false; });
+      if (/:target\b/.test(css)) this.containerEl.createEl('small', { text: ru ? 'Нажмите ссылку или номер сноски внутри примера: эффект появится у выбранной цели.' : 'Click a link or footnote number inside the example to select its target.' });
       if (this.directory.endsWith('/link-e025')) this.containerEl.createEl('small', { text: ru ? 'Наведите курсор на ссылку. Если подчёркивание отключено в вашем оформлении, этот приём сам его не включает.' : 'Hover over the link. This technique does not enable underlines if your styling disables them.' });
-      this.containerEl.createEl('hr');
     } catch (error) {
       if (!this.stopped && epoch === this.epoch) {
         if (this.renderer) { this.removeChild(this.renderer); this.renderer = null; }

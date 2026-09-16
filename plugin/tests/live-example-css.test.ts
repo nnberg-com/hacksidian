@@ -31,6 +31,11 @@ test('interface, model, printing and unsupported document navigation are recorde
  expect(liveExampleIssue('metadata','x','')).toBeTruthy();
  expect(liveExampleIssue('tag','hacksidian-source-model','')).toBeTruthy();
  expect(liveExampleIssue('text','x','@media print{.markdown-preview-view p{color:red}}')).toBeTruthy();
- expect(liveExampleIssue('link','x',`${host} a:target{color:red}`)).toBeTruthy();
+ expect(liveExampleIssue('link','x',`${host} a:target{color:red}`)).toBeNull();
  expect(liveExampleIssue('callout','> [!note] Hello','')).toBeNull();
+});
+
+test('target state stays local including targets inside has selectors',()=>{
+ const css=scopeLiveExample('.markdown-preview-view .footnotes:has(li:target) li:target { outline: 2px solid red; }','hacksidian-live-target');
+ expect(css).not.toContain(':target');expect(css).toContain(':has(li[data-hacksidian-target])');expect(css).toContain('#hacksidian-live-target');
 });

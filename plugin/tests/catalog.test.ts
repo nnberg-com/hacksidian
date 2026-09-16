@@ -87,7 +87,8 @@ test('theme catalog resolves explicit source links and indexes theme description
  const contents:Record<string,string>={
   'atlas/! themes/minimal.md':'---\nid: theme-minimal\ntitle: Minimal\nauthor: kepano\ntags: [hacksidian_theme]\nrepo: kepano/obsidian-minimal\ncommunity_url: https://community.obsidian.md/themes/minimal\ndescription: A customizable theme\nmodes: [dark, light]\n---',
   'atlas/! hacks/image-round/image-round.md':'---\nid: image-round\ntitle: Rounded\ntags: [hacksidian_technique]\nthemes: [minimal]\n---\n## Зачем\nRounded photos',
-  'atlas/! hacks/image-round/hack.json':JSON.stringify({format:2,hasCss:false}),
+  'atlas/! hacks/image-round/hack.json':JSON.stringify({format:2,hasCss:true}),
+  'atlas/! hacks/image-round/recipe.css':'img {border-radius:8px}',
   'vars.css':'body {--text-normal:black}',
  };
  const files=Object.keys(contents).filter(p=>p.endsWith('.md')).map(p=>({path:p,basename:p.split('/').at(-1)!.slice(0,-3)}));
@@ -165,4 +166,18 @@ test.each([false,true])('multiple indexing batches preserve the active snapshot 
  if(fail){await expect(sync).rejects.toThrow();expect(state.active).toBe(previous);expect(state.pending).toBeDefined();}
  else {await sync;expect(state.active?.entries).toHaveLength(501);expect(state.pending).toBeUndefined();}
  expect(batches).toBe(2);
+});
+
+test('theme-only findings and empty recipes never become technique entries',async()=>{
+ const {collectCatalog}=await import('../src/catalog-source');
+ const data:Record<string,string>={'vars.css':'body {--text-normal: black}'};
+ const files=['ready','theme-only','empty'].map(id=>{
+  const dir=`atlas/! hacks/${id}`;
+  data[`${dir}/${id}.md`]='---\ntags: [hacksidian_technique]\n---';
+  data[`${dir}/hack.json`]=JSON.stringify({format:2,hasCss:id!=='theme-only'});
+  data[`${dir}/recipe.css`]=id==='ready'?'a {color:red}':'';
+  return {path:`${dir}/${id}.md`,basename:id};
+ });
+ const result=await collectCatalog({read:async path=>data[path]},files,'atlas','vars.css');
+ expect(result.entries.filter(entry=>entry.kind==='technique').map(entry=>entry.id)).toEqual(['ready']);
 });

@@ -39,7 +39,8 @@ export function scopeLiveExample(css: string, id: string): string {
       if (prefix && !/^(?:(?:body|html|\.theme-dark|\.theme-light)(?:\.theme-dark|\.theme-light)?\s*)+$/.test(prefix)) throw new Error('Requires external container: ' + prefix);
       const nextCombinator = nodes.slice(index + 1).find(n => n.type === 'combinator');
       if (nextCombinator && !['', '>'].includes(nextCombinator.value.trim())) throw new Error('Selector escapes preview through a sibling');
-      if (/:target\b|\.markdown-preview-sizer|\.is-readable-line-width/.test(selector.toString())) throw new Error('Requires document navigation or page sizing');
+      if (/\.markdown-preview-sizer|\.is-readable-line-width/.test(selector.toString())) throw new Error('Requires document navigation or page sizing');
+      selector.walkPseudos(pseudo => { if (pseudo.value === ':target') pseudo.replaceWith(selectorParser().astSync('[data-hacksidian-target]').first.first.clone()); });
       anchor.replaceWith(selectorParser.id({ value: id }));
       keep.push(selector.toString());
     });
@@ -61,7 +62,6 @@ export function liveExampleIssue(group: string, markdown: string, css: string): 
   if (/<(?:iframe|script|style|input|form)\b/i.test(markdown)) return 'Нужна отдельная реализация HTML-встраивания или элементов управления.';
   if (/```(?:dataviewjs|hacksidian-live)\b/.test(markdown)) return 'Пример требует отдельного исполняемого блока.';
   if (group === 'footnote' && /(?:#fn-|#fnref-)/.test(css)) return 'Селекторы используют идентификаторы сносок HTML-генератора; нужно сопоставить их с Obsidian.';
-  if (/:target\b/.test(css)) return 'Интерактив зависит от навигации по якорям всей заметки.';
   if (/font-family\s*:[^;}]*\b(?:heading-e\d+|inline-code-ex-\d+|link-e\d+|list-e\d+|pseudo-task-e\d+)-/i.test(css)) return 'Приём требует специального шрифта, который пример пока не подключает.';
   const parsed = postcss.parse(css);
   let screen = false, print = false;

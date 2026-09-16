@@ -20,32 +20,14 @@ function setup(){
  for(const key of ['hackEl','conversationEl','usageEl','statusEl','submitButton','inputEl','contentEl'])view[key]=new Element();
  return {view,plugin,hack};
 }
-test('focus refresh preserves the apply button and handler for the same card',async()=>{
- const {view,plugin,hack}=setup();await view.refresh();const button=view.hackEl.querySelectorAll('button')[0];
- await view.refresh();expect(view.hackEl.querySelectorAll('button')[0]).toBe(button);
- button.listeners.click();
- await vi.waitFor(()=>expect(plugin.applyCurrentHack).toHaveBeenCalledWith(hack.path, true));
- await vi.waitFor(()=>expect(view.statusEl.textContent).toContain('CSS'));
- const result=view.statusEl.textContent;await view.refresh();expect(view.statusEl.textContent).toBe(result);
-});
+
 test('an apply error remains visible after panel refresh',async()=>{
  const {view,plugin,hack}=setup();plugin.applyCurrentHack.mockRejectedValueOnce(new Error('Test write error'));
  await view.refresh();await view.applyHack(hack.path);await view.refresh();
  expect(view.statusEl.textContent).toBe('Test write error');expect(view.busy).toBe(false);
 });
 
-test('mini card is hidden on ordinary pages and reappears on technique pages', async()=>{
- const {view,plugin,hack}=setup();await view.refresh();
- expect(view.hackEl.querySelectorAll('button')).toHaveLength(1);
- plugin.getCurrentHack.mockResolvedValue(null as any);
- await view.refresh();
- expect(view.hackEl.children).toHaveLength(0);expect(view.hackEl.style.display).toBe('none');
- expect(view.hackEl.querySelectorAll('button')).toHaveLength(0);
- plugin.getCurrentPage.mockReturnValue(null as any);await view.refresh();
- expect(view.hackEl.children).toHaveLength(0);
- plugin.getCurrentHack.mockResolvedValue(hack);await view.refresh();
- expect(view.hackEl.style.display).toBe('');expect(view.hackEl.querySelectorAll('button')).toHaveLength(1);
-});
+
 test('late page lookup cannot overwrite a newer page header',async()=>{
  const {view,plugin}=setup();
  let resolve:any;plugin.getCurrentHack.mockImplementationOnce(()=>new Promise(r=>{resolve=r}));
@@ -57,16 +39,7 @@ test('late page lookup cannot overwrite a newer page header',async()=>{
  expect(view.hackEl.children).toHaveLength(0);expect(view.hackPath).toBeNull();
 });
 
-test('installed block changes action to disable and reacts to external removal', async()=>{
- const {view,plugin,hack}=setup();
- (hack as any).installed=true;
- await view.refresh(); const button=view.hackEl.querySelectorAll('button')[0];
- expect(button.textContent).toBe('Выключить приём');button.listeners.click();
- await vi.waitFor(()=>expect(plugin.applyCurrentHack).toHaveBeenCalledWith(hack.path,false));
- await vi.waitFor(()=>expect(view.busy).toBe(false));
- (hack as any).installed=false;await view.refresh();
- expect(view.hackEl.querySelectorAll('button')[0].textContent).toBe('Применить приём');
-});
+
 
 test('recommendations open their verified card and do not apply CSS',async()=>{
  const {view,plugin}=setup();
@@ -108,4 +81,8 @@ test('source themes have card and Community links without offering automatic the
  expect(links.map((e:Element)=>e.textContent)).toEqual(['Rounded','Minimal','Тема в Obsidian Community']);
  links[1].listeners.click({preventDefault(){}});expect(open).toHaveBeenCalledWith(theme);
  expect(plugin.applyCurrentHack).not.toHaveBeenCalled();
+});
+
+test('dialogue does not duplicate card title or apply controls',async()=>{
+ const {view}=setup();await view.refresh();expect(view.hackEl.children).toHaveLength(0);expect(view.hackEl.style.display).toBe('none');
 });

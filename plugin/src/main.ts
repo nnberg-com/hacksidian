@@ -1,3 +1,5 @@
+import { enabledTechniquePaths } from './enabled-techniques';
+import { Favourites } from './favourites';
 import { registerSourceBlocks } from './source-blocks';
 import { registerLiveExamples } from "./live-example";
 import { t, setLanguageResolver, resolveInterfaceLanguage, resolveContentLanguage, type Language } from "../i18n";
@@ -37,6 +39,7 @@ import { addHack, removeHack, hasHack, hackId, type HackContext, type HackSpec }
 import { ConversationView } from "./view";
 
 interface PluginData {
+  favourites?: string[];
   catalog?: CatalogState;
   apiAttempts?: ApiAttempt[];
   snippetsInstalled?: boolean;
@@ -45,6 +48,32 @@ interface PluginData {
 }
 
 export default class CallMeRedPlugin extends Plugin {
+  favourites = new Favourites({
+    list: () => this.app.vault.getMarkdownFiles().filter(file => this.isFavouriteCard(file.path)).map(file => file.path).sort(),
+    has: path => this.isFavouriteCard(path),
+    toggle: async path => {
+      const file = this.app.vault.getAbstractFileByPath(path);
+      if (!(file instanceof TFile)) throw new Error('Карточка не найдена: ' + path);
+      await this.app.fileManager.processFrontMatter(file, metadata => { metadata.favourite = metadata.favourite !== true; });
+    },
+  });
+  private isFavouriteCard(path: string): boolean {
+    const root = this.settings.atlasFolder.replace(/\/+$/, '') + '/! hacks/';
+    if (!path.startsWith(root)) return false;
+    const parts = path.split('/'), name = parts.pop()!;
+    return name === parts[parts.length - 1] + '.md' && this.app.metadataCache.getCache(path)?.frontmatter?.favourite === true;
+  }
+  async openFavourites(): Promise<void> { await this.openTechniqueList('Избранное', 'hacksidian-favourites'); }
+  async openEnabled(): Promise<void> { await this.openTechniqueList('Включённые', 'hacksidian-enabled'); }
+  private async openTechniqueList(title: string, block: string): Promise<void> {
+    const page = `${this.settings.atlasFolder.replace(/\/+$/, '')}/${title}.md`;
+    let file = this.app.vault.getAbstractFileByPath(page);
+    if (!file) file = await this.app.vault.create(page, `# ${title}\n\n\`\`\`${block}\n\`\`\`\n`);
+    if (!(file instanceof TFile)) throw new Error('Не удалось открыть страницу: ' + page);
+    const existing = this.app.workspace.getLeavesOfType('markdown').find(leaf => leaf.view instanceof MarkdownView && leaf.view.file?.path === page);
+    if (existing) { await this.app.workspace.revealLeaf(existing); return; }
+    await this.app.workspace.getLeaf('tab').openFile(file, { state: { mode: 'preview' } });
+  }
   catalog: CatalogState = { garbage: [] };
   apiAttempts: ApiAttempt[] = [];
   settings: CallMeRedSettings = { ...DEFAULT_SETTINGS };
@@ -86,8 +115,30 @@ export default class CallMeRedPlugin extends Plugin {
   async onload(): Promise<void> {
     setLanguageResolver(() => this.interfaceLanguage);
     registerLiveExamples(this);
-    registerSourceBlocks(this);
     await this.loadPluginData();
+    this.registerEvent(this.app.metadataCache.on('changed', () => this.favourites.refresh()));
+    this.registerEvent(this.app.metadataCache.on('resolved', () => this.favourites.refresh()));
+    this.registerEvent(this.app.vault.on('delete', () => this.favourites.refresh()));
+    this.registerEvent(this.app.vault.on('rename', () => this.favourites.refresh()));
+    const openFavourites = () => { void this.openFavourites().catch(error => new Notice(String(error))); };
+    this.registerMarkdownCodeBlockProcessor('hacksidian-favourites', async (_source, el, ctx) => {
+      const { FavouritesBlock } = await import('./favourites-view');
+      ctx.addChild(new FavouritesBlock(el, this.app, this.favourites, this.interfaceLanguage === 'en'));
+    });
+    this.registerMarkdownCodeBlockProcessor('hacksidian-enabled', async (_source, el, ctx) => {
+      await this.reloadFileStyle();
+      const { EnabledBlock } = await import('./enabled-view');
+      ctx.addChild(new EnabledBlock(el, this.app,
+        () => enabledTechniquePaths(this.app.vault.getMarkdownFiles(), this.settings.atlasFolder, this.state.style),
+        listener => { this.techniqueListeners.add(listener); return () => this.techniqueListeners.delete(listener); }));
+    });
+    registerSourceBlocks(this, { openEnabled: () => { void this.openEnabled().catch(error => new Notice(String(error))); }, technique: {
+      get: async path => { const hack = await this.getHackAt(path); return hack ? { installed: !!hack.installed, hasCss: hack.spec.hasCss } : null; },
+      set: (path, enabled) => this.applyCurrentHack(path, enabled, true),
+      subscribe: listener => { this.techniqueListeners.add(listener); return () => this.techniqueListeners.delete(listener); },
+    }, store: this.favourites, open: openFavourites, english: () => this.interfaceLanguage === 'en' });
+    this.addCommand({ id: 'open-favourites', name: this.interfaceLanguage === 'en' ? 'Open favourites' : 'Открыть избранное', callback: openFavourites });
+    this.addRibbonIcon('star', this.interfaceLanguage === 'en' ? 'Favourite techniques' : 'Избранные приёмы', openFavourites);
     await this.savePluginData();
     await refreshNativeSnippets(this.app);
     this.registerInterval(window.setInterval(() => {
@@ -144,6 +195,12 @@ export default class CallMeRedPlugin extends Plugin {
 
   async loadPluginData(): Promise<void> {
     const data = (await this.loadData()) as PluginData | null;
+    // One-time migration of marks from the short-lived private-list implementation.
+    for (const path of data?.favourites ?? []) {
+      const file = this.app.vault.getAbstractFileByPath(path);
+      if (!(file instanceof TFile)) throw new Error('Не удалось перенести избранное: ' + path);
+      await this.app.fileManager.processFrontMatter(file, metadata => { metadata.favourite = true; });
+    }
     this.catalog = data?.catalog ?? { garbage: [] };
     this.catalog.garbage ??= [];
     this.settings = { ...structuredClone(DEFAULT_SETTINGS), ...(data?.settings ?? {}) };
@@ -176,7 +233,7 @@ export default class CallMeRedPlugin extends Plugin {
     const changed = css !== this.state.activeCss;
     this.state.style = style;
     this.state.activeCss = css;
-    if (changed) { await refreshNativeSnippets(this.app); await this.refreshView(); }
+    if (changed) { for (const listener of this.techniqueListeners) listener(); await refreshNativeSnippets(this.app); await this.refreshView(); }
   }
 
   async savePluginData(): Promise<void> {
@@ -244,7 +301,11 @@ export default class CallMeRedPlugin extends Plugin {
 
   async getCurrentHack(): Promise<HackContext | null> {
     const file = this.findMarkdownView()?.file;
-    if (!file) return null;
+    return file ? this.getHackAt(file.path) : null;
+  }
+  private techniqueListeners = new Set<() => void>();
+  async getHackAt(filePath: string): Promise<HackContext | null> {
+    const file = { path: filePath };
     const directory = file.path.slice(0, file.path.lastIndexOf("/"));
     const folderId = directory.split("/").at(-1)!;
     const adapter = this.app.vault.adapter;
@@ -260,10 +321,10 @@ export default class CallMeRedPlugin extends Plugin {
     return { id, installed: hasHack(this.state.style, id), path: file.path, title, spec, css: await adapter.read(`${directory}/recipe.css`) };
   }
 
-  async applyCurrentHack(expectedPath: string, enabled = true): Promise<boolean> {
+  async applyCurrentHack(expectedPath: string, enabled = true, fromCard = false): Promise<boolean> {
     let changed = false;
     await this.withHistoryLock(async () => {
-      const hack = await this.getCurrentHack();
+      const hack = fromCard ? await this.getHackAt(expectedPath) : await this.getCurrentHack();
       if (!hack || hack.path !== expectedPath) throw new Error(t("main.the_open_card_has_changed_select_the"));
       await this.reloadFileStyle();
       const result = enabled
@@ -276,6 +337,7 @@ export default class CallMeRedPlugin extends Plugin {
       const manifest = JSON.parse(await this.app.vault.adapter.read(`${this.app.vault.configDir}/snippets/hacksidian-manifest.json`));
       const entry = manifest.modules.find((m: {id: string}) => m.id === hack.spec.target);
       if (enabled && entry) await refreshNativeSnippets(this.app, [entry.file.replace(/\.css$/, "")]);
+      for (const listener of this.techniqueListeners) listener();
       await this.refreshView();
     });
     return changed;

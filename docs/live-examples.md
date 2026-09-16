@@ -21,3 +21,9 @@ literally and refresh on file changes. See [Card format](card-format.md).
 Validation: plugin typecheck, tests and build; full-source capability scan and
 one-block-per-supported-card audit. Two pilot examples were accepted by the user;
 this does not establish visual/behavioral acceptance for the entire catalogue.
+
+Fragment targets (`:target`) are mapped to a private preview attribute. Clicking a fragment link selects its target inside the sample without changing the note URL. This is a preview simulation, not an assertion that native navigation behaves identically. Font resources, embedded documents, legacy footnote IDs and interface models still have explicit limitations.
+
+Run `node tools/audit-live-examples.mjs` for a read-only inventory of every technique, including nested cards. The ignored `build/live-example-audit.json` distinguishes supported blocks, accidental missing blocks, unadapted theme findings, missing preview implementations, and effects outside inline Markdown. Capability checks do not verify rendered appearance.
+
+The preview switch sits at the right edge of the card header as “Скрыть [switch] Показать”. Right/on shows the scoped CSS; left/off hides it. Header and sample share state only within the same note pane. The switch does not install or remove the recipe from global snippets.

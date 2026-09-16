@@ -166,20 +166,8 @@ export class ConversationView extends ItemView {
       this.hackRenderKey = renderKey;
       this.hackEl.empty();
       this.hackPath = hack?.path ?? null;
-      this.hackEl.style.display = hack ? "" : "none";
-      if (hack) {
-        const heading = this.hackEl.createDiv({ cls: "hacksidian-page-heading" });
-        heading.createDiv({ cls: "hacksidian-page-title", text: page?.title || hack?.title || t("view.no_page"),
-          attr: { title: page?.path ?? "" } });
-        const actions = heading.createDiv({ cls: "hacksidian-page-actions" });
-        const button = actions.createEl("button", { text: t(hack.installed ? "view.disable_hack" : "view.apply_hack"), cls: "mod-cta" });
-        button.dataset.noCss = String(!hack.spec.hasCss && !hack.installed);
-        button.disabled = this.busy || (!hack.spec.hasCss && !hack.installed);
-        for (const requirement of hack.spec.requirements ?? []) this.hackEl.createDiv({ cls: "setting-item-description", text: requirement });
-        if (!hack.spec.hasCss) this.hackEl.createDiv({ text: t("view.this_technique_has_no_css_of_its") });
-        const path = hack.path;
-        button.addEventListener("click", () => void this.applyHack(path, !hack.installed));
-      }
+      this.hackEl.style.display = "none";
+
     }
     this.conversationEl.empty();
     for (const turn of this.plugin.state.turns) {

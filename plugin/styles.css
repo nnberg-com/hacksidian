@@ -166,16 +166,51 @@
 .hacksidian-related-themes { border-inline-start: 2px solid var(--background-modifier-border); padding-inline-start: 0.75em; }
 
 /* Technique cards */
-.hacksidian-live-toolbar button.hacksidian-switch { position: relative; width: 38px; height: 22px; min-width: 38px; padding: 0; border: 0; border-radius: 12px; background: var(--background-modifier-border); box-shadow: none; }
+.hacksidian-preview-control button.hacksidian-switch { position: relative; width: 38px; height: 22px; min-width: 38px; padding: 0; border: 0; border-radius: 12px; background: var(--background-modifier-border); box-shadow: none; }
 .hacksidian-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--text-on-accent); transition: transform .15s; }
-.hacksidian-live-toolbar button.hacksidian-switch[aria-checked="true"] { background: var(--interactive-accent); }
+.hacksidian-preview-control button.hacksidian-switch[aria-checked="true"] { background: var(--interactive-accent); }
 .hacksidian-switch[aria-checked="true"]::after { transform: translateX(16px); }
 .hacksidian-switch:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: 3px; }
 .hacksidian-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--size-4-4); }
 .hacksidian-columns > div { min-width: 0; }
 .hacksidian-source-header { display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--size-4-2); }
-.hacksidian-source-header a { font-size: var(--font-smallest); }
+.hacksidian-source-header h6 a { font: inherit; }
 .hacksidian-files pre { max-height: 36rem; overflow: auto; }
-button.hacksidian-copy-id { background: transparent; box-shadow: none; border: 0; padding: 0; height: auto; cursor: copy; }
+code.hacksidian-copy-id { cursor: copy; }
 @media (max-width: 600px) { .hacksidian-columns { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { .hacksidian-switch::after { transition: none; } }
+
+
+.hacksidian-live-example > hr.hacksidian-live-separator {
+  display: block;
+  width: 100%;
+  flex: none;
+  border: 0;
+  border-top: var(--hr-thickness, 2px) solid var(--hr-color, var(--background-modifier-border));
+  margin: var(--p-spacing, 1rem) 0;
+}
+
+.hacksidian-favourites-search { width: 100%; margin-bottom: 1em; }
+.hacksidian-favourite-row { display: flex; align-items: center; justify-content: space-between; gap: 1em; padding-block: .6em; border-bottom: 1px solid var(--background-modifier-border); }
+.hacksidian-favourite-row small { display: block; color: var(--text-muted); }
+
+.hacksidian-card-header { display: block; }
+.hacksidian-card-nav { display: flex; flex-wrap: wrap; gap: 1em; margin-bottom: .6em; }
+.hacksidian-card-row { display: flex; flex-wrap: wrap; gap: .6em; align-items: center; }
+.hacksidian-card-actions { margin-inline-start: auto; display: flex; flex-wrap: wrap; align-items: center; gap: .8em; }
+.hacksidian-card-header button.hacksidian-favourite-toggle { background: var(--color-green); color: var(--text-on-accent); font-size: 2rem; line-height: 1; padding: 0 .2em; min-width: 2.5rem; min-height: 2.5rem; height: auto; }
+.hacksidian-card-header button.hacksidian-apply-toggle { background: var(--color-green); color: var(--text-on-accent); }
+.hacksidian-card-header button.hacksidian-apply-toggle[aria-pressed="true"] { background: var(--color-red); }
+.hacksidian-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1.2rem; }
+.hacksidian-details > div { min-width: 0; }
+
+.hacksidian-sources { margin-block: 2rem; }
+
+.hacksidian-preview-control { display: inline-flex; align-items: center; gap: .5em; white-space: nowrap; }
+.hacksidian-preview-control span { color: var(--text-muted); font-size: var(--font-smaller); }
+.hacksidian-preview-control span.is-active { color: var(--text-normal); font-weight: var(--font-semibold); }
+
+.hacksidian-card-row > h2.hacksidian-card-title { margin: 0; }
+
+.hacksidian-category-example { margin-block: 4rem; min-height: 12rem; }
+.hacksidian-category-example.is-loaded { min-height: 0; }

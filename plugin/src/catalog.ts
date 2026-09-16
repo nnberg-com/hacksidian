@@ -57,7 +57,7 @@ export function techniqueEntry(path: string, markdown: string, meta: Record<stri
   const title = typeof meta.title === 'string' ? meta.title : id;
   const body = markdown.replace(/^---\r?\n[\s\S]*?\r?\n---\s*/, '');
   const sections = body.split(/(?=^## )/m).filter(section => !/^## (?:Живой пример|Исходный CSS|Данные исходного|HTML исходного|Опора на стандартную|Источники|Использование в Obsidian|Live example|Original CSS|Source catalog|Source HTML|Sources)/i.test(section));
-  const description = sections.join('\n').replace(/```hacksidian-(?:live|css|markdown|files|sources|id)[\s\S]*?```/g, '').replace(/^.*\[Открыть Markdown-пример\].*$/gm, '').trim();
+  const description = sections.join('\n').replace(/^(`{3,})hacksidian-details\n([\s\S]*?)^\1\s*$/gm, '$2').replace(/```hacksidian-(?:live|css|markdown|files|sources|id)[\s\S]*?```/g, '').replace(/^.*\[Открыть Markdown-пример\].*$/gm, '').trim();
   const selectors = new Set<string>(), properties = new Set<string>(), declarations = new Set<string>();
   if (spec.hasCss) {
     const root = postcss.parse(css);

@@ -9,9 +9,9 @@ function visit(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){
  const text=fs.readFileSync(file,'utf8');const meta=parse(text.match(/^---\n([\s\S]*?)\n---/)?.[1]??'')??{};
  if(!meta.tags?.includes('hacksidian_technique'))continue;
  cards++;const id=path.basename(file,'.md');assert.equal(id,path.basename(dir));
- const config=JSON.parse(fs.readFileSync(path.join(dir,'hack.json'),'utf8'));assert.equal(config.format,2);assert.equal(typeof config.hasCss,'boolean');
+ const config=JSON.parse(fs.readFileSync(path.join(dir,'hack.json'),'utf8'));assert.equal(config.format,2);assert.equal(config.hasCss,true,'Not a standalone snippet: '+file);assert(fs.readFileSync(path.join(dir,'recipe.css'),'utf8').trim(),'Empty CSS: '+file);
  for(const kind of ['files','sources','id']){
-  const matches=[...text.matchAll(new RegExp('```hacksidian-'+kind+'\\n([^\\n]+)\\n[\\s\\S]*?```','g'))];assert.equal(matches.length,1,file+' '+kind);assert.equal(matches[0][1],id);
+  const matches=[...text.matchAll(new RegExp('```hacksidian-'+kind+'\\n([^\\n]+)\\n```','g'))];assert.equal(matches.length,1,file+' '+kind);assert.equal(matches[0][1],id);
   if(kind==='files')filesBlocks++;else if(kind==='sources')sourcesBlocks++;else idBlocks++;
  }
  assert(!text.includes('## Исходный CSS рецепта'),file);
