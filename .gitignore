@@ -1,5 +1,6 @@
 build/
 __pycache__/
+archive/
 
 # Python bytecode and macOS metadata
 *.py[cod]
