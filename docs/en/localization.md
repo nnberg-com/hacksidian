@@ -14,7 +14,7 @@ The LLM instruction is to reply in the language of the latest user question, usi
 
 ## Atlas
 
-The atlas is Russian-only: a single `<id>.md` card with technical fields and description, `Markdown.ru.md`, `recipe.css` and `hack.json`. English atlas variants and navigation labels have been removed. Plugin interface localization and language settings remain available.
+The atlas is Russian-only: a single `<id>.md` card with technical fields and description, `markdown.md`, `recipe.css` and `hack.json`. English atlas variants and navigation labels have been removed. Plugin interface localization and language settings remain available.
 
 ## Documentation
 

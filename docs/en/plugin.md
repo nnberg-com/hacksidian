@@ -50,7 +50,7 @@ The old `callmered` vault's saved configuration no longer enables this plugin. T
 
 ## Atlas techniques
 
-The structural rule is one group, one base snippet, and one variable set; see [Snippets](snippets.md). Opening a card tagged `atlas/technique` with a local `hack.json` shows “Apply hack” in the conversation panel. It adds one CSS block to the associated file without calling an LLM, avoids duplicate application, and participates in the same 50-step Undo history. Templates and their bindings remain in the technique directory.
+The structural rule is one group, one base snippet, and one variable set; see [Snippets](snippets.md). Opening a card tagged `hacksidian_technique` with a local `hack.json` shows “Apply hack” in the conversation panel. It adds one CSS block to the associated file without calling an LLM, avoids duplicate application, and participates in the same 50-step Undo history. Templates and their bindings remain in the technique directory.
 
 ## Installation and plugin identity migration
 

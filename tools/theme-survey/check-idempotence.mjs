@@ -1,0 +1,11 @@
+throw new Error('Retired: technique cards are maintained as Markdown. This command would recreate technical files or overwrite authored content.');
+import fs from 'node:fs';import path from 'node:path';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';import assert from 'node:assert/strict';
+const project=path.resolve(new URL('../..',import.meta.url).pathname),atlas=process.argv[2]||'/Users/op/vaults/op/! P R O/hacksidian/atlas';
+const hash=()=>{const h=createHash('sha256');function visit(p){for(const name of fs.readdirSync(p).sort()){const f=path.join(p,name);if(fs.statSync(f).isDirectory())visit(f);else if(/\.(md|base|json|css)$/.test(f)){h.update(path.relative(atlas,f));h.update(fs.readFileSync(f));}}}visit(path.join(atlas,'! hacks'));visit(path.join(atlas,'! themes'));h.update(fs.readFileSync(path.join(atlas,'atlas.md')));return h.digest('hex');};
+const before=hash();
+execFileSync(process.execPath,['tools/theme-survey/publish.mjs',atlas],{cwd:project,stdio:'pipe'});
+execFileSync(process.execPath,['tools/theme-catalog/build.mjs',atlas],{cwd:project,stdio:'pipe'});
+assert.equal(hash(),before,'Regeneration changed atlas');
+const file=path.join(project,'docs/research/theme-survey/verification.json'),report=JSON.parse(fs.readFileSync(file));
+report.regenerationIdempotent=true;report.atlasContentSha256=before;fs.writeFileSync(file,JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify({regenerationIdempotent:true,sha256:before}));

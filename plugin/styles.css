@@ -148,12 +148,11 @@
 .hacksidian-page-actions { display: flex; flex-shrink: 0; gap: 4px; }
 
 /* Atlas pilot: controls and viewport only; recipe rules use unique sample IDs. */
-.hacksidian-live-example { border: 1px solid var(--background-modifier-border); border-radius: var(--radius-m); padding: var(--size-4-3); margin-block: var(--p-spacing); }
+.hacksidian-live-example { border: 0; padding: 0; margin-block: var(--p-spacing); }
 .hacksidian-live-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--size-4-2); margin-bottom: var(--size-4-3); }
-.hacksidian-live-toolbar button[aria-pressed="true"] { background: var(--interactive-accent); color: var(--text-on-accent); }
 .hacksidian-live-toolbar span, .hacksidian-live-example > small { color: var(--text-muted); font-size: var(--font-smaller); }
 .hacksidian-live-example > small { display: block; margin-top: var(--size-4-2); }
-.hacksidian-live-viewport { resize: horizontal; overflow: auto; max-width: 100%; min-width: min(180px, 100%); padding: var(--size-4-2); border: 1px dashed var(--background-modifier-border); }
+.hacksidian-live-viewport { resize: horizontal; overflow: auto; max-width: 100%; min-width: min(180px, 100%); padding: var(--size-4-2); border: 0; }
 .hacksidian-live-sample.markdown-preview-view { height: auto; min-height: 0; padding: 0; overflow: visible; }
 /* Contain fixed/absolute content effects and give responsive recipes their preview container. */
 .hacksidian-live-viewport { contain: layout paint; container-type: inline-size; container-name: preview; isolation: isolate; }
@@ -163,3 +162,20 @@
 .hacksidian-recommendation > a:first-child { font-weight: 600; }
 .hacksidian-recommendation > div { white-space: pre-wrap; margin-top: 0.25em; }
 .hacksidian-recommendation code { overflow-wrap: anywhere; }
+
+.hacksidian-related-themes { border-inline-start: 2px solid var(--background-modifier-border); padding-inline-start: 0.75em; }
+
+/* Technique cards */
+.hacksidian-live-toolbar button.hacksidian-switch { position: relative; width: 38px; height: 22px; min-width: 38px; padding: 0; border: 0; border-radius: 12px; background: var(--background-modifier-border); box-shadow: none; }
+.hacksidian-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--text-on-accent); transition: transform .15s; }
+.hacksidian-live-toolbar button.hacksidian-switch[aria-checked="true"] { background: var(--interactive-accent); }
+.hacksidian-switch[aria-checked="true"]::after { transform: translateX(16px); }
+.hacksidian-switch:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: 3px; }
+.hacksidian-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--size-4-4); }
+.hacksidian-columns > div { min-width: 0; }
+.hacksidian-source-header { display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--size-4-2); }
+.hacksidian-source-header a { font-size: var(--font-smallest); }
+.hacksidian-files pre { max-height: 36rem; overflow: auto; }
+button.hacksidian-copy-id { background: transparent; box-shadow: none; border: 0; padding: 0; height: auto; cursor: copy; }
+@media (max-width: 600px) { .hacksidian-columns { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .hacksidian-switch::after { transition: none; } }

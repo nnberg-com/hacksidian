@@ -35,6 +35,6 @@
 
 ## Конкретный приём
 
-Все файлы принадлежат папке `atlas/! hacks/<id>/`: карточка, `Markdown.ru.md`, `recipe.template.css`, `dependencies.template.css`, `preview.css`, `hack.json`, локальные `assets/` и необязательные модели. В `hack.json` находятся `group`, `target: g-<group>`, `atlas` и `snippet` — два набора буквальных параметров одного шаблона; при необходимости — `requirements`.
+Все файлы принадлежат папке `atlas/! hacks/<id>/`: карточка, `markdown.md`, `recipe.template.css`, `dependencies.template.css`, `preview.css`, `hack.json`, локальные `assets/` и необязательные модели. В `hack.json` находятся `group`, `target: g-<group>`, `atlas` и `snippet` — два набора буквальных параметров одного шаблона; при необходимости — `requirements`.
 
 Кнопка «Применить hack» в правой панели добавляет CSS в файл группы, без LLM. Маркеры в CSS предотвращают повторное добавление. Undo убирает добавленный блок. Автоматического устранения конфликтов с другими приёмами нет: действует обычный CSS-каскад, включая `!important` в базовом стиле.

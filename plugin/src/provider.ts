@@ -59,7 +59,13 @@ export class OpenAIResponsesProvider implements ModelProvider {
     const validFiles = new Set(request.catalog.documents.map(doc => doc.fileId));
     const retrieved = calls.flatMap(call => call.results ?? []).filter(result => validFiles.has(result.file_id));
     const ids = new Set<string>();
-    for (const result of retrieved) for (const match of result.text.matchAll(/(?:^|\n)(?:# |END )?ID: ([a-z0-9_-]+)\b/g)) ids.add(match[1]);
+    // A chunk can omit the record heading. Single-record files still identify
+    // their source reliably; legacy mixed files must use explicit text markers.
+    for (const result of retrieved) {
+      const entryId = request.catalog.documents.find(doc => doc.fileId === result.file_id)?.entryId;
+      if (entryId) ids.add(entryId);
+      else for (const match of result.text.matchAll(/(?:^|\n)(?:# |END )?ID: ([a-z0-9_-]+)\b/g)) ids.add(match[1]);
+    }
     const known = new Set(request.catalog.entries.map(entry => entry.id));
     const retrievedIds = [...ids].filter(id => known.has(id));
     if (decision.recommendations.some(item => !retrievedIds.includes(item.id))) throw new Error(t('catalog.invalid_recommendation'));

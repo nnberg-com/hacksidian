@@ -21,7 +21,8 @@ export interface UsageRecord {
 }
 
 export interface TurnRecord {
-  recommendations?: Array<Recommendation & { title: string; path: string; helpUrl?: string; kind: string }>;
+  recommendations?: Array<Recommendation & { title: string; path: string; helpUrl?: string; kind: string;
+    relatedThemes?: Array<{ id: string; title: string; path: string; helpUrl?: string; kind: 'theme' }> }>;
   catalogRevision?: string;
   searchQueries?: string[];
   retrievedIds?: string[];

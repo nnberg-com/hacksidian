@@ -23,7 +23,7 @@ export interface HackContext {
 
 export function hackId(path: string, tags: unknown): string | null {
   const match = path.match(/(?:^|\/)atlas\/! hacks\/([a-z0-9][a-z0-9-]*)\/([^/]+)\.md$/);
-  const tagged = Array.isArray(tags) && tags.some(t => t === 'atlas/technique' || t === '#atlas/technique');
+  const tagged = Array.isArray(tags) && tags.some(t => t === 'hacksidian_technique' || t === '#hacksidian_technique');
   return match && (match[1] === match[2] || /^Description\.(ru|en)$/.test(match[2])) && tagged ? match[1] : null;
 }
 

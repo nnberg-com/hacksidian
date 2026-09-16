@@ -134,7 +134,7 @@ test('installed recipe cannot be reapplied; disable and enable preserve the othe
  await (plugin as any).saveAppliedStyle(old);
  const recipe = '/Users/op/vaults/op/! P R O/hacksidian/atlas/! hacks/task-e30';
  const hack = { id: 'task-e30', title: 'Completed last', path: 'atlas/! hacks/task-e30/task-e30.md',
-  spec: JSON.parse(await readFile(path.join(recipe, 'hack.json'), 'utf8')),
+  spec: JSON.parse(await readFile('/Users/op/vaults/op/! P R O/hacksidian/atlas/! hacks/task-e30/hack.json', 'utf8')),
   css: await readFile(path.join(recipe, 'recipe.css'), 'utf8') };
  (plugin as any).app = { vault: { configDir: '.obsidian', adapter: { read: async () => readFile(path.join(dir, 'hacksidian-manifest.json'), 'utf8') } } };
  vi.spyOn(plugin, 'getCurrentHack').mockResolvedValue(hack);

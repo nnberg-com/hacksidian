@@ -2,10 +2,10 @@ import {test,expect} from 'vitest';
 import {compileHack,addHack,removeHack,hasHack,hackId,type HackContext} from '../src/hacks';
 const hack:HackContext={id:'text-demo',title:'Demo',path:'atlas/! hacks/text-demo/text-demo.md',spec:{format:2,target:'g-text',hasCss:true},css:'/* authored CSS */\n.markdown-preview-view p { color: var(--text-accent); }\n'};
 test('binds only actual tagged cards and localized descriptions',()=>{
- expect(hackId(hack.path,['atlas/technique'])).toBe(hack.id);
+ expect(hackId(hack.path,['hacksidian_technique'])).toBe(hack.id);
  expect(hackId(hack.path,[])).toBeNull();
- expect(hackId('atlas/! hacks/text-demo/Description.en.md',['atlas/technique'])).toBe(hack.id);
- expect(hackId('atlas/! hacks/text-demo/Markdown.ru.md',['atlas/technique'])).toBeNull();
+ expect(hackId('atlas/! hacks/text-demo/Description.en.md',['hacksidian_technique'])).toBe(hack.id);
+ expect(hackId('atlas/! hacks/text-demo/markdown.md',['hacksidian_technique'])).toBeNull();
 });
 test('returns authored CSS byte-for-byte and checks syntax',()=>{
  expect(compileHack(hack)).toBe(hack.css);

@@ -1,3 +1,4 @@
+throw new Error('Retired: technique cards are maintained as Markdown. This command would recreate technical files or overwrite authored content.');
 // Offline migration only. Runtime consumers read recipe.css without transforms.
 import fs from 'node:fs';
 import path from 'node:path';

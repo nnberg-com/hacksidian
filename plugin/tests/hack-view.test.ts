@@ -7,6 +7,7 @@ class Element {
  empty(){this.children=[];}
  createDiv(options:any={}){return this.createEl('div',options);}
  createEl(tag:string,options:any={}){const e=new Element();e.tag=tag;e.className=options.cls??'';e.textContent=options.text??'';this.children.push(e);return e;}
+ appendText(text:string){this.textContent+=text;}
  setText(text:string){this.textContent=text;}
  setAttribute(){} removeClass(){} addClass(){} toggleClass(){}
  addEventListener(name:string,fn:Function){this.listeners[name]=fn;}
@@ -97,4 +98,14 @@ test('history reset clears a stale response status and pending conversation text
  view.resetHistoryStatus();await view.refresh();
  expect(view.statusEl.textContent).toBe('Готово к работе.');expect(view.pendingText).toBeNull();
  expect(view.busy).toBe(false);
+});
+
+test('source themes have card and Community links without offering automatic theme application',async()=>{
+ const {view,plugin}=setup();const open=vi.fn(async()=>{});(plugin as any).openRecommendation=open;
+ const theme={id:'theme-minimal',title:'Minimal',kind:'theme',path:'atlas/! themes/minimal.md',helpUrl:'https://community.obsidian.md/themes/minimal'};
+ (plugin.state.turns as any[]).push({userText:'Photos',systemMessage:'Found',usage:{totalTokens:1,estimatedCostUsd:0},recommendations:[{id:'image-round',title:'Rounded',kind:'technique',path:'atlas/image-round.md',reason:'Corners',instructions:'Open',relatedThemes:[theme]}]});
+ await view.refresh();const links=view.conversationEl.querySelectorAll('a');
+ expect(links.map((e:Element)=>e.textContent)).toEqual(['Rounded','Minimal','Тема в Obsidian Community']);
+ links[1].listeners.click({preventDefault(){}});expect(open).toHaveBeenCalledWith(theme);
+ expect(plugin.applyCurrentHack).not.toHaveBeenCalled();
 });

@@ -3,15 +3,16 @@ import postcss from 'postcss';
 
 export interface CatalogEntry {
   id: string;
-  kind: 'technique' | 'setting' | 'variable';
+  kind: 'technique' | 'setting' | 'variable' | 'theme';
   title: string;
   path: string;
   text: string;
   helpUrl?: string;
   menuPath?: string;
   applyAvailable?: boolean;
+  themeIds?: string[];
 }
-export interface CatalogDocument { name: string; hash: string; text: string; fileId?: string }
+export interface CatalogDocument { name: string; hash: string; text: string; fileId?: string; entryId?: string }
 export interface CatalogSnapshot {
   revision: string;
   createdAt: string;
@@ -27,19 +28,46 @@ export interface CatalogState {
 }
 export const digest = (text: string): string => createHash('sha256').update(text).digest('hex');
 
+export function themeEntry(path: string, meta: Record<string, unknown>): CatalogEntry {
+  const id = String(meta.id ?? '');
+  const url = String(meta.community_url ?? '');
+  if (!/^theme-[a-z0-9_-]+$/.test(id) || !/^https:\/\/community\.obsidian\.md\/themes\/[a-z0-9_-]+$/.test(url)
+    || typeof meta.title !== 'string' || typeof meta.description !== 'string' || typeof meta.repo !== 'string') {
+    throw new Error(`Invalid theme card: ${path}`);
+  }
+  return { id, kind: 'theme', title: meta.title, path, helpUrl: url, text: [
+    `Community theme by ${meta.author ?? 'unspecified'}. ${meta.description}`,
+    `Declared color modes: ${Array.isArray(meta.modes) ? meta.modes.join(', ') : 'unspecified'}.`,
+    `Community: ${url}\nAuthor repository: https://github.com/${meta.repo}`,
+    `Metadata checked: ${meta.checked ?? 'unspecified'}. Downloads are popularity, not a quality or compatibility guarantee.`,
+    'A complete theme changes appearance across the vault. Inspect its Community page and install manually via Settings → Appearance → Themes → Manage. No automatic installation or activation.',
+    'Only recommend features documented here. Source relationships describe provenance and adaptations, not verified identical behavior in the current theme.',
+  ].join('\n') };
+}
+
+export function relatedThemes(entry: CatalogEntry, entries: CatalogEntry[]): CatalogEntry[] {
+  return [...new Set(entry.themeIds ?? [])].map(id => entries.find(candidate => candidate.id === id && candidate.kind === 'theme'))
+    .filter((theme): theme is CatalogEntry => !!theme);
+}
+
 // Keep authored explanations, requirements and examples. Historical HTML/CSS and
 // generated reports are not search descriptions and must not drown out intent.
 export function techniqueEntry(path: string, markdown: string, meta: Record<string, unknown>, spec: { hasCss: boolean; requirements?: string[] }, css: string): CatalogEntry {
-  const id = String(meta.id ?? path.split('/').at(-2));
+  const id = path.split('/').at(-1)!.replace(/\.md$/, '');
   const title = typeof meta.title === 'string' ? meta.title : id;
   const body = markdown.replace(/^---\r?\n[\s\S]*?\r?\n---\s*/, '');
-  const sections = body.split(/(?=^## )/m).filter(section => !/^## (?:Живой пример|Исходный CSS|Данные исходного|HTML исходного|Опора на стандартную|Источники|Пояснения из HTML|Использование в Obsidian|Live example|Original CSS|Source catalog|Source HTML|Sources)/i.test(section));
-  const description = sections.join('\n').replace(/```hacksidian-live[\s\S]*?```/g, '').replace(/^.*\[Открыть Markdown-пример\].*$/gm, '').trim();
-  const selectors = new Set<string>(), properties = new Set<string>();
+  const sections = body.split(/(?=^## )/m).filter(section => !/^## (?:Живой пример|Исходный CSS|Данные исходного|HTML исходного|Опора на стандартную|Источники|Использование в Obsidian|Live example|Original CSS|Source catalog|Source HTML|Sources)/i.test(section));
+  const description = sections.join('\n').replace(/```hacksidian-(?:live|css|markdown|files|sources|id)[\s\S]*?```/g, '').replace(/^.*\[Открыть Markdown-пример\].*$/gm, '').trim();
+  const selectors = new Set<string>(), properties = new Set<string>(), declarations = new Set<string>();
   if (spec.hasCss) {
     const root = postcss.parse(css);
     root.walkRules(rule => { selectors.add(rule.selector); });
-    root.walkDecls(decl => { properties.add(decl.prop); });
+    root.walkDecls(decl => {
+      properties.add(decl.prop);
+      // Search needs values (wavy vs dotted), not embedded image/font payloads.
+      const value = decl.value.replace(/url\(\s*(["']?)data:[\s\S]*?\1\s*\)/gi, 'url("[embedded data]")');
+      declarations.add(`${decl.prop}: ${value}${decl.important ? ' !important' : ''}`);
+    });
   }
   return { id, kind: 'technique', title, path, applyAvailable: spec.hasCss, text: [
     `Category: ${meta.category ?? ''}`,
@@ -48,6 +76,7 @@ export function techniqueEntry(path: string, markdown: string, meta: Record<stri
     `Apply: ${spec.hasCss ? 'Open card and press Apply technique. No automatic application from chat.' : 'No applicable CSS; follow the card instructions manually.'}`,
     `Selectors (scope evidence): ${[...selectors].join(' | ')}`,
     `CSS properties: ${[...properties].join(', ')}`,
+    `Authored CSS declarations (values are evidence, not configurable options; conditions and cascade still apply): ${[...declarations].join('; ')}`,
     'Parameter adaptation is unavailable. Do not invent configurable options or claim combinations were tested.',
   ].join('\n') };
 }
@@ -78,15 +107,11 @@ export function settingEntries(): CatalogEntry[] {
 export function buildCatalog(entries: CatalogEntry[]): { revision: string; documents: CatalogDocument[]; entries: CatalogEntry[] } {
   const sorted = [...entries].sort((a,b) => a.id.localeCompare(b.id));
   if (new Set(sorted.map(entry => entry.id)).size !== sorted.length) throw new Error('Duplicate catalog ID');
-  const groups = new Map<string, CatalogEntry[]>();
-  for (const entry of sorted) {
-    // Stable buckets avoid shifting every document when a card is added/deleted.
-    const bucket = `${entry.kind}-${digest(entry.id).slice(0,2)}`;
-    groups.set(bucket, [...(groups.get(bucket) ?? []), entry]);
-  }
-  const documents = [...groups].sort(([a],[b]) => a.localeCompare(b)).map(([bucket, records]) => {
-    const text = records.map(entry => `# ID: ${entry.id}\nType: ${entry.kind}\nTitle: ${entry.title}\n${entry.text}\nEND ID: ${entry.id}`).join('\n\n---\n\n');
-    return { name: `${bucket}.md`, hash: digest(text), text };
+  // One record per file: unrelated cards must never share a retrieval chunk.
+  const documents = sorted.map(entry => {
+    const text = `# ID: ${entry.id}\nType: ${entry.kind}\nTitle: ${entry.title}\n${entry.text}\nEND ID: ${entry.id}`;
+    return { name: `${entry.kind}-${digest(entry.id)}.md`, entryId: entry.id, hash: digest(text), text };
   });
-  return { revision: digest(JSON.stringify(sorted)), documents, entries: sorted };
+  // Packaging changes must invalidate snapshots even when entries are identical.
+  return { revision: digest(JSON.stringify({ format: 'one-record-per-file-v1', entries: sorted })), documents, entries: sorted };
 }

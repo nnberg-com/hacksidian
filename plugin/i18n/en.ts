@@ -1,5 +1,8 @@
 import type { ru } from "./ru";
 export const en: Record<keyof typeof ru, string> = {
+  "catalog.theme_instruction": "Open the theme card and its Obsidian Community page. Install manually: Settings → Appearance → Themes → Manage. A theme changes appearance across the vault.",
+  "catalog.theme_community": "Theme on Obsidian Community",
+  "catalog.related_themes": "Also explore the themes linked by this technique’s sources for their broader appearance and features:",
   "catalog.found": "Matching solutions:",
   "catalog.setting_instruction": "Change the setting manually: {p0}. These are English menu labels; see the help link below.",
   "catalog.apply_instruction": "Open the card and press “Apply technique”.",

@@ -52,3 +52,21 @@ it('rejects an answer without a completed search',async()=>{
  await expect(new OpenAIResponsesProvider({...DEFAULT_SETTINGS,apiKey:'test'}).createIteration(request)).rejects.toThrow('поиск');
 });
 it('rejects retired providers',()=>expect(()=>createProvider({...DEFAULT_SETTINGS,provider:'google'})).toThrow('OpenAI only'));
+
+
+it('identifies a retrieved card from its single-record file when the chunk lacks an ID heading',async()=>{
+ const response=body();response.output[0].results![0].text='Rounded photos; no heading in this chunk';
+ requestUrl.mockResolvedValue({status:200,json:response});
+ const snapshot={...catalog,documents:[{...catalog.documents[0],entryId:'image-round'}]};
+ const result=await new OpenAIResponsesProvider({...DEFAULT_SETTINGS,apiKey:'test'}).createIteration({...request,catalog:snapshot});
+ expect(result.retrievedIds).toEqual(['image-round']);
+});
+
+
+it('does not treat another ID mentioned inside a single-record file as a retrieved card',async()=>{
+ const response=body();response.output[0].results![0].text='# ID: image-round\n# ID: unrelated';
+ requestUrl.mockResolvedValue({status:200,json:response});
+ const snapshot={...catalog,entries:[...catalog.entries,{...catalog.entries[0],id:'unrelated'}],documents:[{...catalog.documents[0],entryId:'image-round'}]};
+ const result=await new OpenAIResponsesProvider({...DEFAULT_SETTINGS,apiKey:'test'}).createIteration({...request,catalog:snapshot});
+ expect(result.retrievedIds).toEqual(['image-round']);
+});

@@ -53,16 +53,20 @@ export async function syncCatalog(api: CatalogApi, state: CatalogState, catalog:
       const failure = results.find(result => result.status === 'rejected');
       if (failure?.status === 'rejected') throw failure.reason;
     }
-    const batch = await api.json(`/vector_stores/${store.id}/file_batches`, 'POST', { file_ids: documents.map(doc => doc.fileId) });
-    if (!batch.id) throw new Error('OpenAI: missing indexing batch ID');
-    let status = batch;
-    const deadline = Date.now() + 10 * 60_000;
-    while (status.status === 'in_progress') {
-      if (Date.now() > deadline) throw new Error(t('catalog.timeout'));
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      status = await api.json(`/vector_stores/${store.id}/file_batches/${batch.id}`);
+    // Vector Store file batches accept at most 500 files.
+    // Keep the previous snapshot active until every batch succeeds.
+    for (let start = 0; start < documents.length; start += 500) {
+      const batch = await api.json(`/vector_stores/${store.id}/file_batches`, 'POST', { file_ids: documents.slice(start, start + 500).map(doc => doc.fileId) });
+      if (!batch.id) throw new Error('OpenAI: missing indexing batch ID');
+      let status = batch;
+      const deadline = Date.now() + 10 * 60_000;
+      while (status.status === 'in_progress') {
+        if (Date.now() > deadline) throw new Error(t('catalog.timeout'));
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        status = await api.json(`/vector_stores/${store.id}/file_batches/${batch.id}`);
+      }
+      if (status.status !== 'completed' || status.file_counts?.failed || status.file_counts?.cancelled) throw new Error(t('catalog.index_failed'));
     }
-    if (status.status !== 'completed' || status.file_counts?.failed || status.file_counts?.cancelled) throw new Error(t('catalog.index_failed'));
     const snapshot: CatalogSnapshot = { ...catalog, documents, storeId: store.id, createdAt: new Date().toISOString() };
     if (previous) state.garbage.push({ storeId: previous.storeId, fileIds: previous.documents.filter(old => !documents.some(doc => doc.fileId === old.fileId)).map(doc => doc.fileId!) });
     state.active = snapshot; delete state.pending;

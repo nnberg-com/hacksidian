@@ -202,7 +202,20 @@ export class ConversationView extends ItemView {
           item.createDiv({ text: recommendation.reason });
           item.createDiv({ text: recommendation.instructions });
           if (recommendation.kind === 'variable') item.createEl('code', { text: recommendation.path });
-          if (recommendation.helpUrl) item.createEl('a', { text: t('catalog.help'), href: recommendation.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
+          if (recommendation.helpUrl) item.createEl('a', { text: t(recommendation.kind === 'theme' ? 'catalog.theme_community' : 'catalog.help'), href: recommendation.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
+          if (recommendation.relatedThemes?.length) {
+            const themes = item.createDiv({ cls: 'hacksidian-related-themes' });
+            themes.createDiv({ text: t('catalog.related_themes') });
+            for (const theme of recommendation.relatedThemes) {
+              const row = themes.createDiv();
+              const link = row.createEl('a', { text: theme.title, href: '#', cls: 'internal-link' });
+              link.addEventListener('click', event => { event.preventDefault(); void this.plugin.openRecommendation(theme).catch(error => new Notice(String(error))); });
+              if (theme.helpUrl) {
+                row.appendText(' · ');
+                row.createEl('a', { text: t('catalog.theme_community'), href: theme.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
+              }
+            }
+          }
         }
         if (turn.catalogRevision) system.createDiv({ cls: 'setting-item-description', text: t('catalog.answer_version', { p0: turn.catalogRevision.slice(0,8) }) });
       }
@@ -252,7 +265,7 @@ export class ConversationView extends ItemView {
 ${turn.userText}`,
       ...(turn.systemMessage ? [`## Hacksidian
 
-${turn.systemMessage}\n${(turn.recommendations ?? []).map(item => `${item.title}: ${item.reason}\n${item.instructions}\n${item.path || item.helpUrl || ""}`).join("\n\n")}`] : []),
+${turn.systemMessage}\n${(turn.recommendations ?? []).map(item => `${item.title}: ${item.reason}\n${item.instructions}\n${item.path || item.helpUrl || ""}${item.kind === "theme" && item.helpUrl ? "\n" + item.helpUrl : ""}${(item.relatedThemes ?? []).map(theme => `\n${theme.title}: ${theme.path}\n${theme.helpUrl ?? ""}`).join("")}`).join("\n\n")}`] : []),
     ]);
     if (this.pendingText !== null) messages.push(`## ${t("view.you")}
 

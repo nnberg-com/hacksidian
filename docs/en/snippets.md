@@ -35,6 +35,6 @@ Existing styling covers Reading view notes with `cssclasses: callmered-coloring`
 
 ## An individual technique
 
-All technique files belong to `atlas/! hacks/<id>/`: the card, `Markdown.ru.md`, `recipe.template.css`, `dependencies.template.css`, `preview.css`, `hack.json`, local `assets/`, and optional models. `hack.json` contains `group`, `target: g-<group>`, `atlas`, and `snippet`: two sets of literal bindings for one template, plus optional `requirements`.
+All technique files belong to `atlas/! hacks/<id>/`: the card, `markdown.md`, `recipe.template.css`, `dependencies.template.css`, `preview.css`, `hack.json`, local `assets/`, and optional models. `hack.json` contains `group`, `target: g-<group>`, `atlas`, and `snippet`: two sets of literal bindings for one template, plus optional `requirements`.
 
 “Apply hack” adds CSS to the group file without an LLM. CSS markers prevent duplicate additions. Undo removes the block. Conflicts with other techniques are not resolved automatically: the ordinary CSS cascade applies, including `!important` in base styles.

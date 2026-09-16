@@ -1,6 +1,8 @@
+import { registerSourceBlocks } from './source-blocks';
 import { registerLiveExamples } from "./live-example";
 import { t, setLanguageResolver, resolveInterfaceLanguage, resolveContentLanguage, type Language } from "../i18n";
 import type { CatalogState } from "./catalog";
+import { relatedThemes } from "./catalog";
 import { collectCatalog } from "./catalog-source";
 import { CatalogApi, syncCatalog } from "./catalog-api";
 import { switchProvider } from "./llm-catalog";
@@ -84,6 +86,7 @@ export default class CallMeRedPlugin extends Plugin {
   async onload(): Promise<void> {
     setLanguageResolver(() => this.interfaceLanguage);
     registerLiveExamples(this);
+    registerSourceBlocks(this);
     await this.loadPluginData();
     await this.savePluginData();
     await refreshNativeSnippets(this.app);
@@ -369,8 +372,10 @@ export default class CallMeRedPlugin extends Plugin {
         if (!entry || !result.retrievedIds.includes(item.id)) throw new Error(t('catalog.invalid_recommendation'));
         const instructions = entry.kind === 'setting'
           ? t('catalog.setting_instruction', { p0: entry.menuPath ?? 'Settings' })
+          : entry.kind === 'theme' ? t('catalog.theme_instruction')
           : entry.kind === 'technique' ? t(entry.applyAvailable ? 'catalog.apply_instruction' : 'catalog.card_instruction') : item.instructions;
-        return { ...item, instructions, title: entry.title, path: entry.path, kind: entry.kind, helpUrl: entry.helpUrl };
+        const themes = relatedThemes(entry, catalog.entries).map(theme => ({ id: theme.id, title: theme.title, path: theme.path, helpUrl: theme.helpUrl, kind: 'theme' as const }));
+        return { ...item, instructions, title: entry.title, path: entry.path, kind: entry.kind, helpUrl: entry.helpUrl, relatedThemes: themes };
       });
       this.state.turns.push({ id: turnId, createdAt: new Date().toISOString(), coloringPath: '', userText,
         action: result.decision.action, systemMessage: result.decision.action === 'recommend' ? t('catalog.found') : result.decision.message, recommendations,

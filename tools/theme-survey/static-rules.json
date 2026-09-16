@@ -1,0 +1,291 @@
+[
+  {
+    "id": "heading-e007",
+    "selector": "\\bh[1-6]\\b|\\.cm-header(?:-[1-6])?\\b",
+    "property": "^color$",
+    "value": "^(?!inherit|initial|unset|var\\(--text-normal\\))",
+    "exclude": "hover|active|callout|setting"
+  },
+  {
+    "id": "interface-hide-scrollbars",
+    "selector": "::-webkit-scrollbar$",
+    "property": "^display$",
+    "value": "^none$"
+  },
+  {
+    "id": "interface-hide-controls",
+    "selector": "^(?:\\.workspace-ribbon\\.mod-left|\\.sidebar-toggle-button|\\.tooltip)",
+    "property": "^display$",
+    "value": "^none$"
+  },
+  {
+    "id": "interface-properties-hidden",
+    "selector": "\\.markdown-reading-view .*metadata-container",
+    "property": "^display$",
+    "value": "^none$"
+  },
+  {
+    "id": "code-e002",
+    "selector": "HyperMD-codeblock-bg|\\bpre\\b",
+    "property": "^border(?:-width|-inline-start)?$",
+    "value": "^(?!none|0(?:px)?$)"
+  },
+  {
+    "id": "interface-scrollbar-style",
+    "selector": "::-webkit-scrollbar-thumb$",
+    "property": "^border-radius$",
+    "value": "^(?!0$)"
+  },
+  {
+    "id": "interface-keyboard-focus",
+    "selector": ":focus-visible",
+    "property": "^outline$",
+    "value": "^(?!none|0)"
+  },
+  {
+    "id": "interface-vim-mode-color",
+    "selector": "data-vim-mode|vim-mode-(?:normal|insert)",
+    "property": "^background(?:-color)?$",
+    "value": "^(?!none|transparent)"
+  },
+  {
+    "id": "task-ascii-marker",
+    "selector": "checkbox.*:.*checked.*after",
+    "property": "^content$",
+    "value": "\\[.*\\]"
+  },
+  {
+    "id": "task-e04",
+    "selector": "input\\[type=[\"\\x27]?checkbox",
+    "property": "^border-radius$",
+    "value": "^(?:50%|100px|50px)$"
+  },
+  {
+    "id": "interface-cursor-style",
+    "selector": "\\.cm-cursor\\b|CodeMirror-cursor\\b",
+    "property": "^border-left(?:-color)?$",
+    "value": "^(?!none|0)"
+  },
+  {
+    "id": "table-e002",
+    "selector": "\\b(?:td|th)\\b",
+    "property": "^border$",
+    "value": "^(?!none|0)",
+    "exclude": "callout|canvas|calendar|kanban|statblock"
+  },
+  {
+    "id": "table-e003",
+    "selector": "\\b(?:td|th)\\b",
+    "property": "^border-bottom$",
+    "value": "^(?!none|0)",
+    "exclude": "calendar|kanban|statblock"
+  },
+  {
+    "id": "table-e022",
+    "selector": "\\bthead\\b|\\bth\\b",
+    "property": "^text-transform$",
+    "value": "^uppercase$"
+  },
+  {
+    "id": "table-e019",
+    "selector": "\\btd\\b",
+    "property": "^font-variant-numeric$",
+    "value": "tabular-nums"
+  },
+  {
+    "id": "table-e044",
+    "selector": "\\b(?:td|th):first-child",
+    "property": "^position$",
+    "value": "^sticky$"
+  },
+  {
+    "id": "table-e035",
+    "selector": "\\btd:hover",
+    "property": "^background(?:-color)?$",
+    "value": "^(?!none|transparent)"
+  },
+  {
+    "id": "table-e033",
+    "selector": "\\b(?:td|th)\\b",
+    "property": "^writing-mode$",
+    "value": "^vertical"
+  },
+  {
+    "id": "table-e027",
+    "selector": "\\btable\\b",
+    "property": "^margin(?:-inline)?$",
+    "value": "auto",
+    "exclude": "calendar|statblock"
+  },
+  {
+    "id": "image-e015",
+    "selector": "\\bimg\\b",
+    "property": "^border$",
+    "value": "^(?!none|0)",
+    "exclude": "avatar|icon"
+  },
+  {
+    "id": "image-e019",
+    "selector": "\\bimg\\b",
+    "property": "^box-shadow$",
+    "value": "^(?!none|0$)",
+    "exclude": "avatar|icon"
+  },
+  {
+    "id": "image-e006",
+    "selector": "\\bimg\\b",
+    "property": "^margin(?:-inline)?$",
+    "value": "auto",
+    "exclude": "avatar|icon"
+  },
+  {
+    "id": "image-e037",
+    "selector": "\\bimg\\b",
+    "property": "^mix-blend-mode$",
+    "value": "^multiply$"
+  },
+  {
+    "id": "image-e047",
+    "selector": "\\bimg\\b|image-embed|banner",
+    "property": "^(?:-webkit-)?mask-image$",
+    "value": "linear-gradient"
+  },
+  {
+    "id": "interface-image-no-drag",
+    "selector": "\\bimg\\b",
+    "property": "^-webkit-user-drag$",
+    "value": "^none$"
+  },
+  {
+    "id": "note-embed-title-hide",
+    "selector": "\\.markdown-embed-title\\b",
+    "property": "^display$",
+    "value": "^none$"
+  },
+  {
+    "id": "note-seamless-embed",
+    "selector": "\\.markdown-embed\\b",
+    "property": "^border(?:-left)?$",
+    "value": "^(?:none|0(?:px)?)$"
+  },
+  {
+    "id": "note-list-tree",
+    "selector": "\\bli.*::?(?:before|after)|indentation-guide",
+    "property": "^border-(?:left|inline-start|inline-end)$",
+    "value": "^(?!none|0)"
+  },
+  {
+    "id": "list-e059",
+    "selector": "\\bul\\b|\\bol\\b",
+    "property": "^column-count$",
+    "value": "^[2-9]$"
+  },
+  {
+    "id": "list-ordered-o013",
+    "selector": "\\bol.*::?(?:before|marker)",
+    "property": "^content$",
+    "value": "counters\\("
+  },
+  {
+    "id": "heading-e013",
+    "selector": "\\bh[1-6]\\b|cm-header",
+    "property": "^text-wrap$",
+    "value": "^balance$"
+  },
+  {
+    "id": "heading-e005",
+    "selector": "\\bh[1-6]\\b|cm-header",
+    "property": "^text-transform$",
+    "value": "^uppercase$"
+  },
+  {
+    "id": "heading-e006",
+    "selector": "\\bh[1-6]\\b|cm-header",
+    "property": "^font-variant(?:-caps)?$",
+    "value": "small-caps"
+  },
+  {
+    "id": "heading-e048",
+    "selector": "\\bh[1-6]\\b|cm-header",
+    "property": "^-webkit-text-stroke$",
+    "value": "^(?!0)"
+  },
+  {
+    "id": "heading-e046",
+    "selector": "\\bh[1-6]\\b|cm-header",
+    "property": "^(?:-webkit-)?background-clip$",
+    "value": "^text$"
+  },
+  {
+    "id": "note-print-flow",
+    "selector": "\\bhr\\b",
+    "property": "^(?:page-)?break-after$",
+    "value": "page|always"
+  },
+  {
+    "id": "metadata-no-icons",
+    "selector": "metadata-property-icon",
+    "property": "^display$",
+    "value": "^none$"
+  },
+  {
+    "id": "metadata-no-add",
+    "selector": "metadata-add-button",
+    "property": "^display$",
+    "value": "^none$"
+  },
+  {
+    "id": "interface-drag-window-area",
+    "selector": "view-header|ribbon",
+    "property": "^-webkit-app-region$",
+    "value": "^drag$"
+  },
+  {
+    "id": "interface-floating-note-header",
+    "selector": "\\.view-header\\b",
+    "property": "^position$",
+    "value": "^(?:absolute|sticky)$"
+  },
+  {
+    "id": "interface-pinned-tabs-first",
+    "selector": "tab.*is-pinned",
+    "property": "^order$",
+    "value": "^-1$"
+  },
+  {
+    "id": "interface-active-file",
+    "selector": "nav-file-title\\.is-active",
+    "property": "^background(?:-color)?$",
+    "value": "^(?!none|transparent)"
+  },
+  {
+    "id": "interface-open-folder-highlight",
+    "selector": "nav-folder:not\\(\\.is-collapsed\\)",
+    "property": "^background(?:-color)?$",
+    "value": "^(?!none|transparent)"
+  },
+  {
+    "id": "tag-e064",
+    "selector": "tag.*:nth-(?:child|of-type)",
+    "property": "^background(?:-color)?$",
+    "value": "^(?!none|transparent)"
+  },
+  {
+    "id": "tag-e084",
+    "selector": "cm-hashtag-begin|tag.*::?before",
+    "property": "^display$",
+    "value": "^none$"
+  },
+  {
+    "id": "callout-no-title",
+    "selector": "callout-title$",
+    "property": "^display$",
+    "value": "^none$"
+  },
+  {
+    "id": "callout-quote-attribution",
+    "selector": "callout.*(?:quote|cite)",
+    "property": "^flex-direction$",
+    "value": "^column-reverse$"
+  }
+]

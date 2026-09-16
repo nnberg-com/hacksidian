@@ -1,3 +1,5 @@
+throw new Error('Retired: technique cards are maintained as Markdown. This command would recreate technical files or overwrite authored content.');
+import {writeCard} from './card-format.mjs';
 /** Embed live widgets only where the same runtime capability check accepts the source. */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -17,17 +19,18 @@ for(const id of fs.readdirSync(path.join(atlas,'! hacks')).sort()){
  const css=fs.readFileSync(path.join(dir,'recipe.css'),'utf8');const languages={},reasons=[];
  let title=id;
  for(const lang of ['ru']){
-  const desc=path.join(dir,`${id}.md`),sample=path.join(dir,`Markdown.${lang}.md`);
+  const desc=path.join(dir,`${id}.md`),sample=path.join(dir,`markdown.md`);
   if(!fs.existsSync(desc))continue;
   let text=fs.readFileSync(desc,'utf8');if(lang==='ru')title=text.match(/^title:\s*(.+)$/m)?.[1]?.replace(/^['"]|['"]$/g,'')||id;
   const issue=fs.existsSync(sample)?api.liveExampleIssue(group,fs.readFileSync(sample,'utf8'),css):'Нет Markdown-примера на этом языке.';
   languages[lang]=!issue;if(issue)reasons.push(`${lang}: ${issue}`);
   const heading=lang==='ru'?'Живой пример в Obsidian':'Live example in Obsidian';
+  text=text.replace(/```hacksidian-live\n[^`]*```\s*/g,'');
   text=text.replace(new RegExp('\\n## '+heading+'\\n[\\s\\S]*?(?=\\n## |$)'),'');
   if(!issue){let index=text.indexOf('\n## ');if(index<0)index=text.length;
    text=text.slice(0,index)+`\n## ${heading}\n\n\`\`\`hacksidian-live\n${id}\n\`\`\`\n`+text.slice(index);
   }
-  fs.writeFileSync(desc,text);
+  writeCard(desc,text);
  }
  report.push({id,title,group,languages,reasons});
 }

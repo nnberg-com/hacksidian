@@ -1,0 +1,2527 @@
+{
+  "callout-board": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Guide/Callouts.md"
+  ],
+  "callout-catalogue": [
+    "https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/table-cards.html"
+  ],
+  "callout-chronicle": [
+    "https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/timeline.html"
+  ],
+  "callout-compare": [
+    "https://github.com/efemkay/obsidian-modular-css-layout#multi-column"
+  ],
+  "callout-dialogue": [
+    "https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/conversation.html"
+  ],
+  "callout-dossier": [
+    "https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/fas-infobox.html"
+  ],
+  "callout-film": [
+    "https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/film-strip.html"
+  ],
+  "callout-leaders": [
+    "https://github.com/r-u-s-h-i-k-e-s-h/Obsidian-CSS-Snippets/blob/Collection/snippets/callout%20styling%20-%20leader%20list.md"
+  ],
+  "callout-letter": [
+    "https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/letter.html"
+  ],
+  "callout-margin": [
+    "https://github.com/efemkay/obsidian-modular-css-layout#float-callout"
+  ],
+  "callout-photo": [
+    "https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/polaroid.html"
+  ],
+  "callout-qna": [
+    "https://github.com/r-u-s-h-i-k-e-s-h/Obsidian-CSS-Snippets/blob/Collection/snippets/callout%20styling%20-%20qna%20callout.md"
+  ],
+  "callout-receipt": [
+    "https://github.com/emarpiee/Retroma/blob/main/assets/examples/retroma-retro-callouts.md"
+  ],
+  "callout-social": [
+    "https://gist.github.com/masaki39/dbf19b19333ae9b7b687b93b0c4ac346"
+  ],
+  "callout-storyboard": [
+    "https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/comic.html"
+  ],
+  "callout-technical-aliases": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-band": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-code": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-compact": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-corner": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-custom": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-dark": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-dashed": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-dots": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-double-border": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-double-rail": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-focus": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-fold-closed": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-fold-open": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-forced": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-formatted-title": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-gradient": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-hatch": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-header-divider": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-icon-disc": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-icon-margin": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-image": [
+    "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts"
+  ],
+  "callout-technical-inline": [
+    "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts"
+  ],
+  "callout-technical-inset": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-label": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-large-icon": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-line": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-links": [
+    "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts",
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-list": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-long-title": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-mobile": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-nested": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-nested-quiet": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-no-icon": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-outline": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-paragraphs": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-print": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-right": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-round": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-shadow": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-side-label": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-solid": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-square": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-steps": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-subhead": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-table": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-tasks": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-three-levels": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-tint": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-title-only": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-title-underline": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-top": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-two-columns": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-technical-with-code": [
+    "https://help.obsidian.md/callouts"
+  ],
+  "callout-theorem": [
+    "https://github.com/r-u-s-h-i-k-e-s-h/Obsidian-CSS-Snippets/blob/Collection/snippets/callout%20styling%20-%20theorem%20callout.md"
+  ],
+  "callout-ticket": [
+    "https://github.com/emarpiee/Retroma/blob/main/assets/examples/retroma-retro-callouts.md"
+  ],
+  "callout-tree": [
+    "https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/family-tree.html"
+  ],
+  "code-e001": [],
+  "code-e002": [],
+  "code-e003": [],
+  "code-e004": [],
+  "code-e005": [],
+  "code-e006": [],
+  "code-e007": [],
+  "code-e008": [],
+  "code-e009": [],
+  "code-e010": [],
+  "code-e011": [],
+  "code-e012": [],
+  "code-e013": [],
+  "code-e014": [],
+  "code-e015": [],
+  "code-e016": [],
+  "code-e017": [],
+  "code-e018": [],
+  "code-e019": [],
+  "code-e020": [],
+  "code-e021": [],
+  "code-e022": [],
+  "code-e023": [],
+  "code-e024": [],
+  "code-e025": [],
+  "code-e026": [],
+  "code-e027": [],
+  "code-e028": [],
+  "code-e029": [],
+  "code-e030": [],
+  "code-e031": [],
+  "code-e032": [],
+  "code-e033": [],
+  "code-e034": [],
+  "code-e035": [],
+  "code-e036": [],
+  "code-e037": [],
+  "code-e038": [],
+  "code-e039": [],
+  "code-e040": [],
+  "code-e041": [],
+  "code-e042": [],
+  "code-e043": [],
+  "code-e044": [],
+  "code-e045": [],
+  "code-e046": [],
+  "code-e047": [],
+  "code-e048": [],
+  "code-e049": [],
+  "code-e050": [],
+  "code-e051": [],
+  "code-e052": [],
+  "code-e053": [],
+  "code-e054": [],
+  "code-e055": [],
+  "code-e056": [],
+  "code-e057": [],
+  "code-e058": [],
+  "code-e059": [],
+  "code-e060": [],
+  "code-e061": [],
+  "emphasis-s01": [],
+  "emphasis-s02": [],
+  "emphasis-s03": [],
+  "emphasis-s04": [],
+  "emphasis-s05": [],
+  "emphasis-s06": [],
+  "emphasis-s07": [],
+  "emphasis-s08": [],
+  "emphasis-s09": [],
+  "emphasis-s10": [],
+  "emphasis-s11": [],
+  "emphasis-s12": [],
+  "emphasis-s13": [],
+  "emphasis-s14": [],
+  "emphasis-s15": [],
+  "emphasis-s16": [],
+  "emphasis-s17": [],
+  "emphasis-s18": [],
+  "emphasis-s19": [],
+  "emphasis-s20": [],
+  "emphasis-s21": [],
+  "emphasis-s22": [],
+  "emphasis-s23": [],
+  "emphasis-s24": [],
+  "emphasis-s25": [],
+  "emphasis-s26": [],
+  "emphasis-s27": [],
+  "emphasis-s28": [],
+  "emphasis-s29": [],
+  "emphasis-s30": [],
+  "emphasis-s31": [],
+  "emphasis-s32": [],
+  "emphasis-s33": [],
+  "emphasis-s34": [],
+  "emphasis-s35": [],
+  "emphasis-s36": [],
+  "emphasis-s37": [],
+  "footnote-e001": [],
+  "footnote-e002": [],
+  "footnote-e003": [],
+  "footnote-e004": [],
+  "footnote-e005": [],
+  "footnote-e006": [],
+  "footnote-e007": [],
+  "footnote-e008": [],
+  "footnote-e009": [],
+  "footnote-e010": [],
+  "footnote-e011": [],
+  "footnote-e012": [],
+  "footnote-e013": [],
+  "footnote-e014": [],
+  "footnote-e015": [],
+  "footnote-e016": [
+    "https://github.com/markdown-it/markdown-it-footnote"
+  ],
+  "footnote-e017": [],
+  "footnote-e018": [],
+  "footnote-e019": [],
+  "footnote-e020": [],
+  "footnote-e021": [],
+  "footnote-e022": [],
+  "footnote-e023": [],
+  "footnote-e024": [],
+  "footnote-e025": [],
+  "footnote-e026": [],
+  "footnote-e027": [],
+  "footnote-e028": [],
+  "footnote-e029": [],
+  "footnote-e030": [],
+  "footnote-e031": [],
+  "footnote-e032": [],
+  "footnote-e033": [],
+  "footnote-e034": [],
+  "footnote-e035": [],
+  "footnote-e036": [
+    "https://github.com/markdown-it/markdown-it-footnote"
+  ],
+  "footnote-e037": [],
+  "footnote-e038": [
+    "https://github.com/markdown-it/markdown-it-footnote"
+  ],
+  "footnote-e039": [],
+  "footnote-e040": [
+    "https://github.com/markdown-it/markdown-it-footnote"
+  ],
+  "footnote-e041": [
+    "https://github.com/markdown-it/markdown-it-footnote"
+  ],
+  "footnote-e042": [
+    "https://github.com/markdown-it/markdown-it-footnote"
+  ],
+  "footnote-e043": [],
+  "footnote-e044": [],
+  "footnote-e045": [],
+  "footnote-e046": [],
+  "footnote-e047": [],
+  "footnote-e048": [
+    "https://github.com/markdown-it/markdown-it-footnote"
+  ],
+  "footnote-e049": [],
+  "footnote-e050": [],
+  "footnote-e051": [],
+  "footnote-e052": [],
+  "footnote-e053": [
+    "https://github.com/markdown-it/markdown-it-footnote"
+  ],
+  "footnote-e054": [],
+  "footnote-e055": [],
+  "heading-e001": [],
+  "heading-e002": [],
+  "heading-e003": [],
+  "heading-e004": [],
+  "heading-e005": [],
+  "heading-e006": [],
+  "heading-e007": [],
+  "heading-e008": [],
+  "heading-e009": [],
+  "heading-e010": [],
+  "heading-e011": [],
+  "heading-e012": [],
+  "heading-e013": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap"
+  ],
+  "heading-e014": [],
+  "heading-e015": [],
+  "heading-e016": [],
+  "heading-e017": [],
+  "heading-e018": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/text-box-trim"
+  ],
+  "heading-e019": [],
+  "heading-e020": [],
+  "heading-e021": [],
+  "heading-e022": [],
+  "heading-e023": [],
+  "heading-e024": [],
+  "heading-e025": [],
+  "heading-e026": [],
+  "heading-e027": [],
+  "heading-e028": [],
+  "heading-e029": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break"
+  ],
+  "heading-e030": [],
+  "heading-e031": [],
+  "heading-e032": [],
+  "heading-e033": [],
+  "heading-e034": [],
+  "heading-e035": [],
+  "heading-e036": [],
+  "heading-e037": [],
+  "heading-e038": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters"
+  ],
+  "heading-e039": [],
+  "heading-e040": [],
+  "heading-e041": [],
+  "heading-e042": [],
+  "heading-e043": [],
+  "heading-e044": [],
+  "heading-e045": [],
+  "heading-e046": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip"
+  ],
+  "heading-e047": [],
+  "heading-e048": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke"
+  ],
+  "heading-e049": [],
+  "heading-e050": [],
+  "heading-e051": [],
+  "heading-e052": [],
+  "heading-e053": [],
+  "heading-e055": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings"
+  ],
+  "heading-e056": [],
+  "heading-e057": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:target"
+  ],
+  "heading-e058": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top"
+  ],
+  "heading-e059": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/position"
+  ],
+  "heading-e060": [],
+  "heading-e061": [],
+  "heading-e062": [],
+  "heading-e064": [],
+  "heading-e065": [],
+  "heading-e066": [],
+  "heading-e067": [],
+  "heading-e068": [],
+  "heading-e069": [],
+  "heading-e070": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline"
+  ],
+  "heading-e071": [],
+  "heading-e072": [],
+  "heading-e073": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Fonts/OpenType_fonts"
+  ],
+  "heading-e074": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Fonts/OpenType_fonts"
+  ],
+  "heading-e075": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Fonts/OpenType_fonts"
+  ],
+  "heading-e076": [
+    "https://github.com/google/fonts/blob/main/ofl/robotoflex/article/ARTICLE.en_us.html"
+  ],
+  "heading-e077": [
+    "https://github.com/google/fonts/blob/main/ofl/robotoflex/article/ARTICLE.en_us.html"
+  ],
+  "heading-e078": [
+    "https://github.com/google/fonts/blob/main/ofl/robotoflex/article/ARTICLE.en_us.html"
+  ],
+  "heading-e079": [
+    "https://github.com/google/fonts/blob/main/ofl/robotoflex/article/ARTICLE.en_us.html"
+  ],
+  "heading-e080": [],
+  "heading-e081": [],
+  "heading-e082": [],
+  "heading-e083": [],
+  "heading-e084": [],
+  "heading-e085": [],
+  "heading-e086": [],
+  "heading-e087": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Multicol_layout/Spanning_balancing_columns"
+  ],
+  "heading-e088": [],
+  "heading-e089": [],
+  "heading-e091": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode"
+  ],
+  "heading-e092": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode"
+  ],
+  "heading-e093": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image"
+  ],
+  "heading-e094": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image"
+  ],
+  "heading-e095": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter"
+  ],
+  "heading-e096": [],
+  "heading-e098": [],
+  "heading-e099": [],
+  "heading-e100": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:has"
+  ],
+  "heading-e104": [],
+  "heading-e105": [],
+  "heading-e108": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries"
+  ],
+  "heading-e109": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries"
+  ],
+  "heading-e110": [],
+  "heading-e111": [],
+  "heading-e112": [],
+  "heading-e113": [],
+  "heading-e114": [],
+  "heading-e115": [],
+  "hr-e001": [],
+  "hr-e002": [],
+  "hr-e003": [],
+  "hr-e004": [],
+  "hr-e005": [],
+  "hr-e006": [],
+  "hr-e007": [],
+  "hr-e008": [],
+  "hr-e009": [],
+  "hr-e010": [],
+  "hr-e011": [],
+  "hr-e012": [],
+  "hr-e013": [],
+  "hr-e014": [],
+  "hr-e015": [],
+  "hr-e016": [],
+  "hr-e017": [],
+  "hr-e018": [],
+  "hr-e019": [],
+  "hr-e020": [],
+  "hr-e021": [],
+  "hr-e022": [],
+  "hr-e023": [],
+  "hr-e024": [],
+  "hr-e025": [],
+  "hr-e026": [],
+  "hr-e027": [],
+  "hr-e028": [],
+  "hr-e029": [],
+  "hr-e030": [],
+  "hr-e031": [],
+  "hr-e032": [],
+  "hr-e033": [],
+  "hr-e034": [],
+  "hr-e035": [],
+  "hr-e036": [],
+  "hr-e037": [],
+  "hr-e038": [],
+  "hr-e039": [],
+  "hr-e040": [],
+  "hr-e041": [],
+  "hr-e042": [],
+  "hr-e043": [],
+  "hr-e044": [],
+  "hr-e045": [],
+  "hr-e046": [],
+  "hr-e047": [],
+  "hr-e048": [],
+  "hr-e049": [],
+  "hr-e050": [],
+  "hr-e051": [],
+  "hr-e052": [],
+  "hr-e053": [],
+  "hr-e054": [],
+  "hr-e055": [],
+  "hr-e056": [],
+  "hr-e057": [],
+  "hr-e058": [],
+  "hr-e059": [],
+  "hr-e060": [],
+  "hr-e061": [],
+  "hr-e062": [],
+  "hr-e063": [],
+  "hr-e064": [],
+  "hr-e065": [],
+  "hr-e066": [],
+  "hr-e067": [],
+  "hr-e068": [],
+  "hr-e069": [],
+  "hr-e070": [],
+  "hr-e071": [],
+  "hr-e072": [],
+  "hr-e073": [],
+  "hr-e074": [],
+  "hr-e075": [],
+  "hr-e076": [],
+  "hr-e077": [],
+  "hr-e078": [],
+  "hr-e079": [],
+  "hr-e080": [],
+  "hr-e081": [],
+  "hr-e082": [],
+  "hr-e083": [],
+  "hr-e084": [],
+  "hr-e085": [],
+  "hr-e086": [],
+  "hr-e087": [],
+  "hr-e088": [],
+  "hr-e089": [],
+  "hr-e090": [],
+  "hr-e091": [],
+  "hr-e092": [],
+  "hr-e093": [],
+  "hr-e094": [],
+  "hr-e095": [],
+  "hr-e096": [],
+  "hr-e097": [],
+  "hr-e098": [],
+  "hr-e099": [],
+  "hr-e100": [],
+  "iframe-e001": [],
+  "iframe-e002": [],
+  "iframe-e003": [],
+  "iframe-e004": [],
+  "iframe-e005": [],
+  "iframe-e006": [],
+  "iframe-e007": [],
+  "iframe-e008": [],
+  "iframe-e009": [],
+  "iframe-e010": [],
+  "iframe-e011": [],
+  "iframe-e012": [],
+  "iframe-e013": [],
+  "iframe-e014": [],
+  "iframe-e015": [],
+  "iframe-e016": [],
+  "iframe-e017": [],
+  "iframe-e018": [],
+  "iframe-e019": [],
+  "iframe-e020": [],
+  "iframe-e021": [],
+  "iframe-e022": [],
+  "iframe-e023": [],
+  "iframe-e024": [],
+  "iframe-e025": [],
+  "iframe-e026": [],
+  "iframe-e027": [],
+  "iframe-e028": [],
+  "iframe-e029": [],
+  "iframe-e030": [],
+  "iframe-e031": [],
+  "iframe-e032": [],
+  "iframe-e033": [],
+  "iframe-e034": [],
+  "iframe-e035": [],
+  "iframe-e036": [],
+  "iframe-e037": [],
+  "iframe-e038": [],
+  "iframe-e039": [],
+  "iframe-e040": [],
+  "iframe-e041": [],
+  "iframe-e042": [],
+  "iframe-e043": [],
+  "iframe-e044": [],
+  "iframe-e045": [],
+  "iframe-e046": [],
+  "iframe-e047": [],
+  "iframe-e048": [],
+  "iframe-e049": [],
+  "iframe-e050": [],
+  "image-e001": [],
+  "image-e002": [],
+  "image-e003": [],
+  "image-e004": [],
+  "image-e005": [],
+  "image-e006": [],
+  "image-e007": [],
+  "image-e008": [],
+  "image-e009": [],
+  "image-e010": [],
+  "image-e011": [],
+  "image-e012": [],
+  "image-e013": [],
+  "image-e014": [],
+  "image-e015": [],
+  "image-e016": [],
+  "image-e017": [],
+  "image-e018": [],
+  "image-e019": [],
+  "image-e020": [],
+  "image-e021": [],
+  "image-e022": [],
+  "image-e023": [],
+  "image-e024": [],
+  "image-e025": [],
+  "image-e026": [],
+  "image-e027": [],
+  "image-e028": [],
+  "image-e029": [],
+  "image-e030": [],
+  "image-e031": [],
+  "image-e032": [],
+  "image-e033": [],
+  "image-e034": [],
+  "image-e035": [],
+  "image-e036": [],
+  "image-e037": [],
+  "image-e038": [],
+  "image-e039": [],
+  "image-e040": [],
+  "image-e041": [],
+  "image-e042": [],
+  "image-e043": [],
+  "image-e044": [],
+  "image-e045": [],
+  "image-e046": [],
+  "image-e047": [],
+  "image-e048": [],
+  "image-e049": [],
+  "image-e050": [],
+  "image-e051": [],
+  "image-e052": [],
+  "image-e053": [],
+  "image-e054": [],
+  "image-e055": [],
+  "image-e056": [],
+  "image-e057": [],
+  "image-e058": [],
+  "image-e059": [],
+  "image-e060": [],
+  "image-e061": [],
+  "image-e062": [],
+  "image-e063": [],
+  "image-e064": [],
+  "image-e065": [],
+  "image-e066": [],
+  "image-e067": [],
+  "image-e068": [],
+  "image-e069": [],
+  "image-e070": [],
+  "image-e071": [],
+  "image-e072": [],
+  "image-e073": [],
+  "image-e074": [],
+  "image-e075": [],
+  "image-e076": [],
+  "image-e077": [],
+  "image-e078": [],
+  "image-e079": [],
+  "image-e080": [],
+  "image-e081": [],
+  "image-e082": [],
+  "image-e083": [],
+  "image-e084": [],
+  "image-e085": [],
+  "image-e086": [],
+  "image-e087": [],
+  "inline-code-ex-01": [],
+  "inline-code-ex-02": [
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css"
+  ],
+  "inline-code-ex-03": [
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js"
+  ],
+  "inline-code-ex-04": [
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code"
+  ],
+  "inline-code-ex-05": [],
+  "inline-code-ex-06": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-ligatures"
+  ],
+  "inline-code-ex-07": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric"
+  ],
+  "inline-code-ex-08": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing"
+  ],
+  "inline-code-ex-09": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/position"
+  ],
+  "inline-code-ex-10": [
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css"
+  ],
+  "inline-code-ex-11": [],
+  "inline-code-ex-12": [],
+  "inline-code-ex-13": [],
+  "inline-code-ex-14": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow"
+  ],
+  "inline-code-ex-15": [],
+  "inline-code-ex-16": [],
+  "inline-code-ex-17": [],
+  "inline-code-ex-18": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow"
+  ],
+  "inline-code-ex-19": [],
+  "inline-code-ex-20": [],
+  "inline-code-ex-21": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/outline"
+  ],
+  "inline-code-ex-22": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset"
+  ],
+  "inline-code-ex-23": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-style"
+  ],
+  "inline-code-ex-24": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-style"
+  ],
+  "inline-code-ex-25": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-style"
+  ],
+  "inline-code-ex-26": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-skip-ink"
+  ],
+  "inline-code-ex-27": [
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js"
+  ],
+  "inline-code-ex-28": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  ],
+  "inline-code-ex-29": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/white-space"
+  ],
+  "inline-code-ex-30": [
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css"
+  ],
+  "inline-code-ex-31": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/white-space"
+  ],
+  "inline-code-ex-32": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/white-space"
+  ],
+  "inline-code-ex-33": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap"
+  ],
+  "inline-code-ex-34": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/word-break"
+  ],
+  "inline-code-ex-35": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break"
+  ],
+  "inline-code-ex-36": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break"
+  ],
+  "inline-code-ex-37": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break"
+  ],
+  "inline-code-ex-38": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/display"
+  ],
+  "inline-code-ex-39": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x"
+  ],
+  "inline-code-ex-40": [],
+  "inline-code-ex-41": [],
+  "inline-code-ex-42": [
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js"
+  ],
+  "inline-code-ex-43": [],
+  "inline-code-ex-44": [
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css"
+  ],
+  "inline-code-ex-45": [
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js"
+  ],
+  "inline-code-ex-46": [
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js",
+    "https://spec.commonmark.org/spec#code-spans",
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css",
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code",
+    "https://github.github.com/gfm/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  ],
+  "inline-code-ex-47": [],
+  "inline-code-ex-48": [],
+  "inline-code-ex-49": [],
+  "inline-code-ex-50": [],
+  "inline-code-ex-51": [],
+  "inline-code-ex-52": [
+    "https://spec.commonmark.org/spec#code-spans",
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css",
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js",
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code",
+    "https://github.github.com/gfm/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  ],
+  "inline-code-ex-53": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/user-select"
+  ],
+  "inline-code-ex-54": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::selection"
+  ],
+  "inline-code-ex-55": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
+    "https://spec.commonmark.org/spec#code-spans",
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css",
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js",
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code",
+    "https://github.github.com/gfm/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  ],
+  "inline-code-ex-56": [
+    "https://spec.commonmark.org/spec#code-spans",
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css",
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js",
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code",
+    "https://github.github.com/gfm/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  ],
+  "inline-code-ex-57": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:has",
+    "https://spec.commonmark.org/spec#code-spans",
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css",
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js",
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code",
+    "https://github.github.com/gfm/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  ],
+  "inline-code-ex-58": [],
+  "inline-code-ex-59": [],
+  "inline-code-ex-60": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix",
+    "https://spec.commonmark.org/spec#code-spans",
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css",
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js",
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code",
+    "https://github.github.com/gfm/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  ],
+  "inline-code-ex-61": [
+    "https://spec.commonmark.org/spec#code-spans",
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css",
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js",
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code",
+    "https://github.github.com/gfm/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  ],
+  "inline-code-ex-62": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/attr",
+    "https://spec.commonmark.org/spec#code-spans",
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css",
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js",
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code",
+    "https://github.github.com/gfm/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  ],
+  "inline-code-ex-63": [],
+  "inline-code-ex-64": [],
+  "inline-code-ex-65": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip"
+  ],
+  "inline-code-ex-66": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow"
+  ],
+  "inline-code-ex-67": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow"
+  ],
+  "inline-code-ex-68": [],
+  "inline-code-ex-69": [],
+  "inline-code-ex-70": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors"
+  ],
+  "inline-code-ex-71": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/print"
+  ],
+  "inline-code-ex-72": [],
+  "inline-code-ex-73": [
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js"
+  ],
+  "inline-code-ex-74": [],
+  "inline-code-ex-75": [
+    "https://spec.commonmark.org/spec#code-spans",
+    "https://github.com/sindresorhus/github-markdown-css/blob/main/github-markdown.css",
+    "https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js",
+    "https://getbootstrap.com/docs/5.3/content/reboot/#inline-code",
+    "https://github.github.com/gfm/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  ],
+  "interface-active-tab": [
+    "https://docs.obsidian.md/Reference/CSS%20variables/Components/Tabs"
+  ],
+  "interface-focused-pane": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible",
+    "https://docs.obsidian.md/Reference/CSS%20variables/About%20styling"
+  ],
+  "interface-header-surface": [
+    "https://docs.obsidian.md/Reference/CSS%20variables/About%20styling",
+    "https://docs.obsidian.md/Reference/CSS%20variables/Foundations/Colors"
+  ],
+  "interface-keyboard-focus": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible"
+  ],
+  "interface-quiet-actions": [
+    "https://github.com/kepano/obsidian-minimal/blob/master/docs/Plugins/Minimal%20Theme%20Settings.md",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible"
+  ],
+  "interface-readable-tabs": [
+    "https://docs.obsidian.md/Reference/CSS%20variables/Components/Tabs"
+  ],
+  "interface-roomy-actions": [
+    "https://docs.obsidian.md/Reference/CSS%20variables/About%20styling"
+  ],
+  "interface-wrap-breadcrumbs": [
+    "https://docs.obsidian.md/Reference/CSS%20variables/About%20styling"
+  ],
+  "link-e001": [],
+  "link-e002": [],
+  "link-e003": [],
+  "link-e004": [],
+  "link-e005": [],
+  "link-e006": [],
+  "link-e007": [],
+  "link-e008": [],
+  "link-e009": [],
+  "link-e010": [],
+  "link-e011": [],
+  "link-e012": [],
+  "link-e013": [],
+  "link-e014": [],
+  "link-e015": [],
+  "link-e016": [],
+  "link-e017": [],
+  "link-e018": [],
+  "link-e019": [],
+  "link-e020": [],
+  "link-e021": [],
+  "link-e022": [],
+  "link-e023": [],
+  "link-e024": [],
+  "link-e025": [],
+  "link-e026": [],
+  "link-e027": [],
+  "link-e028": [],
+  "link-e029": [],
+  "link-e030": [],
+  "link-e031": [],
+  "link-e032": [],
+  "link-e033": [],
+  "link-e034": [],
+  "link-e036": [],
+  "link-e037": [],
+  "link-e038": [],
+  "link-e039": [],
+  "link-e040": [],
+  "link-e041": [],
+  "link-e042": [],
+  "link-e043": [],
+  "link-e044": [],
+  "link-e045": [],
+  "link-e046": [],
+  "link-e047": [],
+  "link-e048": [],
+  "link-e049": [],
+  "link-e050": [],
+  "link-e051": [],
+  "link-e052": [],
+  "link-e053": [],
+  "link-e054": [],
+  "link-e057": [
+    "https://github.com/obsidianmd"
+  ],
+  "link-e058": [],
+  "link-e059": [],
+  "link-e061": [],
+  "link-e063": [],
+  "link-e064": [],
+  "link-e065": [],
+  "link-e066": [],
+  "link-e067": [],
+  "link-e069": [],
+  "link-e070": [],
+  "link-e071": [],
+  "link-e072": [],
+  "link-e073": [],
+  "link-e075": [
+    "https://example.com/reference"
+  ],
+  "link-e077": [],
+  "link-e079": [],
+  "link-e080": [],
+  "link-e082": [
+    "https://example.com/?css-link-demo=unvisited-20260908"
+  ],
+  "link-e083": [],
+  "link-e084": [],
+  "link-e085": [],
+  "link-e086": [],
+  "link-e087": [],
+  "link-e088": [],
+  "link-e089": [],
+  "link-e090": [],
+  "link-e091": [],
+  "link-e092": [],
+  "link-e093": [],
+  "link-e095": [],
+  "link-e096": [],
+  "link-e103": [
+    "https://example.com"
+  ],
+  "link-e104": [],
+  "link-e105": [],
+  "link-e106": [],
+  "link-e107": [
+    "https://example.com/research"
+  ],
+  "link-e108": [],
+  "link-e109": [],
+  "link-e110": [],
+  "link-e111": [],
+  "link-e112": [],
+  "link-e113": [],
+  "link-e114": [],
+  "link-e115": [],
+  "link-e125": [],
+  "link-e127": [],
+  "link-e128": [],
+  "link-e129": [
+    "https://example.com/articles/very-long-hyperlink-design-reference-without-spaces"
+  ],
+  "link-e130": [
+    "https://example.com/reference"
+  ],
+  "link-e131": [],
+  "link-e132": [],
+  "list-e001": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e002": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e003": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e004": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e005": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e006": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e007": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e008": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e009": [],
+  "list-e010": [],
+  "list-e011": [],
+  "list-e012": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e013": [],
+  "list-e014": [],
+  "list-e015": [],
+  "list-e016": [],
+  "list-e017": [],
+  "list-e018": [],
+  "list-e019": [],
+  "list-e020": [],
+  "list-e021": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e022": [],
+  "list-e024": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e025": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "list-e026": [],
+  "list-e027": [],
+  "list-e028": [],
+  "list-e029": [],
+  "list-e030": [],
+  "list-e031": [],
+  "list-e032": [],
+  "list-e033": [],
+  "list-e034": [],
+  "list-e035": [],
+  "list-e036": [],
+  "list-e037": [],
+  "list-e038": [],
+  "list-e039": [],
+  "list-e040": [],
+  "list-e041": [],
+  "list-e042": [],
+  "list-e043": [],
+  "list-e044": [],
+  "list-e045": [],
+  "list-e046": [],
+  "list-e047": [],
+  "list-e048": [],
+  "list-e049": [],
+  "list-e050": [],
+  "list-e051": [],
+  "list-e052": [],
+  "list-e053": [],
+  "list-e054": [],
+  "list-e055": [],
+  "list-e056": [],
+  "list-e058": [],
+  "list-e059": [],
+  "list-e060": [],
+  "list-e061": [],
+  "list-e062": [],
+  "list-e063": [],
+  "list-e065": [],
+  "list-e067": [],
+  "list-e069": [],
+  "list-e070": [],
+  "list-e072": [],
+  "list-e075": [],
+  "list-e076": [],
+  "list-e077": [],
+  "list-e078": [],
+  "list-e080": [],
+  "list-e081": [],
+  "list-e082": [],
+  "list-e083": [],
+  "list-e085": [],
+  "list-e086": [],
+  "list-ordered-o001": [],
+  "list-ordered-o002": [],
+  "list-ordered-o003": [],
+  "list-ordered-o004": [],
+  "list-ordered-o005": [],
+  "list-ordered-o006": [],
+  "list-ordered-o007": [],
+  "list-ordered-o008": [],
+  "list-ordered-o009": [],
+  "list-ordered-o010": [],
+  "list-ordered-o011": [],
+  "list-ordered-o012": [],
+  "list-ordered-o013": [],
+  "list-ordered-o014": [],
+  "list-ordered-o015": [],
+  "list-ordered-o016": [],
+  "list-ordered-o017": [],
+  "list-ordered-o018": [],
+  "list-ordered-o019": [],
+  "list-ordered-o020": [],
+  "list-ordered-o021": [],
+  "list-ordered-o022": [],
+  "list-ordered-o023": [],
+  "list-ordered-o024": [],
+  "list-ordered-o025": [],
+  "list-ordered-o026": [],
+  "list-ordered-o027": [
+    "https://www.w3.org/TR/css-lists-3/"
+  ],
+  "meta-follow-obsidian-theme": [
+    "https://docs.obsidian.md/Reference/CSS%20variables/About%20styling",
+    "https://docs.obsidian.md/Reference/CSS%20variables/Foundations/Colors"
+  ],
+  "meta-higher-contrast": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-contrast"
+  ],
+  "meta-pane-container": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries"
+  ],
+  "meta-print-links": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing"
+  ],
+  "meta-print-pagination": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing"
+  ],
+  "meta-progressive-color": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@supports",
+    "https://docs.obsidian.md/Reference/CSS%20variables/Foundations/Colors"
+  ],
+  "meta-reduced-motion": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion"
+  ],
+  "meta-touch-targets": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/pointer"
+  ],
+  "metadata-baseline": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-card": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-checked": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "metadata-compact": [
+    "https://github.com/kepano/obsidian-minimal/blob/master/theme.css"
+  ],
+  "metadata-container": [
+    "https://forum.obsidian.md/t/css-double-columns-property/103543"
+  ],
+  "metadata-count": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "metadata-empty-hide": [
+    "https://forum.obsidian.md/t/properties-view-css-the-fall-collection/66512"
+  ],
+  "metadata-empty-list": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "metadata-empty-number": [
+    "https://forum.obsidian.md/t/minimal-properties/104415"
+  ],
+  "metadata-empty-text": [
+    "https://forum.obsidian.md/t/minimal-properties/104415"
+  ],
+  "metadata-focus-block": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-fold": [
+    "https://forum.obsidian.md/t/minimal-properties/104415"
+  ],
+  "metadata-form": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-grid": [
+    "https://forum.obsidian.md/t/css-double-columns-property/103543"
+  ],
+  "metadata-grid-many": [
+    "https://forum.obsidian.md/t/css-double-columns-property/103543"
+  ],
+  "metadata-help": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "metadata-hover-tools": [
+    "https://forum.obsidian.md/t/minimal-properties/104415"
+  ],
+  "metadata-leaders": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-ledger": [
+    "https://github.com/kepano/obsidian-minimal/blob/master/theme.css"
+  ],
+  "metadata-link-domain": [
+    "https://github.com/kepano/obsidian-minimal",
+    "https://obsidian.md/help/properties",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "metadata-long": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-mask": [
+    "https://forum.obsidian.md/t/minimal-properties/104415"
+  ],
+  "metadata-missing": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "metadata-no-add": [
+    "https://github.com/kepano/obsidian-minimal/blob/master/theme.css"
+  ],
+  "metadata-no-heading": [
+    "https://github.com/kepano/obsidian-minimal/blob/master/theme.css"
+  ],
+  "metadata-no-icons": [
+    "https://github.com/kepano/obsidian-minimal/blob/master/theme.css"
+  ],
+  "metadata-note-classes": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-order": [
+    "https://forum.obsidian.md/t/properties-view-css-the-fall-collection/66512"
+  ],
+  "metadata-palette": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-paper": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-pills": [
+    "https://forum.obsidian.md/t/properties-view-css-the-fall-collection/66512"
+  ],
+  "metadata-presence": [
+    "https://obsidian.md/help/properties",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "metadata-rename": [
+    "https://forum.obsidian.md/t/minimal-properties/104415"
+  ],
+  "metadata-roles": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-scroll-list": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-sections": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-sticky": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position"
+  ],
+  "metadata-strip": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-technical": [
+    "https://forum.obsidian.md/t/properties-view-css-the-fall-collection/66512"
+  ],
+  "metadata-types": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-wide-field": [
+    "https://forum.obsidian.md/t/css-double-columns-property/103543"
+  ],
+  "metadata-wrap-pills": [
+    "https://github.com/obsidianmd/obsidian-developer-docs/blob/main/en/Reference/CSS%20variables/Editor/Properties.md"
+  ],
+  "metadata-yaml-bg": [
+    "https://forum.obsidian.md/t/modifying-the-style-of-frontmatter-in-source-mode/66574"
+  ],
+  "metadata-yaml-card": [
+    "https://forum.obsidian.md/t/modifying-the-style-of-frontmatter-in-source-mode/66574"
+  ],
+  "metadata-yaml-chips": [
+    "https://forum.obsidian.md/t/option-to-hide-frontmatter-in-live-preview/28090"
+  ],
+  "metadata-yaml-font": [
+    "https://forum.obsidian.md/t/modifying-the-style-of-frontmatter-in-source-mode/66574"
+  ],
+  "metadata-yaml-muted": [
+    "https://forum.obsidian.md/t/snippet-muted-frontmatter-in-livepreview/55396"
+  ],
+  "metadata-yaml-tokens": [
+    "https://forum.obsidian.md/t/modifying-the-style-of-frontmatter-in-source-mode/66574"
+  ],
+  "note-anchor": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:has"
+  ],
+  "note-auto-theme": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing"
+  ],
+  "note-book": [
+    "https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css"
+  ],
+  "note-cards": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker"
+  ],
+  "note-code-dark": [
+    "https://spec.commonmark.org/0.31.2/#fenced-code-blocks"
+  ],
+  "note-code-language": [
+    "https://spec.commonmark.org/0.31.2/#fenced-code-blocks"
+  ],
+  "note-code-panel": [
+    "https://spec.commonmark.org/0.31.2/#fenced-code-blocks"
+  ],
+  "note-code-scroll": [
+    "https://spec.commonmark.org/0.31.2/#fenced-code-blocks"
+  ],
+  "note-code-stripes": [
+    "https://spec.commonmark.org/0.31.2/#fenced-code-blocks"
+  ],
+  "note-code-wrap": [
+    "https://spec.commonmark.org/0.31.2/#fenced-code-blocks"
+  ],
+  "note-color-emphasis": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  ],
+  "note-context-list": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:has"
+  ],
+  "note-context-quote": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:has"
+  ],
+  "note-context-strong": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:has"
+  ],
+  "note-contrast": [
+    "https://spec.commonmark.org/0.31.2/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing"
+  ],
+  "note-deleted": [
+    "https://github.github.com/gfm/"
+  ],
+  "note-dotted": [
+    "https://github.com/oxalorg/sakura"
+  ],
+  "note-double-emphasis": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  ],
+  "note-dropcap": [
+    "https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css"
+  ],
+  "note-editorial": [
+    "https://github.com/oxalorg/sakura"
+  ],
+  "note-endmark": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/:has"
+  ],
+  "note-fade-rule": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters"
+  ],
+  "note-firstline": [
+    "https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css"
+  ],
+  "note-heading-band": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters"
+  ],
+  "note-hierarchy": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters"
+  ],
+  "note-highlight": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  ],
+  "note-hyphens": [
+    "https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css"
+  ],
+  "note-image-caption": [
+    "https://spec.commonmark.org/0.31.2/#images"
+  ],
+  "note-image-crop": [
+    "https://spec.commonmark.org/0.31.2/#images"
+  ],
+  "note-image-float": [
+    "https://spec.commonmark.org/0.31.2/#images"
+  ],
+  "note-image-fluid": [
+    "https://spec.commonmark.org/0.31.2/#images"
+  ],
+  "note-image-frame": [
+    "https://spec.commonmark.org/0.31.2/#images"
+  ],
+  "note-image-gallery": [
+    "https://spec.commonmark.org/0.31.2/#images"
+  ],
+  "note-image-linked": [
+    "https://spec.commonmark.org/0.31.2/#images"
+  ],
+  "note-image-strip": [
+    "https://spec.commonmark.org/0.31.2/#images"
+  ],
+  "note-indent": [
+    "https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css"
+  ],
+  "note-index-card": [
+    "https://github.com/oxalorg/sakura"
+  ],
+  "note-inline-code": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  ],
+  "note-lead": [
+    "https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css"
+  ],
+  "note-link-button": [
+    "https://spec.commonmark.org/0.31.2/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors"
+  ],
+  "note-link-domain": [
+    "https://spec.commonmark.org/0.31.2/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors"
+  ],
+  "note-link-focus": [
+    "https://spec.commonmark.org/0.31.2/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors"
+  ],
+  "note-link-title": [
+    "https://spec.commonmark.org/0.31.2/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors"
+  ],
+  "note-link-type": [
+    "https://spec.commonmark.org/0.31.2/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors"
+  ],
+  "note-link-underline": [
+    "https://spec.commonmark.org/0.31.2/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors"
+  ],
+  "note-link-visited": [
+    "https://spec.commonmark.org/0.31.2/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors"
+  ],
+  "note-list-columns": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker"
+  ],
+  "note-list-inline": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker"
+  ],
+  "note-list-levels": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker"
+  ],
+  "note-list-markers": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker"
+  ],
+  "note-list-rows": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker"
+  ],
+  "note-list-tree": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker"
+  ],
+  "note-magazine": [
+    "https://github.com/oxalorg/sakura"
+  ],
+  "note-manual": [
+    "https://github.com/oxalorg/sakura"
+  ],
+  "note-numbers": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters"
+  ],
+  "note-ornament": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters"
+  ],
+  "note-paper": [
+    "https://github.com/oxalorg/sakura"
+  ],
+  "note-print-flow": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing"
+  ],
+  "note-print-links": [
+    "https://spec.commonmark.org/0.31.2/",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing"
+  ],
+  "note-quote-frame": [
+    "https://spec.commonmark.org/0.31.2/#block-quotes"
+  ],
+  "note-quote-glyph": [
+    "https://spec.commonmark.org/0.31.2/#block-quotes"
+  ],
+  "note-quote-line": [
+    "https://spec.commonmark.org/0.31.2/#block-quotes"
+  ],
+  "note-quote-margin": [
+    "https://spec.commonmark.org/0.31.2/#block-quotes"
+  ],
+  "note-quote-nested": [
+    "https://spec.commonmark.org/0.31.2/#block-quotes"
+  ],
+  "note-quote-panel": [
+    "https://spec.commonmark.org/0.31.2/#block-quotes"
+  ],
+  "note-quote-pull": [
+    "https://spec.commonmark.org/0.31.2/#block-quotes"
+  ],
+  "note-quote-title": [
+    "https://spec.commonmark.org/0.31.2/#block-quotes"
+  ],
+  "note-reference": [
+    "https://github.com/oxalorg/sakura"
+  ],
+  "note-responsive": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing"
+  ],
+  "note-rhythm": [
+    "https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css"
+  ],
+  "note-rule": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters"
+  ],
+  "note-selection": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  ],
+  "note-smallcaps": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  ],
+  "note-steps": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker"
+  ],
+  "note-sticky-heading": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters"
+  ],
+  "note-table-hover": [
+    "https://github.github.com/gfm/"
+  ],
+  "note-table-ledger": [
+    "https://github.github.com/gfm/"
+  ],
+  "note-table-sticky": [
+    "https://github.github.com/gfm/"
+  ],
+  "note-table-zebra": [
+    "https://github.github.com/gfm/"
+  ],
+  "note-tasks": [
+    "https://github.github.com/gfm/"
+  ],
+  "note-tasks-count": [
+    "https://github.github.com/gfm/"
+  ],
+  "note-timeline": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::marker"
+  ],
+  "note-underline": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  ],
+  "note-wrap": [
+    "https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css"
+  ],
+  "pseudo-task-e01": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e02": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e03": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e04": [
+    "https://minimal.guide/checklists"
+  ],
+  "pseudo-task-e05": [
+    "https://minimal.guide/checklists"
+  ],
+  "pseudo-task-e06": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e07": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e08": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e09": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "pseudo-task-e10": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e11": [
+    "https://minimal.guide/checklists"
+  ],
+  "pseudo-task-e12": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "pseudo-task-e13": [
+    "https://forum.obsidian.md/t/tweaking-the-checkboxes-in-lyt-mode-theme/57059"
+  ],
+  "pseudo-task-e14": [
+    "https://forum.obsidian.md/t/tweaking-the-checkboxes-in-lyt-mode-theme/57059"
+  ],
+  "pseudo-task-e15": [
+    "https://forum.obsidian.md/t/tweaking-the-checkboxes-in-lyt-mode-theme/57059"
+  ],
+  "pseudo-task-e16": [
+    "https://forum.obsidian.md/t/tweaking-the-checkboxes-in-lyt-mode-theme/57059"
+  ],
+  "pseudo-task-e17": [
+    "https://forum.obsidian.md/t/tweaking-the-checkboxes-in-lyt-mode-theme/57059"
+  ],
+  "pseudo-task-e18": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "pseudo-task-e19": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "pseudo-task-e20": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e21": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "pseudo-task-e22": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "pseudo-task-e23": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e24": [
+    "https://github.com/AnubisNekhet/AnuPpuccin/blob/main/theme.css"
+  ],
+  "pseudo-task-e25": [
+    "https://github.com/AnubisNekhet/AnuPpuccin/blob/main/theme.css"
+  ],
+  "pseudo-task-e26": [
+    "https://minimal.guide/checklists"
+  ],
+  "pseudo-task-e27": [
+    "https://github.com/AnubisNekhet/AnuPpuccin/blob/main/theme.css"
+  ],
+  "pseudo-task-e28": [
+    "https://github.com/AnubisNekhet/AnuPpuccin/blob/main/theme.css"
+  ],
+  "pseudo-task-e29": [
+    "https://github.com/AnubisNekhet/AnuPpuccin/blob/main/theme.css"
+  ],
+  "pseudo-task-e30": [
+    "https://github.com/AnubisNekhet/AnuPpuccin/blob/main/theme.css"
+  ],
+  "pseudo-task-e31": [
+    "https://forum.obsidian.md/t/spoiler-css-snippet/80140"
+  ],
+  "pseudo-task-e32": [
+    "https://forum.obsidian.md/t/spoiler-css-snippet/80140"
+  ],
+  "pseudo-task-e33": [
+    "https://forum.obsidian.md/t/spoiler-css-snippet/80140"
+  ],
+  "pseudo-task-e34": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "pseudo-task-e35": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "pseudo-task-e36": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "pseudo-task-e37": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "pseudo-task-e38": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "pseudo-task-e39": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "pseudo-task-e40": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "pseudo-task-e41": [
+    "https://minimal.guide/checklists",
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "pseudo-task-e42": [
+    "https://minimal.guide/checklists"
+  ],
+  "pseudo-task-e43": [
+    "https://minimal.guide/checklists"
+  ],
+  "pseudo-task-e44": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "pseudo-task-e45": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "pseudo-task-e46": [
+    "https://minimal.guide/checklists",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "pseudo-task-e47": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "pseudo-task-e48": [
+    "https://minimal.guide/checklists",
+    "https://github.com/SlRvb/Obsidian--ITS-Theme",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "pseudo-task-e49": [
+    "https://github.com/deathau/obsidian-snippets/blob/main/checkbox.css"
+  ],
+  "pseudo-task-e50": [
+    "https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Snippets/S%20-%20Checkboxes.css"
+  ],
+  "quote-brackets": [],
+  "quote-bubble": [],
+  "quote-center": [],
+  "quote-columns": [],
+  "quote-compact": [],
+  "quote-corner-marks": [],
+  "quote-corners": [],
+  "quote-dashed": [],
+  "quote-dotted": [],
+  "quote-double": [],
+  "quote-dropcap": [],
+  "quote-emphasis": [],
+  "quote-epigraph": [],
+  "quote-firstline": [],
+  "quote-focus": [
+    "https://example.org/notebook"
+  ],
+  "quote-fold": [],
+  "quote-gradient-rail": [],
+  "quote-hairline": [],
+  "quote-has-nesting": [],
+  "quote-has-source": [
+    "https://example.org/notebook"
+  ],
+  "quote-hover": [],
+  "quote-inset": [],
+  "quote-italic": [],
+  "quote-large-mark": [],
+  "quote-levels": [],
+  "quote-link-chip": [
+    "https://example.org/notebook"
+  ],
+  "quote-link-title": [
+    "https://example.org/notebook"
+  ],
+  "quote-marker": [],
+  "quote-nested-panels": [],
+  "quote-notebook": [],
+  "quote-ofm-banner": [],
+  "quote-ofm-frameless": [],
+  "quote-ofm-icon-corner": [],
+  "quote-ofm-icon-top": [],
+  "quote-ofm-no-title": [
+    "https://example.org/notebook"
+  ],
+  "quote-ofm-side": [],
+  "quote-ofm-title-bottom": [],
+  "quote-one-paragraph": [],
+  "quote-ornament": [],
+  "quote-outline": [],
+  "quote-pagination": [],
+  "quote-paired": [],
+  "quote-paragraph-columns": [],
+  "quote-plain": [],
+  "quote-print": [
+    "https://example.org/notebook"
+  ],
+  "quote-print-proof": [
+    "https://example.org/notebook"
+  ],
+  "quote-pull": [],
+  "quote-reading": [],
+  "quote-responsive": [],
+  "quote-rich": [],
+  "quote-ruled": [],
+  "quote-rules": [],
+  "quote-selection": [],
+  "quote-serif": [],
+  "quote-shadow": [],
+  "quote-signature": [
+    "https://example.org/notebook"
+  ],
+  "quote-source-band": [
+    "https://example.org/notebook"
+  ],
+  "quote-source-rule": [],
+  "quote-source-stars": [],
+  "quote-stack": [],
+  "quote-tape": [],
+  "quote-theme": [],
+  "quote-thick": [],
+  "quote-tint": [],
+  "quote-top-mark": [],
+  "quote-torn": [],
+  "quote-underline": [],
+  "quote-verse": [],
+  "quote-watermark": [],
+  "table-e002": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e003": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e004": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e005": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e006": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e007": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e008": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e009": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e010": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e011": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e012": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e013": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e014": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e015": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric"
+  ],
+  "table-e016": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric"
+  ],
+  "table-e017": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric"
+  ],
+  "table-e018": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric"
+  ],
+  "table-e019": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric"
+  ],
+  "table-e020": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric"
+  ],
+  "table-e021": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric"
+  ],
+  "table-e022": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric"
+  ],
+  "table-e024": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/table-layout"
+  ],
+  "table-e025": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/table-layout"
+  ],
+  "table-e026": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/table-layout"
+  ],
+  "table-e027": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/table-layout"
+  ],
+  "table-e028": [
+    "https://example.org/archive/extraordinarily-long-unbroken-document-identifier-2026",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/table-layout"
+  ],
+  "table-e029": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/table-layout"
+  ],
+  "table-e030": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/table-layout"
+  ],
+  "table-e031": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/table-layout"
+  ],
+  "table-e032": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/table-layout"
+  ],
+  "table-e033": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/writing-mode"
+  ],
+  "table-e034": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e035": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e036": [
+    "https://example.org/spec.pdf",
+    "https://example.org/design",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e037": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e038": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e039": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e040": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e041": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position"
+  ],
+  "table-e042": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position"
+  ],
+  "table-e043": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position"
+  ],
+  "table-e044": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position"
+  ],
+  "table-e045": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position"
+  ],
+  "table-e046": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position"
+  ],
+  "table-e047": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position"
+  ],
+  "table-e048": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-attachment"
+  ],
+  "table-e049": [
+    "https://github.github.io/gfm/#tables-extension-"
+  ],
+  "table-e050": [
+    "https://github.github.io/gfm/#tables-extension-"
+  ],
+  "table-e051": [
+    "https://github.github.io/gfm/#tables-extension-"
+  ],
+  "table-e052": [
+    "https://github.github.io/gfm/#tables-extension-"
+  ],
+  "table-e053": [
+    "https://example.org/spec.pdf",
+    "https://example.org/design",
+    "https://github.github.io/gfm/#tables-extension-"
+  ],
+  "table-e054": [
+    "https://example.org/spec.pdf",
+    "https://example.org/design",
+    "https://github.github.io/gfm/#tables-extension-"
+  ],
+  "table-e055": [
+    "https://github.github.io/gfm/#tables-extension-"
+  ],
+  "table-e056": [
+    "https://github.github.io/gfm/#tables-extension-"
+  ],
+  "table-e057": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e058": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e059": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e060": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e061": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e062": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e063": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e064": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e065": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "table-e066": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "table-e068": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:empty"
+  ],
+  "table-e069": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "table-e070": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "table-e071": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display"
+  ],
+  "table-e072": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display"
+  ],
+  "table-e073": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display"
+  ],
+  "table-e074": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display"
+  ],
+  "table-e075": [
+    "https://example.org/spec.pdf",
+    "https://example.org/design",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display"
+  ],
+  "table-e076": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/break-inside"
+  ],
+  "table-e077": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display"
+  ],
+  "table-e078": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e079": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e080": [
+    "https://example.org/spec.pdf",
+    "https://example.org/design",
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "table-e081": [
+    "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Tables"
+  ],
+  "tag-e001": [],
+  "tag-e002": [],
+  "tag-e003": [],
+  "tag-e004": [],
+  "tag-e005": [],
+  "tag-e006": [],
+  "tag-e007": [],
+  "tag-e008": [],
+  "tag-e009": [],
+  "tag-e010": [],
+  "tag-e011": [],
+  "tag-e012": [],
+  "tag-e013": [],
+  "tag-e014": [],
+  "tag-e015": [],
+  "tag-e016": [],
+  "tag-e017": [],
+  "tag-e018": [],
+  "tag-e019": [],
+  "tag-e020": [],
+  "tag-e021": [],
+  "tag-e022": [],
+  "tag-e023": [],
+  "tag-e024": [],
+  "tag-e025": [],
+  "tag-e026": [],
+  "tag-e027": [],
+  "tag-e028": [],
+  "tag-e029": [],
+  "tag-e030": [],
+  "tag-e031": [],
+  "tag-e032": [],
+  "tag-e033": [],
+  "tag-e034": [],
+  "tag-e035": [],
+  "tag-e036": [],
+  "tag-e037": [],
+  "tag-e038": [],
+  "tag-e039": [],
+  "tag-e040": [],
+  "tag-e041": [],
+  "tag-e042": [],
+  "tag-e043": [],
+  "tag-e044": [],
+  "tag-e045": [],
+  "tag-e046": [],
+  "tag-e047": [],
+  "tag-e048": [],
+  "tag-e049": [],
+  "tag-e050": [],
+  "tag-e051": [],
+  "tag-e052": [],
+  "tag-e053": [],
+  "tag-e054": [],
+  "tag-e055": [],
+  "tag-e056": [],
+  "tag-e057": [],
+  "tag-e058": [],
+  "tag-e059": [],
+  "tag-e060": [],
+  "tag-e061": [],
+  "tag-e062": [],
+  "tag-e063": [],
+  "tag-e064": [],
+  "tag-e065": [],
+  "tag-e066": [],
+  "tag-e067": [],
+  "tag-e068": [],
+  "tag-e069": [],
+  "tag-e070": [],
+  "tag-e071": [],
+  "tag-e072": [],
+  "tag-e073": [],
+  "tag-e074": [],
+  "tag-e075": [],
+  "tag-e076": [],
+  "tag-e077": [],
+  "tag-e078": [],
+  "tag-e079": [],
+  "tag-e080": [],
+  "tag-e081": [],
+  "tag-e082": [],
+  "tag-e083": [],
+  "tag-e084": [],
+  "task-e01": [],
+  "task-e02": [],
+  "task-e03": [],
+  "task-e04": [],
+  "task-e05": [],
+  "task-e06": [],
+  "task-e07": [],
+  "task-e08": [
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e09": [],
+  "task-e10": [],
+  "task-e11": [],
+  "task-e12": [],
+  "task-e13": [],
+  "task-e14": [],
+  "task-e15": [],
+  "task-e16": [],
+  "task-e17": [
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e18": [],
+  "task-e19": [],
+  "task-e20": [],
+  "task-e21": [],
+  "task-e22": [],
+  "task-e23": [],
+  "task-e24": [],
+  "task-e25": [],
+  "task-e26": [],
+  "task-e27": [],
+  "task-e28": [],
+  "task-e29": [],
+  "task-e30": [],
+  "task-e31": [],
+  "task-e32": [],
+  "task-e33": [
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e34": [],
+  "task-e35": [],
+  "task-e36": [],
+  "task-e37": [],
+  "task-e38": [
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e39": [
+    "https://github.github.com/gfm/"
+  ],
+  "task-e40": [
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e41": [
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e42": [],
+  "task-e43": [
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e44": [],
+  "task-e45": [],
+  "task-e46": [],
+  "task-e47": [],
+  "task-e48": [],
+  "task-e49": [],
+  "task-e50": [],
+  "task-e51": [],
+  "task-e52": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-image"
+  ],
+  "task-e53": [
+    "https://github.com/Dmytro-Shulha/obsidian-css-snippets/blob/master/Snippets/Check%20box.md"
+  ],
+  "task-e54": [
+    "https://github.github.com/gfm/#task-list-items-extension-"
+  ],
+  "task-e55": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "task-e56": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "task-e57": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "task-e58": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "task-e59": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "task-e60": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "task-e61": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e62": [
+    "https://github.github.com/gfm/#task-list-items-extension-"
+  ],
+  "task-e63": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e64": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e65": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "task-e66": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "task-e67": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "task-e68": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "task-e69": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator"
+  ],
+  "task-e70": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-last-child"
+  ],
+  "task-e71": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "task-e72": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator"
+  ],
+  "task-e73": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator"
+  ],
+  "task-e74": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "task-e75": [
+    "https://github.github.com/gfm/#task-list-items-extension-"
+  ],
+  "task-e76": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has",
+    "https://github.github.com/gfm/#task-list-items-extension-",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:nth-child",
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters",
+    "https://minimal.guide/checklists"
+  ],
+  "task-e77": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/shape-outside"
+  ],
+  "task-e78": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "task-e79": [
+    "https://github.github.com/gfm/#task-list-items-extension-"
+  ],
+  "task-e80": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has"
+  ],
+  "task-e81": [
+    "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters"
+  ],
+  "text-airy": [],
+  "text-auto-theme": [],
+  "text-block-paragraphs": [],
+  "text-book-composition": [],
+  "text-compact": [],
+  "text-dropcap": [],
+  "text-editorial-composition": [],
+  "text-firstline": [],
+  "text-hanging-indent": [],
+  "text-hanging-punctuation": [],
+  "text-indent": [],
+  "text-initial-letter": [],
+  "text-justify": [],
+  "text-lead": [],
+  "text-letter-composition": [],
+  "text-manual-composition": [],
+  "text-measure": [],
+  "text-oldstyle": [],
+  "text-pretty": [],
+  "text-print-ink": [],
+  "text-print-lines": [],
+  "text-ragged": [],
+  "text-raised-initial": [],
+  "text-responsive": [],
+  "text-selection": [],
+  "text-serif": [],
+  "text-tabular": []
+}

@@ -1,0 +1,54 @@
+{
+  "scope": "full local atlas",
+  "revision": "dbff25d90293d3b2a8014a3751195897d120c84c03beb221b422e9e873eac158",
+  "entries": 1695,
+  "documents": 1695,
+  "bytes": 5657755,
+  "kinds": {
+    "technique": 1567,
+    "setting": 6,
+    "variable": 22,
+    "theme": 100
+  },
+  "results": [
+    {
+      "query": "Какой приём делает ссылки волнистыми?",
+      "usage": {
+        "inputTokens": 5639,
+        "cachedInputTokens": 2133,
+        "outputTokens": 189,
+        "totalTokens": 5828,
+        "estimatedCostUsd": 0.00347541,
+        "fileSearchCalls": 1,
+        "fileSearchCostUsd": 0.0025
+      },
+      "responseId": "resp_0e0ee5c4de1a174f016aaa959d72d887d295cc52d6b33b429c",
+      "decision": {
+        "action": "recommend",
+        "message": "",
+        "recommendations": [
+          {
+            "id": "link-e023",
+            "reason": "Приём «Волнистая линия» делает ссылки волнистыми: для них используется стиль подчёркивания wavy. Поддержка документирована для ссылок в режиме чтения и редакторе; другие режимы не указаны. ",
+            "instructions": ""
+          }
+        ]
+      },
+      "retrievedIds": [
+        "quote-underline",
+        "note-link-underline",
+        "note-underline",
+        "interface-hide-source-link-urls",
+        "note-contrast",
+        "link-e023"
+      ],
+      "searchQueries": [
+        "Какой приём делает ссылки волнистыми?",
+        "Obsidian technique wavy links wavy underline links",
+        "приём волнистое подчёркивание ссылок CSS links wavy underline"
+      ],
+      "passed": true
+    }
+  ],
+  "cleanupPending": 0
+}

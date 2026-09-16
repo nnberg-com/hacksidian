@@ -1,3 +1,5 @@
+throw new Error('Retired: technique cards are maintained as Markdown. This command would recreate technical files or overwrite authored content.');
+import {writeCard} from './card-format.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -84,7 +86,7 @@ for(const id of ids){
  const baselinePath=path.join(dir,'baseline.json'),baseline=JSON.parse(fs.readFileSync(baselinePath));
  const variables=[...new Set(refs(css))].sort(),newVars=variables.filter(v=>!baseline.variables.includes(v)&&defs.has(v));
  // Add exact stock definitions and category consumers to the reference, not to the applied CSS.
- const defaultPath=path.join(dir,'Default.css');let reference=fs.readFileSync(defaultPath,'utf8').split('\n/* Variable refinement reference */')[0];
+ const defaultPath=path.join(dir,'default.css');let reference=fs.readFileSync(defaultPath,'utf8').split('\n/* Variable refinement reference */')[0];
  const wanted=new Set(variables.filter(v=>defs.has(v))),seen=new Set(),extra=[];
  function visit(v){if(seen.has(v))return;seen.add(v);for(const d of defs.get(v)||[]){extra.push(d);for(const ref of refs(d.value))visit(ref);}}
  // Include refinements on every run, even after baseline.variables has been refreshed.
@@ -104,7 +106,7 @@ for(const id of ids){
  for(const lang of ['ru']){
   const p=path.join(dir,`${id}.md`);if(!fs.existsSync(p))continue;
   let text=fs.readFileSync(p,'utf8');const heading=lang==='ru'?'Уточнение опорных переменных':'Refined variable bindings';text=text.replace(new RegExp('\\n## '+heading+'\\n[\\s\\S]*?(?=\\n## |$)'),'');
-  if(changes.length||questions.length)text+='\n## '+heading+'\n\n'+(lang==='ru'?`Уточнено привязок: ${changes.length}. Случаев для отдельного решения: ${questions.length}.`:`Refined bindings: ${changes.length}. Cases needing individual decisions: ${questions.length}.`)+' [baseline.json](./baseline.json) · [Default.css](./Default.css)\n';fs.writeFileSync(p,text);
+  if(changes.length||questions.length)text+='\n## '+heading+'\n\n'+(lang==='ru'?`Уточнено привязок: ${changes.length}. Случаев для отдельного решения: ${questions.length}.`:`Refined bindings: ${changes.length}. Cases needing individual decisions: ${questions.length}.`)+' [baseline.json](./baseline.json) · [default.css](./default.css)\n';writeCard(p,text);
  }
 }
 const manifest=JSON.parse(fs.readFileSync(path.join(snippets,'hacksidian-manifest.json')));

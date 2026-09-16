@@ -1,0 +1,2429 @@
+[
+  {
+    "id": "interface-file-name-wrap",
+    "title": "Полные имена файлов в проводнике",
+    "category": "interface",
+    "setting": "^(file-names-untrim|wrap-nav-titles|file-explorer-unwrap|explorer-title-wrap|full-item-name|composer--EnableFilenameLineFeed)$",
+    "why": "Читать длинные названия заметок без обрезания многоточием.",
+    "difference": "interface-wrap-breadcrumbs относится к пути открытой заметки, interface-readable-tabs — к вкладкам; здесь меняются строки файлового дерева."
+  },
+  {
+    "id": "interface-folder-colors",
+    "title": "Цветовые группы папок в проводнике",
+    "category": "interface",
+    "setting": "(?:^(colorful-folders|colorful-folders_text|colorful-folder|pt-colored-folders|aura-rainbow-folders|sp-rainbow-folders|anp-alt-rainbow-style|folder-style-change-options-colorful)$)|^(?:bt-toggle-colorful-folder|CG-colorfulFolder|vibrant-folders)$",
+    "why": "Различать разделы хранилища по цвету папок.",
+    "difference": "В исходном каталоге нет приёма цветовой навигации по файловому дереву."
+  },
+  {
+    "id": "interface-folder-color-inheritance",
+    "title": "Вложенные папки наследуют цвет раздела",
+    "category": "interface",
+    "setting": "^(colorful-folders_inherit-color|anp-rainbow-subfolder-color-toggle|pt-colored-folders-files-match)$",
+    "why": "Видеть принадлежность вложенных элементов к верхнему разделу хранилища.",
+    "difference": "Отдельное поведение наследования, а не просто окрашивание каждой папки."
+  },
+  {
+    "id": "interface-file-type-icons",
+    "title": "Значки файлов в проводнике",
+    "category": "interface",
+    "setting": "(?:^(anp-file-icons|aura-file-icons|remove-file-icons|file-icon-remove|shiba-remove-file-icons|explorer-icon|enable-icon-file|composer--DisableFileFolderIcon)$)|^(?:ssopt-disable-nav-icons|enable-icon-file|File-Icons)$",
+    "why": "Быстрее различать файлы в дереве по значкам рядом с названием.",
+    "difference": "Иконки ссылок в тексте уже есть; здесь иной элемент — навигация файлов.",
+    "evidenceHint": {
+      "declaration": "(?:content|mask|background-image):",
+      "selector": "nav-file"
+    }
+  },
+  {
+    "id": "interface-sticky-folder-title",
+    "title": "Заголовок папки остаётся видимым при прокрутке",
+    "category": "interface",
+    "setting": "^ssopt-sticky-nav-folder-title$",
+    "why": "Не терять контекст папки при прокрутке длинного файлового дерева.",
+    "difference": "note-sticky-heading закрепляет заголовок внутри текста, а не раздел проводника."
+  },
+  {
+    "id": "interface-tabs-multiple-rows",
+    "title": "Полоса вкладок раскрывается в несколько строк",
+    "category": "interface",
+    "setting": "^pln-tab-rows$",
+    "why": "Разместить больше открытых вкладок без горизонтального поиска.",
+    "difference": "interface-readable-tabs меняет ширину подписи; перенос всей полосы вкладок — другой способ навигации.",
+    "limitations": "В PLN несколько строк появляются при наведении, а не постоянно.",
+    "evidenceHint": {
+      "declaration": "flex-wrap: wrap"
+    }
+  },
+  {
+    "id": "interface-pinned-tab-compact",
+    "title": "Компактные закреплённые вкладки",
+    "category": "interface",
+    "setting": "^(pt-collapsed-pinned-tab|improve-pinned-tabs|pln-pretty-pinned|no-pin)$",
+    "why": "Отделить постоянно открытые заметки от обычных вкладок и сократить занимаемое ими место.",
+    "difference": "Состояние закрепления не разбиралось в существующих карточках вкладок.",
+    "evidenceHint": {
+      "declaration": "(?:width|max-width|--tab-max-width):"
+    }
+  },
+  {
+    "id": "interface-protect-tab-close",
+    "title": "Меньше случайных закрытий вкладок",
+    "category": "interface",
+    "setting": "^prevent-exit$",
+    "why": "Снизить вероятность случайного нажатия на кнопку закрытия вкладки.",
+    "difference": "Это оформление/доступность кнопки закрытия, не сохранение данных и не блокировка команд закрытия."
+  },
+  {
+    "id": "interface-pin-control-protection",
+    "title": "Защита значка закрепления от случайного нажатия",
+    "category": "interface",
+    "setting": "^pln-pin-protect$",
+    "why": "Снизить вероятность случайного снятия закрепления у важной вкладки.",
+    "difference": "Не дублирует оформление активной вкладки; относится к отдельной кнопке и состоянию."
+  },
+  {
+    "id": "interface-tabbar-single-hide",
+    "title": "Не показывать полосу единственной вкладки",
+    "category": "interface",
+    "setting": "^normal-tab-bar$",
+    "why": "Освободить место, когда открыта одна заметка, сохраняя навигацию при нескольких вкладках.",
+    "difference": "Условное исчезновение всей полосы вкладок отсутствует в исходном каталоге."
+  },
+  {
+    "id": "interface-sidebar-hover",
+    "title": "Боковая панель появляется при наведении",
+    "category": "interface",
+    "setting": "^(hover-sidedock|ebullientworks-hover-collapsed-sidebars|disable-autohide)$",
+    "why": "Освободить место для заметки, оставляя быстрый доступ к боковой панели.",
+    "difference": "interface-quiet-actions касается кнопок заголовка; здесь скрывается целая боковая панель.",
+    "limitations": "Наведение рассчитано на указатель мыши; поведение на сенсорном устройстве отдельно не проверено."
+  },
+  {
+    "id": "interface-statusbar-hover",
+    "title": "Строка состояния появляется при наведении",
+    "category": "interface",
+    "setting": "^(status-bar-autohide|ulu-peek-statusbar|disable-status-fade|o-hover-status-bar)$",
+    "why": "Сократить постоянно видимый служебный текст, сохранив доступ к нему.",
+    "difference": "В исходном каталоге не было управления видимостью строки состояния.",
+    "evidenceHint": {
+      "declaration": "(?:opacity: 0|transform:)",
+      "selector": "status-bar"
+    }
+  },
+  {
+    "id": "interface-floating-note-header",
+    "title": "Плавающий заголовок панели заметки",
+    "category": "interface",
+    "setting": "(?:^(ulu-float-header|sticky-view-actions|tab-title-bar-autohide)$)|^(?:ulu-float-header-peek)$",
+    "why": "Уменьшить место, занимаемое заголовком и действиями заметки.",
+    "difference": "Отдельный сценарий появления и позиционирования заголовка; interface-header-surface меняет только его поверхность.",
+    "evidenceHint": {
+      "declaration": "position:",
+      "selector": "view-header"
+    }
+  },
+  {
+    "id": "interface-workspace-cards",
+    "title": "Панели рабочего пространства отдельными карточками",
+    "category": "interface",
+    "setting": "(?:(?:^(app-layout-card|anp-layout-select|aura-layout-select|card-layout-open-light|card-layout-open-dark|layout-style)$)|^(?:card-layout-pad-open)$)|^(?:shib-layout-select|aura-card-layout-fileexplorer)$",
+    "why": "Визуально разделить редактор и боковые панели зазорами и поверхностями.",
+    "difference": "note-cards оформляет список внутри заметки, а не оболочку приложения.",
+    "evidenceHint": {
+      "declaration": "border-radius:"
+    }
+  },
+  {
+    "id": "interface-mobile-drawer-full",
+    "title": "Проводник на весь экран телефона",
+    "category": "interface",
+    "setting": "(?:^drawer-phone-full-width$)|^(?:(?!))$",
+    "why": "Использовать ширину телефона для чтения названий файлов и управления папками.",
+    "difference": "Исходный каталог не содержит отдельной компоновки мобильного проводника.",
+    "limitations": "Только мобильный интерфейс; не обещает аналогичного поведения на компьютере."
+  },
+  {
+    "id": "interface-mobile-mode-button",
+    "title": "Плавающая кнопка переключения чтения и редактирования",
+    "category": "interface",
+    "setting": "(?:^(floating-button-off|mobile-floating-button|fab-enabled-mobile)$)|^mode-switcher-off$",
+    "why": "Быстро менять режим заметки на телефоне, не возвращаясь к её верхнему краю.",
+    "difference": "Увеличенные кнопки интерфейса уже есть; позиционирование переключателя режима — отдельный приём."
+  },
+  {
+    "id": "interface-active-editor-line",
+    "title": "Выделение активной строки редактора",
+    "category": "interface",
+    "setting": "(?:(?:^(active-line|active-line-on|active-line-highlight|anp-active-line|aura-active-line|pln-hi-line|line-active|ulu-active-line|active-line-off)$)|^(?:muted-activeline-bg|no-activeline|vim-active-visual-line)$)|^(?:theme-setting-highlightActiveLine|show-textHL|ssopt-disable-alh)$",
+    "why": "Не терять положение курсора в длинной заметке.",
+    "difference": "metadata-yaml-muted относится только к YAML; здесь выделяется рабочая строка обычного редактора."
+  },
+  {
+    "id": "interface-hover-line-marker",
+    "title": "Маркер строки под указателем",
+    "category": "interface",
+    "setting": "^(line-indicator|line-hover-indicator|pln-hi-line-hover)$",
+    "why": "Видеть строку, на которую наведён указатель, до переноса курсора.",
+    "difference": "Отличается от активной строки: состояние определяется наведением мыши.",
+    "evidenceHint": {
+      "declaration": "(?:opacity:|content:)"
+    }
+  },
+  {
+    "id": "interface-outline-threading",
+    "title": "Связующие линии в оглавлении заметки",
+    "category": "interface",
+    "setting": "^(outline-enable|outline-enhanced)$",
+    "why": "Лучше видеть иерархию заголовков в боковом оглавлении.",
+    "difference": "note-list-tree относится к списку в тексте; здесь оформляется служебное оглавление.",
+    "evidenceHint": {
+      "declaration": "(?:border|background|--.*color)",
+      "selector": "indent|before|after"
+    }
+  },
+  {
+    "id": "interface-hidden-attachments",
+    "title": "Скрытие вложений из файлового дерева",
+    "category": "interface",
+    "setting": "(?:^(pln-attachments|hide-attachment-folders)$)|^(?:pln-hide-files)$",
+    "why": "Сосредоточить проводник на заметках, убрав из него вспомогательные вложения.",
+    "difference": "Такого сценария навигации в исходном каталоге нет.",
+    "limitations": "CSS скрывает строки интерфейса, не удаляет файлы и не ограничивает доступ к ним."
+  },
+  {
+    "id": "interface-dim-inactive-panes",
+    "title": "Приглушение неактивных панелей",
+    "category": "interface",
+    "setting": "^inactive-notes$",
+    "why": "Выделить рабочую заметку среди одновременно открытых панелей.",
+    "difference": "interface-focused-pane добавляет рамку панели; здесь внимание регулируется приглушением/режимом фокуса."
+  },
+  {
+    "id": "image-caption-from-alt",
+    "title": "Подпись изображения из alt-текста",
+    "category": "image",
+    "setting": "(?:^(no-image-alttext-caption|ss-image-caption|image-alt)$)|^(?:image-caption)$",
+    "why": "Использовать текст описания изображения как видимую подпись без отдельного абзаца.",
+    "difference": "image-e058 и note-image-caption требуют соседнего абзаца; здесь источником служит alt.",
+    "limitations": "Зависит от разметки embed в Obsidian; это не универсальная возможность CSS для произвольного img.",
+    "evidence": [
+      {
+        "theme": "everforest-enchanted",
+        "file": "image_styling.md",
+        "needle": "Captions are placed",
+        "selector": "image-embed.*(?:after|before)",
+        "usage": "Подпись локального изображения передаётся после `|`, например `![[image.png# right|Подпись]]`. Для удалённых картинок этот способ подписи не поддерживается."
+      }
+    ],
+    "evidenceHint": {
+      "declaration": "content: attr"
+    }
+  },
+  {
+    "id": "image-hold-zoom",
+    "title": "Крупный просмотр изображения при нажатии",
+    "category": "image",
+    "setting": "^(zoom-off|ss-zoom-off|image-zoom|image-embed-enable-zoom)$",
+    "why": "Рассмотреть изображение крупнее, сохраняя компактную иллюстрацию в тексте.",
+    "difference": "image-e075 увеличивает картинку внутри рамки; здесь тема предоставляет отдельное крупное состояние.",
+    "limitations": "Жест и режим зависят от темы: отключающий переключатель не следует включать для активации функции.",
+    "evidenceHint": {
+      "declaration": "position: fixed"
+    }
+  },
+  {
+    "id": "image-dark-mode-dimming",
+    "title": "Приглушение ярких изображений в тёмном режиме",
+    "category": "image",
+    "setting": "^(img-darken|media-muted|image-dark-hover|enable-dim-img|dim-pictures)$",
+    "why": "Уменьшить контраст светлых иллюстраций на тёмном фоне заметки.",
+    "difference": "image-e055 затемняет края; здесь меняется яркость всего изображения в зависимости от режима."
+  },
+  {
+    "id": "interface-pdf-dark-invert",
+    "title": "Инверсия страниц PDF в тёмном режиме",
+    "category": "interface",
+    "setting": "(?:(?:^(pdf-invert-dark|pdf-dark-invert)$)|^(?:ssopt-invert-pdf-dark)$)|^ctp-pdf-darken$",
+    "why": "Читать светлый PDF на тёмном фоне без яркой страницы.",
+    "difference": "iframe-e028 относится к iframe, image-e034 — к изображению; встроенный PDF-viewer имеет свою разметку.",
+    "limitations": "Может изменять цвета диаграмм и изображений; исходный PDF не переписывается."
+  },
+  {
+    "id": "interface-pdf-dimming",
+    "title": "Приглушение яркости встроенного PDF",
+    "category": "interface",
+    "setting": "^(pdf-muted|pdf-dark-hover)$",
+    "why": "Снизить яркость PDF без изменения исходного файла.",
+    "difference": "Отличается от инверсии: яркость уменьшается без обязательной замены светлого и тёмного."
+  },
+  {
+    "id": "code-editor-line-numbers",
+    "title": "Номера строк внутри блока кода",
+    "category": "code",
+    "setting": "(?:^(code-line-numbers|code-line-number|anp-codeblock-numbers|code-lines)$)|^(?:theme-setting-codeBlockLineNumbers|no-codeblock-line-numbers)$",
+    "why": "Ориентироваться в листинге и ссылаться на конкретные строки.",
+    "difference": "code-e041 нумерует примеры целиком; здесь нумеруются строки внутри одного блока.",
+    "limitations": "Режимы отображения зависят от темы. Чистый CommonMark сам по себе не создаёт узлы строк."
+  },
+  {
+    "id": "interface-kanban-wrap",
+    "title": "Колонки Kanban переходят на следующую строку",
+    "category": "interface",
+    "setting": "^(wrap-kanban-lanes|o-kanban-wrap)$",
+    "why": "Вместить больше колонок доски в ширину окна.",
+    "difference": "Текстовые многоколоночные списки уже есть; здесь меняется интерфейс Kanban.",
+    "limitations": "Требуется плагин Kanban; тема его не устанавливает."
+  },
+  {
+    "id": "interface-kanban-search-collapse",
+    "title": "Пустые результаты поиска сворачивают колонки Kanban",
+    "category": "interface",
+    "setting": "^anp-kanban-collapse-lanes$",
+    "why": "Сосредоточить доску на колонках с найденными карточками.",
+    "difference": "В исходном каталоге нет оформления результатов поиска в Kanban.",
+    "limitations": "Требуется плагин Kanban и поддерживаемая им разметка состояний поиска."
+  },
+  {
+    "id": "interface-bases-density",
+    "title": "Компактные таблицы Bases",
+    "category": "interface",
+    "setting": "^sp-compact-bases$",
+    "why": "Показывать больше записей базы на одном экране.",
+    "difference": "table-e015 работает с Markdown-таблицей; Bases использует другой интерфейс.",
+    "evidenceHint": {
+      "declaration": "(?:height|padding|--.*height):",
+      "selector": "row|bases"
+    }
+  },
+  {
+    "id": "interface-bases-clean-header",
+    "title": "Упрощённый заголовок Bases",
+    "category": "interface",
+    "setting": "^(hide-bases-header|bases-hide-column-header-icons)$",
+    "why": "Уменьшить визуальную нагрузку от управляющих элементов базы.",
+    "difference": "Не совпадает с оформлением шапки HTML-таблицы."
+  },
+  {
+    "id": "interface-canvas-controls",
+    "title": "Canvas без постоянно видимых кнопок",
+    "category": "interface",
+    "setting": "(?:^(canvas-group-hide|show-canvas-ui|immersive-canvas)$)|^(?:canvas-group-hide)$",
+    "why": "Освободить место вокруг схемы для работы с карточками.",
+    "difference": "В исходном каталоге Canvas не представлен.",
+    "limitations": "Варианты могут скрывать разные наборы кнопок; проверяйте описание выбранной темы."
+  },
+  {
+    "id": "interface-canvas-text-center",
+    "title": "Текст карточки Canvas по центру",
+    "category": "interface",
+    "setting": "^(canvas-center|ulu-canvas-center)$",
+    "why": "Использовать короткую карточку схемы как выразительную подпись.",
+    "difference": "Это компоновка карточки Canvas, а не абзаца обычной заметки."
+  },
+  {
+    "id": "interface-explorer-density",
+    "title": "Компактный файловый проводник",
+    "category": "interface",
+    "setting": "^(sp-compact-explorer|sp-compact-explorer-extra)$",
+    "why": "Видеть больше файлов одновременно в боковой панели.",
+    "difference": "Плотность строк файлового дерева не представлена приёмами для списков Markdown."
+  },
+  {
+    "id": "interface-relative-line-numbers",
+    "title": "Относительные номера строк для Vim",
+    "category": "interface",
+    "setting": "^use-relative-line-numbers$",
+    "why": "Оценивать расстояние от курсора до строки для команд перемещения Vim.",
+    "difference": "Отличается и от обычной нумерации редактора, и от нумерации блоков кода.",
+    "limitations": "Требуется соответствующий режим редактора; это не полноценная реализация Vim силами CSS."
+  },
+  {
+    "id": "interface-hide-source-link-urls",
+    "title": "Скрытые URL ссылок в исходном режиме",
+    "category": "interface",
+    "setting": "(?:^show-urls$)|^(?:ssopt-show-urls)$",
+    "why": "Читать текст Markdown-ссылок без постоянно видимого длинного адреса.",
+    "difference": "Приёмы ссылок в исходном каталоге в основном относятся к отрендеренным ссылкам, а не токенам Source Mode.",
+    "evidenceHint": {
+      "declaration": "(?:font-size: 0|display: none)"
+    }
+  },
+  {
+    "id": "interface-writing-wordcount",
+    "title": "Счётчик слов только в заметках для письма",
+    "category": "interface",
+    "setting": "^wordcount-only-when-writing$",
+    "why": "Показывать статистику текста там, где она нужна, и не занимать строку состояния в остальных заметках.",
+    "difference": "Условный интерфейс по типу заметки не дублирует обычные текстовые счётчики.",
+    "limitations": "Условия включения задаёт тема (например cssclasses writing/Longform); это не автоматическое распознавание жанра текста."
+  },
+  {
+    "existing": "table-e007",
+    "setting": "^(row-alt|table-alternate-row)$"
+  },
+  {
+    "existing": "table-e008",
+    "setting": "^(col-alt|table-alternate-column)$",
+    "evidence": [
+      {
+        "theme": "dune",
+        "file": "Wiki/cheatsheet cssclasses Dune.md",
+        "needle": "alternate columns",
+        "selector": "table-alt",
+        "usage": "Класс `table-alt` выделяет чередующиеся колонки таблицы."
+      }
+    ]
+  },
+  {
+    "existing": "table-e034",
+    "setting": "^(row-hover|table-hover-row|pln-hi-tr)$"
+  },
+  {
+    "existing": "table-e043",
+    "setting": "^table-sticky-headers$"
+  },
+  {
+    "existing": "table-e019",
+    "setting": "^(table-tabular|table-tabular-figures)$"
+  },
+  {
+    "existing": "table-e066",
+    "setting": "^(table-numbers|table-nums)$",
+    "evidence": [
+      {
+        "theme": "minimal",
+        "file": "docs/Features/Helper classes.md",
+        "needle": "table-numbers",
+        "selector": "table-numbers",
+        "usage": "Добавьте класс `table-numbers` к заметке."
+      }
+    ]
+  },
+  {
+    "existing": "metadata-compact",
+    "setting": "^(metadata-compact|sp-compact-properties)$"
+  },
+  {
+    "existing": "metadata-no-heading",
+    "setting": "^(metadata-heading-off|pln-props-heading|ssopt-hide-properties-title)$"
+  },
+  {
+    "existing": "metadata-no-icons",
+    "setting": "^metadata-icons-off$"
+  },
+  {
+    "existing": "metadata-no-add",
+    "setting": "^sp-hide-add-property$"
+  },
+  {
+    "existing": "text-justify",
+    "setting": "^(text-justify|text-align-justify|no-justify|o-justify)$"
+  },
+  {
+    "existing": "note-code-wrap",
+    "setting": "^(code-scroll|wrap-code-blocks|whole-code-wrap)$"
+  },
+  {
+    "existing": "code-e036",
+    "setting": "^code-mac-style-header$"
+  },
+  {
+    "existing": "image-e006",
+    "setting": "(?:^(img-center-align|centre-image)$)|^(?:theme-setting-centerImages|img-adj-center)$"
+  },
+  {
+    "existing": "image-e002",
+    "setting": "^image-embed-stretch$"
+  },
+  {
+    "existing": "image-e016",
+    "setting": "^img-radius-off$"
+  },
+  {
+    "existing": "table-e012",
+    "setting": "^rounded-tables$"
+  },
+  {
+    "existing": "note-print-links",
+    "setting": "^(show-url-after-link|ulu-print-link-urls)$"
+  },
+  {
+    "id": "interface-writing-focus",
+    "title": "Режим письма со скрытыми элементами интерфейса",
+    "category": "interface",
+    "setting": "(?:(?:^(focus-view|pt-focused-mode|border-focus-mode|hide-sidepanels|focus-mode)$)|^(?:ssopt-focused-mode|ssopt-super-focused-mode)$)|^(?:focused-mode-style)$",
+    "why": "Убрать второстепенные панели и кнопки на время работы с текстом.",
+    "difference": "В исходном каталоге менялись отдельные кнопки и рамки; здесь тема согласованно упрощает рабочее пространство.",
+    "limitations": "Условия и состав скрываемых элементов зависят от темы; это не блокировка доступа к другим заметкам."
+  },
+  {
+    "existing": "interface-active-tab",
+    "setting": "^pt-fade-inactive-tabs$"
+  },
+  {
+    "id": "note-seamless-embed",
+    "title": "Встроенная заметка без отдельной рамки",
+    "category": "note",
+    "setting": "(?:^(embed-strict|clean-embeds|seamless-embeds|min-clean-embed|naked-embed|disable-naked-embeds)$)|^(?:ssopt-not-seamless-embeds|embed-border-hidden|embed-clean)$",
+    "why": "Включить текст другой заметки в документ как непрерывный фрагмент.",
+    "difference": "Оформление цитаты не равно оформлению Obsidian-transclusion; в исходном каталоге такого механизма нет.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно.",
+    "evidence": [
+      {
+        "theme": "everforest-enchanted",
+        "file": "embed_styling.md",
+        "needle": "clean",
+        "selector": "(?=.*markdown-embed)(?=.*clean)",
+        "usage": "Используйте `![[заметка|clean]]`; `no-title` и `no-link` отдельно управляют заголовком и ссылкой."
+      }
+    ]
+  },
+  {
+    "id": "note-embed-title-hide",
+    "title": "Встроенная заметка без повторного заголовка",
+    "category": "note",
+    "setting": "(?:^(embed-hide-title|embed-title|hide-embed-title|pln-embd-title)$)|^(?:theme-setting-embeddedNoteTitleVisibility)$",
+    "why": "Избежать повторения имени встроенного файла внутри составного документа.",
+    "difference": "Это служебный заголовок embed, а не заголовок Markdown.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно.",
+    "evidence": [
+      {
+        "theme": "cupertino",
+        "file": "README.md",
+        "needle": "`embed-hide-title`",
+        "selector": "embed-hide-title.*embed-title",
+        "usage": "cssclasses: [embed-hide-title] скрывает повторяющееся имя вставленного документа.",
+        "property": "display"
+      },
+      {
+        "theme": "baseline",
+        "file": "README.md",
+        "needle": "`embed-hide-title`",
+        "selector": "embed-hide-title.*embed-title",
+        "usage": "cssclasses: [embed-hide-title] скрывает повторяющееся имя вставленного документа.",
+        "property": "display"
+      }
+    ]
+  },
+  {
+    "id": "note-embed-heading-hide",
+    "title": "Скрытие первого заголовка внутри вставленной заметки",
+    "category": "note",
+    "setting": "(?:^(ebullientworks-hide-embedded-heading|pln-embd-first)$)|^(?:pln-embd-h[1-6]|embed-hd)$",
+    "why": "Не повторять заголовок раздела при встраивании его содержимого.",
+    "difference": "В отличие от заголовка файла embed, скрывается заголовок самого фрагмента.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "note-embed-height",
+    "title": "Ограниченная высота встроенной заметки",
+    "category": "note",
+    "setting": "^adjustable-embed-content-height$",
+    "why": "Уместить большую встроенную заметку в ограниченном пространстве.",
+    "difference": "Текстовый embed имеет другие селекторы и ограничения, чем iframe с прокруткой.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-ribbon-hover",
+    "title": "Лента команд появляется при наведении",
+    "category": "interface",
+    "setting": "^(hover-ribbon|Ribbon-autohide)$",
+    "why": "Освободить боковую полосу, не теряя быстрые команды.",
+    "difference": "Речь о ленте команд приложения, а не о панели действий заметки.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-markdown-syntax-hide",
+    "title": "Приглушённая или скрытая разметка Markdown в редакторе",
+    "category": "interface",
+    "setting": "(?:^(hide-markdown|clutter-free-headings|wys-headings|wys)$)|^(?:shrink-formatting)$",
+    "why": "Сосредоточиться на тексте, уменьшив заметность служебных символов разметки.",
+    "difference": "Это оформление токенов редактора, а не уже отрендеренного текста.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-heading-level-indicator",
+    "title": "Обозначение уровня заголовка в редакторе",
+    "category": "interface",
+    "setting": "(?:^(no-lp-heading-level-indicator|heading-indicator|remove-heading-indicator|heading-indicator-off|alt-heading-off)$)|^(?:shiba-remove-heading-indicator|mini-header-hide|Header-Icons)$",
+    "why": "Различать H1–H6 во время редактирования без подсчёта символов решётки.",
+    "difference": "heading-e033 добавляет произвольный знак; здесь обозначается семантический уровень редактора.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-stacked-tab-spine",
+    "title": "Направление подписей в сложенных вкладках",
+    "category": "interface",
+    "setting": "^tab-stacked-spine-orientation$",
+    "why": "Настроить чтение узких корешков сложенных вкладок.",
+    "difference": "Исходные приёмы относятся к обычной горизонтальной полосе вкладок.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-colorblind-palette",
+    "title": "Палитры для различения цветов интерфейса",
+    "category": "meta",
+    "setting": "^(colorblind_protan-deutan|colorblind_tritan)$",
+    "why": "Выбрать предлагаемые автором альтернативы цветового различения.",
+    "difference": "meta-higher-contrast усиливает границы по системной настройке; здесь меняется набор цветов. Пригодность конкретному человеку нужно оценивать отдельно.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-pdf-background-blend",
+    "title": "PDF вписывается в фон темы",
+    "category": "interface",
+    "setting": "(?:^(pdf-blend-light|anp-pdf-blend-toggle-light|anp-pdf-blend-toggle-dark|pt-pdf-dark-theme)$)|^(?:ctp-pdf-blend)$",
+    "why": "Уменьшить ощущение отдельного белого прямоугольника внутри заметки.",
+    "difference": "Смешивание с фоном отличается от простой инверсии и изменения яркости PDF.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-kanban-full-height",
+    "title": "Колонки Kanban на полную высоту",
+    "category": "interface",
+    "setting": "^(anp-kanban-lanes|kanban-full-height-column)$",
+    "why": "Выровнять вертикальную структуру доски и использовать высоту панели.",
+    "difference": "Это интерфейс плагина, не обычный многоколоночный список.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-kanban-sidebar-vertical",
+    "title": "Kanban одной вертикальной колонкой в боковой панели",
+    "category": "interface",
+    "setting": "^PComm002-sp-singlelane$",
+    "why": "Читать доску в узкой панели без горизонтального перемещения.",
+    "difference": "Отдельный адаптивный сценарий доски, не перенос колонок в широкой области.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-calendar-month-year",
+    "title": "Перестановка элементов заголовка календаря",
+    "category": "interface",
+    "setting": "^(calendar-flip|calendar-swap-year-month)$",
+    "why": "Выбрать удобный порядок заголовка и навигации календаря. Sanctum меняет расположение блока Month + Year относительно кнопок, Maple — порядок месяца и года внутри заголовка.",
+    "difference": "Такого интерфейсного приёма в исходном каталоге нет.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно.",
+    "evidenceHint": {
+      "declaration": "flex-direction: row-reverse",
+      "selector": "title"
+    }
+  },
+  {
+    "id": "interface-properties-floating",
+    "title": "Свойства заметки в боковом блоке",
+    "category": "metadata",
+    "setting": "^ebullientworks-floating-frontmatter$",
+    "why": "Отделить метаданные от основного потока текста.",
+    "difference": "metadata-sticky закрепляет паспорт; здесь свойства выносятся в боковую область без обязательного закрепления.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно.",
+    "evidenceHint": {
+      "declaration": "(?:float:|position:|width:)"
+    }
+  },
+  {
+    "id": "interface-new-note-prominent",
+    "title": "Заметная кнопка создания заметки",
+    "category": "interface",
+    "setting": "^(CTA-BTN-enable|large-new-note)$",
+    "why": "Сделать создание заметки заметным действием в проводнике.",
+    "difference": "interface-roomy-actions расширяет действия панели; здесь оформляется конкретная команда создания.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-dark-sidebar",
+    "title": "Тёмная боковая панель при светлой заметке",
+    "category": "interface",
+    "setting": "^eis-sidebar-dark$",
+    "why": "Визуально отделить навигацию от светлой рабочей области.",
+    "difference": "Смена общей светлой/тёмной схемы не даёт независимых режимов для областей приложения.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-notification-position",
+    "title": "Уведомления в нижнем правом углу",
+    "category": "interface",
+    "setting": "^notices-at-bottom-right$",
+    "why": "Перенести временные уведомления из основной зоны чтения.",
+    "difference": "В исходном каталоге не было компоновки уведомлений.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "id": "interface-settings-horizontal-navigation",
+    "title": "Горизонтальная навигация настроек",
+    "category": "interface",
+    "setting": "^ulu-settings-horizontal$",
+    "why": "Изменить компоновку навигации в окне настроек.",
+    "difference": "Применяется к окну настроек, а не к вкладкам документов.",
+    "limitations": "Это возможность конкретной темы; наличие и поведение проверены по исходникам, но не в установленном Obsidian. Для оформления стороннего плагина он должен быть установлен отдельно."
+  },
+  {
+    "existing": "table-e002",
+    "setting": "^(table-lines|table-cell-border)$"
+  },
+  {
+    "existing": "table-e003",
+    "setting": "^(row-lines|table-row-border)$"
+  },
+  {
+    "existing": "table-e027",
+    "setting": "^(table-center|anp-table-auto|shib-table-auto|centered-tables)$"
+  },
+  {
+    "existing": "table-e035",
+    "setting": "^anp-td-highlight$"
+  },
+  {
+    "existing": "table-e013",
+    "setting": "^anp-table-th-highlight$"
+  },
+  {
+    "existing": "code-e052",
+    "setting": "(?:^(code-label|code-language|ssopt-codeblock-language|remove-language-type)$)|^(?:no-show-lang)$"
+  },
+  {
+    "existing": "code-e018",
+    "setting": "(?:^(anp-codeblock-wrap-preview|anp-codeblock-wrap-edit|anp-codeblock-wrap-hl-preview)$)|^(?:anp-codeblock-wrap-edit|anp-codeblock-wrap-preview|anp-codeblock-wrap-hl-preview)$"
+  },
+  {
+    "existing": "note-indent",
+    "setting": "^(text-indentation-two-em|longform-text-indent|composer--ParagraphIndent)$"
+  },
+  {
+    "existing": "metadata-no-add",
+    "setting": "^metadata-add-property-off$"
+  },
+  {
+    "existing": "metadata-long",
+    "setting": "^metadata-longtext$"
+  },
+  {
+    "existing": "metadata-ledger",
+    "setting": "^metadata-dividers$"
+  },
+  {
+    "existing": "note-dotted",
+    "setting": "^editor-grid-background-pattren$"
+  },
+  {
+    "existing": "heading-e019",
+    "setting": "(?:^(h[1-6]-(?:l|line|underline|divider-on)|h[1-6]-toggle-underline|anp-h[1-6]-divider|shib-h[1-6]-underline|ulu-header-line-h[1-6]|o-header-line-h[1-6])$)|^(?:heading-bottom-line-off|hide-header-underline(?:-[1-6])?|h2-no-underline|ulu-no-h2-line)$"
+  },
+  {
+    "existing": "heading-e006",
+    "setting": "(?:^h[1-6]-small-caps$)|^(?:heading-h[1-6]-caps)$"
+  },
+  {
+    "existing": "heading-e007",
+    "setting": "(?:^(anp-h[1-6]-color-custom|shib-h[1-6]-color-custom|aura-h[1-6]-color|h[1-6]-color-select|colorful-headings-text|aura-heading-color|rainbow-headers|o-colorful-headings)$)|^(?:anp-header-color-toggle|heading-colors|shib-header-color-toggle|colorful-headings|spec-color-head|pln-hdcl)$"
+  },
+  {
+    "existing": "heading-e027",
+    "setting": "(?:^(header-[1-6]-background|colorful-headings-background)$)|^(?:no-heading-background|ssopt-no-coloured-headers|heading-colors-bg)$"
+  },
+  {
+    "existing": "heading-e046",
+    "setting": "^(title-gradient|gradient-headers)$"
+  },
+  {
+    "existing": "heading-e051",
+    "setting": "^aura-neon-headings$"
+  },
+  {
+    "existing": "emphasis-s02",
+    "setting": "(?:^(anp-bold-custom|shiba-bold-colors|uncolored-bold)$)|^(?:boldcolors|enable-special-text|o-bold-italic|ulu-accent-bold-italic|shiba-italic-bold-style)$"
+  },
+  {
+    "existing": "emphasis-s03",
+    "setting": "(?:^(anp-italic-custom|shiba-italic-colors|uncolored-italic)$)|^(?:italicscolors|enable-special-text|o-bold-italic|ulu-accent-bold-italic|shiba-italic-bold-style)$"
+  },
+  {
+    "existing": "emphasis-s19",
+    "setting": "^ulu-rough-highlight$"
+  },
+  {
+    "existing": "emphasis-s14",
+    "setting": "^text-highlight-all-round$"
+  },
+  {
+    "existing": "list-e047",
+    "setting": "(?:^(remove-pre-rel-lines|remove-ed-rel-lines|list-bullet-thread-style|composer--EnableIndentationGuidLine)$)|^(?:bt-colorful-indentation-lines|bt-colorful-indentation-lines-editing|list-lines-color|Gradient-Bullet-Point-Lines|vibrant-indents|aura-neon-list)$"
+  },
+  {
+    "existing": "quote-italic",
+    "setting": "^quote-italic$"
+  },
+  {
+    "existing": "note-quote-glyph",
+    "setting": "^quote-mark$"
+  },
+  {
+    "existing": "task-e13",
+    "setting": "(?:^(minimal-strike-lists|strike-lists-off|check-strike|Check-List-Strikeout|show-strikeout|composer--RemoveTaskCompletedDecoration)$)|^(?:toggle-checked-decoration|CG-strike|Check-List-Strikeout|checkbox-strike-(?:regular|checked))$"
+  },
+  {
+    "existing": "task-e14",
+    "setting": "^list-checkbox-gray$"
+  },
+  {
+    "existing": "meta-reduced-motion",
+    "setting": "^(reduce-motion|ulu-no-motion|no-animation|zero-tab-anim|zero-popup-popdown|extra-anim-remove|disable-menu-animations)$"
+  },
+  {
+    "existing": "text-tabular",
+    "setting": "^ulu-tabular-nums$"
+  },
+  {
+    "existing": "note-hyphens",
+    "setting": "^ulu-no-hyphenate$"
+  },
+  {
+    "existing": "code-e012",
+    "setting": "^(pt-font-disable-ligatures|ulu-disable-ligatures)$"
+  },
+  {
+    "existing": "image-e028",
+    "setting": "^(grayscale-dark-mode|image-desaturation)$"
+  },
+  {
+    "id": "interface-resize-mermaid",
+    "title": "Изменяемый размер схемы Mermaid",
+    "category": "interface",
+    "setting": "^resizable-mermaid$",
+    "why": "Подобрать удобный размер схемы непосредственно в режиме чтения.",
+    "difference": "Это контейнер отрендеренной Mermaid-схемы, а не iframe или картинка.",
+    "limitations": "Зависит от темы и версии Obsidian. Для Excalidraw и Memos нужен соответствующий плагин. Проверка выполнена по исходникам, без запуска на устройстве."
+  },
+  {
+    "id": "interface-hide-editor-comments",
+    "title": "Скрытие комментариев в редакторе",
+    "category": "interface",
+    "setting": "^(hide-comments|hide-comment-indicators)$",
+    "why": "Уменьшить заметность служебных комментариев и их разделителей при чтении исходного текста.",
+    "difference": "В каталоге нет отдельного управления токенами комментариев редактора.",
+    "limitations": "Зависит от темы и версии Obsidian. Для Excalidraw и Memos нужен соответствующий плагин. Проверка выполнена по исходникам, без запуска на устройстве."
+  },
+  {
+    "id": "interface-mini-infobox-edit",
+    "title": "Компактный infobox при редактировании",
+    "category": "callout",
+    "setting": "^fas-infobox-lp-mini$",
+    "why": "Не занимать большую часть рабочей области информационной карточкой во время редактирования.",
+    "difference": "callout-dossier оформляет саму карточку, но не её переход к компактному состоянию в Live Preview.",
+    "limitations": "Зависит от темы и версии Obsidian. Для Excalidraw и Memos нужен соответствующий плагин. Проверка выполнена по исходникам, без запуска на устройстве."
+  },
+  {
+    "id": "interface-drag-window-area",
+    "title": "Больше места для перетаскивания окна",
+    "category": "interface",
+    "setting": "^(more-drag-desktop|tab-drag-desktop)$",
+    "why": "Перемещать окно, используя расширенную область заголовка или вкладки.",
+    "difference": "Это работа с рамкой окна, а не оформление навигации внутри заметки.",
+    "limitations": "Зависит от темы и версии Obsidian. Для Excalidraw и Memos нужен соответствующий плагин. Проверка выполнена по исходникам, без запуска на устройстве."
+  },
+  {
+    "id": "interface-excalidraw-pen-mode",
+    "title": "Режим пера в интерфейсе Excalidraw",
+    "category": "interface",
+    "setting": "^pen-mode$",
+    "why": "Использовать предусмотренную темой компоновку Excalidraw для работы пером.",
+    "difference": "В исходном каталоге не было оформления режима пера Excalidraw.",
+    "limitations": "Зависит от темы и версии Obsidian. Для Excalidraw и Memos нужен соответствующий плагин. Проверка выполнена по исходникам, без запуска на устройстве.",
+    "evidenceHint": {
+      "declaration": "(?:position:|display:)"
+    }
+  },
+  {
+    "id": "interface-memos-input-bottom",
+    "title": "Поле ввода Memos внизу панели",
+    "category": "interface",
+    "setting": "^memos-inputbox$",
+    "why": "Расположить ввод быстрых заметок в нижней части интерфейса.",
+    "difference": "Это оформление интерфейса стороннего плагина, отсутствовавшее в исходном каталоге.",
+    "limitations": "Зависит от темы и версии Obsidian. Для Excalidraw и Memos нужен соответствующий плагин. Проверка выполнена по исходникам, без запуска на устройстве."
+  },
+  {
+    "id": "interface-desktop-mode-button",
+    "title": "Плавающий переключатель режима на компьютере",
+    "category": "interface",
+    "setting": "^fab-enabled-desktop$",
+    "why": "Менять режим заметки плавающей кнопкой в настольном интерфейсе.",
+    "difference": "Мобильная кнопка не доказывает наличия такого же элемента на компьютере; у темы это отдельная настройка.",
+    "limitations": "Настольный вариант Material Flat. Доступность и расположение зависят от версии Obsidian."
+  },
+  {
+    "id": "task-alternative-markers",
+    "title": "Состояния задач по символу в квадратных скобках",
+    "category": "task",
+    "setting": "^(?:enable-alternative-checkboxes|disable-alternative-checkboxes|anp-custom-checkboxes|custom-checkboxes|alt-chkbx-off|ssopt-acrs-enable|pln-checkboxes|CG-custom-checkbox|list-checkbox-alternative|theme-setting-enableBuiltInAlternativeCheckboxes|aura-custom-checkbox|ebullientworks-nix-checkbox)$",
+    "why": "Отличать отложенное, отменённое, вопрос и другие состояния прямо в списке задач.",
+    "difference": "В исходном каталоге нативные задачи и псевдозадачи оформлялись по структуре Markdown; здесь тема интерпретирует нестандартный символ внутри скобок.",
+    "limitations": "Наборы символов и их значения различаются между темами. Это оформление, а не движок задач; смена темы меняет представление."
+  },
+  {
+    "id": "interface-dataview-trim",
+    "title": "Обрезка длинных значений в таблице Dataview",
+    "category": "interface",
+    "setting": "^(?:trim-cols)$",
+    "why": "Сохранить обозримость таблицы с длинными значениями.",
+    "difference": "Управляет выводом Dataview, включая ширину и обрезку ячеек; отличается от переноса длинного текста в обычной Markdown-таблице.",
+    "limitations": "Требует Dataview; обрезка скрывает часть видимого текста.",
+    "evidenceHint": {
+      "declaration": "text-overflow: ellipsis"
+    }
+  },
+  {
+    "id": "interface-bases-readonly",
+    "title": "Защита ячеек Bases от случайного редактирования",
+    "category": "interface",
+    "setting": "^(?:ssopt-bases-no-edit)$",
+    "why": "Читать таблицу, не активируя случайно её поля.",
+    "difference": "Это блокирование взаимодействия с редакторами ячеек, а не оформление границ или плотности.",
+    "limitations": "CSS ограничивает взаимодействие в представлении; это не права доступа и не защита данных."
+  },
+  {
+    "id": "interface-sticky-backlinks",
+    "title": "Обратные ссылки в закреплённой нижней области",
+    "category": "interface",
+    "setting": "^(?:theme-setting-stickyEmbeddedLinks)$",
+    "why": "Сохранять обратные ссылки доступными независимо от прокрутки текста.",
+    "difference": "Закрепляется панель связанных заметок, а не заголовок или шапка таблицы.",
+    "limitations": "Проверить перекрытие текста в узкой панели; зависит от структуры встроенных backlinks."
+  },
+  {
+    "id": "interface-auto-wide-tables",
+    "title": "Широкая заметка автоматически при наличии таблицы",
+    "category": "interface",
+    "setting": "^(?:unrestricted-line-length-tables)$",
+    "why": "Дать большой таблице место без ручного переключения ширины каждой заметки.",
+    "difference": "Тема меняет ширину заметки по её содержимому; это отличается от растяжения самой таблицы.",
+    "limitations": "Автоматическое условие может расширить также абзацы заметки."
+  },
+  {
+    "id": "interface-properties-hidden",
+    "title": "Скрытые свойства в режиме чтения",
+    "category": "metadata",
+    "setting": "^(?:hide-properties|prop-hide-preview|ssopt-hide-metadata-container|ssopt-hide-metadata-container-lp|anp-toggle-metadata|aura-toggle-metadata|hide-frontmatter)$",
+    "why": "Убрать служебные поля из видимой области заметки.",
+    "difference": "Скрывается весь блок свойств, а не только его заголовок, значки или кнопка добавления.",
+    "limitations": "Свойства остаются в файле; сокрытие не означает удаление."
+  },
+  {
+    "id": "interface-properties-before-title",
+    "title": "Свойства перед заголовком заметки",
+    "category": "metadata",
+    "setting": "^(?:ssopt-frontmatter-in-front|ssopt-frontmatter-in-front-lp)$",
+    "why": "Сначала видеть сведения о документе, затем его заголовок.",
+    "difference": "Меняется порядок блока свойств и названия; это отличается от отдельной боковой панели.",
+    "limitations": "Поведение Reading View и Live Preview регулируется раздельно."
+  },
+  {
+    "id": "interface-sidebar-overlay",
+    "title": "Боковая панель поверх заметки",
+    "category": "interface",
+    "setting": "^(?:overlaying-right-sidebar)$",
+    "why": "Открывать правую панель, не сжимая основную полосу текста.",
+    "difference": "Панель перекрывает рабочую область; это отдельное поведение от показа при наведении.",
+    "limitations": "Может перекрывать текст и кнопки заметки."
+  },
+  {
+    "id": "interface-folder-icons",
+    "title": "Значки папок вместо стрелок дерева",
+    "category": "interface",
+    "setting": "^(?:folder-icons|anp-collapse-folders|alt-folder-icons|pt-file-explorer-folder-icon|pln-folder-icons|show-fx-folder-icons|aura-folder-icons|Folder-Icons|nav-folder-indicators)$",
+    "why": "Сделать структуру папок визуально узнаваемой.",
+    "difference": "Отдельно от значков расширений файлов: меняет именно индикатор папки/её раскрытия.",
+    "limitations": "Направление переключателя зависит от темы; некоторые возвращают обычную стрелку.",
+    "evidenceHint": {
+      "declaration": "(?:content|mask|background-image):",
+      "selector": "nav-folder"
+    }
+  },
+  {
+    "id": "interface-filetree-lines",
+    "title": "Связующие линии файлового дерева",
+    "category": "interface",
+    "setting": "^(?:fx-rel-lines|composer--DisableRainbowTree|shiba-toggle-indent-colors|shiba-toggle-indent-colors-accent|colorful-folders_indentation-guide)$",
+    "why": "Прослеживать родителей и вложенность папок.",
+    "difference": "Линии соединяют элементы проводника, а не Markdown-списка или оглавления.",
+    "limitations": "Цветовые варианты не кодируют назначение папок автоматически.",
+    "evidenceHint": {
+      "declaration": "(?:border|--nav-indentation)",
+      "selector": "nav-folder|nav-files"
+    }
+  },
+  {
+    "id": "interface-panel-blur",
+    "title": "Размытие фона за всплывающими панелями",
+    "category": "interface",
+    "setting": "^(?:zero-popup-blur|no-blur|pt-disable-blur|enable-menu-blur|ulu-blur-modal|ulu-blur-prompt|ulu-blur-menu|nav-bar-blur)$",
+    "why": "Визуально отделить меню и диалоги от содержимого позади.",
+    "difference": "Обрабатывает фон интерфейсной панели через backdrop-filter, а не размывает изображение в заметке.",
+    "limitations": "Эффект зависит от прозрачности поверхности и поддержки движка; может влиять на производительность.",
+    "evidenceHint": {
+      "declaration": "backdrop-filter:"
+    }
+  },
+  {
+    "id": "interface-pdf-seamless",
+    "title": "PDF без рамок между страницами",
+    "category": "interface",
+    "setting": "^(?:ctp-seamless-pdf)$",
+    "why": "Читать PDF как более цельную полосу.",
+    "difference": "Убираются рамки страниц PDF, а не оформление встроенной Markdown-заметки.",
+    "limitations": "Границы печатных страниц документа сохраняются."
+  },
+  {
+    "id": "interface-workspace-background",
+    "title": "Фоновое изображение рабочего пространства",
+    "category": "interface",
+    "setting": "^(?:background-settings-workplace-background-image|shib-workspace-background-image-toggle|CG-workspace-background|background-image-enabled|aura-workspace-background|fas-background-image|workspace-bg|ulu-enable-custom-bg)$",
+    "why": "Придать рабочему пространству узнаваемый фон.",
+    "difference": "Изображение оформляет приложение вокруг заметок; это не иллюстрация в Markdown.",
+    "limitations": "Фон может требовать локального файла или внешнего адреса; прозрачность панелей влияет на видимость.",
+    "evidenceHint": {
+      "declaration": "(?:background-image:|--.*image:)"
+    }
+  },
+  {
+    "id": "interface-kanban-search-filter",
+    "title": "Скрывать карточки Kanban вне результатов поиска",
+    "category": "interface",
+    "setting": "^(?:anp-kanban-hide-cards)$",
+    "why": "Увидеть только карточки, совпавшие с поисковым запросом.",
+    "difference": "Отдельное действие над карточками; сворачивание пустых колонок описано другой карточкой.",
+    "limitations": "Требует Kanban и его классов результатов поиска; данные не удаляются."
+  },
+  {
+    "id": "interface-image-no-drag",
+    "title": "Изображение без случайного перетаскивания",
+    "category": "image",
+    "setting": "^(?:image-embed-no-drag)$",
+    "why": "Предотвратить случайный drag изображения при взаимодействии с заметкой.",
+    "difference": "Управляет жестом перетаскивания, а не размером или увеличением картинки.",
+    "limitations": "Может мешать намеренному перетаскиванию вложения."
+  },
+  {
+    "id": "interface-hide-scrollbars",
+    "title": "Рабочая область без видимых полос прокрутки",
+    "category": "interface",
+    "setting": "^(?:anp-toggle-scrollbars|hide-scrollbar|ssopt-hidden-scrollbars|scrollbar-hide|shib-hide-scrollbars|pln-rm-scroll|show-scrollbars|no-scrollbar|aura-scrollbar-toggle|sp-hide-scrollbars)$",
+    "why": "Освободить край панели от постоянного визуального элемента.",
+    "difference": "Прокрутка сохраняется, скрывается её индикатор; это не изменение отступов или ширины.",
+    "limitations": "Положение в длинном документе становится менее заметным; направление переключателя бывает обратным."
+  },
+  {
+    "id": "interface-statusbar-top",
+    "title": "Строка состояния у верхнего края окна",
+    "category": "interface",
+    "setting": "^(?:(?!))$",
+    "why": "Освободить нижнюю часть окна и собрать статус рядом с заголовком.",
+    "difference": "Меняет расположение строки состояния, а не скрывает её при бездействии.",
+    "limitations": "В Sodalite строка скрывается при ширине окна менее 1280 px."
+  },
+  {
+    "id": "interface-terminal-prompts",
+    "title": "Терминальные подсказки вместо привычных значков",
+    "category": "interface",
+    "setting": "^(?:(?!))$",
+    "why": "Собрать редактор, поиск и кнопки в знакомом языке терминала.",
+    "difference": "Меняются подписи и индикаторы действий приложения, а не только моноширинный шрифт заметки.",
+    "limitations": "Terminal использует в том числе устаревшие селекторы редактора. Значки требуют привыкания."
+  },
+  {
+    "existing": "note-code-scroll",
+    "setting": "^(?:minimal-code-scroll|nowrap-edit-codebox|code-nowrap)$"
+  },
+  {
+    "existing": "note-list-inline",
+    "setting": "^(?:dataview-inline-lists)$"
+  },
+  {
+    "existing": "callout-margin",
+    "setting": "^(?:info-normal|ssopt-callout-aside-float-left)$"
+  },
+  {
+    "existing": "callout-technical-no-icon",
+    "setting": "^(?:hide-callout-icons)$"
+  },
+  {
+    "existing": "heading-e048",
+    "setting": "^(?:heading-outline)$"
+  },
+  {
+    "existing": "heading-e074",
+    "setting": "^(?:heading-ligatures)$"
+  },
+  {
+    "existing": "emphasis-s16",
+    "setting": "^(?:encore-highlight-border|simple-border)$"
+  },
+  {
+    "existing": "note-list-markers",
+    "setting": "^(?:colorful-unordered-list|colorful-ordered-list|list-bullet-color|unordered-list-style-options)$"
+  },
+  {
+    "existing": "note-ornament",
+    "setting": "^(?:fancy-hr|CG-hr|fas-hr|hr-no-icon|encore-disable-logo-on-hr)$",
+    "evidence": [
+      {
+        "theme": "dune",
+        "file": "Wiki/Poetry.md",
+        "needle": "Decorative delimiters",
+        "selector": "language-wave",
+        "usage": "Пустой fenced-блок с языком `wave`, `wave2`, `wave3` или `wave4` превращается в декоративный разделитель."
+      }
+    ]
+  },
+  {
+    "existing": "note-paper",
+    "setting": "^(?:background-notebook-liked-switch)$"
+  },
+  {
+    "existing": "note-magazine",
+    "setting": "^(?:magazine-style)$",
+    "evidence": [
+      {
+        "theme": "fancy-a-story",
+        "file": "docs/docs/cssclasses/columns.md",
+        "needle": "columns",
+        "selector": "columns",
+        "usage": "Класс `columns` включает колоночный набор; точные варианты смотрите в документации темы."
+      }
+    ]
+  },
+  {
+    "existing": "note-selection",
+    "setting": "^(?:remove-selectionbackground)$"
+  },
+  {
+    "existing": "meta-print-pagination",
+    "setting": "^(?:pdf-export-page-break)$"
+  },
+  {
+    "existing": "interface-quiet-actions",
+    "setting": "^(?:show-sidebar-header-buttons|nav-header-autohide|composer--DisableNavHeaderAutoHide)$"
+  },
+  {
+    "existing": "interface-readable-tabs",
+    "setting": "^(?:tab-full-width|adwaita-tabs-short)$"
+  },
+  {
+    "id": "note-hover-sidenote",
+    "title": "Примечание на полях раскрывается при наведении",
+    "category": "note",
+    "setting": "(?!)",
+    "why": "Держать пояснение рядом с фразой, не занимая постоянно ширину поля.",
+    "difference": "У заметки на полях появляется отдельное состояние раскрытия по наведению.",
+    "limitations": "Потребуется достаточное место на полях и поддерживаемый способ наведения. Не прячьте здесь сведения, необходимые без мыши.",
+    "evidence": [
+      {
+        "theme": "ukiyo",
+        "file": "docs/custom-callouts.md",
+        "needle": "Pop Outs",
+        "selector": "data-callout-metadata.*pop",
+        "usage": "Укажите `$pop` в метаданных callout, например `> [!note|$pop] Пояснение`: содержимое появляется при наведении на значок слева."
+      },
+      {
+        "theme": "dune",
+        "file": "Wiki/cheatsheet-Callouts, Fences, Tags.md",
+        "needle": "HIDDEN ASIDE BOX",
+        "selector": "data-callout.*aside",
+        "usage": "Используйте callout `aside-lh` или `aside-rh` — скрываемое боковое пояснение. Условия видимости смотрите в исходнике."
+      }
+    ]
+  },
+  {
+    "id": "note-footer-illustration",
+    "title": "Последнее изображение становится подвалом заметки",
+    "category": "note",
+    "setting": "(?!)",
+    "why": "Повторяемым способом завершать заметку декоративной иллюстрацией.",
+    "difference": "Меняется роль последнего абзаца и его связь с фоном страницы, а не только рамка картинки.",
+    "limitations": "Reading View; последний абзац должен содержать только одно изображение. При экспорте PDF этот подвал скрыт.",
+    "evidence": [
+      {
+        "theme": "fancy-a-story",
+        "file": "docs/docs/cssclasses/footer-img.md",
+        "needle": "last paragraph",
+        "selector": "footer-img",
+        "usage": "Добавьте `footer-img` в `cssclasses`, а в последний отдельный абзац — одно изображение. `footer-background` позволяет тексту находиться поверх него."
+      }
+    ],
+    "evidenceHint": {
+      "declaration": "(?:position:|mask-image:|height:)",
+      "selector": "last|after|before"
+    }
+  },
+  {
+    "id": "note-movie-script",
+    "title": "Заметка в формате киносценария",
+    "category": "note",
+    "setting": "(?!)",
+    "why": "Развести сцены, действия, реплики, ремарки и переходы едиными правилами набора.",
+    "difference": "Это оформление ролей внутри целого документа, а не диалог в виде переписки.",
+    "limitations": "Требуются классы и специальные callout-типы темы; это не полноценный сценарный редактор.",
+    "evidence": [
+      {
+        "theme": "fancy-a-story",
+        "file": "docs/docs/cssclasses/movie-script.md",
+        "needle": "Scene heading",
+        "selector": "movie-script",
+        "usage": "Добавьте `movie-script` в `cssclasses`. Заголовок задаёт сцену, абзац — действие, callout `character` — персонажа с репликой, вложенный `parenthetical` — ремарку, `transition` — переход."
+      }
+    ],
+    "evidenceHint": {
+      "declaration": "(?:font-family:|text-transform:|width:)",
+      "selector": "^\\.movie-script"
+    }
+  },
+  {
+    "id": "list-visual-reverse",
+    "title": "Визуальный разворот списка на выбранной глубине",
+    "category": "list",
+    "setting": "(?!)",
+    "why": "Показать свежие записи первыми, сохранив порядок исходного Markdown.",
+    "difference": "Разворачивается порядок самих пунктов, а не только значения нумерации в обратном отсчёте.",
+    "limitations": "Порядок чтения вспомогательными технологиями может отличаться от визуального; CSS не сортирует данные по дате.",
+    "evidence": [
+      {
+        "theme": "fancy-a-story",
+        "file": "docs/docs/cssclasses/list-reversed.md",
+        "needle": "depth",
+        "selector": "list-reversed",
+        "usage": "В `cssclasses` укажите `list-reversed-1` для первого уровня или `list-reversed-all` для всех уровней; предусмотрены уровни до 10."
+      }
+    ]
+  },
+  {
+    "id": "callout-cards-fan",
+    "title": "Изображения колодой карт",
+    "category": "callout",
+    "setting": "(?!)",
+    "why": "Показать компактный набор изображений с характерным наложением карточек.",
+    "difference": "Отличается от общей стопки отпечатков: управляется группа изображений внутри специального callout и её интерактивные состояния.",
+    "limitations": "Изображения одной колоды должны идти одним блоком без пустых строк.",
+    "evidence": [
+      {
+        "theme": "fancy-a-story",
+        "file": "docs/docs/callouts/cards-deck.md",
+        "needle": "same block",
+        "selector": "data-callout[=^*~]*=[\"']?cards-deck",
+        "usage": "Создайте callout `cards-deck` и разместите подряд несколько `![[изображение.png]]` без пустых строк между ними."
+      }
+    ],
+    "evidenceHint": {
+      "declaration": "(?:transform:|margin-left:|position:)"
+    }
+  },
+  {
+    "id": "callout-masonry-images",
+    "title": "Галерея с колонками разной высоты",
+    "category": "callout",
+    "setting": "(?!)",
+    "why": "Заполнить галерею изображениями разных пропорций без одинаковой высоты ячеек.",
+    "difference": "В отличие от контактного листа, вертикальный вариант использует колоночный поток с разной высотой изображений.",
+    "limitations": "Это имитация masonry: порядок по колонкам. Вариант `horizontal` имеет другой порядок; поведение важно при последовательном рассказе.",
+    "evidence": [
+      {
+        "theme": "fancy-a-story",
+        "file": "docs/docs/callouts/masonry.md",
+        "needle": "column-major",
+        "selector": "data-callout[=^*~]*=[\"']?masonry",
+        "usage": "В callout `masonry` поместите изображения. Вариант `masonry|horizontal` раскладывает их горизонтально. При наведении на связанную картинку остальные могут размываться."
+      }
+    ],
+    "evidenceHint": {
+      "declaration": "(?:columns:|column-count:|display:)"
+    }
+  },
+  {
+    "id": "callout-data-heading",
+    "title": "Данные и портрет в шапке примечания",
+    "category": "callout",
+    "setting": "(?!)",
+    "why": "Собрать имя, показатели и изображение объекта в компактной шапке.",
+    "difference": "Шапка сама становится многопольной структурой, а не обычным заголовком над таблицей тела callout.",
+    "limitations": "Полный круглый значок рассчитан на Reading View; в редакторе он может обрезаться.",
+    "evidence": [
+      {
+        "theme": "fancy-a-story",
+        "file": "docs/docs/callouts/data-header.md",
+        "needle": "two columns",
+        "selector": "data-callout[=^*~]*=[\"']?data-header",
+        "usage": "Используйте callout `data-header`; элементы его заголовка образуют две колонки. Вложенный callout `header` с таблицей даёт больше контроля; точный образец дан в источнике."
+      }
+    ],
+    "evidenceHint": {
+      "declaration": "(?:display: grid|grid-template-columns:)"
+    }
+  },
+  {
+    "id": "interface-audio-cassette",
+    "title": "Аудиовложение в виде кассеты",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Придать аудиозаписи узнаваемый визуальный образ.",
+    "difference": "Оформляет действующий медиаплеер, а не статическую фотокарточку или блок текста.",
+    "limitations": "Украшение не меняет форматы аудио и возможности проигрывателя.",
+    "evidence": [
+      {
+        "theme": "fancy-a-story",
+        "file": "docs/docs/embeds/cassette.md",
+        "needle": "audio media player",
+        "selector": "cassette",
+        "usage": "Используйте вложение `![[audio.webm|cassette]]`; тема также предоставляет цветовые варианты `cassette-blue` и другие."
+      }
+    ],
+    "evidenceHint": {
+      "declaration": "(?:background-image:|content:)"
+    }
+  },
+  {
+    "id": "callout-retro-device",
+    "title": "Примечание в корпусе ретроустройства",
+    "category": "callout",
+    "setting": "(?!)",
+    "why": "Различать записи через образ носителя: дискеты, кассеты, радио или пейджера.",
+    "difference": "Декор формирует узнаваемый корпус устройства вокруг Markdown; это не просто цветная рамка или терминальная подсветка кода.",
+    "limitations": "Эти устройства декоративны: калькулятор ничего не вычисляет, кассета-callout не проигрывает звук.",
+    "evidence": [
+      {
+        "theme": "retroma",
+        "file": "assets/examples/retroma-retro-callouts.md",
+        "needle": "Media-Hardware",
+        "selector": "data-callout.*(?:floppy|cassette-1|pagerunit|calculator)",
+        "usage": "В Retroma используйте типы `floppy`, `cassette-1`, `calculator`, `pagerunit` и другие из руководства. Суффиксы `-s`, `-m`, `-l` выбирают размер."
+      }
+    ]
+  },
+  {
+    "existing": "image-e076",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "everforest-enchanted",
+        "file": "image_styling.md",
+        "needle": "5px blur",
+        "selector": "(?=.*(?:image|img))(?=.*blur)",
+        "usage": "Локальное изображение: `![[image.png# blur]]`; размытое изображение раскрывается при наведении."
+      }
+    ]
+  },
+  {
+    "existing": "emphasis-s33",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "sanctum",
+        "file": "documentation/Theme_Guide.md",
+        "needle": "Multi-Color Highlights",
+        "selector": "(?=.*mark)(?=.*(?:strong|em))",
+        "usage": "Комбинации `==текст==`, `*==текст==*`, `**==текст==**` задают разные цвета выделения."
+      }
+    ]
+  },
+  {
+    "existing": "image-e077",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "fancy-a-story",
+        "file": "docs/docs/callouts/tooltip.md",
+        "needle": "Hover on the image",
+        "selector": "data-callout.*tooltip",
+        "usage": "Callout `tooltip`: его заголовок становится подписью, появляющейся при наведении на картинку."
+      }
+    ]
+  },
+  {
+    "existing": "callout-photo",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "retroma",
+        "file": "assets/examples/retroma-retro-callouts.md",
+        "needle": "Photo-Film",
+        "selector": "data-callout.*polaroid",
+        "usage": "Типы `polaroid-1` и `polaroid-2` оформляют изображение фотокарточкой."
+      }
+    ]
+  },
+  {
+    "existing": "callout-ticket",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "retroma",
+        "file": "assets/examples/retroma-retro-callouts.md",
+        "needle": "ticketstub",
+        "selector": "data-callout.*ticketstub",
+        "usage": "Тип `ticketstub` оформляет заметку билетом; это декоративный документ."
+      }
+    ]
+  },
+  {
+    "existing": "callout-receipt",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "retroma",
+        "file": "assets/examples/retroma-retro-callouts.md",
+        "needle": "receipt-1",
+        "selector": "data-callout.*receipt-1",
+        "usage": "Типы `receipt-1` и `receipt-2` оформляют содержание чеком; CSS не вычисляет суммы."
+      }
+    ]
+  },
+  {
+    "id": "interface-edit-links-on-click",
+    "title": "Клик по ссылке для редактирования в Live Preview",
+    "category": "interface",
+    "setting": "^(?:link-click-to-edit-in-live-preview|link-click)$",
+    "why": "Редактировать адрес и подпись, не открывая случайно связанный документ.",
+    "difference": "CSS отключает обработку указателя у отображаемой ссылки, оставляя работу редактору.",
+    "limitations": "Это изменение поведения Live Preview; сочетания клавиш и мобильный режим нужно проверять отдельно."
+  },
+  {
+    "id": "interface-edit-tags-on-click",
+    "title": "Клик по тегу для редактирования",
+    "category": "interface",
+    "setting": "^(?:tag-click-to-edit|tag-click)$",
+    "why": "Исправлять тег без случайного открытия поиска.",
+    "difference": "Меняет взаимодействие с тегом в редакторе, а не его цвет или форму.",
+    "limitations": "Обычный переход по тегу может стать недоступен этим жестом."
+  },
+  {
+    "id": "task-symbols-nonclickable",
+    "title": "Символы задач без переключения кликом",
+    "category": "task",
+    "setting": "^(?:no-click)$",
+    "why": "Использовать альтернативные состояния как устойчивые обозначения пунктов.",
+    "difference": "Запрещает случайное переключение специальных символов; обычные пустые и выполненные задачи исключены в Underwater.",
+    "limitations": "CSS ограничивает pointer-events; редактирование Markdown по-прежнему возможно."
+  },
+  {
+    "id": "metadata-no-placeholder",
+    "title": "Пустые свойства без текста-подсказки",
+    "category": "metadata",
+    "setting": "^(?:pln-props-emptyval)$",
+    "why": "Сделать незаполненные свойства менее шумными.",
+    "difference": "Скрывает только placeholder, сохраняя само поле и его значение.",
+    "limitations": "Подсказка о возможности ввода становится менее заметной."
+  },
+  {
+    "id": "metadata-list-vertical",
+    "title": "Значения свойства отдельными строками",
+    "category": "metadata",
+    "setting": "^(?:pln-props-list)$",
+    "why": "Читать многозначное свойство как вертикальный перечень.",
+    "difference": "Меняется раскладка значений одного поля, а не всей таблицы свойств.",
+    "limitations": "В PLN свойство tags исключено из этого правила."
+  },
+  {
+    "id": "interface-hide-controls",
+    "title": "Выборочное скрытие служебных кнопок",
+    "category": "interface",
+    "setting": "^(?:hide-help|hide-settings|hide-settings-desc|mobile-toolbar-off|hide-new-folder|hide-other-icons|hide-nav-header|hide-note-title-icons|hide-canvas-dots|anp-hide-external-link-icon|remove-external-link-icon|ss-hide-external-link-icon|external-link-remove-icon|pln-rm-folder-nav|pln-rm-settings|pln-rm-tablist|pln-rm-nt|pln-rm-clstab|pln-rm-nav|pln-rm-act|pln-rm-noteic|adwaita-window-button-(?:minimize|maximize|close)-hide)$",
+    "why": "Убрать из постоянного поля зрения редко используемые кнопки и подсказки.",
+    "difference": "Элемент скрывается настройкой темы, а не просто приглушается до наведения.",
+    "limitations": "Доступ к скрытому действию должен оставаться через команду или клавиатуру; точная область указана в каждом источнике."
+  },
+  {
+    "id": "code-syntax-palette",
+    "title": "Согласованная палитра синтаксиса кода",
+    "category": "code",
+    "setting": "^(?:code-theme-selection|code-theme|syntax-highlighting)$",
+    "why": "Различать ключевые слова, строки, числа и комментарии внутри кода.",
+    "difference": "Оформляет категории токенов парсера; прежние карточки меняли целый блок или стиль по имени языка.",
+    "limitations": "Нужен распознанный язык fenced-блока. Тема не добавляет парсер языка; режимы редактора могут использовать разные классы."
+  },
+  {
+    "id": "interface-oled-black",
+    "title": "Полностью чёрный фон для OLED",
+    "category": "interface",
+    "setting": "^(?:mobile-black-background|encore-mobile-oled-mode)$",
+    "why": "Использовать чёрную поверхность вместо тёмно-серой.",
+    "difference": "Это отдельное требование к фону, а не переключение произвольной светлой и тёмной палитры.",
+    "limitations": "Польза для энергопотребления зависит от дисплея; не делаем численных обещаний. На LCD пиксели работают иначе.",
+    "evidence": [
+      {
+        "theme": "vanilla-amoled",
+        "file": "README.md",
+        "needle": "fully black",
+        "selector": "theme-dark",
+        "usage": "Включите тему Vanilla AMOLED и тёмный режим."
+      }
+    ]
+  },
+  {
+    "id": "interface-eink-mode",
+    "title": "Монохромный режим для E-ink",
+    "category": "interface",
+    "setting": "^(?:(?!))$",
+    "why": "Сохранять различимость элементов на монохромном экране.",
+    "difference": "Согласованная схема ограничивает использование цвета и полутонов, а не только уменьшает анимацию.",
+    "limitations": "Экспериментальная возможность Minimal; поведение требует проверки на физическом E-ink устройстве.",
+    "evidence": [
+      {
+        "theme": "minimal",
+        "file": "docs/Features/E-ink mode.md",
+        "needle": "monochromatic displays",
+        "selector": "eink",
+        "usage": "Выберите E-ink в плагине Minimal Theme Settings; руководство указывает поддержку начиная с версии 7.2."
+      }
+    ]
+  },
+  {
+    "existing": "text-dropcap",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "dune",
+        "file": "Wiki/Poetry.md",
+        "needle": "Dropcap",
+        "selector": "dropcap",
+        "usage": "Перед выделенной первой буквой поставьте `#dropcap`, например `#dropcap ==А==`. Это синтаксис Dune, а не встроенное поведение тега."
+      }
+    ]
+  },
+  {
+    "existing": "text-raised-initial",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "dune",
+        "file": "Wiki/Poetry.md",
+        "needle": "Raisecap",
+        "selector": "raisecap",
+        "usage": "Используйте `#raisecap ==А==` для приподнятой начальной буквы."
+      }
+    ]
+  },
+  {
+    "existing": "emphasis-s37",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "dune",
+        "file": "Wiki/cheatsheet-Callouts, Fences, Tags.md",
+        "needle": "SPOILER",
+        "selector": "spoiler",
+        "usage": "Используйте `#-spoiler ==текст==`; содержимое лишь визуально скрыто, оно остаётся доступным в исходнике."
+      },
+      {
+        "theme": "underwater",
+        "file": "README.md",
+        "needle": "**`cloze`**",
+        "selector": "\\.cloze strong:hover",
+        "usage": "Добавьте cssclasses: [cloze]; **жирный текст** скрыт цветом и открывается на hover, только Reading View.",
+        "property": "color"
+      }
+    ]
+  },
+  {
+    "existing": "callout-technical-two-columns",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "ukiyo",
+        "file": "docs/custom-callouts.md",
+        "needle": "Container of columns",
+        "selector": "data-callout.*cont",
+        "usage": "Создайте внешний callout `cont` и вложенные `col` по образцу автора; документация использует необычную запись, сверяйте с реальным синтаксисом callout Obsidian."
+      },
+      {
+        "theme": "dune",
+        "file": "Wiki/cheatsheet-Callouts, Fences, Tags.md",
+        "needle": "MULTICOLUMN",
+        "selector": "data-callout.*multi-column",
+        "usage": "Вложите несколько callout `blank-container` в `multi-column`."
+      }
+    ]
+  },
+  {
+    "existing": "note-cards",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "minimal",
+        "file": "docs/Block types/Cards.md",
+        "needle": "list-cards",
+        "selector": "list-cards",
+        "usage": "Добавьте `list-cards` в cssclasses: обычный маркированный список станет сеткой карточек."
+      }
+    ]
+  },
+  {
+    "id": "interface-floating-search",
+    "title": "Плавающая строка поиска внутри заметки",
+    "category": "interface",
+    "setting": "^(?:search-internal-enable)$",
+    "why": "Искать по документу без постоянной отдельной полосы над ним.",
+    "difference": "Поиск располагается поверх области документа; это не изменение общей панели поиска по хранилищу.",
+    "limitations": "Проверьте перекрытие заголовка и длинных запросов."
+  },
+  {
+    "id": "interface-labeled-sidebar-tabs",
+    "title": "Боковые вкладки с текстовыми подписями",
+    "category": "interface",
+    "setting": "^(?:labeled-nav|sidebar-tabs-names)$",
+    "why": "Выбирать инструменты по названию, а не узнавать только по значку.",
+    "difference": "Меняет навигацию боковой панели; отличается от увеличения ширины обычных вкладок заметок.",
+    "limitations": "Подписи требуют дополнительного места; варианты панели различаются между темами.",
+    "evidenceHint": {
+      "declaration": "(?:content:|display:|flex-direction:)"
+    }
+  },
+  {
+    "id": "interface-popup-file-explorer",
+    "title": "Файловый проводник как всплывающая панель",
+    "category": "interface",
+    "setting": "^(?:popup-explorer)$",
+    "why": "Открывать дерево файлов отдельной поверхностью поверх рабочего пространства.",
+    "difference": "Перестраивается именно файловый проводник; отличается от скрытия всей боковой панели при бездействии.",
+    "limitations": "Панель может перекрывать заметку; точный способ её открытия зависит от темы.",
+    "evidenceHint": {
+      "declaration": "(?:position: fixed|position: absolute)"
+    }
+  },
+  {
+    "id": "interface-platform-adaptive",
+    "title": "Оформление интерфейса под операционную систему",
+    "category": "interface",
+    "setting": "^(?:adaptive-mode-off)$",
+    "why": "Согласовать элементы темы с привычным окружением устройства.",
+    "difference": "Стили зависят от платформенных классов Obsidian, а не от системной светлой или тёмной схемы.",
+    "limitations": "Тема меняет CSS, а не системные компоненты. Disable adaptive mode отключает адаптацию."
+  },
+  {
+    "id": "text-stylistic-alternates",
+    "title": "Альтернативные формы букв шрифта",
+    "category": "text",
+    "setting": "^(?:ulu-stylistic-alts|pt-font-alt-a|pt-font-alt-g)$",
+    "why": "Выбрать более удобные формы отдельных букв без замены всей гарнитуры.",
+    "difference": "Включает OpenType-наборы глифов; отличается от вариативной ширины, веса, лигатур и капители.",
+    "limitations": "Сработает только в шрифте с соответствующими наборами; названия функций зависят от гарнитуры."
+  },
+  {
+    "id": "footnote-opentype-superscript",
+    "title": "Настоящие надстрочные глифы в сносках",
+    "category": "footnote",
+    "setting": "^(?:ulu-superscript-footnotes)$",
+    "why": "Сохранить читаемый рисунок цифры при маленьком надстрочном размере.",
+    "difference": "Используется OpenType sups, а не только уменьшение и вертикальный сдвиг обычной цифры.",
+    "limitations": "Шрифт должен содержать sups; без поддержки ожидаемый рисунок не появится."
+  },
+  {
+    "id": "text-equation-number-style",
+    "title": "Единый вид номеров формул",
+    "category": "text",
+    "setting": "^(?:cssc-latex-equation-counter-format)$",
+    "why": "Согласовать запись ссылочных номеров математических формул.",
+    "difference": "Форматируется подпись уравнения: круглые скобки, квадратные или голый номер; это не нумерация заголовков.",
+    "limitations": "Требуются соответствующие LaTeX-классы темы; CSS не проверяет математические ссылки и не добавляет вычисления."
+  },
+  {
+    "id": "interface-bases-embed-height",
+    "title": "Встроенная Bases ограниченной высоты",
+    "category": "interface",
+    "setting": "^compact-bases-ls$",
+    "why": "Не позволять встроенной базе занимать всю заметку: большой набор прокручивается внутри своего блока.",
+    "difference": "Ограничивается высота всего представления, а не высота строк; отличается от компактной плотности Bases и высоты Markdown-вложения.",
+    "limitations": "В Dune ограничение 23vh действует при выключенном compact-bases-ls; включение настройки возвращает обычную высоту."
+  },
+  {
+    "id": "note-embed-underline",
+    "title": "Подчёркнутый заимствованный текст",
+    "category": "note",
+    "setting": "(?!)",
+    "why": "Отличать включённый фрагмент другой заметки от собственного текста.",
+    "difference": "Подчёркивание применяется ко всему transclusion, а не к Markdown-выделению или ссылке.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-vault-profile-position",
+    "title": "Расположение меню хранилища",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Переместить переключатель хранилища и связанные действия в удобную область.",
+    "difference": "Меняется расположение vault profile, а не только его цвет или подпись.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-ribbon-floating",
+    "title": "Плавающая лента инструментов",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Размещать инструменты отдельным компактным блоком вместо сплошной полосы.",
+    "difference": "Лента может быть постоянно видимой; это отличается от появления только по наведению.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-animation-control",
+    "title": "Скорость и отключение анимации темы",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Уменьшить движение интерфейса независимо от системной настройки.",
+    "difference": "Переключатель самой темы; системный prefers-reduced-motion рассмотрен отдельным приёмом.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-hide-duplicate-h1",
+    "title": "Скрытие H1 после блока свойств",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Не повторять название заметки рядом с inline title.",
+    "difference": "Скрывается заголовок в содержимом; обычное управление панелью вкладки этого не делает.",
+    "limitations": "В Simple селектор ориентируется на соседний нередактируемый блок; проверьте структуру заметки, чтобы не скрыть нужный заголовок."
+  },
+  {
+    "id": "interface-kanban-card-min-height",
+    "title": "Минимальная высота карточек Kanban",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Привести короткие карточки к единому начальному размеру.",
+    "difference": "Ограничивается минимальная высота карточки, а не высота колонки или плотность всего интерфейса.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "table-no-wrap",
+    "title": "Таблица без переноса содержимого ячеек",
+    "category": "table",
+    "setting": "(?!)",
+    "why": "Сохранять одну строку в каждой ячейке таблицы.",
+    "difference": "table-e029 не разрывает отдельную цену; здесь nowrap задаётся для всех значений.",
+    "limitations": "Широкие данные потребуют горизонтальной прокрутки."
+  },
+  {
+    "id": "table-full-width",
+    "title": "Таблица шире текстовой полосы",
+    "category": "table",
+    "setting": "(?!)",
+    "why": "Использовать ширину панели для таблицы, сохраняя узкие абзацы.",
+    "difference": "Размер таблицы задаётся отдельно от всей заметки и от равенства ширин колонок.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки.",
+    "evidence": [
+      {
+        "theme": "cupertino",
+        "file": "README.md",
+        "needle": "`table-100`",
+        "selector": "\\.table-100",
+        "usage": "cssclasses: [table-100] расширяет таблицу до области заметки."
+      },
+      {
+        "theme": "baseline",
+        "file": "README.md",
+        "needle": "`table-100`",
+        "selector": "\\.table-100",
+        "usage": "cssclasses: [table-100] расширяет таблицу до области заметки."
+      }
+    ]
+  },
+  {
+    "id": "interface-folder-bold",
+    "title": "Полужирные имена папок",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Отличать папки от файлов по начертанию.",
+    "difference": "Меняется типографика дерева файлов, а не Markdown-текста.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-progress-color",
+    "title": "Цвет полосы прогресса по значению",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Различать стадии выполнения по заполнению и цвету.",
+    "difference": "Оформляется HTML progress; это не CSS-счётчик завершённых Markdown-задач.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "table-column-lines",
+    "title": "Только вертикальные разделители таблицы",
+    "category": "table",
+    "setting": "(?!)",
+    "why": "Разделить поля таблицы без горизонтальной сетки.",
+    "difference": "Полная сетка и только горизонтальные линии уже описаны; здесь остаётся только ось колонок.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "callout-no-title",
+    "title": "Примечание без заголовка",
+    "category": "callout",
+    "setting": "(?!)",
+    "why": "Оставить в callout только содержимое.",
+    "difference": "Отличается от скрытия значка или режима только с заголовком.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-header-actions-left",
+    "title": "Кнопки заметки слева от заголовка",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Держать действия ближе к началу строки заголовка.",
+    "difference": "Меняется порядок действий в панели, а не только ширина области нажатия.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-panel-density",
+    "title": "Компактные списки служебных панелей",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Размещать больше пунктов в боковых панелях и диалогах настроек.",
+    "difference": "Изменяет плотность интерфейсных списков; плотность текста заметки и таблиц описана отдельно.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-panel-transparency",
+    "title": "Полупрозрачные панели",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Видеть часть фона за панелью.",
+    "difference": "Прозрачность задаётся без обязательного размытия; отличается от backdrop-filter.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-open-folder-highlight",
+    "title": "Фон у раскрытой папки",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Прослеживать раскрытую ветвь проводника.",
+    "difference": "Выделяется состояние раскрытия папки, а не тематическая цветовая группа.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-stacked-pane-sizing",
+    "title": "Размеры и перекрытие панелей в стопке вкладок",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Согласовать видимую ширину нескольких открытых заметок.",
+    "difference": "Управляет рабочими панелями stacked tabs, а не ориентацией текста их корешков.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-floating-line-numbers",
+    "title": "Плавающая колонка номеров строк",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Сохранять номера строк видимыми при работе со стопкой вкладок.",
+    "difference": "Меняется размещение gutter, а не относительная нумерация Vim и не счётчик внутри кода.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "text-math-outline",
+    "title": "Рамка у математического блока",
+    "category": "text",
+    "setting": "(?!)",
+    "why": "Выделить формулу отдельной областью документа.",
+    "difference": "CSS направлен на MathJax-блок, а не fenced-код или callout.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "metadata-pill-values",
+    "title": "Значения свойств в виде капсул",
+    "category": "metadata",
+    "setting": "(?!)",
+    "why": "Разделять отдельные значения свойства визуальными метками.",
+    "difference": "Оформляет значения в Properties, а не тег в тексте; может применяться только к aliases.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-title-click-protection",
+    "title": "Защита названия заметки от случайного клика",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Не активировать редактирование inline title при чтении.",
+    "difference": "Отключает события указателя на названии; данные и право переименования не блокируются.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-root-file-separators",
+    "title": "Разделители файлов в корне хранилища",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Отделять корневые файлы друг от друга без дополнительных линий во вложенных папках.",
+    "difference": "Выбор зависит от положения файла в дереве, а не от цвета всего проводника.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-tabs-centered",
+    "title": "Вкладки по центру полосы",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Собрать небольшое число вкладок в центре окна.",
+    "difference": "Меняет размещение полосы вкладок, а не оформление активной вкладки.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-note-top-space",
+    "title": "Свободное место перед началом заметки",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Опустить начало документа ниже верхнего края окна.",
+    "difference": "Дополнительная область прокрутки над документом, зависящая от высоты окна.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-ui-icons",
+    "title": "Согласованный набор значков интерфейса",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Заменить штатные пиктограммы набором темы.",
+    "difference": "Затрагивает кнопки и служебные панели, не только значки папок.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-attachment-order",
+    "title": "Порядок подписи и расширения вложения",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Изменить порядок частей подписи вложенного файла.",
+    "difference": "Переставляет существующие элементы подписи через flex-direction.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "callout-quote-attribution",
+    "title": "Цитата с подписью автора под текстом",
+    "category": "callout",
+    "setting": "(?!)",
+    "why": "Использовать заголовок quote как подпись автора.",
+    "difference": "Порядок заголовка и содержимого примечания развёрнут.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-native-hover-preview",
+    "title": "Оформление всплывающего предпросмотра",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Читать ссылку во всплывающем окне с управляемыми размерами.",
+    "difference": "Отдельная поверхность popover, а не сама заметка.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-note-banner",
+    "title": "Обложка в верхней части заметки",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Поместить изображение над основным текстом заметки.",
+    "difference": "Баннер имеет собственную высоту и позиционирование; может требовать плагин или соглашение темы.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки.",
+    "evidence": [
+      {
+        "theme": "notation-2",
+        "file": "README.md",
+        "needle": "css class `cover-img`",
+        "selector": "cover-img.*banner",
+        "usage": "Добавьте cssclasses: [cover-img] и изображение с alt banner; higher/lower меняют положение обложки."
+      }
+    ]
+  },
+  {
+    "id": "interface-settings-search-layout",
+    "title": "Компоновка окна настроек",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Сделать категории и параметры удобнее для просмотра.",
+    "difference": "Перестраивает модальное окно настроек; точная компоновка зависит от темы.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-scrollbar-style",
+    "title": "Размер и форма полос прокрутки",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Сделать полосу прокрутки заметнее или компактнее.",
+    "difference": "Оформляет thumb/track, не скрывает прокрутку.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-cursor-style",
+    "title": "Форма и цвет курсора редактора",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Сделать точку ввода заметнее.",
+    "difference": "Меняет caret или курсор CodeMirror, а не выделение текста.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-table-cell-wrap",
+    "title": "Перенос длинного содержимого таблиц",
+    "category": "table",
+    "setting": "(?!)",
+    "why": "Уместить длинные значения без горизонтального расширения таблицы.",
+    "difference": "Перенос применяется к ячейкам, в том числе к редактору таблиц.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-canvas-card-style",
+    "title": "Оформление карточек Canvas",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Отделить содержимое узлов Canvas рамкой и фоном.",
+    "difference": "Действует на узлы Canvas, не на блоки обычной заметки.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-mobile-navbar",
+    "title": "Компоновка мобильной панели команд",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Настроить расположение и размеры команд на телефоне.",
+    "difference": "Действует на mobile-navbar/mobile-toolbar, а не на desktop ribbon.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-editor-width",
+    "title": "Ширина текстовой полосы заметки",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Подобрать длину строки для чтения и письма.",
+    "difference": "Общая ширина текста отличается от независимой ширины таблиц и изображений.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-heading-fold-control",
+    "title": "Положение маркера сворачивания заголовка",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Разместить кнопку сворачивания ближе к заголовку.",
+    "difference": "Перестановка служебного fold-индикатора, не декоративный номер уровня.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-inline-title-style",
+    "title": "Оформление названия файла над заметкой",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Отделить inline title от заголовков Markdown.",
+    "difference": "Стилизует название файла; текст внутри заметки не меняется.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-controls-hover",
+    "title": "Служебные элементы появляются при наведении",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Освободить рабочую область до момента взаимодействия.",
+    "difference": "Выборочное раскрытие заголовков и полос вкладок через hover, а не постоянное скрытие.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-clipped-corners",
+    "title": "Срезанные углы панелей",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Задать панелям и блокам геометрический силуэт.",
+    "difference": "clip-path меняет форму блока, а не только радиус рамки.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "note-aside-counter",
+    "title": "Автоматическая нумерация боковых примечаний",
+    "category": "note",
+    "setting": "(?!)",
+    "why": "Связать примечания на полях с их порядком.",
+    "difference": "CSS-counter создаёт номера у aside; требует структуры, поддерживаемой темой.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-corner-smoothing",
+    "title": "Непрерывное скругление углов Electron",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Сделать контур панелей более плавным.",
+    "difference": "Использует специфичное для Electron свойство; результат зависит от версии движка.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-clickable-line-width",
+    "title": "Расширенная область клика по строке редактора",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Попадать курсором в строку при клике рядом с текстом.",
+    "difference": "Отрицательные поля и padding расширяют область CodeMirror; не меняют содержимое заметки.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-vault-title-sticky",
+    "title": "Название хранилища закреплено над проводником",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Сохранить название и меню хранилища при прокрутке списка.",
+    "difference": "Sticky/fixed блок проводника отличается от заголовка отдельной заметки.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-sidebar-actions-position",
+    "title": "Команды боковой панели сверху или снизу",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Перенести команды проводника к удобному краю панели.",
+    "difference": "CSS order и позиционирование nav-header меняют расположение панели команд.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-statusbar-position",
+    "title": "Положение и выравнивание строки состояния",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Разместить статус внизу окна или отдельным плавающим блоком.",
+    "difference": "Положение строки состояния независимо от её скрытия по hover.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "callout-fold-position",
+    "title": "Кнопка сворачивания в углу примечания",
+    "category": "callout",
+    "setting": "(?!)",
+    "why": "Отделить кнопку сворачивания от текста заголовка.",
+    "difference": "Позиционирует fold-индикатор внутри callout.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-kanban-sort-expand",
+    "title": "Раскрытие Kanban на время сортировки",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Видеть скрытые карточки и колонки во время сортировки.",
+    "difference": "Правила темы учитывают состояние сортировки плагина Kanban.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-print-neutral",
+    "title": "Нейтральные цвета при печати",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Не печатать тёмную палитру интерфейса вместе с заметкой.",
+    "difference": "Переопределение цветов в печатном оформлении; проверка печати не проводилась.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "metadata-position",
+    "title": "Свойства до или после текста заметки",
+    "category": "metadata",
+    "setting": "(?!)",
+    "why": "Выбрать, где читать служебные данные документа.",
+    "difference": "CSS order перемещает блок свойств; сами значения не меняются.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-focused-list-level",
+    "title": "Подсветка текущего уровня списка",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Видеть глубину вложенности редактируемого пункта.",
+    "difference": "Маркер привязан к активной строке и направляющим списка.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "callout-selective-hide",
+    "title": "Скрытие отдельных типов примечаний",
+    "category": "callout",
+    "setting": "(?!)",
+    "why": "Убирать служебные примечания при чтении или печати.",
+    "difference": "Селектор data-callout скрывает выбранный тип, не все callout.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-plugin-cards",
+    "title": "Список плагинов карточками",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Сканировать установленные плагины в компактной сетке.",
+    "difference": "Оформление списка в настройках; режимы зависят от темы.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "text-italic-skew",
+    "title": "Дополнительный наклон курсивного текста",
+    "category": "emphasis",
+    "setting": "(?!)",
+    "why": "Усилить наклон уже выделенного курсивом фрагмента.",
+    "difference": "Transform skew отличается от выбора italic-начертания шрифта.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-note-bottom-space",
+    "title": "Свободное место после конца заметки",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Печатать последнюю строку выше нижнего края окна.",
+    "difference": "Нижнее поле в vh оставляет место для дальнейшей прокрутки.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-pinned-tabs-first",
+    "title": "Закреплённые вкладки в начале полосы",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Собирать закреплённые документы слева от остальных.",
+    "difference": "Визуальный порядок через order:-1; не меняет содержимое файлов.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "note-embed-width",
+    "title": "Независимая ширина встроенных объектов",
+    "category": "note",
+    "setting": "(?!)",
+    "why": "Дать PDF, iframe или Bases больше места, чем основному тексту.",
+    "difference": "Ширина вложения настраивается отдельно от текстовой полосы.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "heading-clear-floats",
+    "title": "Заголовок завершает обтекание изображения",
+    "category": "heading",
+    "setting": "(?!)",
+    "why": "Начать новый раздел ниже плавающей картинки или infobox.",
+    "difference": "clear:both прекращает float-обтекание; не перемещает само изображение.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "task-state-decoration",
+    "title": "Оформление текста по состоянию задачи",
+    "category": "task",
+    "setting": "(?!)",
+    "why": "Различать отложенные, перенесённые и информационные пункты.",
+    "difference": "Цвет, фон и зачёркивание зависят от символа data-task, не только от checked.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-background-scroll",
+    "title": "Фон прокручивается вместе с заметкой",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Выбрать поведение фонового узора при прокрутке.",
+    "difference": "background-attachment:local привязывает фон к прокручиваемому содержимому.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-folder-note-marker",
+    "title": "Отметка папки с собственной заметкой",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Отличать папку с описанием от обычной папки.",
+    "difference": "Подчёркивание или точка у Folder Note; требует соответствующий плагин/класс.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "note-embed-hover-lift",
+    "title": "Встроенная заметка приподнимается при наведении",
+    "category": "note",
+    "setting": "(?!)",
+    "why": "Показать, что вставка является отдельным документом.",
+    "difference": "Тень и translateY меняются на hover; не увеличивает область чтения.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-loading-animation",
+    "title": "Оформление экрана загрузки",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Использовать анимацию текста или фигур во время открытия хранилища.",
+    "difference": "Работает на служебном loading/splash экране, не в тексте заметки.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-file-name-marquee",
+    "title": "Длинное имя файла прокручивается при наведении",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Прочитать имя файла в узкой панели.",
+    "difference": "Анимация строки имени отличается от обычного переноса.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-titlebar-button-order",
+    "title": "Обратный порядок оконных кнопок",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Изменить порядок системных кнопок внутри заголовка.",
+    "difference": "direction:rtl действует на titlebar, не на порядок вкладок.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-active-file",
+    "title": "Выделение активного файла в проводнике",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Находить текущую заметку среди файлов.",
+    "difference": "Выделение строки файлового дерева, отдельно от активной вкладки.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "task-ascii-marker",
+    "title": "Текстовые отметки задач [ ] и [x]",
+    "category": "task",
+    "setting": "(?!)",
+    "why": "Сохранить вид простого текстового списка в режиме чтения.",
+    "difference": "Псевдоэлемент заменяет графическую галочку символами; это всё ещё checkbox.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки."
+  },
+  {
+    "id": "interface-explorer-columns",
+    "title": "Файловый проводник в несколько колонок",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Разместить длинное дерево файлов колонками.",
+    "difference": "CSS columns меняет укладку файлового дерева; старые темы могут требовать прежний DOM.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки.",
+    "evidence": [
+      {
+        "theme": "ono-sendai",
+        "file": "README.md",
+        "needle": "file explorer: columns view",
+        "selector": "nav-folder-children",
+        "usage": "Тема применяет column-width:150px к файловому дереву. Автор предупреждает о несовместимости с новыми версиями Obsidian; это исторический механизм, не рекомендация безусловной установки.",
+        "property": "column-width"
+      }
+    ]
+  },
+  {
+    "id": "interface-sidebar-auto-narrow",
+    "title": "Боковые панели скрываются в узком окне",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Сохранить ширину основной заметки при уменьшении окна.",
+    "difference": "Условие зависит от ширины окна, не от hover.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки.",
+    "evidence": [
+      {
+        "theme": "velocity",
+        "file": "README.md",
+        "needle": "whenever the window",
+        "selector": "disable-autohide.*sidebar-toggle-button",
+        "usage": "Автоматическое скрытие в узком desktop-окне. Учитывайте @container/@media-условие в доказательстве; отключается disable-autohide.",
+        "property": "display",
+        "value": "none"
+      }
+    ]
+  },
+  {
+    "id": "callout-toggle-minimal",
+    "title": "Сворачиваемое примечание как простой переключатель",
+    "category": "callout",
+    "setting": "(?!)",
+    "why": "Использовать callout для раскрывающегося текста без большой рамки.",
+    "difference": "Для is-collapsible остаётся компактный заголовок и fold-индикатор.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки.",
+    "evidence": [
+      {
+        "theme": "notation-2",
+        "file": "README.md",
+        "needle": "Any collapsible callout",
+        "selector": "^\\.callout\\.is-collapsible$",
+        "usage": "Используйте сворачиваемый callout, например > [!note]- Заголовок. Тема убирает рамку и сокращает отступы.",
+        "property": "border",
+        "value": "none"
+      }
+    ]
+  },
+  {
+    "id": "interface-vim-mode-color",
+    "title": "Цвет режима Vim в строке состояния",
+    "category": "interface",
+    "setting": "(?!)",
+    "why": "Различать NORMAL, INSERT и другие режимы по цвету.",
+    "difference": "Окрашивает индикатор плагина vimrc-support; не реализует Vim.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки.",
+    "evidence": [
+      {
+        "theme": "solarized",
+        "file": "README.md",
+        "needle": "vim mode shown",
+        "selector": "data-vim-mode=normal",
+        "usage": "Нужен obsidian-vimrc-support с текстовыми обозначениями NORMAL, INSERT и т. п.",
+        "property": "background-color"
+      }
+    ]
+  },
+  {
+    "id": "emphasis-pseudo-redaction",
+    "title": "Визуальная цензура фрагмента текста",
+    "category": "emphasis",
+    "setting": "(?!)",
+    "why": "Стилизовать фрагмент как вычеркнутые секретные сведения.",
+    "difference": "Прозрачный текст и user-select:none имитируют редактирование документа; исходный текст остаётся в файле и DOM. Это не способ защитить данные.",
+    "limitations": "Точный способ включения и поддерживаемый режим указаны в источнике; проверены исходники, без проверки отрисовки.",
+    "evidence": [
+      {
+        "theme": "wyrd",
+        "file": "README.md",
+        "needle": "bold-italic-bold-italic",
+        "selector": "strong > em > strong > em",
+        "usage": "Синтаксис автора: ***___Текст___***. Текст не удалён, CSS не обеспечивает конфиденциальность.",
+        "property": "user-select",
+        "value": "none"
+      }
+    ]
+  },
+  {
+    "existing": "table-e033",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "pln",
+        "file": "README.md",
+        "needle": "> [!table-vertical_row]",
+        "selector": "vertical_row.*thead tr th:first-child",
+        "usage": "Поместите Markdown-таблицу внутрь > [!table-vertical_row]. Первый столбец получает вертикальное письмо.",
+        "property": "writing-mode"
+      }
+    ]
+  },
+  {
+    "existing": "table-e021",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "pln",
+        "file": "README.md",
+        "needle": "> [!table-bold_row]",
+        "selector": "bold_row.*tbody tr td:first-child",
+        "usage": "Поместите таблицу в > [!table-bold_row]; первая колонка выделяется жирностью.",
+        "property": "font-weight"
+      }
+    ]
+  },
+  {
+    "existing": "note-image-fluid",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "cupertino",
+        "file": "README.md",
+        "needle": "`img-100`",
+        "selector": "\\.img-100",
+        "usage": "cssclasses: [img-100] задаёт изображению полную доступную ширину."
+      },
+      {
+        "theme": "baseline",
+        "file": "README.md",
+        "needle": "`img-100`",
+        "selector": "\\.img-100",
+        "usage": "cssclasses: [img-100] задаёт изображению полную доступную ширину."
+      }
+    ]
+  },
+  {
+    "existing": "table-e072",
+    "setting": "(?!)",
+    "evidence": [
+      {
+        "theme": "cupertino",
+        "file": "README.md",
+        "needle": "`cards` (required)",
+        "selector": "\\.cards.*table",
+        "usage": "cssclasses: [cards] превращает таблицы Dataview в карточки; плагин Dataview нужен для запроса."
+      },
+      {
+        "theme": "baseline",
+        "file": "README.md",
+        "needle": "`cards` (required)",
+        "selector": "\\.cards.*table",
+        "usage": "cssclasses: [cards] превращает таблицы Dataview в карточки; плагин Dataview нужен для запроса."
+      }
+    ]
+  }
+]

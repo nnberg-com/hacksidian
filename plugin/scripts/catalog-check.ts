@@ -21,10 +21,15 @@ const files=[];
 for(const entry of await readdir(path.join(vault,root,'! hacks'),{withFileTypes:true})) {
  if(entry.isDirectory())files.push({path:`${root}/! hacks/${entry.name}/${entry.name}.md`,basename:entry.name});
 }
+for (const entry of await readdir(path.join(vault,root,'! themes'),{withFileTypes:true})) {
+ if(entry.isFile() && entry.name.endsWith('.md'))files.push({path:`${root}/! themes/${entry.name}`,basename:entry.name.slice(0,-3)});
+}
 const sourceCatalog=await collectCatalog({read:relative=>readFile(path.join(vault,relative),'utf8')},files,root,settings.globalVariablesFile);
 const smoke=process.argv.includes('--smoke');
+const wavyRegression=process.argv.includes('--wavy-regression');
+if(smoke && wavyRegression) throw Error('Wavy regression requires the full catalog');
 const catalog=smoke ? buildCatalog(sourceCatalog.entries.filter(entry=>['setting-accent','image-e016'].includes(entry.id))) : sourceCatalog;
-const report:any={scope:smoke?'two-record protocol smoke':'full local atlas',revision:catalog.revision,entries:catalog.entries.length,documents:catalog.documents.length,bytes:Buffer.byteLength(catalog.documents.map(doc=>doc.text).join('')),kinds:Object.fromEntries(['technique','setting','variable'].map(kind=>[kind,catalog.entries.filter(entry=>entry.kind===kind).length])),results:[]};
+const report:any={scope:smoke?'two-record protocol smoke':'full local atlas',revision:catalog.revision,entries:catalog.entries.length,documents:catalog.documents.length,bytes:Buffer.byteLength(catalog.documents.map(doc=>doc.text).join('')),kinds:Object.fromEntries(['technique','setting','variable','theme'].map(kind=>[kind,catalog.entries.filter(entry=>entry.kind===kind).length])),results:[]};
 await writeFile(output,JSON.stringify(report,null,2));
 console.log(JSON.stringify(report));
 if(process.argv.includes('--live')) {
@@ -36,14 +41,18 @@ if(process.argv.includes('--live')) {
   const snapshot=await syncCatalog(api,state,catalog,save,(n,total)=>{if(n%25===0||n===total)console.log(`Catalog files: ${n}/${total}`);});
   try { settings.pricing=await loadPricing('openai',settings.model); } catch {settings.pricing=undefined;}
   let total=0;
-  for(const userText of (smoke ? ['Скругляй уголки у фотографий','Хочу изменить акцентный цвет'] : ['Как мне сделать текст в несколько колонок?','Хочу показывать timeline','Скругляй уголки у фотографий','Показывай иконку перед ссылкой на PDF-файл','Хочу изменить акцентный цвет','Покажи живую погоду в заметке без интернета'])) {
+  for(const userText of (wavyRegression ? ['Какой приём делает ссылки волнистыми?'] : smoke ? ['Скругляй уголки у фотографий','Хочу изменить акцентный цвет'] : ['Как мне сделать текст в несколько колонок?','Хочу показывать timeline','Скругляй уголки у фотографий','Показывай иконку перед ссылкой на PDF-файл','Хочу изменить акцентный цвет','Покажи живую погоду в заметке без интернета'])) {
    if(total>0.50)throw Error('Smoke test spending cap reached');
    const row:any={query:userText};
    report.results.push(row);
    try {
     const result=await new OpenAIResponsesProvider(settings).createIteration({instructions:SYSTEM_PROMPT,prompt:buildTurnPrompt({userText,interfaceLanguage:'ru',conversation:[],revision:snapshot.revision}),catalog:snapshot,onUsage:async(usage,id)=>{row.usage=usage;row.responseId=id;total+=usage.estimatedCostUsd??0;await writeFile(output,JSON.stringify(report,null,2));}});
     Object.assign(row,result);
-   }catch(error){row.error=String(error);}
+    if(wavyRegression) {
+     row.passed=result.decision.action==='recommend' && result.decision.recommendations.some(item=>item.id==='link-e023') && result.retrievedIds.includes('link-e023');
+     if(!row.passed) process.exitCode=1;
+    }
+   }catch(error){row.error=String(error);if(wavyRegression)process.exitCode=1;}
    await writeFile(output,JSON.stringify(report,null,2));
    console.log(JSON.stringify(row));
   }

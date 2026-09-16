@@ -1,0 +1,1592 @@
+{
+  "checked": "2026-09-16",
+  "registry": "https://community.obsidian.md/assets/community-themes.json",
+  "statistics": "https://releases.obsidian.md/stats/theme",
+  "selection": "100 highest cumulative download counts among registered community themes; plus themes linked from technique sources",
+  "themes": [
+    {
+      "name": "Minimal",
+      "author": "kepano",
+      "repo": "kepano/obsidian-minimal",
+      "screenshot": "dark-simple.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "minimal",
+      "community_url": "https://community.obsidian.md/themes/minimal",
+      "community_verified": true,
+      "description": "A distraction-free and highly customizable theme.",
+      "downloads": 2629010,
+      "rank": 1
+    },
+    {
+      "name": "Things",
+      "author": "colineckert",
+      "repo": "colineckert/obsidian-things",
+      "screenshot": "assets/main-demo.png",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "slug": "things",
+      "community_url": "https://community.obsidian.md/themes/things",
+      "community_verified": true,
+      "description": "An Obsidian theme inspired by the beautifully-designed app, Things.",
+      "downloads": 1324987,
+      "rank": 2
+    },
+    {
+      "name": "AnuPpuccin",
+      "author": "anubisnekhet",
+      "repo": "anubisnekhet/AnuPpuccin",
+      "screenshot": "preview.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "anuppuccin",
+      "community_url": "https://community.obsidian.md/themes/anuppuccin",
+      "community_verified": true,
+      "description": "Personal theme for Obsidian",
+      "downloads": 1165288,
+      "rank": 3
+    },
+    {
+      "name": "Blue Topaz",
+      "author": "pkm-er",
+      "repo": "pkm-er/Blue-Topaz_Obsidian-css",
+      "screenshot": "preview_Blue Topaz.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "blue-topaz",
+      "community_url": "https://community.obsidian.md/themes/blue-topaz",
+      "community_verified": true,
+      "description": "A blue theme for Obsidian.",
+      "downloads": 1019931,
+      "rank": 4
+    },
+    {
+      "name": "Obsidian Nord",
+      "author": "insanum",
+      "repo": "insanum/obsidian_nord",
+      "screenshot": "dark.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "obsidian-nord",
+      "community_url": "https://community.obsidian.md/themes/obsidian-nord",
+      "community_verified": true,
+      "description": "A nord theme for Obsidian",
+      "downloads": 727613,
+      "rank": 5
+    },
+    {
+      "name": "Atom",
+      "author": "kognise",
+      "repo": "kognise/obsidian-atom",
+      "screenshot": "screenshot-hybrid.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "atom",
+      "community_url": "https://community.obsidian.md/themes/atom",
+      "community_verified": true,
+      "description": "A theme for Obsidian based on Atom's One family",
+      "downloads": 553702,
+      "rank": 6
+    },
+    {
+      "name": "Obsidianite",
+      "author": "bennyxguo",
+      "repo": "bennyxguo/Obsidian-Obsidianite",
+      "screenshot": "images/demo1.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "obsidianite",
+      "community_url": "https://community.obsidian.md/themes/obsidianite",
+      "community_verified": true,
+      "description": "Obsidian.md custom theme, it's dark and simple but yet still stays sparkles!",
+      "downloads": 547950,
+      "rank": 7
+    },
+    {
+      "name": "Wasp",
+      "author": "Santi Younger",
+      "repo": "santiyounger/Wasp-Obsidian-Theme",
+      "screenshot": "img/wasp-dark.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "wasp",
+      "community_url": "https://community.obsidian.md/themes/wasp",
+      "community_verified": true,
+      "description": "Enter wasp-mode and give your notes a cool look.",
+      "downloads": 483039,
+      "rank": 8
+    },
+    {
+      "name": "Typewriter",
+      "author": "crashmoney",
+      "repo": "crashmoney/obsidian-typewriter",
+      "screenshot": "cover.jpg",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "typewriter",
+      "community_url": "https://community.obsidian.md/themes/typewriter",
+      "community_verified": true,
+      "description": "Typewriter is an Obsidian theme designed for a focused writing experience.",
+      "downloads": 441224,
+      "rank": 9
+    },
+    {
+      "name": "ITS Theme",
+      "author": "SlRvb",
+      "repo": "slrvb/Obsidian--ITS-Theme",
+      "screenshot": "ITS.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "its-theme",
+      "community_url": "https://community.obsidian.md/themes/its-theme",
+      "community_verified": true,
+      "description": "Theme designed with readability and customizability in mind. Change it easily to your liking with the Style Settings plugin installed.",
+      "downloads": 427754,
+      "rank": 10
+    },
+    {
+      "name": "Obsidian gruvbox",
+      "author": "insanum",
+      "repo": "insanum/obsidian_gruvbox",
+      "screenshot": "dark.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "obsidian-gruvbox",
+      "community_url": "https://community.obsidian.md/themes/obsidian-gruvbox",
+      "community_verified": true,
+      "description": "A gruvbox theme for Obsidian",
+      "downloads": 364299,
+      "rank": 11
+    },
+    {
+      "name": "Primary",
+      "author": "primary-theme",
+      "repo": "primary-theme/obsidian",
+      "screenshot": "assets/obsidian-store-header.png",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "slug": "primary",
+      "community_url": "https://community.obsidian.md/themes/primary",
+      "community_verified": true,
+      "description": "Comfy, playful but productive theme for Obsidian. \"Primary instantly puts you in a relaxed state that opens the door to creativity and exploration. Wonderfully executed down to the smallest details,\"",
+      "downloads": 358272,
+      "rank": 12
+    },
+    {
+      "name": "Shimmering Focus",
+      "author": "Chris Grieser",
+      "repo": "chrisgrieser/shimmering-focus",
+      "screenshot": "assets/promo-screenshot.webp",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "shimmering-focus",
+      "community_url": "https://community.obsidian.md/themes/shimmering-focus",
+      "community_verified": true,
+      "description": "A minimalistic and opinionated Obsidian theme for the keyboard-centric user.",
+      "downloads": 346546,
+      "rank": 13
+    },
+    {
+      "name": "Catppuccin",
+      "author": "catppuccin",
+      "repo": "catppuccin/obsidian",
+      "screenshot": "assets/screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "catppuccin",
+      "community_url": "https://community.obsidian.md/themes/catppuccin",
+      "community_verified": true,
+      "description": "Soothing pastel theme for Obsidian",
+      "downloads": 338121,
+      "rank": 14
+    },
+    {
+      "name": "Willemstad",
+      "author": "tingmelvin",
+      "repo": "tingmelvin/willemstad-x",
+      "screenshot": "img/Willemstad-X.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "willemstad",
+      "community_url": "https://community.obsidian.md/themes/willemstad",
+      "community_verified": true,
+      "description": "A fully-fledged Obsidian.md theme, evolved from the original theme variant for Chris Grieser (pseudometa)'s theme Shimmering Focus",
+      "downloads": 336079,
+      "rank": 15
+    },
+    {
+      "name": "Prism",
+      "author": "damiankorcz",
+      "repo": "damiankorcz/Prism-Theme",
+      "screenshot": "assets/screenshots/Community Themes Screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "prism",
+      "community_url": "https://community.obsidian.md/themes/prism",
+      "community_verified": true,
+      "description": "A Comprehensive, Highly-Customisable and Elegant Light/Dark Theme for Obsidian.md",
+      "downloads": 323996,
+      "rank": 16
+    },
+    {
+      "name": "Border",
+      "author": "akifyss",
+      "repo": "akifyss/obsidian-border",
+      "screenshot": "cover.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "border",
+      "community_url": "https://community.obsidian.md/themes/border",
+      "community_verified": true,
+      "description": "A theme for obsidian.md",
+      "downloads": 305692,
+      "rank": 17
+    },
+    {
+      "name": "Tokyo Night",
+      "author": "tcmmichaelb139",
+      "repo": "tcmmichaelb139/obsidian-tokyonight",
+      "screenshot": "dark.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "tokyo-night",
+      "community_url": "https://community.obsidian.md/themes/tokyo-night",
+      "community_verified": true,
+      "description": "Tokyo Night theme for Obsidian",
+      "downloads": 302310,
+      "rank": 18
+    },
+    {
+      "name": "Dracula for Obsidian",
+      "author": "jarodise",
+      "repo": "jarodise/Dracula-for-Obsidian.md",
+      "screenshot": "screencap.jpg",
+      "modes": [
+        "dark"
+      ],
+      "slug": "dracula-for-obsidian",
+      "community_url": "https://community.obsidian.md/themes/dracula-for-obsidian",
+      "community_verified": true,
+      "description": "A dark theme for Obsidian.md",
+      "downloads": 293625,
+      "rank": 19
+    },
+    {
+      "name": "Sanctum",
+      "author": "jdanielmourao",
+      "repo": "jdanielmourao/obsidian-sanctum",
+      "screenshot": "cover.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "sanctum",
+      "community_url": "https://community.obsidian.md/themes/sanctum",
+      "community_verified": true,
+      "description": "A minimalist theme for Obsidian.md, with the aim of creating a serene space of retreat, for thought and uninterrupted work.",
+      "downloads": 289073,
+      "rank": 20
+    },
+    {
+      "name": "Everforest",
+      "author": "0xglitchbyte",
+      "repo": "0xglitchbyte/obsidian_everforest",
+      "screenshot": "dark_v2.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "everforest",
+      "community_url": "https://community.obsidian.md/themes/everforest",
+      "community_verified": true,
+      "description": "Everforest theme ported to Obsidian.md",
+      "downloads": 236412,
+      "rank": 21
+    },
+    {
+      "name": "GitHub Theme",
+      "author": "krios2146",
+      "repo": "krios2146/obsidian-theme-github",
+      "screenshot": "imgs/thumbnail.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "github-theme",
+      "community_url": "https://community.obsidian.md/themes/github-theme",
+      "community_verified": true,
+      "description": "Theme for Obsidian inspired by GitHub color scheme",
+      "downloads": 216337,
+      "rank": 22
+    },
+    {
+      "name": "Cybertron",
+      "author": "nickmilo",
+      "repo": "nickmilo/Cybertron",
+      "screenshot": "Cybertron.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "cybertron",
+      "community_url": "https://community.obsidian.md/themes/cybertron",
+      "community_verified": true,
+      "description": "A revised retro theme for Obsidian inspired by Cyberpunk 2077, Dynalist, Tron, The Terminator, Synthwave, and Keanu Reeves",
+      "downloads": 199909,
+      "rank": 23
+    },
+    {
+      "name": "Solarized",
+      "author": "harmtemolder",
+      "repo": "harmtemolder/obsidian-solarized",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "solarized",
+      "community_url": "https://community.obsidian.md/themes/solarized",
+      "community_verified": true,
+      "description": "A solarized recolor of Obsidian.",
+      "downloads": 190025,
+      "rank": 24
+    },
+    {
+      "name": "Cupertino",
+      "author": "Alexis C",
+      "repo": "aaaaalexis/obsidian-cupertino",
+      "screenshot": "cupertino.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "cupertino",
+      "community_url": "https://community.obsidian.md/themes/cupertino",
+      "community_verified": true,
+      "description": "A native look and feel Obsidian theme crafted for the way you think.",
+      "downloads": 165275,
+      "rank": 25
+    },
+    {
+      "name": "Notation",
+      "author": "deathau",
+      "repo": "deathau/Notation-for-Obsidian",
+      "screenshot": "screenshot.jpg",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "notation",
+      "community_url": "https://community.obsidian.md/themes/notation",
+      "community_verified": true,
+      "description": "A theme for Obsidian, inspired by and borrowing elements from Notion",
+      "downloads": 161633,
+      "rank": 26
+    },
+    {
+      "name": "Typomagical",
+      "author": "hungsu",
+      "repo": "hungsu/typomagical-obsidian",
+      "screenshot": "Typomagical-split.jpg",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "slug": "typomagical",
+      "community_url": "https://community.obsidian.md/themes/typomagical",
+      "community_verified": true,
+      "description": "An Obsidian theme for typographic appreciators, with support for Style Settings by mgmeyers",
+      "downloads": 158308,
+      "rank": 27
+    },
+    {
+      "name": "Terminal",
+      "author": "zcysxy",
+      "repo": "zcysxy/Obsidian-Terminal-Theme",
+      "screenshot": "screenshots/terminal.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "terminal",
+      "community_url": "https://community.obsidian.md/themes/terminal",
+      "community_verified": true,
+      "description": "An Obsidian theme that emulates a terminal.",
+      "downloads": 155791,
+      "rank": 28
+    },
+    {
+      "name": "Ono Sendai",
+      "author": "cannibalox",
+      "repo": "cannibalox/ono-sendai_obsdn",
+      "screenshot": "ono-sendai_obsdn_00.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "ono-sendai",
+      "community_url": "https://community.obsidian.md/themes/ono-sendai",
+      "community_verified": true,
+      "description": "an anti-distraction-free theme for obsidian with a terminal flavor",
+      "downloads": 147001,
+      "rank": 29
+    },
+    {
+      "name": "Shiba Inu",
+      "author": "faroukx",
+      "repo": "faroukx/Obsidian-shiba-inu-theme",
+      "screenshot": "shibainubackgroundshowcase.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "shiba-inu",
+      "community_url": "https://community.obsidian.md/themes/shiba-inu",
+      "community_verified": true,
+      "description": "An elegant, Japanese-inspired theme for Obsidian.",
+      "downloads": 138245,
+      "rank": 30
+    },
+    {
+      "name": "Encore",
+      "author": "carbonateb",
+      "repo": "carbonateb/obsidian-encore-theme",
+      "screenshot": "images/promo-image.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "encore",
+      "community_url": "https://community.obsidian.md/themes/encore",
+      "community_verified": true,
+      "description": "The Encore theme aims to freshen up the UI of Obsidian.md with modern design, loosely based off Material 3.",
+      "downloads": 136259,
+      "rank": 31
+    },
+    {
+      "name": "PLN",
+      "author": "pipeittodevnull",
+      "repo": "pipeittodevnull/PLN",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "pln",
+      "community_url": "https://community.obsidian.md/themes/pln",
+      "community_verified": true,
+      "description": "A personal nord theme with various quirks and changes",
+      "downloads": 134366,
+      "rank": 32
+    },
+    {
+      "name": "Pink Topaz",
+      "author": "shaggyfeng",
+      "repo": "shaggyfeng/obsidian-Pink-topaz-theme",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "pink-topaz",
+      "community_url": "https://community.obsidian.md/themes/pink-topaz",
+      "community_verified": true,
+      "description": "Pink Topaz theme for Obsidian.",
+      "downloads": 129267,
+      "rank": 33
+    },
+    {
+      "name": "Dracula Official",
+      "author": "dracula",
+      "repo": "dracula/obsidian",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "dracula-official",
+      "community_url": "https://community.obsidian.md/themes/dracula-official",
+      "community_verified": true,
+      "description": "Dark theme for Obsidian",
+      "downloads": 128819,
+      "rank": 34
+    },
+    {
+      "name": "Cyber Glow",
+      "author": "thepharaohart",
+      "repo": "thepharaohart/Obsidian-CyberGlow",
+      "screenshot": "Screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "cyber-glow",
+      "community_url": "https://community.obsidian.md/themes/cyber-glow",
+      "community_verified": true,
+      "description": "A colorful unique theme, giving Obsidian a fresh new look with glow effects and support for accent color. The theme now tries to provide a unique futuristic eye-candy look to obsidian while keeping it usable and familiar to the users. Made to be yours to tweak.",
+      "downloads": 128651,
+      "rank": 35
+    },
+    {
+      "name": "Obuntu",
+      "author": "dmytrodubinin",
+      "repo": "dmytrodubinin/Obuntu-theme-for-Obsidian",
+      "screenshot": "screenshot.jpg",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "obuntu",
+      "community_url": "https://community.obsidian.md/themes/obuntu",
+      "community_verified": true,
+      "description": "A theme for Obsidian, inspired by and borrowing elements from Ubuntu",
+      "downloads": 127015,
+      "rank": 36
+    },
+    {
+      "name": "Ukiyo",
+      "author": "technerium",
+      "repo": "technerium/obsidian-ukiyo",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "ukiyo",
+      "community_url": "https://community.obsidian.md/themes/ukiyo",
+      "community_verified": true,
+      "description": "A dark and light theme for Obsidian",
+      "downloads": 119513,
+      "rank": 37
+    },
+    {
+      "name": "Baseline",
+      "author": "Alexis C",
+      "repo": "aaaaalexis/obsidian-baseline",
+      "screenshot": "baseline.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "baseline",
+      "community_url": "https://community.obsidian.md/themes/baseline",
+      "community_verified": true,
+      "description": "A foundational Obsidian theme as the baseline of your thoughts.",
+      "downloads": 109538,
+      "rank": 38
+    },
+    {
+      "name": "Material Gruvbox",
+      "author": "alljavi",
+      "repo": "alljavi/material_gruvbox_obsidian",
+      "screenshot": "promo_screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "material-gruvbox",
+      "community_url": "https://community.obsidian.md/themes/material-gruvbox",
+      "community_verified": true,
+      "description": "Basic theme inspired on the Material gruvbox palette",
+      "downloads": 107124,
+      "rank": 39
+    },
+    {
+      "name": "Yin and Yang",
+      "author": "chetachiezikeuzor",
+      "repo": "chetachiezikeuzor/Yin-and-Yang-Theme",
+      "screenshot": "assets/screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "legacy": true,
+      "slug": "yin-and-yang",
+      "community_url": "https://community.obsidian.md/themes/yin-and-yang",
+      "community_verified": true,
+      "description": "An Obsidian.md theme with a stark contrast between dark mode and light mode, much like the Yin and Yang symbol ️.",
+      "downloads": 98675,
+      "rank": 40
+    },
+    {
+      "name": "Red Graphite",
+      "author": "seanwcom",
+      "repo": "seanwcom/Red-Graphite-for-Obsidian",
+      "screenshot": "thumbnail.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "red-graphite",
+      "community_url": "https://community.obsidian.md/themes/red-graphite",
+      "community_verified": true,
+      "description": "A light theme for Obsidian.md, based on Bear.app's Red Graphite theme.",
+      "downloads": 97639,
+      "rank": 41
+    },
+    {
+      "name": "Royal Velvet",
+      "author": "caro401",
+      "repo": "caro401/royal-velvet",
+      "screenshot": "royal-velvet.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "royal-velvet",
+      "community_url": "https://community.obsidian.md/themes/royal-velvet",
+      "community_verified": true,
+      "description": "A dark theme for obsidian.md",
+      "downloads": 96631,
+      "rank": 42
+    },
+    {
+      "name": "Golden Topaz",
+      "author": "shaggyfeng",
+      "repo": "shaggyfeng/obsidian-Golden-Topaz-theme",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "golden-topaz",
+      "community_url": "https://community.obsidian.md/themes/golden-topaz",
+      "community_verified": true,
+      "description": "Golden Topaz theme for Obsidian.",
+      "downloads": 95432,
+      "rank": 43
+    },
+    {
+      "name": "Obsidianotion",
+      "author": "Diego Eis",
+      "repo": "diegoeis/obsidianotion",
+      "screenshot": "cover.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "obsidianotion",
+      "community_url": "https://community.obsidian.md/themes/obsidianotion",
+      "community_verified": true,
+      "description": "Just a little theme for obsidian with notion inspired design",
+      "downloads": 77786,
+      "rank": 44
+    },
+    {
+      "name": "LYT Mode",
+      "author": "nickmilo",
+      "repo": "nickmilo/LYT-Mode",
+      "screenshot": "lyt-mode-graphic-1.jpg",
+      "modes": [
+        "dark"
+      ],
+      "slug": "lyt-mode",
+      "community_url": "https://community.obsidian.md/themes/lyt-mode",
+      "community_verified": true,
+      "description": "LYT Mode is for \"Linking Your Thinking\". It invokes sensemaking and lateral thinking.",
+      "downloads": 76727,
+      "rank": 45
+    },
+    {
+      "name": "Retroma",
+      "author": "emarpiee",
+      "repo": "emarpiee/Retroma",
+      "screenshot": "assets/screenshots/retroma-banner.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "retroma",
+      "community_url": "https://community.obsidian.md/themes/retroma",
+      "community_verified": true,
+      "description": "Retroma is a tribute to the past, reminding us of a time when buttons looked like you could actually press them and when UI actually had personality.",
+      "downloads": 71336,
+      "rank": 46
+    },
+    {
+      "name": "Maple",
+      "author": "subframe7536",
+      "repo": "subframe7536/obsidian-theme-maple",
+      "screenshot": "img/screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "maple",
+      "community_url": "https://community.obsidian.md/themes/maple",
+      "community_verified": true,
+      "description": "A sleek and modern Obsidian theme for desktop and mobile.",
+      "downloads": 70778,
+      "rank": 47
+    },
+    {
+      "name": "Dark Moss",
+      "author": "sergey900553",
+      "repo": "sergey900553/obsidian_githublike_theme",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "dark-moss",
+      "community_url": "https://community.obsidian.md/themes/dark-moss",
+      "community_verified": true,
+      "description": "Obsidian dark theme",
+      "downloads": 66070,
+      "rank": 48
+    },
+    {
+      "name": "Sodalite",
+      "author": "tomzorz",
+      "repo": "tomzorz/Sodalite",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "sodalite",
+      "community_url": "https://community.obsidian.md/themes/sodalite",
+      "community_verified": true,
+      "description": "Sodalite theme for Obsidian",
+      "downloads": 65904,
+      "rank": 49
+    },
+    {
+      "name": "Flexoki",
+      "author": "kepano",
+      "repo": "kepano/flexoki-obsidian",
+      "screenshot": "cover-small.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "flexoki",
+      "community_url": "https://community.obsidian.md/themes/flexoki",
+      "community_verified": true,
+      "description": "An inky color scheme for prose and code.",
+      "downloads": 64490,
+      "rank": 50
+    },
+    {
+      "name": "Ultra Lobster",
+      "author": "kneecaps",
+      "repo": "7368697661/Ultra-Lobster",
+      "screenshot": "preview_thumb.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "ultra-lobster",
+      "community_url": "https://community.obsidian.md/themes/ultra-lobster",
+      "community_verified": true,
+      "description": "Ultra Lobster offers a visually pleasing and comfortable working experience, with an emphasis on bringing rounded UI elements, modern design trends, and soft design choices to Obsidian.",
+      "downloads": 64242,
+      "rank": 51
+    },
+    {
+      "name": "Reverie",
+      "author": "Santi Younger",
+      "repo": "santiyounger/Reverie-Obsidian-Theme",
+      "screenshot": "img/reverie-2020-09-14-dark.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "reverie",
+      "community_url": "https://community.obsidian.md/themes/reverie",
+      "community_verified": true,
+      "description": "A foundational Obsidian theme crafted for long writing and wandering thought.",
+      "downloads": 63144,
+      "rank": 52
+    },
+    {
+      "name": "Dune",
+      "author": "jopp-gh",
+      "repo": "jopp-gh/Obsidian-Dune84",
+      "screenshot": "Dune-Obsidian.jpg",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "dune",
+      "community_url": "https://community.obsidian.md/themes/dune",
+      "community_verified": true,
+      "description": "Obsidian theme",
+      "downloads": 59730,
+      "rank": 53
+    },
+    {
+      "name": "Light & Bright",
+      "author": "bluemoondragon07",
+      "repo": "bluemoondragon07/obsidian-light-and-bright-theme",
+      "screenshot": "light-and-bright-cover.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "light-bright",
+      "community_url": "https://community.obsidian.md/themes/light-bright",
+      "community_verified": true,
+      "description": "A dark and light theme for Obsidian",
+      "downloads": 56920,
+      "rank": 54
+    },
+    {
+      "name": "Vanilla AMOLED",
+      "author": "sakuraisayeki",
+      "repo": "sakuraisayeki/vanilla-amoled-theme",
+      "screenshot": "sample-screenshot-sm.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "vanilla-amoled",
+      "community_url": "https://community.obsidian.md/themes/vanilla-amoled",
+      "community_verified": true,
+      "description": "AMOLED / Ultra Dark theme for Obsidian",
+      "downloads": 55968,
+      "rank": 55
+    },
+    {
+      "name": "Discordian",
+      "author": "radekkozak",
+      "repo": "radekkozak/discordian",
+      "screenshot": "media/screenshots/discordian-full-mode.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "discordian",
+      "community_url": "https://community.obsidian.md/themes/discordian",
+      "community_verified": true,
+      "description": "A dark theme inspired by Discord.",
+      "downloads": 55511,
+      "rank": 56
+    },
+    {
+      "name": "Notation 2",
+      "author": "bluemoondragon07",
+      "repo": "bluemoondragon07/obsidian-notation-2",
+      "screenshot": "cover-small.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "notation-2",
+      "community_url": "https://community.obsidian.md/themes/notation-2",
+      "community_verified": true,
+      "description": "A theme for Obsidian.md heavily based on deathau's original Notation theme and the app behind its inspiration, Notion.",
+      "downloads": 54906,
+      "rank": 57
+    },
+    {
+      "name": "Kakano",
+      "author": "Isaac Freeman",
+      "repo": "isaacfreeman/kakano-obsidian-theme",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "kakano",
+      "community_url": "https://community.obsidian.md/themes/kakano",
+      "community_verified": true,
+      "description": "A theme for the Obsidian note-taking app, with strong color to distinguish different vaults, and support for many plugins.",
+      "downloads": 53514,
+      "rank": 58
+    },
+    {
+      "name": "Sandstorm",
+      "author": "jaysan0",
+      "repo": "jaysan0/obsidian-sandstorm",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "sandstorm",
+      "community_url": "https://community.obsidian.md/themes/sandstorm",
+      "community_verified": true,
+      "description": "Sandstorm Obsidian Theme Repo",
+      "downloads": 52055,
+      "rank": 59
+    },
+    {
+      "name": "WY Console",
+      "author": "satchelmouth",
+      "repo": "satchelmouth/Obsidian-Theme-WYConsole",
+      "screenshot": "WYConsole_Store_Screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "wy-console",
+      "community_url": "https://community.obsidian.md/themes/wy-console",
+      "community_verified": true,
+      "description": "A theme for obsidian based on Computer Consoles in popular 80s Sci-fi films",
+      "downloads": 50768,
+      "rank": 60
+    },
+    {
+      "name": "Wikipedia",
+      "author": "bluemoondragon07",
+      "repo": "bluemoondragon07/Wikipedia-Theme",
+      "screenshot": "example.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "wikipedia",
+      "community_url": "https://community.obsidian.md/themes/wikipedia",
+      "community_verified": true,
+      "description": "A theme for Obsidian.md that makes your vault look like Wikipedia!",
+      "downloads": 47301,
+      "rank": 61
+    },
+    {
+      "name": "obsidian_ia",
+      "author": "rcvd",
+      "repo": "rcvd/obsidian_ia",
+      "screenshot": "light.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "obsidiania",
+      "community_url": "https://community.obsidian.md/themes/obsidiania",
+      "community_verified": true,
+      "description": "A clean and minimal theme for obsidian, heavily inspired by iA Writer.",
+      "downloads": 45760,
+      "rank": 62
+    },
+    {
+      "name": "Underwater",
+      "author": "seniblue",
+      "repo": "seniblue/Underwater",
+      "screenshot": "uw.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "underwater",
+      "community_url": "https://community.obsidian.md/themes/underwater",
+      "community_verified": true,
+      "description": "An obsidian.md theme",
+      "downloads": 45296,
+      "rank": 63
+    },
+    {
+      "name": "Typora-Vue",
+      "author": "zekunc",
+      "repo": "zekunc/Obsidian-Typora-Vue-Theme",
+      "screenshot": "obsidian-typora-vue.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "typora-vue",
+      "community_url": "https://community.obsidian.md/themes/typora-vue",
+      "community_verified": true,
+      "description": "A theme inspired by Typora.",
+      "downloads": 45084,
+      "rank": 64
+    },
+    {
+      "name": "Velocity",
+      "author": "gonzalo-d-sales",
+      "repo": "gonzalo-d-sales/obsidian-velocity",
+      "screenshot": "assets/thumbnail.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "velocity",
+      "community_url": "https://community.obsidian.md/themes/velocity",
+      "community_verified": true,
+      "description": "A radically modern theme for Obsidian.",
+      "downloads": 43620,
+      "rank": 65
+    },
+    {
+      "name": "Blackbird",
+      "author": "vanadium23",
+      "repo": "vanadium23/obsidian-blackbird-theme",
+      "screenshot": "images/example.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "blackbird",
+      "community_url": "https://community.obsidian.md/themes/blackbird",
+      "community_verified": true,
+      "description": "Blackbird theme for Obsidian.md",
+      "downloads": 42519,
+      "rank": 66
+    },
+    {
+      "name": "Wyrd",
+      "author": "curio-heart",
+      "repo": "curio-heart/obsidian-wyrd",
+      "screenshot": "img/Wyrd.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "wyrd",
+      "community_url": "https://community.obsidian.md/themes/wyrd",
+      "community_verified": true,
+      "description": "A purple-hued, low-contrast theme for Obsidian",
+      "downloads": 41705,
+      "rank": 67
+    },
+    {
+      "name": "Nier",
+      "author": "exloseur3d",
+      "repo": "exloseur3d/nier-theme",
+      "screenshot": "preview_Nier_theme.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "nier",
+      "community_url": "https://community.obsidian.md/themes/nier",
+      "community_verified": true,
+      "description": "A theme inspired by the UI of the video game \"NieR: Automata\"",
+      "downloads": 41559,
+      "rank": 68
+    },
+    {
+      "name": "Everforest Enchanted",
+      "author": "fireisgood",
+      "repo": "fireisgood/obsidian-everforest-enchanted",
+      "screenshot": "promo_screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "everforest-enchanted",
+      "community_url": "https://community.obsidian.md/themes/everforest-enchanted",
+      "community_verified": true,
+      "description": "An Everforest theme for Obsidian",
+      "downloads": 41125,
+      "rank": 69
+    },
+    {
+      "name": "Aura",
+      "author": "shadowash8",
+      "repo": "shadowash8/obsidian-aura",
+      "screenshot": "assets/showcase-preview.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "aura",
+      "community_url": "https://community.obsidian.md/themes/aura",
+      "community_verified": true,
+      "description": "A minimal yet customizable obsidian theme.",
+      "downloads": 40683,
+      "rank": 70
+    },
+    {
+      "name": "Apex",
+      "author": "clearlysid",
+      "repo": "clearlysid/apex",
+      "screenshot": "preview.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "apex",
+      "community_url": "https://community.obsidian.md/themes/apex",
+      "community_verified": true,
+      "description": "An opinionated, simple Obsidian theme to preserve my sanity.",
+      "downloads": 37829,
+      "rank": 71
+    },
+    {
+      "name": "Gitsidian",
+      "author": "ismailgunacar",
+      "repo": "ismailgunacar/gitsidian",
+      "screenshot": "showcase.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "gitsidian",
+      "community_url": "https://community.obsidian.md/themes/gitsidian",
+      "community_verified": true,
+      "description": "An obsidian theme inspired by GitHub markdown styles",
+      "downloads": 35855,
+      "rank": 72
+    },
+    {
+      "name": "Dracula + LYT",
+      "author": "xryul",
+      "repo": "xryul/ObsidianMD_Dracula_x_LYT",
+      "screenshot": "Overview.jpg",
+      "modes": [
+        "dark"
+      ],
+      "slug": "dracula-lyt",
+      "community_url": "https://community.obsidian.md/themes/dracula-lyt",
+      "community_verified": true,
+      "description": "A theme remixing LYT Mode and Dracula.",
+      "downloads": 35526,
+      "rank": 73
+    },
+    {
+      "name": "Vauxhall",
+      "author": "cyanvoxel",
+      "repo": "cyanvoxel/vauxhall-obsidian",
+      "screenshot": "cover.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "vauxhall",
+      "community_url": "https://community.obsidian.md/themes/vauxhall",
+      "community_verified": true,
+      "description": "A Theme Echoing From the Deep [Obsidian]",
+      "downloads": 35404,
+      "rank": 74
+    },
+    {
+      "name": "Moonlight",
+      "author": "kartik-karz",
+      "repo": "kartik-karz/moonlight-obsidian",
+      "screenshot": "moonlight-theme.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "moonlight",
+      "community_url": "https://community.obsidian.md/themes/moonlight",
+      "community_verified": true,
+      "description": "A theme for Obsidian Vault",
+      "downloads": 35067,
+      "rank": 75
+    },
+    {
+      "name": "Fancy-a-Story",
+      "author": "elsatam",
+      "repo": "elsatam/obsidian-fancy-a-story",
+      "screenshot": "overview-mini.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "fancy-a-story",
+      "community_url": "https://community.obsidian.md/themes/fancy-a-story",
+      "community_verified": true,
+      "description": "Obsidian theme",
+      "downloads": 34966,
+      "rank": 76
+    },
+    {
+      "name": "Origami",
+      "author": "kneecaps",
+      "repo": "7368697661/Origami",
+      "screenshot": "screen.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "origami",
+      "community_url": "https://community.obsidian.md/themes/origami",
+      "community_verified": true,
+      "description": "Origami was crafted with to mimic the tactility of paper, but introduce digital tools",
+      "downloads": 34450,
+      "rank": 77
+    },
+    {
+      "name": "Vicious",
+      "author": "zaheralmajed",
+      "repo": "zaheralmajed/vicious-theme-obsidian",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "slug": "vicious",
+      "community_url": "https://community.obsidian.md/themes/vicious",
+      "community_verified": true,
+      "description": "A Sleek and Immersive Dark Theme for Obsidian",
+      "downloads": 34034,
+      "rank": 78
+    },
+    {
+      "name": "Transparent",
+      "author": "oczko24",
+      "repo": "oczko24/Obsidian-transparent",
+      "screenshot": "cover.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "transparent",
+      "community_url": "https://community.obsidian.md/themes/transparent",
+      "community_verified": true,
+      "description": "Minimalistic and distraction free theme for Obsidian",
+      "downloads": 31229,
+      "rank": 79
+    },
+    {
+      "name": "Comfort color dark",
+      "author": "obsidian-ezs",
+      "repo": "obsidian-ezs/obsidian-comfort-color-dark",
+      "screenshot": "screencap.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "comfort-color-dark",
+      "community_url": "https://community.obsidian.md/themes/comfort-color-dark",
+      "community_verified": true,
+      "description": "Comfort Color Dark Theme for Obsidian",
+      "downloads": 31189,
+      "rank": 80
+    },
+    {
+      "name": "Material Flat",
+      "author": "threethan",
+      "repo": "threethan/obsidian-material-flat-theme",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "material-flat",
+      "community_url": "https://community.obsidian.md/themes/material-flat",
+      "community_verified": true,
+      "description": "A flat and colorful theme for Obsidian, supporting Desktop and Mobile",
+      "downloads": 29019,
+      "rank": 81
+    },
+    {
+      "name": "Dawn",
+      "author": "ds-package",
+      "repo": "ds-package/Dawn",
+      "screenshot": "assets/00-screenshot-small.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "dawn",
+      "community_url": "https://community.obsidian.md/themes/dawn",
+      "community_verified": true,
+      "description": "a theme in a good time to write",
+      "downloads": 28482,
+      "rank": 82
+    },
+    {
+      "name": "Nebula",
+      "author": "Devaang Mandalia",
+      "repo": "devmandalia/Nebula",
+      "screenshot": "screenshots/dark-kanban.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "nebula",
+      "community_url": "https://community.obsidian.md/themes/nebula",
+      "community_verified": true,
+      "description": "Nebula — a cool, techy Obsidian theme (cyan + violet dark mode, warm light mode)",
+      "downloads": 28454,
+      "rank": 83
+    },
+    {
+      "name": "Ebullientworks",
+      "author": "ebullient",
+      "repo": "ebullient/obsidian-theme-ebullientworks",
+      "screenshot": "images/ebullientworks-theme.jpg",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "ebullientworks",
+      "community_url": "https://community.obsidian.md/themes/ebullientworks",
+      "community_verified": true,
+      "description": "A clean dark and light theme.",
+      "downloads": 27901,
+      "rank": 84
+    },
+    {
+      "name": "Pisum",
+      "author": "guangluwu",
+      "repo": "guangluwu/obsidian-pisum",
+      "screenshot": "fullpower.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "pisum",
+      "community_url": "https://community.obsidian.md/themes/pisum",
+      "community_verified": true,
+      "description": "This is an obsidian theme with clean line-drawing appearance. Only dark mode available.",
+      "downloads": 27870,
+      "rank": 85
+    },
+    {
+      "name": "Faded",
+      "author": "joshkasap",
+      "repo": "joshkasap/Obsidian-Faded-Theme",
+      "screenshot": "Faded.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "faded",
+      "community_url": "https://community.obsidian.md/themes/faded",
+      "community_verified": true,
+      "description": "Faded Theme For Obsidian By MatteCrystal",
+      "downloads": 27558,
+      "rank": 86
+    },
+    {
+      "name": "Simple",
+      "author": "Diego Eis",
+      "repo": "diegoeis/simple-obsidian",
+      "screenshot": "cover.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "simple",
+      "community_url": "https://community.obsidian.md/themes/simple",
+      "community_verified": true,
+      "description": "The Simple is a theme for Obsidian that prioritizes reading and writing.",
+      "downloads": 26697,
+      "rank": 87
+    },
+    {
+      "name": "Dark Graphite Pie",
+      "author": "ryjjin",
+      "repo": "ryjjin/Obsidian-Dark-Graphite-Pie-theme",
+      "screenshot": "Dark Graphite Pie theme 0.9.4.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "dark-graphite-pie",
+      "community_url": "https://community.obsidian.md/themes/dark-graphite-pie",
+      "community_verified": true,
+      "description": "custom-CSS for Obsidian app",
+      "downloads": 26661,
+      "rank": 88
+    },
+    {
+      "name": "Soft Paper",
+      "author": "nickmilo",
+      "repo": "nickmilo/soft-paper",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "soft-paper",
+      "community_url": "https://community.obsidian.md/themes/soft-paper",
+      "community_verified": true,
+      "description": "A custom Obsidian theme to feel more reflective.",
+      "downloads": 25892,
+      "rank": 89
+    },
+    {
+      "name": "Bolt",
+      "author": "bluemoondragon07",
+      "repo": "bluemoondragon07/Obsidian-Bolt",
+      "screenshot": "cover.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "bolt",
+      "community_url": "https://community.obsidian.md/themes/bolt",
+      "community_verified": true,
+      "description": "A theme for Obsidian.md inspired by Android apps and Google's Material Design system.",
+      "downloads": 25820,
+      "rank": 90
+    },
+    {
+      "name": "Kanagawa",
+      "author": "Simon Späti",
+      "repo": "sspaeti/obsidian_kanagawa",
+      "screenshot": "dark.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "kanagawa",
+      "community_url": "https://community.obsidian.md/themes/kanagawa",
+      "community_verified": true,
+      "description": "A Kanagawa Theme for Obsidian",
+      "downloads": 25356,
+      "rank": 91
+    },
+    {
+      "name": "Pine Forest Berry",
+      "author": "nilahn",
+      "repo": "nilahn/pine_forest_berry",
+      "screenshot": "Screenshot PFB 1.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "pine-forest-berry",
+      "community_url": "https://community.obsidian.md/themes/pine-forest-berry",
+      "community_verified": true,
+      "description": "Dark and Light Theme for Obsidian",
+      "downloads": 25255,
+      "rank": 92
+    },
+    {
+      "name": "Sparkling Night",
+      "author": "isax785",
+      "repo": "isax785/obsidian-sparkling-night",
+      "screenshot": "img/sparkling_night.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "sparkling-night",
+      "community_url": "https://community.obsidian.md/themes/sparkling-night",
+      "community_verified": true,
+      "description": "A sparkling theme for obsidian.",
+      "downloads": 24971,
+      "rank": 93
+    },
+    {
+      "name": "Material Ocean",
+      "author": "dragonwocky",
+      "repo": "dragonwocky/obsidian-material-ocean",
+      "screenshot": "thumbnail.png",
+      "modes": [
+        "dark"
+      ],
+      "slug": "material-ocean",
+      "community_url": "https://community.obsidian.md/themes/material-ocean",
+      "community_verified": true,
+      "description": "An oceanic dark theme for Obsidian",
+      "downloads": 24681,
+      "rank": 94
+    },
+    {
+      "name": "Adwaita",
+      "author": "birneee",
+      "repo": "birneee/obsidian-adwaita-theme",
+      "screenshot": "generated/theme-store-preview.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "adwaita",
+      "community_url": "https://community.obsidian.md/themes/adwaita",
+      "community_verified": true,
+      "description": "Obsidian theme in the style of Gnome Adwaita",
+      "downloads": 23743,
+      "rank": 95
+    },
+    {
+      "name": "Zen",
+      "author": "laughmaker",
+      "repo": "laughmaker/Zen",
+      "screenshot": "cover.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "zen",
+      "community_url": "https://community.obsidian.md/themes/zen",
+      "community_verified": true,
+      "description": "A modern, minimalist Obsidian theme designed for focused writing and comfortable reading.",
+      "downloads": 22002,
+      "rank": 96
+    },
+    {
+      "name": "RetroNotes",
+      "author": "sr-campelo",
+      "repo": "sr-campelo/retronotes",
+      "screenshot": "cover.jpg",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "retronotes",
+      "community_url": "https://community.obsidian.md/themes/retronotes",
+      "community_verified": true,
+      "description": "RetroNotes Obsidian theme",
+      "downloads": 21851,
+      "rank": 97
+    },
+    {
+      "name": "Autotape",
+      "author": "1612elphi",
+      "repo": "1612elphi/autotape-theme",
+      "screenshot": "Screen.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "autotape",
+      "community_url": "https://community.obsidian.md/themes/autotape",
+      "community_verified": true,
+      "description": "A retro-futurist terminal inspired theme for Obsidian",
+      "downloads": 21819,
+      "rank": 98
+    },
+    {
+      "name": "Composer",
+      "author": "vran-dev",
+      "repo": "vran-dev/obsidian-composer",
+      "screenshot": "screenshot.png",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "composer",
+      "community_url": "https://community.obsidian.md/themes/composer",
+      "community_verified": true,
+      "description": "simple and pretty theme for obsidian & components plugin",
+      "downloads": 21675,
+      "rank": 99
+    },
+    {
+      "name": "Lagom",
+      "author": "Leslye",
+      "repo": "leslyecream/Lagom-Obsidian-Theme",
+      "screenshot": "IMG_20241009_134537.jpg",
+      "modes": [
+        "dark",
+        "light"
+      ],
+      "slug": "lagom",
+      "community_url": "https://community.obsidian.md/themes/lagom",
+      "community_verified": true,
+      "description": "A phone-focused theme for Obsidian",
+      "downloads": 21386,
+      "rank": 100
+    }
+  ]
+}
