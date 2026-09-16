@@ -10,7 +10,7 @@ export interface RawUsage {
 }
 
 export function formatCost(cost: number | null): string {
-  return cost == null ? t("cost.cost_unknown") : `≈ $${cost.toFixed(6)}`;
+  return cost == null ? t("cost.cost_unknown") : `≈ $${cost.toFixed(2)}`;
 }
 
 export function calculateUsage(raw: RawUsage | undefined, settings: CallMeRedSettings): UsageRecord {

@@ -1,184 +1,72 @@
-import { t } from "../i18n";
-import { requestUrl } from "obsidian";
-import { calculateUsage } from "./cost";
-import { parseModelDecision, type OpenAIResponse } from "./response";
-import type { CallMeRedSettings, ModelDecision, UsageRecord } from "./types";
+import { t } from '../i18n';
+import { requestUrl } from 'obsidian';
+import { calculateUsage } from './cost';
+import { parseModelDecision, type OpenAIResponse } from './response';
+import type { CallMeRedSettings, ModelDecision, UsageRecord } from './types';
+import type { CatalogSnapshot } from './catalog';
 
 export interface ProviderRequest {
-  allowClarification?: boolean;
   instructions: string;
   prompt: string;
-  screenshotBase64?: string;
+  catalog: CatalogSnapshot;
   onUsage?: (usage: UsageRecord, responseId: string) => Promise<void>;
 }
-
 export interface ProviderResult {
-  decision: ModelDecision;
-  usage: UsageRecord;
-  responseId: string;
+  decision: ModelDecision; usage: UsageRecord; responseId: string;
+  retrievedIds: string[]; searchQueries: string[];
 }
-
-export interface ModelProvider {
-  createIteration(request: ProviderRequest): Promise<ProviderResult>;
-}
-
+export interface ModelProvider { createIteration(request: ProviderRequest): Promise<ProviderResult> }
 const RESPONSE_SCHEMA = {
-  type: "object",
+  type: 'object', additionalProperties: false,
   properties: {
-    action: {
-      type: "string",
-      enum: ["update_css", "switch_coloring", "ask_question", "no_change"],
-    },
-    message: { type: "string" },
-    modules: {
-      type: "array",
-      description: "For update_css, only the changed existing snippets, each with full resulting CSS. Omit unchanged snippets; the program preserves them. Keep IDs and components; freely edit their CSS. Empty for other actions.",
-      items: { type: "object", properties: {
-        id: { type: "string" },
-        component: { type: "string" },
-        css: { type: "string", description: "Complete CSS for this snippet." },
-      }, required: ["id", "component", "css"], additionalProperties: false },
-    },
-    targetColoring: { type: "string" },
-  },
-  required: ["action", "message", "modules", "targetColoring"],
-  additionalProperties: false,
-} as const;
-
-function responseSchema(request: ProviderRequest) {
-  return {
-    ...RESPONSE_SCHEMA,
-    properties: {
-      ...RESPONSE_SCHEMA.properties,
-      action: {
-        ...RESPONSE_SCHEMA.properties.action,
-        enum: RESPONSE_SCHEMA.properties.action.enum.filter(
-          action => request.allowClarification !== false || action !== "ask_question",
-        ),
-      },
-    },
-  };
-}
-
+    action: { type: 'string', enum: ['recommend', 'ask_question', 'no_match'] },
+    message: { type: 'string' },
+    recommendations: { type: 'array', maxItems: 6, items: {
+      type: 'object', additionalProperties: false,
+      properties: { id: { type: 'string' }, reason: { type: 'string' }, instructions: { type: 'string' } },
+      required: ['id', 'reason', 'instructions'],
+    } },
+  }, required: ['action', 'message', 'recommendations'],
+};
+// https://developers.openai.com/api/docs/pricing — checked 2026-09-16.
+// Storage is billed separately by OpenAI; it cannot be attributed to one turn.
+export const FILE_SEARCH_CALL_USD = 0.0025;
 export class OpenAIResponsesProvider implements ModelProvider {
   constructor(private readonly settings: CallMeRedSettings) {}
-
   async createIteration(request: ProviderRequest): Promise<ProviderResult> {
-    if (!this.settings.apiKey.trim()) throw new Error(t("provider.add_an_openai_api_key_in_hacksidian"));
-
-    if (!this.settings.model.trim()) throw new Error(t("provider.select_an_openai_model_in_hacksidian_settings"));
-
-    const response = await requestUrl({
-      url: "https://api.openai.com/v1/responses",
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${this.settings.apiKey.trim()}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: this.settings.model.trim(),
-        store: false,
-        instructions: request.instructions,
-        input: [
-          {
-            role: "user",
-            content: [
-              { type: "input_text", text: request.prompt },
-              ...(this.settings.sendScreenshot && request.screenshotBase64 ? [{
-                type: "input_image",
-                image_url: `data:image/png;base64,${request.screenshotBase64}`,
-                detail: "high",
-              }] : []),
-            ],
-          },
-        ],
-        text: {
-          format: {
-            type: "json_schema",
-            name: "callmered_iteration",
-            strict: true,
-            schema: responseSchema(request),
-          },
-        },
-        max_output_tokens: 24000,
-      }),
-      throw: false,
-    });
-
-    await request.onUsage?.(calculateUsage(response.json?.usage, this.settings), response.json?.id ?? "");
-    if (response.status < 200 || response.status >= 300) {
-      const detail = typeof response.text === "string" ? response.text.slice(0, 800) : "";
-      throw new Error(t("provider.openai_api_returned", { p0: response.status, p1: detail }));
-    }
-
+    if (!this.settings.apiKey.trim()) throw new Error(t('provider.add_an_openai_api_key_in_hacksidian'));
+    if (!this.settings.model.trim()) throw new Error(t('provider.select_an_openai_model_in_hacksidian_settings'));
+    if (!request.catalog.storeId) throw new Error(t('catalog.missing'));
+    const response = await requestUrl({ url: 'https://api.openai.com/v1/responses', method: 'POST',
+      headers: { Authorization: `Bearer ${this.settings.apiKey.trim()}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: this.settings.model.trim(), store: false, instructions: request.instructions,
+        input: [{ role: 'user', content: [{ type: 'input_text', text: request.prompt }] }],
+        tools: [{ type: 'file_search', vector_store_ids: [request.catalog.storeId], max_num_results: 6 }],
+        tool_choice: 'required', include: ['file_search_call.results'],
+        text: { format: { type: 'json_schema', name: 'hacksidian_recommendation', strict: true, schema: RESPONSE_SCHEMA } },
+        max_output_tokens: 4000,
+      }), throw: false });
     const body = response.json as OpenAIResponse;
+    const calls = body?.output?.filter(item => item.type === 'file_search_call') ?? [];
+    const usage = calculateUsage(body?.usage, this.settings);
+    usage.fileSearchCalls = calls.length;
+    usage.fileSearchCostUsd = calls.length * FILE_SEARCH_CALL_USD;
+    if (usage.estimatedCostUsd !== null) usage.estimatedCostUsd += usage.fileSearchCostUsd;
+    await request.onUsage?.(usage, body?.id ?? '');
+    if (response.status < 200 || response.status >= 300) throw new Error(t('provider.openai_api_returned', { p0: response.status, p1: body?.error?.message ?? '' }));
     const decision = parseModelDecision(body);
-
-    return {
-      decision,
-      usage: calculateUsage(body.usage, this.settings),
-      responseId: body.id ?? "",
-    };
+    if (!calls.length || calls.some(call => call.status && call.status !== 'completed')) throw new Error(t('catalog.search_failed'));
+    const validFiles = new Set(request.catalog.documents.map(doc => doc.fileId));
+    const retrieved = calls.flatMap(call => call.results ?? []).filter(result => validFiles.has(result.file_id));
+    const ids = new Set<string>();
+    for (const result of retrieved) for (const match of result.text.matchAll(/(?:^|\n)(?:# |END )?ID: ([a-z0-9_-]+)\b/g)) ids.add(match[1]);
+    const known = new Set(request.catalog.entries.map(entry => entry.id));
+    const retrievedIds = [...ids].filter(id => known.has(id));
+    if (decision.recommendations.some(item => !retrievedIds.includes(item.id))) throw new Error(t('catalog.invalid_recommendation'));
+    return { decision, usage, responseId: body.id ?? '', retrievedIds, searchQueries: calls.flatMap(call => call.queries ?? []) };
   }
 }
-
-// Gemini uses OpenAI Chat Completions; Claude needs its native structured output API.
 export function createProvider(settings: CallMeRedSettings): ModelProvider {
-  return settings.provider === 'openai' ? new OpenAIResponsesProvider(settings) : new AlternativeProvider(settings);
-}
-
-class AlternativeProvider implements ModelProvider {
-  constructor(private readonly settings: CallMeRedSettings) {}
-
-  async createIteration(request: ProviderRequest): Promise<ProviderResult> {
-    const { provider, apiKey, model } = this.settings;
-    if (!apiKey.trim()) throw new Error(t("provider.add_an_api_key_for_the_selected"));
-    if (!model.trim()) throw new Error(t("provider.select_a_model"));
-    const image = this.settings.sendScreenshot ? request.screenshotBase64 : undefined;
-    const claude = provider === 'anthropic';
-    const url = claude ? 'https://api.anthropic.com/v1/messages' : provider === 'google'
-      ? 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions' : 'https://api.x.ai/v1/chat/completions';
-    const content = claude ? [
-      { type: 'text', text: request.prompt },
-      ...(image ? [{ type: 'image', source: { type: 'base64', media_type: 'image/png', data: image } }] : []),
-    ] : [
-      { type: 'text', text: request.prompt },
-      ...(image ? [{ type: 'image_url', image_url: { url: `data:image/png;base64,${image}` } }] : []),
-    ];
-    const payload = claude ? {
-      model: model.trim(), max_tokens: 24000, system: request.instructions,
-      messages: [{ role: 'user', content }], output_config: { format: { type: 'json_schema', schema: responseSchema(request) } },
-    } : {
-      model: model.trim(), max_tokens: 24000,
-      messages: [{ role: 'system', content: request.instructions }, { role: 'user', content }],
-      response_format: { type: 'json_schema', json_schema: { name: 'callmered_iteration', strict: true, schema: responseSchema(request) } },
-    };
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    if (claude) { headers['x-api-key'] = apiKey.trim(); headers['anthropic-version'] = '2023-06-01'; }
-    else headers.Authorization = `Bearer ${apiKey.trim()}`;
-    const response = await requestUrl({ url, method: 'POST', headers, body: JSON.stringify(payload), throw: false });
-    const body = response.json;
-    const usage = body.usage;
-    const input = claude ? (usage?.input_tokens ?? 0) + (usage?.cache_read_input_tokens ?? 0) + (usage?.cache_creation_input_tokens ?? 0) : usage?.prompt_tokens;
-    const normalized: OpenAIResponse = {
-      id: body.id, status: 'completed', output: [{ content: [{ type: 'output_text', text: '' }] }],
-      usage: usage ? {
-        input_tokens: input,
-        output_tokens: claude ? usage.output_tokens : usage.completion_tokens,
-        total_tokens: claude ? input + usage.output_tokens : usage.total_tokens,
-        input_tokens_details: {
-          cached_tokens: claude ? usage.cache_read_input_tokens : usage.prompt_tokens_details?.cached_tokens,
-          cache_write_tokens: claude ? usage.cache_creation_input_tokens : usage.prompt_tokens_details?.cache_write_tokens,
-        },
-      } : undefined,
-    };
-    await request.onUsage?.(calculateUsage(normalized.usage, this.settings), body.id ?? '');
-    if (response.status < 200 || response.status >= 300) throw new Error(t("provider.api_returned", { p0: provider, p1: response.status, p2: response.text.slice(0, 800) }));
-    const stop = claude ? body.stop_reason : body.choices?.[0]?.finish_reason;
-    if (stop === 'max_tokens' || stop === 'length') throw new Error(t("provider.the_llm_response_reached_the_output_token"));
-    if (stop !== (claude ? 'end_turn' : 'stop')) throw new Error(t("provider.the_llm_did_not_complete_its_response", { p0: stop ?? t("provider.no_status") }));
-    const text = claude ? body.content?.filter((c: {type: string}) => c.type === 'text').map((c: {text: string}) => c.text).join('') : body.choices?.[0]?.message?.content;
-    normalized.output = [{ content: [{ type: 'output_text', text: typeof text === 'string' ? text : '' }] }];
-    return { decision: parseModelDecision(normalized), usage: calculateUsage(normalized.usage, this.settings), responseId: body.id ?? '' };
-  }
+  if (settings.provider !== 'openai') throw new Error('The atlas engine supports OpenAI only.');
+  return new OpenAIResponsesProvider(settings);
 }

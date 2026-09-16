@@ -3,7 +3,7 @@
   if(!plugin || plugin.historyBusy)throw Error('Plugin unavailable or busy');
   const root='! P R O/hacksidian/atlas/! hacks/link-e001';
   const results=[];
-  for(const name of ['link-e001.md','Description.ru.md']) {
+  for(const name of ['link-e001.md']) {
     const file=app.vault.getAbstractFileByPath(root+'/'+name);
     if(!file)throw Error('Missing native note '+name);
     const context={app:plugin.app,contentLanguage:'ru',findMarkdownView:()=>({file})};

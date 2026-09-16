@@ -12,15 +12,9 @@ Each language folder contains ten samples, p000.md, and local attachments. Old r
 
 The LLM instruction is to reply in the language of the latest user question, using the interface language only when that language cannot be determined. Content language and font coverage settings do not override this rule. Existing history is not translated. Actual model compliance requires a separate live check.
 
-## Atlas: implemented structure
+## Atlas
 
-Each technique has a shared `<id>.md` card containing technical metadata and separate `Description.ru.md` / `Description.en.md` files. Localized title and group labels are no longer in the common card. Russian descriptions were moved in full, including links and source evidence. All 8,512 existing example, CSS, parameter, and attachment files were preserved byte for byte.
-
-For the 1,395 migrated techniques, English descriptions are marked pending and Markdown.en.md files are still missing. The generator never substitutes Russian for missing English translations. The `translations` command reports completeness per technique: after 16 new bilingual techniques were added concurrently, the current totals are ru: 1,411, en: 16. This is the prepared structure, not a completed English atlas.
-
-The shell, buttons, search, filters, and detail labels are bilingual. `--ui-lang` selects interface and description language; `--lang` selects example language. By default, the generator reads the installed plugin's settings. The plugin saves the effective Obsidian language on startup and settings changes. Without settings, English is used. Explicit CLI arguments take precedence.
-
-CSS, hack.json, identifiers, categories, digest memberships, and assets stay shared. Category and digest names follow the UI language. Live examples use Markdown in the selected language without silently substituting missing translations. See [Live examples](../live-examples.md).
+The atlas is Russian-only: a single `<id>.md` card with technical fields and description, `Markdown.ru.md`, `recipe.css` and `hack.json`. English atlas variants and navigation labels have been removed. Plugin interface localization and language settings remain available.
 
 ## Documentation
 

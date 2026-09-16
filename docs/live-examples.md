@@ -1,7 +1,7 @@
 # Live atlas examples in Obsidian
 
 `hacksidian-live` Markdown code blocks contain a recipe ID. The processor reads
-`Markdown.<language>.md`, `hack.json` and `recipe.css` from that atlas directory.
+`Markdown.ru.md`, `hack.json` and `recipe.css` from that atlas directory.
 It renders content through Obsidian's MarkdownRenderer, without generated HTML pages.
 
 The switch installs/removes a copy of the CSS scoped to one unique sample ID.
@@ -20,7 +20,7 @@ node tools/embed-live-examples.mjs '/path/to/atlas'
 
 This uses the same capability check as the runtime. Coverage and individual reasons
 are written to `! defaults/live-examples-coverage.json` and the companion Markdown
-report. Missing language examples are not silently replaced with another language.
+report. The atlas currently contains Russian content only; plugin interface localization remains independent.
 The script is repeatable and updates only the reserved live-example section.
 
 Validation: plugin typecheck, tests and build; full-source capability scan and

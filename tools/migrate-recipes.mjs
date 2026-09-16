@@ -78,10 +78,10 @@ try {
   const writes=new Map([['recipe.css',result],['hack.json',JSON.stringify(next,null,2)+'\n']]);
   const common=id+'.md';
   writes.set(common,fs.readFileSync(path.join(directory,common),'utf8').replaceAll('recipe.template.css','recipe.css'));
-  for(const name of ['Description.ru.md','Description.en.md']){
+  for(const name of [`${id}.md`]){
    const file=path.join(directory,name);if(!fs.existsSync(file))continue;
    let description=fs.readFileSync(file,'utf8').replaceAll('recipe.template.css','recipe.css').replaceAll('[Шаблон CSS]','[CSS приёма]');
-   const prose=name.includes('.ru.')
+   const prose=true
     ? '## Использование в Obsidian\n\n`recipe.css` — единый CSS приёма. Атлас подключает его без изменений в изолированный пример; кнопка «Применить hack» записывает тот же CSS в целевой сниппет. Дополнительный класс заметки для подключения не нужен. Селекторы самого приёма определяют нужные элементы и режим Obsidian. Повторное применение обновляет блок; Undo возвращает предыдущий CSS.\n\n'
     : '## Usage in Obsidian\n\n`recipe.css` is the single CSS source. The atlas includes it unchanged in an isolated example; Apply hack writes the same CSS to the target snippet. No extra activation class is required. The recipe selectors determine the target elements and Obsidian mode. Applying again updates the block; Undo restores the previous CSS.\n\n';
    description=description.replace(/## (?:Использование в Obsidian|Usage in Obsidian|Using in Obsidian)\n[\s\S]*?(?=\n## |$)/g,prose.trimEnd());

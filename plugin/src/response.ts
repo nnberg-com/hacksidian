@@ -1,6 +1,6 @@
 import { t } from "../i18n";
 import type { RawUsage } from "./cost";
-import type { ModelAction, ModelDecision } from "./types";
+import type { ModelDecision } from "./types";
 
 interface OpenAIResponseContent {
   type?: string;
@@ -15,12 +15,13 @@ export interface OpenAIResponse {
   incomplete_details?: { reason?: string } | null;
   output?: Array<{
     type?: string;
+    status?: string;
+    queries?: string[];
+    results?: Array<{ file_id: string; text: string; score?: number }>;
     content?: OpenAIResponseContent[];
   }>;
   usage?: RawUsage;
 }
-
-const MODEL_ACTIONS = new Set<ModelAction>(["update_css", "switch_coloring", "ask_question", "no_change"]);
 
 function responseSuffix(body: OpenAIResponse): string {
   return body.id ? t("response.response", { p0: body.id }) : "";
@@ -29,14 +30,16 @@ function responseSuffix(body: OpenAIResponse): string {
 function isModelDecision(value: unknown): value is ModelDecision {
   if (!value || typeof value !== "object") return false;
   const candidate = value as Partial<ModelDecision>;
-  return (
-    typeof candidate.action === "string" &&
-    MODEL_ACTIONS.has(candidate.action as ModelAction) &&
-    typeof candidate.message === "string" &&
-    Array.isArray(candidate.modules) && candidate.modules.every(module =>
-      module && typeof module.id === "string" && typeof module.component === "string" && typeof module.css === "string") &&
-    typeof candidate.targetColoring === "string"
-  );
+  if (!['recommend', 'ask_question', 'no_match'].includes(candidate.action ?? '') || typeof candidate.message !== 'string' || !Array.isArray(candidate.recommendations)) return false;
+  if (Object.keys(candidate).some(key => !['action', 'message', 'recommendations'].includes(key))) return false;
+  if (candidate.recommendations.length > 6 || candidate.message.length > 6000) return false;
+  if ((candidate.action === 'recommend') !== (candidate.recommendations.length > 0)) return false;
+  const ids = new Set<string>();
+  return candidate.recommendations.every(item => {
+    if (!item || typeof item.id !== 'string' || !/^[a-z0-9_-]+$/.test(item.id) || ids.has(item.id) || typeof item.reason !== 'string' || typeof item.instructions !== 'string' || item.reason.length > 3000 || item.instructions.length > 3000) return false;
+    if (Object.keys(item).some(key => !['id', 'reason', 'instructions'].includes(key))) return false;
+    ids.add(item.id); return true;
+  });
 }
 
 export function parseModelDecision(body: OpenAIResponse): ModelDecision {

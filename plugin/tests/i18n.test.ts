@@ -51,8 +51,8 @@ test('sample navigation excludes the other language, unlocalized files, assets a
 test('chat instructions prioritize the latest question language and use UI language only as fallback', () => {
   expect(SYSTEM_PROMPT).toContain('language of their latest question');
   expect(SYSTEM_PROMPT).toContain('If that language cannot be determined');
-  const context: PromptContext = {userText: '👍', interfaceLanguage: 'ru', coloringPath: 'en/sample.md', markdown: 'English document', modulesJson: '[]', computedStyles: '', conversation: [], availableColorings: [], compatibleFonts: [], localeLabels: []};
+  const context: PromptContext = {userText: '👍', interfaceLanguage: 'ru', conversation: [], revision: 'test'};
   expect(buildTurnPrompt(context)).toContain('Russian (ru)');
   expect(buildTurnPrompt({...context, interfaceLanguage: 'en', userText: 'Сделай крупнее'})).toContain('English (en)');
-  expect(buildTurnPrompt(context)).toContain('English document');
+  expect(buildTurnPrompt(context)).not.toContain('CSS MODULES');
 });

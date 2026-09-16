@@ -2,10 +2,9 @@ import { describe, expect, it } from "vitest";
 import { parseModelDecision, type OpenAIResponse } from "../src/response";
 
 const decision = {
-  action: "update_css",
+  action: "recommend",
   message: "Готово.",
-  modules: [{ id: "foundation-01", component: "foundation", css: "body { color: black; }" }],
-  targetColoring: "",
+  recommendations: [{ id: "image-round", reason: "Round", instructions: "Open card" }],
 } as const;
 
 describe("parseModelDecision", () => {

@@ -1,8 +1,7 @@
 import type { CallMeRedSettings, PersistedState } from "./types";
 
 export const VIEW_TYPE_CALLMERED = "callmered-conversation";
-export const CSS_UNDO_LIMIT = 50;
-export const PROMPT_VERSION = "poc-8-targeted-snippets";
+export const PROMPT_VERSION = "atlas-1-file-search";
 
 export const DEFAULT_SETTINGS: CallMeRedSettings = {
   interfaceLanguage: "auto",
@@ -11,7 +10,9 @@ export const DEFAULT_SETTINGS: CallMeRedSettings = {
   providerProfiles: {},
   customModel: false,
   autoPricing: true,
-  sendScreenshot: true,
+  sendScreenshot: false,
+  atlasFolder: "! P R O/hacksidian/atlas",
+  globalVariablesFile: ".obsidian/snippets/hacksidian-00-palette.css",
   spendLimitUsd: 0,
   apiKey: "",
   model: "gpt-5.6-terra",
@@ -26,13 +27,5 @@ export const DEFAULT_CSS = `/* Hacksidian starts from Obsidian's default light a
 
 export const DEFAULT_STATE: PersistedState = {
   activeCss: DEFAULT_CSS,
-  versions: [
-    {
-      id: "initial",
-      css: DEFAULT_CSS,
-      createdAt: new Date(0).toISOString(),
-      source: "initial",
-    },
-  ],
   turns: [],
 };

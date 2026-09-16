@@ -1,16 +1,18 @@
 import type { ModularStyle } from "./style-modules";
 
-export type ModelAction = "update_css" | "switch_coloring" | "ask_question" | "no_change";
+export type ModelAction = "recommend" | "no_match" | "update_css" | "switch_coloring" | "ask_question" | "no_change";
 export type SupportedLocale = "ru-Cyrl" | "sr-Cyrl" | "he";
 
+export interface Recommendation { id: string; reason: string; instructions: string }
 export interface ModelDecision {
-  action: ModelAction;
+  action: "recommend" | "ask_question" | "no_match";
   message: string;
-  modules: import("./style-modules").StyleModule[];
-  targetColoring: string;
+  recommendations: Recommendation[];
 }
 
 export interface UsageRecord {
+  fileSearchCalls?: number;
+  fileSearchCostUsd?: number;
   inputTokens: number;
   cachedInputTokens: number;
   outputTokens: number;
@@ -19,6 +21,10 @@ export interface UsageRecord {
 }
 
 export interface TurnRecord {
+  recommendations?: Array<Recommendation & { title: string; path: string; helpUrl?: string; kind: string }>;
+  catalogRevision?: string;
+  searchQueries?: string[];
+  retrievedIds?: string[];
   changedModuleId?: string;
   id: string;
   createdAt: string;
@@ -33,18 +39,9 @@ export interface TurnRecord {
   rawResponseId: string;
 }
 
-export interface CssVersion {
-  style?: ModularStyle;
-  id: string;
-  css: string;
-  createdAt: string;
-  source: "initial" | "model" | "undo" | "recovery" | "hack";
-}
-
 export interface PersistedState {
   style?: ModularStyle;
   activeCss: string;
-  versions: CssVersion[];
   turns: TurnRecord[];
 }
 
@@ -75,6 +72,8 @@ export interface ProviderProfile {
 }
 
 export interface CallMeRedSettings {
+  atlasFolder: string;
+  globalVariablesFile: string;
   interfaceLanguage: import('../i18n').InterfaceLanguage;
   contentLanguage: import('../i18n').ContentLanguage;
   provider: ProviderId;

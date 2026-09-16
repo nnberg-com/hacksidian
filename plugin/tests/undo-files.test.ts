@@ -29,27 +29,16 @@ async function setup(){
  const plugin=new CallMeRedPlugin({} as any,{} as any);
  (plugin as any).refreshView=vi.fn();
  await plugin.loadPluginData();
+ plugin.catalog.active = { revision:'test',createdAt:'now',storeId:'vs_test',documents:[],entries:[{id:'image-round',title:'Rounded',kind:'technique',path:'image-round.md',text:'Rounded photos'}] };
  return plugin;
 }
-test('actual commit and Undo restore all group files, including after plugin reload',async()=>{
- let plugin=await setup();const before=await readFileStyle(dir);expect(before.modules).toHaveLength(22);
- const selected=before.modules[0];await plugin.commitModuleUpdate('test-change',selected.id,selected.css.replace('#110f00','#120f00'));
- expect((await readFileStyle(dir)).modules[0].css).not.toBe(selected.css);
- await plugin.savePluginData();expect(state.data.state.activeCss).toBeUndefined();expect(state.data.state.style).toBeUndefined();
- plugin=new CallMeRedPlugin({} as any,{} as any);(plugin as any).refreshView=vi.fn();
- await plugin.loadPluginData();await plugin.undo();expect(await readFileStyle(dir)).toEqual(before);
- await plugin.undo();expect(await readFileStyle(dir)).toEqual(before);
-});
-test('actual Undo never overwrites a newer manual edit',async()=>{
- const plugin=await setup();const before=await readFileStyle(dir);const m=before.modules[0];
- await plugin.commitModuleUpdate('test-change',m.id,m.css+'\n/* change */\n');
- const file=path.join(dir,'hacksidian-00-palette.css');await writeFile(file,(await readFile(file,'utf8'))+'\n/* manual */\n');
- await expect(plugin.undo()).rejects.toThrow('вручную');expect(await readFile(file,'utf8')).toContain('manual');
-});
-test('old structure is a retained history boundary, not an Undo target',async()=>{
+test('legacy CSS history is discarded on load and save without changing current files',async()=>{
  const plugin=await setup();const before=await readFileStyle(dir);
- plugin.state.versions.unshift({id:'legacy',css:'.markdown-preview-view{}',style:{format:1,modules:[{id:'old',component:'old',css:'.markdown-preview-view{}'}]},createdAt:'2026-01-01',source:'initial'});
- await plugin.undo();expect(await readFileStyle(dir)).toEqual(before);expect(state.notices.at(-1)).toContain('Начало истории');expect(plugin.state.versions[0].id).toBe('legacy');
+ state.data.state={versions:[{id:'legacy',css:'obsolete CSS'}],turns:[{id:'old',cssBefore:'before',cssAfter:'after'}]};
+ await plugin.loadPluginData();await plugin.savePluginData();
+ expect(state.data.state).toEqual({turns:[{id:'old'}]});
+ expect(await readFileStyle(dir)).toEqual(before);
+ expect((plugin as any).undo).toBeUndefined();
 });
 
 test('later loads never seed templates, including when a working snippet was deleted', async()=>{
@@ -60,77 +49,57 @@ test('later loads never seed templates, including when a working snippet was del
  expect(installSnippetTemplates).not.toHaveBeenCalled();
 });
 
-test('retains exactly 50 Undo steps on save and after a new commit', async()=>{
- const plugin=await setup();
- const current=structuredClone(plugin.state.versions.at(-1)!);
- plugin.state.versions=Array.from({length:60},(_,i)=>({...current,id:`version-${i}`}));
- plugin.state.turns=[{id:'old-turn',userText:'Keep conversation',cssBefore:'old',cssAfter:'old'} as any];
- await plugin.savePluginData();
- expect(state.data.state.versions).toHaveLength(51);
- expect(state.data.state.versions[0].id).toBe('version-9');
- expect(state.data.state.turns[0]).toEqual({id:'old-turn',userText:'Keep conversation'});
- const m=plugin.state.style!.modules[0];
- await plugin.commitModuleUpdate('new',m.id,m.css+'\n/* next */\n');
- expect(state.data.state.versions).toHaveLength(51);
- expect(state.data.state.versions[0].id).toBe('version-10');
- const reloaded=new CallMeRedPlugin({} as any,{} as any);
- await reloaded.loadPluginData();
- expect(reloaded.state.versions).toHaveLength(51);
- expect(reloaded.state.versions.at(-1)!.id).toBe('new');
-});
-
-test.each([false,true])('feedback captures only when enabled (%s)', async(sendScreenshot)=>{
+test.each([false,true])('feedback never captures the page despite legacy preference (%s)', async(sendScreenshot)=>{
  const plugin=await setup();
  plugin.settings.sendScreenshot=sendScreenshot;plugin.settings.autoPricing=false;
  vi.mocked(captureReadingView).mockClear();
  vi.spyOn(plugin,'getCurrentColoringContext').mockResolvedValue({file:{path:'test.md'},view:{getMode:()=> 'preview',containerEl:{}},markdown:'Test'} as any);
  vi.spyOn(plugin as any,'getColoringFiles').mockReturnValue([]);
  vi.spyOn(plugin,'getCompatibleFonts').mockResolvedValue({families:[]} as any);
- const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({decision:{action:'no_change',message:'',modules: [],targetColoring:''},usage:{inputTokens:0,cachedInputTokens:0,outputTokens:0,totalTokens:0,estimatedCostUsd:0},responseId:'test'});
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({retrievedIds:[],searchQueries:[],decision:{action:'no_match',message:'',recommendations:[]},usage:{inputTokens:0,cachedInputTokens:0,outputTokens:0,totalTokens:0,estimatedCostUsd:0},responseId:'test'});
  try {
   await plugin.processFeedback('Test',()=>{});
-  expect(captureReadingView).toHaveBeenCalledTimes(sendScreenshot ? 1 : 0);
-  expect(create.mock.calls[0][0].screenshotBase64).toBe(sendScreenshot ? 'image-base64' : undefined);
+  expect(captureReadingView).not.toHaveBeenCalled();
+  expect(create.mock.calls[0][0]).not.toHaveProperty('screenshotBase64');
+  expect(create.mock.calls[0][0].prompt).not.toContain('Test document');
  } finally { create.mockRestore(); }
 });
 
-test('settings survive reload and existing installs default to screenshots enabled', async()=>{
+test('settings survive reload and legacy screenshots are disabled', async()=>{
  const plugin=await setup();
- expect(plugin.settings.sendScreenshot).toBe(true);
+ expect(plugin.settings.sendScreenshot).toBe(false);
  plugin.settings.sendScreenshot=false;plugin.settings.model='custom-model';plugin.settings.apiKey='test-key';
  await plugin.savePluginData();
  const reloaded=new CallMeRedPlugin({} as any,{} as any);await reloaded.loadPluginData();
  expect(reloaded.settings).toMatchObject({sendScreenshot:false,model:'custom-model',apiKey:'test-key'});
 });
 
-test('clear history removes chat and Undo persistently without changing style or settings',async()=>{
+test('clear history removes chat and API history persistently without changing style or settings',async()=>{
  const plugin=await setup();
- const m=plugin.state.style!.modules[0];await plugin.commitModuleUpdate('before-clear',m.id,m.css+'\n/* change */\n');
  plugin.state.turns=[{id:'chat',userText:'old chat'} as any];
+ plugin.apiAttempts=[{id:'paid',status:'failed',usage:{totalTokens:10,estimatedCostUsd:0.1}} as any];
  const style=await readFileStyle(dir),settings=structuredClone(plugin.settings);
  await plugin.clearHistory();
- expect(plugin.state.turns).toEqual([]);expect(plugin.state.versions).toHaveLength(1);
+ expect(plugin.apiAttempts).toEqual([]);expect((plugin as any).refreshView).toHaveBeenLastCalledWith(true);
+ expect(plugin.state.turns).toEqual([]);
  expect(plugin.settings).toEqual(settings);expect(await readFileStyle(dir)).toEqual(style);
  const reloaded=new CallMeRedPlugin({} as any,{} as any);(reloaded as any).refreshView=vi.fn();
- await reloaded.loadPluginData();expect(reloaded.state.turns).toEqual([]);expect(reloaded.state.versions).toHaveLength(1);
- await reloaded.undo();expect(await readFileStyle(dir)).toEqual(style);
- const next=style.modules[0];await reloaded.commitModuleUpdate('after-clear',next.id,next.css+'\n/* next */\n');
- await reloaded.undo();expect(await readFileStyle(dir)).toEqual(style);expect(reloaded.state.versions).toHaveLength(1);
+ await reloaded.loadPluginData();expect(reloaded.apiAttempts).toEqual([]);expect(reloaded.state.turns).toEqual([]);
 });
 
 test('clear history refuses during an active operation and preserves history on save failure',async()=>{
  const plugin=await setup();plugin.state.turns=[{id:'keep'} as any];
+ const attempts=[{id:'keep-cost',status:'failed'} as any];plugin.apiAttempts=attempts;
  (plugin as any).historyBusy=true;
  await expect(plugin.clearHistory()).rejects.toThrow('Дождитесь');
  expect(plugin.state.turns).toHaveLength(1);
  (plugin as any).historyBusy=false;
- const versions=structuredClone(plugin.state.versions);
  vi.spyOn(plugin,'savePluginData').mockRejectedValueOnce(new Error('disk error'));
  await expect(plugin.clearHistory()).rejects.toThrow('disk error');
- expect(plugin.state.turns).toHaveLength(1);expect(plugin.state.versions).toEqual(versions);
+ expect(plugin.state.turns).toHaveLength(1);expect(plugin.apiAttempts).toBe(attempts);
 });
 
-test('direct hack application changes only its group, records Undo and never calls an LLM',async()=>{
+test('direct hack application changes only its group, does not retain CSS history or call an LLM',async()=>{
  const plugin=await setup();const before=await readFileStyle(dir);
  (plugin as any).app={vault:{configDir:'.obsidian',adapter:{read:async()=>readFile(path.join(dir,'hacksidian-manifest.json'),'utf8')}}};
  vi.spyOn(plugin,'getCurrentHack').mockResolvedValue({id:'text-demo',title:'Demo',path:'atlas/! hacks/text-demo/text-demo.md',spec:{format:2,target:'g-text',hasCss:true},css:'.markdown-preview-view p {letter-spacing:.02em}'});
@@ -138,8 +107,8 @@ test('direct hack application changes only its group, records Undo and never cal
  try{
   expect(await plugin.applyCurrentHack('atlas/! hacks/text-demo/text-demo.md')).toBe(true);
   const after=await readFileStyle(dir);expect(after.modules.filter((m,i)=>m.css!==before.modules[i].css).map(m=>m.id)).toEqual(['g-text']);
-  const n=plugin.state.versions.length;expect(await plugin.applyCurrentHack('atlas/! hacks/text-demo/text-demo.md')).toBe(false);expect(plugin.state.versions).toHaveLength(n);
-  expect(create).not.toHaveBeenCalled();await plugin.undo();expect(await readFileStyle(dir)).toEqual(before);
+  expect(await plugin.applyCurrentHack('atlas/! hacks/text-demo/text-demo.md')).toBe(false);
+  expect(state.data.state.versions).toBeUndefined();expect(create).not.toHaveBeenCalled();
  }finally{create.mockRestore();}
 });
 
@@ -157,13 +126,12 @@ test('interface and content languages persist independently across plugin reload
  expect(reloaded.contentLanguage).toBe('ru');
 });
 
-test('installed recipe cannot be reapplied; disable and enable both support Undo', async () => {
+test('installed recipe cannot be reapplied; disable and enable preserve the other snippets', async () => {
  const plugin = await setup();
- const { compileStyle } = await import('../src/style-modules');
  const current = await readFileStyle(dir);
  const old = structuredClone(current);
  old.modules.find(m => m.id === 'g-task')!.css += '\n/* hacksidian:hack:task-e30:start */\n.callmered-coloring.markdown-preview-view > ul {display:flex}\n/* hacksidian:hack:task-e30:end */\n';
- await (plugin as any).commitCssVersion('old-task-e30', compileStyle(old), 'hack', old);
+ await (plugin as any).saveAppliedStyle(old);
  const recipe = '/Users/op/vaults/op/! P R O/hacksidian/atlas/! hacks/task-e30';
  const hack = { id: 'task-e30', title: 'Completed last', path: 'atlas/! hacks/task-e30/task-e30.md',
   spec: JSON.parse(await readFile(path.join(recipe, 'hack.json'), 'utf8')),
@@ -171,7 +139,6 @@ test('installed recipe cannot be reapplied; disable and enable both support Undo
  (plugin as any).app = { vault: { configDir: '.obsidian', adapter: { read: async () => readFile(path.join(dir, 'hacksidian-manifest.json'), 'utf8') } } };
  vi.spyOn(plugin, 'getCurrentHack').mockResolvedValue(hack);
  expect(await plugin.applyCurrentHack(hack.path)).toBe(false);
- expect(await readFileStyle(dir)).toEqual(old);
  expect(await plugin.applyCurrentHack(hack.path, false)).toBe(true);
  const disabled = await readFileStyle(dir);
  expect(disabled.modules.find(m => m.id === 'g-task')!.css).not.toContain('hacksidian:hack:task-e30:start');
@@ -179,14 +146,12 @@ test('installed recipe cannot be reapplied; disable and enable both support Undo
  expect(await plugin.applyCurrentHack(hack.path)).toBe(true);
  const updated = await readFileStyle(dir);
  expect(updated.modules.find(m => m.id === 'g-task')!.css).toContain('ul.contains-task-list');
+ expect(updated.modules.filter(m=>m.id!=='g-task')).toEqual(current.modules.filter(m=>m.id!=='g-task'));
+ expect(state.data.state.versions).toBeUndefined();
  expect(await plugin.applyCurrentHack(hack.path)).toBe(false);
- await plugin.undo();
- expect(await readFileStyle(dir)).toEqual(disabled);
- await plugin.undo();
- expect(await readFileStyle(dir)).toEqual(old);
 });
 
-test('paid failures survive clear history and reload; a spending threshold stops another API call',async()=>{
+test('paid failures are tracked and enforce the spending limit until history is cleared',async()=>{
  const plugin=await setup();
  plugin.settings.autoPricing=false;plugin.settings.sendScreenshot=false;
  vi.spyOn(plugin,'getCurrentColoringContext').mockResolvedValue({file:{path:'test.md'},view:{getMode:()=> 'preview',containerEl:{}},markdown:'test'} as any);
@@ -201,31 +166,34 @@ test('paid failures survive clear history and reload; a spending threshold stops
  await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('Invalid paid CSS');
  expect(plugin.state.turns).toHaveLength(0);expect(plugin.totalUsage().estimatedCostUsd).toBe(0.1);
  expect(state.data.apiAttempts[0].status).toBe('failed');
- await plugin.clearHistory();await plugin.loadPluginData();expect(plugin.totalUsage().estimatedCostUsd).toBe(0.1);
+ await plugin.loadPluginData();expect(plugin.totalUsage().estimatedCostUsd).toBe(0.1);
  plugin.settings.spendLimitUsd=0.05;create.mockClear();
  await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('Лимит');expect(create).not.toHaveBeenCalled();
+ await plugin.clearHistory();await plugin.loadPluginData();expect(plugin.apiAttempts).toEqual([]);expect(plugin.totalUsage().estimatedCostUsd).toBe(0);
+ await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('Invalid paid CSS');expect(create).toHaveBeenCalledOnce();
  create.mockRestore();
 });
 
-test('a model changes multiple snippets freely; Undo restores source and concurrent edits are not overwritten',async()=>{
- const plugin=await setup();const before=await readFileStyle(dir), module=before.modules[0];
- plugin.settings.autoPricing=false;plugin.settings.sendScreenshot=false;
- vi.spyOn(plugin,'getCurrentColoringContext').mockResolvedValue({file:{path:'test.md'},view:{getMode:()=> 'preview',containerEl:{}},markdown:'test'} as any);
- vi.spyOn(plugin,'getCompatibleFonts').mockResolvedValue({families:['Arial']} as any);
- vi.spyOn(plugin as any,'getColoringFiles').mockReturnValue([]);
- const nextModules=before.modules.map((m,i)=>({...m,css:i===0 ? m.css.replace('#110f00','#120f00') : i===1 ? 'body a { text-decoration-style: wavy; }\n.callmered-panel { border: 1px solid red; }' : m.css}));
- const result={decision:{action:'update_css' as const,message:'done',modules:nextModules.slice(0,2),targetColoring:''},usage:{inputTokens:100,cachedInputTokens:0,outputTokens:10,totalTokens:110,estimatedCostUsd:0.1},responseId:'patch'};
+test('recommendation leaves all CSS unchanged; legacy mutation responses fail safely',async()=>{
+ const plugin=await setup();const before=await readFileStyle(dir);
+ plugin.settings.autoPricing=false;
+ const result={decision:{action:'recommend' as const,message:'Found',recommendations:[{id:'image-round',reason:'Rounds photos',instructions:'Open card'}]},retrievedIds:['image-round'],searchQueries:['round photos'],usage:{inputTokens:100,cachedInputTokens:0,outputTokens:10,totalTokens:110,estimatedCostUsd:0.1},responseId:'recommendation'};
  const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue(result);
- await plugin.processFeedback('test',()=>{});
- expect((await readFileStyle(dir)).modules[0].css).toBe(module.css.replace('#110f00','#120f00'));
- expect(plugin.apiAttempts[0].status).toBe('completed');
- expect((await readFileStyle(dir)).modules[1].css).toContain('text-decoration-style: wavy');
- create.mockImplementationOnce(async()=>{await writeFile(path.join(dir,JSON.parse(await readFile(path.join(dir,'hacksidian-manifest.json'),'utf8')).modules[0].file),module.css+'\n/* manual */'); return result;});
- await expect(plugin.processFeedback('stale',()=>{})).rejects.toThrow();
- expect(plugin.totalUsage().estimatedCostUsd).toBe(0.2);expect(plugin.apiAttempts[1].status).toBe('failed');
- await writeFile(path.join(dir,JSON.parse(await readFile(path.join(dir,'hacksidian-manifest.json'),'utf8')).modules[0].file),module.css.replace('#110f00','#120f00'));
- await plugin.undo();expect(await readFileStyle(dir)).toEqual(before);
- create.mockRestore();
+ try {
+  await plugin.processFeedback('Round photos',()=>{});
+  expect(await readFileStyle(dir)).toEqual(before);
+  expect(plugin.state.turns[0].recommendations?.[0].path).toBe('image-round.md');
+  expect(plugin.state.turns[0].catalogRevision).toBe('test');
+  create.mockResolvedValueOnce({...result,decision:{action:'update_css',modules:before.modules,message:'changed'}} as any);
+  await expect(plugin.processFeedback('legacy',()=>{})).rejects.toThrow();
+  expect(await readFileStyle(dir)).toEqual(before);expect(plugin.apiAttempts[1].status).toBe('failed');
+ } finally {create.mockRestore();}
+});
+
+test('missing catalog prevents a paid request',async()=>{
+ const plugin=await setup();delete plugin.catalog.active;
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration');
+ try {await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('каталог');expect(create).not.toHaveBeenCalled();} finally {create.mockRestore();}
 });
 
 test('font scan status is emitted only for a new scan, forced refresh or changed languages',async()=>{
@@ -261,4 +229,24 @@ test('page title uses rendered H1 and evaluates a pending Dataview heading witho
   expect(await plugin.getCurrentPage()).toEqual({path:file.path,title:'hacksidian ситуативный груминг Obsidian'});
   expect(evaluate).toHaveBeenCalledWith(expr,{this:page},file.path);
  } finally {vi.unstubAllGlobals();}
+});
+
+test('standard settings receive verified menu instructions instead of an invented Apply action',async()=>{
+ const plugin=await setup();plugin.settings.autoPricing=false;
+ plugin.catalog.active!.entries=[{id:'setting-accent',kind:'setting',title:'Accent',path:'',text:'Accent',menuPath:'Settings → Appearance → Accent color',helpUrl:'https://obsidian.md/help/settings'}];
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({decision:{action:'recommend',message:'Press Apply',recommendations:[{id:'setting-accent',reason:'Change accent color',instructions:'Open the card and press Apply'}]},retrievedIds:['setting-accent'],searchQueries:[],usage:{inputTokens:1,cachedInputTokens:0,outputTokens:1,totalTokens:2,estimatedCostUsd:0.001},responseId:'setting'});
+ try {
+  await plugin.processFeedback('accent',()=>{});
+  expect(plugin.state.turns[0].systemMessage).not.toContain('Apply');
+  expect(plugin.state.turns[0].recommendations![0].instructions).toContain('Settings → Appearance → Accent color');
+  expect(plugin.state.turns[0].recommendations![0].instructions).not.toContain('Apply');
+ }finally{create.mockRestore();}
+});
+
+
+test('catalog link opens the index inside the configured atlas folder',async()=>{
+ const plugin=await setup();const openLinkText=vi.fn(async()=>{});
+ (plugin as any).app={workspace:{openLinkText}};
+ plugin.settings.atlasFolder='custom atlas/';await plugin.openCatalog();
+ expect(openLinkText).toHaveBeenCalledWith('custom atlas/atlas.md','',true);
 });

@@ -11,6 +11,6 @@ for(const [id,original]of Object.entries(before)){
  tree.walkDecls(d=>{for(const m of d.value.matchAll(/var\(\s*(--[\w-]+)/g)){assert.notEqual(d.prop,m[1],id+' self reference');if(m[1].startsWith('--hack-'+id+'-'))assert(declared.has(m[1]),id+' missing '+m[1]);}});
  postcss.parse(fs.readFileSync(path.join(dir,'Default.css'),'utf8')).walkDecls(d=>{assert(exact.has(key(d)),id+' fabricated default '+key(d));decls++;});
  assert.equal(baseline.defaultRole,'reference-only');
- for(const lang of ['ru','en'])assert(fs.readFileSync(path.join(dir,`Description.${lang}.md`),'utf8').includes('./Default.css'));
+ for(const lang of ['ru'])assert(fs.readFileSync(path.join(dir,`${id}.md`),'utf8').includes('./Default.css'));
 }
 console.log(JSON.stringify({recipes:count,changedRecipesThisPass:changed,verifiedStockDeclarations:decls,status},null,2));

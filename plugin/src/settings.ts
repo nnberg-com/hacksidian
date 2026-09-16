@@ -1,10 +1,8 @@
 import { t, numberLocale } from "../i18n";
 import { App, Notice, PluginSettingTab, Setting, type TextComponent } from "obsidian";
-import { PROVIDERS, switchProvider } from "./llm-catalog";
+import { PROVIDERS } from "./llm-catalog";
 import { formatCost } from "./cost";
 import { pricingKey } from "./pricing";
-import type { ProviderId } from "./types";
-import { LOCALE_OPTIONS } from "./fonts";
 import type CallMeRedPlugin from "./main";
 
 export class CallMeRedSettingTab extends PluginSettingTab {
@@ -37,22 +35,22 @@ export class CallMeRedSettingTab extends PluginSettingTab {
           await this.plugin.savePluginData();
         }));
 
-    new Setting(containerEl)
-      .setName(t("settings.send_a_page_screenshot_to_the_llm"))
-      .setDesc(t("settings.turn_off_to_save_tokens_the_model"))
-      .addToggle((toggle) => toggle.setValue(this.plugin.settings.sendScreenshot).onChange(async (enabled) => {
-        this.plugin.settings.sendScreenshot = enabled;
-        await this.plugin.savePluginData();
-      }));
-
-    containerEl.createEl("h3", { text: "LLM" });
-    new Setting(containerEl).setName(t("settings.provider"))
-      .addDropdown(dropdown => dropdown.addOptions(Object.fromEntries(Object.entries(PROVIDERS).map(([id, p]) => [id, p.name])))
-        .setValue(this.plugin.settings.provider).onChange(async value => {
-          switchProvider(this.plugin.settings, value as ProviderId);
-          await this.plugin.savePluginData();
-          this.display();
-        }));
+    containerEl.createEl("h3", { text: t('catalog.heading') });
+    new Setting(containerEl).setName(t('catalog.folder')).addText(input => input.setValue(this.plugin.settings.atlasFolder).onChange(async value => {
+      this.plugin.settings.atlasFolder = value.trim(); await this.plugin.savePluginData();
+    }));
+    new Setting(containerEl).setName(t('catalog.variables')).addText(input => input.setValue(this.plugin.settings.globalVariablesFile).onChange(async value => {
+      this.plugin.settings.globalVariablesFile = value.trim(); await this.plugin.savePluginData();
+    }));
+    const catalogStatus = containerEl.createDiv({ text: this.plugin.catalogStatus(), cls: 'setting-item-description' });
+    new Setting(containerEl).setName(t('catalog.update')).setDesc(t('catalog.description')).addButton(button => button.setButtonText(t('catalog.update')).onClick(async () => {
+      button.setDisabled(true);
+      try { await this.plugin.updateCatalog(message => catalogStatus.setText(message)); }
+      catch (error) { catalogStatus.setText(String(error)); }
+      finally { button.setDisabled(false); }
+    }));
+    containerEl.createDiv({ text: t('catalog.storage_cost'), cls: 'setting-item-description' });
+    containerEl.createEl("h3", { text: "OpenAI" });
     new Setting(containerEl)
       .setName(t("settings.api_key"))
       .setDesc(t("settings.key_for_provider_keys_are_stored_separately", { p0: PROVIDERS[this.plugin.settings.provider].name }))
@@ -185,52 +183,17 @@ export class CallMeRedSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl).setName(t("settings.clear_history"))
-      .setDesc(t("settings.deletes_the_entire_chat_and_all_undo"))
+      .setDesc(t("settings.clear_history_description"))
       .addButton(button => button.setButtonText(t("settings.clear_history")).setWarning().onClick(async () => {
         button.setDisabled(true);
         try {
           await this.plugin.clearHistory();
+          this.display();
           new Notice(t("settings.hacksidian_history_cleared"));
         } catch (error) {
           new Notice(error instanceof Error ? error.message : String(error));
         } finally { button.setDisabled(false); }
       }));
 
-    containerEl.createEl("h3", { text: t("settings.font_coverage_languages") });
-    containerEl.createEl("p", {
-      text: t("settings.the_llm_can_select_only_installed_fonts"),
-    });
-    for (const locale of LOCALE_OPTIONS) {
-      new Setting(containerEl).setName(locale.label).addToggle((toggle) =>
-        toggle.setValue(this.plugin.settings.supportedLocales.includes(locale.id)).onChange(async (enabled) => {
-          const selected = new Set(this.plugin.settings.supportedLocales);
-          enabled ? selected.add(locale.id) : selected.delete(locale.id);
-          if (selected.size === 0) {
-            toggle.setValue(true);
-            new Notice(t("settings.select_at_least_one_locale"));
-            return;
-          }
-          this.plugin.settings.supportedLocales = [...selected];
-          await this.plugin.savePluginData();
-          void this.updateFontStatus(fontStatus, true);
-        }),
-      );
-    }
-
-    const fontStatus = containerEl.createDiv({ cls: "setting-item-description" });
-    void this.updateFontStatus(fontStatus);
   }
-
-  private async updateFontStatus(element: HTMLElement, force = false): Promise<void> {
-    element.setText(t("settings.looking_for_compatible_installed_fonts"));
-    try {
-      const result = await this.plugin.getCompatibleFonts(force);
-      element.setText(
-        t("settings.compatible_families_found_files_checked", { p0: result.families.length, p1: result.scannedFiles }),
-      );
-    } catch (error) {
-      element.setText(error instanceof Error ? error.message : String(error));
-    }
-  }
-
 }

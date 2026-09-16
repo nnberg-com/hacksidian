@@ -16,8 +16,8 @@ for(const id of fs.readdirSync(path.join(atlas,'! hacks')).sort()){
  const group=JSON.parse(fs.readFileSync(path.join(dir,'hack.json'),'utf8')).group;
  const css=fs.readFileSync(path.join(dir,'recipe.css'),'utf8');const languages={},reasons=[];
  let title=id;
- for(const lang of ['ru','en']){
-  const desc=path.join(dir,`Description.${lang}.md`),sample=path.join(dir,`Markdown.${lang}.md`);
+ for(const lang of ['ru']){
+  const desc=path.join(dir,`${id}.md`),sample=path.join(dir,`Markdown.${lang}.md`);
   if(!fs.existsSync(desc))continue;
   let text=fs.readFileSync(desc,'utf8');if(lang==='ru')title=text.match(/^title:\s*(.+)$/m)?.[1]?.replace(/^['"]|['"]$/g,'')||id;
   const issue=fs.existsSync(sample)?api.liveExampleIssue(group,fs.readFileSync(sample,'utf8'),css):'Нет Markdown-примера на этом языке.';
@@ -40,10 +40,9 @@ let summary=`# Живые примеры — покрытие\n\nВсего: ${r
 let index='# Живые примеры\n\nОткройте карточку в режиме чтения: живой пример находится в начале. «С приёмом» включает и выключает CSS; ширину области можно менять, длинные примеры прокручиваются. Чекбоксы меняют только состояние примера.\n\n[Покрытие и отложенные приёмы](./!%20defaults/Живые%20примеры%20—%20покрытие.md)\n\n';
 for(const [group,items] of Object.entries(groups)){
  const yes=items.filter(x=>x.languages.ru);summary+=`| ${names[group]||group} | ${yes.length} | ${items.length-yes.length} |\n`;
- if(yes.length){index+=`## ${names[group]||group}\n\n`;for(const r of yes)index+=`- [${r.title.replaceAll('[','').replaceAll(']','')}](./!%20hacks/${r.id}/Description.ru.md)\n`;index+='\n';}
+ if(yes.length){index+=`## ${names[group]||group}\n\n`;for(const r of yes)index+=`- [${r.title.replaceAll('[','').replaceAll(']','')}](./!%20hacks/${r.id}/${r.id}.md)\n`;index+='\n';}
 }
-summary+='\n## Отложенные приёмы\n\n';for(const r of deferred)summary+=`- [${r.title.replaceAll('[','').replaceAll(']','')}](../!%20hacks/${r.id}/Description.ru.md) (${r.id}): ${r.reasons.filter(s=>s.startsWith('ru:')).map(s=>s.slice(4)).join('; ')}\n`;
-summary+='\n## Языковые варианты\n\nАнглийские примеры подключаются только при наличии Markdown.en.md. На момент прохода таких файлов нет; существующие русские примеры используются без подмены языка. Подробные статусы сохранены в live-examples-coverage.json.\n';
+summary+='\n## Отложенные приёмы\n\n';for(const r of deferred)summary+=`- [${r.title.replaceAll('[','').replaceAll(']','')}](../!%20hacks/${r.id}/${r.id}.md) (${r.id}): ${r.reasons.filter(s=>s.startsWith('ru:')).map(s=>s.slice(4)).join('; ')}\n`;
 fs.writeFileSync(path.join(notes,'Живые примеры — покрытие.md'),summary);
 fs.writeFileSync(path.join(atlas,'Живые примеры.md'),index);
-console.log(JSON.stringify({total:report.length,enabled:enabled.length,deferred:deferred.length,english:report.filter(x=>x.languages.en).length}));
+console.log(JSON.stringify({total:report.length,enabled:enabled.length,deferred:deferred.length}));

@@ -1,14 +1,14 @@
 import { t, numberLocale, currentLanguage } from "../i18n";
-import { ItemView, Notice, WorkspaceLeaf, setIcon } from "obsidian";
+import { ItemView, Notice, WorkspaceLeaf } from "obsidian";
 import { formatCost } from "./cost";
 import { VIEW_TYPE_CALLMERED } from "./constants";
 import type CallMeRedPlugin from "./main";
 
 export class ConversationView extends ItemView {
+  private catalogEl?: HTMLElement;
   private hackEl!: HTMLElement;
   private hackPath: string | null = null;
   private hackRenderKey: string | null = null;
-  private hackResultEl!: HTMLElement;
   private refreshId = 0;
   private pageObserver?: MutationObserver;
   private observedPage: HTMLElement | null = null;
@@ -50,19 +50,20 @@ export class ConversationView extends ItemView {
     this.hackEl = this.contentEl.createDiv({ cls: "hacksidian-page-context" });
 
     const toolbar = this.contentEl.createDiv({ cls: "callmered-toolbar" });
-    this.toolbarButtons = [
-      this.iconButton("file-symlink", t("view.next_sample"), () => void this.plugin.openNextColoring()),
-      this.iconButton("undo-2", t("view.undo"), () => void this.plugin.undo()),
-    ];
-    for (const button of this.toolbarButtons) toolbar.appendChild(button);
+    this.toolbarButtons = [];
     this.copyButton = toolbar.createEl("button", { text: t("view.copy_conversation") });
     this.copyButton.addEventListener("click", () => void this.copyConversation());
 
-    this.statusEl = this.contentEl.createDiv({ cls: "callmered-status", text: t("view.ready") });
-    this.statusEl.setAttribute("role", "status");
-    this.statusEl.setAttribute("aria-live", "polite");
-    this.hackResultEl = this.contentEl.createDiv({ cls: "hacksidian-hack-result" });
-    this.hackResultEl.setAttribute("role", "status");
+    this.catalogEl = this.contentEl.createDiv({ cls: "setting-item-description" });
+    const updateCatalog = toolbar.createEl('button', { text: t('catalog.update') });
+    this.toolbarButtons.push(updateCatalog);
+    updateCatalog.addEventListener('click', async () => {
+      if (this.busy) return;
+      this.setStatus(t('catalog.collecting'), true);
+      try { await this.plugin.updateCatalog(message => this.setStatus(message, true)); this.setStatus(this.plugin.catalogStatus()); }
+      catch (error) { this.setStatus(String(error)); }
+      await this.refresh();
+    });
     this.conversationEl = this.contentEl.createDiv({ cls: "callmered-conversation" });
     this.usageEl = this.contentEl.createDiv({ cls: "callmered-usage" });
 
@@ -95,14 +96,17 @@ export class ConversationView extends ItemView {
     });
     this.submitButton.addEventListener("click", () => void this.submit());
 
+    this.statusEl = this.contentEl.createDiv({ cls: "callmered-status", text: t("view.ready") });
+    this.statusEl.setAttribute("role", "status");
+    this.statusEl.setAttribute("aria-live", "polite");
+
     await this.refresh();
   }
 
   async refreshLanguage(): Promise<void> {
     // Update in place: preserve the draft, pending request and keyboard handlers.
-    this.toolbarButtons[0]?.setAttribute("aria-label", t("view.next_sample"));
-    this.toolbarButtons[1]?.setAttribute("aria-label", t("view.undo"));
     this.copyButton.setText(t("view.copy_conversation"));
+    this.toolbarButtons[0]?.setText(t("catalog.update"));
     this.inputEl.placeholder = t("view.request_placeholder");
     this.inputEl.setAttribute("aria-label", t("view.request_placeholder"));
     this.submitButton.title = t("view.send_enter");
@@ -138,6 +142,17 @@ export class ConversationView extends ItemView {
   async refresh(): Promise<void> {
     if (!this.hackEl) return;
     const refreshId = ++this.refreshId;
+    if (this.catalogEl) {
+      this.catalogEl.empty();
+      const label = t('catalog.title');
+      const link = this.catalogEl.createEl('a', { text: label, href: '#', cls: 'internal-link' });
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        void this.plugin.openCatalog().catch(error => new Notice(String(error)));
+      });
+      const status = this.plugin.catalogStatus();
+      this.catalogEl.createEl('span', { text: status.startsWith(`${label}:`) ? status.slice(label.length) : `: ${status}` });
+    }
     this.observePageTitle();
     const page = await this.plugin.getCurrentPage();
     let hack;
@@ -151,10 +166,11 @@ export class ConversationView extends ItemView {
       this.hackRenderKey = renderKey;
       this.hackEl.empty();
       this.hackPath = hack?.path ?? null;
-      const heading = this.hackEl.createDiv({ cls: "hacksidian-page-heading" });
-      heading.createDiv({ cls: "hacksidian-page-title", text: page?.title || hack?.title || t("view.no_page"),
-        attr: { title: page?.path ?? "" } });
+      this.hackEl.style.display = hack ? "" : "none";
       if (hack) {
+        const heading = this.hackEl.createDiv({ cls: "hacksidian-page-heading" });
+        heading.createDiv({ cls: "hacksidian-page-title", text: page?.title || hack?.title || t("view.no_page"),
+          attr: { title: page?.path ?? "" } });
         const actions = heading.createDiv({ cls: "hacksidian-page-actions" });
         const button = actions.createEl("button", { text: t(hack.installed ? "view.disable_hack" : "view.apply_hack"), cls: "mod-cta" });
         button.dataset.noCss = String(!hack.spec.hasCss && !hack.installed);
@@ -174,17 +190,34 @@ export class ConversationView extends ItemView {
         cls: "callmered-turn-usage",
         text: t("view.tokens", { p0: turn.usage.totalTokens.toLocaleString(numberLocale()), p1: formatCost(turn.usage.estimatedCostUsd) }),
       });
-      if (turn.systemMessage) {
+      if (turn.systemMessage || turn.recommendations?.length) {
         const system = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-system" });
         system.createDiv({ text: turn.systemMessage });
+        for (const recommendation of turn.recommendations ?? []) {
+          const item = system.createDiv({ cls: 'hacksidian-recommendation' });
+          if (recommendation.path) {
+            const link = item.createEl('a', { text: recommendation.title, href: '#', cls: 'internal-link' });
+            link.addEventListener('click', event => { event.preventDefault(); void this.plugin.openRecommendation(recommendation).catch(error => new Notice(String(error))); });
+          } else item.createEl('strong', { text: recommendation.title });
+          item.createDiv({ text: recommendation.reason });
+          item.createDiv({ text: recommendation.instructions });
+          if (recommendation.kind === 'variable') item.createEl('code', { text: recommendation.path });
+          if (recommendation.helpUrl) item.createEl('a', { text: t('catalog.help'), href: recommendation.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
+        }
+        if (turn.catalogRevision) system.createDiv({ cls: 'setting-item-description', text: t('catalog.answer_version', { p0: turn.catalogRevision.slice(0,8) }) });
       }
     }
 
     const usage = this.plugin.totalUsage();
     const spending = this.plugin.spendingSummary();
     this.usageEl.setText(
-      t("view.api_tokens", { p0: usage.totalTokens.toLocaleString(numberLocale()), p1: formatCost(usage.estimatedCostUsd) }) + " · " + t("ledger.summary", { p0: spending.count, p1: spending.knownCostUsd.toFixed(6), p2: spending.unknownCount }),
+      t("view.api_tokens", { p0: usage.totalTokens.toLocaleString(numberLocale()), p1: formatCost(usage.estimatedCostUsd) }) + " · " + t("ledger.summary", { p0: spending.count, p1: spending.knownCostUsd.toFixed(2) }),
     );
+  }
+
+  resetHistoryStatus(): void {
+    this.pendingText = null;
+    this.setStatus(t("view.ready"));
   }
 
   setStatus(message: string, busy = false): void {
@@ -203,25 +236,13 @@ export class ConversationView extends ItemView {
   private async applyHack(path = this.hackPath, enabled = true): Promise<void> {
     if (!path || this.busy) return;
     try {
-      this.hackResultEl.setText(t(enabled ? "view.applying_technique_css" : "view.disabling_technique_css"));
       this.setStatus(t(enabled ? "view.applying_technique_css" : "view.disabling_technique_css"), true);
       const changed = await this.plugin.applyCurrentHack(path, enabled);
-      this.setStatus(enabled ? (changed ? t("view.hack_applied_you_can_revert_it_with") : t("view.hack_is_already_applied")) : t("view.hack_disabled"));
+      this.setStatus(enabled ? (changed ? t("view.hack_applied") : t("view.hack_is_already_applied")) : t("view.hack_disabled"));
     } catch (error) {
       this.setStatus(error instanceof Error ? error.message : String(error));
     }
-    this.hackResultEl.setText(this.statusEl.textContent ?? "");
     await this.refresh();
-  }
-
-  private iconButton(icon: string, label: string, action: () => void): HTMLButtonElement {
-    const button = document.createElement("button");
-    button.className = "clickable-icon";
-    button.setAttribute("aria-label", label);
-    button.setAttribute("data-tooltip-position", "bottom");
-    setIcon(button, icon);
-    button.addEventListener("click", action);
-    return button;
   }
 
   private async copyConversation(): Promise<void> {
@@ -231,7 +252,7 @@ export class ConversationView extends ItemView {
 ${turn.userText}`,
       ...(turn.systemMessage ? [`## Hacksidian
 
-${turn.systemMessage}`] : []),
+${turn.systemMessage}\n${(turn.recommendations ?? []).map(item => `${item.title}: ${item.reason}\n${item.instructions}\n${item.path || item.helpUrl || ""}`).join("\n\n")}`] : []),
     ]);
     if (this.pendingText !== null) messages.push(`## ${t("view.you")}
 
@@ -250,7 +271,7 @@ ${this.pendingText}`);
 
   private async submit(): Promise<void> {
     const text = this.inputEl.value.trim();
-    if (!text) return;
+    if (!text || this.busy) return;
     this.inputEl.value = "";
     this.pendingText = text;
     this.appendPendingTurn(text);

@@ -13,6 +13,8 @@ export function summarizeAttempts(attempts: ApiAttempt[]) {
     if (attempt.usage.estimatedCostUsd == null) unknownCount++;
     else knownCostUsd += attempt.usage.estimatedCostUsd;
   }
+  usage.fileSearchCalls = attempts.reduce((sum, attempt) => sum + (attempt.usage.fileSearchCalls ?? 0), 0);
+  usage.fileSearchCostUsd = attempts.reduce((sum, attempt) => sum + (attempt.usage.fileSearchCostUsd ?? 0), 0);
   usage.estimatedCostUsd = unknownCount ? null : knownCostUsd;
   return { usage, knownCostUsd, unknownCount, count: attempts.length };
 }
