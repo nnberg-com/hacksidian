@@ -35,10 +35,15 @@ export class CallMeRedSettingTab extends PluginSettingTab {
           await this.plugin.savePluginData();
         }));
 
-    containerEl.createEl("h3", { text: t('catalog.heading') });
-    new Setting(containerEl).setName(t('catalog.folder')).addText(input => input.setValue(this.plugin.settings.atlasFolder).onChange(async value => {
+    containerEl.createEl('h3', { text: t('content.heading') });
+    containerEl.createDiv({ text: t('content.description'), cls: 'setting-item-description' });
+    new Setting(containerEl).setName(t('content.atlas')).addText(input => input.setValue(this.plugin.settings.atlasFolder).onChange(async value => {
       this.plugin.settings.atlasFolder = value.trim(); await this.plugin.savePluginData();
     }));
+    new Setting(containerEl).setName(t('settings.samples_folder')).addText(input => input.setValue(this.plugin.settings.coloringsFolder).onChange(async value => {
+      this.plugin.settings.coloringsFolder = value.trim(); await this.plugin.savePluginData();
+    }));
+    containerEl.createEl("h3", { text: t('catalog.heading') });
     new Setting(containerEl).setName(t('catalog.variables')).addText(input => input.setValue(this.plugin.settings.globalVariablesFile).onChange(async value => {
       this.plugin.settings.globalVariablesFile = value.trim(); await this.plugin.savePluginData();
     }));
@@ -171,16 +176,6 @@ export class CallMeRedSettingTab extends PluginSettingTab {
       }
     };
     void updatePrices();
-
-    new Setting(containerEl)
-      .setName(t("settings.samples_folder"))
-      .setDesc(t("settings.folder_description"))
-      .addText((text) =>
-        text.setValue(this.plugin.settings.coloringsFolder).onChange(async (value) => {
-          this.plugin.settings.coloringsFolder = value.trim() || "! P R O/hacksidian/playground";
-          await this.plugin.savePluginData();
-        }),
-      );
 
     new Setting(containerEl).setName(t("settings.clear_history"))
       .setDesc(t("settings.clear_history_description"))

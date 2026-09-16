@@ -1,0 +1,6 @@
+@media print {
+  .markdown-preview-view {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}

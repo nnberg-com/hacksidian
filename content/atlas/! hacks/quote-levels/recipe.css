@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote blockquote {
+  border-color: var(--text-muted);
+  border-inline-start-style: dashed;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote blockquote blockquote {
+  border-inline-start-style: dotted;
+  color: var(--interactive-accent);
+}
+

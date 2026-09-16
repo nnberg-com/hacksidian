@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-decoration-color: transparent;
+  transition: text-decoration-color .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible) {
+  text-decoration-color: currentColor;
+}
+

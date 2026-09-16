@@ -1,0 +1,131 @@
+:is(.markdown-preview-view, .markdown-source-view) li[data-task] {
+  position: relative;
+  list-style: none;
+  padding-inline-start: 1.9em;
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task] > input, :is(.markdown-preview-view, .markdown-source-view) li[data-task] > p:first-child > input {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task]::before {
+  content: attr(data-task);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: .14em;
+  display: grid;
+  place-items: center;
+  width: 1.25em;
+  height: 1.25em;
+  line-height: 1;
+  font-weight: var(--font-bold);
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task]::before {
+  font-family: "pseudo-task-e12-ITS Icons";
+  font-weight: normal;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="X"]::before {
+  content: "\ec01";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="D"]::before {
+  content: "\ec04";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="+"]::before {
+  content: "\ec06";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="R"]::before {
+  content: "\ec07";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="i"]::before {
+  content: "\ec09";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="B"]::before {
+  content: "\ec10";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="P"]::before {
+  content: "\ec11";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="C"]::before {
+  content: "\ec12";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="I"]::before {
+  content: "\ec16";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="Q"]::before {
+  content: "\ec13";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="N"]::before {
+  content: "\ec14";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="b"]::before {
+  content: "\ec15";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="p"]::before {
+  content: "\ec19";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="E"]::before {
+  content: "\ec18";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="L"]::before {
+  content: "\ec21";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="A"]::before {
+  content: "\ec20";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="r"]::before {
+  content: "\ec22";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="c"]::before {
+  content: "\ec29";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="o"]::before {
+  content: "\ec24";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="d"]::before {
+  content: "\ec25";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="T"]::before {
+  content: "\ec26";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="t"]::before {
+  content: "\ec27";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="O"]::before {
+  content: "\e805";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="F"]::before {
+  content: "\ec28";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="W"]::before {
+  content: "\e813";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="~"]::before {
+  content: "\ec33";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="@"]::before {
+  content: "\e900";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="f"]::before {
+  content: "\e81e";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="H"]::before {
+  content: "\ec30";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task=":is(.markdown-preview-view, .markdown-source-view)"]::before {
+  content: "\ec32";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="s"]::before {
+  content: "\ec31";
+}
+@media(min-width:1100px) {
+  :is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+    columns: 2;
+    column-gap: 2em;
+  }
+}
+@media(min-width:1100px) {
+  :is(.markdown-preview-view, .markdown-source-view) li {
+    break-inside: avoid;
+  }
+}
+

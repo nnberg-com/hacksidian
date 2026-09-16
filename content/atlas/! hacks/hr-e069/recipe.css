@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 20px;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDQwIDIwIj48cGF0aCBkPSJNMCAxMCBRMTAgLTYgMjAgMTAgVDQwIDEwIiBmaWxsPSJub25lIiBzdHJva2U9IiNiNjZiNGMiIHN0cm9rZS13aWR0aD0iMS42Ii8+PHBhdGggZD0iTTAgMTAgUTEwIDI2IDIwIDEwIFQ0MCAxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzg4Y2FhIiBzdHJva2Utd2lkdGg9IjEuNiIvPjwvc3ZnPgo=") left center / 40px 20px repeat-x;
+}
+

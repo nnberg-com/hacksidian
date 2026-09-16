@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  font-size: calc(var(--code-size) * 1.02857143);
+  padding: .12em .35em;
+  border-radius: .3em;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) p:nth-of-type(2) {
+  font-size: 1.35em;
+}
+

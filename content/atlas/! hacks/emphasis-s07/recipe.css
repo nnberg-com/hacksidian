@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+

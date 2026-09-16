@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) a[title]::after {
+  content: attr(title);
+  display: block;
+  font-size: .8em;
+  color: var(--text-muted);
+  font-weight: var(--font-normal);
+}
+

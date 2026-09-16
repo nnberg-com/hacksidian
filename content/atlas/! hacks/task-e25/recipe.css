@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  padding-inline-start: 1.6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol > li {
+  list-style: decimal;
+  padding-inline-start: .3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li::marker {
+  font-weight: var(--font-bold);
+  color: var(--interactive-accent);
+}
+

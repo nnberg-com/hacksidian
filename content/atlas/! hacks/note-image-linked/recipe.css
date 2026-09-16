@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) a:has(img) {
+  display: block;
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:has(img)::after {
+  content: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:has(img):focus-visible {
+  outline: 3px solid var(--interactive-accent);
+  outline-offset: 4px;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  width: 100%;
+  border-radius: .4em;
+}
+

@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  text-align: center;
+  font-size: calc(var(--h3-size) * 1.062215);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before, :is(.markdown-preview-view, .markdown-source-view) h3::after {
+  content: "";
+  flex: 1;
+  min-inline-size: 1rem;
+  block-size: 1px;
+  background: var(--text-normal);
+}
+

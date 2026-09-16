@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  background: var(--background-secondary);
+  padding: .5em .65em;
+  border-inline-start: 3px solid var(--interactive-accent);
+}
+

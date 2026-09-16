@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref {
+  font-size: .9em;
+  vertical-align: baseline;
+}
+

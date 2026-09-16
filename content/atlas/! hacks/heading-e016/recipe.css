@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  max-inline-size: 19ch;
+  font-weight: 450;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::first-line {
+  color: var(--interactive-accent);
+  font-weight: 850;
+}

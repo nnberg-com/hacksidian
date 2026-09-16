@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) td em {
+  display: block;
+  margin-top: .25em;
+  color: var(--text-muted);
+  font-style: normal;
+  font-size: .87em;
+}
+

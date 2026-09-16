@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  display: inline-flex;
+  align-items: center;
+  padding: .15em .3em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: .4em;
+}
+@media(pointer:coarse) {
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    min-height: 44px;
+    padding: .65em 1em;
+  }
+}
+

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  color: var(--callout-color);
+}

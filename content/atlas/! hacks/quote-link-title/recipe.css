@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote a[title]::after {
+  content: " — " attr(title);
+  font-size: .85em;
+  color: var(--text-muted);
+}
+

@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  padding: 0;
+  list-style: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  display: inline-block;
+  max-inline-size: 100%;
+  margin: 0 .8em .35em 0!important;
+}
+:is(.markdown-preview-view, .markdown-source-view) li::before {
+  content: "•";
+  color: var(--interactive-accent);
+  margin-inline-end: .4em;
+}
+

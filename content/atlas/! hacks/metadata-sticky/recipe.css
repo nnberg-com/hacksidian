@@ -1,0 +1,7 @@
+.markdown-source-view.mod-cm6 .metadata-container {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--background-primary);
+  border-bottom: 1px solid var(--background-modifier-border);
+}

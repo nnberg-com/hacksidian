@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.517451);
+  line-height: calc(var(--h3-line-height) * 1.230769);
+  outline: 1px dashed var(--text-muted);
+}
+@supports (text-box-trim:trim-both) {
+  :is(.markdown-preview-view, .markdown-source-view) h3:nth-of-type(2) {
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+  }
+}
+

@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  border-block-end: 1px solid var(--text-normal);
+  padding-block-end: .65rem;
+}
+

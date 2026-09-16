@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) td:empty::before {
+  content: "—";
+  color: var(--text-muted);
+}

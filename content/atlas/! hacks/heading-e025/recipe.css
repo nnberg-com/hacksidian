@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  text-decoration: underline wavy var(--interactive-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .25em;
+}
+

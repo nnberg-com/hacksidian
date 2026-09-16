@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .78em;
+  font-weight: var(--font-bold);
+}
+

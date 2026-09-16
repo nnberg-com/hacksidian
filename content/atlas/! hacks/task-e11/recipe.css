@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) li+li {
+  border-block-start: 1px solid var(--background-modifier-border);
+  padding-block-start: .7em;
+}
+

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  width: 76%;
+  margin-inline: auto;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: calc(100% + 4rem);
+  max-width: none;
+  margin-left: -2rem;
+}

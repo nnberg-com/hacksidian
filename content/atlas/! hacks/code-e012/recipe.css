@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  font-variant-ligatures: none;
+  font-size: calc(var(--font-text-size) * 1.0625);
+}

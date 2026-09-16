@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-family: Georgia,serif;
+  font-weight: var(--font-normal);
+  font-size: calc(var(--h3-size) * 1.820941);
+}
+

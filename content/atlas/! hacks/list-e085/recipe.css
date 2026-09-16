@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  gap: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  margin-block: .3em 1.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p:has(+ ul), :is(.markdown-preview-view, .markdown-source-view) .el-p:has(+ .el-ul) > p {
+  font-weight: 650;
+}
+

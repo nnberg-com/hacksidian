@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .6em .75em;
+  border-inline-start: 3px solid transparent;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> a[href="#priority-high"]) {
+  border-color: var(--interactive-accent);
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> a[href="#status-waiting"]) {
+  border: 1px dashed var(--text-muted);
+}
+

@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border-top: 2px solid currentColor;
+  opacity: .4;
+}
+@supports (color:color-mix(in srgb,red,transparent)) {
+  :is(.markdown-preview-view, .markdown-source-view) hr {
+    border-color: color-mix(in srgb,currentColor 40%,transparent);
+    opacity: 1;
+  }
+}
+

@@ -1,0 +1,24 @@
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: var(--text-highlight-bg);
+}
+:is(.markdown-preview-view, .markdown-source-view) strong mark {
+  background: var(--color-cyan);
+}
+:is(.markdown-preview-view, .markdown-source-view) em mark {
+  background: var(--color-pink);
+}
+:is(.markdown-preview-view, .markdown-source-view) em strong mark, :is(.markdown-preview-view, .markdown-source-view) strong em mark {
+  background: var(--text-highlight-bg);
+  outline: 1px solid var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) strong mark {
+  background: var(--color-cyan);
+}
+:is(.markdown-preview-view, .markdown-source-view) em mark {
+  background: var(--color-pink);
+}
+:is(.markdown-preview-view, .markdown-source-view) em strong mark, :is(.markdown-preview-view, .markdown-source-view) strong em mark {
+  background: var(--text-highlight-bg);
+  outline: 1px solid var(--interactive-accent);
+}
+

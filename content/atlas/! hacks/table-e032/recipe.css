@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) tr>:nth-child(2) {
+  border-inline-start: 2px solid var(--interactive-accent);
+}
+

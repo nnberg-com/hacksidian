@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  background: linear-gradient(to right, #f4f3ee 35%, #f4f3ee00) left / 36px 100% no-repeat local,
+    linear-gradient(to left, #f4f3ee 35%, #f4f3ee00) right / 36px 100% no-repeat local,
+    linear-gradient(to right, #263d3238, transparent) left / 12px 100% no-repeat scroll,
+    linear-gradient(to left, #263d3238, transparent) right / 12px 100% no-repeat scroll;
+  background-color: #f4f3ee;
+  overflow: auto;
+}
+

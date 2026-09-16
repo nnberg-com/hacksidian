@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  display: block;
+  overflow: hidden;
+  border-radius: calc(var(--radius-s) * 3);
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  transition: transform .5s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:hover img, :is(.markdown-preview-view, .markdown-source-view) a:focus-visible img {
+  transform: scale(1.15);
+}
+

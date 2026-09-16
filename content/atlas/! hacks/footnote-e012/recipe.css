@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes {
+  font-size: .875em;
+  line-height: calc(var(--line-height-normal) * 1);
+  max-inline-size: 60ch;
+}
+

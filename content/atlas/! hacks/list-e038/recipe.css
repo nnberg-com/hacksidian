@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) li p {
+  font-size: inherit;
+}
+:is(.markdown-preview-view, .markdown-source-view) li p + p, :is(.markdown-preview-view, .markdown-source-view) li .el-p + .el-p > p {
+  margin-block-start: .6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li + li {
+  margin-block-start: 1.2em;
+}
+

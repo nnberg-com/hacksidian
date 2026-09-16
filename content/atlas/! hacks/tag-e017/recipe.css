@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  background: var(--background-secondary);
+}

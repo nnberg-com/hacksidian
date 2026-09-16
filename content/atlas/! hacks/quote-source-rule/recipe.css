@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote>hr {
+  inline-size: 3em;
+  border: 0;
+  border-block-start: 2px solid var(--interactive-accent);
+  margin: 1em 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>hr+p, :is(.markdown-preview-view, .markdown-source-view) blockquote>.el-hr+.el-p > p {
+  font-size: .83em;
+  color: var(--text-muted);
+}
+

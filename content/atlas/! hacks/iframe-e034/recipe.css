@@ -1,0 +1,25 @@
+:is(.markdown-preview-view, .markdown-source-view) .lightbox {
+  margin-top: calc(var(--size-4-1) * 3.5);
+}
+:is(.markdown-preview-view, .markdown-source-view) .close {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .lightbox:target {
+  position: fixed;
+  inset: 20px;
+  z-index: 100;
+  margin: 0;
+  padding: calc(var(--size-4-1) * 4);
+  background: #fffdf9;
+  box-shadow: 0 0 0 100vmax #201725bb;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: calc(var(--size-4-1) * 3);
+}
+:is(.markdown-preview-view, .markdown-source-view) .lightbox:target .close {
+  display: block;
+  justify-self: end;
+}
+:is(.markdown-preview-view, .markdown-source-view) .lightbox:target iframe {
+  height: 100%;
+}

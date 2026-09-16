@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border-top: 1px solid currentColor;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr:has(+ h2), :is(.markdown-preview-view, .markdown-source-view) .el-hr:has(+ .el-h2) > hr {
+  width: 5rem;
+  border-top-width: 3px;
+  margin-inline-start: 0;
+}
+

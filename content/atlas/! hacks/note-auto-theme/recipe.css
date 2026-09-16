@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  color: var(--text-normal);
+  background: var(--background-primary);
+  padding: 1.2em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: .5em;
+}
+

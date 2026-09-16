@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes-sep {
+  inline-size: 4rem;
+  margin-inline: 0;
+  border: 0;
+  border-top: 2px solid var(--interactive-accent);
+}

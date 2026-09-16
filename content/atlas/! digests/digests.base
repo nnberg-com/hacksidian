@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.inFolder(this.file.folder.replace(/! digests$/, "! hacks"))
+    - file.hasTag("hacksidian_technique")
+    - list(digest).contains(this.file.name)
+properties:
+  file.name:
+    displayName: ID
+  title:
+    displayName: Название
+  category:
+    displayName: Категория
+  digest:
+    displayName: Дайджесты
+views:
+  - type: table
+    name: Приёмы
+    order:
+      - file.name
+      - title
+      - category
+      - digest

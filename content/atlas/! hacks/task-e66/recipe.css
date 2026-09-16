@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) li > ul:has(input):not(:has(input:not(:checked))) {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> ul input):not(:has(> ul input:not(:checked)))::after {
+  content: " · шаги завершены";
+  color: var(--color-green);
+  font-size: .8em;
+}
+

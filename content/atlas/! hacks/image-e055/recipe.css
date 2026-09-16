@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) p::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse,transparent 25%,#091c21aa);
+}
+

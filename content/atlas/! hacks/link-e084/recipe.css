@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a:focus-visible {
+  outline: 3px solid var(--interactive-accent);
+  outline-offset: 5px;
+  border-radius: calc(var(--radius-s) * 0.5);
+}

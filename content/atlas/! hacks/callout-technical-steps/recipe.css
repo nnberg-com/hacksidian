@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout-content ol {
+  padding-inline-start: 1.4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content li {
+  padding-inline-start: .3em;
+  margin-block: .55em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content li::marker {
+  color: var(--callout-color);
+  font-weight: var(--font-bold);
+}
+

@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  padding: 0;
+  border: calc(var(--blockquote-border-thickness) * 0.5) solid var(--background-modifier-border);
+  border-radius: calc(var(--radius-s) * 2);
+  overflow: hidden;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p {
+  padding: 1em;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p:last-child:has(>em:only-child) {
+  background: var(--background-secondary);
+  font-size: .83em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p:last-child>em {
+  font-style: normal;
+}
+

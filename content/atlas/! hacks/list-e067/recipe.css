@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  padding-inline-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  padding-inline-start: 0;
+  margin-inline-start: 1.8em;
+}

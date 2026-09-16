@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  font-family: inherit;
+  font-size: calc(var(--code-size) * 1.14285714);
+  font-weight: var(--font-semibold);
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+}
+

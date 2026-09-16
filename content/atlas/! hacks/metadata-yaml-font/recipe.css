@@ -1,0 +1,5 @@
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hmd-frontmatter) {
+  font-family: var(--font-monospace);
+  font-size: calc(var(--font-text-size) * 0.6875);
+  line-height: calc(var(--line-height-normal) * 1.2);
+}

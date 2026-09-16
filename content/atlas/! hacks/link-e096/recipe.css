@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  display: grid;
+  gap: .5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .65em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: .35em;
+  transition: opacity .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:has(a:is(:hover,:focus-visible)) li:not(:has(a:is(:hover,:focus-visible))) {
+  opacity: .5;
+}
+

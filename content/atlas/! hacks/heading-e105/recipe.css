@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.213961);
+  transition: color .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view):focus-within h3 {
+  color: var(--interactive-accent);
+}
+

@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  width: min(100%, 360px);
+  margin-inline: auto;
+}

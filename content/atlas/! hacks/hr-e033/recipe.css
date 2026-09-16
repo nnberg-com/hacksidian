@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  width: 65%;
+  height: 2px;
+  background: currentColor;
+  transform: rotate(-2deg);
+}

@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) + li:has(> input:not(:checked), > p:first-child > input:not(:checked)) {
+  border: 1px solid var(--color-green);
+  padding: .6em;
+  border-radius: .4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) + li:has(> input:not(:checked), > p:first-child > input:not(:checked))::after {
+  content: " · предыдущий шаг готов";
+  font-size: .8em;
+  color: var(--color-green);
+}
+

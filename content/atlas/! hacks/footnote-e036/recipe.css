@@ -1,0 +1,17 @@
+@media screen {
+  :is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+    position: fixed;
+    z-index: 30;
+    box-sizing: border-box;
+    max-block-size: 42dvh;
+    overflow: auto;
+    padding: 1.25rem 1.5rem 1.25rem 2.5rem;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    border: 1px solid var(--background-modifier-border);
+    box-shadow: 0 12px 50px #0003;
+    inset: auto 1rem 1rem;
+    border-radius: .7rem;
+  }
+}
+

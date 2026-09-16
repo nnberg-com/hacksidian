@@ -1,0 +1,9 @@
+.markdown-preview-view, .markdown-source-view {
+  font-size: calc(var(--font-text-size) * 0.875);
+}
+.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-scroller {
+  line-height: calc(var(--line-height-normal) * 0.93);
+}
+.markdown-preview-view p {
+  margin-block: calc(var(--p-spacing) * 0.55);
+}

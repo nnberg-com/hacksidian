@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  display: block;
+  background: repeating-linear-gradient(to right, transparent 0 calc(4ch - 1px), #496c5126 calc(4ch - 1px) 4ch);
+}
+

@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  width: 100%;
+  border-collapse: collapse;
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  padding: .6em;
+  border: var(--table-border-width) solid var(--table-border-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:hover > td {
+  background: var(--text-highlight-bg);
+}
+

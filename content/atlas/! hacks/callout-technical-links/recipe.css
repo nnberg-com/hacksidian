@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout-content a {
+  color: var(--callout-color);
+  text-underline-offset: .2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content a:focus-visible {
+  outline: 2px solid var(--callout-color);
+  outline-offset: 3px;
+}
+

@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  align-self: center;
+  display: inline-block;
+  text-align: center;
+  border: 5px double var(--interactive-accent);
+  padding: .6em;
+  color: var(--interactive-accent);
+  rotate: -5deg;
+  border-radius: calc(var(--radius-s) * 2);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: calc(var(--h3-size) * 0.91047);
+}
+

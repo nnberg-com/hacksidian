@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) a[href^="#priority"], :is(.markdown-preview-view, .markdown-source-view) a[href^="#status"], :is(.markdown-preview-view, .markdown-source-view) a[href^="#project"] {
+  display: inline-block;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 999px;
+  padding: .1em .5em;
+  font-size: .75em;
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) a[href="#priority-high"] {
+  color: var(--interactive-accent);
+  border-color: currentColor;
+}
+

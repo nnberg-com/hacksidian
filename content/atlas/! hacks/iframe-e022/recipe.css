@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .crop {
+  height: 220px;
+  overflow: hidden;
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  height: 264px;
+  transform: translateY(-44px);
+}

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border: 0;
+  height: .6em;
+  width: 3em;
+  margin: 2em auto;
+  background: radial-gradient(circle,currentColor 45%,transparent 50%) left center / .6em .6em no-repeat,radial-gradient(circle,currentColor 45%,transparent 50%) center / .6em .6em no-repeat,radial-gradient(circle,currentColor 45%,transparent 50%) right center / .6em .6em no-repeat;
+  color: var(--interactive-accent);
+}
+

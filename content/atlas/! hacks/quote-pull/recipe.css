@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border: 0;
+  padding: 0;
+  font-size: clamp(1.4em,5cqi,2em);
+  font-weight: 650;
+  line-height: calc(var(--line-height-normal) * 0.813333);
+  letter-spacing: -.025em;
+}
+

@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:hover>td {
+  background: var(--background-secondary);
+}
+

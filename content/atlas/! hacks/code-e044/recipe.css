@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  border: 1px solid #c8ccbf;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre:hover {
+  border-color: #bd5036;
+  box-shadow: 0 0 0 2px #bd50361c;
+}

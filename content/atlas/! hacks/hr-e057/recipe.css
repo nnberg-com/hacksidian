@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  width: 85%;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 4px 4px 0 #c47459;
+}

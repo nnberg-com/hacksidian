@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  --hack-table-e077-cell: #edf2f7;
+}
+:is(.markdown-preview-view, .markdown-source-view) td {
+  background: var(--hack-table-e077-cell);
+  color: var(--text-normal);
+}
+@media(prefers-color-scheme:dark) {
+  :is(.markdown-preview-view, .markdown-source-view) table {
+    --hack-table-e077-cell: #243348;
+  }
+}
+

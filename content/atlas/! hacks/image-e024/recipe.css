@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  padding: calc(var(--size-4-1) * 2);
+  background: linear-gradient(120deg,#d06e51,#ebc45c,#3d7c6a);
+  border-radius: calc(var(--radius-s) * 6);
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  border-radius: calc(var(--radius-s) * 4.25);
+}
+

@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag[href="#done"] {
+  color: var(--color-green);
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag[href="#done"]::before {
+  content: "✓ ";
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag[href="#waiting"]::before {
+  content: "◷ ";
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag[href="#urgent"] {
+  color: var(--color-red);
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag[href="#urgent"]::before {
+  content: "! ";
+}
+

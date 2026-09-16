@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) em {
+  font-family: Georgia,serif;
+  font-variant-caps: small-caps;
+  font-style: normal;
+  letter-spacing: .035em;
+}
+

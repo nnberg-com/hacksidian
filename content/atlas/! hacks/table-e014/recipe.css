@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:last-child>td {
+  border-top: calc(var(--table-border-width) * 3) double var(--text-normal);
+  font-weight: 750;
+  background: var(--background-secondary);
+}
+

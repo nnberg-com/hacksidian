@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> ul input)::after {
+  display: block;
+  font-size: .8em;
+  margin-block: .6em;
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> ul input:not(:checked))::after {
+  content: "Остались подзадачи";
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> ul input):not(:has(> ul input:not(:checked)))::after {
+  content: "Все шаги выполнены";
+  color: var(--color-green);
+}
+

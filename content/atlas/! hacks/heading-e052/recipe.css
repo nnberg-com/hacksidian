@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  background: #d7d0bf;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  color: #b6ae9b;
+  text-shadow: 1px 1px 0 #fff8e8,-1px -1px 0 #766d5a;
+  font-size: calc(var(--h3-size) * 2.048558);
+}
+

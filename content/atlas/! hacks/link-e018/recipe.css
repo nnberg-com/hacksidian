@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible) {
+  font-size: 1.22em;
+  font-weight: 850;
+}
+

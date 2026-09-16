@@ -1,0 +1,2 @@
+CSS hyperlink demo — local downloadable text file.
+This is a working download target for the link styling catalogue.

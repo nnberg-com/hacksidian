@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  width: 85%;
+  height: 1px;
+  background: currentColor;
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+}

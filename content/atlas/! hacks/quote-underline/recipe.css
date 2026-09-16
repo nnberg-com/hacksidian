@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote strong {
+  font-weight: var(--font-semibold);
+  text-decoration: underline wavy var(--interactive-accent);
+  text-underline-offset: .25em;
+}
+

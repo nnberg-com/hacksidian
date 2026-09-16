@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  counter-reset: section;
+  list-style: none;
+  padding-inline-start: 3.7em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  counter-increment: section;
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) li::before {
+  content: counters(section,".") ".";
+  position: absolute;
+  inset-inline-end: calc(100% + .5em);
+  white-space: nowrap;
+  color: var(--interactive-accent);
+}
+

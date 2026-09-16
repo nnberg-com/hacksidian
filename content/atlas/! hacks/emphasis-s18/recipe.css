@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: repeating-linear-gradient(125deg,
+  transparent 0 3px, var(--text-highlight-bg) 3px 6px);
+}
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: repeating-linear-gradient(125deg,transparent 0 3px,var(--text-highlight-bg) 3px 6px);
+}
+

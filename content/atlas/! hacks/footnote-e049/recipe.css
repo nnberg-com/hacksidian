@@ -1,0 +1,35 @@
+@media screen and (min-width:1150px) {
+  :is(.markdown-preview-view, .markdown-source-view) {
+    position: relative;
+    padding-inline-end: 18rem;
+    min-block-size: 23rem;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) .footnotes {
+    position: absolute;
+    inset: 0 0 auto auto;
+    inline-size: 15rem;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) .footnotes-sep {
+    display: none;
+  }
+}
+@media screen and (min-width:1150px) {
+  :is(.markdown-preview-view, .markdown-source-view) {
+    position: relative;
+    padding-inline-end: 18rem;
+    min-block-size: 23rem;
+  }
+}
+@media screen and (min-width:1150px) {
+  :is(.markdown-preview-view, .markdown-source-view) .footnotes {
+    position: absolute;
+    inset: 0 0 auto auto;
+    inline-size: 15rem;
+  }
+}
+@media screen and (min-width:1150px) {
+  :is(.markdown-preview-view, .markdown-source-view) .footnotes-sep {
+    display: none;
+  }
+}
+

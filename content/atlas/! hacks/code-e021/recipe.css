@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  max-block-size: 12rem;
+  overflow: auto;
+  scrollbar-gutter: stable;
+}

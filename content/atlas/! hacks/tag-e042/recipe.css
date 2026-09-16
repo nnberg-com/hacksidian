@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag::before {
+  content: "✦";
+  margin-right: .3em;
+}
+

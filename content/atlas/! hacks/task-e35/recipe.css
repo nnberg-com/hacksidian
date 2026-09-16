@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border-inline-start: var(--blockquote-border-thickness) solid var(--background-modifier-border);
+  margin: .6em 0 .2em 1.5em;
+  padding-inline-start: .8em;
+  color: var(--text-muted);
+  font-size: .88em;
+}
+

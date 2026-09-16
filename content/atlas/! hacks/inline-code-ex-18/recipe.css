@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  background: var(--background-primary);
+  padding: .08em .35em;
+  border: 1px solid var(--text-muted);
+  border-radius: .25em;
+  box-shadow: 0 2px 0 var(--text-muted);
+}
+

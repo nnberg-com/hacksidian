@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 0.91047);
+  padding: .5rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3:nth-of-type(even) {
+  text-align: end;
+  background: var(--background-secondary);
+  font-family: Georgia,serif;
+  font-style: italic;
+}
+

@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  position: relative;
+  border: 0;
+  padding: 2.2em 1.3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote::before, :is(.markdown-preview-view, .markdown-source-view) blockquote::after {
+  position: absolute;
+  font: 3.5em/1 Georgia,serif;
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote::before {
+  content: "“";
+  inset: 0 auto auto 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote::after {
+  content: "”";
+  inset: auto 0 -.25em auto;
+}
+

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li + li {
+  margin-block-start: 1.25em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul li + li {
+  margin-block-start: .15em;
+}
+

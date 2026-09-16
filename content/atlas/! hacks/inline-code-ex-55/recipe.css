@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) a code:not(pre code) {
+  padding: .1em .2em;
+  background: linear-gradient(var(--text-highlight-bg),var(--text-highlight-bg)) 0 100%/100% 15% no-repeat;
+  transition: background-size .2s ease;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover,:focus-visible) code:not(pre code) {
+  background-size: 100% 100%;
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) a code:not(pre code) {
+    transition: none;
+  }
+}
+

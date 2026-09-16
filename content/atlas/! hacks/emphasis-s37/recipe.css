@@ -1,0 +1,26 @@
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s) {
+  color: transparent;
+  background: var(--text-normal);
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s):hover {
+  color: var(--text-normal);
+  background: var(--text-highlight-bg);
+}
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s) {
+  color: transparent;
+  background: var(--text-normal);
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s):hover {
+  color: var(--text-normal);
+  background: var(--text-highlight-bg);
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) :is(del,s) {
+    color: var(--text-normal);
+    background: none;
+    text-decoration: line-through;
+  }
+}
+

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  font-family: Georgia,serif;
+  font-size: 1.25em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  font-family: list-e078-Onest,system-ui,sans-serif;
+  font-size: calc(var(--font-text-size) * 1);
+}
+

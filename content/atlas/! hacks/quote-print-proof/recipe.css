@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  background: white;
+  color: #111;
+  border: calc(var(--blockquote-border-thickness) * 0.5) solid #111;
+  padding: 1em;
+  box-shadow: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote a {
+  color: #111;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote a::after {
+  content: " (" attr(href) ")";
+  font-size: .8em;
+  overflow-wrap: anywhere;
+}
+

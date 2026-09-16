@@ -1,0 +1,22 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  border-collapse: separate;
+  border-spacing: 0 .5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) td {
+  background: var(--background-secondary);
+  border: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) td:first-child {
+  border-radius: calc(var(--radius-s) * 1.75) 0 0 calc(var(--radius-s) * 1.75);
+}
+:is(.markdown-preview-view, .markdown-source-view) td:last-child {
+  border-radius: 0 calc(var(--radius-s) * 1.75) calc(var(--radius-s) * 1.75) 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) tr:is(:hover,:focus-within)>td {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) a[href$=".pdf" i]::after {
+  content: " PDF";
+  font-size: .75em;
+}
+

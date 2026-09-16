@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+  padding-inline-start: 2.5em;
+  list-style-position: outside;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item::marker {
+  color: var(--interactive-accent);
+  font-weight: 750;
+}

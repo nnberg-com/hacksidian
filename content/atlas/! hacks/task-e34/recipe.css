@@ -1,0 +1,35 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .6em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: .5em;
+  background: var(--background-secondary);
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) li {
+    background: none;
+    box-shadow: none;
+    border: 1px solid #777;
+    break-inside: avoid;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"] {
+    inline-size: 1.3em;
+    block-size: 1.3em;
+    appearance: auto;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) li {
+    background: none;
+    box-shadow: none;
+    border: 1px solid #777;
+    break-inside: avoid;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"] {
+    inline-size: 1.3em;
+    block-size: 1.3em;
+    appearance: auto;
+  }
+}
+

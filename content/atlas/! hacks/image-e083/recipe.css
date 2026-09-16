@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) img[src$="leaf.svg"] {
+  width: 65%;
+  filter: drop-shadow(5px 7px 0 #d6bb77);
+}

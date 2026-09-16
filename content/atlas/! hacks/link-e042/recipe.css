@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNmNGRhODUiIGQ9Ik00IDggMzUgNCA4MSA4IDEzMCAzIDE4NCA3IDIzMCAyIDI5MyA2IDI5OSAyOSAyNzEgMzQgMjQwIDMwIDIwMSAzNiAxNDggMzEgMTAwIDM3IDYyIDMyIDEgMzhaIi8+PC9zdmc+Cg==") center bottom/100% 75% no-repeat;
+  color: #252728;
+  text-decoration: none;
+  padding: 0 .18em;
+}
+

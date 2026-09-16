@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::selection {
+  background: #176e60;
+  color: white;
+  text-shadow: none;
+}
+

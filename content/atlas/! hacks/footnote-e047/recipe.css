@@ -1,0 +1,79 @@
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) {
+      position: relative;
+      padding-inline-end: 18rem;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e047-1"] {
+      anchor-name: --e047-1;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e047-1 {
+      position-anchor: --e047-1;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e047-2"] {
+      anchor-name: --e047-2;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e047-2 {
+      position-anchor: --e047-2;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+      position: absolute;
+      top: anchor(top);
+      right: 0;
+      inline-size: 15rem;
+      background: var(--background-secondary);
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) {
+      position: relative;
+      padding-inline-end: 18rem;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e047-1"] {
+      anchor-name: --e047-1;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e047-1 {
+      position-anchor: --e047-1;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e047-2"] {
+      anchor-name: --e047-2;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e047-2 {
+      position-anchor: --e047-2;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+      position: absolute;
+      top: anchor(top);
+      right: 0;
+      inline-size: 15rem;
+      background: var(--background-secondary);
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+  }
+}
+

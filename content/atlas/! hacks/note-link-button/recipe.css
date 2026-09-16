@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) p > a:only-child {
+  display: inline-block;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  padding: .65em 1em;
+  border-radius: .4em;
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) p > a:only-child:hover {
+  filter: brightness(.9);
+}
+

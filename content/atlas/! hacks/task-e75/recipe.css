@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) li > pre {
+  padding: .8em;
+  background: var(--background-secondary);
+  border-inline-start: 3px solid var(--code-border-color);
+  border-radius: .3em;
+  font-size: .82em;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+:is(.markdown-preview-view, .markdown-source-view) li > p:first-child {
+  font-weight: 650;
+}
+

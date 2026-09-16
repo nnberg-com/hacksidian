@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  padding: calc(var(--size-4-1) * 4.5);
+  background: #fffdf5;
+  border: 1px solid #b7ab95;
+}

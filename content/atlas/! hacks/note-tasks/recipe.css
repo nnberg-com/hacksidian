@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style: none;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .5em 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) input {
+  accent-color: var(--interactive-accent);
+  margin-inline-end: .5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(input:checked) {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+

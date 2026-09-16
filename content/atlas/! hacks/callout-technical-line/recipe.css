@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  background: transparent;
+  border: 0;
+  border-inline-start: 3px solid var(--callout-color);
+  border-radius: 0;
+}

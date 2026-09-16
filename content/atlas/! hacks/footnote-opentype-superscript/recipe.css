@@ -1,0 +1,6 @@
+.markdown-preview-view .footnote-ref,
+.markdown-preview-view .footnote-link {
+  font-feature-settings: "sups" 1;
+  font-size: inherit;
+  vertical-align: baseline;
+}

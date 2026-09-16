@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) h3::selection {
+  background: var(--interactive-accent);
+  color: white;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.365706);
+}

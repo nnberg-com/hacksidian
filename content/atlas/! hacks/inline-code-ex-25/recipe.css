@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  text-decoration: underline wavy var(--color-red);
+  text-underline-offset: .2em;
+}
+

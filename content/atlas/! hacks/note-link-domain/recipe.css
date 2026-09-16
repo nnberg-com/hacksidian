@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) a[href^="https://developer.mozilla.org/"] {
+  background: var(--background-secondary);
+  padding: .1em .2em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+:is(.markdown-preview-view, .markdown-source-view) a[href^="https://developer.mozilla.org/"]::after {
+  content: " ↗";
+}
+

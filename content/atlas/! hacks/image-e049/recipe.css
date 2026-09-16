@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  mask-image: repeating-linear-gradient(90deg,black 0 32px,transparent 32px 40px);
+}
+

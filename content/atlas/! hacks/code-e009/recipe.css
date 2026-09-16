@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  border: 2px solid transparent;
+  border-radius: calc(var(--code-radius) * 3);
+  background: linear-gradient(#fffef9, #fffef9) padding-box, linear-gradient(120deg, #cf694a, #6b8e79) border-box;
+}
+

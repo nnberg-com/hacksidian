@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) ::selection {
+  background: #743f91;
+  color: #fff;
+}

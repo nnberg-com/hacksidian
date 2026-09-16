@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) a:link {
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:visited {
+  color: var(--color-purple);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:hover {
+  color: var(--text-normal);
+  background: var(--text-highlight-bg);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:focus-visible {
+  outline: 3px solid var(--interactive-accent);
+  outline-offset: 4px;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:active {
+  color: var(--text-on-accent);
+  background: var(--interactive-accent);
+}

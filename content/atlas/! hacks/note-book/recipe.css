@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  max-inline-size: 62ch;
+  margin-inline: auto;
+  font-family: Georgia,serif;
+  line-height: calc(var(--line-height-normal) * 1.166667);
+}
+:is(.markdown-preview-view, .markdown-source-view) h1, :is(.markdown-preview-view, .markdown-source-view) h2 {
+  font-family: inherit;
+}
+

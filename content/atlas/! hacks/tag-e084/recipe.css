@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) .cm-line:not(.cm-active) .cm-hashtag-begin {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-line:not(.cm-active) .cm-hashtag-end {
+  background: var(--background-secondary);
+  border-radius: calc(var(--radius-s) * 1.25);
+  padding: .1em .4em;
+}
+

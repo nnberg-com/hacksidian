@@ -1,0 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  counter-reset: chapter 2;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  position: relative;
+  isolation: isolate;
+  padding-block: 2rem;
+  counter-increment: chapter;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: counter(chapter,decimal-leading-zero);
+  position: absolute;
+  z-index: -1;
+  font-size: 9rem;
+  font-weight: 900;
+  color: var(--text-normal);
+  opacity: .1;
+  inset-block-start: -1.5rem;
+  line-height: 1;
+}
+

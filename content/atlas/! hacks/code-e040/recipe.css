@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  border: 1px solid #d0d4c7;
+  background: #fffef9;
+  box-shadow: 4px 4px 0 #e3e6dc, 5px 5px 0 #bcc6b5, 9px 9px 0 #f0f0e5, 10px 10px 0 #bcc6b5;
+  margin-right: calc(var(--size-4-1) * 3);
+}
+

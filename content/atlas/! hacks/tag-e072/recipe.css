@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  display: inline-block;
+  white-space: nowrap;
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.76923077);
+  border-radius: 999px;
+  background: var(--background-secondary);
+}
+

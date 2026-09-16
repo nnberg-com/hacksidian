@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-begin:has(+ .cm-hashtag-end:hover), :is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-begin:hover, :is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-begin:hover + .cm-hashtag-end, :is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-end:hover {
+  background: var(--text-highlight-bg);
+}
+

@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style-type: disc;
+  list-style-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj48cGF0aCBmaWxsPSIjYWQ0MTI5IiBkPSJNNSAwIDYuNSAzLjUgMTAgNSA2LjUgNi41IDUgMTAgMy41IDYuNSAwIDUgMy41IDMuNVoiLz48L3N2Zz4=");
+}

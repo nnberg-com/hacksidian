@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) td:empty {
+  background: repeating-linear-gradient(135deg,transparent 0 6px,var(--table-border-color) 6px 7px);
+}
+

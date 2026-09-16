@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) li::marker {
+  content: "—  ";
+  font-weight: 800;
+  color: var(--interactive-accent);
+}

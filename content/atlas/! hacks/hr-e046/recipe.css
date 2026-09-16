@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  position: relative;
+  height: 24px;
+  background: linear-gradient(currentColor,currentColor) left center / calc(50% - 18px) 1px no-repeat, linear-gradient(currentColor,currentColor) right center / calc(50% - 18px) 1px no-repeat;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  background: currentColor;
+  clip-path: polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);
+}
+

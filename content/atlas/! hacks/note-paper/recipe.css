@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  font-family: Georgia,serif;
+  line-height: 1.8em;
+  background: repeating-linear-gradient(to bottom,transparent 0,transparent calc(1.8em - 1px),var(--background-modifier-border) calc(1.8em - 1px),var(--background-modifier-border) 1.8em);
+  padding: 0 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  margin: 0 0 1.8em;
+}
+

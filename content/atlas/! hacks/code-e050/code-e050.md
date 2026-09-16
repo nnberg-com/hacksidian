@@ -1,0 +1,37 @@
+---
+tags:
+  - hacksidian_technique
+  - hacksidian_code
+title: "Соседняя пара: ввод и вывод"
+category: code
+sources: []
+format: markdown
+themes: []
+---
+
+```hacksidian-id
+code-e050
+```
+
+```hacksidian-live
+code-e050
+```
+
+```hacksidian-details
+> Зачем
+Сблизить два последовательных блока.
+
+> Как работает
+pre:has(+ pre) и pre + pre снимают зазор и задают разные поверхности.
+
+> Ограничения
+«Ввод/вывод» здесь выбран автором. CSS видит только соседние блоки; длинная цепочка потребует другой договорённости.
+```
+
+```hacksidian-sources
+code-e050
+```
+
+```hacksidian-files
+code-e050
+```

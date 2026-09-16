@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a[title]:has(code)::after {
+  content: " — " attr(title);
+  font: .8em inline-code-ex-62-Onest,system-ui,sans-serif;
+  color: var(--text-muted);
+}
+

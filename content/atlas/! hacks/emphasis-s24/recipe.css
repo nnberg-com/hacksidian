@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  color: transparent;
+  -webkit-text-stroke: .7px var(--interactive-accent);
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) strong {
+    color: var(--text-normal);
+    background: none;
+  }
+}
+

@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,13rem),1fr));
+  gap: 1rem 2rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+  padding: .6em;
+  background: var(--background-secondary);
+  margin: 0;
+}
+

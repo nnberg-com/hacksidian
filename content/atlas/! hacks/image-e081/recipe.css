@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  display: block;
+  border: 2px solid #29735f;
+  padding: calc(var(--size-4-1) * 1.25);
+  border-radius: calc(var(--radius-s) * 2);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:focus-visible {
+  outline: 3px solid #bd653e;
+  outline-offset: 4px;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+}

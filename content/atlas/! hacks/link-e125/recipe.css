@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  pointer-events: none;
+  opacity: .55;
+}
+

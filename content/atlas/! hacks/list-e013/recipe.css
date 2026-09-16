@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li + li {
+  margin-block-start: .8em;
+}
+

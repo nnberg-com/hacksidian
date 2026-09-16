@@ -1,0 +1,10 @@
+.markdown-source-view.mod-cm6 .metadata-container {
+  border-bottom: 2px solid var(--background-modifier-border);
+  padding-bottom: 10px;
+}
+.markdown-source-view.mod-cm6 .metadata-properties-title {
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: calc(var(--font-text-size) * 0.5625);
+}
+

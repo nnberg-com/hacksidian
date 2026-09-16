@@ -1,0 +1,3 @@
+.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-scroller {
+  line-height: calc(var(--line-height-normal) * 1.2);
+}

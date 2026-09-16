@@ -1,0 +1,11 @@
+.markdown-source-view.mod-cm6 input[type="date"] {
+  font-family: var(--font-monospace);
+  color: var(--color-blue);
+}
+.markdown-source-view.mod-cm6 input[type="number"] {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.markdown-source-view.mod-cm6 input[type="checkbox"] {
+  accent-color: var(--color-green);
+}

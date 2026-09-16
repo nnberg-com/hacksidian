@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked)::after {
+  content: "Готово";
+  display: inline-block;
+  margin-inline-start: .6em;
+  padding: .1em .45em;
+  border-radius: .3em;
+  background: var(--background-secondary);
+  color: var(--color-green);
+  font-size: .75em;
+}
+

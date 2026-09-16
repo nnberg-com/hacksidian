@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,12em),1fr));
+  gap: 1em;
+  padding-inline-start: 2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) > li {
+  padding: .8em;
+  background: var(--background-secondary);
+  margin: 0;
+}
+

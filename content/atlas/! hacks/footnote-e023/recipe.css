@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+  position: relative;
+  isolation: isolate;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item:target::before {
+  content: "";
+  position: absolute;
+  inset: -.3em -.5em -.3em -2em;
+  background: var(--background-secondary);
+  border-radius: .5em;
+  z-index: -1;
+}
+

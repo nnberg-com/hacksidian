@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  outline: 1px solid var(--interactive-accent);
+  outline-offset: 2px;
+  border-radius: calc(var(--code-radius) * 0.5);
+}

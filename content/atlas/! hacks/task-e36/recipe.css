@@ -1,0 +1,30 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  margin: .3em 0;
+  padding: .7em;
+  border-inline-start: var(--blockquote-border-thickness) solid var(--background-modifier-border);
+  font-size: .85em;
+  color: var(--text-muted);
+}
+@container specimen (min-width:480px) {
+  :is(.markdown-preview-view, .markdown-source-view) li:has(> blockquote) {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,.8fr);
+    gap: 1em;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    margin: 0;
+  }
+}
+@container specimen (min-width:480px) {
+  :is(.markdown-preview-view, .markdown-source-view) li:has(> blockquote) {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,.8fr);
+    gap: 1em;
+  }
+}
+@container specimen (min-width:480px) {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    margin: 0;
+  }
+}
+

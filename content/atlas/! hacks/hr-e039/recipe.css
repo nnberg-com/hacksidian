@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 8px;
+  background: radial-gradient(circle at 50% 0,currentColor 7px,transparent 7.5px) 0 0 / 16px 8px repeat-x;
+}
+

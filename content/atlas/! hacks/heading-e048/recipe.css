@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 2.124431);
+  font-weight: 900;
+  color: var(--interactive-accent);
+}
+@supports (-webkit-text-stroke:1px red) {
+  :is(.markdown-preview-view, .markdown-source-view) h3 {
+    color: transparent;
+    -webkit-text-stroke: 1.4px var(--text-normal);
+  }
+}
+

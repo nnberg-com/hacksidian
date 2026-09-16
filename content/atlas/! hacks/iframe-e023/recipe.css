@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .scaled {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  width: 200%;
+  height: 480px;
+  transform: scale(.5);
+  transform-origin: top left;
+}
+

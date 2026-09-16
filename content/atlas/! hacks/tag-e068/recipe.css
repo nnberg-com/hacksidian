@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) p:has(a.tag[href="#urgent"]) {
+  border-left: 3px solid var(--color-red);
+  padding: .5em .8em;
+  background: var(--background-secondary);
+}
+

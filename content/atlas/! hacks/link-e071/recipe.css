@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) a::after {
+  content: " ↗";
+  display: inline-block;
+  width: 1.35em;
+  opacity: 0;
+  transition: opacity .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible)::after {
+  opacity: 1;
+}
+

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  border-collapse: collapse;
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  border: var(--table-border-width) solid var(--table-border-color);
+}
+

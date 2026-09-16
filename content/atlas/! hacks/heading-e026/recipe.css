@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 em {
+  background: linear-gradient(transparent 62%,var(--text-highlight-bg) 62%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em {
+  font-style: normal;
+}
+

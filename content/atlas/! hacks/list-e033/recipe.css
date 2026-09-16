@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  gap: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  padding-inline-start: 0;
+  margin-block: 1em;
+}

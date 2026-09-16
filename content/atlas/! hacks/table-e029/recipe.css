@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) td:last-child {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}

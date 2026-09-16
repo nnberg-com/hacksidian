@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.138088);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3:nth-of-type(1) {
+  font-weight: var(--font-light);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3:nth-of-type(2) {
+  font-weight: var(--font-medium);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3:nth-of-type(3) {
+  font-weight: 850;
+}

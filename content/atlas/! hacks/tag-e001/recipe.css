@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  color: var(--tag-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  color: var(--interactive-accent);
+}

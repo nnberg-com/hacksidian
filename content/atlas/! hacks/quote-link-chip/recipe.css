@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p:last-child {
+  font-size: .82em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p:last-child a {
+  display: inline-block;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 2em;
+  padding: .15em .6em;
+  text-decoration: none;
+}
+

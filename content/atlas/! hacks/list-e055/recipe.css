@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  background: var(--background-secondary);
+  padding: .55em .7em;
+  border-radius: .35em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li + li {
+  margin-block-start: .5em;
+}
+

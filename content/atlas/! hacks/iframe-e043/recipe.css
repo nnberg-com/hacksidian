@@ -1,0 +1,26 @@
+:is(.markdown-preview-view, .markdown-source-view) .print-only {
+  display: none;
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) iframe, :is(.markdown-preview-view, .markdown-source-view) .print-note {
+    display: none;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) .print-only {
+    display: block;
+    border: 1px solid #777;
+    padding: calc(var(--size-4-1) * 3);
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) iframe, :is(.markdown-preview-view, .markdown-source-view) .print-note {
+    display: none;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) .print-only {
+    display: block;
+    border: 1px solid #777;
+    padding: calc(var(--size-4-1) * 3);
+  }
+}
+

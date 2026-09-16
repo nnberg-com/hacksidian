@@ -1,0 +1,52 @@
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] {
+  background: #fff2dc;
+  color: #492a21;
+  border-block: 3px solid #dc6a35;
+  padding: calc(var(--size-4-1) * 6);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] > .callout-title, :is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] > .callout-content {
+  position: relative;
+  padding-left: calc(var(--size-4-1) * 13.75);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] > .callout-title {
+  font-size: calc(var(--font-text-size) * 1.4375);
+  line-height: calc(var(--line-height-normal) * 0.833333);
+  padding-bottom: calc(var(--size-4-1) * 5.75);
+  border-bottom: 1px solid #e3c6a3;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] > .callout-title::before, :is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] > .callout-content::before {
+  position: absolute;
+  left: 0;
+  top: -5px;
+  font: 700 45px/1 Georgia,serif;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] > .callout-title::before {
+  content: "Q";
+  color: #c95123;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] > .callout-content {
+  margin-top: calc(var(--size-4-1) * 6);
+  font-size: calc(var(--font-text-size) * 0.875);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] > .callout-content::before {
+  content: "A";
+  color: #39785f;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] li {
+  padding-left: var(--size-4-1);
+}
+@media(max-width:450px) {
+  :is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"] {
+    padding: calc(var(--size-4-1) * 5) calc(var(--size-4-1) * 4);
+  }
+  :is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"]>.callout-title, :is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"]>.callout-content {
+    padding-left: calc(var(--size-4-1) * 10);
+  }
+  :is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"]>.callout-title {
+    font-size: calc(var(--font-text-size) * 1.25);
+  }
+  :is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"]>.callout-title::before, :is(.markdown-preview-view, .markdown-source-view) [data-callout="qna"]>.callout-content::before {
+    font-size: 34px;
+  }
+}
+

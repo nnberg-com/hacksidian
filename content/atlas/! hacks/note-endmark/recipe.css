@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) > p:last-child::after, :is(.markdown-preview-view, .markdown-source-view) .el-p:not(:has(~ .el-p)) > p::after {
+  content: " ◆";
+  color: var(--interactive-accent);
+  font-size: .7em;
+  white-space: nowrap;
+}
+

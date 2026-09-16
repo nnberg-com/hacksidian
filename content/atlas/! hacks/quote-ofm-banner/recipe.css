@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  padding: 0;
+  border: 1px solid var(--background-modifier-border);
+  overflow: hidden;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  padding: .8em 1em;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content {
+  padding: 1em;
+}
+

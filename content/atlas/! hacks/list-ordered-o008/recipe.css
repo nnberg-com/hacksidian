@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  list-style-position: outside;
+  padding-inline-start: 3.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding-inline-start: .35em;
+}
+

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  background: var(--background-secondary);
+  padding-block: 1em;
+  padding-inline: 2em 1em;
+  border-radius: .6em;
+}
+

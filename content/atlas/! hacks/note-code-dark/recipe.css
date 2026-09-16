@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  background: #202e34;
+  color: #e8f0ec;
+  padding: 1.2em;
+  border-radius: .5em;
+  overflow: auto;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre code {
+  color: inherit;
+}
+

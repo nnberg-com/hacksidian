@@ -1,0 +1,3 @@
+.markdown-preview-view ::selection, .markdown-source-view.mod-cm6 ::selection {
+  background-color: var(--text-selection);
+}

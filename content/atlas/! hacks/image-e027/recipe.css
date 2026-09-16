@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  background: #d9c8a4;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 75%;
+  filter: drop-shadow(3px 0 0 white) drop-shadow(-3px 0 0 white) drop-shadow(0 3px 0 white) drop-shadow(0 -3px 0 white) drop-shadow(3px 6px 3px #0003);
+}
+

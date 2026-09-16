@@ -1,0 +1,16 @@
+@media (pointer:coarse) {
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    display: inline-block;
+    min-height: 44px;
+    padding: .35em .15em;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) li.task-list-item {
+    min-height: 44px;
+    padding-block: .35em;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) input[type=checkbox] {
+    min-width: 24px;
+    min-height: 24px;
+  }
+}
+

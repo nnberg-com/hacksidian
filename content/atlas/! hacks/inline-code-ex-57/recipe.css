@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a:has(code) {
+  text-decoration-style: dotted;
+  text-underline-offset: .25em;
+}
+

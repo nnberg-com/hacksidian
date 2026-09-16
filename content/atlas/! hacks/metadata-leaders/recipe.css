@@ -1,0 +1,15 @@
+.markdown-source-view.mod-cm6 .metadata-property-key {
+  flex-basis: 45%;
+  width: 45%;
+}
+.markdown-source-view.mod-cm6 .metadata-property-key::after {
+  content: "";
+  flex: 1;
+  min-width: 8px;
+  align-self: center;
+  border-bottom: 1px dotted var(--text-muted);
+  margin-left: 3px;
+}
+.markdown-source-view.mod-cm6 .metadata-property-icon {
+  display: none;
+}

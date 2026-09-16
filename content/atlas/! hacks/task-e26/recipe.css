@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li {
+  border-inline-start: 3px solid var(--background-modifier-border);
+  padding-inline-start: .8em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> ul input:checked):has(> ul input:not(:checked)) {
+  border-inline-start-color: var(--color-orange);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> ul input):not(:has(> ul input:not(:checked))) {
+  border-inline-start-color: var(--color-green);
+}
+

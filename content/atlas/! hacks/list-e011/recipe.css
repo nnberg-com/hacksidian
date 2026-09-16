@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) li::marker {
+  font-size: .7em;
+}
+

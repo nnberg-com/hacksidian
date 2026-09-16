@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  border-inline-start: 3px solid var(--interactive-accent);
+  padding-inline-start: 1.8em;
+}

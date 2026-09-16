@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item + .footnote-item {
+  margin-block-start: 1.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item > p {
+  margin-block: .4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item ul {
+  margin-block: .5em;
+}
+

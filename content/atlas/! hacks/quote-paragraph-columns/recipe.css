@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  border: 0;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p {
+  margin: 0;
+  padding-inline-start: .8em;
+  border-inline-start: 2px solid var(--background-modifier-border);
+}
+@container preview (max-width:360px) {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    grid-template-columns: 1fr;
+  }
+}
+

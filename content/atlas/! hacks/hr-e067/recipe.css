@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 14px;
+  background: linear-gradient(90deg,#bb7055,#a68b4e,#6b9c8a,#818db5);
+  mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDQwIDE0Ij48cGF0aCBkPSJNMCA3IFExMCAtMyAyMCA3IFQ0MCA3IiBmaWxsPSJub25lIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEuNiIvPjwvc3ZnPgo=") left center / 40px 14px repeat-x;
+}
+

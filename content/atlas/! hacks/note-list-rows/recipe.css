@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  padding: 0;
+  list-style-position: inside;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .65em .7em;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:nth-child(even) {
+  background: var(--background-secondary);
+}
+

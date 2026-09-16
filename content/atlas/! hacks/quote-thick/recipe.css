@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border-inline-start: calc(var(--blockquote-border-thickness) * 3) solid var(--interactive-accent);
+}
+

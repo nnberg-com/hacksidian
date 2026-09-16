@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) td strong {
+  background: var(--text-highlight-bg);
+  padding: .1em .2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+

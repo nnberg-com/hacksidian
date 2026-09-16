@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .browser {
+  border: 1px solid #c9bec7;
+  border-radius: calc(var(--radius-s) * 3);
+  overflow: hidden;
+  box-shadow: 0 12px 28px #322b3918;
+}
+:is(.markdown-preview-view, .markdown-source-view) .address {
+  padding: calc(var(--size-4-1) * 3) calc(var(--size-4-1) * 3) calc(var(--size-4-1) * 3) calc(var(--size-4-1) * 17.5);
+  font: 11px monospace;
+  background: radial-gradient(circle at 17px 50%, #ce7569 4px, transparent 5px), radial-gradient(circle at 34px 50%, #d7b67a 4px, transparent 5px), radial-gradient(circle at 51px 50%, #92aa91 4px, transparent 5px), #eee8ed;
+}
+

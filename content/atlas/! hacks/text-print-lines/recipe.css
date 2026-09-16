@@ -1,0 +1,6 @@
+@media print {
+  .markdown-preview-view p {
+    orphans: 3;
+    widows: 3;
+  }
+}

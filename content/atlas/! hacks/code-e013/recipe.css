@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  font-variant-numeric: slashed-zero tabular-nums;
+  font-size: calc(var(--font-text-size) * 1.1875);
+}

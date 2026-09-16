@@ -1,0 +1,27 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 em {
+  display: inline-block;
+  animation: hack-heading-e067-heading-e067-word-in 5s both infinite;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em:nth-of-type(2) {
+  animation-delay: .25s;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em:nth-of-type(3) {
+  animation-delay: .5s;
+}
+@keyframes hack-heading-e067-heading-e067-word-in {
+  0%,8% {
+    opacity: 0;
+    transform: translateY(.5em);
+  }
+  25%,85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em {
+  font-style: normal;
+}
+

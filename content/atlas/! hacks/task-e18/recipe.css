@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  font-weight: 720;
+}
+:is(.markdown-preview-view, .markdown-source-view) em {
+  display: block;
+  font-size: .88em;
+  font-style: normal;
+  color: var(--text-muted);
+  margin-inline-start: 1.5em;
+}
+

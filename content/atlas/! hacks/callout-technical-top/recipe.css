@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  border: 1px solid var(--background-modifier-border);
+  border-block-start: 5px solid var(--callout-color);
+}

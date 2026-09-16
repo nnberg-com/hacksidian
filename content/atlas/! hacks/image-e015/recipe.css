@@ -1,0 +1,3 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  border: 1px solid #9baaa4;
+}

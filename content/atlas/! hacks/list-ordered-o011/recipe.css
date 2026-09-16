@@ -1,0 +1,9 @@
+@counter-style hack-list-ordered-o011-ordered-padded {
+  system: extends decimal;
+  pad: 3 "0";
+  suffix: " / ";
+}
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  list-style-type: hack-list-ordered-o011-ordered-padded;
+  padding-inline-start: 5em;
+}

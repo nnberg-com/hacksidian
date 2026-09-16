@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border-inline-start: var(--blockquote-border-thickness) solid var(--interactive-accent);
+  padding-inline-start: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote blockquote {
+  font-size: .92em;
+  background: var(--background-secondary);
+  padding: .7em;
+}
+

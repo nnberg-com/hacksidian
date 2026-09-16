@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: .2em;
+  transition: text-decoration-color .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag:hover {
+  text-decoration-color: currentColor;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: .2em;
+  transition: text-decoration-color .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag:hover {
+  text-decoration-color: currentColor;
+}
+

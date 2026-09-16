@@ -1,0 +1,42 @@
+---
+tags:
+  - hacksidian_technique
+  - hacksidian_iframe
+title: Экран телефона
+category: iframe
+sources: []
+format: html
+themes: []
+---
+
+```hacksidian-id
+iframe-e018
+```
+
+```hacksidian-details
+> Зачем
+Презентация адаптивной страницы.
+
+> Как работает
+Толстая рамка и псевдоэлемент рисуют корпус; узкая ширина действительно меняет вёрстку документа.
+
+CSS заметки оформляет внешний элемент iframe; содержимое встроенного документа имеет собственные стили.
+
+> Ограничения
+Не эмулирует мобильный браузер, touch и user-agent.
+
+CSS снаружи iframe не меняет фон, прокрутку и содержимое вложенной страницы. `height: auto` не подгоняет рамку под её содержимое; `object-fit` не кадрирует iframe как картинку.
+
+Живой пример пока не готов: образец содержит iframe или интерактивный HTML, для которого ещё не реализован отдельный просмотрщик.
+```
+```hacksidian-sources
+iframe-e018
+```
+
+###### Локальные зависимости
+
+- [assets/documents/article.html](<./assets/documents/article.html>)
+
+```hacksidian-files
+iframe-e018
+```

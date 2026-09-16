@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) tr:focus-within>td {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 3px;
+}
+

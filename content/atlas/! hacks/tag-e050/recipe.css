@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  display: inline-block;
+  position: relative;
+  padding: .15em .8em .15em .45em;
+  background: var(--text-highlight-bg);
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: .5em;
+  height: .5em;
+  background: linear-gradient(45deg,var(--interactive-accent) 50%,var(--background-primary) 51%);
+}
+

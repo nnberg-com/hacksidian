@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  padding: calc(var(--tag-padding-y) * 0.4) calc(var(--tag-padding-x) * 0.76923077);
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg,transparent 30%,#ffffff88 50%,transparent 70%);
+  transform: translateX(-130%);
+  animation: hack-tag-e058-tag-e058-shine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes hack-tag-e058-tag-e058-shine {
+  60%,100% {
+    transform: translateX(130%);
+  }
+}
+

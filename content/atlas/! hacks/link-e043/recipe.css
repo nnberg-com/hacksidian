@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  border: 1px solid transparent;
+  padding: .1em .22em;
+  border-radius: .2em;
+  transition: border-color .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible) {
+  border-color: currentColor;
+}
+

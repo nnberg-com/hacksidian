@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .markdown-alert img, :is(.markdown-preview-view, .markdown-source-view) .callout img {
+  display: block;
+  width: 100%;
+  max-height: 14em;
+  object-fit: cover;
+  border-radius: .35em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .markdown-alert p:has(img) + p, :is(.markdown-preview-view, .markdown-source-view) .callout p:has(img) + p {
+  font-size: .8em;
+  color: var(--text-muted);
+}
+

@@ -1,0 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  position: relative;
+  padding-inline-start: 1.4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: .58em;
+  inline-size: .42em;
+  block-size: .42em;
+  background: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) li::before {
+  border-radius: .12em;
+}
+

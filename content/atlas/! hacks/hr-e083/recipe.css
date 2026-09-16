@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border-top: 1px solid currentColor;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr:last-of-type {
+  width: 8px;
+  height: 8px;
+  border: 0;
+  background: currentColor;
+  transform: rotate(45deg);
+}

@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  background: var(--interactive-accent);
+  color: white;
+  padding: .6em;
+  text-shadow: 2px 2px #0004;
+  font-size: calc(var(--h3-size) * 1.251897);
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) h3 {
+    background: white;
+    color: black;
+    text-shadow: none;
+    border-bottom: 2px solid black;
+  }
+}
+

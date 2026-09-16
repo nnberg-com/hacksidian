@@ -1,0 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+:is(.markdown-preview-view, .markdown-source-view) a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -.15em;
+  height: 3px;
+  background: var(--interactive-accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .3s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:hover::after, :is(.markdown-preview-view, .markdown-source-view) a:focus-visible::after {
+  transform: scaleX(1);
+}
+

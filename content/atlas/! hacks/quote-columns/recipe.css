@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  columns: 2;
+  column-gap: 1.5em;
+  column-rule: 1px solid var(--background-modifier-border);
+  border: 0;
+  padding: 0;
+  font: 1em/1.7 Georgia,serif;
+}
+@container preview (max-width:380px) {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    columns: 1;
+  }
+}
+

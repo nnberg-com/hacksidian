@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  height: 210px;
+  overflow: hidden;
+  scrollbar-width: none;
+}

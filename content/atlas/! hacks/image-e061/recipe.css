@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  margin: 0;
+  background: white;
+  border: calc(var(--blockquote-border-thickness) * 0.5) solid #d1d9d1;
+  border-radius: calc(var(--radius-s) * 3);
+  overflow: hidden;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote p {
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote p + p, :is(.markdown-preview-view, .markdown-source-view) blockquote .el-p + .el-p > p {
+  padding: calc(var(--size-4-1) * 4);
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+}
+

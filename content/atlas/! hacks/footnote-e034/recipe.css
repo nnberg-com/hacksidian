@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+  columns: 15rem;
+  column-gap: 2rem;
+  column-rule: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+  break-inside: avoid;
+}

@@ -1,0 +1,19 @@
+@media (forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout {
+    background: Canvas;
+    color: CanvasText;
+    border: 1px solid CanvasText;
+  }
+}
+@media (forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout-title {
+    color: CanvasText;
+  }
+}
+@media (forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout-icon {
+    color: CanvasText;
+    background: Canvas;
+  }
+}
+

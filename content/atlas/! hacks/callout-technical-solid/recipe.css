@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  background: #713e36;
+  color: #fff7ef;
+  border: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  color: inherit;
+}

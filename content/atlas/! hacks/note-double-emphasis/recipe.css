@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) em > strong, :is(.markdown-preview-view, .markdown-source-view) strong > em {
+  font-style: normal;
+  letter-spacing: .02em;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  padding: .12em .25em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+

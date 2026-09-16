@@ -1,0 +1,30 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  position: relative;
+  padding-inline-start: 1.4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: .58em;
+  inline-size: .42em;
+  block-size: .42em;
+  background: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) li::before {
+  border-radius: 50%;
+}
+@supports (mask-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj48cGF0aCBmaWxsPSIjYWQ0MTI5IiBkPSJNNSAwIDYuNSAzLjUgMTAgNSA2LjUgNi41IDUgMTAgMy41IDYuNSAwIDUgMy41IDMuNVoiLz48L3N2Zz4=")) {
+  :is(.markdown-preview-view, .markdown-source-view) li::before {
+    inline-size: .65em;
+    block-size: .65em;
+    inset-block-start: .45em;
+    border-radius: 0;
+    mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj48cGF0aCBmaWxsPSIjYWQ0MTI5IiBkPSJNNSAwIDYuNSAzLjUgMTAgNSA2LjUgNi41IDUgMTAgMy41IDYuNSAwIDUgMy41IDMuNVoiLz48L3N2Zz4=") center/contain no-repeat;
+  }
+}
+

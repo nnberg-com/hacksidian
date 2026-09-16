@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style-position: inside;
+  padding-inline-start: 0;
+}

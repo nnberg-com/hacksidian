@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  padding: 1.3em;
+  background-image: radial-gradient(var(--background-modifier-border) .8px,transparent .8px);
+  background-size: 12px 12px;
+}
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  background: var(--background-primary);
+  display: inline;
+  padding: .1em .2em;
+}
+

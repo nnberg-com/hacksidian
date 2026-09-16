@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a:active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  text-decoration-thickness: 3px;
+}

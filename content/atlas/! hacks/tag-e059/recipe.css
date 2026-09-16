@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  padding: .4em;
+  border-left: 3px solid transparent;
+  transition: background .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) p:has(a.tag:hover) {
+  background: var(--background-secondary);
+  border-left-color: var(--interactive-accent);
+}
+

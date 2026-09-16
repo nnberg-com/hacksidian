@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.896813);
+  text-transform: uppercase;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em:nth-of-type(2) {
+  text-align: center;
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em:nth-of-type(3) {
+  text-align: end;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em {
+  font-style: normal;
+}

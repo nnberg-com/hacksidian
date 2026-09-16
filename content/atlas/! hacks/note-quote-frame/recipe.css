@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border: calc(var(--blockquote-border-thickness) * 1.5) double var(--background-modifier-border);
+  padding: 1.1em;
+}
+

@@ -1,0 +1,9 @@
+@counter-style hack-list-ordered-o012-ordered-step {
+  system: extends decimal;
+  prefix: "Шаг ";
+  suffix: " — ";
+}
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  list-style-type: hack-list-ordered-o012-ordered-step;
+  padding-inline-start: 6.5em;
+}

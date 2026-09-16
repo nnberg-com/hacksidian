@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  position: relative;
+  border: calc(var(--blockquote-border-thickness) * 0.5) solid var(--background-modifier-border);
+  padding: 1.8em 1.2em 1.2em;
+  background: var(--background-secondary);
+  margin-top: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote::before {
+  content: "";
+  position: absolute;
+  width: 5em;
+  height: 1.2em;
+  inset: -.55em auto auto calc(50% - 2.5em);
+  background: var(--text-highlight-bg);
+  opacity: .85;
+  transform: rotate(-4deg);
+}
+

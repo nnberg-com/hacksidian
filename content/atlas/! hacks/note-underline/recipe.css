@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  background: linear-gradient(transparent 68%,var(--text-highlight-bg) 68%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+

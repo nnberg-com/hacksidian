@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) p:has(> img) + p {
+  border-left: 3px solid #bf724d;
+  padding-left: calc(var(--size-4-1) * 3);
+  font-size: calc(var(--font-text-size) * 0.88);
+}

@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.61538462);
+  transition: background-color .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag:hover {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  padding: .15em .4em;
+  transition: background-color .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag:hover {
+  background: var(--background-secondary);
+}
+

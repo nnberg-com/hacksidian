@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li::marker {
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li > ul > li::marker {
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul ul > li::marker {
+  color: var(--text-normal);
+}
+

@@ -1,0 +1,22 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-family: var(--font-monospace);
+  font-size: clamp(1.1rem,3vw,2rem);
+  font-weight: var(--font-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  inline-size: 9ch;
+  border-inline-end: 2px solid var(--interactive-accent);
+  animation: hack-heading-e068-heading-e068-typing 5s steps(9,end) infinite;
+}
+@keyframes hack-heading-e068-heading-e068-typing {
+  0%,10% {
+    inline-size: 0;
+  }
+  55%,90% {
+    inline-size: 9ch;
+  }
+  100% {
+    inline-size: 0;
+  }
+}
+

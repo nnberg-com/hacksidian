@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout:has(pre) {
+  background: var(--background-primary);
+  border: 1px solid var(--callout-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content pre {
+  background: var(--background-secondary);
+  padding: .7em;
+  overflow: auto;
+}
+

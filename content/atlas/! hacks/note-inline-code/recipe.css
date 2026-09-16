@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) :not(pre) > code {
+  background: var(--background-secondary);
+  border: 1px solid var(--code-border-color);
+  padding: .12em .35em;
+  border-radius: .3em;
+  overflow-wrap: anywhere;
+}
+

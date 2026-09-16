@@ -1,0 +1,34 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre::before {
+  content: "Обычный перенос";
+  display: block;
+  font: 600 11px/1.5 system-ui;
+  margin-bottom: calc(var(--size-4-1) * 3);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre:nth-of-type(2)::before {
+  content: "hanging each-line не поддерживается: обычный перенос";
+}
+@supports (text-indent: 2ch hanging each-line) {
+  :is(.markdown-preview-view, .markdown-source-view) pre:nth-of-type(2) > code {
+    display: block;
+    text-indent: 2ch hanging each-line;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) pre:nth-of-type(2)::before {
+    content: "Продолжение с отступом 2ch";
+  }
+}
+@supports (text-indent: 2ch hanging each-line) {
+  :is(.markdown-preview-view, .markdown-source-view) pre:nth-of-type(2) > code {
+    display: block;
+    text-indent: 2ch hanging each-line;
+  }
+}
+@supports (text-indent: 2ch hanging each-line) {
+  :is(.markdown-preview-view, .markdown-source-view) pre:nth-of-type(2)::before {
+    content: "Продолжение с отступом 2ch";
+  }
+}
+

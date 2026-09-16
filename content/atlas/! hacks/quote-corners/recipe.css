@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border: 0;
+  padding: 1.3em;
+  background: linear-gradient(var(--interactive-accent),var(--interactive-accent)) left top/20px 2px no-repeat,linear-gradient(var(--interactive-accent),var(--interactive-accent)) left top/2px 20px no-repeat,linear-gradient(var(--interactive-accent),var(--interactive-accent)) right top/20px 2px no-repeat,linear-gradient(var(--interactive-accent),var(--interactive-accent)) right top/2px 20px no-repeat,linear-gradient(var(--interactive-accent),var(--interactive-accent)) left bottom/20px 2px no-repeat,linear-gradient(var(--interactive-accent),var(--interactive-accent)) left bottom/2px 20px no-repeat,linear-gradient(var(--interactive-accent),var(--interactive-accent)) right bottom/20px 2px no-repeat,linear-gradient(var(--interactive-accent),var(--interactive-accent)) right bottom/2px 20px no-repeat;
+}
+

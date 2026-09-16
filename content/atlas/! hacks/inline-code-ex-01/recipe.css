@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  font-family: var(--font-monospace);
+  font-size: calc(var(--code-size) * 1.14285714);
+}

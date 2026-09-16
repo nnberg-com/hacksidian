@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) a code:not(pre code) {
+  display: inline-block;
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+  border: 1px solid var(--code-border-color);
+  box-shadow: 0 2px 0 var(--text-muted);
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:active code:not(pre code) {
+  top: 1px;
+  box-shadow: 0 1px 0 var(--text-muted);
+}
+

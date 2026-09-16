@@ -1,0 +1,8 @@
+.markdown-source-view.mod-cm6 .cm-line:not(.cm-active):not(:focus) .cm-hmd-frontmatter {
+  color: var(--text-muted);
+  opacity: .65;
+}
+.markdown-source-view.mod-cm6 .cm-line:is(.cm-active,:focus) {
+  background: var(--background-secondary);
+}
+

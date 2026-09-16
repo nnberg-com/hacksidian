@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding-inline-start: .65em;
+}
+

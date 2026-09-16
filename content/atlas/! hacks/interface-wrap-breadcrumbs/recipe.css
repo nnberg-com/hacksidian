@@ -1,0 +1,16 @@
+.workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)) .view-header {
+  height: auto;
+  min-height: 40px;
+}
+.workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)) .view-header-title-container {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  flex-wrap: wrap;
+  height: auto;
+}
+.workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)) .view-header-title-container :is(.view-header-title-parent,.view-header-title,.view-header-breadcrumb) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  flex-wrap: wrap;
+}
+

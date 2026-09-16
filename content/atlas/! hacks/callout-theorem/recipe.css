@@ -1,0 +1,35 @@
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="theorem"] {
+  background: #fff;
+  color: #262626;
+  border-block: 2px solid #343434;
+  padding: calc(var(--size-4-1) * 6.5) calc(var(--size-4-1) * 5.5);
+  font: italic 18px/1.75 Georgia,serif;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="theorem"] > .callout-title {
+  font-style: normal;
+  font-weight: var(--font-normal);
+  font-size: calc(var(--font-text-size) * 1.25);
+  margin-bottom: calc(var(--size-4-1) * 3.5);
+  line-height: calc(var(--line-height-normal) * 0.933333);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="theorem"] > .callout-content > p {
+  margin-bottom: calc(var(--size-4-1) * 6);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="demonstration"] {
+  border-top: 1px solid #c9c9c9;
+  padding-top: calc(var(--size-4-1) * 4.5);
+  font-style: normal;
+  font-size: calc(var(--font-text-size) * 1);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="demonstration"] > .callout-title {
+  font-style: italic;
+  font-weight: var(--font-normal);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="demonstration"] > .callout-content::after {
+  content: "∎";
+  display: block;
+  text-align: right;
+  font-size: 19px;
+  line-height: 1;
+}
+

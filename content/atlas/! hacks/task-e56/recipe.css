@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  counter-reset: open;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li:has(> input:not(:checked), > p:first-child > input:not(:checked)) {
+  counter-increment: open;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul)::after {
+  content: "Осталось: " counter(open);
+  display: block;
+  margin-block-start: 1em;
+  padding: .6em;
+  background: var(--background-secondary);
+  font-weight: 650;
+}
+

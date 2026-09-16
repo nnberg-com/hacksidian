@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border: calc(var(--blockquote-border-thickness) * 3) solid;
+  border-image: repeating-linear-gradient(45deg,var(--interactive-accent) 0 3px,var(--background-secondary) 3px 7px) 6;
+  padding: 1.2em;
+}
+

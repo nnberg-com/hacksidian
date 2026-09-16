@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border-top: 1px solid currentColor;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote hr {
+  width: 3rem;
+  opacity: .45;
+}
+

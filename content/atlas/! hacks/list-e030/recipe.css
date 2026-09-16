@@ -1,0 +1,3 @@
+:is(.markdown-preview-view, .markdown-source-view) li + li {
+  margin-block-start: 1.15em;
+}

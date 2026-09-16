@@ -1,0 +1,3 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border-top: 3px dotted currentColor;
+}

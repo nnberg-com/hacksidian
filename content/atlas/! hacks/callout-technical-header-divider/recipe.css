@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  border-block-end: 1px solid var(--background-modifier-border);
+  padding-block-end: .65em;
+  margin-block-end: .7em;
+}
+

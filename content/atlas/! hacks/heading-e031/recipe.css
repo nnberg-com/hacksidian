@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  inline-size: fit-content;
+  background: var(--interactive-accent);
+  color: white;
+  padding: .5em 1.5em .5em .6em;
+  clip-path: polygon(0 0,100% 0,92% 50%,100% 100%,0 100%);
+  font-size: calc(var(--h3-size) * 1.138088);
+}
+

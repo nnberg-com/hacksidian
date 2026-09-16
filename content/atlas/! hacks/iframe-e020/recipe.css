@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .gradient-border {
+  padding: var(--size-4-1);
+  border-radius: calc(var(--radius-s) * 4.5);
+  background: linear-gradient(135deg, #a34f6b, #d5a97a, #8caeac);
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  border-radius: calc(var(--radius-s) * 3.5);
+}

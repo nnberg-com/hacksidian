@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) td:first-child:has(strong)::before {
+  content: "◆ ";
+  color: var(--interactive-accent);
+  font-size: .75em;
+}
+

@@ -1,0 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  font-family: Georgia,serif;
+  line-height: calc(var(--line-height-normal) * 1.133333);
+}
+:is(.markdown-preview-view, .markdown-source-view) h1 {
+  font-family: inherit;
+  font-size: 2.6em;
+  letter-spacing: -.035em;
+  line-height: calc(var(--h1-line-height) * 0.875);
+  text-wrap: balance;
+}
+:is(.markdown-preview-view, .markdown-source-view) h1 + p, :is(.markdown-preview-view, .markdown-source-view) .el-h1 + .el-p > p {
+  font-size: 1.12em;
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border-block: calc(var(--blockquote-border-thickness) * 0.5) solid var(--background-modifier-border);
+  padding-block: 1em;
+  font-style: italic;
+}
+

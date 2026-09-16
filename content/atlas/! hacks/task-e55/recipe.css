@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  counter-reset: task;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input[type="checkbox"], > p:first-child > input[type="checkbox"]) {
+  counter-increment: task;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input[type="checkbox"], > p:first-child > input[type="checkbox"])::before {
+  content: counter(task,decimal-leading-zero) " / ";
+  font-size: .75em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+

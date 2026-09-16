@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout-title-inner code {
+  font: .88em ui-monospace,monospace;
+  background: var(--background-primary);
+  padding: .1em .25em;
+  border-radius: .2em;
+}
+

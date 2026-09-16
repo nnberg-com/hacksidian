@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  container-type: inline-size;
+}
+:is(.markdown-preview-view, .markdown-source-view) .responsive-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: calc(var(--size-4-1) * 4);
+}
+@container (max-width: 390px) {
+  :is(.markdown-preview-view, .markdown-source-view) .responsive-pair {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.138088);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-inline-size: 100%;
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  font-size: calc(var(--font-text-size) * 0.8);
+  color: var(--text-muted);
+}

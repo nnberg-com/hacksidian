@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  min-width: 7rem;
+  white-space: nowrap;
+}
+:is(.markdown-preview-view, .markdown-source-view) table:has(>thead>tr>th:nth-child(7)) th, :is(.markdown-preview-view, .markdown-source-view) table:has(>thead>tr>th:nth-child(7)) td {
+  padding: .3em .45em;
+  min-width: 5.5rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) table {
+  max-height: 15rem;
+}
+

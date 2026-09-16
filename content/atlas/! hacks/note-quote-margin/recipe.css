@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: flow-root;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  background: var(--background-secondary);
+  padding: 1em;
+}
+@container preview (min-width:430px) {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    float: right;
+    width: 42%;
+    margin: .3em 0 1em 1.2em;
+    font-size: .9em;
+  }
+}
+

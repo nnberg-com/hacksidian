@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) em {
+  text-decoration: underline wavy var(--interactive-accent);
+  text-underline-offset: .2em;
+}
+

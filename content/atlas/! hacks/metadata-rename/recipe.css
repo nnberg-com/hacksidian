@@ -1,0 +1,8 @@
+.markdown-source-view.mod-cm6 .metadata-properties-title {
+  font-size: 0;
+}
+.markdown-source-view.mod-cm6 .metadata-properties-title::before {
+  content: "Паспорт заметки";
+  font-size: 12px;
+  color: var(--text-accent);
+}

@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  background: var(--background-secondary);
+  padding-block: .12em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-begin {
+  padding-left: .5em;
+  border-radius: 999px 0 0 999px;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-end {
+  padding-right: .5em;
+  border-radius: 0 999px 999px 0;
+}
+

@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  position: relative;
+  padding-inline-end: 3.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-icon {
+  position: absolute;
+  inset: 1em 1em auto auto;
+  width: 1.5em;
+  height: 1.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  font-size: .8em;
+  color: var(--text-muted);
+}
+

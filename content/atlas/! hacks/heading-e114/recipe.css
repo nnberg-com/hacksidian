@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  direction: rtl;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.213961);
+  border-inline-start: 4px solid var(--interactive-accent);
+  padding-inline-start: .7rem;
+  text-align: start;
+}
+

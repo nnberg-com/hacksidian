@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .2em;
+}
+

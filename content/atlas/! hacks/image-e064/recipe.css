@@ -1,0 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: flow-root;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p:has(img), :is(.markdown-preview-view, .markdown-source-view) .el-p > p:has(img) {
+  float: left;
+  width: 48%;
+  aspect-ratio: 1;
+  shape-outside: circle(50%);
+  shape-margin: 12px;
+  margin: 0 calc(var(--size-4-1) * 3.5) calc(var(--size-4-1) * 2) 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p + p, :is(.markdown-preview-view, .markdown-source-view) .el-p + .el-p > p {
+  margin: 0;
+}
+

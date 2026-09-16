@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) code {
+  font-size: calc(var(--code-size) * 1.02857143);
+  background: var(--background-secondary);
+  padding: .1em .25em;
+  border-radius: .2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-underline-offset: .18em;
+}
+

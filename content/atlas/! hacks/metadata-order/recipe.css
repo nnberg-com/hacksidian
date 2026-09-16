@@ -1,0 +1,9 @@
+.markdown-source-view.mod-cm6 .metadata-property {
+  order: 10;
+}
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="status"] {
+  order: 0;
+}
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="deadline"] {
+  order: 1;
+}

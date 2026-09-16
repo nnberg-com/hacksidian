@@ -1,0 +1,25 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  box-shadow: 6px 6px 0 #c7aa66;
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) p {
+    break-inside: avoid;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) img {
+    box-shadow: none;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) p {
+    break-inside: avoid;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) img {
+    box-shadow: none;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+}

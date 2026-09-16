@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  padding: .35em;
+  scroll-margin-top: 2rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3:target {
+  background: var(--text-highlight-bg);
+  box-shadow: -4px 0 var(--interactive-accent);
+}
+

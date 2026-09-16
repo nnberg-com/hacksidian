@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+  scroll-margin-block-start: 6rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+  background: var(--background-secondary);
+}

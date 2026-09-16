@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) thead th {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: 0;
+}

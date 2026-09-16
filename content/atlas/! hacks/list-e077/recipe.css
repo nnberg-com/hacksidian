@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  border-inline-start: 2px solid var(--interactive-accent);
+  padding-block: .4em;
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul::before, :is(.markdown-preview-view, .markdown-source-view) ul ul::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inline-size: .5em;
+  border-block-start: 2px solid var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul::before {
+  inset-block-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul::after {
+  inset-block-end: 0;
+}
+

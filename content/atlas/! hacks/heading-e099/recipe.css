@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  position: relative;
+  isolation: isolate;
+  align-self: flex-start;
+  background: var(--background-secondary);
+  padding: .5em;
+  font-size: calc(var(--h3-size) * 1.213961);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--text-highlight-bg);
+  transform: rotate(-4deg);
+  z-index: -1;
+}
+

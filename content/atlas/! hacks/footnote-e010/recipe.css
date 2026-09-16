@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a:is(:hover,:focus-visible) {
+  background: var(--background-secondary);
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 3px;
+  text-decoration: none;
+}
+

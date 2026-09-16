@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a:focus-visible {
+  text-decoration-thickness: 4px;
+  text-underline-offset: .3em;
+}
+

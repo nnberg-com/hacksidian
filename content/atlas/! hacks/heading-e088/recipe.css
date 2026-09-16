@@ -1,0 +1,22 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.176024);
+  line-height: calc(var(--h3-line-height) * 1);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: "";
+  float: left;
+  inline-size: 85px;
+  block-size: 85px;
+  border-radius: 50%;
+  background: var(--interactive-accent);
+  shape-outside: circle(50%);
+  margin-inline-end: calc(var(--size-4-1) * 3);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::after {
+  content: "";
+  display: block;
+  clear: both;
+}

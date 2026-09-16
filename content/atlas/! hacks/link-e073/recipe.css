@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  position: relative;
+  margin-inline-start: 2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) a::before {
+  content: "§";
+  position: absolute;
+  inset-inline-start: -1.8em;
+}

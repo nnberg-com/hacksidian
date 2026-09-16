@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  margin: .6em 0 .2em;
+  padding-inline-start: 1em;
+  border-inline-start: var(--blockquote-border-thickness) solid var(--interactive-accent);
+  font-family: Georgia,serif;
+  font-style: italic;
+}
+:is(.markdown-preview-view, .markdown-source-view) li + li {
+  margin-block-start: 1em;
+}
+

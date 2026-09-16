@@ -1,0 +1,3 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  border-radius: calc(var(--radius-s) * 5);
+}

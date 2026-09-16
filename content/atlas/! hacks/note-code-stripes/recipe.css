@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  font-size: .8em;
+  line-height: 1.6em;
+  padding: 0 .7em;
+  white-space: pre;
+  overflow: auto;
+  background: repeating-linear-gradient(to bottom,var(--background-secondary) 0,var(--background-secondary) 1.6em,transparent 1.6em,transparent 3.2em);
+}
+

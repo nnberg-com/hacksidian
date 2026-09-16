@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  background: linear-gradient(110deg,#fff7df 50%,#173a32 50%);
+  isolation: isolate;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  mix-blend-mode: difference;
+  color: white;
+  font-size: calc(var(--h3-size) * 2.048558);
+}
+

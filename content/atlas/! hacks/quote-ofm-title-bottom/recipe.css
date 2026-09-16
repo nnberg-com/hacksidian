@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  display: flex;
+  flex-direction: column;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  order: 1;
+  justify-content: flex-end;
+  font-size: .82em;
+  margin-top: 1em;
+  font-weight: var(--font-normal);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-icon {
+  display: none;
+}
+

@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  padding: .03em .22em;
+  border-radius: .3em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  padding: .03em .22em;
+  border-radius: .3em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+

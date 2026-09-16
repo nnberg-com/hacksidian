@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s) {
+  text-decoration-style: double;
+  text-decoration-color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s) {
+  text-decoration-style: double;
+  text-decoration-color: var(--interactive-accent);
+}
+

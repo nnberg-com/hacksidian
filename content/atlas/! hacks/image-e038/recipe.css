@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  background: #174d55;
+  isolation: isolate;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  filter: grayscale(1) contrast(1.35);
+  mix-blend-mode: screen;
+}

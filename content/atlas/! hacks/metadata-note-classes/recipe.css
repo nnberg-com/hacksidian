@@ -1,0 +1,10 @@
+.markdown-source-view.mod-cm6.hacksidian-metadata-compact {
+  --metadata-gap: 0px;
+  --metadata-input-height: 23px;
+}
+.markdown-source-view.mod-cm6.hacksidian-metadata-card {
+  --metadata-padding: 12px;
+  --metadata-border-width: 1px;
+  --metadata-border-radius: 10px;
+  --metadata-background: var(--background-secondary);
+}

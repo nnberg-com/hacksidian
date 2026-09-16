@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  width: 4rem;
+  border-top: 1px solid currentColor;
+  margin-block: 3.5rem;
+}

@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code.language-python)::before {
+  content: "Python";
+  display: block;
+  font: 600 11px/1.5 system-ui;
+  color: #3572a5;
+  margin-bottom: calc(var(--size-4-1) * 3);
+}
+

@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.972686);
+  text-shadow: 3px 3px 0 var(--text-highlight-bg);
+}

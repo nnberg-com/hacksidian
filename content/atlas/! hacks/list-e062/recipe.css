@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  padding-inline-start: 2.4em;
+}
+@container specimen (max-width:350px) {
+  :is(.markdown-preview-view, .markdown-source-view) ul {
+    padding-inline-start: 1.1em;
+  }
+}

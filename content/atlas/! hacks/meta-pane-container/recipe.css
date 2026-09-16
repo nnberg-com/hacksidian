@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  container-type: inline-size;
+}
+@container (width < 420px) {
+  :is(.markdown-preview-view, .markdown-source-view):is(.markdown-preview-view, .markdown-source-view) blockquote {
+    margin-inline: 0!important;
+    padding-inline: .65em!important;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) table {
+    font-size: .85em!important;
+  }
+}
+

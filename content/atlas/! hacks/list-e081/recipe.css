@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p, :is(.markdown-preview-view, .markdown-source-view) .el-p > p, :is(.markdown-preview-view, .markdown-source-view) ul:not(li ul), :is(.markdown-preview-view, .markdown-source-view) li {
+  display: inline;
+  padding: 0;
+  margin: 0!important;
+  list-style: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p, :is(.markdown-preview-view, .markdown-source-view) .el-p > p {
+  font-size: inherit;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p:first-child::after, :is(.markdown-preview-view, .markdown-source-view) .el-p:not(.el-p ~ .el-p) > p::after {
+  content: " ";
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) + p::before {
+  content: ". ";
+}
+:is(.markdown-preview-view, .markdown-source-view) li + li::before {
+  content: " · ";
+  color: var(--interactive-accent);
+}
+

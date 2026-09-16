@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  background: transparent;
+  border: 1px solid #a9aaa0;
+  border-radius: 0;
+}

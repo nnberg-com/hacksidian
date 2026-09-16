@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 22px;
+  background: currentColor;
+  mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSIyMiIgdmlld0JveD0iMCAwIDQwIDIyIj48cGF0aCBkPSJNMCA3IFExMCAtMyAyMCA3IFQ0MCA3IE0wIDE1IFExMCA1IDIwIDE1IFQ0MCAxNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjMiLz48L3N2Zz4K") left center / 40px 22px repeat-x;
+}
+

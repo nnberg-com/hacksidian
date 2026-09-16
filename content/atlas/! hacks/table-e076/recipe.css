@@ -1,0 +1,39 @@
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) table {
+    display: table;
+    max-height: none;
+    overflow: visible;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) thead {
+    display: table-header-group;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) tr {
+    break-inside: avoid;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+    position: static;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) table {
+    display: table;
+    max-height: none;
+    overflow: visible;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) thead {
+    display: table-header-group;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) tr {
+    break-inside: avoid;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+    position: static;
+  }
+}
+

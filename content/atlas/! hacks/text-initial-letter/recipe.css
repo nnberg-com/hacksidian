@@ -1,0 +1,11 @@
+.markdown-preview-view > p:first-child::first-letter, .markdown-preview-view .el-p:not(.el-p ~ .el-p) > p::first-letter {
+  font-family: inherit;
+  font-weight: var(--font-bold);
+  color: var(--text-normal);
+}
+@supports (initial-letter: 3) {
+  .markdown-preview-view > p:first-child::first-letter, .markdown-preview-view .el-p:not(.el-p ~ .el-p) > p::first-letter {
+    initial-letter: 3;
+    margin-inline-end: .15em;
+  }
+}

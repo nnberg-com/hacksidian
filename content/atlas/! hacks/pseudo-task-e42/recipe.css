@@ -1,0 +1,44 @@
+:is(.markdown-preview-view, .markdown-source-view) li[data-task] {
+  position: relative;
+  list-style: none;
+  padding-inline-start: 1.9em;
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task] > input, :is(.markdown-preview-view, .markdown-source-view) li[data-task] > p:first-child > input {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task]::before {
+  content: attr(data-task);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: .14em;
+  display: grid;
+  place-items: center;
+  width: 1.25em;
+  height: 1.25em;
+  line-height: 1;
+  font-weight: var(--font-bold);
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="p"] {
+  --hack-pseudo-task-e42-tone: #30775e;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="c"] {
+  --hack-pseudo-task-e42-tone: #b73c4d;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task] {
+  border-left: 3px solid var(--hack-pseudo-task-e42-tone);
+  padding: .6em .7em .6em 2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task]::before {
+  left: .4em;
+  top: .7em;
+  color: var(--hack-pseudo-task-e42-tone);
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="p"]::before {
+  content: "+";
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="c"]::before {
+  content: "−";
+}
+

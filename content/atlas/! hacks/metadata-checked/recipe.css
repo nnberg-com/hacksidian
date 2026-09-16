@@ -1,0 +1,8 @@
+.markdown-source-view.mod-cm6 [data-property-key="published"]:has(input:checked) {
+  background: color-mix(in srgb,var(--color-green) 16%,transparent);
+  box-shadow: inset 3px 0 var(--color-green);
+}
+.markdown-source-view.mod-cm6 input[type="checkbox"] {
+  accent-color: var(--color-green);
+}
+

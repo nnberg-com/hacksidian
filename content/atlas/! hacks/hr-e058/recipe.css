@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 12px;
+  background: radial-gradient(ellipse at 50% 0,#0005,transparent 70%);
+}
+

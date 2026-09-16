@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  background: var(--text-highlight-bg);
+  padding: .1em .2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  font-weight: inherit;
+}
+

@@ -1,0 +1,38 @@
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="tree"] {
+  padding: calc(var(--size-4-1) * 6);
+  background: #1d302c;
+  color: #deede5;
+  border-radius: calc(var(--radius-s) * 1.5);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="tree"] > .callout-title {
+  font-size: calc(var(--font-text-size) * 0.8125);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #9ac9b0;
+  margin-bottom: calc(var(--size-4-1) * 5);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="tree"] ul {
+  list-style: none;
+  padding-left: calc(var(--size-4-1) * 5.25);
+  margin: calc(var(--size-4-1) * 2) 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="tree"] > .callout-content > ul {
+  padding-left: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="tree"] li {
+  position: relative;
+  padding: calc(var(--size-4-1) * 1.75) 0;
+  font-size: calc(var(--font-text-size) * 0.875);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="tree"] ul ul {
+  border-left: 1px solid #5c8170;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="tree"] ul ul > li::before {
+  content: "";
+  position: absolute;
+  left: -21px;
+  top: 19px;
+  width: 15px;
+  border-top: 1px solid #5c8170;
+}
+

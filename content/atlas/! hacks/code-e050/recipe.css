@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) pre:has(+ pre), :is(.markdown-preview-view, .markdown-source-view) .el-pre:has(+ .el-pre) > pre {
+  margin-bottom: 0;
+  border-radius: calc(var(--code-radius) * 2) calc(var(--code-radius) * 2) 0 0;
+  background: #25352e;
+  color: #e2ecd9;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre + pre, :is(.markdown-preview-view, .markdown-source-view) .el-pre + .el-pre > p {
+  margin-top: 0;
+  border-top: 1px solid #b3c2a9;
+  border-radius: 0 0 calc(var(--radius-s) * 2) calc(var(--radius-s) * 2);
+}
+

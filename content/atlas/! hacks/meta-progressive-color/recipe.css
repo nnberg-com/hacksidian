@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border-inline-start: 3px solid var(--text-accent);
+  background: var(--background-secondary)!important;
+}
+@supports (background:color-mix(in srgb,red 10%,transparent)) {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    background: color-mix(in srgb,var(--text-accent) 12%,var(--background-primary))!important;
+  }
+}
+

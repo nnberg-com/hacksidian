@@ -11,15 +11,15 @@ export const DEFAULT_SETTINGS: CallMeRedSettings = {
   customModel: false,
   autoPricing: true,
   sendScreenshot: false,
-  atlasFolder: "! P R O/hacksidian/atlas",
-  globalVariablesFile: ".obsidian/snippets/hacksidian-00-palette.css",
+  atlasFolder: "Hacksidian/atlas",
+  globalVariablesFile: "",
   spendLimitUsd: 0,
   apiKey: "",
   model: "gpt-5.6-terra",
   inputPricePerMillion: 2,
   cachedInputPricePerMillion: 0.2,
   outputPricePerMillion: 12,
-  coloringsFolder: "! P R O/hacksidian/playground",
+  coloringsFolder: "Hacksidian/playground",
   supportedLocales: ["ru-Cyrl"],
 };
 

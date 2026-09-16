@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) h3::first-letter {
+  font: italic 1.8em Georgia,serif;
+  color: var(--interactive-accent);
+}
+

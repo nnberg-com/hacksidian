@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 16px;
+  background: linear-gradient(currentColor,currentColor) bottom / 100% 1px no-repeat,repeating-linear-gradient(90deg,currentColor 0 1px,transparent 1px 10px) bottom / 100% 6px no-repeat,repeating-linear-gradient(90deg,currentColor 0 1px,transparent 1px 50px) bottom / 100% 100% no-repeat;
+}
+

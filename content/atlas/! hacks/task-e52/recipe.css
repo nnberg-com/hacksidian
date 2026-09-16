@@ -1,0 +1,20 @@
+:is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"] {
+  appearance: none;
+  width: 2.2em;
+  height: 1.25em;
+  border: 1px solid var(--text-muted);
+  border-radius: 2em;
+  background: radial-gradient(circle,var(--background-primary) 55%,transparent 60%) left center/1.1em 1.1em no-repeat,var(--text-muted);
+  vertical-align: -.25em;
+}
+:is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"]:checked {
+  background-position: right center;
+  background-color: var(--color-green);
+  border-color: var(--color-green);
+}
+@media(forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"] {
+    appearance: auto;
+  }
+}
+

@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  font-family: var(--font-monospace);
+  font-size: .92em;
+}
+

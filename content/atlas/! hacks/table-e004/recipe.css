@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  border: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) thead th {
+  border-top: calc(var(--table-border-width) * 2) solid var(--text-normal);
+  border-bottom: var(--table-border-width) solid var(--text-normal);
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:last-child td {
+  border-bottom: calc(var(--table-border-width) * 2) solid var(--text-normal);
+}
+

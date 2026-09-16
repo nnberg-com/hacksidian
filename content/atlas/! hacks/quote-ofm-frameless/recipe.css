@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  font-size: .75em;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-icon {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content {
+  font-family: Georgia,serif;
+  font-size: 1.2em;
+}
+

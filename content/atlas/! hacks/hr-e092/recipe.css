@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 8px;
+  background: repeating-linear-gradient(135deg,currentColor 0 1px,transparent 1px 6px);
+}
+@media (max-width:600px) {
+  :is(.markdown-preview-view, .markdown-source-view) hr {
+    width: 4rem;
+    height: 2px;
+    background: currentColor;
+  }
+}
+

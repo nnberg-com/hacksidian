@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:hover code:not(pre code), :is(.markdown-preview-view, .markdown-source-view) a:focus-visible code:not(pre code) {
+  background: var(--text-highlight-bg);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 4px;
+}
+

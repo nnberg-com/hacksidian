@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnotes th, :is(.markdown-preview-view, .markdown-source-view) .footnotes td {
+  padding: .4em;
+  border: var(--table-border-width) solid var(--table-border-color);
+  overflow-wrap: anywhere;
+}
+

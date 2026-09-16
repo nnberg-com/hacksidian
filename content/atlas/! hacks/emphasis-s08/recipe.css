@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) em {
+  font-style: normal;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+

@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  text-decoration: underline double var(--interactive-accent);
+  text-underline-offset: .2em;
+}
+

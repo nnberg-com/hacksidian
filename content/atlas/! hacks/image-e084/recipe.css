@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  margin: 0;
+  padding: calc(var(--size-4-1) * 4);
+  border-left: calc(var(--blockquote-border-thickness) * 2) solid #4f7c69;
+  background: #e8eee3;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote p {
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  filter: sepia(.25);
+}
+

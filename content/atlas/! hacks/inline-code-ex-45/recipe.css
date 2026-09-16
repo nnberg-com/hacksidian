@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) :is(h1,h2,h3,h4,h5,h6) code:not(pre code) {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-weight: inherit;
+  font-size: calc(var(--code-size) * 1.02857143);
+}
+

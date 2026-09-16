@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  max-block-size: 21rem;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnotes {
+  margin-block-start: 18rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+  background: var(--background-secondary);
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) {
+    scroll-behavior: auto;
+  }
+}
+

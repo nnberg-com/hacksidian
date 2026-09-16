@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  width: 75%;
+  margin-inline: auto;
+}

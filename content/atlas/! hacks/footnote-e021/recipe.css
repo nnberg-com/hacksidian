@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+  background: var(--background-secondary);
+  outline: .35em solid var(--background-secondary);
+}
+

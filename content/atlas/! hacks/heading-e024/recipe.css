@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  text-decoration: underline double var(--interactive-accent);
+  text-underline-offset: .25em;
+}
+

@@ -1,0 +1,45 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  background: var(--background-secondary);
+  padding: 1.2em;
+  border: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  background: var(--text-highlight-bg);
+}
+@media (forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) strong {
+    background: Canvas;
+    color: CanvasText;
+    text-decoration: underline;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    color: LinkText;
+    text-decoration: underline;
+  }
+}
+@media (forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+  }
+}
+@media (forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) strong {
+    background: Canvas;
+    color: CanvasText;
+    text-decoration: underline;
+  }
+}
+@media (forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    color: LinkText;
+    text-decoration: underline;
+  }
+}
+

@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  font-style: italic;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  font-style: italic;
+}

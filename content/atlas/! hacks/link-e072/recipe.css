@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) a::after {
+  content: " ◇";
+  display: inline-block;
+  width: 1.4em;
+  text-align: center;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible)::after {
+  content: " →";
+}
+

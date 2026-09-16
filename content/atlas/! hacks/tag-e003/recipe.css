@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  font-weight: 750;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  font-weight: 750;
+}

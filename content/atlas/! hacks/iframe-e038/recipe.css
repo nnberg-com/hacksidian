@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .zoom {
+  overflow: hidden;
+  border-radius: calc(var(--radius-s) * 3.5);
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  transition: transform .3s;
+  pointer-events: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .zoom:is(:hover, :focus) iframe {
+  transform: scale(1.06);
+}
+

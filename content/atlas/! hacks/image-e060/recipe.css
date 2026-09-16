@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: grid;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p, :is(.markdown-preview-view, .markdown-source-view) .el-p > p {
+  grid-area: 1/1;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p + p, :is(.markdown-preview-view, .markdown-source-view) .el-p + .el-p > p {
+  align-self: end;
+  z-index: 1;
+  margin: 0;
+  padding: calc(var(--size-4-1) * 8.75) calc(var(--size-4-1) * 3.75) calc(var(--size-4-1) * 3.75);
+  color: white;
+  background: linear-gradient(transparent,#102c35e6);
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+}
+

@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  background: #fffbee;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  display: block;
+  padding-left: 2ch;
+  line-height: calc(var(--line-height-normal) * 1.2);
+  background: linear-gradient(to right, transparent 1ch, #c5665a88 1ch calc(1ch + 1px), transparent calc(1ch + 1px)), repeating-linear-gradient(transparent 0 calc(1.8em - 1px), #547ba225 calc(1.8em - 1px) 1.8em);
+}
+

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-decoration-thickness: .08em;
+  text-underline-offset: .2em;
+  text-decoration-color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:hover {
+  text-decoration-thickness: .16em;
+}
+

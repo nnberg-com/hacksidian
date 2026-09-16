@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border: 0;
+  padding: 0 .8em 0 2em;
+  line-height: calc(var(--line-height-normal) * 1.266667);
+  background: linear-gradient(to right,transparent 1.1em,var(--interactive-accent) 1.1em calc(1.1em + 1px),transparent 0),repeating-linear-gradient(to bottom,transparent 0 calc(1.9em - 1px),var(--background-modifier-border) 0 1.9em);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote p {
+  margin: 0;
+}
+

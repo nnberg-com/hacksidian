@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 2px;
+  width: 35%;
+  background: currentColor;
+  transition: width .25s ease;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr:has(+ p a:focus-visible) {
+  width: 100%;
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) hr {
+    transition: none;
+  }
+}
+

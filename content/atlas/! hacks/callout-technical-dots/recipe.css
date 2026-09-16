@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  background-color: var(--background-primary);
+  background-image: radial-gradient(var(--background-modifier-border) .7px,transparent .7px);
+  background-size: 10px 10px;
+  border: 1px solid var(--background-modifier-border);
+}
+

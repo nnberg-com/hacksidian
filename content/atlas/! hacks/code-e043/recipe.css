@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) pre > code::selection {
+  background: #bd5036;
+  color: white;
+}

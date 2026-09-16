@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  display: inline-block;
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.69230769);
+  background: var(--background-secondary);
+  transition: transform .2s,box-shadow .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--background-modifier-border);
+}
+

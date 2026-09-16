@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  border: 1px solid currentColor;
+  padding: .08em .2em;
+  text-decoration: none;
+}
+

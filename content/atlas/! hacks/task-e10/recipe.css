@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  line-height: calc(var(--line-height-normal) * 0.966667);
+}
+:is(.markdown-preview-view, .markdown-source-view) li+li {
+  margin-block-start: 1.25em;
+}
+

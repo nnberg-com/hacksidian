@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  display: inline-block;
+  padding: var(--tag-padding-y) calc(var(--tag-padding-x) * 0.92307692);
+  background: var(--background-secondary);
+  mask: radial-gradient(circle at 50% 0,transparent 2px,#000 2.5px) 0 0/7px 100%;
+}
+

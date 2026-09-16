@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  position: relative;
+  margin-inline-start: 1.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) p::before {
+  content: "→";
+  position: absolute;
+  left: -1.5em;
+  opacity: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) p:has(a:is(:hover,:focus-visible))::before {
+  opacity: 1;
+}
+

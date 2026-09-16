@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:not(:checked), > p:first-child > input:not(:checked)):not(:has(a)) {
+  border-inline-start: 2px dashed var(--color-orange);
+  padding-inline-start: .75em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:not(:checked), > p:first-child > input:not(:checked)):not(:has(a))::after {
+  content: " · нет ссылки на результат";
+  font-size: .8em;
+  color: var(--color-orange);
+}
+

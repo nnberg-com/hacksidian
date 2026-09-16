@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  border-block: 1px solid var(--interactive-accent);
+  padding-block: .1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-begin {
+  border-left: 1px solid var(--interactive-accent);
+  padding-left: .4em;
+  border-radius: 999px 0 0 999px;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-end {
+  border-right: 1px solid var(--interactive-accent);
+  padding-right: .4em;
+  border-radius: 0 999px 999px 0;
+}
+

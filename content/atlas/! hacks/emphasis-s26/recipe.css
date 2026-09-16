@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) strong::before {
+  content: '［';
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) strong::after {
+  content: '］';
+  color: var(--interactive-accent);
+}
+

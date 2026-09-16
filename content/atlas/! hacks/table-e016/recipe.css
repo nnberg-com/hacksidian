@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  padding: 1em .8em;
+}
+

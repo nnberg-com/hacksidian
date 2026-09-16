@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  list-style-position: inside;
+  padding: 0;
+}

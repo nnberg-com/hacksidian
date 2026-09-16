@@ -1,0 +1,18 @@
+.markdown-preview-view ul > li:not(.task-list-item) > .list-bullet::after,
+.markdown-source-view .cm-formatting-list-ul .list-bullet::after {
+  content: "—";
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  transform: none;
+  color: var(--list-marker-color);
+}
+.markdown-preview-view ul:not(.has-list-bullet) > li:not(.task-list-item) {
+  list-style-type: "—  ";
+}
+.markdown-preview-view ul.has-list-bullet > li:not(.task-list-item)::before {
+  content: none;
+}

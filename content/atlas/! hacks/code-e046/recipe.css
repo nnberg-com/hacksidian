@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  margin: 0;
+  border-left: calc(var(--blockquote-border-thickness) * 1.5) solid #9aab8c;
+  padding-left: calc(var(--size-4-1) * 4);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote pre {
+  background: #edf1e6;
+}

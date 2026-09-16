@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked):has(> ul input:not(:checked)) {
+  border: 2px dashed var(--interactive-accent);
+  padding: .8em;
+  border-radius: .4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked):has(> ul input:not(:checked))::after {
+  content: "Есть незавершённые подзадачи";
+  display: block;
+  font-size: .8em;
+  color: var(--interactive-accent);
+  margin-block-start: .6em;
+}
+

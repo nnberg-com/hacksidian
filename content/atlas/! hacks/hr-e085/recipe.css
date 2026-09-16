@@ -1,0 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) hr:has(+ p > em:only-child) {
+  height: 0;
+  margin-bottom: 1rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr + p:has(> em:only-child):has(+ hr), :is(.markdown-preview-view, .markdown-source-view) .el-hr + .el-p > p:has(> em:only-child):has(+ hr) {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr + p:has(> em:only-child):has(+ hr)::before, :is(.markdown-preview-view, .markdown-source-view) .el-hr + .el-p > p:has(> em:only-child):has(+ hr)::before, :is(.markdown-preview-view, .markdown-source-view) hr + p:has(> em:only-child):has(+ hr)::after, :is(.markdown-preview-view, .markdown-source-view) .el-hr + .el-p > p:has(> em:only-child):has(+ hr)::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+}
+:is(.markdown-preview-view, .markdown-source-view) p:has(> em:only-child) + hr {
+  height: 0;
+  margin-top: 1rem;
+}
+

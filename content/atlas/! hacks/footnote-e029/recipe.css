@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-backref {
+  display: inline-block;
+  padding: .2em .45em;
+  margin-inline: .1em;
+  background: var(--background-secondary);
+  border-radius: .3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a:target {
+  outline: 2px solid var(--interactive-accent);
+}
+

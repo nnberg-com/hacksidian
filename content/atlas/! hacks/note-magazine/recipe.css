@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  columns: 15em 2;
+  column-gap: 2em;
+  column-rule: 1px solid var(--background-modifier-border);
+  font-family: Georgia,serif;
+}
+:is(.markdown-preview-view, .markdown-source-view) h1, :is(.markdown-preview-view, .markdown-source-view) h2 {
+  column-span: all;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  orphans: 3;
+  widows: 3;
+}
+

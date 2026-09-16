@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border: 0;
+  text-align: center;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote::before {
+  content: "“";
+  display: block;
+  font: 4.5em/.85 Georgia,serif;
+  color: var(--interactive-accent);
+}
+

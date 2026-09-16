@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s) {
+  color: light-dark(#77736e, #aaa6a0);
+}
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s) {
+  color: light-dark(#77736e,#aaa6a0);
+}
+

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a {
+  border: 1px solid currentColor;
+  padding: .12em .45em;
+  border-radius: 2em;
+  text-decoration: none;
+}
+

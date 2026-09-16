@@ -1,0 +1,31 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote > p + p, :is(.markdown-preview-view, .markdown-source-view) blockquote > .el-p + .el-p > p {
+  visibility: hidden;
+  font-size: .8em;
+  border-inline-start: 2px solid var(--interactive-accent);
+  padding-inline-start: .7em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote:has(a:hover) > p + p, :is(.markdown-preview-view, .markdown-source-view) blockquote:has(a:hover) > .el-p + .el-p > p, :is(.markdown-preview-view, .markdown-source-view) blockquote:focus-within > p + p, :is(.markdown-preview-view, .markdown-source-view) blockquote:focus-within > .el-p + .el-p > p {
+  visibility: visible;
+}
+@media(max-width:600px) {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    grid-template-columns: 1fr;
+  }
+}
+@media(hover:none) {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote > p + p, :is(.markdown-preview-view, .markdown-source-view) blockquote > .el-p + .el-p > p {
+    visibility: visible;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote > p + p, :is(.markdown-preview-view, .markdown-source-view) blockquote > .el-p + .el-p > p {
+    visibility: visible!important;
+  }
+}
+

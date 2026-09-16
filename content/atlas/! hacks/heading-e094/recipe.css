@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 2.124431);
+  font-weight: 900;
+  mask-image: repeating-linear-gradient(#000 0 4px,transparent 4px 5px);
+}
+

@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) p a {
+  text-decoration: underline;
+}
+:is(.markdown-preview-view, .markdown-source-view) h4 a {
+  color: inherit;
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li a {
+  font-weight: 750;
+  color: var(--interactive-accent);
+}

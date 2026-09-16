@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) li:nth-child(1 of :has(> input:not(:checked))) {
+  border-inline-start: 3px solid var(--interactive-accent);
+  padding-inline-start: .7em;
+  background: var(--background-secondary);
+}
+

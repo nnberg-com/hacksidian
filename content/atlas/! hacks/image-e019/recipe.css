@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  box-shadow: 0 12px 28px #243d493d;
+  border-radius: calc(var(--radius-s) * 2);
+  width: 90%;
+}

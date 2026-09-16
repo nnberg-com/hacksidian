@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.76923077);
+  background: repeating-linear-gradient(135deg,var(--background-secondary) 0 4px,transparent 4px 8px);
+}
+

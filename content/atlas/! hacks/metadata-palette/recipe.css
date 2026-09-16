@@ -1,0 +1,18 @@
+.markdown-source-view.mod-cm6 .metadata-container {
+  padding: 12px;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+}
+.markdown-source-view.mod-cm6.local-dark {
+  --background-primary: #203129;
+  --background-secondary: #2b4033;
+  --background-modifier-border: #405247;
+  --background-modifier-hover: #2b4033;
+  --text-normal: #e5ede0;
+  --text-muted: #a6b5a7;
+  --text-faint: #a6b5a7;
+  --metadata-input-text-color: #e5ede0;
+  --metadata-label-text-color: #a6b5a7;
+  color-scheme: dark;
+}

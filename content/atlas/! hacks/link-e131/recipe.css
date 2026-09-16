@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-decoration-line: underline overline;
+  text-decoration-color: var(--interactive-accent);
+  text-underline-offset: .25em;
+}
+

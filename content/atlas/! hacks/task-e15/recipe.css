@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .65em;
+  border-radius: .4em;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) {
+  background: transparent;
+}
+

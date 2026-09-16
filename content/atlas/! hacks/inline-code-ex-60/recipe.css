@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .25em;
+  background: var(--background-secondary);
+  background: color-mix(in srgb,currentColor 12%,transparent);
+}
+:is(.markdown-preview-view, .markdown-source-view) strong code:not(pre code) {
+  color: var(--color-red);
+}
+:is(.markdown-preview-view, .markdown-source-view) a code:not(pre code) {
+  color: inherit;
+}
+

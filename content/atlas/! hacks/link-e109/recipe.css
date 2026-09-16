@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  background: var(--background-secondary);
+}
+@media(prefers-contrast:more) {
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    text-decoration-thickness: 3px;
+    background: none;
+    font-weight: 750;
+  }
+}
+

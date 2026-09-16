@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  padding: .55em;
+  border-block-end: var(--table-border-width) solid var(--table-border-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) th:last-child, :is(.markdown-preview-view, .markdown-source-view) td:last-child {
+  text-align: right;
+  font-weight: var(--font-bold);
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) thead {
+  border-block-end: 2px solid var(--interactive-accent);
+}
+

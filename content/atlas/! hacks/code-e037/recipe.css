@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) pre::before {
+  content: "CODE";
+  display: block;
+  font: 600 10px/1.4 system-ui;
+  letter-spacing: .18em;
+  color: #7d8178;
+  margin-bottom: calc(var(--size-4-1) * 4);
+}
+

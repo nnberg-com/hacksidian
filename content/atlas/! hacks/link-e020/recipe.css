@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-decoration-style: dashed;
+  text-decoration-thickness: 1.5px;
+}

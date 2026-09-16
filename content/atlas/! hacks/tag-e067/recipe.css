@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  width: 100%;
+  border-collapse: collapse;
+}
+:is(.markdown-preview-view, .markdown-source-view) :is(td,th) {
+  text-align: left;
+  padding: .5em;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) td a.tag {
+  font-size: calc(var(--tag-size) * 0.91428571);
+  background: var(--background-secondary);
+  padding: 0 .3em;
+  border-radius: calc(var(--radius-s) * 0.75);
+}
+

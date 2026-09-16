@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) em {
+  font-family: Georgia,serif;
+  color: var(--text-muted);
+}
+

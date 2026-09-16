@@ -1,0 +1,28 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  margin: 0;
+  padding: 1em;
+  border: calc(var(--blockquote-border-thickness) * 0.5) solid var(--background-modifier-border);
+  border-radius: .5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote > p:not(:first-child) {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote:has(> p:first-child a:hover) > p, :is(.markdown-preview-view, .markdown-source-view) blockquote:hover > p, :is(.markdown-preview-view, .markdown-source-view) blockquote:focus-within > p {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+}
+@media(hover:none) {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote > p {
+    display: block;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote > p {
+    display: block!important;
+  }
+}
+

@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  font-size: 1.05em;
+}
+:is(.markdown-preview-view, .markdown-source-view) h2::after {
+  content: " · в работе";
+  font-weight: var(--font-normal);
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) h2:has(+ ul input):not(:has(+ ul input:not(:checked)))::after {
+  content: " · готово ✓";
+  color: var(--color-green);
+}
+

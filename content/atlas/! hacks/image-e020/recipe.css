@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  border: 2px solid #243c33;
+  box-shadow: 9px 9px 0 #e9b443;
+  width: 92%;
+}

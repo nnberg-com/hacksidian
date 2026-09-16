@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: block;
+  block-size: 230px;
+  overflow: auto;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  position: sticky;
+  top: 0;
+  background: var(--background-secondary);
+  font-size: calc(var(--h3-size) * 0.91047);
+  padding: .7rem;
+  z-index: 1;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  padding: 1rem;
+  min-block-size: 280px;
+}
+

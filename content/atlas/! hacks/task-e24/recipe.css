@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  border-inline-start: 1px solid var(--background-modifier-border);
+  padding-inline-start: 1.3em;
+  margin-inline-start: .45em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul > li {
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul > li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -1.3em;
+  inset-block-start: .8em;
+  width: .8em;
+  border-block-start: 1px solid var(--background-modifier-border);
+}
+

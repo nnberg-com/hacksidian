@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: .8em;
+  padding: 1em;
+  background: var(--background-primary);
+  box-shadow: 0 4px 14px #00000006;
+}
+:is(.markdown-preview-view, .markdown-source-view) li > p:first-child {
+  font-weight: 650;
+}
+:is(.markdown-preview-view, .markdown-source-view) li > p:not(:first-child) {
+  font-size: .9em;
+  color: var(--text-muted);
+}
+

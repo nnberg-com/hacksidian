@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.92307692);
+  background: linear-gradient(var(--background-modifier-border) 1px,transparent 1px),linear-gradient(90deg,var(--background-modifier-border) 1px,transparent 1px);
+  background-size: 7px 7px;
+}
+

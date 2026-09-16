@@ -1,0 +1,8 @@
+.markdown-source-view.mod-cm6 .metadata-container {
+  opacity: .6;
+  transition: opacity .15s ease;
+}
+.markdown-source-view.mod-cm6 .metadata-container:is(:hover,:focus-within) {
+  opacity: 1;
+}
+

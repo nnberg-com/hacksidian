@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,14rem),1fr));
+  gap: .8em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li {
+  margin: 0;
+  padding: 1em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: .6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  font-size: .9em;
+}
+

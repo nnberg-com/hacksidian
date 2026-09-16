@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,5fr) minmax(0,1fr);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  grid-column: 1/-1;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  grid-column: 2;
+  font-size: calc(var(--font-text-size) * 0.95);
+  border-inline-start: 1px solid var(--background-modifier-border);
+  padding-inline-start: .8rem;
+}
+

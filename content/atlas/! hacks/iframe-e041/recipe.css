@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) .embed-box {
+  padding: calc(var(--size-4-1) * 3);
+  margin-bottom: calc(var(--size-4-1) * 3);
+  border: 1px solid #dfd3ce;
+}
+:is(.markdown-preview-view, .markdown-source-view) .embed-box:has(> iframe) {
+  padding: var(--size-4-1);
+  border-color: #a54860;
+  background: #ecd9df;
+  border-radius: calc(var(--radius-s) * 3);
+}
+:is(.markdown-preview-view, .markdown-source-view) .embed-box:has(> iframe) iframe {
+  border-radius: calc(var(--radius-s) * 2);
+}
+

@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  position: relative;
+  isolation: isolate;
+  width: 88%;
+  margin: calc(var(--size-4-1) * 5) auto;
+}
+:is(.markdown-preview-view, .markdown-source-view) p::before, :is(.markdown-preview-view, .markdown-source-view) p::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  border: 1px solid #b9c5bd;
+  z-index: -1;
+  transform: rotate(5deg);
+}
+:is(.markdown-preview-view, .markdown-source-view) p::after {
+  transform: rotate(-5deg);
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  border: 8px solid white;
+}
+

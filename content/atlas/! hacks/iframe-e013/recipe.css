@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) .scroll-story {
+  height: 340px;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 55% 1fr;
+  gap: calc(var(--size-4-1) * 4);
+  align-items: start;
+}
+:is(.markdown-preview-view, .markdown-source-view) .sticky-frame {
+  position: sticky;
+  top: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  height: 230px;
+}
+:is(.markdown-preview-view, .markdown-source-view) .steps p {
+  margin: 0 0 calc(var(--size-4-1) * 11.25);
+}

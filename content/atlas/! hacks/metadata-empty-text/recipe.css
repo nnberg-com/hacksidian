@@ -1,0 +1,9 @@
+.markdown-source-view.mod-cm6 .metadata-input-longtext:empty::before {
+  content: "Добавьте описание…";
+  font-style: italic;
+  color: var(--color-orange);
+}
+.markdown-source-view.mod-cm6 .metadata-property:has(.metadata-input-longtext:empty) {
+  border: 1px dashed var(--color-orange);
+}
+

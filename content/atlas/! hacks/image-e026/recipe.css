@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 75%;
+  filter: drop-shadow(8px 10px 5px #183d4655);
+}

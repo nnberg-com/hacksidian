@@ -1,0 +1,20 @@
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  list-style: none;
+  padding-inline-start: 1.3em;
+  margin-inline-start: .2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul > li {
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul > li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -1.3em;
+  inset-block-start: .8em;
+  inline-size: .8em;
+  border-block-start: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  border-inline-start: 1px solid var(--background-modifier-border);
+}
+

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  font-family: link-e017-Onest,sans-serif;
+  font-variation-settings: "wght" 400;
+  transition: font-variation-settings .3s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible) {
+  font-variation-settings: "wght" 850;
+}
+

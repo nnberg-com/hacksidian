@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  padding-inline-start: 1.3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  list-style: disc;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input[type="checkbox"], > p:first-child > input[type="checkbox"]) {
+  list-style: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input[type="checkbox"], > p:first-child > input[type="checkbox"]) > input {
+  margin-inline-start: -1.25em;
+}
+

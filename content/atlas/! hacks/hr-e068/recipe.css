@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border-top: 12px solid currentColor;
+  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMCA2TDYgMSAxMiA2IDE4IDEgMjQgNiBNMCA2TDYgMTEgMTIgNiAxOCAxMSAyNCA2IiBmaWxsPSJub25lIiBzdHJva2U9IiNhZDcyNTgiIHN0cm9rZS13aWR0aD0iMS40Ii8+PC9zdmc+Cg==");
+  border-image-slice: 12 0 0;
+  border-image-width: 12px 0 0;
+  border-image-repeat: round;
+}

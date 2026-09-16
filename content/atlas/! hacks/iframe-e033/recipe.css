@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) .fold {
+  border: 1px solid #d6c4cd;
+  border-radius: calc(var(--radius-s) * 3);
+  overflow: hidden;
+  background: #fffdf9;
+}
+:is(.markdown-preview-view, .markdown-source-view) summary {
+  padding: calc(var(--size-4-1) * 4.5);
+  cursor: pointer;
+}
+:is(.markdown-preview-view, .markdown-source-view) details[open] summary {
+  border-bottom: 1px solid #d6c4cd;
+}

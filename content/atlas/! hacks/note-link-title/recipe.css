@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  margin-block: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) a[title]::after {
+  content: attr(title);
+  display: block;
+  color: var(--text-muted);
+  font-size: .85em;
+  font-weight: var(--font-normal);
+  text-decoration: none;
+}
+

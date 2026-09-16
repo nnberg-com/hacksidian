@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+  background: var(--background-secondary);
+  padding: .8em 1em;
+  border-radius: .5em;
+  margin-block: .8em;
+}
+

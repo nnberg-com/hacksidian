@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  position: relative;
+  background: var(--interactive-accent);
+  color: white;
+  padding: .55em;
+  font-size: calc(var(--h3-size) * 1.138088);
+  box-shadow: 3px 4px 0 #0002;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  border: 8px solid transparent;
+  border-block-start-color: #853220;
+  border-inline-end-color: #853220;
+}
+

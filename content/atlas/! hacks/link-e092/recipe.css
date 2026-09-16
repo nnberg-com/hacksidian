@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  padding: 1em;
+  border: calc(var(--blockquote-border-thickness) * 0.5) solid var(--background-modifier-border);
+  border-radius: .5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote:focus-within {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 2px var(--background-secondary);
+}
+

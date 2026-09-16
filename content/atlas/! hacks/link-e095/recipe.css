@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) em {
+  color: var(--text-muted);
+  font-size: .8em;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover,:focus-visible) + em {
+  color: var(--interactive-accent);
+  font-weight: 750;
+}
+

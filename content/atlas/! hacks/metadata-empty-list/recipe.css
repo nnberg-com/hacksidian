@@ -1,0 +1,7 @@
+.markdown-source-view.mod-cm6 [data-property-key="tags"]:not(:has(.multi-select-pill)) {
+  border: 1px dashed var(--color-orange);
+}
+.markdown-source-view.mod-cm6 [data-property-key="tags"]:not(:has(.multi-select-pill)) .multi-select-input:empty::before {
+  content: "Пока нет тегов";
+}
+

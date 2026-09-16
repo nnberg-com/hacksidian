@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 2.124431);
+  color: #fff6df;
+  text-shadow: 1px 1px #9c422b,2px 2px #9c422b,3px 3px #9c422b,4px 4px #9c422b,5px 5px #9c422b,6px 6px #9c422b,7px 7px #9c422b;
+  -webkit-text-stroke: .5px #9c422b;
+}
+

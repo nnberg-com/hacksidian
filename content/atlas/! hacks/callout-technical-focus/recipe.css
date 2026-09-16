@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout:focus-within {
+  outline: 2px solid var(--callout-color);
+  outline-offset: 3px;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content a:focus-visible {
+  outline: 1px solid var(--callout-color);
+  outline-offset: 2px;
+}
+

@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  columns: 2;
+  column-gap: 1.3rem;
+  column-rule: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  column-span: all;
+  font-family: Georgia,serif;
+  font-size: calc(var(--h3-size) * 1.289833);
+  margin-bottom: 1rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  font-size: calc(var(--font-text-size) * 0.8);
+}
+@container markdown-demo (max-width:330px) {
+  :is(.markdown-preview-view, .markdown-source-view) {
+    columns: 1;
+  }
+}
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: block;
+}
+

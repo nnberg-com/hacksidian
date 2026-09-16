@@ -1,0 +1,12 @@
+@media (prefers-contrast: more) {
+  :is(.markdown-preview-view, .markdown-source-view) pre {
+    border: 2px solid currentColor;
+  }
+}
+@media (forced-colors: active) {
+  :is(.markdown-preview-view, .markdown-source-view) pre {
+    border: 1px solid CanvasText;
+    color: CanvasText;
+    background: Canvas;
+  }
+}

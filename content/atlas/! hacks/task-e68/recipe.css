@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  border-inline-start: 2px solid transparent;
+  padding-inline-start: .4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:focus-within {
+  border-inline-start-color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) input:focus-visible {
+  outline-offset: 3px;
+}
+

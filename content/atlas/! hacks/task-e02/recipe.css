@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"] {
+  inline-size: 1.4em;
+  block-size: 1.4em;
+  vertical-align: -.3em;
+}
+@media(pointer:coarse) {
+  :is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"] {
+    inline-size: 2em;
+    block-size: 2em;
+  }
+}
+

@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) pre > code.language-sh::before {
+  content: "$ ";
+  color: #a24f32;
+  user-select: none;
+}
+

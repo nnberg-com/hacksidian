@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border: 0;
+  border-radius: calc(var(--radius-s) * 2);
+  background: var(--background-primary);
+  padding: 1.3em;
+  box-shadow: 0 5px 20px #00000018;
+}

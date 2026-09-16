@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag:is([href="#project"],[href^="#project/"]) {
+  color: var(--color-blue);
+  background: var(--background-secondary);
+}
+

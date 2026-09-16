@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  list-style-type: decimal;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol ol {
+  list-style-type: lower-alpha;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol ol ol {
+  list-style-type: lower-roman;
+}

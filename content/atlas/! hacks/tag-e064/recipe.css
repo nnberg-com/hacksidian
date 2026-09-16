@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag:nth-child(3n + 1 of a.tag) {
+  color: var(--color-red);
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag:nth-child(3n + 2 of a.tag) {
+  color: var(--color-blue);
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag:nth-child(3n of a.tag) {
+  color: var(--color-green);
+}
+

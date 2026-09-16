@@ -1,0 +1,41 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  min-width: 7rem;
+  white-space: nowrap;
+}
+:is(.markdown-preview-view, .markdown-source-view) table {
+  max-height: 19rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) td {
+  background: var(--background-primary);
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:nth-child(even)>td {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) tr>:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) thead tr>:first-child {
+  z-index: 3;
+  background: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:hover>td {
+  background: var(--text-highlight-bg);
+}
+

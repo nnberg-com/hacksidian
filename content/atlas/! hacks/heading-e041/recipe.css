@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.024279);
+  color: var(--interactive-accent);
+}
+@container markdown-demo (max-width:360px) {
+  :is(.markdown-preview-view, .markdown-source-view) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) .clip {
+  border-radius: calc(var(--radius-s) * 8) calc(var(--radius-s) * 2);
+  overflow: hidden;
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  height: 270px;
+}

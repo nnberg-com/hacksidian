@@ -1,0 +1,6 @@
+@media (hover: hover) and (pointer: fine) {
+  .markdown-source-view.mod-cm6 .metadata-container:not(:hover):not(:focus-within) .metadata-property:has(.metadata-input-longtext:empty) {
+    display: none;
+  }
+}
+

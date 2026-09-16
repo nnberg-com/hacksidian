@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p:last-child:has(>em:only-child) {
+  text-align: end;
+  font-size: .83em;
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p:last-child>em:only-child {
+  font-style: normal;
+}
+

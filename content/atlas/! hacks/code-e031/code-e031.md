@@ -1,0 +1,37 @@
+---
+tags:
+  - hacksidian_technique
+  - hacksidian_code
+title: Сетка через четыре колонки
+category: code
+sources: []
+format: markdown
+themes: []
+---
+
+```hacksidian-id
+code-e031
+```
+
+```hacksidian-live
+code-e031
+```
+
+```hacksidian-details
+> Зачем
+Визуально сравнивать отступы или учить принципам выравнивания.
+
+> Как работает
+Повторяющиеся вертикальные линии через 4ch.
+
+> Ограничения
+Линии проходят и под текстом. Это не распознавание настоящих уровней вложенности.
+```
+
+```hacksidian-sources
+code-e031
+```
+
+```hacksidian-files
+code-e031
+```

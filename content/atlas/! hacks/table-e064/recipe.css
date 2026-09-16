@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) p:has(+table), :is(.markdown-preview-view, .markdown-source-view) .el-p:has(+ .el-table) > p {
+  font-size: .85em;
+  color: var(--text-muted);
+  margin-bottom: .6em;
+}
+

@@ -1,0 +1,26 @@
+:is(.markdown-preview-view, .markdown-source-view) .motion {
+  transition: transform .3s, box-shadow .3s;
+}
+:is(.markdown-preview-view, .markdown-source-view) .motion:is(:hover, :focus) {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 25px #322b3920;
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) .motion {
+    transition: none;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) .motion:is(:hover, :focus) {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) .motion {
+    transition: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) .motion:is(:hover, :focus) {
+    transform: none;
+  }
+}
+

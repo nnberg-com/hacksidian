@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  margin: 0;
+  padding: .55em .7em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) {
+  background: var(--background-secondary);
+  border-radius: .6em .6em 0 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) + li:has(> input:checked, > p:first-child > input:checked) {
+  border-start-start-radius: 0;
+  border-start-end-radius: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked):not(:has(+ li > input:checked)) {
+  border-end-start-radius: .6em;
+  border-end-end-radius: .6em;
+}
+

@@ -1,0 +1,33 @@
+:is(.markdown-preview-view, .markdown-source-view) li > p:first-child {
+  display: grid;
+  grid-template-columns: 1em minmax(0,1fr) auto;
+  gap: .6em;
+  align-items: start;
+}
+:is(.markdown-preview-view, .markdown-source-view) li > p:first-child > em {
+  font-style: normal;
+  font-size: .8em;
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) li > p:first-child > input {
+  margin-top: .3em;
+}
+@container specimen (max-width:380px) {
+  :is(.markdown-preview-view, .markdown-source-view) li > p:first-child {
+    grid-template-columns: 1em minmax(0,1fr);
+  }
+  :is(.markdown-preview-view, .markdown-source-view) li > p:first-child > em {
+    grid-column: 2;
+  }
+}
+@container specimen (max-width:380px) {
+  :is(.markdown-preview-view, .markdown-source-view) li > p:first-child {
+    grid-template-columns: 1em minmax(0,1fr);
+  }
+}
+@container specimen (max-width:380px) {
+  :is(.markdown-preview-view, .markdown-source-view) li > p:first-child > em {
+    grid-column: 2;
+  }
+}
+

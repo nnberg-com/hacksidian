@@ -1,0 +1,24 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style: none;
+  padding-inline-start: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  border-inline-start: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul > li {
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul > li::before {
+  content: "";
+  position: absolute;
+  inset: .8em auto auto -1em;
+  width: .65em;
+  border-block-start: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li {
+  font-weight: var(--font-bold);
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul li {
+  font-weight: var(--font-normal);
+}
+

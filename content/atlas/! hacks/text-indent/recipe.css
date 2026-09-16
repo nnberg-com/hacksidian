@@ -1,0 +1,6 @@
+.markdown-preview-view p {
+  margin-block: 0;
+}
+.markdown-preview-view p + p, .markdown-preview-view .el-p + .el-p > p {
+  text-indent: 1.5em;
+}

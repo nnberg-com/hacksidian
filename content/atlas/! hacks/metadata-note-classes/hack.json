@@ -1,0 +1,9 @@
+{
+  "format": 2,
+  "target": "g-metadata",
+  "hasCss": true,
+  "group": "metadata",
+  "requirements": [
+    "Для этого приёма добавьте заметке cssclasses: hacksidian-metadata-compact или hacksidian-metadata-card."
+  ]
+}

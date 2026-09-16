@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+  columns: 2;
+  column-gap: 2.5rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+  break-inside: avoid;
+}
+@media(max-width:600px) {
+  :is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+    columns: 1;
+  }
+}
+

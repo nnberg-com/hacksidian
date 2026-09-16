@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  counter-reset: chapter subchapter;
+}
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  counter-increment: chapter;
+  counter-reset: subchapter;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  counter-increment: subchapter;
+}
+:is(.markdown-preview-view, .markdown-source-view) h2::before {
+  content: counter(chapter,decimal-leading-zero) " / ";
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: counter(chapter) "." counter(subchapter) " ";
+  color: var(--interactive-accent);
+}
+

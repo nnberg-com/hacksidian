@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  font-size: .92em;
+  line-height: calc(var(--line-height-normal) * 1.066667);
+  color: var(--text-muted);
+}
+

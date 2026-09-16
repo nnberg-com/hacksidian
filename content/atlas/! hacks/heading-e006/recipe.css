@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-family: Georgia,serif;
+  font-variant-caps: small-caps;
+  font-weight: var(--font-normal);
+}
+

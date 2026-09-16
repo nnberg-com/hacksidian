@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) h1:has(+ h2), :is(.markdown-preview-view, .markdown-source-view) .el-h1:has(+ .el-h2) > h1 {
+  margin-block-end: .15em;
+}
+:is(.markdown-preview-view, .markdown-source-view) h1 + h2, :is(.markdown-preview-view, .markdown-source-view) .el-h1 + .el-h2 > h2 {
+  margin-block-start: 0;
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) p:has(+ ul), :is(.markdown-preview-view, .markdown-source-view) .el-p:has(+ .el-ul) > p {
+  margin-block-end: .25em;
+}
+:is(.markdown-preview-view, .markdown-source-view) p + ul, :is(.markdown-preview-view, .markdown-source-view) .el-p + .el-ul > ul {
+  margin-block-start: 0;
+}
+

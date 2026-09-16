@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) p::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #c863333b;
+  pointer-events: none;
+}

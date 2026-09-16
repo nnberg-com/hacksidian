@@ -1,0 +1,30 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: block;
+  block-size: 230px;
+  overflow: auto;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  min-block-size: 230px;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  margin-block: 1rem;
+  font-size: calc(var(--h3-size) * 1.289833);
+}
+@supports (animation-timeline:view()) {
+  :is(.markdown-preview-view, .markdown-source-view) h3 {
+    animation: hack-heading-e070-heading-e070-arrival 1s linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+}
+@keyframes hack-heading-e070-heading-e070-arrival {
+  from {
+    opacity: .15;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

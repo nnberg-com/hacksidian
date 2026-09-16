@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  background: linear-gradient(to right, transparent 80ch, #b8484280 80ch calc(80ch + 1px), transparent calc(80ch + 1px));
+}
+

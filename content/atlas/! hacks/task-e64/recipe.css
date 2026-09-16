@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) a[title="Срок"] {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: .25em .5em;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 4px solid var(--interactive-accent);
+  border-radius: .3em;
+  font-size: .75em;
+  text-decoration: none;
+  margin-inline-start: .5em;
+}
+

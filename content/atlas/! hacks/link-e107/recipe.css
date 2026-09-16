@@ -1,0 +1,7 @@
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) a[href^="https://"]::after {
+    content: " (" attr(href) ")";
+    font-size: .8em;
+  }
+}
+

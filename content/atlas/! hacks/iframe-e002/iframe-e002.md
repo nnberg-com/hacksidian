@@ -1,0 +1,40 @@
+---
+tags:
+  - hacksidian_technique
+  - hacksidian_iframe
+title: Ограниченная ширина и центрирование
+category: iframe
+sources: []
+format: html
+themes: []
+---
+
+```hacksidian-id
+iframe-e002
+```
+
+```hacksidian-details
+> Зачем
+Компактная вставка не растягивается на весь большой экран.
+
+> Как работает
+min() выбирает меньшую ширину: 360 px или ширину родителя.
+
+CSS заметки оформляет внешний элемент iframe; содержимое встроенного документа имеет собственные стили.
+
+> Ограничения
+CSS снаружи iframe не меняет фон, прокрутку и содержимое вложенной страницы. `height: auto` не подгоняет рамку под её содержимое; `object-fit` не кадрирует iframe как картинку.
+
+Живой пример пока не готов: образец содержит iframe или интерактивный HTML, для которого ещё не реализован отдельный просмотрщик.
+```
+```hacksidian-sources
+iframe-e002
+```
+
+###### Локальные зависимости
+
+- [assets/documents/poster.html](<./assets/documents/poster.html>)
+
+```hacksidian-files
+iframe-e002
+```

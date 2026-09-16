@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::before, :is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::after {
+  content: "`";
+  color: var(--text-muted);
+}
+

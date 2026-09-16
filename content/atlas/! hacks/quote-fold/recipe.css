@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  position: relative;
+  border: 0;
+  padding: 1.5em 2.3em 1.5em 1.2em;
+  background: linear-gradient(-135deg,transparent 1.1em,var(--background-secondary) 0);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: 1.55em;
+  height: 1.55em;
+  background: linear-gradient(45deg,var(--background-modifier-border) 50%,transparent 50%);
+}
+

@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 14px;
+  background: currentColor;
+  clip-path: polygon(0 0,51% 0,51% 12px,100% 12px,100% 14px,49% 14px,49% 2px,0 2px);
+}
+

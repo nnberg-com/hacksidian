@@ -1,0 +1,24 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote p {
+  orphans: 3;
+  widows: 3;
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    break-inside: auto;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) blockquote p {
+    orphans: 3;
+    widows: 3;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    break-inside: auto;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote p {
+    orphans: 3;
+    widows: 3;
+  }
+}

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 0.758725);
+  font-weight: 450;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 strong {
+  font: 700 3em Georgia,serif;
+  color: var(--interactive-accent);
+}
+

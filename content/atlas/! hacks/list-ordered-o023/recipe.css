@@ -1,0 +1,43 @@
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) > li {
+  counter-increment: step;
+  position: relative;
+  padding-inline-start: 3.8em;
+  min-block-size: 2.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) > li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  display: grid;
+  place-items: center;
+  inline-size: 3em;
+  block-size: 2.2em;
+  color: var(--interactive-accent);
+  font-weight: var(--font-bold);
+}
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) > li {
+  margin: 0;
+  padding-block-end: 1.3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) > li::before {
+  inline-size: 2.2em;
+  border-radius: 50%;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  z-index: 1;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 1.1em;
+  inset-block-start: 2.2em;
+  inset-block-end: 0;
+  border-inline-start: 1px solid var(--interactive-accent);
+}
+

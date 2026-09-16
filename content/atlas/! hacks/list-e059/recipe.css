@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  columns: 10rem 2;
+  column-gap: 2.5rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  break-inside: avoid;
+}

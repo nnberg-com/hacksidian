@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) p > code:not(pre code):first-of-type {
+  background: var(--text-highlight-bg);
+  padding: .1em .25em;
+}
+

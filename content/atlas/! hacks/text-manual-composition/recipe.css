@@ -1,0 +1,6 @@
+.markdown-preview-view, .markdown-source-view {
+  font-size: calc(var(--font-text-size) * 0.875);
+}
+.markdown-preview-view p {
+  margin-block: calc(var(--p-spacing) * 0.65);
+}

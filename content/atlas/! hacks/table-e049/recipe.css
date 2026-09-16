@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) td code {
+  display: inline-block;
+  background: var(--background-secondary);
+  color: var(--interactive-accent);
+  padding: .2em .55em;
+  border-radius: 100px;
+  font: 600 .85em table-e049-Onest,system-ui,sans-serif;
+}
+

@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) em {
+  font-style: normal;
+}
+:is(.markdown-preview-view, .markdown-source-view) em mark {
+  background: var(--color-pink);
+}
+:is(.markdown-preview-view, .markdown-source-view) em {
+  font-style: normal;
+}
+:is(.markdown-preview-view, .markdown-source-view) em mark {
+  background: var(--color-pink);
+}

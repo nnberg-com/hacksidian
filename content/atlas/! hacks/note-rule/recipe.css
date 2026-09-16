@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  padding-block-end: .4em;
+  border-block-end: 1px solid var(--background-modifier-border);
+}
+

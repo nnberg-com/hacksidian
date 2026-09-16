@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  font-weight: 750;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  font-weight: var(--font-normal);
+}

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  max-inline-size: 100%;
+  height: auto;
+  border-radius: .5em;
+}
+

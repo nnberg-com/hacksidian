@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  border: 4px double #738272;
+  background: #f4f6ee;
+  border-radius: 0;
+}

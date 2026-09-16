@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  color: var(--color-blue);
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.76923077);
+  border: 1px solid currentColor;
+  background: color-mix(in srgb,currentColor 12%,transparent);
+  border-radius: calc(var(--radius-s) * 1.5);
+}
+

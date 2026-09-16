@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  position: relative;
+  background: var(--background-secondary);
+  border: 0;
+  border-radius: calc(var(--radius-s) * 4);
+  padding: 1.3em;
+  margin-block-end: 1.6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote::after {
+  content: "";
+  position: absolute;
+  inset-block-end: -12px;
+  inset-inline-start: 25px;
+  border: 12px solid transparent;
+  border-inline-start-color: var(--background-secondary);
+  border-block-start-color: var(--background-secondary);
+  border-block-end-width: 0;
+}

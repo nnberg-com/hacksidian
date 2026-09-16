@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: "";
+  display: inline-block;
+  inline-size: .35em;
+  block-size: .35em;
+  rotate: 45deg;
+  background: var(--interactive-accent);
+  margin-inline-end: .5em;
+  vertical-align: middle;
+}
+

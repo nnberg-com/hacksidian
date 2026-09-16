@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.76923077);
+  background: var(--background-secondary);
+  border-radius: calc(var(--radius-s) * 1.5);
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) a.tag {
+    padding: 0;
+    background: none;
+    color: black;
+    border: 0;
+    text-decoration: underline;
+  }
+}
+

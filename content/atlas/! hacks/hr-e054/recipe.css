@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 1px;
+  background: currentColor;
+  box-shadow: 0 4px currentColor,0 8px currentColor;
+}
+

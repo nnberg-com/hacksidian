@@ -1,0 +1,14 @@
+.markdown-source-view.mod-cm6 .metadata-properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,15rem),1fr));
+  gap: 8px 20px;
+}
+.markdown-source-view.mod-cm6 .metadata-property {
+  min-width: 0;
+}
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="description"] {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: 8px;
+}
+

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  background: #edd9ac;
+  isolation: isolate;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  mix-blend-mode: multiply;
+}

@@ -1,0 +1,10 @@
+.markdown-source-view.mod-cm6 .metadata-container:not(:has([data-property-key="author"]))::after {
+  content: "В этой заметке ещё нет поля author";
+  display: block;
+  padding: 9px;
+  margin-top: 8px;
+  border-left: 3px solid var(--color-orange);
+  background: var(--background-secondary);
+  font-size: 11px;
+}
+

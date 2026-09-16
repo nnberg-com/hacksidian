@@ -1,0 +1,12 @@
+.markdown-source-view.mod-cm6 [data-property-key="internal_id"] {
+  display: grid;
+  grid-template-columns: var(--metadata-label-width) minmax(0,1fr);
+}
+.markdown-source-view.mod-cm6 [data-property-key="internal_id"]:focus-within::after {
+  content: "Формат: NOTE-0000. Например, NOTE-0042.";
+  grid-column: 1 / -1;
+  padding: 5px 6px;
+  font-size: 10px;
+  color: var(--text-accent);
+}
+

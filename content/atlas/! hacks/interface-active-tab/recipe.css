@@ -1,0 +1,6 @@
+.workspace-tabs:has(:is(.markdown-preview-view, .markdown-source-view)) {
+  --tab-background-active: var(--background-primary);
+  --tab-text-color-focused-active: var(--text-accent);
+  --tab-text-color-focused-active-current: var(--text-accent);
+  --tab-font-weight: 600;
+}

@@ -1,0 +1,6 @@
+.markdown-preview-view > p:first-child::first-line, .markdown-preview-view .el-p:not(.el-p ~ .el-p) > p::first-line {
+  font-variant-caps: small-caps;
+  color: var(--text-normal);
+  font-weight: var(--font-bold);
+  letter-spacing: .035em;
+}

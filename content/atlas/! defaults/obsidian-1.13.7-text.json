@@ -1,0 +1,487 @@
+{
+  "version": "1.13.7",
+  "archive": "/Users/op/Library/Application Support/obsidian/obsidian-1.13.7.asar",
+  "entry": "app.css",
+  "sha256": "f612f1e8f36486fa57f3b8bd45f0c848409d5b168002e757a13c6d286a7b4c41",
+  "definitions": {
+    "--line-height-normal": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--line-height-normal: 1.5",
+        "line": 2421
+      }
+    ],
+    "--font-text-size": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--font-text-size: 16px",
+        "line": 3122
+      }
+    ],
+    "--p-spacing": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--p-spacing: 1rem",
+        "line": 2577
+      }
+    ],
+    "--file-line-width": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--file-line-width: 700px",
+        "line": 2240
+      }
+    ],
+    "--font-text": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--font-text: var(--font-text-override), var(--font-text-theme), var(--font-default)",
+        "line": 3116
+      },
+      {
+        "selector": "body",
+        "atRules": [
+          "@media print"
+        ],
+        "declaration": "--font-text: var(--font-print) !important",
+        "line": 3187
+      }
+    ],
+    "--font-text-override": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--font-text-override: '??'",
+        "line": 3114
+      }
+    ],
+    "--font-text-theme": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--font-text-theme: '??'",
+        "line": 3115
+      }
+    ],
+    "--font-default": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--font-default: ui-sans-serif, -apple-system, BlinkMacSystemFont, system-ui, \"Segoe UI\", \"Google Sans Flex\", Roboto, \"Inter Variable\", \"Inter\", \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif",
+        "line": 3109
+      }
+    ],
+    "--font-print": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--font-print: var(--font-print-override), var(--font-text-override), var(--font-text-theme), 'Arial'",
+        "line": 3118
+      }
+    ],
+    "--font-print-override": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--font-print-override: '??'",
+        "line": 3117
+      }
+    ],
+    "--font-medium": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--font-medium: 500",
+        "line": 2271
+      }
+    ],
+    "--text-normal": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--text-normal: var(--color-base-100)",
+        "line": 2886
+      }
+    ],
+    "--color-base-100": [
+      {
+        "selector": ".theme-light",
+        "atRules": [],
+        "declaration": "--color-base-100: #222222",
+        "line": 2932
+      },
+      {
+        "selector": ".theme-dark",
+        "atRules": [],
+        "declaration": "--color-base-100: #dadada",
+        "line": 2982
+      }
+    ],
+    "--font-bold": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--font-bold: 700",
+        "line": 2273
+      }
+    ],
+    "--text-selection": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--text-selection: color-mix(in oklch, var(--interactive-accent) 20%, transparent)",
+        "line": 2894
+      },
+      {
+        "selector": ".theme-dark",
+        "atRules": [],
+        "declaration": "--text-selection: color-mix(in oklch, var(--interactive-accent) 33%, transparent)",
+        "line": 2997
+      }
+    ],
+    "--interactive-accent": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--interactive-accent: var(--color-accent-1)",
+        "line": 2900
+      },
+      {
+        "selector": ".theme-dark",
+        "atRules": [],
+        "declaration": "--interactive-accent: var(--color-accent)",
+        "line": 2992
+      }
+    ],
+    "--color-accent-1": [
+      {
+        "selector": ".theme-light",
+        "atRules": [],
+        "declaration": "--color-accent-1: hsl(calc(var(--accent-h) - 1), calc(var(--accent-s) * 1.01), calc(var(--accent-l) * 1.075))",
+        "line": 2934
+      },
+      {
+        "selector": ".theme-dark",
+        "atRules": [],
+        "declaration": "--color-accent-1: hsl(calc(var(--accent-h) - 3), calc(var(--accent-s) * 1.02), calc(var(--accent-l) * 1.15))",
+        "line": 2984
+      }
+    ],
+    "--accent-h": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--accent-h: 258",
+        "line": 2864
+      }
+    ],
+    "--accent-s": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--accent-s: 88%",
+        "line": 2865
+      }
+    ],
+    "--accent-l": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--accent-l: 66%",
+        "line": 2866
+      }
+    ],
+    "--color-accent": [
+      {
+        "selector": ".theme-light",
+        "atRules": [],
+        "declaration": "--color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l))",
+        "line": 2933
+      },
+      {
+        "selector": ".theme-dark",
+        "atRules": [],
+        "declaration": "--color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l))",
+        "line": 2983
+      }
+    ],
+    "--background-primary": [
+      {
+        "selector": "body",
+        "atRules": [],
+        "declaration": "--background-primary: var(--color-base-00)",
+        "line": 2868
+      }
+    ],
+    "--color-base-00": [
+      {
+        "selector": ".theme-light",
+        "atRules": [],
+        "declaration": "--color-base-00: #ffffff",
+        "line": 2921
+      },
+      {
+        "selector": ".theme-dark",
+        "atRules": [],
+        "declaration": "--color-base-00: #1C1C1C",
+        "line": 2971
+      }
+    ]
+  },
+  "rules": [
+    {
+      "selector": ".markdown-source-view",
+      "atRules": [],
+      "declarations": [
+        {
+          "property": "font-size",
+          "value": "var(--font-text-size)",
+          "declaration": "font-size: var(--font-text-size)",
+          "line": 3449
+        },
+        {
+          "property": "font-family",
+          "value": "var(--font-text)",
+          "declaration": "font-family: var(--font-text)",
+          "line": 3450
+        }
+      ],
+      "line": 3448
+    },
+    {
+      "selector": ".markdown-source-view.mod-cm6 ::selection",
+      "atRules": [],
+      "declarations": [
+        {
+          "property": "background-color",
+          "value": "var(--text-selection)",
+          "declaration": "background-color: var(--text-selection)",
+          "line": 3536
+        }
+      ],
+      "line": 3535
+    },
+    {
+      "selector": ".markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer",
+      "atRules": [],
+      "declarations": [
+        {
+          "property": "max-width",
+          "value": "var(--file-line-width)",
+          "declaration": "max-width: var(--file-line-width)",
+          "line": 3547
+        },
+        {
+          "property": "margin-left",
+          "value": "auto",
+          "declaration": "margin-left: auto",
+          "line": 3548
+        },
+        {
+          "property": "margin-right",
+          "value": "auto",
+          "declaration": "margin-right: auto",
+          "line": 3549
+        }
+      ],
+      "line": 3546
+    },
+    {
+      "selector": ".markdown-source-view.mod-cm6 .cm-scroller",
+      "atRules": [],
+      "declarations": [
+        {
+          "property": "font-family",
+          "value": "var(--font-text)",
+          "declaration": "font-family: var(--font-text)",
+          "line": 3574
+        },
+        {
+          "property": "line-height",
+          "value": "var(--line-height-normal)",
+          "declaration": "line-height: var(--line-height-normal)",
+          "line": 3575
+        },
+        {
+          "property": "scrollbar-gutter",
+          "value": "stable",
+          "declaration": "scrollbar-gutter: stable",
+          "line": 3576
+        }
+      ],
+      "line": 3573
+    },
+    {
+      "selector": "::selection",
+      "atRules": [],
+      "declarations": [
+        {
+          "property": "background-color",
+          "value": "var(--text-selection)",
+          "declaration": "background-color: var(--text-selection)",
+          "line": 4458
+        }
+      ],
+      "line": 4457
+    },
+    {
+      "selector": ".markdown-preview-view",
+      "atRules": [],
+      "declarations": [
+        {
+          "property": "font-size",
+          "value": "var(--font-text-size)",
+          "declaration": "font-size: var(--font-text-size)",
+          "line": 4465
+        },
+        {
+          "property": "font-family",
+          "value": "var(--font-text)",
+          "declaration": "font-family: var(--font-text)",
+          "line": 4466
+        },
+        {
+          "property": "line-height",
+          "value": "var(--line-height-normal)",
+          "declaration": "line-height: var(--line-height-normal)",
+          "line": 4467
+        },
+        {
+          "property": "width",
+          "value": "100%",
+          "declaration": "width: 100%",
+          "line": 4468
+        },
+        {
+          "property": "height",
+          "value": "100%",
+          "declaration": "height: 100%",
+          "line": 4469
+        },
+        {
+          "property": "padding",
+          "value": "var(--file-margins)",
+          "declaration": "padding: var(--file-margins)",
+          "line": 4470
+        },
+        {
+          "property": "position",
+          "value": "relative",
+          "declaration": "position: relative",
+          "line": 4471
+        },
+        {
+          "property": "overflow-y",
+          "value": "auto",
+          "declaration": "overflow-y: auto",
+          "line": 4472
+        },
+        {
+          "property": "overflow-wrap",
+          "value": "break-word",
+          "declaration": "overflow-wrap: break-word",
+          "line": 4473
+        },
+        {
+          "property": "color",
+          "value": "var(--text-normal)",
+          "declaration": "color: var(--text-normal)",
+          "line": 4474
+        },
+        {
+          "property": "user-select",
+          "value": "text",
+          "declaration": "user-select: text",
+          "line": 4475
+        },
+        {
+          "property": "-webkit-user-select",
+          "value": "text",
+          "declaration": "-webkit-user-select: text",
+          "line": 4476
+        },
+        {
+          "property": "scrollbar-gutter",
+          "value": "stable",
+          "declaration": "scrollbar-gutter: stable",
+          "line": 4477
+        }
+      ],
+      "line": 4464
+    },
+    {
+      "selector": ".markdown-preview-view.is-readable-line-width .markdown-preview-sizer",
+      "atRules": [],
+      "declarations": [
+        {
+          "property": "max-width",
+          "value": "var(--file-line-width)",
+          "declaration": "max-width: var(--file-line-width)",
+          "line": 4485
+        },
+        {
+          "property": "margin-left",
+          "value": "auto",
+          "declaration": "margin-left: auto",
+          "line": 4486
+        },
+        {
+          "property": "margin-right",
+          "value": "auto",
+          "declaration": "margin-right: auto",
+          "line": 4487
+        }
+      ],
+      "line": 4484
+    },
+    {
+      "selector": ".markdown-source-view",
+      "atRules": [],
+      "declarations": [
+        {
+          "property": "--list-padding-inline-start",
+          "value": "var(--list-indent-source)",
+          "declaration": "--list-padding-inline-start: var(--list-indent-source)",
+          "line": 13204
+        },
+        {
+          "property": "--list-marker-space",
+          "value": "0",
+          "declaration": "--list-marker-space: 0",
+          "line": 13205
+        }
+      ],
+      "line": 13203
+    },
+    {
+      "selector": ".markdown-rendered p",
+      "atRules": [],
+      "declarations": [
+        {
+          "property": "margin-block-start",
+          "value": "var(--p-spacing)",
+          "declaration": "margin-block-start: var(--p-spacing)",
+          "line": 14168
+        },
+        {
+          "property": "margin-block-end",
+          "value": "var(--p-spacing)",
+          "declaration": "margin-block-end: var(--p-spacing)",
+          "line": 14169
+        },
+        {
+          "property": "unicode-bidi",
+          "value": "plaintext",
+          "declaration": "unicode-bidi: plaintext",
+          "line": 14170
+        }
+      ],
+      "line": 14167
+    }
+  ]
+}

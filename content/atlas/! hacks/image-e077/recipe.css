@@ -1,0 +1,30 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: grid;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p, :is(.markdown-preview-view, .markdown-source-view) .el-p > p {
+  grid-area: 1/1;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p + p, :is(.markdown-preview-view, .markdown-source-view) .el-p + .el-p > p {
+  align-self: end;
+  z-index: 1;
+  margin: 0;
+  padding: calc(var(--size-4-1) * 5);
+  color: white;
+  background: #173c43db;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view):hover > p + p, :is(.markdown-preview-view, .markdown-source-view):hover > .el-p + .el-p > p, :is(.markdown-preview-view, .markdown-source-view):focus-within > p + p, :is(.markdown-preview-view, .markdown-source-view):focus-within > .el-p + .el-p > p {
+  opacity: 1;
+}
+@media (hover:none) {
+  :is(.markdown-preview-view, .markdown-source-view) > p + p, :is(.markdown-preview-view, .markdown-source-view) .el-p + .el-p > p {
+    opacity: 1;
+  }
+}
+

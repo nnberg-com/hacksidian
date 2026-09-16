@@ -1,10 +1,10 @@
 import { readFileSync } from 'node:fs';
 import { test, expect } from 'vitest';
 import { addHack, type HackContext } from '../src/hacks';
-const root = new URL('file:///Users/op/vaults/op/!%20P%20R%20O/hacksidian/atlas/!%20hacks/task-e30/');
+const root = new URL('../../content/atlas/! hacks/task-e30/', import.meta.url);
 const hack: HackContext = {
   id: 'task-e30', title: 'Completed last', path: 'atlas/! hacks/task-e30/task-e30.md',
-  spec: JSON.parse(readFileSync('/Users/op/vaults/op/! P R O/hacksidian/atlas/! hacks/task-e30/hack.json', 'utf8')),
+  spec: JSON.parse(readFileSync(new URL('hack.json', root), 'utf8')),
   css: readFileSync(new URL('recipe.css', root), 'utf8'),
 };
 const oldBlock = '/* hacksidian:hack:task-e30:start */\n.callmered-coloring.markdown-preview-view > ul {display:flex}\n/* hacksidian:hack:task-e30:end */';

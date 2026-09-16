@@ -1,0 +1,3 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  max-inline-size: 18ch;
+}

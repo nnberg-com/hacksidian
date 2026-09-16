@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border: 0;
+  padding-inline-start: 1.2em;
+  background: linear-gradient(var(--interactive-accent),var(--text-highlight-bg)) left/4px 100% no-repeat;
+}
+

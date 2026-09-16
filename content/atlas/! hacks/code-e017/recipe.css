@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  white-space: pre;
+  overflow: auto;
+}

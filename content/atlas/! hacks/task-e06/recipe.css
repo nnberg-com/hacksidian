@@ -1,0 +1,27 @@
+:is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"] {
+  appearance: none;
+  inline-size: 1.1em;
+  block-size: 1.1em;
+  border: 1.5px solid var(--interactive-accent);
+  border-radius: .2em;
+  background: transparent;
+  vertical-align: -.15em;
+}
+:is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"]:checked {
+  background-color: var(--interactive-accent);
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZD0ibTQgMTAgNCA0IDgtOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media(forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"] {
+    appearance: auto;
+  }
+}
+:is(.markdown-preview-view, .markdown-source-view) input[type="checkbox"] {
+  outline: 1px solid var(--background-modifier-border);
+  outline-offset: 3px;
+  margin-inline-end: .8em;
+}
+

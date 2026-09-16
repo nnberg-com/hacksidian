@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 24px;
+  background: linear-gradient(currentColor,currentColor) center / 35% 2px no-repeat;
+  transition: background-size .4s ease;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr:hover {
+  background-size: 100% 2px;
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) hr {
+    transition: none;
+  }
+}
+

@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  display: inline;
+}
+:is(.markdown-preview-view, .markdown-source-view) li + li::before {
+  content: " · ";
+  color: var(--interactive-accent);
+  font-weight: var(--font-bold);
+}

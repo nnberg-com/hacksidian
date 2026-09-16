@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  background: var(--background-secondary);
+  padding: 1.2em;
+  border-radius: .7em;
+}
+

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  border: calc(var(--table-border-width) * 2) solid var(--table-border-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  border: 0;
+}
+

@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: .2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: .2em;
+}
+

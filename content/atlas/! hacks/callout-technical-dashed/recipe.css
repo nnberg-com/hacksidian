@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  border: 1px dashed var(--callout-color);
+  background: transparent;
+}

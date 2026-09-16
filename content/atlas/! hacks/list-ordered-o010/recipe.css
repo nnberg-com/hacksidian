@@ -1,0 +1,8 @@
+@counter-style hack-list-ordered-o010-ordered-brackets {
+  system: extends decimal;
+  prefix: "[";
+  suffix: "] ";
+}
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  list-style-type: hack-list-ordered-o010-ordered-brackets;
+}

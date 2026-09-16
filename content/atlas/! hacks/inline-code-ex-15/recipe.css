@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .08em .3em;
+  border: 1px dashed var(--interactive-accent);
+  border-radius: .2em;
+}
+

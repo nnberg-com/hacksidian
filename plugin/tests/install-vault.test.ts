@@ -1,5 +1,5 @@
 import { test, expect, afterEach } from 'vitest';
-import { mkdtemp, mkdir, readFile, writeFile, readdir, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, writeFile, readdir, rm, lstat, realpath, symlink } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -50,4 +50,46 @@ test('fresh install enables the current ID',async()=>{
  const vault=await mkdtemp(path.join(tmpdir(),'hacksidian-fresh-test-'));roots.push(vault);
  install(vault);
  expect(JSON.parse(await readFile(path.join(vault,'.obsidian/community-plugins.json'),'utf8'))).toEqual(['hacksidian']);
+});
+test('requires an explicit vault path and creates two repeatable content links',async()=>{
+ expect(()=>execFileSync(process.execPath,[installer],{env:{...process.env,HACKSIDIAN_VAULT:''},stdio:'pipe'})).toThrow();
+ const vault=await mkdtemp(path.join(tmpdir(),'hacksidian-explicit-test-'));roots.push(vault);
+ install(vault); install(vault);
+ for (const name of ['atlas','playground']) {
+  const link=path.join(vault,'Hacksidian',name);
+  expect((await lstat(link)).isSymbolicLink()).toBe(true);
+  expect(await realpath(link)).toBe(await realpath(path.resolve(import.meta.dirname,'../../content',name)));
+ }
+ await expect(readFile(path.join(vault,'.obsidian/plugins/hacksidian/content.json.gz'))).rejects.toMatchObject({code:'ENOENT'});
+});
+test('refuses an existing content folder before changing the installed plugin',async()=>{
+ const {vault,old,data}=await fixture();
+ await mkdir(path.join(vault,'Hacksidian/playground'),{recursive:true});
+ await writeFile(path.join(vault,'Hacksidian/playground/mine.md'),'keep');
+ expect(()=>install(vault)).toThrow();
+ expect(await readFile(path.join(old,'data.json'),'utf8')).toBe(data);
+ expect(await readFile(path.join(vault,'Hacksidian/playground/mine.md'),'utf8')).toBe('keep');
+ await expect(lstat(path.join(vault,'Hacksidian/atlas'))).rejects.toMatchObject({code:'ENOENT'});
+});
+test('uses existing folder settings and removes only the obsolete package',async()=>{
+ const {vault,old}=await fixture();
+ const data=JSON.stringify({settings:{atlasFolder:'Work/atlas',coloringsFolder:'Work/playground',apiKey:'test-only'}});
+ await writeFile(path.join(old,'data.json'),data);
+ await writeFile(path.join(old,'content.json.gz'),'obsolete');
+ await writeFile(path.join(old,'content-state.json'),'preserve');
+ install(vault);
+ expect((await lstat(path.join(vault,'Work/atlas'))).isSymbolicLink()).toBe(true);
+ const dest=path.join(vault,'.obsidian/plugins/hacksidian');
+ expect(await readFile(path.join(dest,'data.json'),'utf8')).toBe(data);
+ expect(await readFile(path.join(dest,'content-state.json'),'utf8')).toBe('preserve');
+ await expect(readFile(path.join(dest,'content.json.gz'))).rejects.toMatchObject({code:'ENOENT'});
+});
+test('refuses links to another source and unsafe folder settings',async()=>{
+ const {vault,old}=await fixture();
+ await mkdir(path.join(vault,'Hacksidian'));
+ await symlink(path.resolve(import.meta.dirname,'../../content/playground'),path.join(vault,'Hacksidian/atlas'));
+ expect(()=>install(vault)).toThrow();
+ await rm(path.join(vault,'Hacksidian/atlas'));
+ await writeFile(path.join(old,'data.json'),JSON.stringify({settings:{atlasFolder:'../escape'}}));
+ expect(()=>install(vault)).toThrow();
 });

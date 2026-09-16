@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) h3::after {
+  content: "";
+  display: block;
+  inline-size: 3rem;
+  block-size: 4px;
+  background: var(--interactive-accent);
+  margin-block-start: .8rem;
+}
+

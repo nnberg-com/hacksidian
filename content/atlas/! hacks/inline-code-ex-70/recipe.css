@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+}
+@media (forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+    color: CanvasText;
+    background: Canvas;
+    border: 1px solid CanvasText;
+    box-shadow: none;
+    text-shadow: none;
+  }
+}
+

@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .25em .4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:hover:not(:has(li:hover)) {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:focus-visible) {
+  outline: 2px solid var(--interactive-accent);
+}
+

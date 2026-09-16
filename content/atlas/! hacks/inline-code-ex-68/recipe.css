@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  color: var(--interactive-accent);
+  background: var(--background-secondary);
+  padding: .1em .3em;
+  border: 1px solid var(--code-border-color);
+  border-radius: .25em;
+}
+

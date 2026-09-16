@@ -1,0 +1,24 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) a::after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + .35em);
+  width: 20ch;
+  padding: .65em;
+  background: var(--text-normal);
+  color: var(--background-primary);
+  font-size: .78em;
+  line-height: 1.4;
+  border-radius: .4em;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .15s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible)::after {
+  visibility: visible;
+  opacity: 1;
+}
+

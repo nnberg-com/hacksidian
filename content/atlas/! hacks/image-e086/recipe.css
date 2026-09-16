@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  padding: calc(var(--size-4-1) * 3);
+  background: #f5ead2;
+}
+@media (prefers-color-scheme:dark) {
+  :is(.markdown-preview-view, .markdown-source-view) p {
+    background: #243932;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) img {
+    filter: brightness(.8);
+  }
+}
+@media (prefers-color-scheme:dark) {
+  :is(.markdown-preview-view, .markdown-source-view) p {
+    background: #243932;
+  }
+}
+@media (prefers-color-scheme:dark) {
+  :is(.markdown-preview-view, .markdown-source-view) img {
+    filter: brightness(.8);
+  }
+}
+

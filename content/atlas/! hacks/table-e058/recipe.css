@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) tr:has(>td:first-child strong)>td {
+  background: var(--background-secondary);
+  border-bottom-color: var(--interactive-accent);
+}
+

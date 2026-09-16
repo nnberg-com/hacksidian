@@ -1,0 +1,20 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  table-layout: fixed;
+}
+:is(.markdown-preview-view, .markdown-source-view) th:first-child {
+  width: 31%;
+}
+:is(.markdown-preview-view, .markdown-source-view) td:first-child {
+  font-weight: 650;
+}
+:is(.markdown-preview-view, .markdown-source-view) tr>:nth-child(3) {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) th:nth-child(3) {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) td:not(:first-child) {
+  text-align: center;
+}
+

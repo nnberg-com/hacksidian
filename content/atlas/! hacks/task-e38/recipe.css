@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li {
+  border: 1px solid var(--background-modifier-border);
+  padding: 1em;
+  border-radius: .7em;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  width: 100%;
+  max-height: 12rem;
+  object-fit: cover;
+  border-radius: .4em;
+}
+

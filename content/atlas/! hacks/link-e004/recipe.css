@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  color: var(--interactive-accent);
+  text-decoration: none;
+}

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) a::after {
+  content: " →";
+  display: inline-block;
+  transition: transform .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible)::after {
+  transform: translateX(.25em);
+}
+

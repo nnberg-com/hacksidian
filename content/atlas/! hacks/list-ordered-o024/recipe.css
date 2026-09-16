@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) {
+  columns: 12em 2;
+  column-gap: 2.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  break-inside: avoid;
+}

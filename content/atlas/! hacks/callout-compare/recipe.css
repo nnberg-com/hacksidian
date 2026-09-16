@@ -1,0 +1,34 @@
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="compare"] {
+  border-top: 3px solid #282b29;
+  padding-top: calc(var(--size-4-1) * 4.5);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="compare"] > .callout-title {
+  font-size: calc(var(--font-text-size) * 1.3125);
+  line-height: calc(var(--line-height-normal) * 0.833333);
+  margin-bottom: calc(var(--size-4-1) * 5);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="compare"] > .callout-content {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: calc(var(--size-4-1) * 3.5);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="option"], :is(.markdown-preview-view, .markdown-source-view) [data-callout="selected"] {
+  padding: calc(var(--size-4-1) * 5);
+  background: #edece7;
+  font-size: calc(var(--font-text-size) * 0.875);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="selected"] {
+  background: #233e34;
+  color: #fff;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="option"] > .callout-title, :is(.markdown-preview-view, .markdown-source-view) [data-callout="selected"] > .callout-title {
+  font-family: Georgia,serif;
+  font-size: calc(var(--font-text-size) * 1.375);
+  margin-bottom: calc(var(--size-4-1) * 5);
+}
+@media(max-width:650px) {
+  :is(.markdown-preview-view, .markdown-source-view) [data-callout="compare"] > .callout-content {
+    grid-template-columns: 1fr;
+  }
+}
+

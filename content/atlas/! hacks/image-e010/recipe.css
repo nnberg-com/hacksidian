@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 13rem;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}

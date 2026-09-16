@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  color: var(--interactive-accent);
+  font-size: calc(var(--h3-size) * 2.124431);
+}
+@supports (background-clip:text) {
+  :is(.markdown-preview-view, .markdown-source-view) h3 {
+    background: linear-gradient(100deg,#b84329,#8155bd,#087f8c);
+    background-clip: text;
+    color: transparent;
+  }
+}
+

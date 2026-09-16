@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) em {
+  text-emphasis: filled dot var(--interactive-accent);
+  text-emphasis-position: under;
+}

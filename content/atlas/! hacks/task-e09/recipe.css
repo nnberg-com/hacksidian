@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  line-height: calc(var(--line-height-normal) * 0.9);
+  margin-block: .3em;
+}
+

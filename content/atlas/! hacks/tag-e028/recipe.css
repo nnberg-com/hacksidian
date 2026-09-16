@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  padding: calc(var(--tag-padding-y) * 0.48) calc(var(--tag-padding-x) * 0.76923077);
+  background: var(--background-secondary);
+  box-shadow: inset 0 -3px var(--interactive-accent);
+}
+

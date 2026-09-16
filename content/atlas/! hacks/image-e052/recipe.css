@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  position: relative;
+  padding: calc(var(--size-4-1) * 3.5);
+  background: white;
+  box-shadow: 0 4px 10px #0002;
+}
+:is(.markdown-preview-view, .markdown-source-view) p::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  left: 34%;
+  width: 32%;
+  height: 30px;
+  background: #d7c69bac;
+  transform: rotate(-5deg);
+}

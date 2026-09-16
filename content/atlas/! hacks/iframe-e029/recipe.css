@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  filter: grayscale(1) contrast(.92);
+}
+

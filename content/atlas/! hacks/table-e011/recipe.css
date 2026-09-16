@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  border-collapse: separate;
+  border-spacing: 0 .55em;
+}
+:is(.markdown-preview-view, .markdown-source-view) td {
+  background: var(--background-secondary);
+  border: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) td:first-child {
+  border-radius: calc(var(--radius-s) * 2) 0 0 calc(var(--radius-s) * 2);
+}
+:is(.markdown-preview-view, .markdown-source-view) td:last-child {
+  border-radius: 0 calc(var(--radius-s) * 2) calc(var(--radius-s) * 2) 0;
+}
+

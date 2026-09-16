@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  max-height: 12rem;
+  overflow: auto;
+  background: linear-gradient(#f4f3ee 35%, #f4f3ee00) top / 100% 36px no-repeat local,
+ linear-gradient(to top, #f4f3ee 35%, #f4f3ee00) bottom / 100% 36px no-repeat local,
+ linear-gradient(#263d3238, transparent) top / 100% 12px no-repeat scroll,
+ linear-gradient(to top, #263d3238, transparent) bottom / 100% 12px no-repeat scroll;
+  background-color: #f4f3ee;
+}
+

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) a[href$=".pdf" i]::after {
+  content: " PDF";
+  font-size: .75em;
+  font-weight: 750;
+}
+:is(.markdown-preview-view, .markdown-source-view) a[href^="mailto:"]::after {
+  content: " ↗";
+}
+

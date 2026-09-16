@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  padding: 1.5em;
+  border: 1px solid var(--background-modifier-border);
+  border-block-start: 5px solid var(--interactive-accent);
+  border-radius: .3em;
+  box-shadow: 0 .5em 1.5em #0000000c;
+}
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  margin-block-start: 0;
+}
+

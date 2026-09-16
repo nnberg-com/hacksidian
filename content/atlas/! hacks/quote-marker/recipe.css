@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote mark {
+  color: inherit;
+  background: linear-gradient(transparent 48%,var(--text-highlight-bg) 48%);
+  padding-inline: .1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+:is(.markdown-preview-view, .markdown-source-view):has(#plain-only:checked) .group-index a[href=":is(.markdown-preview-view, .markdown-source-view)"] {
+  display: none;
+}
+

@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style-type: disc;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  list-style-type: circle;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul ul {
+  list-style-type: square;
+}
+:is(.markdown-preview-view, .markdown-source-view) li::marker {
+  color: var(--interactive-accent);
+}

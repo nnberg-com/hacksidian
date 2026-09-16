@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  counter-reset: chapter 2;
+  padding-inline-start: 4.5rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  position: relative;
+  counter-increment: chapter;
+  font-size: calc(var(--h3-size) * 1.213961);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: counter(chapter,decimal-leading-zero);
+  position: absolute;
+  inset-inline-start: -2.7rem;
+  color: var(--interactive-accent);
+  font-variant-numeric: tabular-nums;
+}
+

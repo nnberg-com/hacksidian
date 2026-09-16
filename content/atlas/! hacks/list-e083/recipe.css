@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,10rem),1fr));
+  gap: .7em 2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li + li {
+  margin-block-start: 0;
+}
+

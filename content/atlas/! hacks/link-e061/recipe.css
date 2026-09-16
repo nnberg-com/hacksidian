@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a[href$=".pdf"]::after {
+  content: " [PDF]";
+}
+:is(.markdown-preview-view, .markdown-source-view) a[href*=".pdf?"]::after {
+  content: " [PDF · query]";
+}

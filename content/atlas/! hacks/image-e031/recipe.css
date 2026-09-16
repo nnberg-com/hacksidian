@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  filter: contrast(1.6) saturate(.8);
+}
+

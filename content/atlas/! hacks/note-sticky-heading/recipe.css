@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  max-block-size: 23rem;
+  overflow: auto;
+  scroll-padding-block-start: 3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  position: sticky;
+  inset-block-start: 0;
+  background: var(--background-primary);
+  padding-block: .7em;
+  z-index: 1;
+  border-block-end: 1px solid var(--background-modifier-border);
+}
+

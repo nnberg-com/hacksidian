@@ -1,0 +1,11 @@
+.markdown-source-view.mod-cm6 .multi-select-container {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.markdown-source-view.mod-cm6 .multi-select-pill {
+  max-width: 100%;
+  border-radius: 20px;
+}
+.markdown-source-view.mod-cm6 .multi-select-pill-content {
+  overflow-wrap: anywhere;
+}

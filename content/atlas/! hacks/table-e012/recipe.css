@@ -1,0 +1,31 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  border: 0;
+  border-bottom: var(--table-border-width) solid var(--table-border-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) tr>:first-child {
+  border-left: 1px solid var(--table-border-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) tr>:last-child {
+  border-right: 1px solid var(--table-border-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) thead th {
+  border-top: var(--table-border-width) solid var(--table-border-color);
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) thead th:first-child {
+  border-radius: calc(var(--radius-s) * 2.5) 0 0 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) thead th:last-child {
+  border-radius: 0 calc(var(--radius-s) * 2.5) 0 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 calc(var(--radius-s) * 2.5);
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:last-child td:last-child {
+  border-radius: 0 0 calc(var(--radius-s) * 2.5) 0;
+}
+

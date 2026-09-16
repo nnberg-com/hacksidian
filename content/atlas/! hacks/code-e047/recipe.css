@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  padding-left: calc(var(--size-4-1) * 6);
+}
+:is(.markdown-preview-view, .markdown-source-view) li pre {
+  margin-block: calc(var(--size-4-1) * 2) calc(var(--size-4-1) * 4.5);
+  padding: calc(var(--size-4-1) * 3);
+  background: #eef1e8;
+}

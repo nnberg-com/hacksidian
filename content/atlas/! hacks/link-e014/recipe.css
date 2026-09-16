@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  background: var(--background-secondary);
+  border-radius: 1em;
+  padding: .12em .55em;
+  text-decoration: none;
+}
+

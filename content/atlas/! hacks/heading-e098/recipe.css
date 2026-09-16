@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 2.048558);
+  transform: perspective(500px) rotateY(25deg);
+  transform-origin: left center;
+  color: var(--interactive-accent);
+}

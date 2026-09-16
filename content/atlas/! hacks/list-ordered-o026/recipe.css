@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  border-radius: .3em;
+  transition: background-color .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:hover {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:hover::marker {
+  color: var(--interactive-accent);
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) li {
+    transition: none;
+  }
+}
+

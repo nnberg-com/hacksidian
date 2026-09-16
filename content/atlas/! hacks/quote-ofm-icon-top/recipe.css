@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  justify-content: center;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-title-inner {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-icon {
+  width: 3.5em;
+  height: 3.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content {
+  text-align: center;
+  font-family: Georgia,serif;
+  font-size: 1.2em;
+}
+

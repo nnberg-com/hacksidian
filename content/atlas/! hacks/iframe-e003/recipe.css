@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}

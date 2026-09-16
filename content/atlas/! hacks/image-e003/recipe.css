@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}

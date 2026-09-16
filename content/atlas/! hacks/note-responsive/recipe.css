@@ -1,0 +1,26 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  padding: 1.5em;
+  border: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) h1 {
+  font-size: 2.2em;
+}
+@container preview (max-width:360px) {
+  :is(.markdown-preview-view, .markdown-source-view) {
+    padding: .7em;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) h1 {
+    font-size: 1.55em;
+  }
+}
+@container preview (max-width:360px) {
+  :is(.markdown-preview-view, .markdown-source-view) {
+    padding: .7em;
+  }
+}
+@container preview (max-width:360px) {
+  :is(.markdown-preview-view, .markdown-source-view) h1 {
+    font-size: 1.55em;
+  }
+}
+

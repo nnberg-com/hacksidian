@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) {
+  display: none;
+}
+

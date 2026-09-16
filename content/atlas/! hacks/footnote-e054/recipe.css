@@ -1,0 +1,32 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a {
+  background: var(--background-secondary);
+  padding: .2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+  outline: 2px solid var(--interactive-accent);
+}
+@media(forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) .footnote-ref a {
+    color: LinkText;
+    background: Canvas;
+    border: 1px solid LinkText;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+    color: CanvasText;
+    outline-color: Highlight;
+  }
+}
+@media(forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) .footnote-ref a {
+    color: LinkText;
+    background: Canvas;
+    border: 1px solid LinkText;
+  }
+}
+@media(forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+    color: CanvasText;
+    outline-color: Highlight;
+  }
+}
+

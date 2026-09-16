@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  overflow-wrap: anywhere;
+  font-family: var(--font-monospace);
+  font-size: .85em;
+}
+

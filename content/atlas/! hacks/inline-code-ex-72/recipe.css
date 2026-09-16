@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  font-size: calc(var(--code-size) * 1.02857143);
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+  white-space: break-spaces;
+  overflow-wrap: anywhere;
+  hyphens: none;
+  font-variant-ligatures: none;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+

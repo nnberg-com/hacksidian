@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag::before {
+  content: "";
+  display: inline-block;
+  width: .45em;
+  height: .45em;
+  border-radius: 50%;
+  background: currentColor;
+  margin-right: .4em;
+  animation: hack-tag-e056-tag-e056-pulse 1.8s ease-in-out infinite;
+}
+@keyframes hack-tag-e056-tag-e056-pulse {
+  50% {
+    opacity: .3;
+    transform: scale(.7);
+  }
+}
+

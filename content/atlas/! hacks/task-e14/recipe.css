@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) {
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) a {
+  color: inherit;
+}
+

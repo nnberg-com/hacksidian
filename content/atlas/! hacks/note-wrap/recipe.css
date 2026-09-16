@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) h1 {
+  text-wrap: balance;
+  max-inline-size: 20ch;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  text-wrap: pretty;
+}

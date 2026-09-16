@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  white-space: break-spaces;
+  max-inline-size: 32ch;
+  border: 1px solid #b7b9ac;
+}

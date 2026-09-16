@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: clamp(1.5rem,1rem + 2vw,3.2rem);
+}
+

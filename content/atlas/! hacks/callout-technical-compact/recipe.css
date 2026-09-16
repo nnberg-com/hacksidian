@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  font-size: .85em;
+  gap: .4em;
+  margin-bottom: .3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  padding: .8em 1em;
+}
+

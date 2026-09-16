@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.138088);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3:has(em) {
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em {
+  display: block;
+  font-size: calc(var(--h3-size) * 0.758725);
+  color: var(--text-muted);
+  font-weight: var(--font-normal);
+  margin-top: .4rem;
+}
+

@@ -1,0 +1,33 @@
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    background: white;
+    color: black;
+    border: calc(var(--blockquote-border-thickness) * 0.5) solid black;
+    padding: 1em;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) blockquote a::after {
+    content: " (" attr(href) ")";
+    font-size: .8em;
+    overflow-wrap: anywhere;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+    background: white;
+    color: black;
+    border: calc(var(--blockquote-border-thickness) * 0.5) solid black;
+    padding: 1em;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote a::after {
+    content: " (" attr(href) ")";
+    font-size: .8em;
+    overflow-wrap: anywhere;
+  }
+}
+

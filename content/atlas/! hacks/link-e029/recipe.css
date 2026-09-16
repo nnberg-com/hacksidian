@@ -1,0 +1,3 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-underline-offset: 0;
+}

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: linear-gradient(transparent 58%, var(--text-highlight-bg) 58%);
+}
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: linear-gradient(transparent 58%,var(--text-highlight-bg) 58%);
+}
+

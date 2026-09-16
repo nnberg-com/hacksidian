@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  animation: hack-heading-e065-heading-e065-unmask 5s ease infinite;
+}
+@keyframes hack-heading-e065-heading-e065-unmask {
+  0%,10% {
+    clip-path: inset(0 100% 0 0);
+  }
+  40%,90% {
+    clip-path: inset(0);
+  }
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+

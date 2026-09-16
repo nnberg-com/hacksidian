@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  max-width: 19ch;
+}
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-decoration-style: wavy;
+}

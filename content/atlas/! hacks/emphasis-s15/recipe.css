@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: var(--text-normal);
+  color: var(--background-primary);
+  padding: .02em .2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: var(--text-normal);
+  color: var(--background-primary);
+  padding: .02em .2em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+

@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) table:has(img) td {
+  padding: 1em;
+  vertical-align: middle;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  width: 64px;
+  height: 40px;
+  object-fit: cover;
+}

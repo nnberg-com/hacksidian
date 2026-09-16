@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) tr:has(>td:empty)>td {
+  background: var(--text-highlight-bg);
+}
+:is(.markdown-preview-view, .markdown-source-view) td:empty {
+  outline: 1px dashed var(--interactive-accent);
+  outline-offset: -5px;
+}
+

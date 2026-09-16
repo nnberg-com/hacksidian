@@ -1,0 +1,103 @@
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) {
+      position: relative;
+      padding-inline-end: 18rem;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) .footnotes-sep {
+      display: none;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+      margin: 0;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e046-1"] {
+      anchor-name: --e046-1;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e046-1 {
+      position-anchor: --e046-1;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e046-2"] {
+      anchor-name: --e046-2;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e046-2 {
+      position-anchor: --e046-2;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+      position: absolute;
+      top: anchor(top);
+      right: 0;
+      inline-size: 15rem;
+      margin: 0;
+      padding: .6em .8em;
+      border-inline-start: 2px solid var(--interactive-accent);
+      background: var(--background-primary);
+      font-size: .85em;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) {
+      position: relative;
+      padding-inline-end: 18rem;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) .footnotes-sep {
+      display: none;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+      margin: 0;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e046-1"] {
+      anchor-name: --e046-1;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e046-1 {
+      position-anchor: --e046-1;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e046-2"] {
+      anchor-name: --e046-2;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e046-2 {
+      position-anchor: --e046-2;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+      position: absolute;
+      top: anchor(top);
+      right: 0;
+      inline-size: 15rem;
+      margin: 0;
+      padding: .6em .8em;
+      border-inline-start: 2px solid var(--interactive-accent);
+      background: var(--background-primary);
+      font-size: .85em;
+    }
+  }
+}
+

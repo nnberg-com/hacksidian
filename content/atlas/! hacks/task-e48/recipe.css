@@ -1,0 +1,24 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  --hack-task-e48-progress: 0%;
+  position: relative;
+  padding-block-end: 1.3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul):has(> li > input:checked) {
+  --hack-task-e48-progress: 33.333%;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul):has(> li:nth-child(1) > input:checked):has(> li:nth-child(2) > input:checked), :is(.markdown-preview-view, .markdown-source-view) ul:not(li ul):has(> li:nth-child(1) > input:checked):has(> li:nth-child(3) > input:checked), :is(.markdown-preview-view, .markdown-source-view) ul:not(li ul):has(> li:nth-child(2) > input:checked):has(> li:nth-child(3) > input:checked) {
+  --hack-task-e48-progress: 66.667%;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul):has(> li:nth-child(1) > input:checked):has(> li:nth-child(2) > input:checked):has(> li:nth-child(3) > input:checked) {
+  --hack-task-e48-progress: 100%;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul)::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: .35em;
+  border-radius: 1em;
+  background: linear-gradient(to right,var(--color-green) var(--hack-task-e48-progress),var(--background-modifier-border) var(--hack-task-e48-progress));
+}
+

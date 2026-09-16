@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a {
+  text-decoration-style: dotted;
+  text-underline-offset: .18em;
+}
+

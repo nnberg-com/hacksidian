@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) a::before {
+  content: "[";
+}
+:is(.markdown-preview-view, .markdown-source-view) a::after {
+  content: "]";
+}

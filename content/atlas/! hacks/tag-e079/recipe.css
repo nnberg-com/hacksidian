@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-begin {
+  background: var(--text-highlight-bg);
+  padding: .1em .3em;
+  border-radius: var(--radius-s) 0 0 var(--radius-s);
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag-end {
+  background: var(--background-secondary);
+  padding: .1em .4em;
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+}
+

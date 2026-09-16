@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> s) {
+  color: var(--text-muted);
+  border-inline-start: 2px dashed var(--text-muted);
+  padding-inline-start: .6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> s)::after {
+  content: " · отменено";
+  font-size: .8em;
+}
+:is(.markdown-preview-view, .markdown-source-view) s {
+  text-decoration-style: double;
+}
+

@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.251897);
+  font-weight: var(--font-medium);
+}
+:is(.markdown-preview-view, .markdown-source-view) h4 {
+  font-size: calc(var(--h4-size) * 0.968013);
+  font-weight: 800;
+  margin-block: 1.5rem .4rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) h5 {
+  font: italic 1.1rem Georgia,serif;
+  margin-block: 1.5rem .4rem;
+}
+

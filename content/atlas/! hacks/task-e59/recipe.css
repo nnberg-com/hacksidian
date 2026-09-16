@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  counter-reset: outline;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  counter-increment: outline;
+}
+:is(.markdown-preview-view, .markdown-source-view) li::before {
+  content: counters(outline,".") " ";
+  display: inline-block;
+  min-width: 2em;
+  margin-inline-end: .45em;
+  color: var(--text-muted);
+  font-size: .8em;
+  font-variant-numeric: tabular-nums;
+}
+

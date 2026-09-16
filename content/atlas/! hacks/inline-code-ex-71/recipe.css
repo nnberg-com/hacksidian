@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+    background: none;
+    color: #000;
+    border: 1px solid #777;
+    box-shadow: none;
+    text-shadow: none;
+  }
+}
+

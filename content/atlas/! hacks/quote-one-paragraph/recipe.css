@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote:has(>p:only-child) {
+  text-align: center;
+  border: 0;
+  font: 1.3em/1.5 Georgia,serif;
+  padding: 1em .5em;
+}
+

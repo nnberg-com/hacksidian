@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) > blockquote:has(input), :is(.markdown-preview-view, .markdown-source-view) .el-blockquote > blockquote:has(input) {
+  margin: 0;
+  border: 1px solid var(--background-modifier-border);
+  border-inline-start: 4px solid var(--interactive-accent);
+  border-radius: .4em;
+  padding: 1em;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote > p {
+  font-weight: 650;
+}
+

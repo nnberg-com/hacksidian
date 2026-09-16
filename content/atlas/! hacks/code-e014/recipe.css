@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) pre:nth-of-type(1) {
+  tab-size: 2;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre:nth-of-type(2) {
+  tab-size: 4;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre:nth-of-type(3) {
+  tab-size: 8;
+}

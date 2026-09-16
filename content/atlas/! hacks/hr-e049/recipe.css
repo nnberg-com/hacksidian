@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 22px;
+  display: grid;
+  place-items: center;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr::after {
+  content: "*  *  *";
+  white-space: pre;
+  font: 22px/1 Georgia,serif;
+}
+

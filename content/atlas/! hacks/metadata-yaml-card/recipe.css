@@ -1,0 +1,14 @@
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-hmd-frontmatter) {
+  background: var(--background-secondary);
+  border-inline: 1px solid var(--background-modifier-border);
+  padding-inline: 10px;
+}
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-def):not(.cm-line + .cm-line) {
+  border-top: 1px solid var(--background-modifier-border);
+  border-radius: 8px 8px 0 0;
+}
+.markdown-source-view.mod-cm6 .cm-line:has(.cm-def):not(:has(+ .cm-line .cm-hmd-frontmatter)) {
+  border-bottom: 1px solid var(--background-modifier-border);
+  border-radius: 0 0 8px 8px;
+}
+

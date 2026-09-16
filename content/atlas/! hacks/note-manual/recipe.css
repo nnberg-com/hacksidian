@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--interactive-accent);
+  border-block-end: 1px solid var(--background-modifier-border);
+  padding-block-end: .4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  margin-block: .45em;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  background: var(--background-secondary);
+  padding: 1em;
+  overflow: auto;
+}
+

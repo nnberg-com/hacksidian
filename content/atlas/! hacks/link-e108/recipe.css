@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  background: var(--background-secondary);
+  padding: .1em .2em;
+}
+@media(forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    color: LinkText;
+    background: none;
+    text-decoration: underline;
+    forced-color-adjust: auto;
+  }
+}
+

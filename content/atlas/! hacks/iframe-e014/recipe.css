@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  border: 1px solid #b9a9b2;
+  border-radius: calc(var(--radius-s) * 4);
+}

@@ -1,0 +1,27 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  display: inline-block;
+  transition: transform .25s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible) {
+  transform: translateX(.4em);
+  color: var(--color-purple);
+}
+@media(prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    transition: none;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible) {
+    transform: none;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    transition: none;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible) {
+    transform: none;
+  }
+}
+

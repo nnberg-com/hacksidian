@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  quotes: "«" "»" "„" "“";
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p:only-child::before {
+  content: open-quote;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p:only-child::after {
+  content: close-quote;
+}
+

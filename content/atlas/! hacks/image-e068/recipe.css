@@ -1,0 +1,20 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  display: flex;
+  gap: calc(var(--size-4-1) * 3);
+  overflow-x: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 calc(var(--size-4-1) * 3);
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  flex: 0 0 78%;
+  min-width: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}

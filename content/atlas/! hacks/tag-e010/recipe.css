@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  font-size: calc(var(--tag-size) * 0.82285714);
+  vertical-align: super;
+}

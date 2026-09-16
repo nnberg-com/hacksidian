@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  table-layout: fixed;
+}
+:is(.markdown-preview-view, .markdown-source-view) td {
+  overflow-wrap: anywhere;
+}

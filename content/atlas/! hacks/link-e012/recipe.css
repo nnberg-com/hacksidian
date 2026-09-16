@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  background: linear-gradient(transparent 62%,var(--text-highlight-bg) 62%);
+  text-decoration: none;
+}
+

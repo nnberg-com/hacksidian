@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 .65em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: calc(var(--radius-s) * 2);
+}
+

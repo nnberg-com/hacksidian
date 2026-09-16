@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  table-layout: fixed;
+}
+@media(max-width:650px) {
+  :is(.markdown-preview-view, .markdown-source-view) td, :is(.markdown-preview-view, .markdown-source-view) th {
+    padding: .35em .25em;
+    overflow-wrap: anywhere;
+  }
+}
+

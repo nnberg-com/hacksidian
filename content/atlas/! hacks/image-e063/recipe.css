@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: flow-root;
+}
+:is(.markdown-preview-view, .markdown-source-view) > p:has(img), :is(.markdown-preview-view, .markdown-source-view) .el-p > p:has(img) {
+  float: right;
+  width: 45%;
+  margin: 0 0 calc(var(--size-4-1) * 2) calc(var(--size-4-1) * 4.5);
+}
+:is(.markdown-preview-view, .markdown-source-view) > p + p, :is(.markdown-preview-view, .markdown-source-view) .el-p + .el-p > p {
+  margin: 0;
+}
+

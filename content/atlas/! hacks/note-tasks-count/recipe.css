@@ -1,0 +1,24 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style: none;
+  padding: 0;
+  counter-reset: done;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .4em 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(input:checked) {
+  counter-increment: done;
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) input {
+  accent-color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) ul::after {
+  content: "Завершено: " counter(done);
+  display: block;
+  margin-block-start: 1em;
+  padding: .6em;
+  background: var(--background-secondary);
+  font-weight: var(--font-bold);
+}
+

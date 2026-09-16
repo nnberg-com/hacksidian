@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 4px;
+  background: linear-gradient(90deg,#c7704e,#647aa7);
+}
+@media (forced-colors:active) {
+  :is(.markdown-preview-view, .markdown-source-view) hr {
+    height: 0;
+    background: none;
+    border-top: 1px solid CanvasText;
+  }
+}
+

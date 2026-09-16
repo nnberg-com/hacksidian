@@ -1,0 +1,13 @@
+.markdown-source-view.mod-cm6 .metadata-container {
+  counter-reset: done;
+}
+.markdown-source-view.mod-cm6 .metadata-property:has(input:checked) {
+  counter-increment: done;
+}
+.markdown-source-view.mod-cm6 .metadata-container::after {
+  content: "Отмечено: " counter(done);
+  display: block;
+  font-size: 11px;
+  color: var(--text-accent);
+  margin-top: 10px;
+}

@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: transparent;
+  border: 1px solid var(--interactive-accent);
+  border-radius: .2em;
+  padding: 0 .18em;
+}
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: transparent;
+  border: 1px solid var(--interactive-accent);
+  border-radius: .2em;
+  padding: 0 .18em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+

@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::before, :is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::after {
+  content: "`";
+}
+

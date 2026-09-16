@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  font-family: Georgia,serif;
+  font-size: calc(var(--font-text-size) * 1.08);
+}
+

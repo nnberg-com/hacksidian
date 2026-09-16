@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  width: 67%;
+  position: relative;
+  transform: rotate(-5deg);
+}
+:is(.markdown-preview-view, .markdown-source-view) p + p, :is(.markdown-preview-view, .markdown-source-view) .el-p + .el-p > p {
+  margin: calc(var(--size-4-1) * -16.25) 0 0 auto;
+  transform: rotate(6deg);
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  border: 7px solid white;
+  box-shadow: 0 4px 12px #0003;
+}
+

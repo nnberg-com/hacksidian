@@ -1,0 +1,6 @@
+.workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)) {
+  --file-header-background: var(--background-secondary);
+  --file-header-background-focused: var(--background-secondary);
+  --file-header-border: 1px solid var(--background-modifier-border);
+  --file-header-font-weight: 600;
+}

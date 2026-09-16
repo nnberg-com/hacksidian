@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  max-inline-size: 21ch;
+  font-size: calc(var(--h3-size) * 1.289833);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3:nth-of-type(2) {
+  text-wrap: balance;
+}

@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: calc(var(--h3-size) * 0.758725);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--interactive-accent);
+}
+

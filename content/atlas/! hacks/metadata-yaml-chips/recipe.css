@@ -1,0 +1,8 @@
+.markdown-source-view.mod-cm6 .cm-line:not(.cm-active):not(:focus) :is(.cm-string,.cm-number).cm-hmd-frontmatter {
+  background: var(--background-secondary);
+  border-radius: 5px;
+  padding: 2px 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+

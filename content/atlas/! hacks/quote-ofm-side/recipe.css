@@ -1,0 +1,37 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  display: grid;
+  grid-template-columns: minmax(5em,1fr) minmax(0,3fr);
+  gap: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  display: block;
+  font-size: .8em;
+  border-inline-end: 1px solid var(--background-modifier-border);
+  padding-inline-end: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-icon {
+  margin-bottom: .6em;
+}
+@container preview (max-width:340px) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout {
+    grid-template-columns: 1fr;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) .callout-title {
+    border-inline-end: 0;
+    border-block-end: 1px solid var(--background-modifier-border);
+    padding-bottom: .7em;
+  }
+}
+@container preview (max-width:340px) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout {
+    grid-template-columns: 1fr;
+  }
+}
+@container preview (max-width:340px) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout-title {
+    border-inline-end: 0;
+    border-block-end: 1px solid var(--background-modifier-border);
+    padding-bottom: .7em;
+  }
+}
+

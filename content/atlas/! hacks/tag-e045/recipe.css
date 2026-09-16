@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag::before {
+  content: "";
+  display: inline-block;
+  width: .85em;
+  height: .85em;
+  margin-right: .3em;
+  background: currentColor;
+  mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yIDNoOWwxMSAxMS04IDhMMiAxMFYzem01IDNhMiAyIDAgMSAwIDAgNCAyIDIgMCAwIDAgMC00eiIvPjwvc3ZnPgo=") center/contain no-repeat;
+}
+

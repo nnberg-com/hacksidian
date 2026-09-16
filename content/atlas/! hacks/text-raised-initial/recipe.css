@@ -1,0 +1,6 @@
+.markdown-preview-view > p:first-child::first-letter, .markdown-preview-view .el-p:not(.el-p ~ .el-p) > p::first-letter {
+  font-family: inherit;
+  font-size: 2.6em;
+  line-height: calc(var(--line-height-normal) * .67);
+  color: var(--text-normal);
+}

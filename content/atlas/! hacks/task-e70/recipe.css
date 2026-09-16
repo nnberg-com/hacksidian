@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) li:nth-last-child(1 of :has(> input:not(:checked))) {
+  border-inline-end: 3px solid var(--interactive-accent);
+  padding-inline-end: .6em;
+  font-weight: 650;
+}
+

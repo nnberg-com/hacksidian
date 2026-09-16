@@ -1,0 +1,35 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  max-height: 14rem;
+  overflow: auto;
+  padding-top: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre::before {
+  content: "Прогресс: браузер не поддерживает scroll timeline";
+  display: block;
+  padding-block: calc(var(--size-4-1) * 2);
+  white-space: normal;
+  font: 11px/1.5 system-ui;
+}
+@supports (animation-timeline: scroll()) {
+  :is(.markdown-preview-view, .markdown-source-view) pre::before {
+    content: "";
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 4px;
+    padding: 0;
+    margin-bottom: calc(var(--size-4-1) * 3.5);
+    background: #bd5036;
+    transform-origin: left;
+    animation: hack-code-e060-code-e060-code-scroll-progress linear both;
+    animation-timeline: scroll(nearest block);
+  }
+}
+@keyframes hack-code-e060-code-e060-code-scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

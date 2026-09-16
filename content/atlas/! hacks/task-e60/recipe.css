@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul)::after {
+  content: "Ещё есть работа";
+  display: block;
+  margin-top: 1em;
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul):has(input):not(:has(input:not(:checked)))::after {
+  content: "Всё готово ✓";
+  color: var(--color-green);
+  font-weight: 750;
+}
+

@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  text-align: center;
+  font: 1.45em/1.45 Georgia,serif;
+  padding-block: 1em;
+  border-block: calc(var(--blockquote-border-thickness) * 0.5) solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote > p:last-child:has(> em:only-child) {
+  font: .65em/1.5 note-quote-pull-Onest,sans-serif;
+  color: var(--text-muted);
+}
+

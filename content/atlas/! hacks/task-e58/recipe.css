@@ -1,0 +1,20 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li {
+  counter-reset: branch branchdone;
+  border: 1px solid var(--background-modifier-border);
+  padding: .8em;
+  border-radius: .5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li li {
+  counter-increment: branch;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li li:has(> input:checked) {
+  counter-increment: branch branchdone;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li::after {
+  content: "Шаги: " counter(branchdone) " / " counter(branch);
+  display: block;
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: .5em;
+  font-size: .85em;
+}
+

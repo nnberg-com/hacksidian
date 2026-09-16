@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout-fold="+"] {
+  border: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout-fold="+"] > .callout-title::after {
+  content: "⌄";
+  margin-inline-start: auto;
+}
+

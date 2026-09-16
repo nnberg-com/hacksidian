@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .25em;
+  background: linear-gradient(110deg,var(--text-highlight-bg),var(--background-secondary));
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+

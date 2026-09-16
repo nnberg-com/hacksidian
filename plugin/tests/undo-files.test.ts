@@ -5,7 +5,7 @@ import path from 'node:path';
 const state = vi.hoisted(() => ({ directory: '', data: {} as any, notices: [] as string[] }));
 vi.mock('obsidian', () => ({
  getLanguage: () => 'ru',
- Plugin: class { async loadData(){return state.data;} async saveData(value: any){state.data=structuredClone(value);} },
+ Plugin: class { app = { vault: { configDir: '.obsidian' } }; async loadData(){return state.data;} async saveData(value: any){state.data=structuredClone(value);} },
  Notice: class { constructor(message: string){state.notices.push(message);} },
  MarkdownRenderChild: class {},
  ItemView: class {}, PluginSettingTab: class {}, MarkdownView: class {},
@@ -132,9 +132,9 @@ test('installed recipe cannot be reapplied; disable and enable preserve the othe
  const old = structuredClone(current);
  old.modules.find(m => m.id === 'g-task')!.css += '\n/* hacksidian:hack:task-e30:start */\n.callmered-coloring.markdown-preview-view > ul {display:flex}\n/* hacksidian:hack:task-e30:end */\n';
  await (plugin as any).saveAppliedStyle(old);
- const recipe = '/Users/op/vaults/op/! P R O/hacksidian/atlas/! hacks/task-e30';
+ const recipe = path.resolve(import.meta.dirname, '../../content/atlas/! hacks/task-e30');
  const hack = { id: 'task-e30', title: 'Completed last', path: 'atlas/! hacks/task-e30/task-e30.md',
-  spec: JSON.parse(await readFile('/Users/op/vaults/op/! P R O/hacksidian/atlas/! hacks/task-e30/hack.json', 'utf8')),
+  spec: JSON.parse(await readFile(path.join(recipe, 'hack.json'), 'utf8')),
   css: await readFile(path.join(recipe, 'recipe.css'), 'utf8') };
  (plugin as any).app = { vault: { configDir: '.obsidian', adapter: { read: async () => readFile(path.join(dir, 'hacksidian-manifest.json'), 'utf8') } } };
  vi.spyOn(plugin, 'getCurrentHack').mockResolvedValue(hack);

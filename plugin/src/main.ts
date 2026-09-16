@@ -154,6 +154,7 @@ export default class CallMeRedPlugin extends Plugin {
     this.registerView(VIEW_TYPE_CALLMERED, (leaf) => new ConversationView(leaf, this));
     this.addSettingTab(new CallMeRedSettingTab(this.app, this));
 
+
     this.ribbonEl = this.addRibbonIcon("palette", t("main.open_hacksidian"), () => void this.activateView());
     { const command = { id: "open-panel", name: t("main.open_conversation_panel"), callback: () => void this.activateView() }; const id = command.id; this.languageCommands.set(id, this.addCommand(command)); }
 
@@ -204,6 +205,7 @@ export default class CallMeRedPlugin extends Plugin {
     this.catalog = data?.catalog ?? { garbage: [] };
     this.catalog.garbage ??= [];
     this.settings = { ...structuredClone(DEFAULT_SETTINGS), ...(data?.settings ?? {}) };
+    if (!this.settings.globalVariablesFile) this.settings.globalVariablesFile = `${this.app.vault.configDir}/snippets/hacksidian-00-palette.css`;
     if (!["auto", "ru", "en"].includes(this.settings.interfaceLanguage)) this.settings.interfaceLanguage = "auto";
     if (!["auto", "ru", "en"].includes(this.settings.contentLanguage)) this.settings.contentLanguage = "auto";
     if (!(this.settings.provider in PROVIDERS)) this.settings.provider = "openai";

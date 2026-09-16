@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes:has(.footnote-item:target) .footnote-item:not(:target) {
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+  border-inline-start: 3px solid var(--interactive-accent);
+  padding-inline-start: .75em;
+}
+

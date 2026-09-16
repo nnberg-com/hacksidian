@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) tbody {
+  counter-reset: row;
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody>tr {
+  counter-increment: row;
+}
+:is(.markdown-preview-view, .markdown-source-view) td:first-child::before {
+  content: counter(row,decimal-leading-zero);
+  display: inline-block;
+  width: 2.3em;
+  margin-inline-end: .5em;
+  color: var(--interactive-accent);
+  font: 600 .85em ui-monospace,monospace;
+}
+

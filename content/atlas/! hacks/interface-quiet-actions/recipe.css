@@ -1,0 +1,15 @@
+@media (hover:hover) and (pointer:fine) {
+  .workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)) .view-actions {
+    opacity: .45;
+    transition: opacity .15s;
+  }
+  .workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)):hover .view-actions, .workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)):focus-within .view-actions {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  .workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)) .view-actions {
+    transition: none;
+  }
+}
+

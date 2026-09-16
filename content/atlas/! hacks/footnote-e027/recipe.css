@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) > p:has(.footnote-ref a:target), :is(.markdown-preview-view, .markdown-source-view) .el-p > p:has(.footnote-ref a:target) {
+  background: var(--background-secondary);
+  outline: .5em solid var(--background-secondary);
+}
+

@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  font-size: calc(var(--font-text-size) * 1.25);
+  line-height: calc(var(--line-height-normal) * 1.1);
+}

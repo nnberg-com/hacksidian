@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) tbody:has(>tr:hover)>tr:not(:hover) {
+  opacity: .45;
+}
+:is(.markdown-preview-view, .markdown-source-view) tr {
+  transition: opacity .12s;
+}
+@media(prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) tr {
+    transition: none;
+  }
+}
+

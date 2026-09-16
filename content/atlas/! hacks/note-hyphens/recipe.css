@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  max-inline-size: 32ch;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  text-align: justify;
+}

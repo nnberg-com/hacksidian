@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) pre > code.language-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

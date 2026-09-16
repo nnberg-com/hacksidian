@@ -1,0 +1,25 @@
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) a[href^="https://"]::after {
+    content: " (" attr(href) ")";
+    font-size: .8em;
+    overflow-wrap: anywhere;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) a[href^="https://"]::after {
+    content: " (" attr(href) ")";
+    font-size: .8em;
+    overflow-wrap: anywhere;
+  }
+}
+@media print {
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+

@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 5px;
+  border: 3px ridge #9a968c;
+}

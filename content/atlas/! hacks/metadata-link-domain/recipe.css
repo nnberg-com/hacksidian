@@ -1,0 +1,10 @@
+.markdown-source-view.mod-cm6 .metadata-property-value a[href^="https://github.com/"]::before {
+  content: "git ↗ ";
+  font-family: var(--font-monospace);
+  color: var(--text-muted);
+}
+.markdown-source-view.mod-cm6 .metadata-property-value a[href^="https://obsidian.md/"]::before {
+  content: "◈ ";
+  color: var(--color-orange);
+}
+

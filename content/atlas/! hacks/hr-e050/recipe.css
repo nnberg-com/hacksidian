@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(currentColor,currentColor) left center / calc(50% - 18px) 1px no-repeat, linear-gradient(currentColor,currentColor) right center / calc(50% - 18px) 1px no-repeat;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr::after {
+  content: "§";
+  font: 24px/1 Georgia,serif;
+}
+

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border: calc(var(--blockquote-border-thickness) * 0.5) solid var(--background-modifier-border);
+  padding: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote:hover {
+  border-color: var(--interactive-accent);
+  background: var(--background-secondary);
+}
+

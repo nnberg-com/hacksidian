@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s) {
+  color: var(--text-muted);
+  text-decoration-color: var(--interactive-accent);
+  text-decoration-thickness: 2px;
+}
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  color: var(--interactive-accent);
+}
+

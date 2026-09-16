@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  color-scheme: light;
+  filter: invert(1) hue-rotate(180deg);
+}

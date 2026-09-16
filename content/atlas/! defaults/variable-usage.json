@@ -1,0 +1,3937 @@
+{
+  "stockVersion": "1.13.7",
+  "sourceSha256": "f612f1e8f36486fa57f3b8bd45f0c848409d5b168002e757a13c6d286a7b4c41",
+  "variables": [
+    {
+      "variable": "--background-modifier-border",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "footnote",
+        "heading",
+        "inline-code",
+        "interface",
+        "link",
+        "list",
+        "metadata",
+        "note",
+        "pseudo-task",
+        "quote",
+        "tag",
+        "task"
+      ],
+      "recipes": [
+        "callout-technical-band",
+        "callout-technical-code",
+        "callout-technical-corner",
+        "callout-technical-dark",
+        "callout-technical-dots",
+        "callout-technical-fold-open",
+        "callout-technical-header-divider",
+        "callout-technical-nested",
+        "callout-technical-shadow",
+        "callout-technical-side-label",
+        "callout-technical-square",
+        "callout-technical-top",
+        "callout-technical-two-columns",
+        "footnote-e028",
+        "footnote-e034",
+        "footnote-e036",
+        "footnote-e037",
+        "footnote-e038",
+        "footnote-e039",
+        "footnote-e040",
+        "footnote-e041",
+        "footnote-e042",
+        "footnote-e043",
+        "footnote-e044",
+        "footnote-e045",
+        "footnote-e053",
+        "heading-e042",
+        "heading-e083",
+        "heading-e087",
+        "heading-e112",
+        "inline-code-ex-19",
+        "interface-header-surface",
+        "link-e079",
+        "link-e088",
+        "link-e092",
+        "link-e096",
+        "link-e104",
+        "list-e047",
+        "list-e050",
+        "list-e051",
+        "list-e053",
+        "list-e060",
+        "list-e075",
+        "list-e076",
+        "list-e080",
+        "metadata-palette",
+        "metadata-pills",
+        "metadata-sections",
+        "metadata-sticky",
+        "metadata-strip",
+        "metadata-wide-field",
+        "metadata-yaml-card",
+        "note-auto-theme",
+        "note-cards",
+        "note-contrast",
+        "note-dotted",
+        "note-editorial",
+        "note-image-frame",
+        "note-index-card",
+        "note-list-columns",
+        "note-list-tree",
+        "note-magazine",
+        "note-manual",
+        "note-paper",
+        "note-quote-frame",
+        "note-quote-pull",
+        "note-reference",
+        "note-responsive",
+        "note-rule",
+        "note-sticky-heading",
+        "note-timeline",
+        "pseudo-task-e15",
+        "pseudo-task-e16",
+        "pseudo-task-e40",
+        "pseudo-task-e44",
+        "quote-columns",
+        "quote-fold",
+        "quote-hover",
+        "quote-link-chip",
+        "quote-nested-panels",
+        "quote-notebook",
+        "quote-ofm-banner",
+        "quote-ofm-side",
+        "quote-outline",
+        "quote-paragraph-columns",
+        "quote-responsive",
+        "quote-ruled",
+        "quote-source-band",
+        "quote-stack",
+        "quote-tape",
+        "quote-theme",
+        "tag-e022",
+        "tag-e030",
+        "tag-e033",
+        "tag-e034",
+        "tag-e036",
+        "tag-e053",
+        "tag-e054",
+        "tag-e066",
+        "tag-e067",
+        "tag-e076",
+        "task-e06",
+        "task-e11",
+        "task-e17",
+        "task-e20",
+        "task-e23",
+        "task-e24",
+        "task-e26",
+        "task-e31",
+        "task-e33",
+        "task-e34",
+        "task-e35",
+        "task-e36",
+        "task-e37",
+        "task-e38",
+        "task-e41",
+        "task-e43",
+        "task-e48",
+        "task-e58",
+        "task-e64",
+        "task-e76",
+        "task-e79"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--background-modifier-hover",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--background-primary",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "emphasis",
+        "footnote",
+        "heading",
+        "inline-code",
+        "interface",
+        "link",
+        "meta",
+        "metadata",
+        "note",
+        "pseudo-task",
+        "quote",
+        "table",
+        "tag",
+        "task",
+        "text"
+      ],
+      "recipes": [
+        "callout-technical-band",
+        "callout-technical-code",
+        "callout-technical-corner",
+        "callout-technical-dots",
+        "callout-technical-double-border",
+        "callout-technical-formatted-title",
+        "callout-technical-gradient",
+        "callout-technical-icon-disc",
+        "callout-technical-label",
+        "callout-technical-nested",
+        "callout-technical-outline",
+        "callout-technical-shadow",
+        "callout-technical-three-levels",
+        "callout-technical-with-code",
+        "emphasis-s15",
+        "footnote-e036",
+        "footnote-e037",
+        "footnote-e038",
+        "footnote-e039",
+        "footnote-e040",
+        "footnote-e041",
+        "footnote-e042",
+        "footnote-e043",
+        "footnote-e044",
+        "footnote-e045",
+        "footnote-e046",
+        "footnote-e048",
+        "footnote-e053",
+        "heading-e058",
+        "heading-e071",
+        "heading-e083",
+        "inline-code-ex-18",
+        "inline-code-ex-19",
+        "interface-active-tab",
+        "link-e077",
+        "meta-progressive-color",
+        "metadata-palette",
+        "metadata-sticky",
+        "note-auto-theme",
+        "note-dotted",
+        "note-image-frame",
+        "note-sticky-heading",
+        "pseudo-task-e44",
+        "quote-nested-panels",
+        "quote-rich",
+        "quote-shadow",
+        "quote-stack",
+        "table-e048",
+        "table-e081",
+        "tag-e036",
+        "tag-e050",
+        "task-e17",
+        "task-e52",
+        "text-auto-theme"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--background-primary-alt",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "meta"
+      ],
+      "recipes": [
+        "meta-follow-obsidian-theme"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--background-secondary",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "footnote",
+        "heading",
+        "inline-code",
+        "interface",
+        "link",
+        "list",
+        "meta",
+        "metadata",
+        "note",
+        "pseudo-task",
+        "quote",
+        "table",
+        "tag",
+        "task"
+      ],
+      "recipes": [
+        "callout-technical-dark",
+        "callout-technical-inset",
+        "callout-technical-tint",
+        "callout-technical-with-code",
+        "footnote-e005",
+        "footnote-e010",
+        "footnote-e017",
+        "footnote-e019",
+        "footnote-e021",
+        "footnote-e023",
+        "footnote-e024",
+        "footnote-e026",
+        "footnote-e027",
+        "footnote-e029",
+        "footnote-e030",
+        "footnote-e031",
+        "footnote-e032",
+        "footnote-e035",
+        "footnote-e047",
+        "footnote-e048",
+        "footnote-e054",
+        "heading-e028",
+        "heading-e030",
+        "heading-e059",
+        "heading-e099",
+        "heading-e104",
+        "inline-code-ex-05",
+        "inline-code-ex-09",
+        "inline-code-ex-10",
+        "inline-code-ex-11",
+        "inline-code-ex-12",
+        "inline-code-ex-17",
+        "inline-code-ex-19",
+        "inline-code-ex-20",
+        "inline-code-ex-29",
+        "inline-code-ex-30",
+        "inline-code-ex-31",
+        "inline-code-ex-32",
+        "inline-code-ex-33",
+        "inline-code-ex-34",
+        "inline-code-ex-35",
+        "inline-code-ex-36",
+        "inline-code-ex-38",
+        "inline-code-ex-39",
+        "inline-code-ex-40",
+        "inline-code-ex-41",
+        "inline-code-ex-42",
+        "inline-code-ex-44",
+        "inline-code-ex-45",
+        "inline-code-ex-46",
+        "inline-code-ex-47",
+        "inline-code-ex-48",
+        "inline-code-ex-49",
+        "inline-code-ex-50",
+        "inline-code-ex-51",
+        "inline-code-ex-52",
+        "inline-code-ex-53",
+        "inline-code-ex-54",
+        "inline-code-ex-56",
+        "inline-code-ex-58",
+        "inline-code-ex-60",
+        "inline-code-ex-61",
+        "inline-code-ex-63",
+        "inline-code-ex-64",
+        "inline-code-ex-68",
+        "inline-code-ex-69",
+        "inline-code-ex-70",
+        "inline-code-ex-71",
+        "inline-code-ex-72",
+        "inline-code-ex-75",
+        "interface-header-surface",
+        "link-e010",
+        "link-e014",
+        "link-e050",
+        "link-e083",
+        "link-e086",
+        "link-e088",
+        "link-e091",
+        "link-e092",
+        "link-e108",
+        "link-e109",
+        "list-e039",
+        "list-e052",
+        "list-e055",
+        "list-e056",
+        "list-e070",
+        "list-ordered-o018",
+        "list-ordered-o022",
+        "list-ordered-o025",
+        "list-ordered-o026",
+        "list-ordered-o027",
+        "meta-follow-obsidian-theme",
+        "meta-progressive-color",
+        "meta-reduced-motion",
+        "metadata-card",
+        "metadata-fold",
+        "metadata-form",
+        "metadata-missing",
+        "metadata-note-classes",
+        "metadata-yaml-bg",
+        "metadata-yaml-card",
+        "metadata-yaml-chips",
+        "metadata-yaml-muted",
+        "note-anchor",
+        "note-code-language",
+        "note-code-panel",
+        "note-code-scroll",
+        "note-code-stripes",
+        "note-code-wrap",
+        "note-context-quote",
+        "note-contrast",
+        "note-heading-band",
+        "note-inline-code",
+        "note-link-domain",
+        "note-list-rows",
+        "note-manual",
+        "note-quote-glyph",
+        "note-quote-margin",
+        "note-quote-nested",
+        "note-quote-panel",
+        "note-quote-title",
+        "note-table-sticky",
+        "note-table-zebra",
+        "note-tasks-count",
+        "pseudo-task-e25",
+        "pseudo-task-e31",
+        "pseudo-task-e32",
+        "pseudo-task-e43",
+        "pseudo-task-e49",
+        "quote-bubble",
+        "quote-fold",
+        "quote-has-source",
+        "quote-hover",
+        "quote-inset",
+        "quote-nested-panels",
+        "quote-ornament",
+        "quote-rich",
+        "quote-source-band",
+        "quote-stack",
+        "quote-tape",
+        "quote-theme",
+        "quote-tint",
+        "quote-torn",
+        "quote-watermark",
+        "table-e007",
+        "table-e008",
+        "table-e009",
+        "table-e011",
+        "table-e012",
+        "table-e014",
+        "table-e031",
+        "table-e034",
+        "table-e036",
+        "table-e037",
+        "table-e038",
+        "table-e043",
+        "table-e044",
+        "table-e045",
+        "table-e046",
+        "table-e047",
+        "table-e049",
+        "table-e058",
+        "table-e060",
+        "table-e062",
+        "table-e063",
+        "table-e072",
+        "table-e078",
+        "table-e079",
+        "table-e080",
+        "table-e081",
+        "tag-e017",
+        "tag-e021",
+        "tag-e023",
+        "tag-e027",
+        "tag-e028",
+        "tag-e029",
+        "tag-e031",
+        "tag-e032",
+        "tag-e033",
+        "tag-e035",
+        "tag-e038",
+        "tag-e046",
+        "tag-e049",
+        "tag-e051",
+        "tag-e053",
+        "tag-e057",
+        "tag-e058",
+        "tag-e059",
+        "tag-e061",
+        "tag-e062",
+        "tag-e065",
+        "tag-e067",
+        "tag-e068",
+        "tag-e071",
+        "tag-e072",
+        "tag-e075",
+        "tag-e077",
+        "tag-e079",
+        "tag-e081",
+        "tag-e083",
+        "tag-e084",
+        "task-e12",
+        "task-e15",
+        "task-e19",
+        "task-e21",
+        "task-e28",
+        "task-e34",
+        "task-e41",
+        "task-e42",
+        "task-e44",
+        "task-e47",
+        "task-e53",
+        "task-e56",
+        "task-e69",
+        "task-e71",
+        "task-e74",
+        "task-e75",
+        "task-e79"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--blockquote-border-thickness",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "code",
+        "image",
+        "link",
+        "list",
+        "note",
+        "quote",
+        "tag",
+        "task"
+      ],
+      "recipes": [
+        "code-e046",
+        "image-e061",
+        "image-e084",
+        "link-e079",
+        "link-e092",
+        "list-e069",
+        "note-context-quote",
+        "note-editorial",
+        "note-quote-frame",
+        "note-quote-line",
+        "note-quote-nested",
+        "note-quote-pull",
+        "note-quote-title",
+        "quote-dashed",
+        "quote-dotted",
+        "quote-double",
+        "quote-hairline",
+        "quote-hover",
+        "quote-nested-panels",
+        "quote-ornament",
+        "quote-outline",
+        "quote-print",
+        "quote-print-proof",
+        "quote-responsive",
+        "quote-rules",
+        "quote-source-band",
+        "quote-stack",
+        "quote-tape",
+        "quote-theme",
+        "quote-thick",
+        "tag-e066",
+        "task-e35",
+        "task-e36",
+        "task-e74"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--callout-color",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout"
+      ],
+      "recipes": [
+        "callout-technical-aliases",
+        "callout-technical-band",
+        "callout-technical-custom",
+        "callout-technical-dark",
+        "callout-technical-dashed",
+        "callout-technical-double-border",
+        "callout-technical-double-rail",
+        "callout-technical-focus",
+        "callout-technical-gradient",
+        "callout-technical-hatch",
+        "callout-technical-icon-disc",
+        "callout-technical-label",
+        "callout-technical-line",
+        "callout-technical-links",
+        "callout-technical-list",
+        "callout-technical-nested-quiet",
+        "callout-technical-outline",
+        "callout-technical-right",
+        "callout-technical-steps",
+        "callout-technical-subhead",
+        "callout-technical-table",
+        "callout-technical-tasks",
+        "callout-technical-top",
+        "callout-technical-with-code"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-blue",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-brown",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-brown-rgb",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "palette"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-code-block-bg",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "code"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-code-text",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "code",
+        "inline-code",
+        "tag"
+      ],
+      "recipes": [],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-cyan",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "link",
+        "tag",
+        "text"
+      ],
+      "recipes": [],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-cyan-rgb",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "palette"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-external-icon",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-footnote-highlight",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-green",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "inline-code"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-green-rgb",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "palette"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-orange",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-purple",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-purple-rgb",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "palette"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-quote",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-quote-rgb",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "palette"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-red",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-red-rgb",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "palette"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-rule",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "emphasis",
+        "footnote",
+        "heading",
+        "list",
+        "task"
+      ],
+      "recipes": [],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-text",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "callout",
+        "emphasis",
+        "heading",
+        "quote",
+        "text"
+      ],
+      "recipes": [],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-unresolved-link",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--cmr-color-yellow",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "palette"
+      ],
+      "consumers": [
+        "emphasis"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--code-border-color",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "inline-code",
+        "note",
+        "quote",
+        "task"
+      ],
+      "recipes": [
+        "callout-technical-code",
+        "inline-code-ex-47",
+        "inline-code-ex-56",
+        "inline-code-ex-64",
+        "inline-code-ex-68",
+        "inline-code-ex-74",
+        "note-code-panel",
+        "note-inline-code",
+        "quote-rich",
+        "task-e75"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--code-radius",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "code",
+        "inline-code"
+      ],
+      "recipes": [
+        "callout-technical-code",
+        "code-e001",
+        "code-e005",
+        "code-e006",
+        "code-e009",
+        "code-e035",
+        "code-e036",
+        "code-e050",
+        "inline-code-ex-21"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--code-size",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "footnote",
+        "inline-code",
+        "list",
+        "task"
+      ],
+      "recipes": [
+        "footnote-e050",
+        "inline-code-ex-01",
+        "inline-code-ex-02",
+        "inline-code-ex-05",
+        "inline-code-ex-45",
+        "inline-code-ex-69",
+        "inline-code-ex-72",
+        "inline-code-ex-73",
+        "inline-code-ex-75",
+        "list-e039",
+        "task-e19"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--color-blue",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "metadata",
+        "tag"
+      ],
+      "recipes": [
+        "metadata-presence",
+        "metadata-roles",
+        "metadata-types",
+        "metadata-yaml-tokens",
+        "tag-e040",
+        "tag-e062",
+        "tag-e064",
+        "tag-e074",
+        "tag-e081"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--color-cyan",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "emphasis"
+      ],
+      "recipes": [
+        "emphasis-s32"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--color-green",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "metadata",
+        "pseudo-task",
+        "tag",
+        "task"
+      ],
+      "recipes": [
+        "metadata-checked",
+        "metadata-pills",
+        "metadata-types",
+        "metadata-yaml-tokens",
+        "pseudo-task-e35",
+        "tag-e063",
+        "tag-e064",
+        "task-e16",
+        "task-e26",
+        "task-e32",
+        "task-e44",
+        "task-e45",
+        "task-e48",
+        "task-e52",
+        "task-e53",
+        "task-e57",
+        "task-e60",
+        "task-e65",
+        "task-e66",
+        "task-e73",
+        "task-e74"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--color-orange",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "metadata",
+        "pseudo-task",
+        "task"
+      ],
+      "recipes": [
+        "metadata-empty-list",
+        "metadata-empty-number",
+        "metadata-empty-text",
+        "metadata-link-domain",
+        "metadata-missing",
+        "metadata-roles",
+        "metadata-yaml-tokens",
+        "pseudo-task-e34",
+        "pseudo-task-e46",
+        "task-e26",
+        "task-e61",
+        "task-e74"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--color-pink",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "emphasis"
+      ],
+      "recipes": [
+        "emphasis-s17",
+        "emphasis-s22",
+        "emphasis-s32",
+        "emphasis-s33",
+        "emphasis-s35"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--color-purple",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [
+        "link-e047",
+        "link-e070",
+        "link-e083",
+        "link-e089",
+        "link-e090",
+        "link-e106",
+        "link-e110",
+        "link-e111",
+        "link-e112",
+        "link-e113",
+        "link-e114",
+        "link-e115"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--color-red",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "inline-code",
+        "tag"
+      ],
+      "recipes": [
+        "inline-code-ex-04",
+        "inline-code-ex-25",
+        "inline-code-ex-46",
+        "inline-code-ex-60",
+        "inline-code-ex-61",
+        "inline-code-ex-65",
+        "tag-e061",
+        "tag-e063",
+        "tag-e064",
+        "tag-e068"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--file-header-background",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--file-header-background-focused",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--file-header-border",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--file-header-font-weight",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--file-line-width",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "text"
+      ],
+      "recipes": [
+        "text-book-composition",
+        "text-letter-composition",
+        "text-measure"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--font-bold",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "code",
+        "footnote",
+        "inline-code",
+        "link",
+        "list",
+        "note",
+        "pseudo-task",
+        "table",
+        "tag",
+        "task",
+        "text"
+      ],
+      "recipes": [
+        "callout-storyboard",
+        "callout-technical-steps",
+        "code-e015",
+        "footnote-e020",
+        "inline-code-ex-03",
+        "inline-code-ex-42",
+        "inline-code-ex-65",
+        "inline-code-ex-66",
+        "link-e009",
+        "link-e051",
+        "link-e052",
+        "link-e053",
+        "link-e054",
+        "link-e057",
+        "link-e058",
+        "link-e059",
+        "list-ordered-o006",
+        "list-ordered-o014",
+        "list-ordered-o015",
+        "list-ordered-o016",
+        "list-ordered-o017",
+        "list-ordered-o018",
+        "list-ordered-o019",
+        "list-ordered-o020",
+        "list-ordered-o021",
+        "list-ordered-o022",
+        "list-ordered-o023",
+        "list-ordered-o027",
+        "note-context-list",
+        "note-firstline",
+        "note-link-type",
+        "note-list-inline",
+        "note-list-tree",
+        "note-steps",
+        "note-table-ledger",
+        "note-tasks-count",
+        "pseudo-task-e01",
+        "pseudo-task-e02",
+        "pseudo-task-e03",
+        "pseudo-task-e04",
+        "pseudo-task-e05",
+        "pseudo-task-e06",
+        "pseudo-task-e07",
+        "pseudo-task-e08",
+        "pseudo-task-e09",
+        "pseudo-task-e10",
+        "pseudo-task-e11",
+        "pseudo-task-e12",
+        "pseudo-task-e13",
+        "pseudo-task-e14",
+        "pseudo-task-e15",
+        "pseudo-task-e16",
+        "pseudo-task-e17",
+        "pseudo-task-e18",
+        "pseudo-task-e19",
+        "pseudo-task-e20",
+        "pseudo-task-e21",
+        "pseudo-task-e22",
+        "pseudo-task-e23",
+        "pseudo-task-e24",
+        "pseudo-task-e25",
+        "pseudo-task-e26",
+        "pseudo-task-e27",
+        "pseudo-task-e28",
+        "pseudo-task-e29",
+        "pseudo-task-e30",
+        "pseudo-task-e31",
+        "pseudo-task-e32",
+        "pseudo-task-e33",
+        "pseudo-task-e34",
+        "pseudo-task-e35",
+        "pseudo-task-e36",
+        "pseudo-task-e37",
+        "pseudo-task-e38",
+        "pseudo-task-e39",
+        "pseudo-task-e40",
+        "pseudo-task-e41",
+        "pseudo-task-e42",
+        "pseudo-task-e43",
+        "pseudo-task-e44",
+        "pseudo-task-e45",
+        "pseudo-task-e46",
+        "pseudo-task-e47",
+        "pseudo-task-e48",
+        "pseudo-task-e49",
+        "pseudo-task-e50",
+        "table-e021",
+        "table-e071",
+        "table-e073",
+        "tag-e009",
+        "task-e25",
+        "task-e32",
+        "task-e39",
+        "task-e72",
+        "text-firstline",
+        "text-initial-letter"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--font-interface",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--font-light",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "heading"
+      ],
+      "recipes": [
+        "heading-e002",
+        "heading-e069"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--font-medium",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "heading",
+        "text"
+      ],
+      "recipes": [
+        "heading-e002",
+        "heading-e012",
+        "heading-e051",
+        "heading-e068",
+        "text-lead"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--font-monospace",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "footnote",
+        "heading",
+        "inline-code",
+        "link",
+        "metadata",
+        "pseudo-task",
+        "table",
+        "tag"
+      ],
+      "recipes": [
+        "footnote-e009",
+        "heading-e068",
+        "inline-code-ex-01",
+        "link-e008",
+        "link-e129",
+        "metadata-link-domain",
+        "metadata-roles",
+        "metadata-types",
+        "metadata-yaml-font",
+        "pseudo-task-e03",
+        "table-e020",
+        "tag-e004"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--font-normal",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "heading",
+        "list",
+        "metadata",
+        "note",
+        "quote",
+        "task"
+      ],
+      "recipes": [
+        "callout-receipt",
+        "callout-technical-inline",
+        "callout-theorem",
+        "heading-e003",
+        "heading-e004",
+        "heading-e006",
+        "heading-e040",
+        "heading-e080",
+        "heading-e100",
+        "list-e048",
+        "metadata-paper",
+        "note-link-title",
+        "note-list-tree",
+        "quote-ofm-title-bottom",
+        "task-e40",
+        "task-e63",
+        "task-e65"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--font-semibold",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "inline-code",
+        "quote"
+      ],
+      "recipes": [
+        "inline-code-ex-05",
+        "inline-code-ex-73",
+        "quote-underline"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--font-text",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--font-text-size",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "code",
+        "heading",
+        "iframe",
+        "image",
+        "list",
+        "metadata",
+        "text"
+      ],
+      "recipes": [
+        "callout-board",
+        "callout-catalogue",
+        "callout-chronicle",
+        "callout-compare",
+        "callout-dialogue",
+        "callout-dossier",
+        "callout-film",
+        "callout-leaders",
+        "callout-letter",
+        "callout-margin",
+        "callout-photo",
+        "callout-qna",
+        "callout-receipt",
+        "callout-social",
+        "callout-storyboard",
+        "callout-technical-code",
+        "callout-technical-label",
+        "callout-theorem",
+        "callout-ticket",
+        "callout-tree",
+        "code-e010",
+        "code-e011",
+        "code-e012",
+        "code-e013",
+        "code-e049",
+        "heading-e042",
+        "heading-e045",
+        "heading-e058",
+        "heading-e087",
+        "heading-e110",
+        "heading-e112",
+        "iframe-e016",
+        "iframe-e036",
+        "image-e058",
+        "image-e059",
+        "list-e034",
+        "list-e035",
+        "list-e078",
+        "metadata-container",
+        "metadata-strip",
+        "metadata-yaml-font",
+        "text-compact",
+        "text-editorial-composition",
+        "text-lead",
+        "text-manual-composition",
+        "text-responsive"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--h1-line-height",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "note"
+      ],
+      "recipes": [
+        "note-editorial",
+        "note-lead"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--h3-line-height",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "heading"
+      ],
+      "recipes": [
+        "heading-e009",
+        "heading-e018",
+        "heading-e029",
+        "heading-e088"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--h3-size",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "heading"
+      ],
+      "recipes": [
+        "callout-dossier",
+        "heading-e001",
+        "heading-e002",
+        "heading-e003",
+        "heading-e005",
+        "heading-e009",
+        "heading-e010",
+        "heading-e012",
+        "heading-e013",
+        "heading-e015",
+        "heading-e018",
+        "heading-e022",
+        "heading-e028",
+        "heading-e029",
+        "heading-e030",
+        "heading-e031",
+        "heading-e032",
+        "heading-e035",
+        "heading-e036",
+        "heading-e038",
+        "heading-e039",
+        "heading-e040",
+        "heading-e041",
+        "heading-e043",
+        "heading-e044",
+        "heading-e045",
+        "heading-e046",
+        "heading-e047",
+        "heading-e048",
+        "heading-e049",
+        "heading-e050",
+        "heading-e052",
+        "heading-e053",
+        "heading-e056",
+        "heading-e058",
+        "heading-e059",
+        "heading-e070",
+        "heading-e071",
+        "heading-e072",
+        "heading-e073",
+        "heading-e074",
+        "heading-e075",
+        "heading-e076",
+        "heading-e077",
+        "heading-e078",
+        "heading-e079",
+        "heading-e081",
+        "heading-e082",
+        "heading-e083",
+        "heading-e084",
+        "heading-e085",
+        "heading-e086",
+        "heading-e087",
+        "heading-e088",
+        "heading-e089",
+        "heading-e091",
+        "heading-e092",
+        "heading-e093",
+        "heading-e094",
+        "heading-e095",
+        "heading-e096",
+        "heading-e098",
+        "heading-e099",
+        "heading-e100",
+        "heading-e104",
+        "heading-e105",
+        "heading-e109",
+        "heading-e110",
+        "heading-e111",
+        "heading-e112",
+        "heading-e113",
+        "heading-e114",
+        "heading-e115"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--h4-size",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "heading"
+      ],
+      "recipes": [
+        "callout-technical-code",
+        "heading-e012",
+        "heading-e039"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-callout-technical-icon-disc-glyph",
+      "stock": false,
+      "recipeDefinitions": [
+        "callout"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout"
+      ],
+      "recipes": [
+        "callout-technical-icon-disc"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-heading-e047-texture",
+      "stock": false,
+      "recipeDefinitions": [
+        "heading"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "heading"
+      ],
+      "recipes": [
+        "heading-e047"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-heading-e092-texture",
+      "stock": false,
+      "recipeDefinitions": [
+        "heading"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "heading"
+      ],
+      "recipes": [
+        "heading-e092"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e02-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e02"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e06-icon",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e06"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e06-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e06"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e07-icon",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e07"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e07-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e07"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e09-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e09"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e14-p",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e14"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e15-p",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e15"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e16-p",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e16"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e17-p",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e17"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e18-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e18"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e19-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e19"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e21-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e21"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e22-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e22"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e25-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e25"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e41-icon",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e41"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e41-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e41"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e42-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e42"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-pseudo-task-e50-tone",
+      "stock": false,
+      "recipeDefinitions": [
+        "pseudo-task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "pseudo-task"
+      ],
+      "recipes": [
+        "pseudo-task-e50"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-table-e077-cell",
+      "stock": false,
+      "recipeDefinitions": [
+        "table"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "table"
+      ],
+      "recipes": [
+        "table-e077"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hack-task-e48-progress",
+      "stock": false,
+      "recipeDefinitions": [
+        "task"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "task"
+      ],
+      "recipes": [
+        "task-e48"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-link-external-icon",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-link-external-icon-gap",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-link-external-icon-offset-y",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-link-external-icon-size",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-link-unresolved-link",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-note-page-gutter",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "note"
+      ],
+      "consumers": [
+        "note"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-note-page-padding",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "note"
+      ],
+      "consumers": [
+        "note"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-text-font-text",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "text"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-text-line-height-body",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "text"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-text-para-gap",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "text"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-text-text",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "text"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-text-text-size",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "text"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--hs-text-weight-normal",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "text"
+      ],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--interactive-accent",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "emphasis",
+        "footnote",
+        "heading",
+        "inline-code",
+        "interface",
+        "link",
+        "list",
+        "metadata",
+        "note",
+        "pseudo-task",
+        "quote",
+        "table",
+        "tag",
+        "task"
+      ],
+      "recipes": [
+        "emphasis-s02",
+        "emphasis-s03",
+        "emphasis-s09",
+        "emphasis-s10",
+        "emphasis-s11",
+        "emphasis-s12",
+        "emphasis-s16",
+        "emphasis-s21",
+        "emphasis-s22",
+        "emphasis-s23",
+        "emphasis-s24",
+        "emphasis-s25",
+        "emphasis-s26",
+        "emphasis-s27",
+        "emphasis-s28",
+        "emphasis-s29",
+        "emphasis-s31",
+        "emphasis-s32",
+        "emphasis-s34",
+        "footnote-e004",
+        "footnote-e010",
+        "footnote-e013",
+        "footnote-e014",
+        "footnote-e018",
+        "footnote-e020",
+        "footnote-e022",
+        "footnote-e025",
+        "footnote-e026",
+        "footnote-e028",
+        "footnote-e029",
+        "footnote-e046",
+        "footnote-e048",
+        "footnote-e054",
+        "heading-e007",
+        "heading-e008",
+        "heading-e015",
+        "heading-e016",
+        "heading-e017",
+        "heading-e020",
+        "heading-e021",
+        "heading-e023",
+        "heading-e024",
+        "heading-e025",
+        "heading-e027",
+        "heading-e029",
+        "heading-e031",
+        "heading-e032",
+        "heading-e033",
+        "heading-e034",
+        "heading-e036",
+        "heading-e038",
+        "heading-e039",
+        "heading-e040",
+        "heading-e041",
+        "heading-e043",
+        "heading-e046",
+        "heading-e047",
+        "heading-e048",
+        "heading-e056",
+        "heading-e057",
+        "heading-e060",
+        "heading-e061",
+        "heading-e062",
+        "heading-e064",
+        "heading-e066",
+        "heading-e068",
+        "heading-e080",
+        "heading-e084",
+        "heading-e085",
+        "heading-e086",
+        "heading-e088",
+        "heading-e089",
+        "heading-e096",
+        "heading-e098",
+        "heading-e100",
+        "heading-e105",
+        "heading-e109",
+        "heading-e113",
+        "heading-e114",
+        "heading-e115",
+        "inline-code-ex-15",
+        "inline-code-ex-20",
+        "inline-code-ex-21",
+        "inline-code-ex-23",
+        "inline-code-ex-24",
+        "inline-code-ex-26",
+        "inline-code-ex-28",
+        "inline-code-ex-43",
+        "inline-code-ex-48",
+        "inline-code-ex-50",
+        "inline-code-ex-52",
+        "inline-code-ex-58",
+        "inline-code-ex-65",
+        "inline-code-ex-68",
+        "interface-focused-pane",
+        "interface-keyboard-focus",
+        "link-e001",
+        "link-e004",
+        "link-e016",
+        "link-e028",
+        "link-e047",
+        "link-e080",
+        "link-e082",
+        "link-e084",
+        "link-e086",
+        "link-e087",
+        "link-e089",
+        "link-e090",
+        "link-e092",
+        "link-e095",
+        "link-e110",
+        "link-e111",
+        "link-e112",
+        "link-e113",
+        "link-e114",
+        "link-e115",
+        "link-e131",
+        "list-e008",
+        "list-e010",
+        "list-e012",
+        "list-e014",
+        "list-e015",
+        "list-e016",
+        "list-e017",
+        "list-e018",
+        "list-e019",
+        "list-e020",
+        "list-e022",
+        "list-e036",
+        "list-e045",
+        "list-e054",
+        "list-e065",
+        "list-e069",
+        "list-e072",
+        "list-e077",
+        "list-e081",
+        "list-e082",
+        "list-e086",
+        "list-ordered-o006",
+        "list-ordered-o013",
+        "list-ordered-o014",
+        "list-ordered-o015",
+        "list-ordered-o016",
+        "list-ordered-o017",
+        "list-ordered-o018",
+        "list-ordered-o019",
+        "list-ordered-o020",
+        "list-ordered-o021",
+        "list-ordered-o022",
+        "list-ordered-o023",
+        "list-ordered-o026",
+        "list-ordered-o027",
+        "metadata-form",
+        "note-anchor",
+        "note-cards",
+        "note-color-emphasis",
+        "note-context-list",
+        "note-context-quote",
+        "note-context-strong",
+        "note-deleted",
+        "note-double-emphasis",
+        "note-dropcap",
+        "note-editorial",
+        "note-endmark",
+        "note-fade-rule",
+        "note-firstline",
+        "note-heading-band",
+        "note-image-linked",
+        "note-index-card",
+        "note-lead",
+        "note-link-button",
+        "note-link-focus",
+        "note-link-underline",
+        "note-list-inline",
+        "note-list-levels",
+        "note-list-markers",
+        "note-manual",
+        "note-numbers",
+        "note-ornament",
+        "note-quote-glyph",
+        "note-quote-line",
+        "note-quote-nested",
+        "note-quote-title",
+        "note-reference",
+        "note-steps",
+        "note-table-ledger",
+        "note-tasks",
+        "note-tasks-count",
+        "note-timeline",
+        "pseudo-task-e01",
+        "pseudo-task-e02",
+        "pseudo-task-e03",
+        "pseudo-task-e04",
+        "pseudo-task-e05",
+        "pseudo-task-e06",
+        "pseudo-task-e07",
+        "pseudo-task-e08",
+        "pseudo-task-e09",
+        "pseudo-task-e10",
+        "pseudo-task-e11",
+        "pseudo-task-e12",
+        "pseudo-task-e13",
+        "pseudo-task-e14",
+        "pseudo-task-e15",
+        "pseudo-task-e16",
+        "pseudo-task-e17",
+        "pseudo-task-e18",
+        "pseudo-task-e19",
+        "pseudo-task-e20",
+        "pseudo-task-e21",
+        "pseudo-task-e22",
+        "pseudo-task-e23",
+        "pseudo-task-e24",
+        "pseudo-task-e25",
+        "pseudo-task-e26",
+        "pseudo-task-e27",
+        "pseudo-task-e28",
+        "pseudo-task-e29",
+        "pseudo-task-e30",
+        "pseudo-task-e31",
+        "pseudo-task-e32",
+        "pseudo-task-e33",
+        "pseudo-task-e34",
+        "pseudo-task-e35",
+        "pseudo-task-e36",
+        "pseudo-task-e37",
+        "pseudo-task-e38",
+        "pseudo-task-e39",
+        "pseudo-task-e40",
+        "pseudo-task-e41",
+        "pseudo-task-e42",
+        "pseudo-task-e43",
+        "pseudo-task-e44",
+        "pseudo-task-e45",
+        "pseudo-task-e46",
+        "pseudo-task-e47",
+        "pseudo-task-e48",
+        "pseudo-task-e49",
+        "pseudo-task-e50",
+        "quote-brackets",
+        "quote-corner-marks",
+        "quote-corners",
+        "quote-dashed",
+        "quote-dotted",
+        "quote-double",
+        "quote-dropcap",
+        "quote-firstline",
+        "quote-focus",
+        "quote-gradient-rail",
+        "quote-has-nesting",
+        "quote-has-source",
+        "quote-hover",
+        "quote-large-mark",
+        "quote-levels",
+        "quote-notebook",
+        "quote-ofm-banner",
+        "quote-ornament",
+        "quote-rules",
+        "quote-selection",
+        "quote-source-rule",
+        "quote-source-stars",
+        "quote-thick",
+        "quote-top-mark",
+        "quote-underline",
+        "quote-watermark",
+        "table-e010",
+        "table-e013",
+        "table-e031",
+        "table-e032",
+        "table-e035",
+        "table-e036",
+        "table-e038",
+        "table-e039",
+        "table-e045",
+        "table-e047",
+        "table-e049",
+        "table-e052",
+        "table-e056",
+        "table-e058",
+        "table-e059",
+        "table-e065",
+        "table-e070",
+        "table-e079",
+        "table-e081",
+        "tag-e001",
+        "tag-e020",
+        "tag-e024",
+        "tag-e027",
+        "tag-e028",
+        "tag-e030",
+        "tag-e039",
+        "tag-e040",
+        "tag-e050",
+        "tag-e055",
+        "tag-e059",
+        "tag-e078",
+        "task-e01",
+        "task-e03",
+        "task-e04",
+        "task-e05",
+        "task-e06",
+        "task-e13",
+        "task-e20",
+        "task-e21",
+        "task-e22",
+        "task-e25",
+        "task-e27",
+        "task-e28",
+        "task-e42",
+        "task-e47",
+        "task-e49",
+        "task-e51",
+        "task-e53",
+        "task-e64",
+        "task-e68",
+        "task-e70",
+        "task-e71",
+        "task-e79",
+        "task-e80"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--line-height-normal",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "code",
+        "footnote",
+        "heading",
+        "inline-code",
+        "link",
+        "list",
+        "metadata",
+        "note",
+        "pseudo-task",
+        "quote",
+        "task",
+        "text"
+      ],
+      "recipes": [
+        "callout-compare",
+        "callout-leaders",
+        "callout-letter",
+        "callout-qna",
+        "callout-receipt",
+        "callout-social",
+        "callout-storyboard",
+        "callout-theorem",
+        "callout-ticket",
+        "code-e010",
+        "code-e011",
+        "code-e027",
+        "code-e028",
+        "code-e029",
+        "code-e032",
+        "code-e033",
+        "code-e034",
+        "footnote-e012",
+        "footnote-e055",
+        "heading-e112",
+        "inline-code-ex-40",
+        "inline-code-ex-41",
+        "link-e049",
+        "link-e050",
+        "list-e029",
+        "list-e031",
+        "list-e035",
+        "list-e065",
+        "list-e070",
+        "list-e072",
+        "metadata-yaml-font",
+        "note-book",
+        "note-editorial",
+        "pseudo-task-e47",
+        "quote-compact",
+        "quote-notebook",
+        "quote-pull",
+        "quote-reading",
+        "quote-responsive",
+        "quote-ruled",
+        "quote-serif",
+        "quote-verse",
+        "task-e09",
+        "task-e10",
+        "text-airy",
+        "text-book-composition",
+        "text-compact",
+        "text-dropcap",
+        "text-editorial-composition",
+        "text-lead",
+        "text-letter-composition",
+        "text-raised-initial"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-color",
+      "stock": true,
+      "recipeDefinitions": [
+        "link"
+      ],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [
+        "link-e105",
+        "link-e110",
+        "link-e111",
+        "link-e112",
+        "link-e113",
+        "link-e114",
+        "link-e115"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-color-hover",
+      "stock": true,
+      "recipeDefinitions": [
+        "link"
+      ],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [
+        "link-e110",
+        "link-e111",
+        "link-e112",
+        "link-e113",
+        "link-e114",
+        "link-e115"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-decoration",
+      "stock": true,
+      "recipeDefinitions": [
+        "link"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [
+        "link-e110",
+        "link-e111",
+        "link-e112",
+        "link-e113",
+        "link-e114",
+        "link-e115"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-decoration-hover",
+      "stock": true,
+      "recipeDefinitions": [
+        "link"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [
+        "link-e110",
+        "link-e111",
+        "link-e112",
+        "link-e113",
+        "link-e114",
+        "link-e115"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-decoration-thickness",
+      "stock": true,
+      "recipeDefinitions": [
+        "link"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [
+        "link-e110",
+        "link-e111",
+        "link-e112",
+        "link-e113",
+        "link-e114",
+        "link-e115"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-external-color",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-external-color-hover",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-external-decoration-color",
+      "stock": false,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-unresolved-color",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-unresolved-decoration-color",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-unresolved-opacity",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "link"
+      ],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--link-weight",
+      "stock": true,
+      "recipeDefinitions": [
+        "link"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "link"
+      ],
+      "recipes": [
+        "link-e110",
+        "link-e111",
+        "link-e112",
+        "link-e113",
+        "link-e114",
+        "link-e115"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-background",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-border-radius",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-border-width",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-divider-width",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-gap",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-input-background",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-input-font-size",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-input-height",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-input-text-color",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-label-text-color",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-label-width",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [
+        "metadata"
+      ],
+      "recipes": [
+        "metadata-help",
+        "metadata-sections"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-padding",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-property-padding",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--metadata-property-radius",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--p-spacing",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "text"
+      ],
+      "recipes": [
+        "text-block-paragraphs",
+        "text-compact",
+        "text-editorial-composition",
+        "text-letter-composition",
+        "text-manual-composition"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--radius-s",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "code",
+        "footnote",
+        "heading",
+        "hr",
+        "iframe",
+        "image",
+        "link",
+        "note",
+        "quote",
+        "table",
+        "tag"
+      ],
+      "recipes": [
+        "callout-board",
+        "callout-dialogue",
+        "callout-social",
+        "callout-storyboard",
+        "callout-ticket",
+        "callout-tree",
+        "code-e048",
+        "code-e050",
+        "footnote-e022",
+        "heading-e064",
+        "heading-e089",
+        "heading-e095",
+        "hr-e059",
+        "iframe-e014",
+        "iframe-e015",
+        "iframe-e016",
+        "iframe-e017",
+        "iframe-e018",
+        "iframe-e020",
+        "iframe-e021",
+        "iframe-e033",
+        "iframe-e037",
+        "iframe-e038",
+        "iframe-e039",
+        "iframe-e040",
+        "iframe-e041",
+        "image-e016",
+        "image-e019",
+        "image-e024",
+        "image-e061",
+        "image-e075",
+        "image-e081",
+        "image-e085",
+        "link-e084",
+        "note-link-focus",
+        "quote-bubble",
+        "quote-inset",
+        "quote-nested-panels",
+        "quote-outline",
+        "quote-rich",
+        "quote-shadow",
+        "quote-source-band",
+        "table-e011",
+        "table-e012",
+        "table-e055",
+        "table-e056",
+        "table-e072",
+        "table-e080",
+        "tag-e023",
+        "tag-e024",
+        "tag-e025",
+        "tag-e029",
+        "tag-e031",
+        "tag-e035",
+        "tag-e036",
+        "tag-e038",
+        "tag-e055",
+        "tag-e065",
+        "tag-e067",
+        "tag-e071",
+        "tag-e074",
+        "tag-e075",
+        "tag-e076",
+        "tag-e079",
+        "tag-e084"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--size-4-1",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "code",
+        "heading",
+        "iframe",
+        "image",
+        "link",
+        "quote",
+        "table"
+      ],
+      "recipes": [
+        "callout-board",
+        "callout-catalogue",
+        "callout-chronicle",
+        "callout-compare",
+        "callout-dialogue",
+        "callout-dossier",
+        "callout-film",
+        "callout-leaders",
+        "callout-letter",
+        "callout-margin",
+        "callout-photo",
+        "callout-qna",
+        "callout-receipt",
+        "callout-social",
+        "callout-storyboard",
+        "callout-technical-code",
+        "callout-technical-label",
+        "callout-theorem",
+        "callout-ticket",
+        "callout-tree",
+        "code-e036",
+        "code-e037",
+        "code-e038",
+        "code-e039",
+        "code-e040",
+        "code-e041",
+        "code-e046",
+        "code-e047",
+        "code-e048",
+        "code-e049",
+        "code-e052",
+        "code-e055",
+        "code-e059",
+        "code-e060",
+        "code-e061",
+        "heading-e088",
+        "iframe-e009",
+        "iframe-e010",
+        "iframe-e011",
+        "iframe-e012",
+        "iframe-e013",
+        "iframe-e016",
+        "iframe-e017",
+        "iframe-e019",
+        "iframe-e020",
+        "iframe-e027",
+        "iframe-e032",
+        "iframe-e033",
+        "iframe-e034",
+        "iframe-e035",
+        "iframe-e036",
+        "iframe-e037",
+        "iframe-e039",
+        "iframe-e040",
+        "iframe-e041",
+        "iframe-e042",
+        "iframe-e043",
+        "iframe-e045",
+        "iframe-e048",
+        "iframe-e049",
+        "image-e017",
+        "image-e018",
+        "image-e024",
+        "image-e051",
+        "image-e052",
+        "image-e053",
+        "image-e054",
+        "image-e059",
+        "image-e060",
+        "image-e061",
+        "image-e062",
+        "image-e063",
+        "image-e064",
+        "image-e065",
+        "image-e066",
+        "image-e067",
+        "image-e068",
+        "image-e069",
+        "image-e070",
+        "image-e071",
+        "image-e072",
+        "image-e077",
+        "image-e081",
+        "image-e084",
+        "image-e086",
+        "link-e040",
+        "quote-stack",
+        "table-e072"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tab-background-active",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tab-font-size",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tab-font-weight",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tab-max-width",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tab-text-color-focused-active",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tab-text-color-focused-active-current",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tab-width",
+      "stock": true,
+      "recipeDefinitions": [
+        "interface"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--table-border-color",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "footnote",
+        "note",
+        "table"
+      ],
+      "recipes": [
+        "callout-technical-table",
+        "footnote-e051",
+        "note-table-hover",
+        "note-table-ledger",
+        "note-table-sticky",
+        "note-table-zebra",
+        "table-e002",
+        "table-e003",
+        "table-e006",
+        "table-e012",
+        "table-e043",
+        "table-e044",
+        "table-e046",
+        "table-e069",
+        "table-e071",
+        "table-e073"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--table-border-width",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "footnote",
+        "note",
+        "table"
+      ],
+      "recipes": [
+        "callout-catalogue",
+        "callout-dossier",
+        "callout-receipt",
+        "callout-technical-table",
+        "footnote-e051",
+        "note-table-hover",
+        "note-table-ledger",
+        "note-table-sticky",
+        "note-table-zebra",
+        "table-e002",
+        "table-e003",
+        "table-e004",
+        "table-e006",
+        "table-e010",
+        "table-e012",
+        "table-e014",
+        "table-e047",
+        "table-e065",
+        "table-e078"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--table-line-height",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "table"
+      ],
+      "recipes": [
+        "callout-catalogue",
+        "table-e015"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--table-text-size",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "callout",
+        "note",
+        "table"
+      ],
+      "recipes": [
+        "callout-catalogue",
+        "callout-dossier",
+        "callout-receipt",
+        "callout-technical-table",
+        "note-table-sticky",
+        "table-e022"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tag-color",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "tag"
+      ],
+      "recipes": [
+        "tag-e001",
+        "tag-e039"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tag-padding-x",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "tag"
+      ],
+      "recipes": [
+        "tag-e021",
+        "tag-e022",
+        "tag-e023",
+        "tag-e024",
+        "tag-e025",
+        "tag-e026",
+        "tag-e027",
+        "tag-e028",
+        "tag-e029",
+        "tag-e030",
+        "tag-e031",
+        "tag-e032",
+        "tag-e033",
+        "tag-e034",
+        "tag-e035",
+        "tag-e036",
+        "tag-e037",
+        "tag-e038",
+        "tag-e048",
+        "tag-e049",
+        "tag-e051",
+        "tag-e053",
+        "tag-e054",
+        "tag-e055",
+        "tag-e057",
+        "tag-e058",
+        "tag-e065",
+        "tag-e071",
+        "tag-e072",
+        "tag-e074",
+        "tag-e075"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tag-padding-y",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "tag"
+      ],
+      "recipes": [
+        "tag-e021",
+        "tag-e022",
+        "tag-e023",
+        "tag-e024",
+        "tag-e025",
+        "tag-e026",
+        "tag-e027",
+        "tag-e028",
+        "tag-e029",
+        "tag-e030",
+        "tag-e031",
+        "tag-e032",
+        "tag-e033",
+        "tag-e034",
+        "tag-e035",
+        "tag-e036",
+        "tag-e037",
+        "tag-e038",
+        "tag-e048",
+        "tag-e049",
+        "tag-e051",
+        "tag-e053",
+        "tag-e054",
+        "tag-e055",
+        "tag-e057",
+        "tag-e058",
+        "tag-e065",
+        "tag-e071",
+        "tag-e072",
+        "tag-e074",
+        "tag-e075"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--tag-size",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "tag"
+      ],
+      "recipes": [
+        "tag-e006",
+        "tag-e007",
+        "tag-e008",
+        "tag-e010",
+        "tag-e065",
+        "tag-e067"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--text-accent",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "interface",
+        "meta",
+        "metadata"
+      ],
+      "recipes": [
+        "interface-active-tab",
+        "meta-follow-obsidian-theme",
+        "meta-progressive-color",
+        "metadata-count",
+        "metadata-help",
+        "metadata-mask",
+        "metadata-rename",
+        "metadata-sections"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--text-faint",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [],
+      "consumers": [],
+      "recipes": [],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--text-highlight-bg",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "emphasis",
+        "heading",
+        "inline-code",
+        "link",
+        "list",
+        "note",
+        "quote",
+        "table",
+        "tag"
+      ],
+      "recipes": [
+        "emphasis-s13",
+        "emphasis-s17",
+        "emphasis-s18",
+        "emphasis-s19",
+        "emphasis-s20",
+        "emphasis-s21",
+        "emphasis-s32",
+        "emphasis-s36",
+        "emphasis-s37",
+        "heading-e026",
+        "heading-e044",
+        "heading-e049",
+        "heading-e057",
+        "heading-e071",
+        "heading-e099",
+        "inline-code-ex-16",
+        "inline-code-ex-17",
+        "inline-code-ex-37",
+        "inline-code-ex-42",
+        "inline-code-ex-51",
+        "inline-code-ex-52",
+        "inline-code-ex-55",
+        "inline-code-ex-59",
+        "inline-code-ex-63",
+        "inline-code-ex-66",
+        "inline-code-ex-74",
+        "inline-code-ex-75",
+        "link-e011",
+        "link-e012",
+        "link-e039",
+        "link-e045",
+        "link-e049",
+        "link-e050",
+        "link-e085",
+        "link-e090",
+        "list-e058",
+        "note-anchor",
+        "note-context-strong",
+        "note-contrast",
+        "note-highlight",
+        "note-table-hover",
+        "note-underline",
+        "quote-gradient-rail",
+        "quote-marker",
+        "quote-tape",
+        "table-e035",
+        "table-e038",
+        "table-e051",
+        "table-e057",
+        "table-e059",
+        "table-e081",
+        "tag-e018",
+        "tag-e031",
+        "tag-e035",
+        "tag-e037",
+        "tag-e047",
+        "tag-e048",
+        "tag-e050",
+        "tag-e054",
+        "tag-e079",
+        "tag-e082"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--text-muted",
+      "stock": true,
+      "recipeDefinitions": [
+        "meta",
+        "metadata"
+      ],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "callout",
+        "footnote",
+        "heading",
+        "inline-code",
+        "link",
+        "list",
+        "metadata",
+        "note",
+        "pseudo-task",
+        "quote",
+        "table",
+        "tag",
+        "task"
+      ],
+      "recipes": [
+        "callout-technical-code",
+        "callout-technical-image",
+        "callout-technical-label",
+        "callout-technical-tasks",
+        "footnote-e025",
+        "heading-e018",
+        "heading-e040",
+        "heading-e100",
+        "heading-e110",
+        "inline-code-ex-18",
+        "inline-code-ex-27",
+        "inline-code-ex-44",
+        "inline-code-ex-56",
+        "inline-code-ex-62",
+        "inline-code-ex-73",
+        "link-e002",
+        "link-e075",
+        "link-e095",
+        "link-e132",
+        "list-e009",
+        "list-e037",
+        "list-e045",
+        "metadata-leaders",
+        "metadata-link-domain",
+        "metadata-paper",
+        "metadata-yaml-muted",
+        "metadata-yaml-tokens",
+        "note-code-language",
+        "note-color-emphasis",
+        "note-deleted",
+        "note-hierarchy",
+        "note-image-caption",
+        "note-link-title",
+        "note-quote-line",
+        "note-quote-pull",
+        "note-rhythm",
+        "note-steps",
+        "note-tasks",
+        "note-tasks-count",
+        "pseudo-task-e03",
+        "pseudo-task-e20",
+        "pseudo-task-e23",
+        "pseudo-task-e37",
+        "pseudo-task-e40",
+        "pseudo-task-e41",
+        "quote-compact",
+        "quote-hairline",
+        "quote-has-nesting",
+        "quote-levels",
+        "quote-link-title",
+        "quote-ofm-frameless",
+        "quote-ofm-icon-corner",
+        "quote-signature",
+        "quote-source-rule",
+        "table-e021",
+        "table-e050",
+        "table-e052",
+        "table-e064",
+        "table-e066",
+        "table-e068",
+        "table-e071",
+        "table-e072",
+        "table-e073",
+        "tag-e002",
+        "tag-e066",
+        "tag-e069",
+        "task-e14",
+        "task-e17",
+        "task-e18",
+        "task-e21",
+        "task-e35",
+        "task-e36",
+        "task-e40",
+        "task-e45",
+        "task-e52",
+        "task-e55",
+        "task-e59",
+        "task-e60",
+        "task-e62",
+        "task-e63",
+        "task-e65",
+        "task-e72",
+        "task-e78",
+        "task-e81"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--text-normal",
+      "stock": true,
+      "recipeDefinitions": [
+        "metadata"
+      ],
+      "snippetDefinitions": [
+        "text"
+      ],
+      "consumers": [
+        "emphasis",
+        "footnote",
+        "heading",
+        "link",
+        "list",
+        "meta",
+        "metadata",
+        "note",
+        "pseudo-task",
+        "quote",
+        "table",
+        "tag",
+        "text"
+      ],
+      "recipes": [
+        "emphasis-s15",
+        "emphasis-s22",
+        "emphasis-s23",
+        "emphasis-s24",
+        "emphasis-s28",
+        "emphasis-s37",
+        "footnote-e036",
+        "footnote-e037",
+        "footnote-e038",
+        "footnote-e039",
+        "footnote-e040",
+        "footnote-e041",
+        "footnote-e042",
+        "footnote-e043",
+        "footnote-e044",
+        "footnote-e045",
+        "footnote-e053",
+        "heading-e019",
+        "heading-e022",
+        "heading-e035",
+        "heading-e037",
+        "heading-e048",
+        "heading-e058",
+        "link-e011",
+        "link-e028",
+        "link-e049",
+        "link-e077",
+        "link-e090",
+        "list-e019",
+        "list-e045",
+        "list-ordered-o021",
+        "meta-follow-obsidian-theme",
+        "meta-higher-contrast",
+        "metadata-fold",
+        "note-auto-theme",
+        "pseudo-task-e03",
+        "pseudo-task-e19",
+        "pseudo-task-e31",
+        "pseudo-task-e32",
+        "pseudo-task-e37",
+        "quote-theme",
+        "table-e004",
+        "table-e014",
+        "table-e021",
+        "table-e077",
+        "table-e078",
+        "tag-e037",
+        "text-auto-theme",
+        "text-dropcap",
+        "text-firstline",
+        "text-initial-letter",
+        "text-lead",
+        "text-raised-initial"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--text-on-accent",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "link",
+        "list",
+        "note",
+        "quote",
+        "table",
+        "tag"
+      ],
+      "recipes": [
+        "link-e087",
+        "link-e090",
+        "list-ordered-o017",
+        "list-ordered-o023",
+        "note-double-emphasis",
+        "note-link-button",
+        "note-steps",
+        "quote-ofm-banner",
+        "quote-selection",
+        "table-e013",
+        "table-e039",
+        "table-e045",
+        "table-e079",
+        "table-e081",
+        "tag-e024"
+      ],
+      "candidateLevel": "shared",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    },
+    {
+      "variable": "--text-selection",
+      "stock": true,
+      "recipeDefinitions": [],
+      "snippetDefinitions": [],
+      "consumers": [
+        "text"
+      ],
+      "recipes": [
+        "text-selection"
+      ],
+      "candidateLevel": "category",
+      "ownership": "observed; no ownership enforcement or snippet changes"
+    }
+  ]
+}

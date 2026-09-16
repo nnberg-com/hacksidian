@@ -1,0 +1,10 @@
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="tags"] .multi-select-pill {
+  border-radius: 20px;
+  background: color-mix(in srgb,var(--color-green) 15%,transparent);
+  color: var(--color-green);
+}
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="aliases"] .multi-select-pill {
+  border: 1px solid var(--background-modifier-border);
+  background: transparent;
+}
+

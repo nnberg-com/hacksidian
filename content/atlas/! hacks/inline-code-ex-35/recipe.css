@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+  padding: .12em .6em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: slice;
+  box-decoration-break: slice;
+}
+

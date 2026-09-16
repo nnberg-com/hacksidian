@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  counter-reset: leaf doneleaf;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input[type="checkbox"], > p:first-child > input[type="checkbox"]):not(:has(> ul, > ol)) {
+  counter-increment: leaf;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked):not(:has(> ul, > ol)) {
+  counter-increment: leaf doneleaf;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul)::after {
+  content: "Конечные задачи: " counter(doneleaf) " / " counter(leaf);
+  display: block;
+  margin-block-start: 1em;
+  font-weight: 650;
+  color: var(--color-green);
+}
+

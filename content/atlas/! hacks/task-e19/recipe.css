@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) code {
+  background: var(--background-secondary);
+  padding: .15em .35em;
+  border-radius: .25em;
+  font-size: calc(var(--code-size) * 1.00571429);
+  overflow-wrap: anywhere;
+}
+

@@ -1,0 +1,26 @@
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) > li {
+  counter-increment: step;
+  position: relative;
+  padding-inline-start: 3.8em;
+  min-block-size: 2.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) > li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  display: grid;
+  place-items: center;
+  inline-size: 3em;
+  block-size: 2.2em;
+  color: var(--interactive-accent);
+  font-weight: var(--font-bold);
+}
+:is(.markdown-preview-view, .markdown-source-view) ol:not(li ol) {
+  counter-reset: step 4;
+}

@@ -1,0 +1,33 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: block;
+  block-size: 230px;
+  overflow: auto;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  position: sticky;
+  top: 0;
+  padding: .7rem;
+  font-size: calc(var(--h3-size) * 1.138088);
+  background-color: var(--background-primary);
+  background-image: linear-gradient(var(--text-highlight-bg),var(--text-highlight-bg));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  z-index: 1;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  min-block-size: 650px;
+  padding: 1rem;
+}
+@supports (animation-timeline:scroll()) {
+  :is(.markdown-preview-view, .markdown-source-view) h3 {
+    animation: hack-heading-e071-heading-e071-progress-fill 1s linear both;
+    animation-timeline: scroll(nearest block);
+  }
+}
+@keyframes hack-heading-e071-heading-e071-progress-fill {
+  to {
+    background-size: 100% 100%;
+  }
+}
+

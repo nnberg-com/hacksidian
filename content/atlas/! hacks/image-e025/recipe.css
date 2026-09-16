@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 86%;
+  transform: rotate(4deg);
+  box-shadow: 0 5px 10px #0003;
+}

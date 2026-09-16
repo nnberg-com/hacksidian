@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 2.048558);
+  letter-spacing: -.07em;
+}
+

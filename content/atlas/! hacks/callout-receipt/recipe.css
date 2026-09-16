@@ -1,0 +1,55 @@
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] {
+  max-width: 350px;
+  margin-inline: auto;
+  background: #fffdf3;
+  color: #252821;
+  padding: calc(var(--size-4-1) * 7.5) calc(var(--size-4-1) * 5.75) calc(var(--size-4-1) * 9);
+  font: 13px/1.6 "Courier New",monospace;
+  filter: drop-shadow(0 7px 5px #302a2020);
+  clip-path: polygon(0 0,100% 0,100% 98%,95% 100%,90% 98%,85% 100%,80% 98%,75% 100%,70% 98%,65% 100%,60% 98%,55% 100%,50% 98%,45% 100%,40% 98%,35% 100%,30% 98%,25% 100%,20% 98%,15% 100%,10% 98%,5% 100%,0 98%);
+  border-top: 5px solid #252821;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] > .callout-title {
+  text-align: center;
+  font-size: calc(var(--font-text-size) * 1.0625);
+  letter-spacing: .06em;
+  line-height: calc(var(--line-height-normal) * 0.9);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] > .callout-content > p:first-child {
+  text-align: center;
+  font-size: calc(var(--font-text-size) * 0.625);
+  margin: calc(var(--size-4-1) * 3) 0 calc(var(--size-4-1) * 5.5);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] hr {
+  border: 0;
+  border-top: 1px dashed #737769;
+  margin: calc(var(--size-4-1) * 4.5) 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] table {
+  width: 100%;
+  font-size: calc(var(--table-text-size) * 0.75);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] th {
+  text-align: left;
+  font-weight: var(--font-normal);
+  border-bottom: var(--table-border-width) dotted #737769;
+  padding-bottom: calc(var(--size-4-1) * 2);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] td {
+  padding: calc(var(--size-4-1) * 2) 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] th:last-child, :is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] td:last-child {
+  text-align: right;
+  white-space: nowrap;
+  padding-left: calc(var(--size-4-1) * 3);
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] > .callout-content > p:has(strong) {
+  font-size: calc(var(--font-text-size) * 1.4375);
+  text-align: right;
+}
+:is(.markdown-preview-view, .markdown-source-view) [data-callout="receipt"] > .callout-content > p:last-child {
+  text-align: center;
+  font-size: calc(var(--font-text-size) * 0.625);
+  margin-top: calc(var(--size-4-1) * 6.25);
+}
+

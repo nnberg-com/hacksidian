@@ -1,0 +1,42 @@
+:is(.markdown-preview-view, .markdown-source-view) li[data-task] {
+  position: relative;
+  list-style: none;
+  padding-inline-start: 1.9em;
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task] > input, :is(.markdown-preview-view, .markdown-source-view) li[data-task] > p:first-child > input {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task]::before {
+  content: attr(data-task);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: .14em;
+  display: grid;
+  place-items: center;
+  width: 1.25em;
+  height: 1.25em;
+  line-height: 1;
+  font-weight: var(--font-bold);
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="!"] {
+  padding: .7em 1em .7em 2.2em;
+  background: #fae8e7;
+  border-radius: .6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="!"]::before {
+  left: .6em;
+  top: .8em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="!"]+li[data-task="!"] {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="!"]:has(+li[data-task="!"]) {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+

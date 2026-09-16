@@ -1,0 +1,115 @@
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) {
+      position: relative;
+      padding-inline-end: 18rem;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) .footnotes-sep {
+      display: none;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+      margin: 0;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e048-1"] {
+      anchor-name: --e048-1;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e048-1 {
+      position-anchor: --e048-1;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e048-2"] {
+      anchor-name: --e048-2;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e048-2 {
+      position-anchor: --e048-2;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+      position: absolute;
+      top: anchor(top);
+      right: 0;
+      inline-size: 15rem;
+      margin: 0;
+      padding: .6em .8em;
+      border-inline-start: 2px solid var(--interactive-accent);
+      background: var(--background-primary);
+      font-size: .85em;
+    }
+    :is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+      background: color-mix(in srgb,var(--background-secondary) 70%,transparent);
+      outline: 1px dashed var(--interactive-accent);
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) {
+      position: relative;
+      padding-inline-end: 18rem;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) .footnotes-sep {
+      display: none;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+      margin: 0;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e048-1"] {
+      anchor-name: --e048-1;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e048-1 {
+      position-anchor: --e048-1;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) a[href="#fn-e048-2"] {
+      anchor-name: --e048-2;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) #fn-e048-2 {
+      position-anchor: --e048-2;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+      position: absolute;
+      top: anchor(top);
+      right: 0;
+      inline-size: 15rem;
+      margin: 0;
+      padding: .6em .8em;
+      border-inline-start: 2px solid var(--interactive-accent);
+      background: var(--background-primary);
+      font-size: .85em;
+    }
+  }
+}
+@supports (top:anchor(top)) {
+  @media screen and (min-width:1150px) {
+    :is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+      background: color-mix(in srgb,var(--background-secondary) 70%,transparent);
+      outline: 1px dashed var(--interactive-accent);
+    }
+  }
+}
+

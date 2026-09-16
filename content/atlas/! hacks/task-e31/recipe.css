@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  counter-reset: done;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li:has(> input:checked, > p:first-child > input:checked) {
+  counter-increment: done;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul)::after {
+  content: "Выполнено: " counter(done);
+  display: block;
+  border-block-start: 1px solid var(--background-modifier-border);
+  padding-block-start: .8em;
+  margin-block-start: 1em;
+  font-size: .9em;
+  font-weight: 650;
+}
+

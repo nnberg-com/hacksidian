@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  font-size: calc(var(--tag-size) * 0.93714286);
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  font-size: .82em;
+}
+

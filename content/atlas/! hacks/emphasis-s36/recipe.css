@@ -1,0 +1,27 @@
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: transparent;
+  box-shadow: inset 0 -.25em var(--text-highlight-bg);
+  transition: box-shadow .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) mark:hover {
+  box-shadow: inset 0 -1.2em var(--text-highlight-bg);
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) mark {
+    transition: none;
+  }
+}
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: transparent;
+  box-shadow: inset 0 -.25em var(--text-highlight-bg);
+  transition: box-shadow .2s;
+}
+:is(.markdown-preview-view, .markdown-source-view) mark:hover {
+  box-shadow: inset 0 -1.2em var(--text-highlight-bg);
+}
+@media(prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) mark {
+    transition: none;
+  }
+}
+

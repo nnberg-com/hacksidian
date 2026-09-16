@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a:target {
+  background: var(--background-secondary);
+  outline: 3px solid var(--interactive-accent);
+  outline-offset: 3px;
+}

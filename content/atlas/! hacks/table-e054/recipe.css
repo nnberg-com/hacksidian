@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) a[href^="https://example.org/spec"] {
+  font-weight: 750;
+  text-decoration-style: double;
+}
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-underline-offset: .25em;
+}
+

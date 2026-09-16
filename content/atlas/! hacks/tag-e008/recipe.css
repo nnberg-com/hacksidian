@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  text-transform: uppercase;
+  font-size: calc(var(--tag-size) * 0.97142857);
+  letter-spacing: .06em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  text-transform: uppercase;
+  font-size: .85em;
+  letter-spacing: .06em;
+}
+

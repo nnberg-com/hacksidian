@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  direction: rtl;
+  padding-inline-start: 1.5em;
+  text-align: start;
+}

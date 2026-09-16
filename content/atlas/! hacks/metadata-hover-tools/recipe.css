@@ -1,0 +1,9 @@
+@media (hover: hover) and (pointer: fine) {
+  .markdown-source-view.mod-cm6 .metadata-container:not(:hover):not(:focus-within) :is(.metadata-properties-title, .metadata-add-button, .multi-select-pill-remove-button) {
+    opacity: 0;
+  }
+  .markdown-source-view.mod-cm6 :is(.metadata-properties-title, .metadata-add-button, .multi-select-pill-remove-button) {
+    transition: opacity .15s ease;
+  }
+}
+

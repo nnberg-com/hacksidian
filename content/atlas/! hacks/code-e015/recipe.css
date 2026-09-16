@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code::first-line {
+  color: #a34229;
+  font-weight: var(--font-bold);
+}

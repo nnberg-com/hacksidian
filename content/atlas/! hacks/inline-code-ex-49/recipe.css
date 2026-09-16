@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) :is(td,th) code:not(pre code) {
+  padding: .1em .3em;
+  border-radius: .28em;
+  background: var(--background-secondary);
+  overflow-wrap: anywhere;
+}
+

@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  background: var(--background-secondary);
+  padding: 1em;
+  border-radius: .5em;
+  border: 1px solid var(--code-border-color);
+  overflow: auto;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+

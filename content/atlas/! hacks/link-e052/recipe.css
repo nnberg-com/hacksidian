@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a[href^="mailto:"]::before {
+  content: "✉ ";
+  font-size: .85em;
+  font-weight: var(--font-bold);
+}
+

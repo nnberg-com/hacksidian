@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(var(--size-4-1) * 3);
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe[src$="poster.html"] {
+  border: 5px solid #a54860;
+  border-radius: calc(var(--radius-s) * 4);
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe[src$="map.html"] {
+  border: 2px dashed #729794;
+}

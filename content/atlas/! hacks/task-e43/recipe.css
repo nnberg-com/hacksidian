@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> p:first-child > input:checked) > p:not(:first-child) {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .7em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: .5em;
+}
+

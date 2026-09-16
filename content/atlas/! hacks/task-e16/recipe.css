@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input[type="checkbox"], > p:first-child > input[type="checkbox"]) {
+  border-inline-start: 3px solid transparent;
+  padding-inline-start: .7em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) {
+  border-inline-start-color: var(--color-green);
+}
+

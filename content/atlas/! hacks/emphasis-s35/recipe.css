@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s) mark {
+  background: var(--color-pink);
+}
+:is(.markdown-preview-view, .markdown-source-view) :is(del,s) mark {
+  background: var(--color-pink);
+}
+

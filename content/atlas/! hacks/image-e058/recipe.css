@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) p:has(> img) + p:has(> em) {
+  font-size: calc(var(--font-text-size) * 0.85);
+  text-align: center;
+  color: #576d64;
+  margin-top: .6rem;
+}
+

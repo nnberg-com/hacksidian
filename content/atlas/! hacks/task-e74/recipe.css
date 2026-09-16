@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  font-size: .88em;
+  border-inline-start: calc(var(--blockquote-border-thickness) * 1.5) solid var(--color-orange);
+  padding: .5em .8em;
+  margin: .6em 0 0 1.4em;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> p:first-child > input:checked) > blockquote {
+  border-inline-start-color: var(--color-green);
+}
+

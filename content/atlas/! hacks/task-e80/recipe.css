@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> p:first-child > input:checked) > p:first-child > strong {
+  text-decoration: line-through;
+  text-decoration-color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) li > p:not(:first-child) {
+  font-size: .9em;
+}
+

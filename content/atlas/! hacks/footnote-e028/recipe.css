@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-backref {
+  display: inline-block;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 1em;
+  padding: .05em .5em;
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-backref:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+

@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  filter: grayscale(1);
+  transition: filter .4s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:hover img, :is(.markdown-preview-view, .markdown-source-view) a:focus-visible img {
+  filter: grayscale(0);
+}
+

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  list-style-type: disc;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  list-style-type: circle;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul ul ul {
+  list-style-type: square;
+}

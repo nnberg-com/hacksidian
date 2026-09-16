@@ -1,0 +1,22 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: calc(var(--size-4-1) * 2.5);
+  list-style: none;
+  padding: calc(var(--size-4-1) * 3);
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:nth-child(odd) {
+  transform: rotate(-5deg);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:nth-child(even) {
+  transform: rotate(5deg);
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  border: 5px solid white;
+  box-shadow: 0 3px 7px #0003;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  margin: 0;
+}
+

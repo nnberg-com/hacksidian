@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 90%;
+  border: 12px solid white;
+  transform: rotate(-3deg);
+  border-radius: calc(var(--radius-s) * 2);
+}
+@media (max-width:600px) {
+  :is(.markdown-preview-view, .markdown-source-view) img {
+    width: 100%;
+    border-width: 4px;
+    transform: none;
+    border-radius: 0;
+  }
+}
+

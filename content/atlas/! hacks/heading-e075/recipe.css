@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 1.327769);
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}

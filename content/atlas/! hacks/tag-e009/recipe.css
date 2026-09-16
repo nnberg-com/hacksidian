@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  font-family: Georgia,serif;
+  font-weight: var(--font-bold);
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  font-family: Georgia,serif;
+  font-weight: var(--font-bold);
+}
+

@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag::after {
+  content: " ↗";
+  font-size: .8em;
+}
+

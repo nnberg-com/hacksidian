@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:not(:checked), > p:first-child > input:not(:checked)) ~ li:has(> input:not(:checked), > p:first-child > input:not(:checked)) {
+  color: var(--text-muted);
+}
+:is(.markdown-preview-view, .markdown-source-view) li:nth-child(1 of :has(> input:not(:checked))) {
+  font-weight: var(--font-bold);
+}
+

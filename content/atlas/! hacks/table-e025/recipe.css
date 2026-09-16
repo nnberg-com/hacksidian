@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  table-layout: fixed;
+  width: 100%;
+}
+:is(.markdown-preview-view, .markdown-source-view) th:first-child {
+  width: 25%;
+}
+:is(.markdown-preview-view, .markdown-source-view) th:nth-child(2) {
+  width: 55%;
+}
+:is(.markdown-preview-view, .markdown-source-view) th:last-child {
+  width: 20%;
+}

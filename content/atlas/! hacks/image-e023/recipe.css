@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  border: 9px solid;
+  border-image: linear-gradient(130deg,#cf664a,#e6be57,#367365) 1;
+}
+

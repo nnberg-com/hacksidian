@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  position: relative;
+  height: 20px;
+  background: linear-gradient(currentColor,currentColor) left center / calc(50% - 18px) 1px no-repeat, linear-gradient(currentColor,currentColor) right center / calc(50% - 18px) 1px no-repeat;
+}
+:is(.markdown-preview-view, .markdown-source-view) hr::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+

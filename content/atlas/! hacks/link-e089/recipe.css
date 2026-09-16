@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a:link {
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:visited {
+  color: var(--color-purple);
+  text-decoration-color: var(--color-purple);
+}

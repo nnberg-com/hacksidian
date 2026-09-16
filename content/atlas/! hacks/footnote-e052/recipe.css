@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+  padding-inline-start: 3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item::marker {
+  font-variant-numeric: tabular-nums;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+  margin-block: .3em;
+}
+

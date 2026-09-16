@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) a:hover {
+  color: var(--color-purple);
+  background: var(--background-secondary);
+  font-style: italic;
+}

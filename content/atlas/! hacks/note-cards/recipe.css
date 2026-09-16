@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,12em),1fr));
+  gap: .8em;
+  padding: 0;
+  list-style: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li {
+  margin: 0;
+  padding: 1em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: .5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li strong {
+  display: block;
+  margin-block-end: .4em;
+  color: var(--interactive-accent);
+}
+

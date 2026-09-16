@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content>p:last-child {
+  font-size: .82em;
+  text-align: end;
+}
+

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) ul::after {
+  content: "";
+  display: block;
+  inline-size: 3em;
+  border-block-start: 2px solid var(--interactive-accent);
+  margin-block-start: 1em;
+}

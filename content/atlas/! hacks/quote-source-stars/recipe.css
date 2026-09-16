@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote>hr {
+  border: 0;
+  text-align: center;
+  height: 1.5em;
+  margin: 1em 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>hr::after {
+  content: "✦ · ✦";
+  color: var(--interactive-accent);
+  letter-spacing: .3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote>hr+p, :is(.markdown-preview-view, .markdown-source-view) blockquote>.el-hr+.el-p > p {
+  text-align: center;
+  font-size: .83em;
+}
+

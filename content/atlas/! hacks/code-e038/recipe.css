@@ -1,0 +1,32 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  padding: 0;
+  background: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding: calc(var(--size-4-1) * 4.5);
+  background: #fffef8;
+  border: 1px solid #e7e3d5;
+  overflow: auto;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre::before, :is(.markdown-preview-view, .markdown-source-view) pre::after {
+  content: "";
+  position: absolute;
+  width: 42%;
+  height: 25%;
+  bottom: 9px;
+  left: 9px;
+  box-shadow: 0 13px 10px #27362e44;
+  transform: rotate(-3deg);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre::after {
+  left: auto;
+  right: 9px;
+  transform: rotate(3deg);
+}
+

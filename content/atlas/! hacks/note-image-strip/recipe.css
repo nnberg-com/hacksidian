@@ -1,0 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:has(img) {
+  display: flex;
+  gap: .8em;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 0 .7em;
+  list-style: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  flex: 0 0 78%;
+  margin: 0;
+  scroll-snap-align: start;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: .4em;
+}
+

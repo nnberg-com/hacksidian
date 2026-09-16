@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-decoration: none;
+  background: linear-gradient(90deg,#b23755,#6b55b6,#1b8270) 0 100%/100% 3px no-repeat;
+  padding-bottom: var(--size-4-1);
+}
+

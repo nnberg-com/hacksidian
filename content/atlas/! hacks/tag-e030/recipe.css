@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  padding: calc(var(--tag-padding-y) * 0.4) calc(var(--tag-padding-x) * 0.69230769);
+  border: 1px solid var(--interactive-accent);
+  outline: 1px solid var(--background-modifier-border);
+  outline-offset: 3px;
+}
+

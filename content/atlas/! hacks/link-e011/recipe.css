@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  background: var(--text-highlight-bg);
+  color: var(--text-normal);
+  text-decoration: none;
+  padding: .05em .16em;
+}
+

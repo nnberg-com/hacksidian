@@ -1,0 +1,8 @@
+.markdown-source-view.mod-cm6 {
+  --metadata-input-background: var(--background-secondary);
+  --metadata-gap: 7px;
+}
+.markdown-source-view.mod-cm6 .metadata-property:focus-within {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}

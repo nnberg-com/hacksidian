@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  max-width: 16ch;
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  background: var(--background-secondary);
+  padding: calc(var(--tag-padding-y) * 0.4) calc(var(--tag-padding-x) * 0.38461538);
+  border-radius: calc(var(--radius-s) * 1.25);
+  overflow-wrap: anywhere;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+

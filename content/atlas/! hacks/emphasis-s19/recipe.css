@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: linear-gradient(176deg, transparent 22%,
+  var(--text-highlight-bg) 25% 80%, transparent 83%);
+  padding: .04em .15em;
+}
+:is(.markdown-preview-view, .markdown-source-view) mark {
+  background: linear-gradient(176deg,transparent 22%,var(--text-highlight-bg) 25% 80%,transparent 83%);
+  padding: .04em .15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+

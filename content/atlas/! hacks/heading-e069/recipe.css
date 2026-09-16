@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  animation: hack-heading-e069-heading-e069-weight-breath 4s ease-in-out infinite alternate;
+}
+@keyframes hack-heading-e069-heading-e069-weight-breath {
+  from {
+    font-weight: var(--font-light);
+  }
+  to {
+    font-weight: 850;
+  }
+}
+

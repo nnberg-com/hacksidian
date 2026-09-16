@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 8px;
+  background: conic-gradient(currentColor 25%,transparent 0 50%,currentColor 0 75%,transparent 0) 0 0 / 8px 8px;
+}
+

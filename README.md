@@ -6,3 +6,7 @@ CSS grooming for Obsidian / Настройка оформления Obsidian.
 - [Документация на русском](docs/ru/README.md)
 
 - [Подбор решений из атласа через OpenAI](docs/atlas-engine.md)
+
+- [Установка плагина и материалов](docs/content-installation.md)
+
+- [Требования и будущие изменения — OpenSpec](openspec/README.md)

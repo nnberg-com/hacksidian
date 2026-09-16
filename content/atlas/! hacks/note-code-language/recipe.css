@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  padding: 1em;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code[class^="language-"]::before {
+  content: attr(class);
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em note-code-language-Onest,sans-serif;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code.language-css::before {
+  content: "CSS";
+}
+

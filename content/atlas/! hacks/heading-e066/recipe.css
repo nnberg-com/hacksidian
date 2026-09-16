@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  color: var(--interactive-accent);
+}
+@supports (background-clip:text) {
+  :is(.markdown-preview-view, .markdown-source-view) h3 {
+    background: linear-gradient(90deg,#ae3824,#8051bd,#087e85,#ae3824);
+    background-size: 300% 100%;
+    background-clip: text;
+    color: transparent;
+    animation: hack-heading-e066-heading-e066-flow 5s linear infinite;
+  }
+}
+@keyframes hack-heading-e066-heading-e066-flow {
+  to {
+    background-position: 100% 0;
+  }
+}
+

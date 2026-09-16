@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.61538462);
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag:focus-visible {
+  outline: 3px solid var(--interactive-accent);
+  outline-offset: 4px;
+  border-radius: calc(var(--radius-s) * 0.75);
+}
+

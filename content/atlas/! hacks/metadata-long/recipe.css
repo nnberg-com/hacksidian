@@ -1,0 +1,10 @@
+.markdown-source-view.mod-cm6 .metadata-property {
+  align-items: flex-start;
+}
+.markdown-source-view.mod-cm6 .metadata-property-value {
+  min-width: 0;
+}
+.markdown-source-view.mod-cm6 .metadata-input-longtext {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

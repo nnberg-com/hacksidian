@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout-title-inner {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .25em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  border: 0;
+  background: transparent;
+}
+

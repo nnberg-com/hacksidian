@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 14px;
+  background: currentColor;
+  mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCA2MDAgMjAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGQ9Ik0wIDhMNjUgNSAxNTQgNyAyNTAgMyA0MTEgNSA2MDAgNyA1MzMgMTAgNDI0IDggMzMwIDExIDIwMyA5IDY3IDEwWiBNMTUgMTJMODYgMTEgMjExIDEzIDM3OCAxMCA1NzcgMTIgNjAwIDE0IDQ1NCAxNSAzMzUgMTMgMTk5IDE2IDYyIDE0WiBNODEgMkwxNzMgMyAyNjggMSAzODIgMyAyOTAgNCAxODEgNVogTTIyMyAxOEwzNzAgMTYgNTIxIDE3IDU4OCAxOSA0MTMgMTlaIi8+PC9zdmc+Cg==") center / 100% 100% no-repeat;
+}
+

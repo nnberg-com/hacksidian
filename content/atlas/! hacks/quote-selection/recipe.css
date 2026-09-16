@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote::selection, :is(.markdown-preview-view, .markdown-source-view) blockquote *::selection {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+

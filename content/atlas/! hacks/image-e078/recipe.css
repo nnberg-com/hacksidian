@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 15rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  animation: hack-image-e078-image-e078-pan 7s ease-in-out infinite alternate;
+}
+@keyframes hack-image-e078-image-e078-pan {
+  from {
+    object-position: 0% 50%;
+  }
+  to {
+    object-position: 100% 50%;
+  }
+}

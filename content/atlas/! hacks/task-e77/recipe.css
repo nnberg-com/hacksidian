@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  display: flow-root;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  float: left;
+  width: 6em;
+  height: 6em;
+  object-fit: cover;
+  border-radius: 50%;
+  shape-outside: circle(50%);
+  margin: .3em 1em .5em 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  font-size: .95em;
+}
+@container specimen (max-width:380px) {
+  :is(.markdown-preview-view, .markdown-source-view) img {
+    float: none;
+    display: block;
+    shape-outside: none;
+  }
+}
+

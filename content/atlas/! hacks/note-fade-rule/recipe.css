@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border: 0;
+  height: 1px;
+  margin-block: 2em;
+  background: linear-gradient(90deg,transparent,var(--interactive-accent),transparent);
+}
+

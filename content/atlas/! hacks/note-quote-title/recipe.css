@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  padding: 1em 1.2em;
+  background: var(--background-secondary);
+  border-inline-start: calc(var(--blockquote-border-thickness) * 1.5) solid var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote > h3 {
+  margin: 0 0 .5em;
+  color: var(--interactive-accent);
+  font-size: 1em;
+}
+

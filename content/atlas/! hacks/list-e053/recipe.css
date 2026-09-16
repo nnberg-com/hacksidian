@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  border: 1px solid var(--background-modifier-border);
+  padding-block: 1em;
+  padding-inline: 2em 1em;
+}

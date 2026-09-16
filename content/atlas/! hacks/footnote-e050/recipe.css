@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes {
+  overflow-wrap: anywhere;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnotes pre {
+  max-inline-size: 100%;
+  overflow: auto;
+  white-space: pre;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnotes code {
+  font-size: calc(var(--code-size) * 1.02857143);
+}

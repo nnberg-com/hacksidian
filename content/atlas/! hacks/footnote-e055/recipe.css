@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes {
+  font-size: clamp(.875rem,.8rem + .2vw,1rem);
+  line-height: calc(var(--line-height-normal) * 1.033333);
+}
+

@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  min-width: 7rem;
+  white-space: nowrap;
+}
+:is(.markdown-preview-view, .markdown-source-view) table {
+  max-height: 17rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:last-child>td {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  background: var(--background-secondary);
+  font-weight: 750;
+  border-top: calc(var(--table-border-width) * 2) solid var(--interactive-accent);
+}
+

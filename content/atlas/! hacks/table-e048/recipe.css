@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  min-width: 7rem;
+  white-space: nowrap;
+}
+:is(.markdown-preview-view, .markdown-source-view) table {
+  max-height: 17rem;
+  background: linear-gradient(to right,var(--background-primary) 30%,transparent) left center / 40px 100% no-repeat local,
+linear-gradient(to left,var(--background-primary) 30%,transparent) right center / 40px 100% no-repeat local,
+radial-gradient(farthest-side at 0 50%,rgb(0 0 0 / .24),transparent) left center / 14px 100% no-repeat scroll,
+radial-gradient(farthest-side at 100% 50%,rgb(0 0 0 / .24),transparent) right center / 14px 100% no-repeat scroll;
+  background-color: var(--background-primary);
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  background: transparent;
+}
+

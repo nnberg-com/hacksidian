@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) p:has(a.tag:hover) a.tag:not(:hover) {
+  opacity: .45;
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  transition: opacity .2s;
+}
+

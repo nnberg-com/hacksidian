@@ -1,0 +1,30 @@
+.markdown-source-view.mod-cm6 .metadata-container {
+  container-type: inline-size;
+}
+.markdown-source-view.mod-cm6 .metadata-properties {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 10px;
+}
+.markdown-source-view.mod-cm6 .metadata-property {
+  flex-direction: column;
+}
+.markdown-source-view.mod-cm6 .metadata-property-key {
+  width: 100%;
+  max-width: none;
+  flex-basis: auto;
+}
+.markdown-source-view.mod-cm6 .metadata-property-value {
+  width: 100%;
+}
+@container (min-width: 330px) {
+  .markdown-source-view.mod-cm6 .metadata-properties {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+  }
+}
+@container (min-width: 440px) {
+  .markdown-source-view.mod-cm6 .metadata-properties {
+    grid-template-columns: repeat(4,minmax(0,1fr));
+  }
+}
+

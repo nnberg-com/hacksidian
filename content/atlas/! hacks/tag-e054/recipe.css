@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  display: inline-block;
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.69230769);
+  background: var(--text-highlight-bg);
+  box-shadow: 0 3px 0 var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--background-modifier-border);
+}
+

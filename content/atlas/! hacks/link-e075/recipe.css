@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a::after {
+  content: " (" attr(href) ")";
+  font-size: .75em;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+

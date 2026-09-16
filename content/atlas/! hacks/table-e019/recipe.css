@@ -1,0 +1,3 @@
+:is(.markdown-preview-view, .markdown-source-view) td {
+  font-variant-numeric: lining-nums tabular-nums;
+}

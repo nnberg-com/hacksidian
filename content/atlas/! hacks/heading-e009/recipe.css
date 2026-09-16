@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  max-inline-size: 14ch;
+  line-height: calc(var(--h3-line-height) * 0.830769);
+  font-size: calc(var(--h3-size) * 2.048558);
+}

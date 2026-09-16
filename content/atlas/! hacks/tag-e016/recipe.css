@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: .3em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: .3em;
+}
+

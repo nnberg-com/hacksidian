@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item {
+  padding: .45em .7em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item:nth-child(even) {
+  background: var(--background-secondary);
+}
+

@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  border: 0;
+  font-variant-numeric: tabular-nums;
+}
+:is(.markdown-preview-view, .markdown-source-view) thead th {
+  border-block: var(--table-border-width) solid var(--text-normal);
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:last-child>td {
+  font-weight: 750;
+  border-top: calc(var(--table-border-width) * 3) double var(--text-normal);
+  background: var(--background-secondary);
+}
+

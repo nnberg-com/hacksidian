@@ -1,0 +1,17 @@
+.markdown-source-view.mod-cm6 .cm-hmd-frontmatter.cm-atom {
+  color: var(--color-blue);
+  font-weight: 650;
+}
+.markdown-source-view.mod-cm6 .cm-hmd-frontmatter.cm-string {
+  color: var(--color-green);
+}
+.markdown-source-view.mod-cm6 .cm-hmd-frontmatter.cm-number {
+  color: var(--color-orange);
+}
+.markdown-source-view.mod-cm6 .cm-hmd-frontmatter.cm-comment {
+  color: var(--text-muted);
+  font-style: italic;
+}
+.markdown-source-view.mod-cm6 .cm-hmd-frontmatter.cm-def {
+  color: var(--text-muted);
+}

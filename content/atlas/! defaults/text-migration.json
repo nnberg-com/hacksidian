@@ -1,0 +1,212 @@
+[
+  {
+    "id": "text-airy",
+    "status": "adapted",
+    "variables": [
+      "--line-height-normal"
+    ],
+    "summary": "Увеличивает только межстрочный интервал на 20%."
+  },
+  {
+    "id": "text-compact",
+    "status": "adapted",
+    "variables": [
+      "--font-text-size",
+      "--line-height-normal",
+      "--p-spacing"
+    ],
+    "summary": "Размер текста ×0.875; интервал строк ×0.93; интервал абзацев ×0.55."
+  },
+  {
+    "id": "text-block-paragraphs",
+    "status": "adapted",
+    "variables": [
+      "--p-spacing"
+    ],
+    "summary": "Блочные абзацы без красной строки; нижний интервал ×1.25."
+  },
+  {
+    "id": "text-indent",
+    "status": "adapted",
+    "variables": [],
+    "summary": "Красная строка 1.5em относительно шрифта абзаца; межабзацный интервал убран."
+  },
+  {
+    "id": "text-hanging-indent",
+    "status": "adapted",
+    "variables": [],
+    "summary": "Выступ первой строки на 1.5em; текущий шрифт сохраняется."
+  },
+  {
+    "id": "text-justify",
+    "status": "adapted",
+    "variables": [],
+    "summary": "Выравнивание по ширине без изменения шрифта, размеров и палитры."
+  },
+  {
+    "id": "text-ragged",
+    "status": "adapted",
+    "variables": [],
+    "summary": "Выравнивает по началу строки; ширину страницы не меняет."
+  },
+  {
+    "id": "text-measure",
+    "status": "adapted",
+    "variables": [
+      "--file-line-width"
+    ],
+    "summary": "Ширина читаемой строки ×0.8; действует при включённой читаемой ширине строки."
+  },
+  {
+    "id": "text-pretty",
+    "status": "adapted",
+    "variables": [],
+    "summary": "Меняет только алгоритм переноса строк, сохраняя ширину страницы."
+  },
+  {
+    "id": "text-oldstyle",
+    "status": "adapted",
+    "variables": [],
+    "summary": "Старостильные цифры текущего шрифта; эффект зависит от поддержки шрифта."
+  },
+  {
+    "id": "text-tabular",
+    "status": "adapted",
+    "variables": [],
+    "summary": "Табличные цифры текущего шрифта; без увеличения текста."
+  },
+  {
+    "id": "text-lead",
+    "status": "adapted",
+    "variables": [
+      "--font-medium",
+      "--font-text-size",
+      "--line-height-normal",
+      "--text-normal"
+    ],
+    "summary": "Первый абзац крупнее в 1.22 раза; сохраняет цвет и шрифт пользователя."
+  },
+  {
+    "id": "text-firstline",
+    "status": "adapted",
+    "variables": [
+      "--font-bold",
+      "--text-normal"
+    ],
+    "summary": "Первая строка: капитель, штатная жирность, трекинг .035em; без отдельной палитры."
+  },
+  {
+    "id": "text-dropcap",
+    "status": "adapted",
+    "variables": [
+      "--line-height-normal",
+      "--text-normal"
+    ],
+    "summary": "Буквица ×4 от шрифта абзаца; межстрочный коэффициент ×0.57; текущий цвет и семейство."
+  },
+  {
+    "id": "text-raised-initial",
+    "status": "adapted",
+    "variables": [
+      "--line-height-normal",
+      "--text-normal"
+    ],
+    "summary": "Приподнятая буквица ×2.6; сохраняет семейство и цвет."
+  },
+  {
+    "id": "text-initial-letter",
+    "status": "adapted",
+    "variables": [
+      "--font-bold",
+      "--text-normal"
+    ],
+    "summary": "Буквица на три строки, если движок поддерживает initial-letter; сохраняет семейство и цвет."
+  },
+  {
+    "id": "text-hanging-punctuation",
+    "status": "adapted",
+    "variables": [],
+    "summary": "Только висячая пунктуация; декоративная граница образца удалена. Поддержка зависит от движка."
+  },
+  {
+    "id": "text-print-lines",
+    "status": "adapted",
+    "variables": [],
+    "summary": "При печати оставляет минимум три строки у границы страницы."
+  },
+  {
+    "id": "text-selection",
+    "status": "adapted",
+    "variables": [
+      "--text-selection"
+    ],
+    "summary": "Использует цвет выделения стандартной темы; при стандартной теме может не давать видимой разницы."
+  },
+  {
+    "id": "text-auto-theme",
+    "status": "adapted",
+    "variables": [
+      "--background-primary",
+      "--text-normal"
+    ],
+    "summary": "Следует активной теме Obsidian, а не системному prefers-color-scheme; не создаёт отдельную палитру."
+  },
+  {
+    "id": "text-print-ink",
+    "status": "adapted",
+    "variables": [],
+    "summary": "При печати убирает заливку и тень; цвет текста не подменяет чёрным."
+  },
+  {
+    "id": "text-responsive",
+    "status": "adapted",
+    "variables": [
+      "--font-text-size"
+    ],
+    "summary": "Размер относительно пользовательского: ×1.0625, на узком экране ×0.9375; без рамки и смены полей."
+  },
+  {
+    "id": "text-book-composition",
+    "status": "adapted",
+    "variables": [
+      "--file-line-width",
+      "--line-height-normal"
+    ],
+    "summary": "Книжная композиция: интервал строк ×1.13, ширина ×0.85, красная строка 1.5em; семейство сохраняется."
+  },
+  {
+    "id": "text-letter-composition",
+    "status": "adapted",
+    "variables": [
+      "--file-line-width",
+      "--line-height-normal",
+      "--p-spacing"
+    ],
+    "summary": "Композиция письма: строки ×1.2, ширина ×0.9, интервалы абзацев ×1.1; семейство и размер сохраняются."
+  },
+  {
+    "id": "text-manual-composition",
+    "status": "adapted",
+    "variables": [
+      "--font-text-size",
+      "--p-spacing"
+    ],
+    "summary": "Компактный справочник: размер ×0.875, интервалы абзацев ×0.65; базовый интервал строк сохраняется."
+  },
+  {
+    "id": "text-editorial-composition",
+    "status": "adapted",
+    "variables": [
+      "--font-text-size",
+      "--line-height-normal",
+      "--p-spacing"
+    ],
+    "summary": "Редакционная композиция: строки ×1.1, первый абзац ×1.18, интервалы абзацев ×1.2."
+  },
+  {
+    "id": "text-serif",
+    "status": "needs-font-decision",
+    "variables": [],
+    "summary": "Требует решения: штатная тема не предоставляет опорную переменную для семейства с засечками. Сохранён исходный выбор Georgia/serif, побочная смена интервала убрана."
+  }
+]

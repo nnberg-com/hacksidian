@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  padding: 1.5em;
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote::before {
+  content: "“";
+  position: absolute;
+  z-index: -1;
+  inset: -.1em auto auto .03em;
+  font: 10em/1 Georgia,serif;
+  opacity: .13;
+  color: var(--interactive-accent);
+  pointer-events: none;
+}
+

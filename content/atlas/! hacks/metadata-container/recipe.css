@@ -1,0 +1,20 @@
+.markdown-source-view.mod-cm6 .metadata-container {
+  container-type: inline-size;
+}
+@container (max-width: 320px) {
+  .markdown-source-view.mod-cm6 .metadata-property {
+    flex-direction: column;
+    gap: 1px;
+    padding-block: 6px;
+  }
+  .markdown-source-view.mod-cm6 .metadata-property-key {
+    flex-basis: auto;
+    width: 100%;
+    max-width: none;
+    min-height: 20px;
+    font-size: calc(var(--font-text-size) * 0.625);
+  }
+  .markdown-source-view.mod-cm6 .metadata-property-value {
+    width: 100%;
+  }
+}

@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding-inline: .1em;
+  background: linear-gradient(to top,var(--text-highlight-bg) 40%,transparent 40%);
+}
+

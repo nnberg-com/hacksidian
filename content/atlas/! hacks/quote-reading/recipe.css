@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  max-inline-size: 48ch;
+  line-height: calc(var(--line-height-normal) * 1.166667);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote p+p, :is(.markdown-preview-view, .markdown-source-view) blockquote .el-p+.el-p > p {
+  margin-block-start: 1.2em;
+}
+

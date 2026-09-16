@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  max-height: 10rem;
+  overflow: auto;
+  scrollbar-color: #ae583e #e8e5da;
+  scrollbar-width: auto;
+}

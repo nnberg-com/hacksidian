@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  font-size: 1.1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) h2:target + ul {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: .5em;
+  background: var(--background-secondary);
+}
+

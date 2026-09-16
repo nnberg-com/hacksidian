@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  counter-reset: chapter;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  counter-increment: chapter;
+  counter-reset: part;
+  font-size: calc(var(--h3-size) * 1.024279);
+  margin-block: 1rem .5rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: counter(chapter) ". ";
+  color: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) h4 {
+  counter-increment: part;
+  font-size: calc(var(--h4-size) * 0.841751);
+  margin: .5rem 0 .5rem 1rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) h4::before {
+  content: counter(chapter) "." counter(part) " ";
+  color: var(--interactive-accent);
+}
+

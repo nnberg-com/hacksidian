@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  color: var(--interactive-accent);
+  text-shadow: .07em .07em var(--text-highlight-bg);
+}
+

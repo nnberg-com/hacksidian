@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  border-left: var(--blockquote-border-thickness) solid var(--background-modifier-border);
+  margin: 0;
+  padding-left: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote a.tag {
+  font-style: italic;
+  color: var(--text-muted);
+}
+

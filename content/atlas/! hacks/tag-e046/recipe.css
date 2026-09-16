@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  display: inline-block;
+  padding: .15em .55em .15em .9em;
+  background: var(--background-secondary);
+  clip-path: polygon(0 50%,.65em 0,100% 0,100% 100%,.65em 100%);
+}
+

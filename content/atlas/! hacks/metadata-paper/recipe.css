@@ -1,0 +1,13 @@
+.markdown-source-view.mod-cm6 {
+  --metadata-label-text-color: var(--text-muted);
+  --metadata-input-font-size: 14px;
+}
+.markdown-source-view.mod-cm6 .metadata-property-icon {
+  display: none;
+}
+.markdown-source-view.mod-cm6 .metadata-property-value {
+  font-family: Georgia, serif;
+}
+.markdown-source-view.mod-cm6 .metadata-properties-heading {
+  font-weight: var(--font-normal);
+}

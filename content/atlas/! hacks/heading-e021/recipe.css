@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  border-inline-start: 5px solid var(--interactive-accent);
+  padding-inline-start: 1rem;
+}

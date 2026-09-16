@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) h2 {
+  scroll-margin-block-start: 6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) h2:target {
+  background: var(--text-highlight-bg);
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: .2em;
+}
+:is(.markdown-preview-view, .markdown-source-view) h2:target + p {
+  background: var(--background-secondary);
+}
+

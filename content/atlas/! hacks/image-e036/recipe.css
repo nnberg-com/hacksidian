@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  background: #e5c480;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  opacity: .55;
+}
+

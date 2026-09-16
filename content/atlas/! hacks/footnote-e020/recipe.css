@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnotes-list {
+  counter-reset: note;
+  list-style: none;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnotes-list > li {
+  counter-increment: note;
+  position: relative;
+  padding-inline-start: 2.6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnotes-list > li::before {
+  content: counter(note);
+  position: absolute;
+  inset-inline-start: 0;
+  inline-size: 1.8em;
+  block-size: 1.8em;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--interactive-accent);
+  border-radius: 50%;
+  font-weight: var(--font-bold);
+}
+

@@ -1,0 +1,27 @@
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  list-style: none;
+  padding: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol > li {
+  position: relative;
+  padding: 0 0 1.4em 1.7em;
+  margin: 0;
+  border-inline-start: 2px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) ol > li::before {
+  content: "";
+  position: absolute;
+  inset: .3em auto auto -.35em;
+  width: .6em;
+  height: .6em;
+  border-radius: 50%;
+  background: var(--interactive-accent);
+}
+:is(.markdown-preview-view, .markdown-source-view) ol > li:last-child {
+  border-color: transparent;
+  padding-block-end: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) li strong {
+  color: var(--interactive-accent);
+}
+

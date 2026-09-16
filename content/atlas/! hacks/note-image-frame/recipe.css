@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--background-primary);
+  padding: .65em;
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: 0 .5em 1.4em #00000012;
+}
+

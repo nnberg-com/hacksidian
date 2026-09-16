@@ -1,0 +1,21 @@
+.markdown-source-view.mod-cm6 .metadata-property:is([data-property-key="author"],[data-property-key="status"]) {
+  display: grid;
+  grid-template-columns: var(--metadata-label-width) minmax(0,1fr);
+}
+.markdown-source-view.mod-cm6 .metadata-property:is([data-property-key="author"],[data-property-key="status"])::before {
+  grid-column: 1 / -1;
+  padding: 9px 5px 5px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+  border-top: 1px solid var(--background-modifier-border);
+}
+.markdown-source-view.mod-cm6 [data-property-key="author"]::before {
+  content: "Источник";
+}
+.markdown-source-view.mod-cm6 [data-property-key="status"]::before {
+  content: "Работа";
+}
+

@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  color: inherit;
+  font-weight: var(--font-semibold);
+  font-size: calc(var(--code-size) * 1.05142857);
+}
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::before, :is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::after {
+  content: "`";
+  color: var(--text-muted);
+}
+

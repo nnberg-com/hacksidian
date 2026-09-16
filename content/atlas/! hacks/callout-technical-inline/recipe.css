@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) .markdown-alert-title, :is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  display: inline;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .markdown-alert-title::after, :is(.markdown-preview-view, .markdown-source-view) .callout-title::after {
+  content: " — ";
+  font-weight: var(--font-normal);
+}
+:is(.markdown-preview-view, .markdown-source-view) .markdown-alert-title svg, :is(.markdown-preview-view, .markdown-source-view) .callout-title svg {
+  display: inline;
+  vertical-align: -.18em;
+  margin-inline-end: .35em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .markdown-alert > p:not(.markdown-alert-title), :is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > p:not(.callout-title), :is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  display: inline;
+  margin: 0;
+}
+

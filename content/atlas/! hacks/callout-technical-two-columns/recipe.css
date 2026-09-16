@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout-content {
+  columns: 12em 2;
+  column-gap: 1.4em;
+  column-rule: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content p {
+  break-inside: avoid;
+}

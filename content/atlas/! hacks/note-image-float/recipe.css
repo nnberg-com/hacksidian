@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: flow-root;
+}
+@container preview (min-width:430px) {
+  :is(.markdown-preview-view, .markdown-source-view) p:has(> img:only-child) {
+    float: left;
+    width: 43%;
+    margin: .2em 1.2em .6em 0;
+  }
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  width: 100%;
+  border-radius: .4em;
+}
+

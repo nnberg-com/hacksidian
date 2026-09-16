@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  max-width: 23ch;
+  line-height: calc(var(--line-height-normal) * 1.333333);
+}
+:is(.markdown-preview-view, .markdown-source-view) a {
+  background: var(--text-highlight-bg);
+  color: var(--text-normal);
+  padding: .12em .35em;
+  border-radius: .45em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  text-decoration: none;
+}
+

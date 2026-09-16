@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 8rem;
+  border-radius: .5em;
+  border: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) li > p:has(img) {
+  margin-inline-start: 1.5em;
+}
+

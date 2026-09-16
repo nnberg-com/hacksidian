@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote>p:first-child::first-line {
+  font-weight: 750;
+  color: var(--interactive-accent);
+}
+

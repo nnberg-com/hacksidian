@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) tbody {
+  counter-reset: row;
+}
+:is(.markdown-preview-view, .markdown-source-view) tbody>tr {
+  counter-increment: row;
+}
+:is(.markdown-preview-view, .markdown-source-view) td:first-child::before {
+  content: counter(row) ". ";
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+

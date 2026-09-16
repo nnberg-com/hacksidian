@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) .cm-line:not(.cm-active) .cm-hashtag {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) .cm-line:not(.cm-active) .cm-hashtag-begin::before {
+  content: "✦ ";
+}
+

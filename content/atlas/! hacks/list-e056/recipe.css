@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .4em .6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:nth-child(even) {
+  background: var(--background-secondary);
+}
+

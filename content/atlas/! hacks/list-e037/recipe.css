@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) li > p + p, :is(.markdown-preview-view, .markdown-source-view) li > .el-p + .el-p > p {
+  font-size: .86em;
+  color: var(--text-muted);
+  margin-block-start: .2em;
+}
+

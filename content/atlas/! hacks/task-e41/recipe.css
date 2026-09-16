@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) li {
+  padding: .6em;
+  border-radius: .4em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:is(:hover,:focus-within) {
+  background: var(--background-secondary);
+  outline: 1px solid var(--background-modifier-border);
+}
+

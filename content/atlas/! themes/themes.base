@@ -1,0 +1,17 @@
+views:
+  - type: table
+    name: Темы
+    filters:
+      and:
+        - file.hasTag("hacksidian_theme")
+    order: [file.name, title, author, downloads, download_rank, community_url]
+    sort:
+      - property: downloads
+        direction: DESC
+  - type: table
+    name: Приёмы темы
+    filters:
+      and:
+        - file.hasTag("hacksidian_technique")
+        - 'list(themes).contains(this.file.name)'
+    order: [file.name, title, category]

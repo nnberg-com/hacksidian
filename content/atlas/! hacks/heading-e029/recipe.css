@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  max-inline-size: 19ch;
+  line-height: calc(var(--h3-line-height) * 1.384615);
+  font-size: calc(var(--h3-size) * 1.289833);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em {
+  background: var(--interactive-accent);
+  color: white;
+  padding: .12em .35em;
+  border-radius: .2em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 em {
+  font-style: normal;
+}
+

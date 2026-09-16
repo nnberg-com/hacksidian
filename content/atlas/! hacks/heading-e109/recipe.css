@@ -1,0 +1,41 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  counter-reset: chapter 3;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  counter-increment: chapter;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: calc(var(--h3-size) * 1.365706);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: counter(chapter,decimal-leading-zero);
+  font-size: 4rem;
+  color: var(--interactive-accent);
+  line-height: 1;
+}
+@container markdown-demo (max-width:350px) {
+  :is(.markdown-preview-view, .markdown-source-view) h3 {
+    display: block;
+    font-size: calc(var(--h3-size) * 1.062215);
+  }
+  :is(.markdown-preview-view, .markdown-source-view) h3::before {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: .5rem;
+  }
+}
+@container markdown-demo (max-width:350px) {
+  :is(.markdown-preview-view, .markdown-source-view) h3 {
+    display: block;
+    font-size: calc(var(--h3-size) * 1.062215);
+  }
+}
+@container markdown-demo (max-width:350px) {
+  :is(.markdown-preview-view, .markdown-source-view) h3::before {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: .5rem;
+  }
+}
+

@@ -1,0 +1,25 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  display: grid;
+  grid-template-columns: 8em minmax(0,1fr);
+  gap: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-title {
+  margin: 0;
+  align-self: start;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-content {
+  border-inline-start: 1px solid var(--background-modifier-border);
+  padding-inline-start: 1em;
+}
+@container preview (max-width:380px) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout {
+    grid-template-columns: 1fr;
+  }
+}
+@container preview (max-width:380px) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout-content {
+    border: 0;
+    padding: 0;
+  }
+}
+

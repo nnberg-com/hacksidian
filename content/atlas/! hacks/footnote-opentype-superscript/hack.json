@@ -1,0 +1,9 @@
+{
+  "format": 2,
+  "target": "g-footnote",
+  "hasCss": true,
+  "requirements": [
+    "Шрифт текста с надстрочными цифрами OpenType sups; режим чтения Obsidian"
+  ],
+  "group": "footnote"
+}

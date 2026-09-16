@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  font-family: Georgia, serif;
+}
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  font-family: Georgia,serif;
+}
+

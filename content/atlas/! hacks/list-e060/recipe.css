@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  columns: 10rem 2;
+  column-gap: 3rem;
+  column-rule: 1px solid var(--background-modifier-border);
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  break-inside: avoid;
+}

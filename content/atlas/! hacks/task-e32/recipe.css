@@ -1,0 +1,17 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  counter-reset: total done;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li {
+  counter-increment: total;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li:has(> input:checked, > p:first-child > input:checked) {
+  counter-increment: total done;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul)::after {
+  content: counter(done) " / " counter(total) " готово";
+  display: block;
+  margin-block-start: 1em;
+  color: var(--color-green);
+  font-weight: var(--font-bold);
+}
+

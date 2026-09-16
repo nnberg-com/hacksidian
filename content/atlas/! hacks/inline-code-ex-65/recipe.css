@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  font-weight: var(--font-bold);
+  color: var(--interactive-accent);
+}
+@supports (background-clip:text) {
+  :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+    background: linear-gradient(90deg,var(--interactive-accent),var(--color-red));
+    background-clip: text;
+    color: transparent;
+  }
+}
+

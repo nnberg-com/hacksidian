@@ -1,0 +1,10 @@
+import { mkdir, readFile, copyFile } from 'node:fs/promises';
+const root = new URL('../', import.meta.url);
+const manifest = JSON.parse(await readFile(new URL('manifest.json', root), 'utf8'));
+const publicManifest = JSON.parse(await readFile(new URL('../manifest.json', root), 'utf8'));
+if (JSON.stringify(manifest) !== JSON.stringify(publicManifest)) throw new Error('Root and plugin manifests must match.');
+if (process.env.GITHUB_REF_TYPE === 'tag' && process.env.GITHUB_REF_NAME !== manifest.version) throw new Error('Tag must equal manifest.version (without v prefix).');
+const out = new URL('../build/release/', root);
+await mkdir(out, { recursive: true });
+for (const [from,to] of [['dist/main.js','main.js'],['dist/styles.css','styles.css'],['manifest.json','manifest.json']]) await copyFile(new URL(from,root),new URL(to,out));
+console.log(`Release ${manifest.version} prepared in ${out.pathname}. Nothing published.`);

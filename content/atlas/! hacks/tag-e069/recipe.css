@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(input:checked) a.tag {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul {
+  padding-left: 1em;
+  list-style: none;
+}

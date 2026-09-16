@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg,#bc7150,#829ab4) 1;
+}
+

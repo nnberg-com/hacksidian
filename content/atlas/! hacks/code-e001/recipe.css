@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  background: #eeede7;
+  border-radius: calc(var(--code-radius) * 2);
+}

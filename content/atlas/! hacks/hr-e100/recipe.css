@@ -1,0 +1,25 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 2px;
+  background: currentColor;
+}
+@supports (animation-timeline:view()) {
+  :is(.markdown-preview-view, .markdown-source-view) hr {
+    animation: hack-hr-e100-hr-e100-hr-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+}
+@keyframes hack-hr-e100-hr-e100-hr-reveal {
+  from {
+    transform: scaleX(.15);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) hr {
+    animation: none;
+  }
+}
+

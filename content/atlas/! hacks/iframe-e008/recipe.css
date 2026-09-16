@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .query-box {
+  container-type: inline-size;
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  height: auto;
+  aspect-ratio: 1;
+}
+@container (min-width: 380px) {
+  :is(.markdown-preview-view, .markdown-source-view) iframe {
+    aspect-ratio: 16 / 9;
+  }
+}

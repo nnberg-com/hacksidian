@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  padding: .1em .3em;
+  background: var(--background-secondary);
+  border-radius: 0;
+}
+

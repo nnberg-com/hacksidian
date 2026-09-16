@@ -1,0 +1,7 @@
+.markdown-source-view.mod-cm6 input[type="number"]:placeholder-shown {
+  background: color-mix(in srgb,var(--color-orange) 14%,transparent);
+}
+.markdown-source-view.mod-cm6 .metadata-property:has(input[type="number"]:placeholder-shown) .metadata-property-key {
+  color: var(--color-orange);
+}
+

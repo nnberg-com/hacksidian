@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  counter-reset: chapter;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  counter-increment: chapter;
+  font-size: calc(var(--h3-size) * 0.986343);
+  margin-block: 1rem;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: counter(chapter,decimal-leading-zero) " / ";
+  color: var(--interactive-accent);
+}
+

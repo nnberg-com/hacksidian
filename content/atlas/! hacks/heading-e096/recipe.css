@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  color: var(--interactive-accent);
+  font-size: calc(var(--h3-size) * 1.820941);
+  filter: drop-shadow(3px 5px 1px #30403555);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3::before {
+  content: "";
+  display: inline-block;
+  width: .3em;
+  height: .3em;
+  border-radius: 50%;
+  background: currentColor;
+  margin-inline-end: .25em;
+}
+

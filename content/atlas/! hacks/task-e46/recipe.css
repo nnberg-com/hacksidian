@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  column-width: 12rem;
+  column-gap: 1.6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  break-inside: avoid;
+  padding-block: .2em;
+}
+

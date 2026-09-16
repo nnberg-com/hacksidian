@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) th {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: calc(var(--table-text-size) * 0.8);
+}
+

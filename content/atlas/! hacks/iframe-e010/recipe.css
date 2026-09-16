@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  display: flow-root;
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  float: left;
+  width: 42%;
+  height: 190px;
+  margin: 0 calc(var(--size-4-1) * 4.5) calc(var(--size-4-1) * 3) 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  margin-top: 0;
+}

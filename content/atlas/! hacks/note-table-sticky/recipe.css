@@ -1,0 +1,20 @@
+:is(.markdown-preview-view, .markdown-source-view) table {
+  display: block;
+  max-block-size: 13em;
+  overflow: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: calc(var(--table-text-size) * 0.9);
+}
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  padding: .6em 1em;
+  border-block-end: var(--table-border-width) solid var(--table-border-color);
+  white-space: nowrap;
+}
+:is(.markdown-preview-view, .markdown-source-view) th {
+  position: sticky;
+  inset-block-start: 0;
+  background: var(--background-secondary);
+  z-index: 1;
+}
+

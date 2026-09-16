@@ -1,0 +1,23 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  --link-color: var(--interactive-accent);
+  --link-color-hover: var(--color-purple);
+  --link-decoration: underline;
+  --link-decoration-hover: underline;
+  --link-decoration-thickness: 1px;
+  --link-weight: 400;
+}
+:is(.markdown-preview-view, .markdown-source-view) a {
+  color: var(--link-color);
+  font-weight: var(--link-weight);
+  text-decoration: var(--link-decoration);
+  text-decoration-thickness: var(--link-decoration-thickness);
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover,:focus-visible) {
+  color: var(--link-color-hover);
+  text-decoration: var(--link-decoration-hover);
+  text-decoration-thickness: var(--link-decoration-thickness);
+}
+:is(.markdown-preview-view, .markdown-source-view) {
+  --link-color-hover: var(--color-purple);
+}
+

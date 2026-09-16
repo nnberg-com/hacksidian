@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) h3 a.tag {
+  font-size: calc(var(--tag-size) * 0.68571429);
+  vertical-align: middle;
+  padding: calc(var(--tag-padding-y) * 0.8) calc(var(--tag-padding-x) * 0.61538462);
+  background: var(--background-secondary);
+  border-radius: var(--radius-s);
+}
+

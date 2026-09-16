@@ -1,0 +1,14 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  display: inline-block;
+  max-width: 18ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+:is(.markdown-preview-view, .markdown-source-view) a.tag:hover, :is(.markdown-preview-view, .markdown-source-view) a.tag:focus-visible {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+

@@ -1,0 +1,11 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag::before {
+  content: "";
+  display: inline-block;
+  width: .45em;
+  height: .45em;
+  border-radius: 50%;
+  background: currentColor;
+  margin-right: .35em;
+  vertical-align: middle;
+}
+

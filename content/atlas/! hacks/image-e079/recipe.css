@@ -1,0 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg,transparent 25%,#fff7 50%,transparent 75%);
+  transform: translateX(-120%);
+  transition: transform .7s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:hover::after, :is(.markdown-preview-view, .markdown-source-view) a:focus-visible::after {
+  transform: translateX(120%);
+}
+

@@ -1,5 +1,9 @@
 import type { ru } from "./ru";
 export const en: Record<keyof typeof ru, string> = {
+  "content.heading": "Atlas and playground",
+  "content.description": "Atlas and playground are linked to this local repository. Editing them changes the repository files immediately.",
+  "content.atlas": "Atlas folder",
+
   "catalog.theme_instruction": "Open the theme card and its Obsidian Community page. Install manually: Settings → Appearance → Themes → Manage. A theme changes appearance across the vault.",
   "catalog.theme_community": "Theme on Obsidian Community",
   "catalog.related_themes": "Also explore the themes linked by this technique’s sources for their broader appearance and features:",

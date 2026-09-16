@@ -1,0 +1,9 @@
+@supports (background-clip:text) {
+  :is(.markdown-preview-view, .markdown-source-view) a {
+    background: linear-gradient(90deg,var(--interactive-accent),var(--color-purple));
+    background-clip: text;
+    color: transparent;
+    text-decoration-color: var(--interactive-accent);
+  }
+}
+

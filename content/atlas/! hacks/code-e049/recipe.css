@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) p:has(+ pre), :is(.markdown-preview-view, .markdown-source-view) .el-p:has(+ .el-pre) > p {
+  font-size: calc(var(--font-text-size) * 0.75);
+  color: #63735c;
+  margin-bottom: calc(var(--size-4-1) * 2);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  margin-top: 0;
+}
+

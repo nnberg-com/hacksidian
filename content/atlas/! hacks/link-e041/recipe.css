@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) a {
+  text-decoration: none;
+  background: linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;
+  transition: background-size .3s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:is(:hover, :focus-visible) {
+  background-size: 100% 2px;
+}
+

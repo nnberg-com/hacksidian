@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) tbody tr:nth-child(even)>td {
+  background: var(--background-secondary);
+}
+:is(.markdown-preview-view, .markdown-source-view) td {
+  border: 0;
+}
+

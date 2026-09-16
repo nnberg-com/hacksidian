@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) th, :is(.markdown-preview-view, .markdown-source-view) td {
+  padding: .25em .5em;
+  line-height: calc(var(--table-line-height) * 1.00000038);
+}
+

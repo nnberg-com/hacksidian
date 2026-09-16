@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a:link {
+  color: #245f92;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:visited {
+  color: #81508c;
+}

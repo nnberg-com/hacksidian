@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) th:not(:first-child) {
+  writing-mode: vertical-rl;
+  height: 8rem;
+  text-align: start;
+  padding: 1em .6em;
+}
+:is(.markdown-preview-view, .markdown-source-view) td:not(:first-child) {
+  text-align: center;
+}
+

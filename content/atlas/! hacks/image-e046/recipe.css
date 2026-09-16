@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  clip-path: polygon(20px 0,calc(100% - 20px) 0,100% 20px,100% calc(100% - 20px),calc(100% - 20px) 100%,20px 100%,0 calc(100% - 20px),0 20px);
+}
+

@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) p {
+  max-width: 21ch;
+}
+:is(.markdown-preview-view, .markdown-source-view) a strong:last-child {
+  white-space: nowrap;
+  font-weight: inherit;
+}
+:is(.markdown-preview-view, .markdown-source-view) a strong:last-child::after {
+  content: " ↗";
+}

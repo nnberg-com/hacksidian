@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  --hack-heading-e047-texture: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iMTYwIj48ZmlsdGVyIGlkPSJncmFpbiI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9Ii4wNTUiIG51bU9jdGF2ZXM9IjQiIHNlZWQ9IjYiLz48ZmVDb2xvck1hdHJpeCB0eXBlPSJzYXR1cmF0ZSIgdmFsdWVzPSIwIi8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIG1vZGU9Im11bHRpcGx5Ii8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxNjAiIGZpbGw9IiNiNDY5MzMiLz48cGF0aCBkPSJNLTQwIDEzMEwyNjAgMTVNLTIwIDE4MEwyODAgNjUiIHN0cm9rZT0iIzI5NGY0YiIgc3Ryb2tlLXdpZHRoPSI0MCIvPjxyZWN0IHdpZHRoPSIyNDAiIGhlaWdodD0iMTYwIiBmaWxsPSIjYmRhNDYyIiBvcGFjaXR5PSIuNjUiIGZpbHRlcj0idXJsKCNncmFpbikiLz48L3N2Zz4=");
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 {
+  font-size: calc(var(--h3-size) * 2.579666);
+  font-weight: 900;
+  color: var(--interactive-accent);
+}
+@supports (background-clip:text) {
+  :is(.markdown-preview-view, .markdown-source-view) h3 {
+    background: var(--hack-heading-e047-texture) center/240px 160px;
+    background-clip: text;
+    color: transparent;
+  }
+}
+

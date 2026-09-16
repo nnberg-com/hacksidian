@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a {
+  position: relative;
+}
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a::after {
+  content: "";
+  position: absolute;
+  inset: -.55em -.35em;
+}
+

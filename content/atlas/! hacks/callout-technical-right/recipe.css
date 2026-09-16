@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  border: 0;
+  border-inline-end: 4px solid var(--callout-color);
+  border-radius: 0;
+}

@@ -1,0 +1,9 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  max-height: 7rem;
+  overflow: auto;
+}
+@media (hover: hover) {
+  :is(.markdown-preview-view, .markdown-source-view) pre:hover {
+    max-height: 24rem;
+  }
+}

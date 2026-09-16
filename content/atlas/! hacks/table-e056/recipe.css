@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  display: block;
+  width: 70px;
+  height: 48px;
+  object-fit: cover;
+}
+:is(.markdown-preview-view, .markdown-source-view) img[alt="Оранжевый образец"] {
+  outline: 3px solid var(--interactive-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-s);
+}
+

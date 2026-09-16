@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code.language-python) {
+  border-left: 4px solid #3572a5;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code.language-css) {
+  border-left: 4px solid #8a57ac;
+}
+

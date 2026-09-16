@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote:has(a[href^="https://example.org/"]) {
+  border-inline-start: 5px solid var(--interactive-accent);
+  background: var(--background-secondary);
+  padding: 1em;
+}
+

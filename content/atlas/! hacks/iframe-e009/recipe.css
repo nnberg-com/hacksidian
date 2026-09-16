@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .prose-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 32ch) 1fr;
+  gap: calc(var(--size-4-1) * 3.5) 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) p {
+  grid-column: 2;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  grid-column: 1 / -1;
+}

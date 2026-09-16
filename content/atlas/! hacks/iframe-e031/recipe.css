@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  filter: grayscale(1);
+  opacity: .72;
+  transition: filter .25s, opacity .25s;
+}
+:is(.markdown-preview-view, .markdown-source-view) .reveal:is(:hover, :focus-within) iframe {
+  filter: none;
+  opacity: 1;
+}
+@media (hover: none) {
+  :is(.markdown-preview-view, .markdown-source-view) iframe {
+    filter: none;
+    opacity: 1;
+  }
+}
+

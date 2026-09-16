@@ -1,0 +1,34 @@
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  height: 230px;
+}
+:is(.markdown-preview-view, .markdown-source-view) .supported {
+  display: none;
+}
+@supports (frame-sizing: content-block-size) {
+  :is(.markdown-preview-view, .markdown-source-view) iframe {
+    height: auto;
+    frame-sizing: content-block-size;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) .unsupported {
+    display: none;
+  }
+  :is(.markdown-preview-view, .markdown-source-view) .supported {
+    display: block;
+  }
+}
+@supports (frame-sizing: content-block-size) {
+  :is(.markdown-preview-view, .markdown-source-view) iframe {
+    height: auto;
+    frame-sizing: content-block-size;
+  }
+}
+@supports (frame-sizing: content-block-size) {
+  :is(.markdown-preview-view, .markdown-source-view) .unsupported {
+    display: none;
+  }
+}
+@supports (frame-sizing: content-block-size) {
+  :is(.markdown-preview-view, .markdown-source-view) .supported {
+    display: block;
+  }
+}

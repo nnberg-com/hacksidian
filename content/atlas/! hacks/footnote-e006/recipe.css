@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a {
+  display: inline-grid;
+  place-items: center;
+  min-inline-size: 2em;
+  min-block-size: 2em;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  text-decoration: none;
+  line-height: 1;
+}

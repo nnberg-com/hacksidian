@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) a[title="Исполнитель"] {
+  display: block;
+  margin-inline-start: 1.5em;
+  font-size: .82em;
+  font-weight: 650;
+  text-decoration: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) a[title="Исполнитель"]::before {
+  content: "Ответственный: ";
+  font-weight: var(--font-normal);
+  color: var(--text-muted);
+}
+

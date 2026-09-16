@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-ref a {
+  font-family: var(--font-monospace);
+  font-variant-numeric: tabular-nums;
+}

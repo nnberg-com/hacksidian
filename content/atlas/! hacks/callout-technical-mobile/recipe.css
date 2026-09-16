@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  padding: 1.5em;
+}
+@container preview (max-width:340px) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout {
+    padding: .75em;
+  }
+}
+@container preview (max-width:340px) {
+  :is(.markdown-preview-view, .markdown-source-view) .callout-title {
+    gap: .35em;
+    font-size: .95em;
+  }
+}
+

@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  padding: calc(var(--tag-padding-y) * 0.6) calc(var(--tag-padding-x) * 0.92307692);
+  background-color: var(--background-secondary);
+  background-image: radial-gradient(var(--background-modifier-border) 1px,transparent 1px);
+  background-size: 5px 5px;
+}
+

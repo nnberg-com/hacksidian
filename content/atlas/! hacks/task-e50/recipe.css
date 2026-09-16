@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  max-inline-size: 32ch;
+}
+:is(.markdown-preview-view, .markdown-source-view) li {
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,6 @@
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="tags"] .multi-select-container {
+  max-height: 100px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+

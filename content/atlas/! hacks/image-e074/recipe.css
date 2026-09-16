@@ -1,0 +1,10 @@
+:is(.markdown-preview-view, .markdown-source-view) img {
+  width: 90%;
+  transform: rotate(-3deg);
+  transition: transform .3s,box-shadow .3s;
+}
+:is(.markdown-preview-view, .markdown-source-view) a:hover img, :is(.markdown-preview-view, .markdown-source-view) a:focus-visible img {
+  transform: rotate(0) translateY(-5px);
+  box-shadow: 0 12px 20px #0004;
+}
+

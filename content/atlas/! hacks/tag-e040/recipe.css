@@ -1,0 +1,7 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag {
+  background: linear-gradient(90deg,var(--interactive-accent),var(--color-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+

@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  text-shadow: 0 0 .35em var(--interactive-accent), 0 0 .8em var(--color-pink);
+}
+:is(.markdown-preview-view, .markdown-source-view) strong {
+  color: var(--text-normal);
+  text-shadow: 0 0 .35em var(--interactive-accent),0 0 .8em var(--color-pink);
+}
+

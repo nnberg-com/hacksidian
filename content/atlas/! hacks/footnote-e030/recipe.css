@@ -1,0 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+  background: var(--background-secondary);
+  animation: hack-footnote-e030-footnote-e030-fade-e030 1s 5s forwards;
+}
+@keyframes hack-footnote-e030-footnote-e030-fade-e030 {
+  to {
+    background: transparent;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) .footnote-item:target {
+    animation: none;
+  }
+}
+

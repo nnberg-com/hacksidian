@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  height: 2px;
+  background: repeating-linear-gradient(90deg,currentColor 0 8px,transparent 8px 14px);
+  animation: hack-hr-e095-hr-e095-hr-dashes 1.8s linear infinite;
+}
+@keyframes hack-hr-e095-hr-e095-hr-dashes {
+  to {
+    background-position: 14px 0;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) hr {
+    animation: none;
+  }
+}
+

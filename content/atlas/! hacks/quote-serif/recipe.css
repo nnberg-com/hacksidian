@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote {
+  font-family: Georgia,serif;
+  font-size: 1.12em;
+  line-height: calc(var(--line-height-normal) * 1.1);
+}
+

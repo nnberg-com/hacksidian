@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) a[href$=".zip"]::before {
+  content: "ZIP · ";
+  font-size: .85em;
+  font-weight: var(--font-bold);
+}
+

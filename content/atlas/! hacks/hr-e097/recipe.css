@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  width: 40%;
+  border-top: 1px solid currentColor;
+  animation: hack-hr-e097-hr-e097-hr-breathe 4s ease-in-out infinite alternate;
+}
+@keyframes hack-hr-e097-hr-e097-hr-breathe {
+  from {
+    opacity: .25;
+  }
+  to {
+    opacity: .8;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  :is(.markdown-preview-view, .markdown-source-view) hr {
+    animation: none;
+  }
+}
+

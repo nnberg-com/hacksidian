@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) .tint {
+  background: #d9b5a1;
+  isolation: isolate;
+}
+:is(.markdown-preview-view, .markdown-source-view) iframe {
+  filter: grayscale(1);
+  mix-blend-mode: multiply;
+}

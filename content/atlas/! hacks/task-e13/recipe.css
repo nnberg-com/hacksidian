@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) {
+  text-decoration: line-through;
+  text-decoration-color: var(--interactive-accent);
+}
+

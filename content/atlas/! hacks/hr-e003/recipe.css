@@ -1,0 +1,5 @@
+:is(.markdown-preview-view, .markdown-source-view) hr {
+  border-top: 1px solid currentColor;
+  opacity: .3;
+}
+

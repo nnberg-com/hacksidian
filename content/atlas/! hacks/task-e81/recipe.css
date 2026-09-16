@@ -1,0 +1,19 @@
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  counter-reset: hiddenDone;
+}
+:is(.markdown-preview-view, .markdown-source-view) li:has(> input:checked, > p:first-child > input:checked) {
+  counter-increment: hiddenDone;
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+:is(.markdown-preview-view, .markdown-source-view) ul:not(li ul)::after {
+  content: "Скрыто завершённых: " counter(hiddenDone);
+  display: block;
+  margin-block-start: 1em;
+  color: var(--text-muted);
+  font-size: .85em;
+}
+

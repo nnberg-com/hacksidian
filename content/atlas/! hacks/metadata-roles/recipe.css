@@ -1,0 +1,14 @@
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="status"] {
+  border-left: 3px solid var(--color-orange);
+}
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="deadline"] {
+  border-left: 3px solid var(--color-blue);
+}
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="internal_id"] .metadata-property-value {
+  font-family: var(--font-monospace);
+}
+.markdown-source-view.mod-cm6 .metadata-property[data-property-key="cost"] input {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+

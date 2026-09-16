@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  counter-reset: snippet;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  counter-increment: snippet;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre::before {
+  content: "Пример " counter(snippet, decimal-leading-zero);
+  display: block;
+  font: 600 11px/1.5 system-ui;
+  color: #8b533f;
+  margin-bottom: calc(var(--size-4-1) * 2.5);
+}

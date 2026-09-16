@@ -1,0 +1,4 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  border: 0;
+  background: var(--background-secondary);
+}

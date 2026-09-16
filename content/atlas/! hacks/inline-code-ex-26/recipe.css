@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  text-decoration: underline var(--interactive-accent);
+  text-decoration-skip-ink: none;
+  text-underline-offset: .08em;
+}
+

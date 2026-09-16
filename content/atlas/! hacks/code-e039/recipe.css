@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  position: relative;
+  background: #f4edce;
+  padding-top: calc(var(--size-4-1) * 8);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 13px solid;
+  border-color: #fffef9 #fffef9 #d5c99d #d5c99d;
+}

@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) ul ul {
+  border-inline-start: 1px solid var(--background-modifier-border);
+  margin-inline-start: .1em;
+  padding-inline-start: 1.3em;
+}
+

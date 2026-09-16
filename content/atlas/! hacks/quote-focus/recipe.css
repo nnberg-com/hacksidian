@@ -1,0 +1,8 @@
+:is(.markdown-preview-view, .markdown-source-view) blockquote:focus-within {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 4px;
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote a:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}

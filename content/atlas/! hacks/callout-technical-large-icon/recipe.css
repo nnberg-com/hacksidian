@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  position: relative;
+  padding-inline-start: 4.5em;
+  min-height: 7em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout-icon {
+  position: absolute;
+  inset: 1em auto auto .7em;
+  width: 2.5em;
+  height: 2.5em;
+}
+
