@@ -20,3 +20,7 @@ openspec new change short-change-name
 CLI уже установлен в системе. Для другой машины: `npm install -g @fission-ai/openspec` — см. [официальную установку](https://openspec.dev/docs/installation).
 
 Проект инициализирован с `--tools none`: используются обычные файлы и CLI, без генерации дополнительных команд и skills в `.codex`. Фиксация требований не означает разрешение начать реализацию или публикацию.
+
+Отложенная возможность: [поиск приёмов по скриншоту](changes/find-atlas-techniques-from-screenshot/proposal.md).
+
+[Возможности API на будущее: Batch и кэширование](../docs/future-api-options.md).

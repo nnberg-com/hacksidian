@@ -39,8 +39,13 @@ export function parsePricing(provider: ProviderId, model: string, text: string, 
     const input = row(section, 'Input'), cached = row(section, 'Cached input'), output = row(section, 'Output');
     prices = { input: money(input[1]), cached: money(cached[1]), output: money(output[1]) };
     if (provider === 'openai') {
-      const tier = section.match(/>\s*([\d,]+)K input tokens.*?(\d+(?:\.\d+)?)x input and (\d+(?:\.\d+)?)x output/);
+      const tier = section.match(/(?:>|more than)\s*([\d,]+)K input tokens[^\n]*?(\d+(?:\.\d+)?)x input(?: and cache rates)? and (\d+(?:\.\d+)?)x output/i);
       if (tier) highContext = { threshold: Number(tier[1].replaceAll(',', '')) * 1000 + 1, input: prices.input * Number(tier[2]), cached: prices.cached * Number(tier[2]), output: prices.output * Number(tier[3]) };
+      const cacheWriteRow = section.split('\n').find(line => /^\|\s*Cache writes\s*\|/.test(line));
+      if (cacheWriteRow) {
+        prices.cacheWrite = money(cacheWriteRow.split('|')[2]);
+        if (highContext) highContext.cacheWrite = prices.cacheWrite * Number(tier![2]);
+      }
       const write = section.match(/Cache writes are billed at ([\d.]+)x/);
       if (write) {
         prices.cacheWrite = prices.input * Number(write[1]);

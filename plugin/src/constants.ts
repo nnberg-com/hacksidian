@@ -13,7 +13,6 @@ export const DEFAULT_SETTINGS: CallMeRedSettings = {
   sendScreenshot: false,
   atlasFolder: "Hacksidian/atlas",
   globalVariablesFile: "",
-  spendLimitUsd: 0,
   apiKey: "",
   model: "gpt-5.6-terra",
   inputPricePerMillion: 2,

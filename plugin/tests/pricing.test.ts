@@ -51,3 +51,20 @@ it('fetches without API credentials, caches only matching fresh quotes and suppo
  requestUrl.mockResolvedValue({status:503,text:''});
  await expect(loadPricing('openai','gpt-5.6-terra',{...quote,fetchedAt:'2000-01-01'})).rejects.toThrow('503');
 });
+
+// Official model-page excerpts fetched on 2026-09-17, before ## Endpoints.
+it.each([
+ ['gpt-5.6-terra', 2, .2, 12],
+ ['gpt-5.6-luna', .2, .02, 1.2],
+ ['gpt-5.6-sol', 4, .4, 20],
+ ['gpt-6-astra', 10, 1, 50],
+] as const)('loads current official pricing for %s', async (model, input, cached, output) => {
+ requestUrl.mockResolvedValue({status:200,text:fixture(`${model}.md`)});
+ const quote=await loadPricing('openai',model,undefined,true);
+ expect(quote).toMatchObject({input,cached,output,highContext:{threshold:272001,input:input*2,cached:cached*2,output:output*1.5}});
+ if(model==='gpt-6-astra') {
+  expect(quote.cacheWrite).toBe(12.5);
+  expect(quote.highContext?.cacheWrite).toBe(25);
+  expect(calculateUsage({input_tokens:1000,output_tokens:0,input_tokens_details:{cache_write_tokens:1000}},{...DEFAULT_SETTINGS,model,pricing:quote}).estimatedCostUsd).toBe(.0125);
+ }
+});

@@ -102,11 +102,6 @@ export class CallMeRedSettingTab extends PluginSettingTab {
       }));
 
     containerEl.createEl("h3", { text: t("settings.cost_estimate") });
-    new Setting(containerEl).setName(t("ledger.limit")).setDesc(t("ledger.limit_description"))
-      .addText(input => input.setValue(String(this.plugin.settings.spendLimitUsd)).onChange(async value => {
-        const amount = Number(value);
-        if (value.trim() && Number.isFinite(amount) && amount >= 0) { this.plugin.settings.spendLimitUsd = amount; await this.plugin.savePluginData(); }
-      }));
     containerEl.createDiv({ text: t("ledger.history_note"), cls: "setting-item-description" });
     const ledger = containerEl.createEl("details");
     ledger.createEl("summary", { text: t("ledger.recent") });

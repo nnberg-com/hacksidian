@@ -82,7 +82,6 @@ export interface CallMeRedSettings {
   customModel: boolean;
   autoPricing: boolean;
   pricing?: PricingQuote;
-  spendLimitUsd: number;
   sendScreenshot: boolean;
   apiKey: string;
   model: string;

@@ -205,6 +205,8 @@ export default class CallMeRedPlugin extends Plugin {
     this.catalog = data?.catalog ?? { garbage: [] };
     this.catalog.garbage ??= [];
     this.settings = { ...structuredClone(DEFAULT_SETTINGS), ...(data?.settings ?? {}) };
+    // Discard the retired local limit; billing restrictions belong to the API administrator.
+    delete (this.settings as unknown as Record<string, unknown>).spendLimitUsd;
     if (!this.settings.globalVariablesFile) this.settings.globalVariablesFile = `${this.app.vault.configDir}/snippets/hacksidian-00-palette.css`;
     if (!["auto", "ru", "en"].includes(this.settings.interfaceLanguage)) this.settings.interfaceLanguage = "auto";
     if (!["auto", "ru", "en"].includes(this.settings.contentLanguage)) this.settings.contentLanguage = "auto";
@@ -404,8 +406,6 @@ export default class CallMeRedPlugin extends Plugin {
     const catalog = this.catalog.active;
     if (!catalog) throw new Error(t('catalog.missing'));
     const requestSettings = structuredClone(this.settings);
-    const spending = summarizeAttempts(this.apiAttempts);
-    if (requestSettings.spendLimitUsd > 0 && (spending.unknownCount > 0 || spending.knownCostUsd >= requestSettings.spendLimitUsd)) throw new Error(t('ledger.limit_reached'));
     if (requestSettings.autoPricing) {
       try {
         requestSettings.pricing = await loadPricing('openai', requestSettings.model, requestSettings.pricing);

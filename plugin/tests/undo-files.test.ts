@@ -151,24 +151,29 @@ test('installed recipe cannot be reapplied; disable and enable preserve the othe
  expect(await plugin.applyCurrentHack(hack.path)).toBe(false);
 });
 
-test('paid failures are tracked and enforce the spending limit until history is cleared',async()=>{
+test.each([0.1, null])('cost %s is recorded but never blocks subsequent requests',async cost=>{
  const plugin=await setup();
  plugin.settings.autoPricing=false;plugin.settings.sendScreenshot=false;
  vi.spyOn(plugin,'getCurrentColoringContext').mockResolvedValue({file:{path:'test.md'},view:{getMode:()=> 'preview',containerEl:{}},markdown:'test'} as any);
  vi.spyOn(plugin,'getCompatibleFonts').mockResolvedValue({families:['Arial']} as any);
  vi.spyOn(plugin as any,'getColoringFiles').mockReturnValue([]);
  const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockImplementation(async request=>{
-   expect(state.data.apiAttempts[0].status).toBe('pending');
-   await request.onUsage!({inputTokens:100,cachedInputTokens:0,outputTokens:10,totalTokens:110,estimatedCostUsd:0.1},'paid-failure');
-   expect(state.data.apiAttempts[0].usage.estimatedCostUsd).toBe(0.1);
+   expect(state.data.apiAttempts.at(-1).status).toBe('pending');
+   await request.onUsage!({inputTokens:100,cachedInputTokens:0,outputTokens:10,totalTokens:110,estimatedCostUsd:cost},'paid-failure');
+   expect(state.data.apiAttempts.at(-1).usage.estimatedCostUsd).toBe(cost);
    throw new Error('Invalid paid CSS');
  });
  await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('Invalid paid CSS');
- expect(plugin.state.turns).toHaveLength(0);expect(plugin.totalUsage().estimatedCostUsd).toBe(0.1);
+ expect(plugin.state.turns).toHaveLength(0);expect(plugin.totalUsage().estimatedCostUsd).toBe(cost);
  expect(state.data.apiAttempts[0].status).toBe('failed');
- await plugin.loadPluginData();expect(plugin.totalUsage().estimatedCostUsd).toBe(0.1);
- plugin.settings.spendLimitUsd=0.05;create.mockClear();
- await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('Лимит');expect(create).not.toHaveBeenCalled();
+ await plugin.loadPluginData();expect(plugin.totalUsage().estimatedCostUsd).toBe(cost);
+ state.data.settings.spendLimitUsd=0.05;
+ await plugin.loadPluginData();await plugin.savePluginData();
+ expect(state.data.settings).not.toHaveProperty('spendLimitUsd');
+ create.mockClear();
+ await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('Invalid paid CSS');expect(create).toHaveBeenCalledOnce();
+ expect(plugin.apiAttempts).toHaveLength(2);
+ create.mockClear();
  await plugin.clearHistory();await plugin.loadPluginData();expect(plugin.apiAttempts).toEqual([]);expect(plugin.totalUsage().estimatedCostUsd).toBe(0);
  await expect(plugin.processFeedback('test',()=>{})).rejects.toThrow('Invalid paid CSS');expect(create).toHaveBeenCalledOnce();
  create.mockRestore();

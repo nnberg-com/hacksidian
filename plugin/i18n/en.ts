@@ -47,9 +47,6 @@ export const en: Record<keyof typeof ru, string> = {
   "ledger.interrupted": "interrupted",
   "ledger.tokens": "Input: {p0} · cached: {p1} · output: {p2}",
 
-  "ledger.limit_reached": "Spending threshold reached or some attempts have unknown cost. Check the spending ledger and threshold setting.",
-  "ledger.limit": "Spending threshold, USD",
-  "ledger.limit_description": "0 means unlimited. Counts all saved API attempts. New requests stop after reaching the threshold or when cost is unknown. The last request may exceed the threshold.",
   "ledger.summary": "API attempts: {p0} · known costs ≈ ${p1}",
   "ledger.history_note": "Clearing history also removes the API request and spending ledger. The spending limit is counted from the last reset.",
   "capture.switch_the_document_to_reading_view_before": "Switch the document to Reading view before taking a screenshot.",
