@@ -23,4 +23,6 @@ CLI уже установлен в системе. Для другой маши�
 
 Отложенная возможность: [поиск приёмов по скриншоту](changes/find-atlas-techniques-from-screenshot/proposal.md).
 
+Отложенная продуктовая проблема: [«Текстовые системы» нарушают соответствие «одна категория — одна страница в песочнице — один CSS»](changes/resolve-text-systems-category-mapping/proposal.md). Решение не выбрано.
+
 [Возможности API на будущее: Batch и кэширование](../docs/future-api-options.md).

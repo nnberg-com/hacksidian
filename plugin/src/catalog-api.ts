@@ -1,6 +1,6 @@
 import { requestUrl } from 'obsidian';
 import { t } from '../i18n';
-import type { CatalogResources, CatalogState, CatalogSnapshot, buildCatalog } from './catalog';
+import { digest, type CatalogDocument, type CatalogState, type CatalogSnapshot, type buildCatalog } from './catalog';
 
 export class CatalogApi {
   constructor(private key: string) {}
@@ -24,74 +24,133 @@ export class CatalogApi {
   }
 }
 
-// All created resources are journaled before the next mutation. The active
-// snapshot changes only after every file has finished indexing.
-export async function syncCatalog(api: CatalogApi, state: CatalogState, catalog: ReturnType<typeof buildCatalog>, save: () => Promise<void>, progress: (done: number, total: number) => void): Promise<CatalogSnapshot> {
-  if (state.pending) { state.garbage.push(state.pending); delete state.pending; await save(); }
-  await cleanCatalogGarbage(api, state, save);
-  if (state.active?.revision === catalog.revision) {
-    try {
-      const remote = await api.json(`/vector_stores/${state.active.storeId}`);
-      if (remote.status === 'completed') return state.active;
-    } catch (error) { if ((error as {status?:number}).status !== 404) throw error; }
-  }
-  const store = await api.json('/vector_stores', 'POST', { name: `Hacksidian ${catalog.revision.slice(0,12)}`, expires_after: { anchor: 'last_active_at', days: 30 } });
-  if (!store.id) throw new Error('OpenAI: missing vector store ID');
-  state.pending = { storeId: store.id, fileIds: [] }; await save();
-  const previous = state.active;
-  const documents = catalog.documents.map(doc => ({ ...doc }));
-  try {
-    let done = 0;
-    for (let start = 0; start < documents.length; start += 4) {
-      // Wait for every in-flight upload even after failure so none escape the journal.
-      const results = await Promise.allSettled(documents.slice(start, start + 4).map(async doc => {
-        const reused = previous?.documents.find(old => old.name === doc.name && old.hash === doc.hash);
-        doc.fileId = reused?.fileId ?? await api.upload(doc.name, doc.text);
-        if (!reused?.fileId) { state.pending!.fileIds.push(doc.fileId!); await save(); }
-        progress(++done, documents.length);
-      }));
-      const failure = results.find(result => result.status === 'rejected');
-      if (failure?.status === 'rejected') throw failure.reason;
-    }
-    // Vector Store file batches accept at most 500 files.
-    // Keep the previous snapshot active until every batch succeeds.
-    for (let start = 0; start < documents.length; start += 500) {
-      const batch = await api.json(`/vector_stores/${store.id}/file_batches`, 'POST', { file_ids: documents.slice(start, start + 500).map(doc => doc.fileId) });
-      if (!batch.id) throw new Error('OpenAI: missing indexing batch ID');
-      let status = batch;
-      const deadline = Date.now() + 10 * 60_000;
-      while (status.status === 'in_progress') {
-        if (Date.now() > deadline) throw new Error(t('catalog.timeout'));
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        status = await api.json(`/vector_stores/${store.id}/file_batches/${batch.id}`);
-      }
-      if (status.status !== 'completed' || status.file_counts?.failed || status.file_counts?.cancelled) throw new Error(t('catalog.index_failed'));
-    }
-    const snapshot: CatalogSnapshot = { ...catalog, documents, storeId: store.id, createdAt: new Date().toISOString() };
-    if (previous) state.garbage.push({ storeId: previous.storeId, fileIds: previous.documents.filter(old => !documents.some(doc => doc.fileId === old.fileId)).map(doc => doc.fileId!) });
-    state.active = snapshot; delete state.pending;
-    try { await save(); } catch (error) { state.active = previous; state.pending = { storeId: store.id, fileIds: documents.filter(doc => !previous?.documents.some(old => old.fileId === doc.fileId)).map(doc => doc.fileId!) }; state.garbage = state.garbage.filter(item => item.storeId !== previous?.storeId); throw error; }
-    await cleanCatalogGarbage(api, state, save);
-    return snapshot;
-  } catch (error) {
-    // Keep the journal for retry/cleanup, and keep the previous working snapshot.
-    await save();
-    throw error;
+export interface StoreChoice { id: string; name: string }
+export interface SyncOptions {
+  chooseStore?: (stores: StoreChoice[]) => Promise<string>;
+  status?: (message: string) => void;
+}
+async function listAll(api: CatalogApi, endpoint: string): Promise<any[]> {
+  const rows: any[] = [];
+  let after = '';
+  const seen = new Set<string>();
+  for (;;) {
+    const page = await api.json(`${endpoint}?limit=100${after ? `&after=${encodeURIComponent(after)}` : ''}`);
+    if (!Array.isArray(page.data)) throw new Error('OpenAI: invalid list response');
+    rows.push(...page.data);
+    if (!page.has_more) return rows;
+    after = page.last_id;
+    if (!after || seen.has(after)) throw new Error('OpenAI: invalid pagination');
+    seen.add(after);
   }
 }
+const attributes = (doc: CatalogDocument) => ({ hs_format: '1', hs_entry: doc.entryId!, hs_hash: doc.hash, hs_name: doc.name });
 
-export async function cleanCatalogGarbage(api: CatalogApi, state: CatalogState, save: () => Promise<void>): Promise<void> {
-  for (const resource of [...state.garbage]) {
-    try {
-      if (resource.storeId === state.active?.storeId) continue;
-      await api.json(`/vector_stores/${resource.storeId}`, 'DELETE');
-      const obsolete = resource.fileIds.filter(id => !state.active?.documents.some(doc => doc.fileId === id));
-      for (let start = 0; start < obsolete.length; start += 4) {
-        const results = await Promise.allSettled(obsolete.slice(start, start + 4).map(id => api.json(`/files/${id}`, 'DELETE')));
-        const failure = results.find(result => result.status === 'rejected');
-        if (failure?.status === 'rejected') throw failure.reason;
-      }
-      state.garbage.splice(state.garbage.indexOf(resource), 1); await save();
-    } catch { /* Persisted garbage is retried next update; never lose resource IDs. */ }
+// Remote inventory is authoritative: local snapshots may be absent or stale.
+// Never delete global Files: an older installation may share them with another store.
+export async function syncCatalog(api: CatalogApi, state: CatalogState, catalog: ReturnType<typeof buildCatalog>, save: () => Promise<void>, progress: (done: number, total: number) => void, options: SyncOptions = {}): Promise<CatalogSnapshot> {
+  options.status?.(t('catalog.discovering'));
+  let store: any;
+  const known = state.sync?.storeId ?? state.active?.storeId ?? state.pending?.storeId;
+  if (known) {
+    try { store = await api.json(`/vector_stores/${known}`); }
+    catch (error) { if ((error as {status?:number}).status !== 404) throw error; }
+    if (store?.status === 'expired') store = undefined;
   }
+  if (!store) {
+    const stores = (await listAll(api, '/vector_stores')).filter(s => s.status !== 'expired' &&
+      (s.metadata?.hacksidian === 'catalog-v1' || /^Hacksidian(?: [a-f0-9]{12})?$/.test(s.name ?? '')));
+    if (stores.length > 1) {
+      if (!options.chooseStore) throw new Error(t('catalog.choose_store'));
+      const id = await options.chooseStore(stores);
+      store = stores.find(s => s.id === id);
+      if (!store) throw new Error(t('catalog.selection_cancelled'));
+    } else store = stores[0];
+  }
+  if (!store) store = await api.json('/vector_stores', 'POST', { name: 'Hacksidian', metadata: { hacksidian: 'catalog-v1' } });
+  if (!store?.id) throw new Error('OpenAI: missing vector store ID');
+  const base = `/vector_stores/${store.id}`;
+  // Save selection before any uploads. A failed update blocks search until retried.
+  if (state.sync?.storeId !== store.id) state.sync = { storeId: store.id, documents: [] };
+  await save();
+  const remote = await listAll(api, `${base}/files`);
+  const inventory: Array<{ file: any; doc: CatalogDocument; tagged: boolean }> = [];
+  options.status?.(t('catalog.comparing'));
+  for (const file of remote) {
+    const a = file.attributes;
+    let doc: CatalogDocument | undefined;
+    let tagged = false;
+    if (a?.hs_format === '1' && typeof a.hs_entry === 'string' && /^[a-f0-9]{64}$/.test(a.hs_hash) && typeof a.hs_name === 'string') {
+      doc = { entryId: a.hs_entry, hash: a.hs_hash, name: a.hs_name, text: '', fileId: file.id };
+      tagged = true;
+    } else {
+      // Files with purpose=assistants cannot be downloaded through Files content.
+      // Read the indexed text instead; never compare a partial response.
+      const meta = await api.json(`/files/${file.id}`);
+      const content = await api.json(`${base}/files/${file.id}/content`);
+      if (content.has_more || !Array.isArray(content.data) || content.data.length !== 1 ||
+          content.data[0]?.type !== 'text' || typeof content.data[0].text !== 'string') {
+        throw new Error(t('catalog.incomplete_content', { p0: file.id }));
+      }
+      const text = content.data[0].text.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n').trim();
+      const id = text.match(/^# ID: ([a-z0-9_-]+)\n/)?.[1];
+      if (!id || !text.endsWith(`END ID: ${id}`) || !/^(technique|setting|variable|theme)-[a-f0-9]{64}\.md$/.test(meta.filename) || !meta.filename.endsWith(`${digest(id)}.md`)) {
+        throw new Error(t('catalog.foreign_file', { p0: file.id }));
+      }
+      const local = catalog.documents.find(d => d.entryId === id && d.name === meta.filename);
+      const matches = local && local.text.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n').trim() === text;
+      doc = { entryId: id, hash: matches ? local.hash : digest(text), name: meta.filename, text, fileId: file.id };
+    }
+    inventory.push({ file, doc, tagged });
+  }
+  const documents = catalog.documents.map(d => ({ ...d }));
+  const unchanged = documents.filter(d => inventory.some(r => r.doc.entryId === d.entryId && r.doc.hash === d.hash && r.file.status === 'completed')).length;
+  const removed = new Set(inventory.filter(r => !documents.some(d => d.entryId === r.doc.entryId)).map(r => r.doc.entryId)).size;
+  options.status?.(t('catalog.delta', { p0: unchanged, p1: documents.length - unchanged, p2: removed }));
+  let done = 0;
+  for (const doc of documents) {
+    const existing = inventory.find(r => r.doc.entryId === doc.entryId && r.doc.hash === doc.hash && ['completed', 'in_progress'].includes(r.file.status));
+    if (existing) {
+      doc.fileId = existing.file.id;
+      if (!existing.tagged) await api.json(`${base}/files/${doc.fileId}`, 'POST', { attributes: attributes(doc) });
+    } else {
+      const uploaded = state.sync!.documents.find(d => d.entryId === doc.entryId && d.hash === doc.hash);
+      doc.fileId = uploaded?.fileId;
+      if (!doc.fileId) {
+        doc.fileId = await api.upload(doc.name, doc.text);
+        state.sync!.documents.push({ ...doc });
+        await save();
+      }
+      const failed = inventory.find(r => r.file.id === doc.fileId && ['failed', 'cancelled'].includes(r.file.status));
+      if (failed) await api.json(`${base}/files/${doc.fileId}`, 'DELETE');
+      await api.json(`${base}/files`, 'POST', { file_id: doc.fileId, attributes: attributes(doc) });
+    }
+    if (existing?.file.status !== 'completed') {
+      const deadline = Date.now() + 10 * 60_000;
+      let result = await api.json(`${base}/files/${doc.fileId}`);
+      while (result.status === 'in_progress') {
+        if (Date.now() >= deadline) throw new Error(t('catalog.timeout'));
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        result = await api.json(`${base}/files/${doc.fileId}`);
+      }
+      if (result.status !== 'completed') throw new Error(t('catalog.index_failed'));
+      progress(++done, documents.length - unchanged);
+    }
+  }
+  // All replacements are ready before removing the old searchable attachments.
+  for (const item of inventory) {
+    if (!documents.some(d => d.fileId === item.file.id)) await api.json(`${base}/files/${item.file.id}`, 'DELETE');
+  }
+  if (store.metadata?.hacksidian !== 'catalog-v1' || store.expires_after) {
+    await api.json(base, 'POST', { metadata: { ...store.metadata, hacksidian: 'catalog-v1' }, expires_after: null });
+  }
+  const previous = state.active;
+  const journal = state.sync;
+  const snapshot: CatalogSnapshot = { ...catalog, documents, storeId: store.id, createdAt: new Date().toISOString() };
+  state.active = snapshot;
+  delete state.sync;
+  // Legacy resource journals are retained; do not run destructive old store cleanup.
+  if (state.pending?.storeId === store.id) delete state.pending;
+  try { await save(); }
+  catch (error) { state.active = previous; state.sync = journal; throw error; }
+  return snapshot;
 }

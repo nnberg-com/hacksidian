@@ -12,7 +12,11 @@ await writeFile(new URL("./dist/styles.css", import.meta.url),
 const snippetsRoot = new URL("../snippets/", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("hacksidian-manifest.json", snippetsRoot), "utf8"));
 const templates = { "hacksidian-manifest.json": JSON.stringify(manifest, null, 2) + "\n" };
-for (const entry of manifest.modules) templates[entry.file] = await readFile(new URL(entry.file, snippetsRoot), "utf8");
+for (const entry of manifest.modules) {
+  const css = await readFile(new URL(entry.file, snippetsRoot), "utf8");
+  if (css.trim()) throw new Error(`Installation snippet must be empty: ${entry.file}`);
+  templates[entry.file] = css;
+}
 
 const context = await esbuild.context({
   entryPoints: ["src/main.ts"],

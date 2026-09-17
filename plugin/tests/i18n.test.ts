@@ -41,7 +41,14 @@ test('a language switch affects helpers immediately', () => {
   expect(formatCost(null)).toBe('cost unknown');
 });
 
-test('sample navigation excludes the other language, unlocalized files, assets and entry pages', () => {
+test('shared playground articles are available regardless of interface language', () => {
+  const paths = ['playground/p001.md', 'playground/p010.md', 'playground/p000.md', 'playground/assets/assets.md', 'playground/en/p001.md', 'playground/notes.md'];
+  for (const language of ['ru', 'en'] as const) {
+    expect(selectColoringPaths(paths, 'playground/', language)).toEqual(['playground/p001.md', 'playground/p010.md']);
+  }
+});
+
+test('legacy sample navigation excludes the other language, unlocalized files, assets and entry pages', () => {
   const paths = ['playground/ru/a.md', 'playground/en/b.md', 'playground/legacy.md', 'playground/en/p000.md', 'playground/en/assets/asset.md', 'playground/enough/c.md'];
   expect(selectColoringPaths(paths, 'playground/', 'en')).toEqual(['playground/en/b.md']);
   expect(selectColoringPaths(paths, 'playground', 'ru')).toEqual(['playground/ru/a.md']);

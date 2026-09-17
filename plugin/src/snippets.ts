@@ -10,15 +10,17 @@ declare const __HACKSIDIAN_TEMPLATES__: Record<string, string>;
 // Embedded at build time: the installed plugin never reads or writes project templates.
 export async function installSnippetTemplates(directory: string, templates = __HACKSIDIAN_TEMPLATES__): Promise<string[]> {
   await mkdir(directory, { recursive: true });
+  const created: string[] = [];
   for (const [file, content] of Object.entries(templates)) {
     if (!/^hacksidian-[a-zA-Z0-9-]+\.(css|json)$/.test(file)) throw new Error(t("snippets.invalid_snippet_template_path"));
     try {
       await writeFile(path.join(directory, file), content, { encoding: "utf8", flag: "wx" });
+      if (file.endsWith(".css")) created.push(file.slice(0, -4));
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code !== "EEXIST") throw error;
     }
   }
-  return Object.keys(templates).filter(file => file.endsWith(".css")).map(file => file.slice(0, -4));
+  return created;
 }
 
 // Obsidian's internal snippet manager; keep this integration in one place.

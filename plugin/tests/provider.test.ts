@@ -70,3 +70,9 @@ it('does not treat another ID mentioned inside a single-record file as a retriev
  const result=await new OpenAIResponsesProvider({...DEFAULT_SETTINGS,apiKey:'test'}).createIteration({...request,catalog:snapshot});
  expect(result.retrievedIds).toEqual(['image-round']);
 });
+it('rejects a response exposed to an obsolete file even alongside a current file for the same card',async()=>{
+ const response=body();
+ (response.output[0] as any).results.push({file_id:'old-file',text:'# ID: image-round\nOutdated instructions'});
+ requestUrl.mockResolvedValue({status:200,json:response});
+ await expect(new OpenAIResponsesProvider({...DEFAULT_SETTINGS,apiKey:'test'}).createIteration(request)).rejects.toThrow('источника');
+});

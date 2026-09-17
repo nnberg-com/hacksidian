@@ -2,20 +2,22 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-const root = process.argv[2] || '/Users/op/vaults/op/! P R O/hacksidian/playground';
+import { fileURLToPath } from 'node:url';
+const root = process.argv[2] || fileURLToPath(new URL('../content/playground/', import.meta.url));
 let samples = 0, links = 0;
-for (const lang of ['ru','en']) {
-  const dir = path.join(root,lang);
+{
+  const dir = root;
+  assert.deepEqual(fs.readdirSync(root).sort(), ['assets', ...Array.from({length:10}, (_, i) => `p${String(i+1).padStart(3,'0')}.md`)].sort());
+  assert.deepEqual(fs.readdirSync(path.join(root, 'assets')), ['pole-chteniya.svg']);
   for(const filename of fs.readdirSync(dir).filter(f=>f.endsWith('.md'))) {
     const source=fs.readFileSync(path.join(dir,filename),'utf8');
-    if(source.includes('callmered-coloring')) {
+    if(source.includes('hacksidian-coloring')) {
       samples++;
     }
     const prose=source.replace(/^```[^\n]*\n[\s\S]*?^```\s*$/gm,'');
     for(const match of prose.matchAll(/\[\[([^\]|]+?)(?:\\?\|[^\]]*)?\]\]/g)) {
       let target=match[1].replace(/\\$/,'');
       if(target.startsWith('#')||['Missing note','Несуществующая заметка'].includes(target))continue;
-      assert.ok(target.startsWith(lang+'/'),`${filename}: cross-language link ${target}`);
       const file=path.join(root,target);
       assert.ok(fs.existsSync(file)||fs.existsSync(file+'.md'),`${filename}: missing ${target}`);links++;
     }
@@ -25,5 +27,5 @@ for (const lang of ['ru','en']) {
     }
   }
 }
-assert.equal(samples,20);
-console.log(JSON.stringify({samples,links,languageIsolation:'passed'}));
+assert.equal(samples,10);
+console.log(JSON.stringify({samples,links,articleOnlyStructure:'passed'}));

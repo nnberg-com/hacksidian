@@ -57,7 +57,9 @@ export class OpenAIResponsesProvider implements ModelProvider {
     const decision = parseModelDecision(body);
     if (!calls.length || calls.some(call => call.status && call.status !== 'completed')) throw new Error(t('catalog.search_failed'));
     const validFiles = new Set(request.catalog.documents.map(doc => doc.fileId));
-    const retrieved = calls.flatMap(call => call.results ?? []).filter(result => validFiles.has(result.file_id));
+    const retrieved = calls.flatMap(call => call.results ?? []);
+    // Remote detach is eventually consistent. Never accept an answer that saw obsolete files.
+    if (retrieved.some(result => !validFiles.has(result.file_id))) throw new Error(t('catalog.invalid_recommendation'));
     const ids = new Set<string>();
     // A chunk can omit the record heading. Single-record files still identify
     // their source reliably; legacy mixed files must use explicit text markers.

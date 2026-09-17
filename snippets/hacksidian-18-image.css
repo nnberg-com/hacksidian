@@ -1,7 +1,0 @@
-/* Изображения. Базовый сниппет группы; приёмы добавляются ниже. */
-.markdown-preview-view.callmered-coloring {
-  --hs-image-radius-inline: 12px;
-}
-.markdown-preview-view.callmered-coloring img {
-  border-radius: var(--hs-image-radius-inline) !important;
-}

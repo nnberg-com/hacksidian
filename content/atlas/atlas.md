@@ -4,9 +4,9 @@
 
 [[atlas/! themes/! themes|Темы Obsidian]]
 
-1390 сниппетов · 22 группы. **Один приём — одна папка. Одна группа — один базовый сниппет.**
+1400 сниппетов · 23 категории · 22 базовых CSS-сниппета. **Один приём — одна папка.** Категории «Текст» и «Текстовые системы» используют общий текстовый сниппет.
 
-[[atlas/! categories/! categories|Группы приёмов]]: 19 групп разметки и три служебные — интерфейс Obsidian, платформы и метанастройки, палитра и темы. Техническое поле `category` сохраняет ID группы.
+[[atlas/! categories/! categories|Группы приёмов]]: 20 категорий разметки и три служебные — интерфейс Obsidian, платформы и метанастройки, палитра и темы. Техническое поле `category` сохраняет ID категории.
 
 В каждой папке `! hacks/<ID>` находятся карточка, пример Markdown, единый `recipe.css` и описание целевого сниппета `hack.json`. Локальные ресурсы и необязательные HTML-модели находятся здесь же.
 
@@ -1481,3 +1481,16 @@
 
 - [[atlas/! hacks/footnote-opentype-superscript/footnote-opentype-superscript|Настоящие надстрочные глифы в сносках]]
 - [[atlas/! hacks/task-ascii-marker/task-ascii-marker|Текстовые отметки задач [ ] и [x]]]
+
+## Текстовые системы · 10
+
+- [[atlas/! hacks/text-system-uswds/text-system-uswds|USWDS — стандартная сборка]]
+- [[atlas/! hacks/text-system-primer/text-system-primer|Primer — базовая типографика]]
+- [[atlas/! hacks/text-system-oreillyepub/text-system-oreillyepub|O’Reilly Technical — EPUB]]
+- [[atlas/! hacks/text-system-rutter/text-system-rutter|По Раттеру — ритм строки]]
+- [[atlas/! hacks/text-system-mortensen/text-system-mortensen|По Мортенсену — четыре ступени]]
+- [[atlas/! hacks/text-system-nostarch/text-system-nostarch|No Starch Press — The Modern Web]]
+- [[atlas/! hacks/text-system-dmk/text-system-dmk|ДМК Пресс — Цифровой свет и рендеринг]]
+- [[atlas/! hacks/text-system-memoir/text-system-memoir|memoir — ntglike без курсива]]
+- [[atlas/! hacks/text-system-carbon/text-system-carbon|Carbon — контраст насыщенности]]
+- [[atlas/! hacks/text-system-fluentcompact/text-system-fluentcompact|Fluent 2 — насыщенность и шаг размера]]

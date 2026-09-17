@@ -23,6 +23,7 @@ export interface CatalogSnapshot {
 export interface CatalogResources { storeId: string; fileIds: string[] }
 export interface CatalogState {
   active?: CatalogSnapshot;
+  sync?: { storeId: string; documents: CatalogDocument[] };
   pending?: CatalogResources;
   garbage: CatalogResources[];
 }

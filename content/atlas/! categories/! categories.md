@@ -1,6 +1,6 @@
 # Группы атласа
 
-22 группы. Заголовки, кнопки и живые примеры в категориях собираются автоматически блоком `hacksidian-category`.
+23 категории. Заголовки, кнопки и живые примеры в категориях собираются автоматически блоком `hacksidian-category`.
 
 - [[atlas/! categories/callout|Выноски и композиции]]
 - [[atlas/! categories/code|Блоки кода]]
@@ -21,6 +21,7 @@
 - [[atlas/! categories/tag|Теги]]
 - [[atlas/! categories/task|Задачи]]
 - [[atlas/! categories/text|Текст]]
+- [[atlas/! categories/text-systems|Текстовые системы]]
 
 ## Служебные группы
 

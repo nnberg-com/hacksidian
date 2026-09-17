@@ -3,7 +3,7 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { collectCatalog } from '../src/catalog-source';
-import { CatalogApi, syncCatalog, cleanCatalogGarbage } from '../src/catalog-api';
+import { CatalogApi, syncCatalog } from '../src/catalog-api';
 import { buildCatalog, type CatalogState } from '../src/catalog';
 import { OpenAIResponsesProvider } from '../src/provider';
 import { buildTurnPrompt, SYSTEM_PROMPT } from '../src/prompt';
@@ -34,6 +34,8 @@ await writeFile(output,JSON.stringify(report,null,2));
 console.log(JSON.stringify(report));
 if(process.argv.includes('--live')) {
  const api=new CatalogApi(settings.apiKey), state:CatalogState={garbage:[]};
+ const temporaryStore = await api.json('/vector_stores', 'POST', { name: 'Hacksidian temporary verification' });
+ state.sync = { storeId: temporaryStore.id, documents: [] };
  const journal=output+'.resources.json';
  let saving=Promise.resolve();
  const save=()=>{ const json=JSON.stringify(state,null,2); saving=saving.then(()=>writeFile(journal,json));return saving; };
@@ -57,9 +59,10 @@ if(process.argv.includes('--live')) {
    console.log(JSON.stringify(row));
   }
  }finally{
-  if(state.active){state.garbage.push({storeId:state.active.storeId,fileIds:state.active.documents.map(doc=>doc.fileId!)});delete state.active;}
-  if(state.pending){state.garbage.push(state.pending);delete state.pending;}
-  await save();await cleanCatalogGarbage(api,state,save);
-  report.cleanupPending=state.garbage.length;await writeFile(output,JSON.stringify(report,null,2));
+  const fileIds = new Set([...(state.active?.documents ?? []), ...(state.sync?.documents ?? [])].map(doc=>doc.fileId).filter(Boolean));
+  await save();
+  await api.json(`/vector_stores/${temporaryStore.id}`, 'DELETE');
+  for (const id of fileIds) await api.json(`/files/${id}`, 'DELETE');
+  report.cleanupPending=0;await writeFile(output,JSON.stringify(report,null,2));
  }
 }

@@ -1,9 +1,0 @@
-/* Заметка. Базовый сниппет группы; приёмы добавляются ниже. */
-.markdown-preview-view.callmered-coloring {
-  --hs-note-page-padding: max(32px, var(--hs-note-page-gutter));
-  --hs-note-page-gutter: 72px;
-}
-.markdown-preview-view.callmered-coloring {
-  padding-inline-start: var(--hs-note-page-padding) !important;
-  padding-inline-end: var(--hs-note-page-padding) !important;
-}

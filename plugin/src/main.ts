@@ -375,6 +375,7 @@ export default class CallMeRedPlugin extends Plugin {
   }
 
   catalogStatus(): string {
+    if (this.catalog.sync) return t('catalog.incomplete');
     const active = this.catalog.active;
     return active ? t('catalog.ready', { p0: active.entries.length, p1: active.revision.slice(0,8), p2: new Date(active.createdAt).toLocaleString() }) : t('catalog.missing');
   }
@@ -384,7 +385,24 @@ export default class CallMeRedPlugin extends Plugin {
       onStatus(t('catalog.collecting'));
       const catalog = await this.collectCatalog();
       const api = new CatalogApi(this.settings.apiKey);
-      await syncCatalog(api, this.catalog, catalog, () => this.savePluginData(), (done, total) => onStatus(t('catalog.uploading', { p0: done, p1: total })));
+      await syncCatalog(api, this.catalog, catalog, () => this.savePluginData(), (done, total) => onStatus(t('catalog.uploading', { p0: done, p1: total })), {
+        status: onStatus,
+        chooseStore: async stores => {
+          const { SuggestModal } = await import('obsidian');
+          return new Promise<string>((resolve, reject) => {
+            let selected = false;
+            class StorePicker extends SuggestModal<{ id: string; name: string }> {
+              getSuggestions(query: string) { return stores.filter(s => `${s.name} ${s.id}`.toLowerCase().includes(query.toLowerCase())); }
+              renderSuggestion(store: { id: string; name: string }, el: HTMLElement) { el.setText(`${store.name} — ${store.id}`); }
+              onChooseSuggestion(store: { id: string }) { selected = true; resolve(store.id); }
+              onClose() { setTimeout(() => { if (!selected) reject(new Error(t('catalog.selection_cancelled'))); }, 0); }
+            }
+            const picker = new StorePicker(this.app);
+            picker.setPlaceholder(t('catalog.choose_store'));
+            picker.open();
+          });
+        },
+      });
       onStatus(this.catalogStatus());
       await this.refreshView();
     });
@@ -403,6 +421,7 @@ export default class CallMeRedPlugin extends Plugin {
   }
 
   private async runFeedback(userText: string, onStatus: (message: string) => void): Promise<void> {
+    if (this.catalog.sync) throw new Error(t('catalog.incomplete'));
     const catalog = this.catalog.active;
     if (!catalog) throw new Error(t('catalog.missing'));
     const requestSettings = structuredClone(this.settings);

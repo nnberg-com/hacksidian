@@ -1,12 +1,8 @@
-# Hacksidian base snippets
+# Hacksidian snippets: a clean start
 
-One group corresponds to one CSS file and one variable set. There are currently 22 groups: 19 markup groups and three supporting groups (`interface`, `meta`, `palette`). The new supporting groups introduce no extra techniques or forced setting values. Some base files are placeholders for future rules.
+The plugin creates 22 empty CSS files, one per group. They contain no rules or variable values, so enabling them does not change Obsidian or notes, including notes with `cssclasses: callmered-coloring`. Styling is added only when the user applies a technique or edits a snippet.
 
-`hacksidian-manifest.json` connects group IDs, modules, files, and native Obsidian variables (`nativeVariables`). Custom variable values live in the group CSS as `--hs-<group>-…`; shared colours live in `palette` as `--cmr-color-*`. Native variable lists describe possible adjustment points, not unconditional theme overrides.
-
-The files in `snippets/` are bundled into the plugin. Working copies live in `<vault>/<configDir>/snippets`. First load creates missing copies. Migration from the earlier ten-file set splits the working values, then removes old files. Historical Undo snapshots are regrouped too. Chat and settings stay in plugin data.
-
-Existing styling covers Reading view notes with `cssclasses: callmered-coloring`. Technique templates specify Reading/Live Preview support separately. The palette retains the earlier colours; adding a group does not change the existing light/dark scheme.
+`hacksidian-manifest.json` maps groups to files. Its `nativeVariables` lists are reference names, not assignments. Templates are bundled into the plugin; working files live in `<vault>/<configDir>/snippets`. First load creates and enables only missing files. Existing files and their enabled state are preserved. Updates do not erase user CSS. Migration of the earlier ten-file structure preserves its working values.
 
 | Group | Base file |
 | --- | --- |
@@ -35,6 +31,4 @@ Existing styling covers Reading view notes with `cssclasses: callmered-coloring`
 
 ## An individual technique
 
-All technique files belong to `atlas/! hacks/<id>/`: the card, `markdown.md`, `recipe.template.css`, `dependencies.template.css`, `preview.css`, `hack.json`, local `assets/`, and optional models. `hack.json` contains `group`, `target: g-<group>`, `atlas`, and `snippet`: two sets of literal bindings for one template, plus optional `requirements`.
-
-“Apply hack” adds CSS to the group file without an LLM. CSS markers prevent duplicate additions. Undo removes the block. Conflicts with other techniques are not resolved automatically: the ordinary CSS cascade applies, including `!important` in base styles.
+Each technique lives in `atlas/! hacks/<id>/`, with its card, `recipe.css`, `hack.json`, and optional example files. Applying a technique adds its CSS to the target group file. Disabling it removes that marked block and preserves other content. Conflicts follow the ordinary CSS cascade.
