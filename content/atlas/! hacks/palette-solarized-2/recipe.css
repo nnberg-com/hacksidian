@@ -1,0 +1,65 @@
+/* Solarized — Dark. Source: https://ethanschoonover.com/solarized/
+ * Semantic/base mapping: Hacksidian adaptation. Accent remains an Obsidian setting. */
+/* hacksidian:exclusive:palette-dark */
+body.theme-dark {
+  --background-primary: #002b36;
+  --background-secondary: #073642;
+  --text-normal: #839496;
+  --text-muted: #93a1a1;
+  --text-faint: #586e75;
+  --background-modifier-border: #073642;
+  --background-modifier-hover: #073642;
+  --color-red: #dc322f;
+  --color-orange: #cb4b16;
+  --color-yellow: #b58900;
+  --color-green: #859900;
+  --color-cyan: #2aa198;
+  --color-blue: #268bd2;
+  --color-purple: #6c71c4;
+  --color-pink: #d33682;
+  --color-base-10: var(--background-secondary);
+  --color-base-20: var(--background-secondary);
+  --color-base-25: var(--background-modifier-hover);
+  --color-base-30: var(--background-modifier-border);
+  --color-base-35: color-mix(in oklch, var(--background-modifier-border) 60%, var(--text-faint));
+  --color-base-40: color-mix(in oklch, var(--background-modifier-border) 30%, var(--text-faint));
+  --color-base-50: var(--text-faint);
+  --color-base-60: color-mix(in oklch, var(--text-faint) 50%, var(--text-muted));
+  --color-base-70: var(--text-muted);
+  --color-base-100: var(--text-normal);
+  --color-base-00: var(--background-primary);
+  --color-base-05: color-mix(in oklch, var(--background-primary) 50%, var(--background-secondary));
+  --background-primary-alt: var(--background-secondary);
+  --background-secondary-alt: var(--background-secondary);
+  --background-modifier-border-hover: var(--color-base-35);
+  --background-modifier-border-focus: var(--color-base-40);
+  --background-modifier-form-field: var(--background-primary);
+  --interactive-normal: var(--background-secondary);
+  --interactive-hover: var(--background-modifier-hover);
+  --text-highlight-bg: color-mix(in oklch, var(--color-yellow) 28%, transparent);
+  --text-error: var(--color-red);
+  --text-warning: var(--color-orange);
+  --text-success: var(--color-green);
+  --background-modifier-error: var(--color-red);
+  --background-modifier-warning: var(--color-orange);
+  --background-modifier-success: var(--color-green);
+  --code-background: var(--background-secondary);
+  --code-normal: var(--text-normal);
+  --code-comment: var(--text-faint);
+  --code-keyword: var(--color-purple);
+  --code-string: var(--color-green);
+  --code-function: var(--color-blue);
+  --code-operator: var(--text-muted);
+  --code-property: var(--color-cyan);
+  --code-tag: var(--color-red);
+  --code-value: var(--color-orange);
+  --color-red-rgb: 220, 50, 47;
+  --color-orange-rgb: 203, 75, 22;
+  --color-yellow-rgb: 181, 137, 0;
+  --color-green-rgb: 133, 153, 0;
+  --color-cyan-rgb: 42, 161, 152;
+  --color-blue-rgb: 38, 139, 210;
+  --color-purple-rgb: 108, 113, 196;
+  --color-pink-rgb: 211, 54, 130;
+  --text-highlight-bg-rgb: 181, 137, 0;
+}

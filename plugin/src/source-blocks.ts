@@ -187,6 +187,11 @@ export class TechniqueBlock extends MarkdownRenderChild {
 }
 export function registerSourceBlocks(plugin: Plugin, favourites?: FavouriteControls): void {
   plugin.registerMarkdownCodeBlockProcessor('hacksidian-category', async (source, el, ctx) => {
+    if (source.trim() === 'palette') {
+      const { PaletteGallery } = await import('./palette-gallery');
+      ctx.addChild(new PaletteGallery(el, plugin, ctx.sourcePath, favourites));
+      return;
+    }
     const { CategoryExamples } = await import('./category-examples');
     ctx.addChild(new CategoryExamples(el, plugin, ctx.sourcePath, source.trim(), favourites));
   });

@@ -1,0 +1,65 @@
+/* Tailwind CSS — Slate + Indigo · Dark. Source: https://tailwindcss.com/docs/colors
+ * Semantic/base mapping: Hacksidian adaptation. Accent remains an Obsidian setting. */
+/* hacksidian:exclusive:palette-dark */
+body.theme-dark {
+  --background-primary: oklch(12.9% 0.042 264.695);
+  --background-secondary: oklch(20.8% 0.042 265.755);
+  --text-normal: oklch(96.8% 0.007 247.896);
+  --text-muted: oklch(70.4% 0.04 256.788);
+  --text-faint: oklch(55.4% 0.046 257.417);
+  --background-modifier-border: oklch(37.2% 0.044 257.287);
+  --background-modifier-hover: oklch(27.9% 0.041 260.031);
+  --color-red: oklch(70.4% 0.191 22.216);
+  --color-orange: oklch(75% 0.183 55.934);
+  --color-yellow: oklch(85.2% 0.199 91.936);
+  --color-green: oklch(79.2% 0.209 151.711);
+  --color-cyan: oklch(78.9% 0.154 211.53);
+  --color-blue: oklch(70.7% 0.165 254.624);
+  --color-purple: oklch(71.4% 0.203 305.504);
+  --color-pink: oklch(71.8% 0.202 349.761);
+  --color-base-10: var(--background-secondary);
+  --color-base-20: var(--background-secondary);
+  --color-base-25: var(--background-modifier-hover);
+  --color-base-30: var(--background-modifier-border);
+  --color-base-35: color-mix(in oklch, var(--background-modifier-border) 60%, var(--text-faint));
+  --color-base-40: color-mix(in oklch, var(--background-modifier-border) 30%, var(--text-faint));
+  --color-base-50: var(--text-faint);
+  --color-base-60: color-mix(in oklch, var(--text-faint) 50%, var(--text-muted));
+  --color-base-70: var(--text-muted);
+  --color-base-100: var(--text-normal);
+  --color-base-00: var(--background-primary);
+  --color-base-05: color-mix(in oklch, var(--background-primary) 50%, var(--background-secondary));
+  --background-primary-alt: var(--background-secondary);
+  --background-secondary-alt: var(--background-secondary);
+  --background-modifier-border-hover: var(--color-base-35);
+  --background-modifier-border-focus: var(--color-base-40);
+  --background-modifier-form-field: var(--background-primary);
+  --interactive-normal: var(--background-secondary);
+  --interactive-hover: var(--background-modifier-hover);
+  --text-highlight-bg: color-mix(in oklch, var(--color-yellow) 28%, transparent);
+  --text-error: var(--color-red);
+  --text-warning: var(--color-orange);
+  --text-success: var(--color-green);
+  --background-modifier-error: var(--color-red);
+  --background-modifier-warning: var(--color-orange);
+  --background-modifier-success: var(--color-green);
+  --code-background: var(--background-secondary);
+  --code-normal: var(--text-normal);
+  --code-comment: var(--text-faint);
+  --code-keyword: var(--color-purple);
+  --code-string: var(--color-green);
+  --code-function: var(--color-blue);
+  --code-operator: var(--text-muted);
+  --code-property: var(--color-cyan);
+  --code-tag: var(--color-red);
+  --code-value: var(--color-orange);
+  --color-red-rgb: 255, 100, 103;
+  --color-orange-rgb: 255, 137, 4;
+  --color-yellow-rgb: 253, 199, 0;
+  --color-green-rgb: 5, 223, 114;
+  --color-cyan-rgb: 0, 211, 242;
+  --color-blue-rgb: 81, 162, 255;
+  --color-purple-rgb: 194, 122, 255;
+  --color-pink-rgb: 251, 100, 182;
+  --text-highlight-bg-rgb: 253, 199, 0;
+}

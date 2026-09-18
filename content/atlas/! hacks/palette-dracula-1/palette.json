@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "family": "Dracula",
+  "familyId": "dracula",
+  "variant": "Classic",
+  "mode": "dark",
+  "source": "https://draculatheme.com/contribute",
+  "note": "Классическая тёмная схема. Для отсутствующего blue используется purple; отдельный синий не выдуман.",
+  "accent": "#bd93f9",
+  "refs": {
+    "background-primary": "Палитра источника → наша роль",
+    "background-secondary": "Палитра источника → наша роль",
+    "text-normal": "Палитра источника → наша роль",
+    "text-muted": "Палитра источника → наша роль",
+    "text-faint": "Палитра источника → наша роль",
+    "background-modifier-border": "Палитра источника → наша роль",
+    "background-modifier-hover": "Палитра источника → наша роль",
+    "color-accent": "Палитра источника → наша роль",
+    "color-red": "Палитра источника → наша роль",
+    "color-orange": "Палитра источника → наша роль",
+    "color-yellow": "Палитра источника → наша роль",
+    "color-green": "Палитра источника → наша роль",
+    "color-cyan": "Палитра источника → наша роль",
+    "color-blue": "Палитра источника → наша роль",
+    "color-purple": "Палитра источника → наша роль",
+    "color-pink": "Палитра источника → наша роль"
+  }
+}

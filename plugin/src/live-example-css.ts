@@ -1,6 +1,7 @@
 import path from "node:path";
 import postcss from 'postcss';
 import selectorParser from 'postcss-selector-parser';
+import { paletteVariables } from './palette';
 
 /** CSS for embedded Reading-view content only. Installation still uses the unchanged recipe. */
 export function scopeLiveExample(css: string, id: string): string {
@@ -57,6 +58,14 @@ export function scopeLiveExample(css: string, id: string): string {
 }
 
 export function liveExampleIssue(group: string, markdown: string, css: string): string | null {
+  if (group === 'palette') {
+    try {
+      const selector = postcss.parse(css).nodes.find(node => node.type === 'rule');
+      const mode = selector?.type === 'rule' && selector.selector === 'body.theme-dark' ? 'dark' : 'light';
+      paletteVariables(css, mode);
+      return null;
+    } catch (e) { return String(e); }
+  }
   if (['interface', 'metadata', 'meta'].includes(group)) return 'Части интерфейса, свойства или настройки Obsidian — вне текущего этапа.';
   if (/hacksidian-(?:source|interface|properties)-model/.test(markdown)) return 'Пример является моделью редактора или интерфейса, а не содержимым заметки.';
   if (/<(?:iframe|script|style|input|form)\b/i.test(markdown)) return 'Нужна отдельная реализация HTML-встраивания или элементов управления.';

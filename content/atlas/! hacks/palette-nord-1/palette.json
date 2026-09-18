@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "family": "Nord",
+  "familyId": "nord",
+  "variant": "Polar Night",
+  "mode": "dark",
+  "source": "https://www.nordtheme.com/docs/colors-and-palettes/",
+  "note": "Тёмная адаптация. Orange = nord12; pink повторяет nord15 (purple). Светлый вариант здесь не сочинён.",
+  "accent": "#88c0d0",
+  "refs": {
+    "background-primary": "nord0",
+    "background-secondary": "nord1",
+    "text-normal": "nord6",
+    "text-muted": "nord4",
+    "text-faint": "nord9 → faint",
+    "background-modifier-border": "nord3",
+    "background-modifier-hover": "nord2",
+    "color-accent": "nord8",
+    "color-red": "nord11",
+    "color-orange": "nord12",
+    "color-yellow": "nord13",
+    "color-green": "nord14",
+    "color-cyan": "nord7",
+    "color-blue": "nord9",
+    "color-purple": "nord15",
+    "color-pink": "nord15 повтор"
+  }
+}

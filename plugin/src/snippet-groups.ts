@@ -4,7 +4,7 @@ import type { ModularStyle } from './style-modules';
 
 // The same IDs identify catalogue groups, snippet modules and variable sets.
 export const GROUPS = [
- ['palette', 'Палитра и темы', ['--background-primary','--background-secondary','--text-normal','--text-muted','--interactive-accent']],
+ ['palette', 'Палитры', ['--background-primary','--background-secondary','--text-normal','--text-muted','--interactive-accent']],
  ['meta', 'Платформы и метанастройки', ['--file-line-width','--font-text-size','--line-height-normal']],
  ['interface', 'Интерфейс Obsidian', ['--font-interface','--ribbon-width','--sidebar-width','--tab-font-size']],
  ['note', 'Заметка', ['--file-line-width','--file-margins']],

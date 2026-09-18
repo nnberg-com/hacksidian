@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "family": "Catppuccin",
+  "familyId": "catppuccin",
+  "variant": "Mocha",
+  "mode": "dark",
+  "source": "https://github.com/catppuccin/catppuccin",
+  "note": "Четыре авторских варианта. Акцент выбран mauve; роли перенесены из именованных токенов.",
+  "accent": "#cba6f7",
+  "refs": {
+    "background-primary": "base",
+    "background-secondary": "mantle",
+    "text-normal": "text",
+    "text-muted": "subtext1",
+    "text-faint": "subtext0",
+    "background-modifier-border": "surface1",
+    "background-modifier-hover": "surface0",
+    "color-accent": "mauve",
+    "color-red": "red",
+    "color-orange": "peach",
+    "color-yellow": "yellow",
+    "color-green": "green",
+    "color-cyan": "teal",
+    "color-blue": "blue",
+    "color-purple": "mauve",
+    "color-pink": "pink"
+  }
+}

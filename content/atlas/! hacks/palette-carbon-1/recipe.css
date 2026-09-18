@@ -1,0 +1,65 @@
+/* IBM Carbon — WHITE. Source: https://carbondesignsystem.com/elements/themes/overview/
+ * Semantic/base mapping: Hacksidian adaptation. Accent remains an Obsidian setting. */
+/* hacksidian:exclusive:palette-light */
+body.theme-light {
+  --background-primary: #ffffff;
+  --background-secondary: #f4f4f4;
+  --text-normal: #161616;
+  --text-muted: #525252;
+  --text-faint: rgba(22, 22, 22, 0.4);
+  --background-modifier-border: #c6c6c6;
+  --background-modifier-hover: #e8e8e8;
+  --color-red: #da1e28;
+  --color-orange: #ba4e00;
+  --color-yellow: #8e6a00;
+  --color-green: #198038;
+  --color-cyan: #0072c3;
+  --color-blue: #0f62fe;
+  --color-purple: #8a3ffc;
+  --color-pink: #d02670;
+  --color-base-10: var(--background-secondary);
+  --color-base-20: var(--background-secondary);
+  --color-base-25: var(--background-modifier-hover);
+  --color-base-30: var(--background-modifier-border);
+  --color-base-35: color-mix(in oklch, var(--background-modifier-border) 60%, var(--text-faint));
+  --color-base-40: color-mix(in oklch, var(--background-modifier-border) 30%, var(--text-faint));
+  --color-base-50: var(--text-faint);
+  --color-base-60: color-mix(in oklch, var(--text-faint) 50%, var(--text-muted));
+  --color-base-70: var(--text-muted);
+  --color-base-100: var(--text-normal);
+  --color-base-00: var(--background-primary);
+  --color-base-05: color-mix(in oklch, var(--background-primary) 50%, var(--background-secondary));
+  --background-primary-alt: var(--background-secondary);
+  --background-secondary-alt: var(--background-secondary);
+  --background-modifier-border-hover: var(--color-base-35);
+  --background-modifier-border-focus: var(--color-base-40);
+  --background-modifier-form-field: var(--background-primary);
+  --interactive-normal: var(--background-secondary);
+  --interactive-hover: var(--background-modifier-hover);
+  --text-highlight-bg: color-mix(in oklch, var(--color-yellow) 28%, transparent);
+  --text-error: var(--color-red);
+  --text-warning: var(--color-orange);
+  --text-success: var(--color-green);
+  --background-modifier-error: var(--color-red);
+  --background-modifier-warning: var(--color-orange);
+  --background-modifier-success: var(--color-green);
+  --code-background: var(--background-secondary);
+  --code-normal: var(--text-normal);
+  --code-comment: var(--text-faint);
+  --code-keyword: var(--color-purple);
+  --code-string: var(--color-green);
+  --code-function: var(--color-blue);
+  --code-operator: var(--text-muted);
+  --code-property: var(--color-cyan);
+  --code-tag: var(--color-red);
+  --code-value: var(--color-orange);
+  --color-red-rgb: 218, 30, 40;
+  --color-orange-rgb: 186, 78, 0;
+  --color-yellow-rgb: 142, 106, 0;
+  --color-green-rgb: 25, 128, 56;
+  --color-cyan-rgb: 0, 114, 195;
+  --color-blue-rgb: 15, 98, 254;
+  --color-purple-rgb: 138, 63, 252;
+  --color-pink-rgb: 208, 38, 112;
+  --text-highlight-bg-rgb: 142, 106, 0;
+}

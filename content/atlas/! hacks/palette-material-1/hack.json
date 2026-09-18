@@ -1,0 +1,7 @@
+{
+  "format": 2,
+  "target": "g-palette",
+  "hasCss": true,
+  "group": "palette",
+  "exclusiveGroup": "palette-light"
+}

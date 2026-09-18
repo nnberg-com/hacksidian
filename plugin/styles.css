@@ -214,3 +214,14 @@ code.hacksidian-copy-id { cursor: copy; }
 
 .hacksidian-category-example { margin-block: 4rem; min-height: 12rem; }
 .hacksidian-category-example.is-loaded { min-height: 0; }
+/* Palette gallery: only chrome. The specimen is isolated in a shadow root. */
+.hacksidian-palette-controls { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin:12px 0; }
+.hacksidian-palette-controls label { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.hacksidian-palette-controls select { max-width:100%; }
+.hacksidian-palette-ratios { display:flex; flex-wrap:wrap; gap:8px 20px; margin:12px 0; font-size:var(--font-ui-small); }
+.hacksidian-palette-model { container-type:inline-size; container-name:hacksidian-palette-model; }
+.hacksidian-palette-swatches { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); gap:6px; margin:12px 0; text-align:center; font-size:var(--font-ui-small); }
+.hacksidian-palette-swatch { height:20px; border-radius:3px; }
+.hacksidian-palette-mapping { table-layout:fixed; width:100%; font-size:var(--font-ui-small); }
+.hacksidian-palette-mapping td, .hacksidian-palette-mapping th { overflow-wrap:anywhere; }
+@media(max-width:600px) { .hacksidian-palette-swatches { grid-template-columns:repeat(4,minmax(0,1fr)); } }

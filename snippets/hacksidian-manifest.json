@@ -6,7 +6,7 @@
       "id": "g-palette",
       "component": "palette",
       "group": "palette",
-      "title": "Палитра и темы",
+      "title": "Палитры",
       "file": "hacksidian-00-palette.css",
       "nativeVariables": [
         "--background-primary",

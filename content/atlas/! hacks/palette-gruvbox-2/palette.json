@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "family": "Gruvbox",
+  "familyId": "gruvbox",
+  "variant": "Dark medium",
+  "mode": "dark",
+  "source": "https://github.com/morhetz/gruvbox",
+  "note": "Авторские цвета; medium contrast. Pink повторяет purple: отдельного розового в исходной палитре нет.",
+  "accent": "#83a598",
+  "refs": {
+    "background-primary": "dark0",
+    "background-secondary": "dark1",
+    "text-normal": "light1",
+    "text-muted": "light3",
+    "text-faint": "gray",
+    "background-modifier-border": "dark2",
+    "background-modifier-hover": "dark1",
+    "color-accent": "bright_blue",
+    "color-red": "bright_red",
+    "color-orange": "bright_orange",
+    "color-yellow": "bright_yellow",
+    "color-green": "bright_green",
+    "color-cyan": "bright_aqua",
+    "color-blue": "bright_blue",
+    "color-purple": "bright_purple",
+    "color-pink": "bright_purple"
+  }
+}

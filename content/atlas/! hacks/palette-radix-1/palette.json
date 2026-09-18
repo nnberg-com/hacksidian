@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "family": "Radix Colors",
+  "familyId": "radix",
+  "variant": "Slate + Iris · Light",
+  "mode": "light",
+  "source": "https://www.radix-ui.com/colors/docs/palette-composition/understanding-the-scale",
+  "note": "Наша сборка Slate + Iris. Используются штатные ступени 1–12; дополнительные цвета — ступень 11 каждой шкалы.",
+  "accent": "#5b5bd6",
+  "refs": {
+    "background-primary": "slate1",
+    "background-secondary": "slate2",
+    "text-normal": "slate12",
+    "text-muted": "slate11",
+    "text-faint": "slate10",
+    "background-modifier-border": "slate6",
+    "background-modifier-hover": "slate4",
+    "color-accent": "iris9",
+    "color-red": "red11",
+    "color-orange": "orange11",
+    "color-yellow": "yellow11",
+    "color-green": "green11",
+    "color-cyan": "cyan11",
+    "color-blue": "blue11",
+    "color-purple": "purple11",
+    "color-pink": "pink11"
+  }
+}

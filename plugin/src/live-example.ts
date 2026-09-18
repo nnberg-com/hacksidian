@@ -2,6 +2,7 @@ import { previewState } from './preview-state';
 import { activatePreviewTarget } from './live-example-target';
 import { Component, MarkdownRenderChild, MarkdownRenderer, Notice, Plugin, TFile } from 'obsidian';
 import { liveExampleIssue, resolveLiveUrls, scopeLiveExample } from './live-example-css';
+import { PaletteExample } from './palette-example';
 export class LiveExample extends MarkdownRenderChild {
   private epoch = 0;
   private stopped = false;
@@ -22,6 +23,14 @@ export class LiveExample extends MarkdownRenderChild {
     try {
       const adapter = this.plugin.app.vault.adapter;
       const [markdown, css, rawSpec] = await Promise.all([adapter.read(`${this.directory}/markdown.md`), adapter.read(`${this.directory}/recipe.css`), adapter.read(`${this.directory}/hack.json`)]);
+      if (JSON.parse(rawSpec).group === 'palette') {
+        if (this.stopped || epoch !== this.epoch) return;
+        if (this.renderer) this.removeChild(this.renderer);
+        this.containerEl.empty();
+        this.renderer = new PaletteExample(this.containerEl.createDiv(), this.plugin, this.directory);
+        this.addChild(this.renderer);
+        return;
+      }
       const issue = liveExampleIssue(JSON.parse(rawSpec).group, markdown, css);
       if (issue) throw new Error(issue);
       if (this.stopped || epoch !== this.epoch) return;

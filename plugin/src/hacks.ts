@@ -7,6 +7,8 @@ export interface HackSpec {
   target: string;
   requirements?: string[];
   hasCss: boolean;
+  /** Mutually exclusive recipes, independently for light/dark palettes. */
+  exclusiveGroup?: string;
 }
 export interface HackContext {
   installed?: boolean;
@@ -35,6 +37,18 @@ export function compileHack(hack: HackContext): string {
 }
 
 export function addHack(style: ModularStyle, hack: HackContext): { style: ModularStyle; changed: boolean } {
+  const original = style;
+  if (hack.spec.exclusiveGroup) {
+    if (!/^palette-(light|dark)$/.test(hack.spec.exclusiveGroup) || hack.spec.target !== 'g-palette' || !hack.css.includes(`/* hacksidian:exclusive:${hack.spec.exclusiveGroup} */`)) throw new Error(t('hacks.invalid_technique_format'));
+    // Ownership is stored inside the removable recipe block, never in a second registry.
+    const selectedModule = style.modules.find(m => m.id === hack.spec.target);
+    const blocks = [...(selectedModule?.css.matchAll(/\/\* hacksidian:hack:([a-z0-9-]+):start \*\/([\s\S]*?)\/\* hacksidian:hack:\1:end \*\//g) ?? [])];
+    const marker = `/* hacksidian:exclusive:${hack.spec.exclusiveGroup} */`;
+    if ((selectedModule?.css.split(marker).length ?? 1) - 1 !== blocks.filter(b => b[2].includes(marker)).length) throw new Error(t('hacks.invalid_technique_format'));
+    for (const block of blocks) {
+      if (block[1] !== hack.id && block[2].includes(`/* hacksidian:exclusive:${hack.spec.exclusiveGroup} */`)) style = removeHack(style, block[1]).style;
+    }
+  }
   const selected = style.modules.find(m => m.id === hack.spec.target);
   if (!selected) throw new Error(t("hacks.target_snippet_was_not_found", { p0: hack.spec.target }));
   const marker = `/* hacksidian:hack:${hack.id}:start */`;
@@ -49,7 +63,7 @@ export function addHack(style: ModularStyle, hack: HackContext): { style: Modula
       throw new Error(t("hacks.invalid_technique_format"));
     }
     const updated = installed.css.slice(0, start) + marker + '\n' + css + endMarker + installed.css.slice(end + endMarker.length);
-    if (updated === installed.css) return { style, changed: false };
+    if (updated === installed.css) return { style, changed: style !== original };
     return { changed: true, style: { ...style, modules: style.modules.map(m => m === installed ? { ...m, css: updated } : m) } };
   }
   return { changed: true, style: { ...style, modules: style.modules.map(m => m.id !== selected.id ? m : {

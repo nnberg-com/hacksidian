@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "family": "Material",
+  "familyId": "material",
+  "variant": "Seed 6750A4 · Dark",
+  "mode": "dark",
+  "source": "https://github.com/material-foundation/material-color-utilities",
+  "note": "Наша фиксированная сборка: seed #6750A4, themeFromSourceColor. Восемь цветных ролей дополнены отдельными tonal palettes; не канонический набор Material.",
+  "accent": "#cfbcff",
+  "refs": {
+    "background-primary": "background",
+    "background-secondary": "surfaceVariant",
+    "text-normal": "onBackground",
+    "text-muted": "onSurfaceVariant",
+    "text-faint": "outline",
+    "background-modifier-border": "outlineVariant",
+    "background-modifier-hover": "surfaceVariant",
+    "color-accent": "primary",
+    "color-red": "TonalPalette(#b3261e).tone(80)",
+    "color-orange": "TonalPalette(#bc5215).tone(80)",
+    "color-yellow": "TonalPalette(#b58900).tone(80)",
+    "color-green": "TonalPalette(#388e3c).tone(80)",
+    "color-cyan": "TonalPalette(#00838f).tone(80)",
+    "color-blue": "TonalPalette(#1565c0).tone(80)",
+    "color-purple": "TonalPalette(#6750a4).tone(80)",
+    "color-pink": "TonalPalette(#ad1457).tone(80)"
+  }
+}

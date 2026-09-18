@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "family": "VS Code",
+  "familyId": "vscode",
+  "variant": "Light Modern",
+  "mode": "light",
+  "source": "https://github.com/microsoft/vscode/tree/main/extensions/theme-defaults/themes",
+  "note": "Цвета интерфейса Microsoft с раскрытым include. Недостающие роли: terminal ANSI; orange назначен из цвета строк (наша адаптация).",
+  "accent": "#005FB8",
+  "refs": {
+    "background-primary": "editor.background",
+    "background-secondary": "sideBar.background",
+    "text-normal": "editor.foreground",
+    "text-muted": "descriptionForeground",
+    "text-faint": "disabledForeground",
+    "background-modifier-border": "panel.border",
+    "background-modifier-hover": "list.hoverBackground",
+    "color-accent": "button.background",
+    "color-red": "terminal.ansiRed / fallback",
+    "color-orange": "syntax string → orange (адаптация)",
+    "color-yellow": "terminal.ansiYellow / fallback",
+    "color-green": "terminal.ansiGreen / fallback",
+    "color-cyan": "terminal.ansiCyan / fallback",
+    "color-blue": "terminal.ansiBlue / fallback",
+    "color-purple": "terminal.ansiMagenta / fallback",
+    "color-pink": "terminal.ansiBrightMagenta / fallback"
+  }
+}

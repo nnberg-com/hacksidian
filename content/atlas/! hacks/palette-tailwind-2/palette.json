@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "family": "Tailwind CSS",
+  "familyId": "tailwind",
+  "variant": "Slate + Indigo · Dark",
+  "mode": "dark",
+  "source": "https://tailwindcss.com/docs/colors",
+  "note": "Наша сборка Slate + Indigo; роли и ступени выбраны нами. Точные OKLCH из установленного Tailwind, без загрузки Tailwind в пример.",
+  "accent": "oklch(67.3% 0.182 276.935)",
+  "refs": {
+    "background-primary": "slate-950",
+    "background-secondary": "slate-900",
+    "text-normal": "slate-100",
+    "text-muted": "slate-400",
+    "text-faint": "slate-500",
+    "background-modifier-border": "slate-700",
+    "background-modifier-hover": "slate-800",
+    "color-accent": "indigo-400",
+    "color-red": "red-400",
+    "color-orange": "orange-400",
+    "color-yellow": "yellow-400",
+    "color-green": "green-400",
+    "color-cyan": "cyan-400",
+    "color-blue": "blue-400",
+    "color-purple": "purple-400",
+    "color-pink": "pink-400"
+  }
+}

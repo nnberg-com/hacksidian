@@ -23,8 +23,9 @@
 - [[atlas/! categories/text|Текст]]
 - [[atlas/! categories/text-systems|Текстовые системы]]
 
+- [[atlas/! categories/palette|Палитры]]
+
 ## Служебные группы
 
-- [[atlas/! categories/palette|Палитра и темы]]
 - [[atlas/! categories/meta|Платформы и метанастройки]]
 - [[atlas/! categories/interface|Интерфейс Obsidian]]
