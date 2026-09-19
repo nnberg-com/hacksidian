@@ -1,3 +1,4 @@
+import { readParameters, parameterValue } from './parameters';
 import { ParameterControls } from './parameter-controls';
 import type { FavouriteControls } from './favourites';
 import { previewState } from './preview-state';
@@ -27,8 +28,38 @@ export class LiveExample extends MarkdownRenderChild {
     const epoch = ++this.epoch, ru = this.language === 'ru';
     try {
       const adapter = this.plugin.app.vault.adapter;
-      const [markdown, css, rawSpec] = await Promise.all([adapter.read(`${this.directory}/markdown.md`), adapter.read(`${this.directory}/recipe.css`), adapter.read(`${this.directory}/hack.json`)]);
-      if (JSON.parse(rawSpec).group === 'palette') {
+      const spec = JSON.parse(await adapter.read(`${this.directory}/hack.json`));
+      const interfaceExample = ['interface', 'metadata', 'meta'].includes(spec.group);
+      if (interfaceExample || (spec.group !== 'palette' && !await adapter.exists(`${this.directory}/markdown.md`))) {
+        if (this.stopped || epoch !== this.epoch) return;
+        if (this.renderer) { this.removeChild(this.renderer); this.renderer = null; }
+        this.previewEl.empty();
+        this.previewEl.createEl('p', { cls: 'setting-item-description', text: interfaceExample
+          ? (ru ? 'Этот приём изменяет интерфейс Obsidian. Его эффект нельзя показать внутри сообщения; способ проверки описан на странице приёма.' : 'This technique changes the Obsidian interface. Its effect cannot be shown inside a message; see the technique page for verification steps.')
+          : (ru ? 'Для этого приёма пока нет встроенного примера. Подробности — на странице приёма.' : 'This technique has no embedded example yet. See its page for details.') });
+        return;
+      }
+      if (spec.preview === 'semantic-colors') {
+        const parameters = readParameters(await adapter.read(`${this.directory}/recipe.css`));
+        if (this.stopped || epoch !== this.epoch) return;
+        if (this.renderer) { this.removeChild(this.renderer); this.renderer = null; }
+        this.previewEl.empty();
+        const owner = new Component(); this.renderer = owner; this.addChild(owner);
+        const state = previewState(this.previewEl, this.directory);
+        const grid = this.previewEl.createDiv({ cls: 'hacksidian-semantic-colors' });
+        for (const parameter of parameters) {
+          const color = parameterValue(parameter, parameter.value);
+          const tile = grid.createDiv();
+          const swatch = tile.createDiv({ cls: 'hacksidian-semantic-swatch' });
+          const update = () => { swatch.style.backgroundColor = state.enabled ? color : `var(--color-${parameter.variable.replace('--hacksidian-semantic-', '')})`; };
+          owner.register(state.subscribe(update)); update();
+          tile.createDiv({ text: (!ru && parameter.labelEn) || parameter.label });
+          tile.createEl('code', { text: color });
+        }
+        this.previewEl.createEl('hr', { cls: 'hacksidian-live-separator' });
+        return;
+      }
+      if (spec.group === 'palette') {
         if (this.stopped || epoch !== this.epoch) return;
         if (this.renderer) this.removeChild(this.renderer);
         this.previewEl.empty();
@@ -36,7 +67,8 @@ export class LiveExample extends MarkdownRenderChild {
         this.addChild(this.renderer);
         return;
       }
-      const issue = liveExampleIssue(JSON.parse(rawSpec).group, markdown, css);
+      const [markdown, css] = await Promise.all([adapter.read(`${this.directory}/markdown.md`), adapter.read(`${this.directory}/recipe.css`)]);
+      const issue = liveExampleIssue(spec.group, markdown, css);
       if (issue) throw new Error(issue);
       if (this.stopped || epoch !== this.epoch) return;
       const id = `hacksidian-live-${crypto.randomUUID()}`, scoped = resolveLiveUrls(scopeLiveExample(css, id), this.directory, file => adapter.getResourcePath(file));

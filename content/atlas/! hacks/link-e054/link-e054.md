@@ -7,6 +7,7 @@ category: link
 sources: []
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id

@@ -4,7 +4,7 @@ export interface CssParameter {
   variable: string;
   label: string;
   labelEn?: string;
-  type: 'number' | 'select' | 'text';
+  type: 'number' | 'select' | 'text' | 'color';
   value: string;
   default: string;
   unit: string;
@@ -46,7 +46,7 @@ function definitions(css: string): { parameter: CssParameter; declaration: Decla
       throw Error('Parameter must precede one unique --hacksidian-* declaration');
     }
     const type = one('type');
-    if (type !== 'number' && type !== 'select' && type !== 'text') throw Error(`Invalid parameter type: ${type}`);
+    if (type !== 'number' && type !== 'select' && type !== 'text' && type !== 'color') throw Error(`Invalid parameter type: ${type}`);
     const numeric = (key: string) => {
       const value = one(key);
       if (value === undefined) return undefined;
@@ -84,6 +84,10 @@ export function parameterInput(parameter: CssParameter): string {
     ? parameter.value.slice(0, -parameter.unit.length) : parameter.value;
 }
 export function parameterValue(parameter: CssParameter, input: string): string {
+  if (parameter.type === 'color') {
+    if (!/^#[0-9a-f]{6}$/i.test(input)) throw Error('Введите цвет #RRGGBB / Enter a #RRGGBB color');
+    return input.toLowerCase();
+  }
   if (parameter.type === 'text') {
     if (input.includes('/* hacksidian:')) throw Error('Reserved recipe marker');
     if (input.length > parameter.maxLength || /[\n\r\u0000-\u001f]/.test(input)) throw Error(`Максимум ${parameter.maxLength} символов / characters`);

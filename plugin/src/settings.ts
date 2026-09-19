@@ -51,12 +51,17 @@ export class CallMeRedSettingTab extends PluginSettingTab {
     new Setting(containerEl).setName(t('catalog.variables')).addText(input => input.setValue(this.plugin.settings.globalVariablesFile).onChange(async value => {
       this.plugin.settings.globalVariablesFile = value.trim(); await this.plugin.savePluginData();
     }));
-    const catalogStatus = containerEl.createDiv({ text: this.plugin.catalogStatus(), cls: 'setting-item-description' });
+    const statusRow = containerEl.createDiv({ cls: 'hacksidian-catalog-status-row' });
+    const catalogStatus = statusRow.createDiv({ text: this.plugin.catalogStatus(), cls: 'setting-item-description' });
+    const stopCatalog = statusRow.createEl('button', { text: t('catalog.stop') });
+    stopCatalog.hidden = true;
+    stopCatalog.addEventListener('click', () => { this.plugin.stopCatalogUpdate(); stopCatalog.disabled = true; stopCatalog.setText(t('catalog.stopping')); });
     new Setting(containerEl).setName(t('catalog.update')).setDesc(t('catalog.description')).addButton(button => button.setButtonText(t('catalog.update')).onClick(async () => {
       button.setDisabled(true);
+      stopCatalog.hidden = false; stopCatalog.disabled = false; stopCatalog.setText(t('catalog.stop'));
       try { await this.plugin.updateCatalog(message => catalogStatus.setText(message)); }
       catch (error) { catalogStatus.setText(String(error)); }
-      finally { button.setDisabled(false); }
+      finally { button.setDisabled(false); stopCatalog.hidden = true; }
     }));
     containerEl.createDiv({ text: t('catalog.storage_cost'), cls: 'setting-item-description' });
     containerEl.createEl("h3", { text: "OpenAI" });

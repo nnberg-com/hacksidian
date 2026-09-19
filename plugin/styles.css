@@ -87,7 +87,8 @@
 }
 
 .callmered-turn-user {
-  background: var(--background-secondary);
+  font-weight: var(--font-bold);
+  background: var(--nav-item-background-active);
 }
 
 .callmered-turn-user.is-pending {
@@ -96,7 +97,7 @@
 
 .callmered-turn-system {
   color: var(--text-muted);
-  border-left: 2px solid var(--interactive-accent);
+  border-left: none;
   border-radius: 0;
 }
 
@@ -160,7 +161,7 @@
 
 .hacksidian-recommendation { margin-block: 0.75em; }
 .hacksidian-recommendation > a:first-child { font-weight: 600; }
-.hacksidian-recommendation > div { white-space: pre-wrap; margin-top: 0.25em; }
+.hacksidian-recommendation > div:not(.hacksidian-chat-example) { white-space: pre-wrap; margin-top: 0.25em; }
 .hacksidian-recommendation code { overflow-wrap: anywhere; }
 
 .hacksidian-related-themes { border-inline-start: 2px solid var(--background-modifier-border); padding-inline-start: 0.75em; }
@@ -240,3 +241,31 @@ button.hacksidian-favourite-toggle:focus-visible { outline: 2px solid var(--inte
 .hacksidian-parameter [role="alert"] { color: var(--text-error); font-size: var(--font-ui-small); }
 .hacksidian-parameter [aria-invalid="true"] { border-color: var(--text-error); }
 .hacksidian-parameters [role="status"] { color: var(--text-muted); font-size: var(--font-ui-small); margin-block: 0.5em; }
+
+.hacksidian-catalog-status-row { display: flex; align-items: center; gap: 8px; }
+.hacksidian-catalog-status-row > button { flex-shrink: 0; }
+
+/* Obsidian button display rules can override the browser default for hidden. */
+.hacksidian-catalog-status-row > button[hidden] { display: none !important; }
+
+.callmered-panel { user-select: text; -webkit-user-select: text; }
+.callmered-conversation, .callmered-conversation * { user-select: text; -webkit-user-select: text; }
+.hacksidian-chat-technique-heading { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.hacksidian-chat-example { white-space: normal; color: var(--text-normal); }
+
+.callmered-conversation .hacksidian-technique-link { font-weight: var(--font-bold); }
+
+.hacksidian-semantic-colors { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 12px; white-space: normal; }
+.hacksidian-semantic-swatch { height: 48px; border-radius: var(--radius-s); border: 1px solid var(--background-modifier-border); margin-bottom: 4px; }
+
+/* Chat examples use a document surface; retain the former separator-to-content spacing. */
+.hacksidian-chat-example > div:first-child {
+  background: var(--background-primary);
+  border-radius: var(--radius-s);
+  padding-block: var(--p-spacing, 1rem);
+}
+.hacksidian-chat-example > div:first-child > hr.hacksidian-live-separator {
+  display: none;
+}
+
+.hacksidian-chat-example > .hacksidian-live-example { margin-top: calc(var(--p-spacing, 1rem) * 0.5); }

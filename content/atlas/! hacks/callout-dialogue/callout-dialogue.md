@@ -11,6 +11,7 @@ themes:
   - fancy-a-story
   - anuppuccin
   - blue-topaz
+favourite: true
 ---
 
 ```hacksidian-id

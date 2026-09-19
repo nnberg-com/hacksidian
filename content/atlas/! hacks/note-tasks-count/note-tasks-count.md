@@ -8,6 +8,7 @@ sources:
   - https://github.github.com/gfm/
 format: markdown
 themes: []
+favourite: false
 ---
 
 ```hacksidian-id

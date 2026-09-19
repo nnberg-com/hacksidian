@@ -9,7 +9,7 @@
    * @option 2px | Средняя · 2 px | Medium · 2 px
    * @option 4px |Толстая · 4 px | Thick · 4 px
    */
-  --hacksidian-quote-dashed-width: 4px;
+  --hacksidian-quote-dashed-width: var(--blockquote-border-thickness);
   /**
    * @parameter Рисунок линии
    * @label-en Line style
@@ -19,7 +19,7 @@
    * @option dotted | Точки | Dotted
    * @option solid | Сплошная | Solid
    */
-  --hacksidian-quote-dashed-style: dotted;
+  --hacksidian-quote-dashed-style: dashed;
   border-inline-start: var(--hacksidian-quote-dashed-width) var(--hacksidian-quote-dashed-style) var(--interactive-accent);
 }
 

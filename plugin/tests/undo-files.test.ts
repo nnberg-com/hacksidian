@@ -7,6 +7,7 @@ vi.mock('obsidian', () => ({
  getLanguage: () => 'ru',
  Plugin: class { app = { vault: { configDir: '.obsidian' } }; async loadData(){return state.data;} async saveData(value: any){state.data=structuredClone(value);} },
  Notice: class { constructor(message: string){state.notices.push(message);} },
+ TFile: class {},
  MarkdownRenderChild: class {},
  ItemView: class {}, PluginSettingTab: class {}, MarkdownView: class {},
  MarkdownRenderer: {render:vi.fn(async(_app:any,source:string,target:any)=>{target.textContent=source.replace(/<br\s*\/?>/gi," ").replace(/<[^>]*>/g,"").replace(/\[\[([^\]]+)\]\]/g,"$1");})},
@@ -16,6 +17,7 @@ vi.mock('../src/context', () => ({collectComputedStyleContext:vi.fn(()=> 'comput
 vi.mock('../src/storage', () => ({ styleDirectory: () => state.directory }));
 vi.mock('../src/snippets', () => ({ installSnippetTemplates: vi.fn(), refreshNativeSnippets: vi.fn(), migrateSnippetGroups: vi.fn(async()=>[]) }));
 import CallMeRedPlugin from '../src/main';
+import { TFile } from 'obsidian';
 import { captureReadingView } from '../src/capture';
 import { OpenAIResponsesProvider } from '../src/provider';
 import { installSnippetTemplates } from '../src/snippets';
@@ -29,6 +31,7 @@ async function setup(){
  const plugin=new CallMeRedPlugin({} as any,{} as any);
  (plugin as any).refreshView=vi.fn();
  await plugin.loadPluginData();
+ vi.spyOn(plugin,'getCurrentHack').mockResolvedValue(null);
  plugin.catalog.active = { revision:'test',createdAt:'now',storeId:'vs_test',documents:[],entries:[{id:'image-round',title:'Rounded',kind:'technique',path:'image-round.md',text:'Rounded photos'}] };
  return plugin;
 }
@@ -254,4 +257,181 @@ test('catalog link opens the index inside the configured atlas folder',async()=>
  (plugin as any).app={workspace:{openLinkText}};
  plugin.settings.atlasFolder='custom atlas/';await plugin.openCatalog();
  expect(openLinkText).toHaveBeenCalledWith('custom atlas/atlas.md','',true);
+});
+
+async function parameterFixture(id = 'hr-e070') {
+ const plugin=await setup(); plugin.settings.autoPricing=false;
+ plugin.catalog.active=undefined;
+ let source=await readFile(path.resolve(import.meta.dirname,`../../content/atlas/! hacks/${id}/recipe.css`),'utf8');
+ const cardPath=`atlas/! hacks/${id}/${id}.md`;
+ const file=Object.assign(new TFile(),{path:`atlas/! hacks/${id}/recipe.css`,extension:'css'});
+ const card=Object.assign(new TFile(),{path:cardPath,extension:'md'});
+ const spec=JSON.parse(await readFile(path.resolve(import.meta.dirname,`../../content/atlas/! hacks/${id}/hack.json`),'utf8'));
+ const hack={id,title:'Example',path:cardPath,spec,css:source};
+ vi.spyOn(plugin,'getHackAt').mockImplementation(async()=>({...hack,css:source}));
+ vi.mocked(plugin.getCurrentHack).mockImplementation(async()=>({...hack,css:source}));
+ const view=vi.spyOn(plugin as any,'findMarkdownView').mockReturnValue({file:{path:cardPath}});
+ const vault=plugin.app.vault as any;
+ vault.getAbstractFileByPath=(path:string)=>path===cardPath?card:file;
+ const leaf={openFile:vi.fn(async()=>{})};
+ plugin.app.workspace={getLeaf:vi.fn(()=>leaf),revealLeaf:vi.fn(async()=>{}),setActiveLeaf:vi.fn()} as any;
+ vault.adapter={read:async(path:string)=>path.endsWith('hacksidian-manifest.json')?readFile(dir+'/hacksidian-manifest.json','utf8'):source};
+ vault.process=vi.fn(async(_file:any,update:(css:string)=>string)=>{source=update(source);});
+ const usage={inputTokens:100,cachedInputTokens:0,outputTokens:20,totalTokens:120,estimatedCostUsd:0.001};
+ const result={decision:{action:'update_parameters' as const,message:'Thicker',changes:[{variable:'--hacksidian-hr-e070-height',input:'4'}]},usage,responseId:'paid-params'};
+ return {plugin,view,result,vault,leaf,cardPath,source:()=>source,edit:()=>{source+='/* manual edit */\n';}};
+}
+test('card chat changes recipe values without a catalog or installed-snippet writes',async()=>{
+ const f=await parameterFixture(),before=await readFileStyle(dir);
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createParameterIteration').mockResolvedValue(f.result);
+ try {
+  await f.plugin.processFeedback('Сделай толще',()=>{});
+  expect(f.source()).toContain('--hacksidian-hr-e070-height: 4px');
+  expect(await readFileStyle(dir)).toEqual(before);
+  expect(f.plugin.state.turns.at(-1)).toMatchObject({action:'update_parameters',techniqueId:'hr-e070',parameterChanges:[{before:'2px',after:'4px'}]});
+  expect(f.plugin.spendingSummary().knownCostUsd).toBe(0.001);
+ } finally {create.mockRestore();}
+});
+test.each(['page','css','invalid'] as const)('paid parameter request rejects %s changes without overwriting source',async(reason)=>{
+ const f=await parameterFixture();
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createParameterIteration').mockImplementation(async request=>{
+  await request.onUsage?.(f.result.usage,f.result.responseId);
+  if(reason==='page')f.view.mockReturnValue({file:{path:'atlas/Эксперименты.md'}});
+  if(reason==='css')f.edit();
+  return reason==='invalid'?{...f.result,decision:{...f.result.decision,changes:[{variable:'--arbitrary',input:'3'}]}}:f.result;
+ });
+ try {
+  await expect(f.plugin.processFeedback('Сделай толще',()=>{})).rejects.toThrow();
+  expect(f.source()).toContain('--hacksidian-hr-e070-height: 2px');
+  if(reason==='css')expect(f.source()).toContain('/* manual edit */');
+  expect(f.plugin.spendingSummary().knownCostUsd).toBe(0.001);
+  expect(state.data.apiAttempts.at(-1).status).toBe('failed');
+ } finally {create.mockRestore();}
+});
+test('ambiguous card request records a question without changing values',async()=>{
+ const f=await parameterFixture(),before=f.source();
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createParameterIteration').mockResolvedValue({...f.result,decision:{action:'ask_question',message:'Ширину или высоту?',changes:[]}});
+ try {
+  await f.plugin.processFeedback('Увеличь размер',()=>{});
+  expect(f.source()).toBe(before); expect(f.vault.process).not.toHaveBeenCalled();
+  expect(f.plugin.state.turns.at(-1)).toMatchObject({action:'ask_question',systemMessage:'Ширину или высоту?',techniqueId:'hr-e070'});
+ } finally {create.mockRestore();}
+});
+test('search request on a technique page retains catalog recommendation flow and accounts for both calls',async()=>{
+ const f=await parameterFixture(),before=f.source();
+ f.plugin.catalog.active={revision:'test',createdAt:'now',storeId:'vs_test',documents:[],entries:[]};
+ const parameter=vi.spyOn(OpenAIResponsesProvider.prototype,'createParameterIteration').mockResolvedValue({...f.result,decision:{action:'search_catalog',message:'',changes:[]}});
+ const search=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({decision:{action:'no_match',message:'No match',recommendations:[]},retrievedIds:[],searchQueries:[],usage:f.result.usage,responseId:'search'});
+ try {
+  await f.plugin.processFeedback('Найди другой разделитель',()=>{});
+  expect(f.source()).toBe(before);expect(search).toHaveBeenCalledTimes(1);
+  expect(f.plugin.spendingSummary()).toMatchObject({count:2,knownCostUsd:0.002});
+ } finally {parameter.mockRestore();search.mockRestore();}
+});
+test('a history write failure after source save explicitly reports that parameters were saved',async()=>{
+ const f=await parameterFixture();
+ const original=f.plugin.savePluginData.bind(f.plugin);
+ vi.spyOn(f.plugin,'savePluginData').mockImplementation(async()=>{if(f.plugin.state.turns.length)throw Error('History unavailable');await original();});
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createParameterIteration').mockResolvedValue(f.result);
+ try {
+  await expect(f.plugin.processFeedback('Сделай толще',()=>{})).rejects.toThrow('CSS параметров сохранён');
+  expect(f.source()).toContain('--hacksidian-hr-e070-height: 4px');
+ } finally {create.mockRestore();}
+});
+
+async function recommendationFixture() {
+ const f=await parameterFixture();
+ vi.mocked(f.plugin.getCurrentHack).mockResolvedValue(null);
+ const entry={id:'hr-e070',title:'Short line',kind:'technique' as const,path:'atlas/! hacks/hr-e070/hr-e070.md',text:'Line',applyAvailable:true};
+ f.plugin.catalog.active={revision:'test',createdAt:'now',storeId:'vs_test',documents:[],entries:[entry]};
+ const response={decision:{action:'recommend' as const,message:'',recommendations:[{id:entry.id,reason:'Short thick separator',instructions:'',parameterChanges:[{variable:'--hacksidian-hr-e070-height',input:'4'}]}]},retrievedIds:[entry.id],searchQueries:['separator'],usage:f.result.usage,responseId:'prepared-search'};
+ return {...f,response};
+}
+test('recommendation outside a card preconfigures in one provider call without enabling or changing snippets',async()=>{
+ const f=await recommendationFixture(),before=await readFileStyle(dir);
+ const search=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue(f.response);
+ const parameters=vi.spyOn(OpenAIResponsesProvider.prototype,'createParameterIteration');
+ try {
+  await f.plugin.processFeedback('Хочу короткий толстый разделитель',()=>{});
+  expect(search).toHaveBeenCalledTimes(1);expect(parameters).not.toHaveBeenCalled();
+  expect(search.mock.calls[0][0].prompt).toContain('"max":12');
+  expect(f.source()).toContain('--hacksidian-hr-e070-height: 4px');
+  expect(await readFileStyle(dir)).toEqual(before);
+  expect(f.plugin.state.turns.at(-1)?.recommendations?.[0]).toMatchObject({preparedParameters:[{before:'2px',after:'4px'}]});
+  expect(f.plugin.state.turns.at(-1)?.recommendations?.[0].instructions).toContain('Параметры преднастроены');
+ } finally {search.mockRestore();parameters.mockRestore();}
+});
+test('recommendation refuses to overwrite a recipe edited during search and retains its expense',async()=>{
+ const f=await recommendationFixture();
+ const search=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockImplementation(async()=>{f.edit();return f.response;});
+ try {
+  await expect(f.plugin.processFeedback('Хочу толстый разделитель',()=>{})).rejects.toThrow('изменился');
+  expect(f.source()).toContain('--hacksidian-hr-e070-height: 2px');expect(f.source()).toContain('/* manual edit */');
+  expect(f.plugin.spendingSummary().knownCostUsd).toBe(0.001);
+ } finally {search.mockRestore();}
+});
+
+test.each([false,true])('single recommendation with explicit apply works with parameter changes=%s and activates a new tab',async(withChanges)=>{
+ const f=await recommendationFixture(),before=await readFileStyle(dir);
+ const request='Сделай разделитель толще';
+ const recommendation={...f.response.decision.recommendations[0],parameterChanges:withChanges?f.response.decision.recommendations[0].parameterChanges:[],command:'apply' as const,commandEvidence:request};
+ const search=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({...f.response,decision:{...f.response.decision,recommendations:[recommendation]}});
+ try {
+  await f.plugin.processFeedback(request,()=>{});
+  const after=await readFileStyle(dir);
+  expect(after.modules.find(m=>m.id==='g-hr')?.css).toContain(`--hacksidian-hr-e070-height: ${withChanges?'4':'2'}px`);
+  expect(after.modules.filter(m=>m.id!=='g-hr')).toEqual(before.modules.filter(m=>m.id!=='g-hr'));
+  expect(f.plugin.state.turns.at(-1)?.recommendations?.[0].applied).toBe(true);
+  expect(f.plugin.app.workspace.getLeaf).toHaveBeenCalledWith('tab');
+  expect(f.leaf.openFile).toHaveBeenCalledWith(expect.objectContaining({path:f.cardPath}),{active:true,state:{mode:'preview'}});
+  expect(f.plugin.app.workspace.setActiveLeaf).toHaveBeenCalledWith(f.leaf,{focus:true});
+ } finally {search.mockRestore();}
+});
+test.each(['show','uncertain'] as const)('single %s recommendation opens its own new active tab without applying',async(command)=>{
+ const f=await recommendationFixture(),before=await readFileStyle(dir);
+ const search=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({...f.response,decision:{...f.response.decision,recommendations:[{...f.response.decision.recommendations[0],parameterChanges:[],command,commandEvidence:''}]}});
+ try {
+  await f.plugin.processFeedback('Покажи разделитель',()=>{});
+  expect(await readFileStyle(dir)).toEqual(before);
+  expect(f.plugin.app.workspace.getLeaf).toHaveBeenCalledWith('tab');expect(f.plugin.app.workspace.setActiveLeaf).toHaveBeenCalledWith(f.leaf,{focus:true});
+ } finally {search.mockRestore();}
+});
+test('multiple candidates remain a list even if model erroneously proposes commands and parameters',async()=>{
+ const f=await recommendationFixture(),before=await readFileStyle(dir),source=f.source();
+ const other={...f.plugin.catalog.active!.entries[0],id:'other',path:'atlas/! hacks/other/other.md'};f.plugin.catalog.active!.entries.push(other);
+ const rec={...f.response.decision.recommendations[0],command:'apply' as const,commandEvidence:'Сделай'};
+ const search=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({...f.response,retrievedIds:['hr-e070','other'],decision:{...f.response.decision,recommendations:[rec,{...rec,id:'other'}]}});
+ try {
+  await f.plugin.processFeedback('Сделай',()=>{});
+  expect(f.source()).toBe(source);expect(await readFileStyle(dir)).toEqual(before);expect(f.plugin.app.workspace.getLeaf).not.toHaveBeenCalled();
+  expect(f.plugin.state.turns.at(-1)?.recommendations).toHaveLength(2);
+ } finally {search.mockRestore();}
+});
+test('table spacing request sets horizontal padding to maximum, enables, then updates the same installed block',async()=>{
+ const f=await parameterFixture('table-e015');
+ const request='Сделай в ячейках таблицы отступы слева и справа как можно больше';
+ const response={...f.result,decision:{action:'update_parameters' as const,message:'',changes:[{variable:'--hacksidian-table-e015-horizontal',input:'3'}],command:'apply' as const,commandEvidence:request}};
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createParameterIteration').mockResolvedValue(response);
+ try {
+  await f.plugin.processFeedback(request,()=>{});
+  expect((await readFileStyle(dir)).modules.find(m=>m.id==='g-table')?.css).toContain('--hacksidian-table-e015-horizontal: 3em');
+  create.mockResolvedValue({...response,decision:{...response.decision,changes:[{variable:'--hacksidian-table-e015-horizontal',input:'2'}],commandEvidence:'Уменьши до 2'}});
+  await f.plugin.processFeedback('Уменьши до 2',()=>{});
+  const css=(await readFileStyle(dir)).modules.find(m=>m.id==='g-table')!.css;
+  expect(css).toContain('--hacksidian-table-e015-horizontal: 2em');expect(css.split('hacksidian:hack:table-e015:start')).toHaveLength(2);
+  expect(f.plugin.state.turns.at(-1)?.techniqueApplied).toBe(true);
+ } finally {create.mockRestore();}
+});
+
+test('interrupted synchronization permits chat using recorded partial sources',async()=>{
+ const plugin=await setup();plugin.settings.autoPricing=false;
+ const active=plugin.catalog.active!;
+ plugin.catalog.sync={storeId:active.storeId,entries:active.entries,documents:[{name:'partial',hash:'h',fileId:'partial',entryId:'image-round',text:''}]};
+ const create=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({decision:{action:'no_match',message:'No match',recommendations:[]},retrievedIds:[],searchQueries:[],usage:{inputTokens:1,cachedInputTokens:0,outputTokens:1,totalTokens:2,estimatedCostUsd:0},responseId:'partial'});
+ try {
+  await plugin.processFeedback('Find a technique',()=>{});
+  expect(create.mock.calls[0][0].catalog.documents.map(d=>d.fileId)).toContain('partial');
+  expect(plugin.catalog.sync).toBeDefined();
+  expect(plugin.apiAttempts.at(-1)?.status).toBe('completed');
+ } finally {create.mockRestore();}
 });

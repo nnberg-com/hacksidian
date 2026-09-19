@@ -8,6 +8,7 @@ sources:
   - https://example.com/reference
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id

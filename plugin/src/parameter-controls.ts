@@ -88,7 +88,7 @@ export class ParameterControls extends MarkdownRenderChild {
           for (const option of parameter.options) select.createEl('option', { value: option.value, text: (en ? option.labelEn : undefined) || option.label });
           if (!parameter.options.some(option => option.value === parameter.value)) select.createEl('option', { value: parameter.value, text: parameter.value });
         } else {
-          const input = label.createEl('input', { type: parameter.type === 'number' ? 'number' : 'text' }); field = input;
+          const input = label.createEl('input', { type: parameter.type === 'number' ? 'number' : parameter.type === 'color' ? 'color' : 'text' }); field = input;
           if (parameter.type === 'number') {
             input.step = String(parameter.step ?? 'any');
             if (parameter.min !== undefined) input.min = String(parameter.min);
@@ -99,7 +99,7 @@ export class ParameterControls extends MarkdownRenderChild {
         field.value = parameterInput(parameter); fields.set(parameter.variable, field);
         const error = row.createDiv({ attr: { role: 'alert', id: `parameter-error-${crypto.randomUUID()}` } });
         field.setAttribute('aria-describedby', error.id); errors.set(parameter.variable, error);
-        this.registerDomEvent(field, parameter.type === 'select' ? 'change' : 'input', () => save(parameter.variable, field.value));
+        this.registerDomEvent(field, parameter.type === 'select' || parameter.type === 'color' ? 'change' : 'input', () => save(parameter.variable, field.value));
         const reset = row.createEl('button', { text: en ? 'Reset' : 'Сбросить' });
         this.registerDomEvent(reset, 'click', () => { field.value = parameterInput({ ...parameter, value: parameter.default }); save(parameter.variable, field.value); });
         try { parameterValue(parameter, field.value); } catch (e) { invalid.add(parameter.variable); field.setAttribute('aria-invalid', 'true'); error.setText(String(e)); }

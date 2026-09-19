@@ -1,3 +1,5 @@
+import { validCommand } from './technique-command';
+import { parseParameterDecision } from './parameter-chat';
 import { t } from "../i18n";
 import type { RawUsage } from "./cost";
 import type { ModelDecision } from "./types";
@@ -37,12 +39,16 @@ function isModelDecision(value: unknown): value is ModelDecision {
   const ids = new Set<string>();
   return candidate.recommendations.every(item => {
     if (!item || typeof item.id !== 'string' || !/^[a-z0-9_-]+$/.test(item.id) || ids.has(item.id) || typeof item.reason !== 'string' || typeof item.instructions !== 'string' || item.reason.length > 3000 || item.instructions.length > 3000) return false;
-    if (Object.keys(item).some(key => !['id', 'reason', 'instructions'].includes(key))) return false;
+    if (!validCommand(item) || Object.keys(item).some(key => !['id', 'reason', 'instructions', 'parameterChanges', 'command', 'commandEvidence'].includes(key))) return false;
+    if (item.parameterChanges !== undefined) {
+      if (!Array.isArray(item.parameterChanges)) return false;
+      try { parseParameterDecision({action: item.parameterChanges.length ? 'update_parameters' : 'no_change', message: '', changes: item.parameterChanges}); } catch { return false; }
+    }
     ids.add(item.id); return true;
   });
 }
 
-export function parseModelDecision(body: OpenAIResponse): ModelDecision {
+export function parseResponseData(body: OpenAIResponse): unknown {
   const suffix = responseSuffix(body);
 
   if (body.error) {
@@ -81,6 +87,12 @@ export function parseModelDecision(body: OpenAIResponse): ModelDecision {
     );
   }
 
+  return parsed;
+}
+
+export function parseModelDecision(body: OpenAIResponse): ModelDecision {
+  const parsed = parseResponseData(body);
+  const suffix = responseSuffix(body);
   if (!isModelDecision(parsed)) {
     throw new Error(t("response.the_structured_api_response_does_not_match", { p0: suffix }));
   }

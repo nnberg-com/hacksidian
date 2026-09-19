@@ -43,6 +43,7 @@ themes:
   - zen
   - maple
   - lagom
+favourite: true
 ---
 
 ```hacksidian-id

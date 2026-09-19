@@ -1,4 +1,8 @@
-import { pendingParameters } from './parameter-storage';
+import { searchableCatalog } from './catalog';
+import { shouldApplyTechnique } from './technique-command';
+import { collectRecommendationParameters, recommendationParameterPatch } from './recommendation-parameters';
+import { pendingParameters, processParameterSource } from './parameter-storage';
+import { PARAMETER_PROMPT_VERSION, PARAMETER_INSTRUCTIONS, parameterChatPrompt, applyParameterDecision } from './parameter-chat';
 import { enabledTechniquePaths } from './enabled-techniques';
 import { Favourites } from './favourites';
 import { registerSourceBlocks } from './source-blocks';
@@ -6,7 +10,7 @@ import { t, setLanguageResolver, resolveInterfaceLanguage, resolveContentLanguag
 import type { CatalogState } from "./catalog";
 import { relatedThemes } from "./catalog";
 import { collectCatalog } from "./catalog-source";
-import { CatalogApi, syncCatalog } from "./catalog-api";
+import { CatalogApi, CatalogSyncStopped, syncCatalog } from "./catalog-api";
 import { switchProvider } from "./llm-catalog";
 import { basePath } from "./storage";
 import path from "node:path";
@@ -131,12 +135,7 @@ export default class CallMeRedPlugin extends Plugin {
         () => enabledTechniquePaths(this.app.vault.getMarkdownFiles(), this.settings.atlasFolder, this.state.style),
         listener => { this.techniqueListeners.add(listener); return () => this.techniqueListeners.delete(listener); }));
     });
-    registerSourceBlocks(this, { openEnabled: () => { void this.openEnabled().catch(error => new Notice(String(error))); }, technique: {
-      get: async path => { const hack = await this.getHackAt(path); return hack ? { installed: !!hack.installed, hasCss: hack.spec.hasCss } : null; },
-      set: (path, enabled) => this.applyCurrentHack(path, enabled, true),
-      update: path => this.applyCurrentHack(path, true, true, true),
-      subscribe: listener => { this.techniqueListeners.add(listener); return () => this.techniqueListeners.delete(listener); },
-    }, store: this.favourites, open: openFavourites, english: () => this.interfaceLanguage === 'en' });
+    registerSourceBlocks(this, this.techniqueControls());
     this.addCommand({ id: 'open-favourites', name: this.interfaceLanguage === 'en' ? 'Open favourites' : 'Открыть избранное', callback: openFavourites });
     this.addRibbonIcon('star', this.interfaceLanguage === 'en' ? 'Favourite techniques' : 'Избранные приёмы', openFavourites);
     await this.savePluginData();
@@ -307,6 +306,15 @@ export default class CallMeRedPlugin extends Plugin {
     const file = this.findMarkdownView()?.file;
     return file ? this.getHackAt(file.path) : null;
   }
+  techniqueControls(): import("./favourites").FavouriteControls {
+    return { openEnabled: () => { void this.openEnabled().catch(error => new Notice(String(error))); }, technique: {
+      get: async path => { const hack = await this.getHackAt(path); return hack ? { installed: !!hack.installed, hasCss: hack.spec.hasCss } : null; },
+      set: (path, enabled) => this.applyCurrentHack(path, enabled, true),
+      update: path => this.applyCurrentHack(path, true, true, true),
+      subscribe: listener => { this.techniqueListeners.add(listener); return () => this.techniqueListeners.delete(listener); },
+    }, store: this.favourites, open: () => { void this.openFavourites(); }, english: () => this.interfaceLanguage === 'en' };
+  }
+
   private techniqueListeners = new Set<() => void>();
   async getHackAt(filePath: string): Promise<HackContext | null> {
     const file = { path: filePath };
@@ -331,22 +339,48 @@ export default class CallMeRedPlugin extends Plugin {
       if (enabled) await pendingParameters(this.app.vault, `${expectedPath.slice(0, expectedPath.lastIndexOf('/'))}/recipe.css`);
       const hack = fromCard ? await this.getHackAt(expectedPath) : await this.getCurrentHack();
       if (!hack || hack.path !== expectedPath) throw new Error(t("main.the_open_card_has_changed_select_the"));
-      await this.reloadFileStyle();
-      if (update && !hasHack(this.state.style, hack.id)) throw new Error("Приём уже выключен / Technique is disabled");
-      const result = enabled
-        ? (!update && hasHack(this.state.style, hack.id) ? { style: this.state.style!, changed: false } : addHack(this.state.style!, hack))
-        : removeHack(this.state.style!, hack.id);
-      if (result.changed) {
-        await this.saveAppliedStyle(result.style);
-        changed = true;
-      }
-      const manifest = JSON.parse(await this.app.vault.adapter.read(`${this.app.vault.configDir}/snippets/hacksidian-manifest.json`));
-      const entry = manifest.modules.find((m: {id: string}) => m.id === hack.spec.target);
-      if (enabled && entry) await refreshNativeSnippets(this.app, [entry.file.replace(/\.css$/, "")]);
-      for (const listener of this.techniqueListeners) listener();
-      await this.refreshView();
+      changed = await this.applyResolvedHack(hack, enabled, update);
     });
     return changed;
+  }
+
+  /** Called under the existing history lock by both buttons and chat. */
+  private async applyResolvedHack(hack: HackContext, enabled: boolean, update: boolean): Promise<boolean> {
+    await this.reloadFileStyle();
+    if (update && !hasHack(this.state.style, hack.id)) throw new Error("Приём уже выключен / Technique is disabled");
+    const result = enabled
+      ? (!update && hasHack(this.state.style, hack.id) ? { style: this.state.style!, changed: false } : addHack(this.state.style!, hack))
+      : removeHack(this.state.style!, hack.id);
+    if (result.changed) {
+      await this.saveAppliedStyle(result.style);
+    }
+    const manifest = JSON.parse(await this.app.vault.adapter.read(`${this.app.vault.configDir}/snippets/hacksidian-manifest.json`));
+    const entry = manifest.modules.find((m: {id: string}) => m.id === hack.spec.target);
+    if (enabled && entry) await refreshNativeSnippets(this.app, [entry.file.replace(/\.css$/, "")]);
+    for (const listener of this.techniqueListeners) listener();
+    await this.refreshView();
+    return result.changed;
+  }
+
+  private async applyChatTechnique(cardPath: string, expectedCss?: string, requireCurrentPage = false): Promise<void> {
+    await pendingParameters(this.app.vault, `${cardPath.slice(0, cardPath.lastIndexOf('/'))}/recipe.css`);
+    const hack = await this.getHackAt(cardPath);
+    if (!hack || hack.path !== cardPath || !hack.spec.hasCss) throw new Error('Приём недоступен для применения / Technique cannot be applied');
+    if (requireCurrentPage && this.findMarkdownView()?.file?.path !== cardPath) throw new Error('Открытый приём изменился / The open technique changed');
+    if (expectedCss !== undefined && hack.css !== expectedCss) throw new Error('CSS приёма изменился; применение отменено / Recipe changed; application cancelled');
+    // Refresh installed state before deciding whether this is an enable or update.
+    await this.reloadFileStyle();
+    await this.applyResolvedHack(hack, true, hasHack(this.state.style, hack.id));
+  }
+
+  private async openUniqueTechnique(cardPath: string): Promise<void> {
+    const file = this.app.vault.getAbstractFileByPath(cardPath);
+    if (!(file instanceof TFile) || file.extension !== 'md') throw new Error('Карточка не найдена / Card not found');
+    const leaf = this.app.workspace.getLeaf('tab');
+    await leaf.openFile(file, { active: true, state: { mode: 'preview' } });
+    this.lastMarkdownLeaf = leaf;
+    await this.app.workspace.revealLeaf(leaf);
+    this.app.workspace.setActiveLeaf(leaf, { focus: true });
   }
 
   async processFeedback(userText: string, onStatus: (message: string) => void): Promise<void> {
@@ -382,30 +416,42 @@ export default class CallMeRedPlugin extends Plugin {
     return active ? t('catalog.ready', { p0: active.entries.length, p1: active.revision.slice(0,8), p2: new Date(active.createdAt).toLocaleString() }) : t('catalog.missing');
   }
 
+  private catalogAbort?: AbortController;
+
+  stopCatalogUpdate(): void { this.catalogAbort?.abort(); }
+
   async updateCatalog(onStatus: (message: string) => void): Promise<void> {
     await this.withHistoryLock(async () => {
-      onStatus(t('catalog.collecting'));
-      const catalog = await this.collectCatalog();
-      const api = new CatalogApi(this.settings.apiKey);
-      await syncCatalog(api, this.catalog, catalog, () => this.savePluginData(), (done, total) => onStatus(t('catalog.uploading', { p0: done, p1: total })), {
-        status: onStatus,
-        chooseStore: async stores => {
-          const { SuggestModal } = await import('obsidian');
-          return new Promise<string>((resolve, reject) => {
-            let selected = false;
-            class StorePicker extends SuggestModal<{ id: string; name: string }> {
-              getSuggestions(query: string) { return stores.filter(s => `${s.name} ${s.id}`.toLowerCase().includes(query.toLowerCase())); }
-              renderSuggestion(store: { id: string; name: string }, el: HTMLElement) { el.setText(`${store.name} — ${store.id}`); }
-              onChooseSuggestion(store: { id: string }) { selected = true; resolve(store.id); }
-              onClose() { setTimeout(() => { if (!selected) reject(new Error(t('catalog.selection_cancelled'))); }, 0); }
-            }
-            const picker = new StorePicker(this.app);
-            picker.setPlaceholder(t('catalog.choose_store'));
-            picker.open();
-          });
-        },
-      });
-      onStatus(this.catalogStatus());
+      const controller = new AbortController();
+      this.catalogAbort = controller;
+      try {
+        onStatus(t('catalog.collecting'));
+        const catalog = await this.collectCatalog();
+        const api = new CatalogApi(this.settings.apiKey);
+        await syncCatalog(api, this.catalog, catalog, () => this.savePluginData(), (done, total) => onStatus(t('catalog.uploading', { p0: done, p1: total })), {
+          signal: controller.signal,
+          status: onStatus,
+          chooseStore: async stores => {
+            const { SuggestModal } = await import('obsidian');
+            return new Promise<string>((resolve, reject) => {
+              let selected = false;
+              class StorePicker extends SuggestModal<{ id: string; name: string }> {
+                getSuggestions(query: string) { return stores.filter(s => `${s.name} ${s.id}`.toLowerCase().includes(query.toLowerCase())); }
+                renderSuggestion(store: { id: string; name: string }, el: HTMLElement) { el.setText(`${store.name} — ${store.id}`); }
+                onChooseSuggestion(store: { id: string }) { selected = true; resolve(store.id); }
+                onClose() { setTimeout(() => { if (!selected) reject(new Error(t('catalog.selection_cancelled'))); }, 0); }
+              }
+              const picker = new StorePicker(this.app);
+              picker.setPlaceholder(t('catalog.choose_store'));
+              picker.open();
+            });
+          },
+        });
+        onStatus(this.catalogStatus());
+      } catch (error) {
+        if (!(error instanceof CatalogSyncStopped)) throw error;
+        onStatus(t('catalog.stopped'));
+      } finally { this.catalogAbort = undefined; }
       await this.refreshView();
     });
   }
@@ -422,9 +468,79 @@ export default class CallMeRedPlugin extends Plugin {
     } else await this.app.workspace.openLinkText(entry.path, '', true);
   }
 
+  private async runParameterFeedback(initial: HackContext, userText: string, onStatus: (message: string) => void): Promise<boolean> {
+    const en = this.interfaceLanguage === 'en';
+    const cssPath = `${initial.path.slice(0, initial.path.lastIndexOf('/'))}/recipe.css`;
+    await pendingParameters(this.app.vault, cssPath);
+    const hack = await this.getCurrentHack();
+    if (!hack || hack.path !== initial.path) throw new Error(en ? 'The open technique changed. Send the request again.' : 'Открытый приём изменился. Отправьте запрос заново.');
+    const settings = structuredClone(this.settings);
+    if (settings.autoPricing) {
+      try { settings.pricing = await loadPricing('openai', settings.model, settings.pricing); }
+      catch { settings.pricing = undefined; }
+    }
+    const prompt = parameterChatPrompt(hack, userText, this.interfaceLanguage,
+      this.state.turns.filter(turn => turn.promptVersion === PARAMETER_PROMPT_VERSION && turn.techniquePath === hack.path));
+    const id = crypto.randomUUID();
+    const attempt: ApiAttempt = { id, createdAt: new Date().toISOString(), provider: 'openai', model: settings.model,
+      promptVersion: PARAMETER_PROMPT_VERSION, status: 'pending', usage: unknownUsage(), responseId: '' };
+    this.apiAttempts.push(attempt);
+    await this.savePluginData();
+    onStatus(en ? 'Choosing parameter values…' : 'Подбираю значения параметров…');
+    let sourceSaved = false;
+    let applied = false;
+    try {
+      const result = await createProvider(settings).createParameterIteration({ instructions: PARAMETER_INSTRUCTIONS, prompt,
+        onUsage: async (usage, responseId) => { attempt.usage = usage; attempt.responseId = responseId; attempt.status = 'received'; await this.savePluginData(); },
+      });
+      attempt.usage = result.usage; attempt.responseId = result.responseId;
+      await this.savePluginData();
+      if (result.decision.action === 'search_catalog') { attempt.status = 'completed'; return false; }
+      const patch = applyParameterDecision(hack.css, result.decision);
+      if (result.decision.action === 'update_parameters') {
+        await processParameterSource(this.app.vault, cssPath, current => {
+          if (this.findMarkdownView()?.file?.path !== hack.path) throw new Error(en ? 'The open technique changed. Nothing was saved.' : 'Открытый приём изменился. Значения не сохранены.');
+          if (current !== hack.css) throw new Error(en ? 'The recipe changed while waiting. Nothing was overwritten; send the request again.' : 'Пока выполнялся запрос, CSS приёма изменился. Ничего не перезаписано; отправьте запрос заново.');
+          return patch.css;
+        });
+        sourceSaved = true;
+      }
+      if (shouldApplyTechnique(result.decision, userText)) {
+        await this.applyChatTechnique(hack.path, patch.css, true);
+        applied = true;
+      }
+      const summary = patch.changes.map(change => `${(en ? change.labelEn : undefined) || change.label}: ${change.before} → ${change.after}`).join('\n');
+      let message = result.decision.action === 'update_parameters'
+        ? patch.changes.length
+          ? `${en ? 'Saved parameter values:' : 'Сохранены значения параметров:'}\n${summary}\n\n${result.decision.message}\n\n${en ? 'The preview updates automatically. To update the installed style, use “Update existing style” on the card.' : 'Пример обновляется автоматически. Для применённого оформления нажмите «Обновить уже существующий стиль» на карточке.'}`
+          : (en ? 'The parameters already have these values. Nothing changed.' : 'У параметров уже такие значения. Ничего не изменено.')
+        : result.decision.message;
+      if (applied) message = `${en ? 'Technique applied.' : 'Приём применён.'}${summary ? '\n' + summary : ''}`;
+      this.state.turns.push({ id, createdAt: attempt.createdAt, coloringPath: '', userText,
+        action: result.decision.action, systemMessage: message,
+        techniqueId: hack.id, techniqueTitle: hack.title, techniquePath: hack.path, parameterChanges: patch.changes, techniqueApplied: applied,
+        provider: 'openai', model: settings.model, promptVersion: PARAMETER_PROMPT_VERSION, usage: result.usage, rawResponseId: result.responseId });
+      attempt.status = 'completed';
+      return true;
+    } catch (error) {
+      attempt.status = 'failed';
+      if (sourceSaved || applied) throw new Error(`${applied ? (en ? 'Technique was applied; subsequent operation failed' : 'Приём применён; последующая операция завершилась ошибкой') : (en ? 'Parameter CSS was saved, but the remaining operation failed' : 'CSS параметров сохранён, но дальнейшая операция завершилась ошибкой')}: ${String(error)}`);
+      throw error;
+    } finally {
+      try { await this.savePluginData(); await this.refreshView(); }
+      catch (error) {
+        if (sourceSaved || applied) throw new Error(`${applied ? (en ? 'Technique was applied; subsequent operation failed' : 'Приём применён; последующая операция завершилась ошибкой') : (en ? 'Parameter CSS was saved, but the remaining operation failed' : 'CSS параметров сохранён, но дальнейшая операция завершилась ошибкой')}: ${String(error)}`);
+        throw error;
+      }
+    }
+  }
+
   private async runFeedback(userText: string, onStatus: (message: string) => void): Promise<void> {
-    if (this.catalog.sync) throw new Error(t('catalog.incomplete'));
-    const catalog = this.catalog.active;
+    const currentHack = await this.getCurrentHack();
+    if (currentHack && await this.runParameterFeedback(currentHack, userText, onStatus)) return;
+    const legacyEntries = this.catalog.sync && !this.catalog.sync.entries
+      ? (await this.collectCatalog()).entries : [];
+    const catalog = searchableCatalog(this.catalog, legacyEntries);
     if (!catalog) throw new Error(t('catalog.missing'));
     const requestSettings = structuredClone(this.settings);
     if (requestSettings.autoPricing) {
@@ -433,12 +549,16 @@ export default class CallMeRedPlugin extends Plugin {
         if (this.settings.autoPricing && pricingKey('openai', this.settings.model) === requestSettings.pricing.key) this.settings.pricing = requestSettings.pricing;
       } catch { requestSettings.pricing = undefined; }
     }
+    const parameterSnapshots = await collectRecommendationParameters(catalog.entries, path => this.app.vault.adapter.read(path));
     const turnId = crypto.randomUUID();
     const prompt = buildTurnPrompt({ userText, interfaceLanguage: this.interfaceLanguage, revision: catalog.revision,
+      parameterContext: parameterSnapshots.map(({id,title,parameters}) => ({id,title,parameters})),
       conversation: this.state.turns.filter(turn => turn.promptVersion === PROMPT_VERSION && turn.catalogRevision === catalog.revision).map(turn => ({
         userText: turn.userText, systemMessage: [turn.systemMessage, ...(turn.recommendations ?? []).map(item => `${item.id}: ${item.reason} ${item.instructions}`)].join('\n'),
       })),
     });
+    let preconfigured = false;
+    let applied = false;
     onStatus(t('catalog.searching'));
     const attempt: ApiAttempt = { id: turnId, createdAt: new Date().toISOString(), provider: 'openai', model: requestSettings.model,
       promptVersion: PROMPT_VERSION, status: 'pending', usage: unknownUsage(), responseId: '' };
@@ -450,7 +570,7 @@ export default class CallMeRedPlugin extends Plugin {
       });
       attempt.usage = result.usage; attempt.responseId = result.responseId;
       await this.savePluginData();
-      // No model response has any route to CSS mutation, including legacy actions.
+      // Only one verified recommendation can preconfigure declared local parameter values.
       if (!['recommend', 'ask_question', 'no_match'].includes(result.decision.action)) throw new Error(t('catalog.invalid_recommendation'));
       const recommendations = result.decision.recommendations.map(item => {
         const entry = catalog.entries.find(entry => entry.id === item.id);
@@ -458,17 +578,59 @@ export default class CallMeRedPlugin extends Plugin {
         const instructions = entry.kind === 'setting'
           ? t('catalog.setting_instruction', { p0: entry.menuPath ?? 'Settings' })
           : entry.kind === 'theme' ? t('catalog.theme_instruction')
-          : entry.kind === 'technique' ? t(entry.applyAvailable ? 'catalog.apply_instruction' : 'catalog.card_instruction') : item.instructions;
+          : entry.kind === 'technique' ? '' : item.instructions;
         const themes = relatedThemes(entry, catalog.entries).map(theme => ({ id: theme.id, title: theme.title, path: theme.path, helpUrl: theme.helpUrl, kind: 'theme' as const }));
-        return { ...item, instructions, title: entry.title, path: entry.path, kind: entry.kind, helpUrl: entry.helpUrl, relatedThemes: themes };
+        return { ...item, ...(result.decision.recommendations.length > 1 ? {parameterChanges: [], command: 'show' as const, commandEvidence: ''} : {}), applied: false, preparedParameters: [] as Array<{variable: string; before: string; after: string}>, instructions, title: entry.title, path: entry.path, kind: entry.kind, helpUrl: entry.helpUrl, relatedThemes: themes };
       });
+      const preparation = recommendationParameterPatch(result.decision.recommendations, parameterSnapshots, catalog.entries, result.retrievedIds);
+      if (preparation) {
+        const cssPath = `${preparation.snapshot.path.slice(0, preparation.snapshot.path.lastIndexOf('/'))}/recipe.css`;
+        await processParameterSource(this.app.vault, cssPath, current => {
+          if (current !== preparation.snapshot.css) throw new Error(this.interfaceLanguage === 'en'
+            ? 'The recommended recipe changed while waiting. No values were overwritten; retry the request.'
+            : 'Пока выполнялся запрос, CSS предлагаемого приёма изменился. Значения не перезаписаны; повторите запрос.');
+          return preparation.css;
+        });
+        preconfigured = true;
+        const en = this.interfaceLanguage === 'en';
+        const recommendation = recommendations[0];
+        recommendation.preparedParameters = preparation.changes;
+        const summary = preparation.changes.map(change => `${(en ? change.labelEn : undefined) || change.label}: ${change.before} → ${change.after}`).join('\n');
+        recommendation.instructions = `${preparation.changes.length ? (en ? 'Parameters preconfigured:' : 'Параметры преднастроены:') + '\n' + summary : (en ? 'The parameters already match the request.' : 'Параметры уже соответствуют запросу.')}\n${en ? 'Open the card to inspect the example. Enable the technique, or use “Update existing style” if it is already enabled.' : 'Откройте карточку и посмотрите пример. Включите приём или нажмите «Обновить уже существующий стиль», если он уже включён.'}`;
+      }
+      if (recommendations.length === 1 && recommendations[0].kind === 'technique') {
+        const recommendation = recommendations[0];
+        if (shouldApplyTechnique(recommendation, userText)) {
+          const entry = catalog.entries.find(entry => entry.id === recommendation.id)!;
+          if (!entry.applyAvailable || !result.retrievedIds.includes(entry.id)) throw new Error(t('catalog.invalid_recommendation'));
+          await this.applyChatTechnique(recommendation.path, preparation?.css);
+          recommendation.applied = true;
+          applied = true;
+          const summary = preparation?.changes.map(change => `${change.label}: ${change.before} → ${change.after}`).join('\n');
+          recommendation.instructions = `${this.interfaceLanguage === 'en' ? 'Technique applied.' : 'Приём применён.'}${summary ? '\n' + summary : ''}`;
+        }
+        try { await this.openUniqueTechnique(recommendation.path); }
+        catch (error) { recommendation.instructions += `\n${this.interfaceLanguage === 'en' ? 'Could not open the card' : 'Не удалось открыть карточку'}: ${String(error)}`; }
+      }
       this.state.turns.push({ id: turnId, createdAt: new Date().toISOString(), coloringPath: '', userText,
         action: result.decision.action, systemMessage: result.decision.action === 'recommend' ? t('catalog.found') : result.decision.message, recommendations,
         catalogRevision: catalog.revision, searchQueries: result.searchQueries, retrievedIds: result.retrievedIds,
         provider: 'openai', model: requestSettings.model, promptVersion: PROMPT_VERSION, usage: result.usage, rawResponseId: result.responseId });
       attempt.status = 'completed';
-    } catch (error) { attempt.status = 'failed'; throw error; }
-    finally { await this.savePluginData(); await this.refreshView(); }
+    } catch (error) {
+      attempt.status = 'failed';
+      if (applied) throw new Error(`${this.interfaceLanguage === 'en' ? 'Technique applied; the remaining operation failed' : 'Приём применён; дальнейшая операция завершилась ошибкой'}: ${String(error)}`);
+      if (preconfigured) throw new Error(`${this.interfaceLanguage === 'en' ? 'Parameters were saved; the remaining operation failed' : 'Параметры сохранены; дальнейшая операция завершилась ошибкой'}: ${String(error)}`);
+      throw error;
+    }
+    finally {
+      try { await this.savePluginData(); await this.refreshView(); }
+      catch (error) {
+        if (applied) throw new Error(`${this.interfaceLanguage === 'en' ? 'Technique applied, but chat recording failed' : 'Приём применён, но запись ответа в чат завершилась ошибкой'}: ${String(error)}`);
+        if (preconfigured) throw new Error(`${this.interfaceLanguage === 'en' ? 'Recipe parameters were saved, but chat recording failed' : 'Параметры приёма сохранены, но запись ответа в чат завершилась ошибкой'}: ${String(error)}`);
+        throw error;
+      }
+    }
   }
 
   async openColoring(path: string): Promise<void> {

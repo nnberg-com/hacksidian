@@ -25,7 +25,9 @@ export class CatalogApi {
 }
 
 export interface StoreChoice { id: string; name: string }
+export class CatalogSyncStopped extends Error {}
 export interface SyncOptions {
+  signal?: AbortSignal;
   chooseStore?: (stores: StoreChoice[]) => Promise<string>;
   status?: (message: string) => void;
 }
@@ -48,6 +50,12 @@ const attributes = (doc: CatalogDocument) => ({ hs_format: '1', hs_entry: doc.en
 // Remote inventory is authoritative: local snapshots may be absent or stale.
 // Never delete global Files: an older installation may share them with another store.
 export async function syncCatalog(api: CatalogApi, state: CatalogState, catalog: ReturnType<typeof buildCatalog>, save: () => Promise<void>, progress: (done: number, total: number) => void, options: SyncOptions = {}): Promise<CatalogSnapshot> {
+  const checkStopped = () => { if (options.signal?.aborted) throw new CatalogSyncStopped(t('catalog.stopped')); };
+  const originalApi = api;
+  // Finish an in-flight request, persist returned uploads, then stop before the next request.
+  api = { json: (...args: Parameters<CatalogApi['json']>) => { checkStopped(); return originalApi.json(...args); },
+    upload: (...args: Parameters<CatalogApi['upload']>) => { checkStopped(); return originalApi.upload(...args); } } as CatalogApi;
+  checkStopped();
   options.status?.(t('catalog.discovering'));
   let store: any;
   const known = state.sync?.storeId ?? state.active?.storeId ?? state.pending?.storeId;
@@ -69,8 +77,9 @@ export async function syncCatalog(api: CatalogApi, state: CatalogState, catalog:
   if (!store) store = await api.json('/vector_stores', 'POST', { name: 'Hacksidian', metadata: { hacksidian: 'catalog-v1' } });
   if (!store?.id) throw new Error('OpenAI: missing vector store ID');
   const base = `/vector_stores/${store.id}`;
-  // Save selection before any uploads. A failed update blocks search until retried.
+  // Save selection and metadata before uploads so interrupted sources remain searchable.
   if (state.sync?.storeId !== store.id) state.sync = { storeId: store.id, documents: [] };
+  state.sync!.entries = catalog.entries;
   await save();
   const remote = await listAll(api, `${base}/files`);
   const inventory: Array<{ file: any; doc: CatalogDocument; tagged: boolean }> = [];
@@ -107,7 +116,9 @@ export async function syncCatalog(api: CatalogApi, state: CatalogState, catalog:
   const removed = new Set(inventory.filter(r => !documents.some(d => d.entryId === r.doc.entryId)).map(r => r.doc.entryId)).size;
   options.status?.(t('catalog.delta', { p0: unchanged, p1: documents.length - unchanged, p2: removed }));
   let done = 0;
+  progress(0, documents.length - unchanged);
   for (const doc of documents) {
+    checkStopped();
     const existing = inventory.find(r => r.doc.entryId === doc.entryId && r.doc.hash === doc.hash && ['completed', 'in_progress'].includes(r.file.status));
     if (existing) {
       doc.fileId = existing.file.id;
@@ -143,6 +154,7 @@ export async function syncCatalog(api: CatalogApi, state: CatalogState, catalog:
   if (store.metadata?.hacksidian !== 'catalog-v1' || store.expires_after) {
     await api.json(base, 'POST', { metadata: { ...store.metadata, hacksidian: 'catalog-v1' }, expires_after: null });
   }
+  checkStopped();
   const previous = state.active;
   const journal = state.sync;
   const snapshot: CatalogSnapshot = { ...catalog, documents, storeId: store.id, createdAt: new Date().toISOString() };

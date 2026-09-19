@@ -168,3 +168,27 @@ test.each([
  await expect(syncCatalog(s.api,state(),catalog,save,progress)).rejects.toThrow();
  expect(s.api.upload).not.toHaveBeenCalled();expect(vi.mocked(s.api.json).mock.calls.every(c=>!c[1]||c[1]==='GET')).toBe(true);
 });
+
+test('stop preserves an in-flight upload in the journal and resume reuses it', async()=>{
+ const s=server(), st=state(), controller=new AbortController();
+ const catalog=buildCatalog([entry,{...entry,id:'two'}]);
+ const upload=vi.mocked(s.api.upload).getMockImplementation()!;
+ vi.mocked(s.api.upload).mockImplementation(async(name,text)=>{
+  const id=await upload(name,text);controller.abort();return id;
+ });
+ await expect(syncCatalog(s.api,st,catalog,save,progress,{signal:controller.signal})).rejects.toThrow('остановлено');
+ expect(st.active).toBeUndefined();expect(st.sync?.documents).toHaveLength(1);
+ expect([...s.attached.values()][0].size).toBe(0);
+ vi.mocked(s.api.upload).mockImplementation(upload);
+ await syncCatalog(s.api,st,catalog,save,progress);
+ expect(s.api.upload).toHaveBeenCalledTimes(2);
+ expect(st.active?.documents).toHaveLength(2);expect(st.sync).toBeUndefined();
+});
+test('stop between completed files keeps active snapshot and skips cleanup',async()=>{
+ const s=server(), st=state();await syncCatalog(s.api,st,buildCatalog([entry]),save,progress);
+ const active=st.active;const controller=new AbortController();
+ const next=buildCatalog([{...entry,text:'Changed'},{...entry,id:'two'}]);
+ await expect(syncCatalog(s.api,st,next,save,(done)=>{if(done===1)controller.abort();},{signal:controller.signal})).rejects.toThrow('остановлено');
+ expect(st.active).toBe(active);expect(st.sync?.documents).toHaveLength(1);
+ expect([...s.attached.values()][0].has(active!.documents[0].fileId!)).toBe(true);
+});

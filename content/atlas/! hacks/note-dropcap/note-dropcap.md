@@ -9,6 +9,7 @@ sources:
   - https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id

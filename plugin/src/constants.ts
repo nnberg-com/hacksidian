@@ -1,7 +1,7 @@
 import type { CallMeRedSettings, PersistedState } from "./types";
 
 export const VIEW_TYPE_CALLMERED = "callmered-conversation";
-export const PROMPT_VERSION = "atlas-2-themes";
+export const PROMPT_VERSION = "atlas-4-technique-commands";
 
 export const DEFAULT_SETTINGS: CallMeRedSettings = {
   interfaceLanguage: "auto",

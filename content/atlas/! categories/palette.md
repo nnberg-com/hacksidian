@@ -44,3 +44,5 @@ palette
 - [[atlas/! hacks/palette-carbon-4/palette-carbon-4|IBM Carbon — G100]]
 - [[atlas/! hacks/palette-base16-1/palette-base16-1|Tinted / Base16 — Default Light]]
 - [[atlas/! hacks/palette-base16-2/palette-base16-2|Tinted / Base16 — Default Dark]]
+
+- [[atlas/! hacks/semantic-palette-custom/semantic-palette-custom|Индивидуальная семантическая палитра]]

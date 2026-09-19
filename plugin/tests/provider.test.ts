@@ -76,3 +76,31 @@ it('rejects a response exposed to an obsolete file even alongside a current file
  requestUrl.mockResolvedValue({status:200,json:response});
  await expect(new OpenAIResponsesProvider({...DEFAULT_SETTINGS,apiKey:'test'}).createIteration(request)).rejects.toThrow('источника');
 });
+
+it('parameter requests use structured values without file search or a catalog dependency', async()=>{
+ const value={action:'update_parameters',message:'Thicker',changes:[{variable:'--hacksidian-hr-e070-height',input:'4'}]};
+ requestUrl.mockResolvedValue({status:200,json:{...body(JSON.stringify(value)),output:body(JSON.stringify(value)).output.slice(1)}});
+ const onUsage=vi.fn(async()=>{});
+ const result=await new OpenAIResponsesProvider({...DEFAULT_SETTINGS,apiKey:'test'}).createParameterIteration({instructions:'Adjust',prompt:'Thicker',onUsage});
+ const payload=JSON.parse(requestUrl.mock.calls[0][0].body);
+ expect(payload.tools).toBeUndefined();expect(payload.tool_choice).toBeUndefined();
+ expect(payload.text.format.schema.properties.action.enum).toContain('update_parameters');
+ expect(result.decision).toEqual(value);expect(result.usage.fileSearchCalls).toBe(0);
+ expect(onUsage).toHaveBeenCalledWith(expect.objectContaining({fileSearchCostUsd:0}),'paid');
+});
+it('invalid paid parameter responses still retain usage',async()=>{
+ requestUrl.mockResolvedValue({status:200,json:{...body('invalid'),output:body('invalid').output.slice(1)}});
+ const onUsage=vi.fn(async()=>{});
+ await expect(new OpenAIResponsesProvider({...DEFAULT_SETTINGS,apiKey:'test'}).createParameterIteration({instructions:'Adjust',prompt:'Thicker',onUsage})).rejects.toThrow();
+ expect(onUsage).toHaveBeenCalledWith(expect.objectContaining({inputTokens:100}),'paid');
+});
+
+it('accepts a recorded replacement during incomplete sync without trusting foreign files',async()=>{
+ const {searchableCatalog}=await import('../src/catalog');
+ const partial=searchableCatalog({garbage:[],active:catalog,sync:{storeId:catalog.storeId,entries:catalog.entries,documents:[{name:'new',hash:'new',text:'',entryId:'image-round',fileId:'replacement'}]}})!;
+ requestUrl.mockResolvedValue({status:200,json:body(JSON.stringify(decision),'replacement')});
+ const provider=new OpenAIResponsesProvider({...DEFAULT_SETTINGS,apiKey:'test'});
+ expect((await provider.createIteration({...request,catalog:partial})).retrievedIds).toEqual(['image-round']);
+ requestUrl.mockResolvedValue({status:200,json:body(JSON.stringify(decision),'foreign')});
+ await expect(provider.createIteration({...request,catalog:partial})).rejects.toThrow('источника');
+});

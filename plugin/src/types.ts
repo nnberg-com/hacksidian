@@ -1,9 +1,10 @@
+import type { CommandIntent } from './technique-command';
 import type { ModularStyle } from "./style-modules";
 
-export type ModelAction = "recommend" | "no_match" | "update_css" | "switch_coloring" | "ask_question" | "no_change";
+export type ModelAction = "update_parameters" | "recommend" | "no_match" | "update_css" | "switch_coloring" | "ask_question" | "no_change";
 export type SupportedLocale = "ru-Cyrl" | "sr-Cyrl" | "he";
 
-export interface Recommendation { id: string; reason: string; instructions: string }
+export interface Recommendation extends CommandIntent { id: string; reason: string; instructions: string; parameterChanges?: Array<{variable: string; input: string}> }
 export interface ModelDecision {
   action: "recommend" | "ask_question" | "no_match";
   message: string;
@@ -21,7 +22,12 @@ export interface UsageRecord {
 }
 
 export interface TurnRecord {
-  recommendations?: Array<Recommendation & { title: string; path: string; helpUrl?: string; kind: string;
+  techniqueApplied?: boolean;
+  techniqueId?: string;
+  techniqueTitle?: string;
+  techniquePath?: string;
+  parameterChanges?: Array<{ variable: string; before: string; after: string }>;
+  recommendations?: Array<Recommendation & { applied?: boolean; preparedParameters?: Array<{variable: string; before: string; after: string}>; title: string; path: string; helpUrl?: string; kind: string;
     relatedThemes?: Array<{ id: string; title: string; path: string; helpUrl?: string; kind: 'theme' }> }>;
   catalogRevision?: string;
   searchQueries?: string[];

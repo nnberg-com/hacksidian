@@ -1,5 +1,6 @@
 import { vi, test, expect } from 'vitest';
-vi.mock('obsidian', () => ({ItemView: class {}, Notice: class {}, setIcon: vi.fn()}));
+vi.mock('obsidian', () => ({ItemView: class { addChild(){} removeChild(){} }, Notice: class {}, setIcon: vi.fn()}));
+vi.mock('../src/chat-technique', () => ({ ChatTechnique: class { constructor(public el: unknown, public heading: unknown, public plugin: unknown, public path: string) {} } }));
 import { ConversationView } from '../src/view';
 class Element {
  children: Element[] = []; style: Record<string,string> = {}; dataset: Record<string,string> = {};
@@ -62,8 +63,9 @@ test('toolbar buttons have visible labels and the only status line follows the c
  expect(toolbar.querySelectorAll('button').every((e:Element)=>e.textContent.trim().length>0)).toBe(true);
  const children=view.contentEl.children;
  expect(children[children.length-2].className).toBe('callmered-composer');
- expect(children[children.length-1]).toBe(view.statusEl);
- expect(children.filter((e:Element)=>e.className==='callmered-status')).toHaveLength(1);
+ expect(children[children.length-1].children).toContain(view.statusEl);
+ expect(children[children.length-1].children).toContain(view.stopCatalogButton);
+ expect(view.contentEl.querySelectorAll('div').filter((e:Element)=>e.className==='callmered-status')).toHaveLength(1);
  expect(view.usageEl.textContent).not.toContain('стоимость неизвестна');
 });
 test('history reset clears a stale response status and pending conversation text',async()=>{
@@ -85,4 +87,53 @@ test('source themes have card and Community links without offering automatic the
 
 test('dialogue does not duplicate card title or apply controls',async()=>{
  const {view}=setup();await view.refresh();expect(view.hackEl.children).toHaveLength(0);expect(view.hackEl.style.display).toBe('none');
+});
+
+test('stop beside progress stays usable while busy and disappears after stopping',async()=>{
+ const {view,plugin}=setup();let finish!:()=>void;
+ (plugin as any).stopCatalogUpdate=vi.fn(()=>finish());
+ (plugin as any).updateCatalog=vi.fn(async(status:Function)=>{
+  status('Обработано 1 из 2 файлов');
+  await new Promise<void>(resolve=>{finish=resolve;});
+  status('Обновление остановлено. Обработанные файлы сохранены.');
+ });
+ await view.onOpen();
+ const running=view.toolbarButtons[0].listeners.click();
+ expect(view.stopCatalogButton.hidden).toBe(false);expect(view.stopCatalogButton.disabled).toBe(false);
+ expect(view.statusEl.textContent).toBe('Обработано 1 из 2 файлов');
+ view.stopCatalogButton.listeners.click();
+ expect(view.stopCatalogButton.disabled).toBe(true);
+ await running;
+ expect((plugin as any).stopCatalogUpdate).toHaveBeenCalledOnce();
+ expect(view.stopCatalogButton.hidden).toBe(true);expect(view.busy).toBe(false);
+ expect(view.statusEl.textContent).toContain('Обновление остановлено');
+});
+
+test('each technique gets a reusable example and controls without history metadata',async()=>{
+ const {view,plugin}=setup();
+ (plugin.state.turns as any[]).push({userText:'Round',systemMessage:'Found',catalogRevision:'123',usage:{totalTokens:10,estimatedCostUsd:null},recommendations:[
+  {id:'one',title:'First',kind:'technique',path:'atlas/one.md',reason:'Reason',instructions:''},
+  {id:'two',title:'Second',kind:'technique',path:'atlas/two.md',reason:'Reason',instructions:''},
+ ]});
+ await view.refresh();
+ expect(view.examples.map((e:any)=>e.path)).toEqual(['atlas/one.md','atlas/two.md']);
+ const nodes=view.conversationEl.querySelectorAll('div');
+ expect(nodes.some((e:Element)=>e.className==='callmered-turn-label'||e.className==='callmered-turn-usage')).toBe(false);
+ expect(nodes.some((e:Element)=>e.textContent.includes('Версия каталога'))).toBe(false);
+ expect(view.usageEl.textContent).toBe('0 токенов · 0 запросов · расходы ≈ $0.00');
+ const before=view.examples[0];await view.refresh();expect(view.examples[0]).toBe(before);
+});
+test('parameter replies link the technique title instead of its ID',async()=>{
+ const {view,plugin}=setup();
+ (plugin.state.turns as any[]).push({userText:'Thicker',systemMessage:'Updated',techniqueId:'hr-e070',techniqueTitle:'Line',techniquePath:'atlas/hr.md',usage:{totalTokens:1,estimatedCostUsd:null}});
+ await view.refresh();expect(view.conversationEl.querySelectorAll('a')[0].textContent).toBe('Line');
+});
+
+test('recommendation order is heading, example, full model description without truncation or obsolete instructions',async()=>{
+ const {view,plugin}=setup();
+ (plugin.state.turns as any[]).push({userText:'Test',systemMessage:'Found',recommendations:[{id:'one',title:'First',kind:'technique',path:'atlas/one.md',reason:'а'.repeat(250),instructions:'Откройте карточку и нажмите «Применить приём».'}]});
+ await view.refresh();
+ const item=view.conversationEl.querySelectorAll('div').find((e:Element)=>e.className==='hacksidian-recommendation');
+ expect(item.children.map((e:Element)=>e.className)).toEqual(['hacksidian-card-header hacksidian-chat-technique-heading','hacksidian-chat-example','hacksidian-chat-description']);
+ expect(item.children[2].textContent).toBe('а'.repeat(250));
 });

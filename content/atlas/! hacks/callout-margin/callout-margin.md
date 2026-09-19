@@ -20,6 +20,7 @@ themes:
   - origami
   - ebullientworks
   - faded
+favourite: false
 ---
 
 ```hacksidian-id

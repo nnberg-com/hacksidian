@@ -8,6 +8,7 @@ sources:
   - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id

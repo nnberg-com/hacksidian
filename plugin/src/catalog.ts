@@ -23,7 +23,7 @@ export interface CatalogSnapshot {
 export interface CatalogResources { storeId: string; fileIds: string[] }
 export interface CatalogState {
   active?: CatalogSnapshot;
-  sync?: { storeId: string; documents: CatalogDocument[] };
+  sync?: { storeId: string; documents: CatalogDocument[]; entries?: CatalogEntry[] };
   pending?: CatalogResources;
   garbage: CatalogResources[];
 }
@@ -74,11 +74,11 @@ export function techniqueEntry(path: string, markdown: string, meta: Record<stri
     `Category: ${meta.category ?? ''}`,
     description,
     `Requirements: ${(spec.requirements ?? []).join('; ') || 'Not specified; do not infer compatibility.'}`,
-    `Apply: ${spec.hasCss ? 'Open card and press Apply technique. No automatic application from chat.' : 'No applicable CSS; follow the card instructions manually.'}`,
+    `Apply: ${spec.hasCss ? 'The card supports application. Current chat command rules decide whether to show or apply; an explicit user command can enable or update this technique.' : 'No applicable CSS; follow the card instructions manually.'}`,
     `Selectors (scope evidence): ${[...selectors].join(' | ')}`,
     `CSS properties: ${[...properties].join(', ')}`,
     `Authored CSS declarations (values are evidence, not configurable options; conditions and cascade still apply): ${[...declarations].join('; ')}`,
-    'Parameter adaptation is unavailable. Do not invent configurable options or claim combinations were tested.',
+    'Adjustable parameters, if any, are supplied separately in current LOCAL PARAMETER CONTEXT. These CSS declarations alone do not authorize edits. Do not invent options or claim combinations were tested.',
   ].join('\n') };
 }
 
@@ -115,4 +115,21 @@ export function buildCatalog(entries: CatalogEntry[]): { revision: string; docum
   });
   // Packaging changes must invalidate snapshots even when entries are identical.
   return { revision: digest(JSON.stringify({ format: 'one-record-per-file-v1', entries: sorted })), documents, entries: sorted };
+}
+
+/** Use only recorded sources from the selected store, including interrupted uploads. */
+export function searchableCatalog(state: CatalogState, currentEntries: CatalogEntry[] = []): CatalogSnapshot | undefined {
+  if (!state.sync) return state.active;
+  const sync = state.sync;
+  const active = state.active?.storeId === sync.storeId ? state.active : undefined;
+  const documents = [...(active?.documents ?? []), ...sync.documents].filter(doc => !!doc.fileId);
+  const sourceIds = new Set(documents.map(doc => doc.entryId).filter(Boolean));
+  const entries = new Map((active?.entries ?? []).map(entry => [entry.id, entry]));
+  for (const entry of sync.entries ?? currentEntries) {
+    if (sourceIds.has(entry.id)) entries.set(entry.id, entry);
+  }
+  if (!documents.length || !entries.size) return undefined;
+  return { storeId: sync.storeId, createdAt: active?.createdAt ?? new Date().toISOString(),
+    revision: digest(JSON.stringify(documents.map(doc => [doc.fileId, doc.hash]))),
+    documents, entries: [...entries.values()] };
 }

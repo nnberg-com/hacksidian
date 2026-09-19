@@ -1,7 +1,9 @@
+import { COMMAND_FIELDS } from './technique-command';
+import { PARAMETER_SCHEMA, parseParameterDecision, type ParameterDecision } from './parameter-chat';
 import { t } from '../i18n';
 import { requestUrl } from 'obsidian';
 import { calculateUsage } from './cost';
-import { parseModelDecision, type OpenAIResponse } from './response';
+import { parseModelDecision, parseResponseData, type OpenAIResponse } from './response';
 import type { CallMeRedSettings, ModelDecision, UsageRecord } from './types';
 import type { CatalogSnapshot } from './catalog';
 
@@ -15,7 +17,15 @@ export interface ProviderResult {
   decision: ModelDecision; usage: UsageRecord; responseId: string;
   retrievedIds: string[]; searchQueries: string[];
 }
-export interface ModelProvider { createIteration(request: ProviderRequest): Promise<ProviderResult> }
+export interface ParameterRequest {
+  instructions: string; prompt: string;
+  onUsage?: (usage: UsageRecord, responseId: string) => Promise<void>;
+}
+export interface ParameterResult { decision: ParameterDecision; usage: UsageRecord; responseId: string }
+export interface ModelProvider {
+  createIteration(request: ProviderRequest): Promise<ProviderResult>;
+  createParameterIteration(request: ParameterRequest): Promise<ParameterResult>;
+}
 const RESPONSE_SCHEMA = {
   type: 'object', additionalProperties: false,
   properties: {
@@ -23,8 +33,10 @@ const RESPONSE_SCHEMA = {
     message: { type: 'string' },
     recommendations: { type: 'array', maxItems: 6, items: {
       type: 'object', additionalProperties: false,
-      properties: { id: { type: 'string' }, reason: { type: 'string' }, instructions: { type: 'string' } },
-      required: ['id', 'reason', 'instructions'],
+      properties: { ...COMMAND_FIELDS, id: { type: 'string' }, reason: { type: 'string', description: 'Complete concise description, at most 200 characters including spaces. Start directly with the effect; omit introductory phrases such as Приём or This technique.' }, instructions: { type: 'string' },
+        parameterChanges: PARAMETER_SCHEMA.properties.changes,
+      },
+      required: ['id', 'reason', 'instructions', 'parameterChanges', 'command', 'commandEvidence'],
     } },
   }, required: ['action', 'message', 'recommendations'],
 };
@@ -33,6 +45,23 @@ const RESPONSE_SCHEMA = {
 export const FILE_SEARCH_CALL_USD = 0.0025;
 export class OpenAIResponsesProvider implements ModelProvider {
   constructor(private readonly settings: CallMeRedSettings) {}
+  async createParameterIteration(request: ParameterRequest): Promise<ParameterResult> {
+    if (!this.settings.apiKey.trim()) throw new Error(t('provider.add_an_openai_api_key_in_hacksidian'));
+    if (!this.settings.model.trim()) throw new Error(t('provider.select_an_openai_model_in_hacksidian_settings'));
+    const response = await requestUrl({ url: 'https://api.openai.com/v1/responses', method: 'POST',
+      headers: { Authorization: `Bearer ${this.settings.apiKey.trim()}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: this.settings.model.trim(), store: false, instructions: request.instructions,
+        input: [{ role: 'user', content: [{ type: 'input_text', text: request.prompt }] }],
+        text: { format: { type: 'json_schema', name: 'hacksidian_parameters', strict: true, schema: PARAMETER_SCHEMA } },
+        max_output_tokens: 4000,
+      }), throw: false });
+    const body = response.json as OpenAIResponse;
+    const usage = calculateUsage(body?.usage, this.settings);
+    usage.fileSearchCalls = 0; usage.fileSearchCostUsd = 0;
+    await request.onUsage?.(usage, body?.id ?? '');
+    if (response.status < 200 || response.status >= 300) throw new Error(t('provider.openai_api_returned', { p0: response.status, p1: body?.error?.message ?? '' }));
+    return { decision: parseParameterDecision(parseResponseData(body)), usage, responseId: body.id ?? '' };
+  }
   async createIteration(request: ProviderRequest): Promise<ProviderResult> {
     if (!this.settings.apiKey.trim()) throw new Error(t('provider.add_an_openai_api_key_in_hacksidian'));
     if (!this.settings.model.trim()) throw new Error(t('provider.select_an_openai_model_in_hacksidian_settings'));

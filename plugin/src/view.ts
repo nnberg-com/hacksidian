@@ -1,6 +1,7 @@
 import { t, numberLocale, currentLanguage } from "../i18n";
 import { ItemView, Notice, WorkspaceLeaf } from "obsidian";
-import { formatCost } from "./cost";
+import type { Component } from "obsidian";
+import { ChatTechnique } from "./chat-technique";
 import { VIEW_TYPE_CALLMERED } from "./constants";
 import type CallMeRedPlugin from "./main";
 
@@ -10,6 +11,8 @@ export class ConversationView extends ItemView {
   private hackPath: string | null = null;
   private hackRenderKey: string | null = null;
   private refreshId = 0;
+  private conversationKey = "";
+  private examples: Component[] = [];
   private pageObserver?: MutationObserver;
   private observedPage: HTMLElement | null = null;
   private titleRefreshTimer?: number;
@@ -18,6 +21,7 @@ export class ConversationView extends ItemView {
   private copyButton!: HTMLButtonElement;
   private conversationEl!: HTMLElement;
   private statusEl!: HTMLElement;
+  private stopCatalogButton!: HTMLButtonElement;
   private usageEl!: HTMLElement;
   private inputEl!: HTMLTextAreaElement;
   private submitButton!: HTMLButtonElement;
@@ -47,6 +51,7 @@ export class ConversationView extends ItemView {
     this.contentEl.addClass("callmered-panel");
 
     this.hackRenderKey = null;
+    this.conversationKey = "";
     this.hackEl = this.contentEl.createDiv({ cls: "hacksidian-page-context" });
 
     const toolbar = this.contentEl.createDiv({ cls: "callmered-toolbar" });
@@ -60,8 +65,13 @@ export class ConversationView extends ItemView {
     updateCatalog.addEventListener('click', async () => {
       if (this.busy) return;
       this.setStatus(t('catalog.collecting'), true);
-      try { await this.plugin.updateCatalog(message => this.setStatus(message, true)); this.setStatus(this.plugin.catalogStatus()); }
+      this.stopCatalogButton.hidden = false;
+      this.stopCatalogButton.disabled = false;
+      this.stopCatalogButton.setText(t('catalog.stop'));
+      let finalStatus = this.plugin.catalogStatus();
+      try { await this.plugin.updateCatalog(message => { finalStatus = message; this.setStatus(message, true); }); this.setStatus(finalStatus); }
       catch (error) { this.setStatus(String(error)); }
+      finally { this.stopCatalogButton.hidden = true; }
       await this.refresh();
     });
     this.conversationEl = this.contentEl.createDiv({ cls: "callmered-conversation" });
@@ -96,7 +106,15 @@ export class ConversationView extends ItemView {
     });
     this.submitButton.addEventListener("click", () => void this.submit());
 
-    this.statusEl = this.contentEl.createDiv({ cls: "callmered-status", text: t("view.ready") });
+    const statusRow = this.contentEl.createDiv({ cls: "hacksidian-catalog-status-row" });
+    this.statusEl = statusRow.createDiv({ cls: "callmered-status", text: t("view.ready") });
+    this.stopCatalogButton = statusRow.createEl('button', { text: t('catalog.stop') });
+    this.stopCatalogButton.hidden = true;
+    this.stopCatalogButton.addEventListener('click', () => {
+      this.plugin.stopCatalogUpdate();
+      this.stopCatalogButton.disabled = true;
+      this.stopCatalogButton.setText(t('catalog.stopping'));
+    });
     this.statusEl.setAttribute("role", "status");
     this.statusEl.setAttribute("aria-live", "polite");
 
@@ -135,6 +153,8 @@ export class ConversationView extends ItemView {
   }
 
   async onClose(): Promise<void> {
+    for (const example of this.examples) this.removeChild(example);
+    this.examples = [];
     this.pageObserver?.disconnect();
     window.clearTimeout(this.titleRefreshTimer);
   }
@@ -169,50 +189,67 @@ export class ConversationView extends ItemView {
       this.hackEl.style.display = "none";
 
     }
-    this.conversationEl.empty();
-    for (const turn of this.plugin.state.turns) {
-      const user = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-user" });
-      user.createDiv({ cls: "callmered-turn-label", text: t("view.you") });
-      user.createDiv({ text: turn.userText });
-      user.createDiv({
-        cls: "callmered-turn-usage",
-        text: t("view.tokens", { p0: turn.usage.totalTokens.toLocaleString(numberLocale()), p1: formatCost(turn.usage.estimatedCostUsd) }),
-      });
-      if (turn.systemMessage || turn.recommendations?.length) {
-        const system = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-system" });
-        system.createDiv({ text: turn.systemMessage });
-        for (const recommendation of turn.recommendations ?? []) {
-          const item = system.createDiv({ cls: 'hacksidian-recommendation' });
-          if (recommendation.path) {
-            const link = item.createEl('a', { text: recommendation.title, href: '#', cls: 'internal-link' });
-            link.addEventListener('click', event => { event.preventDefault(); void this.plugin.openRecommendation(recommendation).catch(error => new Notice(String(error))); });
-          } else item.createEl('strong', { text: recommendation.title });
-          item.createDiv({ text: recommendation.reason });
-          item.createDiv({ text: recommendation.instructions });
-          if (recommendation.kind === 'variable') item.createEl('code', { text: recommendation.path });
-          if (recommendation.helpUrl) item.createEl('a', { text: t(recommendation.kind === 'theme' ? 'catalog.theme_community' : 'catalog.help'), href: recommendation.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
-          if (recommendation.relatedThemes?.length) {
-            const themes = item.createDiv({ cls: 'hacksidian-related-themes' });
-            themes.createDiv({ text: t('catalog.related_themes') });
-            for (const theme of recommendation.relatedThemes) {
-              const row = themes.createDiv();
-              const link = row.createEl('a', { text: theme.title, href: '#', cls: 'internal-link' });
-              link.addEventListener('click', event => { event.preventDefault(); void this.plugin.openRecommendation(theme).catch(error => new Notice(String(error))); });
-              if (theme.helpUrl) {
-                row.appendText(' · ');
-                row.createEl('a', { text: t('catalog.theme_community'), href: theme.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
+    const conversationKey = JSON.stringify([currentLanguage(), this.plugin.state.turns]);
+    if (conversationKey !== this.conversationKey) {
+      this.conversationKey = conversationKey;
+      for (const example of this.examples) this.removeChild(example);
+      this.examples = [];
+      this.conversationEl.empty();
+      for (const turn of this.plugin.state.turns) {
+        const user = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-user" });
+        user.createDiv({ text: turn.userText });
+        if (turn.systemMessage || turn.recommendations?.length) {
+          const system = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-system" });
+          if (turn.techniquePath) {
+            const link = system.createEl('a', { text: turn.techniqueTitle || (this.plugin.catalog?.active?.entries.find(entry => entry.id === turn.techniqueId)?.title) || (currentLanguage() === 'en' ? 'Technique' : 'Приём'), href: '#', cls: 'internal-link hacksidian-technique-link' });
+            if (!turn.techniqueTitle && this.plugin.getHackAt) {
+              void this.plugin.getHackAt(turn.techniquePath).then(hack => { if (hack) link.setText(hack.title); }).catch(() => {});
+            }
+            link.addEventListener('click', event => { event.preventDefault(); void this.plugin.openRecommendation({ path: turn.techniquePath!, kind: 'technique' }).catch(error => new Notice(String(error))); });
+          }
+          system.createDiv({ text: turn.systemMessage });
+          for (const recommendation of turn.recommendations ?? []) {
+            const item = system.createDiv({ cls: 'hacksidian-recommendation' });
+            const heading = item.createDiv({ cls: 'hacksidian-card-header hacksidian-chat-technique-heading' });
+            if (recommendation.path) {
+              const link = heading.createEl('a', { text: recommendation.title, href: '#', cls: recommendation.kind === 'technique' ? 'internal-link hacksidian-technique-link' : 'internal-link' });
+              link.addEventListener('click', event => { event.preventDefault(); void this.plugin.openRecommendation(recommendation).catch(error => new Notice(String(error))); });
+            } else heading.createEl('strong', { text: recommendation.title });
+            if (recommendation.kind === 'technique' && recommendation.path) {
+              const preview = item.createDiv({ cls: 'hacksidian-chat-example' });
+              const example = new ChatTechnique(preview, heading, this.plugin, recommendation.path);
+              this.examples.push(example); this.addChild(example);
+            }
+            item.createDiv({ cls: 'hacksidian-chat-description', text: recommendation.reason });
+            const instructions = recommendation.kind === 'technique'
+              ? recommendation.instructions.replace(/Откройте карточку и нажмите «Применить приём»\.?/g, '').replace(/Open the card and (?:click|press) [“"]Apply technique[”"]\.?/g, '').trim()
+              : recommendation.instructions;
+            if (instructions) item.createDiv({ text: instructions });
+            if (recommendation.kind === 'variable') item.createEl('code', { text: recommendation.path });
+            if (recommendation.helpUrl) item.createEl('a', { text: t(recommendation.kind === 'theme' ? 'catalog.theme_community' : 'catalog.help'), href: recommendation.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
+            if (recommendation.relatedThemes?.length) {
+              const themes = item.createDiv({ cls: 'hacksidian-related-themes' });
+              themes.createDiv({ text: t('catalog.related_themes') });
+              for (const theme of recommendation.relatedThemes) {
+                const row = themes.createDiv();
+                const link = row.createEl('a', { text: theme.title, href: '#', cls: 'internal-link' });
+                link.addEventListener('click', event => { event.preventDefault(); void this.plugin.openRecommendation(theme).catch(error => new Notice(String(error))); });
+                if (theme.helpUrl) {
+                  row.appendText(' · ');
+                  row.createEl('a', { text: t('catalog.theme_community'), href: theme.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
+                }
               }
             }
           }
-        }
-        if (turn.catalogRevision) system.createDiv({ cls: 'setting-item-description', text: t('catalog.answer_version', { p0: turn.catalogRevision.slice(0,8) }) });
-      }
-    }
 
-    const usage = this.plugin.totalUsage();
+        }
+      }
+
+    }
     const spending = this.plugin.spendingSummary();
     this.usageEl.setText(
-      t("view.api_tokens", { p0: usage.totalTokens.toLocaleString(numberLocale()), p1: formatCost(usage.estimatedCostUsd) }) + " · " + t("ledger.summary", { p0: spending.count, p1: spending.knownCostUsd.toFixed(2) }),
+      t("view.total_tokens", { p0: this.plugin.totalUsage().totalTokens.toLocaleString(numberLocale()) }) + " · " +
+      t("ledger.summary", { p0: spending.count, p1: spending.knownCostUsd.toFixed(2) }),
     );
   }
 
@@ -284,6 +321,7 @@ ${this.pendingText}`);
       await this.refresh();
     } catch (error) {
       this.pendingText = null;
+      this.conversationKey = "";
       await this.refresh();
       this.inputEl.value = text;
       this.setStatus(error instanceof Error ? error.message : String(error));
@@ -293,7 +331,6 @@ ${this.pendingText}`);
 
   private appendPendingTurn(text: string): void {
     const user = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-user is-pending" });
-    user.createDiv({ cls: "callmered-turn-label", text: t("view.you") });
     user.createDiv({ text });
     user.createDiv({ cls: "callmered-turn-usage", text: t("view.sent_waiting_for_a_response") });
     this.conversationEl.scrollTop = this.conversationEl.scrollHeight;

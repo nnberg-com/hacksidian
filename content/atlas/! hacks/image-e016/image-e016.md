@@ -35,6 +35,7 @@ themes:
   - dawn
   - bolt
   - lagom
+favourite: true
 ---
 
 ```hacksidian-id

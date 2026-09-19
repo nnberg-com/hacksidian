@@ -1,0 +1,75 @@
+/* Individual named colors; the same values apply in both appearance modes. */
+body.theme-light, body.theme-dark {
+  /**
+   * @parameter Красный
+   * @label-en Red
+   * @type color
+   * @default #e93147
+   */
+  --hacksidian-semantic-red: #e93147;
+  --color-red: var(--hacksidian-semantic-red);
+
+  /**
+   * @parameter Оранжевый
+   * @label-en Orange
+   * @type color
+   * @default #ec7500
+   */
+  --hacksidian-semantic-orange: #ec7500;
+  --color-orange: var(--hacksidian-semantic-orange);
+
+  /**
+   * @parameter Жёлтый
+   * @label-en Yellow
+   * @type color
+   * @default #e0ac00
+   */
+  --hacksidian-semantic-yellow: #e0ac00;
+  --color-yellow: var(--hacksidian-semantic-yellow);
+
+  /**
+   * @parameter Зелёный
+   * @label-en Green
+   * @type color
+   * @default #08b94e
+   */
+  --hacksidian-semantic-green: #08b94e;
+  --color-green: var(--hacksidian-semantic-green);
+
+  /**
+   * @parameter Циан
+   * @label-en Cyan
+   * @type color
+   * @default #00bfbc
+   */
+  --hacksidian-semantic-cyan: #00bfbc;
+  --color-cyan: var(--hacksidian-semantic-cyan);
+
+  /**
+   * @parameter Синий
+   * @label-en Blue
+   * @type color
+   * @default #086ddd
+   */
+  --hacksidian-semantic-blue: #086ddd;
+  --color-blue: var(--hacksidian-semantic-blue);
+
+  /**
+   * @parameter Фиолетовый
+   * @label-en Purple
+   * @type color
+   * @default #7852ee
+   */
+  --hacksidian-semantic-purple: #7852ee;
+  --color-purple: var(--hacksidian-semantic-purple);
+
+  /**
+   * @parameter Розовый
+   * @label-en Pink
+   * @type color
+   * @default #d53984
+   */
+  --hacksidian-semantic-pink: #d53984;
+  --color-pink: var(--hacksidian-semantic-pink);
+
+}

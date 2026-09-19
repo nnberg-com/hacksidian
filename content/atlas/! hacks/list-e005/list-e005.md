@@ -8,6 +8,7 @@ sources:
   - https://www.w3.org/TR/css-lists-3/
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id

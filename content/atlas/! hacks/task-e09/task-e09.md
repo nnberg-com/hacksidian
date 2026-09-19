@@ -8,6 +8,7 @@ category: task
 sources: []
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id
