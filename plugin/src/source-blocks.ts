@@ -1,7 +1,9 @@
+import { registerLiveExamples } from './live-example';
+import { ParameterControls } from './parameter-controls';
 import { previewState } from './preview-state';
 import { parseDetails } from './details';
 import type { FavouriteControls } from './favourites';
-import { Component, MarkdownRenderChild, MarkdownRenderer, Notice, parseYaml, Plugin, TAbstractFile } from 'obsidian';
+import { Component, MarkdownRenderChild, MarkdownRenderer, Notice, parseYaml, setIcon, Plugin, TAbstractFile } from 'obsidian';
 import { readTechniqueSource, techniqueDirectory } from './technique-files';
 export function sourceFence(text: string, kind: string): string {
   const fence = '`'.repeat(Math.max(3, ...[...text.matchAll(/`+/g)].map(match => match[0].length + 1)));
@@ -13,7 +15,7 @@ export class TechniqueBlock extends MarkdownRenderChild {
   private owner: Component | null = null;
   constructor(el: HTMLElement, private plugin: Plugin, private directory: string, private kind: string, private sourcePath: string, private favourites?: FavouriteControls, private embedded = false) { super(el); }
   onload(): void {
-    const changed = (item: TAbstractFile) => { if (item.path.startsWith(`${this.directory}/`)) void this.render(); };
+    const changed = (item: TAbstractFile) => { if (item.path.startsWith(`${this.directory}/`) && !(this.kind === 'id' && item.path === `${this.directory}/recipe.css`)) void this.render(); };
     this.registerEvent(this.plugin.app.vault.on('modify', changed));
     this.registerEvent(this.plugin.app.vault.on('create', changed));
     this.registerEvent(this.plugin.app.vault.on('delete', changed));
@@ -75,7 +77,7 @@ export class TechniqueBlock extends MarkdownRenderChild {
           const star = row.createEl('button', { cls: 'hacksidian-favourite-toggle' });
           const update = () => {
             const saved = store.has(path);
-            star.textContent = saved ? '★' : '☆';
+            setIcon(star, 'star');
             star.setAttribute('aria-pressed', String(saved));
             const label = saved ? (en ? 'Remove from favourites' : 'Убрать из избранного') : (en ? 'Add to favourites' : 'В избранное');
             star.setAttribute('aria-label', label); star.setAttribute('title', label);
@@ -122,6 +124,7 @@ export class TechniqueBlock extends MarkdownRenderChild {
             void technique.set(path, !installed).catch(error => new Notice(String(error))).finally(() => { busy = false; update(); });
           });
         }
+        if (!/^```hacksidian-live\s*$/m.test(card) && !this.embedded) owner.addChild(new ParameterControls(this.containerEl.createDiv(), this.plugin, this.directory, this.favourites));
         return;
       }
       if (this.kind === 'sources') {
@@ -186,6 +189,7 @@ export class TechniqueBlock extends MarkdownRenderChild {
   }
 }
 export function registerSourceBlocks(plugin: Plugin, favourites?: FavouriteControls): void {
+  registerLiveExamples(plugin, favourites);
   plugin.registerMarkdownCodeBlockProcessor('hacksidian-category', async (source, el, ctx) => {
     if (source.trim() === 'palette') {
       const { PaletteGallery } = await import('./palette-gallery');

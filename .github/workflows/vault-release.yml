@@ -57,5 +57,5 @@ jobs:
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
           gh release create "$RELEASE_TAG" release/* --verify-tag --draft \
-            --title "Hacksidian ${RELEASE_TAG#vault-}" \
+            --title "vault ${RELEASE_TAG#vault-}" \
             --notes 'Скачайте Hacksidian-*.zip, распакуйте и откройте папку в Obsidian. Инструкция INSTALL.md находится внутри архива. Source code не является готовым хранилищем.'

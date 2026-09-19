@@ -44,7 +44,7 @@ Undo works within the current structure and survives restarting the plugin. At t
 
 ## Build and installation
 
-Run `npm run check` from `plugin/` for types, tests, and production build. `npm run install:vault` installs into the author's `op` vault; `HACKSIDIAN_VAULT` overrides that location and `HACKSIDIAN_CONFIG_DIR` selects a custom config folder. First load creates missing snippets. Reload the installed plugin in Obsidian to use a new build.
+Run `npm run check` from `plugin/` for types, tests, and production build. `npm run install:plugin` builds and installs the plugin into the existing vault explicitly selected with `HACKSIDIAN_VAULT` and `HACKSIDIAN_CONFIG_DIR` selects a custom config folder. First load creates missing snippets. Reload the installed plugin in Obsidian to use a new build.
 
 The old `callmered` vault's saved configuration no longer enables this plugin. This does not unload an instance already running in that vault. Live LLM verification remains a separate check; unit tests do not make billable requests.
 
@@ -57,7 +57,7 @@ The structural rule is one group, one base snippet, and one variable set; see [S
 Quit Obsidian completely before updating, then run:
 
 ```sh
-npm --prefix /Users/op/dev/olgapavlova/hacksidian/plugin run install:vault
+HACKSIDIAN_VAULT="/absolute/path/to/vault" npm --prefix /absolute/path/to/hacksidian/plugin run install:plugin
 ```
 
 The installer discovers the previous installation by the Hacksidian manifest name. It moves it to `.obsidian/plugins/hacksidian`, preserves `data.json` and other additional files byte-for-byte, and updates enabled plugins, hotkeys, and workspace configuration references. Working CSS snippets are unchanged. If both previous and current installations exist, migration stops before making changes. Start Obsidian after installation.

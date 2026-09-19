@@ -1,15 +1,20 @@
+import { ParameterControls } from './parameter-controls';
+import type { FavouriteControls } from './favourites';
 import { previewState } from './preview-state';
 import { activatePreviewTarget } from './live-example-target';
 import { Component, MarkdownRenderChild, MarkdownRenderer, Notice, Plugin, TFile } from 'obsidian';
 import { liveExampleIssue, resolveLiveUrls, scopeLiveExample } from './live-example-css';
 import { PaletteExample } from './palette-example';
 export class LiveExample extends MarkdownRenderChild {
+  private previewEl!: HTMLElement;
   private epoch = 0;
   private stopped = false;
   private renderer: Component | null = null;
   private timer: ReturnType<typeof setTimeout> | undefined;
-  constructor(el: HTMLElement, private plugin: Plugin, private directory: string, private language: 'ru' | 'en') { super(el); }
+  constructor(el: HTMLElement, private plugin: Plugin, private directory: string, private language: 'ru' | 'en', private controls?: FavouriteControls) { super(el); }
   onload(): void {
+    this.previewEl = this.containerEl.createDiv();
+    this.addChild(new ParameterControls(this.containerEl.createDiv(), this.plugin, this.directory, this.controls));
     this.registerEvent(this.plugin.app.vault.on('modify', file => {
       if ([`${this.directory}/recipe.css`, `${this.directory}/markdown.md`].includes(file.path)) {
         clearTimeout(this.timer); this.timer = setTimeout(() => void this.render(), 150);
@@ -26,8 +31,8 @@ export class LiveExample extends MarkdownRenderChild {
       if (JSON.parse(rawSpec).group === 'palette') {
         if (this.stopped || epoch !== this.epoch) return;
         if (this.renderer) this.removeChild(this.renderer);
-        this.containerEl.empty();
-        this.renderer = new PaletteExample(this.containerEl.createDiv(), this.plugin, this.directory);
+        this.previewEl.empty();
+        this.renderer = new PaletteExample(this.previewEl.createDiv(), this.plugin, this.directory);
         this.addChild(this.renderer);
         return;
       }
@@ -37,10 +42,10 @@ export class LiveExample extends MarkdownRenderChild {
       const id = `hacksidian-live-${crypto.randomUUID()}`, scoped = resolveLiveUrls(scopeLiveExample(css, id), this.directory, file => adapter.getResourcePath(file));
       if (this.renderer) this.removeChild(this.renderer);
       const owner = new Component(); this.renderer = owner; this.addChild(owner);
-      this.containerEl.empty(); this.containerEl.addClass('hacksidian-live-example');
-      const preview = previewState(this.containerEl, this.directory);
-      this.containerEl.createEl('hr', { cls: 'hacksidian-live-separator' });
-      const viewport = this.containerEl.createDiv({ cls: 'hacksidian-live-viewport' });
+      this.previewEl.empty(); this.previewEl.addClass('hacksidian-live-example');
+      const preview = previewState(this.previewEl, this.directory);
+      this.previewEl.createEl('hr', { cls: 'hacksidian-live-separator' });
+      const viewport = this.previewEl.createDiv({ cls: 'hacksidian-live-viewport' });
       const sample = viewport.createDiv({ cls: 'markdown-preview-view markdown-rendered hacksidian-live-sample' }); sample.id = id;
       // Keep checkbox experiments local; don't let the renderer write to the source Markdown.
       owner.registerDomEvent(sample, 'click', event => {
@@ -66,29 +71,29 @@ export class LiveExample extends MarkdownRenderChild {
         event.preventDefault(); event.stopPropagation();
         target.scrollIntoView({ block: 'nearest' });
       }, { capture: true });
-      const style = this.containerEl.createEl('style');
-      this.containerEl.createEl('hr', { cls: 'hacksidian-live-separator' });
+      const style = this.previewEl.createEl('style');
+      this.previewEl.createEl('hr', { cls: 'hacksidian-live-separator' });
       const update = () => { style.textContent = preview.enabled ? scoped : ''; };
       owner.register(preview.subscribe(update)); update();
       await MarkdownRenderer.render(this.plugin.app, markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, ''), sample, `${this.directory}/markdown.md`, owner);
       if (this.stopped || epoch !== this.epoch) return;
       sample.querySelectorAll<HTMLInputElement>('input[type=checkbox]').forEach(input => { input.disabled = false; });
-      if (/:target\b/.test(css)) this.containerEl.createEl('small', { text: ru ? 'Нажмите ссылку или номер сноски внутри примера: эффект появится у выбранной цели.' : 'Click a link or footnote number inside the example to select its target.' });
-      if (this.directory.endsWith('/link-e025')) this.containerEl.createEl('small', { text: ru ? 'Наведите курсор на ссылку. Если подчёркивание отключено в вашем оформлении, этот приём сам его не включает.' : 'Hover over the link. This technique does not enable underlines if your styling disables them.' });
+      if (/:target\b/.test(css)) this.previewEl.createEl('small', { text: ru ? 'Нажмите ссылку или номер сноски внутри примера: эффект появится у выбранной цели.' : 'Click a link or footnote number inside the example to select its target.' });
+      if (this.directory.endsWith('/link-e025')) this.previewEl.createEl('small', { text: ru ? 'Наведите курсор на ссылку. Если подчёркивание отключено в вашем оформлении, этот приём сам его не включает.' : 'Hover over the link. This technique does not enable underlines if your styling disables them.' });
     } catch (error) {
       if (!this.stopped && epoch === this.epoch) {
         if (this.renderer) { this.removeChild(this.renderer); this.renderer = null; }
-        this.containerEl.empty(); this.containerEl.createEl('p', { text: `${ru ? 'Не удалось показать пример' : 'Could not render example'}: ${String(error)}` });
+        this.previewEl.empty(); this.previewEl.createEl('p', { text: `${ru ? 'Не удалось показать пример' : 'Could not render example'}: ${String(error)}` });
       }
     }
   }
 }
-export function registerLiveExamples(plugin: Plugin): void {
+export function registerLiveExamples(plugin: Plugin, controls?: FavouriteControls): void {
   plugin.registerMarkdownCodeBlockProcessor('hacksidian-live', (source, el, ctx) => {
     const id = source.trim(), match = ctx.sourcePath.match(/^(.*(?:^|\/)atlas)\//);
     if (!match || !/^[a-z0-9][a-z0-9-]*$/.test(id)) { el.setText('Некорректный идентификатор примера / Invalid example ID'); return; }
     const directory = ctx.sourcePath.endsWith(`/${id}.md`) ? ctx.sourcePath.slice(0, ctx.sourcePath.lastIndexOf('/')) : `${match[1]}/! hacks/${id}`;
-    ctx.addChild(new LiveExample(el, plugin, directory, ctx.sourcePath.endsWith('.en.md') ? 'en' : 'ru'));
+    ctx.addChild(new LiveExample(el, plugin, directory, ctx.sourcePath.endsWith('.en.md') ? 'en' : 'ru', controls));
   });
   plugin.addCommand({ id: 'open-live-examples', name: 'Открыть живые примеры / Open live examples', callback: async () => {
     const file = plugin.app.vault.getMarkdownFiles().find(f => /(?:^|\/)atlas\/Живые примеры.md$/.test(f.path));

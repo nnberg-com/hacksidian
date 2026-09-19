@@ -1,3 +1,4 @@
+import { ParameterControls } from './parameter-controls';
 import { Component, MarkdownRenderChild, Plugin } from 'obsidian';
 import { TechniqueBlock } from './source-blocks';
 import { LiveExample } from './live-example';
@@ -53,7 +54,7 @@ export class CategoryExamples extends MarkdownRenderChild {
             section.empty(); section.addClass('is-loaded');
             const directory = file.path.slice(0,file.path.lastIndexOf('/'));
             owner.addChild(new TechniqueBlock(section.createDiv(),this.plugin,directory,'id',file.path,this.controls,true));
-            if (/^```hacksidian-live\s*$/m.test(card)) owner.addChild(new LiveExample(section.createDiv(),this.plugin,directory,'ru'));
+            if (/^```hacksidian-live\s*$/m.test(card)) owner.addChild(new LiveExample(section.createDiv(),this.plugin,directory,'ru',this.controls));
             else {
               const adapter=this.plugin.app.vault.adapter;
               const md=await adapter.exists(`${directory}/markdown.md`) ? await adapter.read(`${directory}/markdown.md`) : '';
@@ -61,6 +62,7 @@ export class CategoryExamples extends MarkdownRenderChild {
               if (this.stopped || epoch !== this.epoch) return;
               const reason=liveExampleIssue(String(meta.category),md,css);
               section.createEl('p',{cls:'setting-item-description',text:`Встроенный пример недоступен. ${reason || 'Условия демонстрации описаны в карточке приёма.'}`});
+              owner.addChild(new ParameterControls(section.createDiv(),this.plugin,directory,this.controls));
             }
           } catch (error) { if (!this.stopped && epoch === this.epoch) section.createEl('p',{text:String(error)}); }
         };

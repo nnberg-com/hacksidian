@@ -1,3 +1,4 @@
+import { readParameters, parameterValue, parameterInput } from './parameters';
 import { t } from "../i18n";
 import postcss from 'postcss';
 import type { ModularStyle } from './style-modules';
@@ -33,6 +34,7 @@ export function compileHack(hack: HackContext): string {
   }
   if (!hack.spec.hasCss) throw new Error(t("hacks.this_technique_has_no_css_of_its"));
   postcss.parse(hack.css);
+  for (const parameter of readParameters(hack.css)) parameterValue(parameter, parameterInput(parameter));
   return hack.css;
 }
 

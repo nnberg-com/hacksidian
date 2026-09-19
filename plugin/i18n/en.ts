@@ -212,6 +212,7 @@ export const en: Record<keyof typeof ru, string> = {
   "view.the_new_variation_has_been_applied": "The new variation has been applied.",
   "view.the_iteration_could_not_be_completed": "The iteration could not be completed.",
   "view.sent_waiting_for_a_response": "Sent · waiting for a response",
+  "settings.installed_plugin_version": "Installed plugin version",
   "settings.interface_language": "Interface language",
   "settings.language_auto": "Same as Obsidian",
   "settings.interface_language_description": "English is used when the Obsidian language is not supported.",

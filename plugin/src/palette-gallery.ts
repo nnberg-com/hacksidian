@@ -1,3 +1,4 @@
+import { ParameterControls } from './parameter-controls';
 import { Component, MarkdownRenderChild, Plugin } from 'obsidian';
 import type { FavouriteControls } from './favourites';
 import { belongsToCategory } from './category-examples';
@@ -43,6 +44,7 @@ export class PaletteGallery extends MarkdownRenderChild {
           });
           owner.addChild(new TechniqueBlock(section.createDiv(), this.plugin, entry.directory, 'id', entry.path, this.controls, true));
           owner.addChild(new PaletteExample(section.createDiv(), this.plugin, entry.directory));
+          owner.addChild(new ParameterControls(section.createDiv(), this.plugin, entry.directory, this.controls));
         }
       }
     }catch(e){if(!this.stopped&&epoch===this.epoch)this.containerEl.setText(`Не удалось показать палитры: ${String(e)}`);}

@@ -1,4 +1,25 @@
 :is(.markdown-preview-view, .markdown-source-view) li::marker {
-  font-size: 1.45em;
-  color: var(--interactive-accent);
+  /**
+   * @parameter Размер маркера
+   * @label-en Marker size
+   * @type number
+   * @default 1.45em
+   * @unit em
+   * @min 0.5
+   * @max 3
+   * @step 0.05
+   */
+  --hacksidian-list-e010-size: 1.45em;
+  /**
+   * @parameter Цвет маркера
+   * @label-en Marker color
+   * @type select
+   * @default var(--interactive-accent)
+   * @option var(--interactive-accent) | Акцент | Accent
+   * @option var(--text-normal) | Основной текст | Normal text
+   * @option var(--text-muted) | Приглушённый текст | Muted text
+   */
+  --hacksidian-list-e010-color: var(--interactive-accent);
+  font-size: var(--hacksidian-list-e010-size);
+  color: var(--hacksidian-list-e010-color);
 }

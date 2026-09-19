@@ -1,4 +1,24 @@
 :is(.markdown-preview-view, .markdown-source-view) pre {
-  font-size: calc(var(--font-text-size) * 0.75);
-  line-height: calc(var(--line-height-normal) * 0.9);
+  /**
+   * @parameter Размер относительно основного текста
+   * @label-en Size relative to body text
+   * @type number
+   * @default 0.75
+   * @min 0.5
+   * @max 1.5
+   * @step 0.05
+   */
+  --hacksidian-code-e011-size: 0.75;
+  /**
+   * @parameter Множитель межстрочного интервала
+   * @label-en Line height multiplier
+   * @type number
+   * @default 0.9
+   * @min 0.8
+   * @max 2
+   * @step 0.05
+   */
+  --hacksidian-code-e011-leading: 0.9;
+  font-size: calc(var(--font-text-size) * var(--hacksidian-code-e011-size));
+  line-height: calc(var(--line-height-normal) * var(--hacksidian-code-e011-leading));
 }

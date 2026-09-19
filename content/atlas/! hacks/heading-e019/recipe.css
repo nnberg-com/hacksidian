@@ -1,5 +1,27 @@
 :is(.markdown-preview-view, .markdown-source-view) h3 {
-  border-block-end: 1px solid var(--text-normal);
-  padding-block-end: .65rem;
+  /**
+   * @parameter Толщина черты
+   * @label-en Line thickness
+   * @type number
+   * @default 1px
+   * @unit px
+   * @min 0
+   * @max 8
+   * @step 0.5
+   */
+  --hacksidian-heading-e019-width: 1px;
+  /**
+   * @parameter Отступ под заголовком H3
+   * @label-en Gap below H3
+   * @type number
+   * @default 0.65rem
+   * @unit rem
+   * @min 0
+   * @max 3
+   * @step 0.05
+   */
+  --hacksidian-heading-e019-gap: 0.65rem;
+  border-block-end: var(--hacksidian-heading-e019-width) solid var(--text-normal);
+  padding-block-end: var(--hacksidian-heading-e019-gap);
 }
 

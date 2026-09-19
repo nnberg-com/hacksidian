@@ -52,5 +52,5 @@ jobs:
           gh release create "$RELEASE_TAG" \
             release/main.js release/styles.css release/manifest.json \
             --verify-tag --draft \
-            --title "Hacksidian plugin ${RELEASE_TAG}" \
+            --title "plugin ${RELEASE_TAG}" \
             --notes-file "docs/plugin-releases/${RELEASE_TAG}.md"

@@ -1,11 +1,35 @@
+:is(.markdown-preview-view, .markdown-source-view) a.tag, :is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
+  /**
+   * @parameter Регистр букв
+   * @label-en Letter case
+   * @type select
+   * @default uppercase
+   * @option uppercase | Прописные | Uppercase
+   * @option none | Исходный | Original
+   * @option lowercase | Строчные | Lowercase
+   * @option capitalize | С заглавных | Capitalize
+   */
+  --hacksidian-tag-e008-case: uppercase;
+  /**
+   * @parameter Межбуквенный интервал
+   * @label-en Letter spacing
+   * @type number
+   * @default 0.06em
+   * @unit em
+   * @min 0
+   * @max 0.2
+   * @step 0.01
+   */
+  --hacksidian-tag-e008-spacing: 0.06em;
+}
 :is(.markdown-preview-view, .markdown-source-view) a.tag {
-  text-transform: uppercase;
+  text-transform: var(--hacksidian-tag-e008-case);
   font-size: calc(var(--tag-size) * 0.97142857);
-  letter-spacing: .06em;
+  letter-spacing: var(--hacksidian-tag-e008-spacing);
 }
 :is(.markdown-preview-view, .markdown-source-view) .cm-hashtag {
-  text-transform: uppercase;
+  text-transform: var(--hacksidian-tag-e008-case);
   font-size: .85em;
-  letter-spacing: .06em;
+  letter-spacing: var(--hacksidian-tag-e008-spacing);
 }
 

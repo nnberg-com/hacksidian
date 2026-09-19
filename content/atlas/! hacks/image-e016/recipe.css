@@ -1,3 +1,13 @@
 :is(.markdown-preview-view, .markdown-source-view) img {
-  border-radius: calc(var(--radius-s) * 5);
+  /**
+   * @parameter Множитель скругления темы
+   * @label-en Theme corner radius multiplier
+   * @type number
+   * @default 5
+   * @min 0
+   * @max 20
+   * @step 0.25
+   */
+  --hacksidian-image-e016-radius-scale: 8;
+  border-radius: calc(var(--radius-s) * var(--hacksidian-image-e016-radius-scale));
 }

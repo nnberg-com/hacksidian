@@ -1,5 +1,27 @@
 :is(.markdown-preview-view, .markdown-source-view) hr {
-  width: 4rem;
-  height: 2px;
+  /**
+   * @parameter Ширина штриха
+   * @label-en Stroke width
+   * @type number
+   * @default 4rem
+   * @unit rem
+   * @min 1
+   * @max 30
+   * @step 0.5
+   */
+  --hacksidian-hr-e070-width: 4rem;
+  /**
+   * @parameter Высота штриха
+   * @label-en Stroke height
+   * @type number
+   * @default 2px
+   * @unit px
+   * @min 1
+   * @max 12
+   * @step 0.5
+   */
+  --hacksidian-hr-e070-height: 2px;
+  width: var(--hacksidian-hr-e070-width);
+  height: var(--hacksidian-hr-e070-height);
   background: currentColor;
 }

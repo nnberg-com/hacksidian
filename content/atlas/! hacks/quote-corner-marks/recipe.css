@@ -9,11 +9,27 @@
   color: var(--interactive-accent);
 }
 :is(.markdown-preview-view, .markdown-source-view) blockquote::before {
-  content: "“";
+  /**
+   * @parameter Открывающий знак
+   * @label-en Opening mark
+   * @type text
+   * @default "“"
+   * @maxlength 4
+   */
+  --hacksidian-quote-corner-opening: "“";
+  content: var(--hacksidian-quote-corner-opening);
   inset: 0 auto auto 0;
 }
 :is(.markdown-preview-view, .markdown-source-view) blockquote::after {
-  content: "”";
+  /**
+   * @parameter Закрывающий знак
+   * @label-en Closing mark
+   * @type text
+   * @default "”"
+   * @maxlength 4
+   */
+  --hacksidian-quote-corner-closing: "”";
+  content: var(--hacksidian-quote-corner-closing);
   inset: auto 0 -.25em auto;
 }
 

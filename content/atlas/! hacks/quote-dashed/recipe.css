@@ -1,4 +1,25 @@
 :is(.markdown-preview-view, .markdown-source-view) blockquote {
-  border-inline-start: var(--blockquote-border-thickness) dashed var(--interactive-accent);
+  /**
+   * @parameter Толщина линии
+   * @label-en Line thickness
+   * @type select
+   * @default var(--blockquote-border-thickness)
+   * @option var(--blockquote-border-thickness) | Из темы | From theme
+   * @option 1px | Тонкая · 1 px | Thin · 1 px
+   * @option 2px | Средняя · 2 px | Medium · 2 px
+   * @option 4px |Толстая · 4 px | Thick · 4 px
+   */
+  --hacksidian-quote-dashed-width: 4px;
+  /**
+   * @parameter Рисунок линии
+   * @label-en Line style
+   * @type select
+   * @default dashed
+   * @option dashed | Пунктир | Dashed
+   * @option dotted | Точки | Dotted
+   * @option solid | Сплошная | Solid
+   */
+  --hacksidian-quote-dashed-style: dotted;
+  border-inline-start: var(--hacksidian-quote-dashed-width) var(--hacksidian-quote-dashed-style) var(--interactive-accent);
 }
 

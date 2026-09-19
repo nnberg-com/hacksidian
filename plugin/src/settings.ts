@@ -19,6 +19,10 @@ export class CallMeRedSettingTab extends PluginSettingTab {
     containerEl.empty();
     containerEl.createEl("h2", { text: "Hacksidian" });
 
+    new Setting(containerEl)
+      .setName(t("settings.installed_plugin_version"))
+      .setDesc(this.plugin.manifest.version);
+
     new Setting(containerEl).setName(t("settings.interface_language"))
       .setDesc(t("settings.interface_language_description"))
       .addDropdown(dropdown => dropdown.addOptions({ auto: t("settings.language_auto"), ru: "Русский", en: "English" })

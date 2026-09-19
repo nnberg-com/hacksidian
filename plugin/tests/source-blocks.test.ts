@@ -1,9 +1,9 @@
 import {expect,test,vi} from 'vitest';
 vi.mock('obsidian',()=>({
- Component:class {register(){} registerDomEvent(el:any,event:string,fn:any){el.events[event]=fn;}},
+ Component:class {addChild(){} register(){} registerDomEvent(el:any,event:string,fn:any){el.events[event]=fn;}},
  MarkdownRenderChild:class { constructor(public containerEl:any){} registerEvent(){} addChild(){} removeChild(){} },
  MarkdownRenderer:{render:vi.fn(async (_app:any,text:string,el:any)=>{el.rendered=text;})},
- Notice:class{},parseYaml:(text:string)=>({category:'link',title:'Волнистая линия',themes:text.includes('minimal')?['minimal']:[],sources:text.includes('example.org')?['https://example.org/guide']:text.includes('example.net')?['https://example.net/new']:[]}),Plugin:class{},TAbstractFile:class{}
+ setIcon:vi.fn(), Notice:class{},parseYaml:(text:string)=>({category:'link',title:'Волнистая линия',themes:text.includes('minimal')?['minimal']:[],sources:text.includes('example.org')?['https://example.org/guide']:text.includes('example.net')?['https://example.net/new']:[]}),Plugin:class{},TAbstractFile:class{}
 }));
 import { Favourites } from '../src/favourites';
 import type { FavouriteControls } from '../src/favourites';
@@ -16,7 +16,7 @@ function setup(controls?: FavouriteControls){
  const files:any={'recipe.css':'a {color: red;}','markdown.md':'<script>literal</script>\n```hacksidian-live\nx\n```','link-e023.md':'---\nthemes: [minimal]\n---'};
  const adapter={exists:vi.fn(async()=>true),read:vi.fn(async(path:string)=>files[path.split('/').pop()!]),getFullPath:(path:string)=>'/vault name/'+path};
  const workspace={openLinkText:vi.fn()};
- const plugin={app:{vault:{adapter,on:(name:string,callback:Function)=>{events.set(name,callback);return {};}} ,workspace,metadataCache:{getCache:(path:string)=>({frontmatter:{title:path.includes('! categories')?'Ссылки':'Minimal'}})}},registerMarkdownCodeBlockProcessor:(name:string,fn:Function)=>handlers.set(name,fn)};
+ const plugin={app:{vault:{adapter,on:(name:string,callback:Function)=>{events.set(name,callback);return {};}} ,workspace,metadataCache:{getCache:(path:string)=>({frontmatter:{title:path.includes('! categories')?'Ссылки':'Minimal'}})}},addCommand:()=>{},registerMarkdownCodeBlockProcessor:(name:string,fn:Function)=>handlers.set(name,fn)};
  registerSourceBlocks(plugin as any, controls);
  const render=async(kind:string,source='link-e023')=>{const el=element();handlers.get('hacksidian-'+kind)!(source,el,{sourcePath:'atlas/! hacks/link-e023/link-e023.md',addChild:(child:any)=>child.onload()});await flush();return el;};
  return {handlers,events,files,adapter,workspace,render,plugin};

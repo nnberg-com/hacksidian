@@ -1,6 +1,7 @@
 ---
 tags:
   - hacksidian_technique
+  - hacksidian_parameter_experiment
   - hacksidian_quote
 title: Пунктир
 category: quote

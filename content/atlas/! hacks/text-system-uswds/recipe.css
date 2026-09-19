@@ -1,6 +1,16 @@
 /* USWDS — стандартная сборка. Размер текста и гарнитуры остаются пользовательскими. */
 .markdown-preview-view, .markdown-source-view {
-  --line-height-normal: 1.5;
+  /**
+   * @parameter Межстрочный интервал текста
+   * @label-en Text line height
+   * @type number
+   * @default 1.5
+   * @min 1.2
+   * @max 2.5
+   * @step 0.05
+   */
+  --hacksidian-text-system-uswds-leading: 1.5;
+  --line-height-normal: var(--hacksidian-text-system-uswds-leading);
   --h1-size: calc(var(--font-text-size) * 2.3018868);
   --h1-line-height: 1.2;
   --h1-weight: 700;

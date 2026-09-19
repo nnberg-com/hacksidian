@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "check": "npm run typecheck && npm run build && npm run test",
-    "install:vault": "npm run build && node scripts/install-vault.mjs",
+    "install:plugin": "npm run build && node scripts/install-vault.mjs",
     "install:release": "node scripts/install-vault.mjs --release",
     "release:prepare": "npm run check && node scripts/prepare-release.mjs",
     "release:version": "node scripts/release-version.mjs"

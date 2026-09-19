@@ -1,6 +1,7 @@
 ---
 tags:
   - hacksidian_technique
+  - hacksidian_parameter_experiment
   - hacksidian_note
 title: Буквица
 category: note

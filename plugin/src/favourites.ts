@@ -23,6 +23,7 @@ export interface FavouriteControls {
   technique?: {
     get(path: string): Promise<{ installed: boolean; hasCss: boolean } | null>;
     set(path: string, enabled: boolean): Promise<unknown>;
+    update?(path: string): Promise<unknown>;
     subscribe(listener: () => void): () => void;
   };
   store: Favourites;

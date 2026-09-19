@@ -212,6 +212,7 @@ export const ru = {
   "view.the_new_variation_has_been_applied": "Новый вариант применён.",
   "view.the_iteration_could_not_be_completed": "Итерация не выполнена.",
   "view.sent_waiting_for_a_response": "Отправлено · жду ответ",
+  "settings.installed_plugin_version": "Установленная версия плагина",
   "settings.interface_language": "Язык интерфейса",
   "settings.language_auto": "Как в Obsidian",
   "settings.interface_language_description": "Для неподдерживаемого языка Obsidian используется английский.",

@@ -1,7 +1,29 @@
 :is(.markdown-preview-view, .markdown-source-view) a {
+  /**
+   * @parameter Скругление
+   * @label-en Corner radius
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 3
+   * @step 0.1
+   */
+  --hacksidian-link-e014-radius: 1em;
+  /**
+   * @parameter Боковые поля
+   * @label-en Horizontal padding
+   * @type number
+   * @default 0.55em
+   * @unit em
+   * @min 0
+   * @max 2
+   * @step 0.05
+   */
+  --hacksidian-link-e014-padding: 0.55em;
   background: var(--background-secondary);
-  border-radius: 1em;
-  padding: .12em .55em;
+  border-radius: var(--hacksidian-link-e014-radius);
+  padding: .12em var(--hacksidian-link-e014-padding);
   text-decoration: none;
 }
 

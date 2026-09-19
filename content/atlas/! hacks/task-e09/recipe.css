@@ -1,5 +1,26 @@
 :is(.markdown-preview-view, .markdown-source-view) li {
-  line-height: calc(var(--line-height-normal) * 0.9);
-  margin-block: .3em;
+  /**
+   * @parameter Множитель межстрочного интервала
+   * @label-en Line height multiplier
+   * @type number
+   * @default 0.9
+   * @min 0.8
+   * @max 2
+   * @step 0.05
+   */
+  --hacksidian-task-e09-leading: 0.9;
+  /**
+   * @parameter Внешние поля пункта
+   * @label-en Item vertical margin
+   * @type number
+   * @default 0.3em
+   * @unit em
+   * @min 0
+   * @max 2
+   * @step 0.05
+   */
+  --hacksidian-task-e09-gap: 0.3em;
+  line-height: calc(var(--line-height-normal) * var(--hacksidian-task-e09-leading));
+  margin-block: var(--hacksidian-task-e09-gap);
 }
 

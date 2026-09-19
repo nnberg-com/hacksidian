@@ -1,7 +1,7 @@
+import { pendingParameters } from './parameter-storage';
 import { enabledTechniquePaths } from './enabled-techniques';
 import { Favourites } from './favourites';
 import { registerSourceBlocks } from './source-blocks';
-import { registerLiveExamples } from "./live-example";
 import { t, setLanguageResolver, resolveInterfaceLanguage, resolveContentLanguage, type Language } from "../i18n";
 import type { CatalogState } from "./catalog";
 import { relatedThemes } from "./catalog";
@@ -114,7 +114,6 @@ export default class CallMeRedPlugin extends Plugin {
 
   async onload(): Promise<void> {
     setLanguageResolver(() => this.interfaceLanguage);
-    registerLiveExamples(this);
     await this.loadPluginData();
     this.registerEvent(this.app.metadataCache.on('changed', () => this.favourites.refresh()));
     this.registerEvent(this.app.metadataCache.on('resolved', () => this.favourites.refresh()));
@@ -135,6 +134,7 @@ export default class CallMeRedPlugin extends Plugin {
     registerSourceBlocks(this, { openEnabled: () => { void this.openEnabled().catch(error => new Notice(String(error))); }, technique: {
       get: async path => { const hack = await this.getHackAt(path); return hack ? { installed: !!hack.installed, hasCss: hack.spec.hasCss } : null; },
       set: (path, enabled) => this.applyCurrentHack(path, enabled, true),
+      update: path => this.applyCurrentHack(path, true, true, true),
       subscribe: listener => { this.techniqueListeners.add(listener); return () => this.techniqueListeners.delete(listener); },
     }, store: this.favourites, open: openFavourites, english: () => this.interfaceLanguage === 'en' });
     this.addCommand({ id: 'open-favourites', name: this.interfaceLanguage === 'en' ? 'Open favourites' : 'Открыть избранное', callback: openFavourites });
@@ -325,14 +325,16 @@ export default class CallMeRedPlugin extends Plugin {
     return { id, installed: hasHack(this.state.style, id), path: file.path, title, spec, css: await adapter.read(`${directory}/recipe.css`) };
   }
 
-  async applyCurrentHack(expectedPath: string, enabled = true, fromCard = false): Promise<boolean> {
+  async applyCurrentHack(expectedPath: string, enabled = true, fromCard = false, update = false): Promise<boolean> {
     let changed = false;
     await this.withHistoryLock(async () => {
+      if (enabled) await pendingParameters(this.app.vault, `${expectedPath.slice(0, expectedPath.lastIndexOf('/'))}/recipe.css`);
       const hack = fromCard ? await this.getHackAt(expectedPath) : await this.getCurrentHack();
       if (!hack || hack.path !== expectedPath) throw new Error(t("main.the_open_card_has_changed_select_the"));
       await this.reloadFileStyle();
+      if (update && !hasHack(this.state.style, hack.id)) throw new Error("Приём уже выключен / Technique is disabled");
       const result = enabled
-        ? (hasHack(this.state.style, hack.id) ? { style: this.state.style!, changed: false } : addHack(this.state.style!, hack))
+        ? (!update && hasHack(this.state.style, hack.id) ? { style: this.state.style!, changed: false } : addHack(this.state.style!, hack))
         : removeHack(this.state.style!, hack.id);
       if (result.changed) {
         await this.saveAppliedStyle(result.style);
