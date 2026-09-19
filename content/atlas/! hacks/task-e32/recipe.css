@@ -1,4 +1,12 @@
 :is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
+  /**
+   * @parameter Подпись после счётчика
+   * @label-en Text after counter
+   * @type text
+   * @default "всего"
+   * @maxlength 40
+   */
+  --hacksidian-task-e32-label: "всего";
   counter-reset: total done;
 }
 :is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) > li {
@@ -8,7 +16,7 @@
   counter-increment: total done;
 }
 :is(.markdown-preview-view, .markdown-source-view) ul:not(li ul)::after {
-  content: counter(done) " / " counter(total) " готово";
+  content: counter(done) " / " counter(total) " " var(--hacksidian-task-e32-label);
   display: block;
   margin-block-start: 1em;
   color: var(--color-green);

@@ -1,4 +1,12 @@
 :is(.markdown-preview-view, .markdown-source-view) h2 {
+  /**
+   * @parameter Подпись завершённого раздела
+   * @label-en Completed section label
+   * @type text
+   * @default "готово"
+   * @maxlength 40
+   */
+  --hacksidian-task-e65-done-label: "готово";
   font-size: 1.05em;
 }
 :is(.markdown-preview-view, .markdown-source-view) h2::after {
@@ -7,7 +15,6 @@
   color: var(--text-muted);
 }
 :is(.markdown-preview-view, .markdown-source-view) h2:has(+ ul input):not(:has(+ ul input:not(:checked)))::after {
-  content: " · готово ✓";
+  content: " · " var(--hacksidian-task-e65-done-label) " ✓";
   color: var(--color-green);
 }
-

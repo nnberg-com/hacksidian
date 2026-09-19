@@ -1,6 +1,7 @@
 ---
 tags:
   - hacksidian_technique
+  - hacksidian_parameter_experiment
   - hacksidian_callout
 title: Акцент справа
 category: callout
@@ -8,6 +9,7 @@ sources:
   - https://help.obsidian.md/callouts
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id
@@ -23,7 +25,9 @@ callout-technical-right
 Вариант для текста с активным левым краем.
 
 > Как работает
-Логическая правая граница оформляет тот же контейнер Callout.
+Линия на логическом правом краю выноски рисуется отдельным псевдоэлементом `::after`. CSS-параметры задают толщину линии (по умолчанию 4px) и радиус её скругления (по умолчанию 0px). Скругляется сама линия, а не весь Callout.
+
+Для полностью круглых концов задайте радиус, равный половине толщины линии: например, 2px при толщине 4px. Толщина 0px скрывает линию. Для включённого оформления используйте кнопку «Обновить уже существующий стиль».
 ```
 
 ```hacksidian-sources

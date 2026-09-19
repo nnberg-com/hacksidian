@@ -1,9 +1,9 @@
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+:is(.markdown-preview-view, .markdown-source-view) h4 {
   max-inline-size: 19ch;
-  line-height: calc(var(--h3-line-height) * 1.384615);
-  font-size: calc(var(--h3-size) * 1.289833);
+  line-height: calc(var(--h4-line-height) * 1.384615);
+  font-size: calc(var(--h4-size) * 1.289833);
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 em {
+:is(.markdown-preview-view, .markdown-source-view) h4 em {
   background: var(--interactive-accent);
   color: white;
   padding: .12em .35em;
@@ -11,7 +11,7 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 em {
+:is(.markdown-preview-view, .markdown-source-view) h4 em {
   font-style: normal;
 }
 

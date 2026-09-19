@@ -1,9 +1,15 @@
-@counter-style hack-list-ordered-o012-ordered-step {
-  system: extends decimal;
-  prefix: "Шаг ";
-  suffix: " — ";
-}
 :is(.markdown-preview-view, .markdown-source-view) ol {
-  list-style-type: hack-list-ordered-o012-ordered-step;
+  /**
+   * @parameter Текст перед номером
+   * @label-en Text before number
+   * @type text
+   * @default "Шаг"
+   * @maxlength 40
+   */
+  --hacksidian-list-ordered-o012-prefix: "Шаг";
+  list-style-type: decimal;
   padding-inline-start: 6.5em;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol > li::marker {
+  content: var(--hacksidian-list-ordered-o012-prefix) " " counter(list-item) " — ";
 }

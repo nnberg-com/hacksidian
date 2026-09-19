@@ -1,13 +1,13 @@
 :is(.markdown-preview-view, .markdown-source-view) {
   counter-reset: chapter 2;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+:is(.markdown-preview-view, .markdown-source-view) h2 {
   position: relative;
   isolation: isolate;
   padding-block: 2rem;
   counter-increment: chapter;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3::before {
+:is(.markdown-preview-view, .markdown-source-view) h2::before {
   content: counter(chapter,decimal-leading-zero);
   position: absolute;
   z-index: -1;

@@ -1,4 +1,4 @@
-.markdown-preview-view > p:first-child, .markdown-preview-view .el-p:not(.el-p ~ .el-p) > p {
+.markdown-preview-view > h1 + p, .markdown-preview-view .el-h1 + .el-p > p {
   font-size: calc(var(--font-text-size) * 1.22);
   line-height: var(--line-height-normal);
   font-weight: var(--font-medium);
