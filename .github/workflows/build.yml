@@ -2,7 +2,7 @@ name: Build plugin
 on:
   push:
     branches: [main]
-    tags: ['*']
+    tags: ['*', '!vault-*']
   pull_request:
   workflow_dispatch:
 permissions:
@@ -21,8 +21,36 @@ jobs:
         working-directory: plugin
       - run: npm run release:prepare
         working-directory: plugin
+      - name: Check release notes
+        if: github.ref_type == 'tag'
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: test -s "docs/plugin-releases/${RELEASE_TAG}.md"
       - uses: actions/upload-artifact@v4
         with:
           name: hacksidian-release
           path: build/release/
           if-no-files-found: error
+  release:
+    if: github.ref_type == 'tag' && !startsWith(github.ref_name, 'vault-')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: hacksidian-release
+          path: release
+      - name: Create draft plugin release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" \
+            release/main.js release/styles.css release/manifest.json \
+            --verify-tag --draft \
+            --title "Hacksidian plugin ${RELEASE_TAG}" \
+            --notes-file "docs/plugin-releases/${RELEASE_TAG}.md"

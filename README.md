@@ -12,3 +12,5 @@ CSS grooming for Obsidian / Настройка оформления Obsidian.
 - [Требования и будущие изменения — OpenSpec](openspec/README.md)
 
 - [Сборка и выпуск шаблонного vault](docs/starter-vault.md)
+
+- [Выпуск и обновление плагина](docs/plugin-release.md)

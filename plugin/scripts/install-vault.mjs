@@ -2,12 +2,24 @@ import { cp, mkdir, readFile, writeFile, readdir, rename, rm, mkdtemp } from 'no
 import path from 'node:path';
 import { planContentLinks, createContentLinks } from './content-links.mjs';
 import { fileURLToPath } from 'node:url';
+import { validateVersion } from './release-version.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const args = process.argv.slice(2);
+if (args.length && (args.length !== 2 || args[0] !== '--release' || !path.isAbsolute(args[1]))) {
+  throw new Error('Usage: install-vault.mjs [--release /absolute/path/to/release-files]');
+}
+const release = args[1];
 const vault = process.env.HACKSIDIAN_VAULT;
 if (!vault || !path.isAbsolute(vault)) throw new Error('Set HACKSIDIAN_VAULT to an explicit absolute vault path.');
 const config = path.join(vault, process.env.HACKSIDIAN_CONFIG_DIR || '.obsidian');
 const plugins = path.join(config, 'plugins');
-const manifest = JSON.parse(await readFile(path.join(root, 'manifest.json'), 'utf8'));
+const localManifest = JSON.parse(await readFile(path.join(root, 'manifest.json'), 'utf8'));
+const manifestBytes = await readFile(path.join(release || root, 'manifest.json'));
+const manifest = JSON.parse(manifestBytes.toString('utf8'));
+validateVersion(manifest.version);
+if (manifest.id !== localManifest.id || manifest.name !== localManifest.name) {
+  throw new Error('Release does not belong to this plugin; no files changed.');
+}
 const id = manifest.id;
 const dest = path.join(plugins, id);
 
@@ -70,9 +82,15 @@ for (const name of ['community-plugins.json', 'hotkeys.json', 'workspace.json', 
   const after = JSON.stringify(value, null, 2) + '\n';
   if (before !== after) configs.push({ file, before, after });
 }
-const artifacts = await Promise.all([
-  ['dist/main.js', 'main.js'], ['manifest.json', 'manifest.json'], ['dist/styles.css', 'styles.css'],
-].map(async ([from, to]) => ({ to, content: await readFile(path.join(root, from)) })));
+const artifacts = [
+  { to: 'manifest.json', content: manifestBytes },
+  ...await Promise.all(['main.js', 'styles.css'].map(async to => ({
+    to, content: await readFile(path.join(release || path.join(root, 'dist'), to)),
+  }))),
+];
+if (!artifacts.find(artifact => artifact.to === 'main.js').content.length) {
+  throw new Error('Release main.js is empty; no files changed.');
+}
 await mkdir(plugins, { recursive: true });
 const staging = await mkdtemp(path.join(config, '.hacksidian-install-'));
 const prepared = path.join(staging, 'prepared'), backup = path.join(staging, 'previous');

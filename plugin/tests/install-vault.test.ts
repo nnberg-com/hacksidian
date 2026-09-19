@@ -93,3 +93,64 @@ test('refuses links to another source and unsafe folder settings',async()=>{
  await writeFile(path.join(old,'data.json'),JSON.stringify({settings:{atlasFolder:'../escape'}}));
  expect(()=>install(vault)).toThrow();
 });
+
+async function releaseFixture() {
+ const release = await mkdtemp(path.join(tmpdir(), 'hacksidian-downloaded-')); roots.push(release);
+ await writeFile(path.join(release, 'manifest.json'), JSON.stringify({id:'hacksidian',name:'Hacksidian',version:'0.2.0',minAppVersion:'1.8.7'}));
+ await writeFile(path.join(release, 'main.js'), 'downloaded release code');
+ await writeFile(path.join(release, 'styles.css'), 'downloaded release styles');
+ await writeFile(path.join(release, 'data.json'), 'must not install');
+ return release;
+}
+function installRelease(vault: string, release: string) {
+ return execFileSync(process.execPath, [installer, '--release', release], {env:{...process.env,HACKSIDIAN_VAULT:vault,HACKSIDIAN_CONFIG_DIR:'.obsidian'},encoding:'utf8',stdio:'pipe'});
+}
+test('installs downloaded release and links local repository content without building', async () => {
+ const vault = await mkdtemp(path.join(tmpdir(), 'hacksidian-release-vault-')); roots.push(vault);
+ const release = await releaseFixture();
+ installRelease(vault, release);
+ const dest = path.join(vault,'.obsidian/plugins/hacksidian');
+ expect(await readFile(path.join(dest,'main.js'),'utf8')).toBe('downloaded release code');
+ expect(JSON.parse(await readFile(path.join(dest,'manifest.json'),'utf8')).version).toBe('0.2.0');
+ expect((await readdir(dest)).sort()).toEqual(['main.js','manifest.json','styles.css']);
+ for (const name of ['atlas','playground']) {
+  const link=path.join(vault,'Hacksidian',name);
+  expect((await lstat(link)).isSymbolicLink()).toBe(true);
+  expect(await realpath(link)).toBe(await realpath(path.resolve(import.meta.dirname,'../../content',name)));
+ }
+});
+test('release update preserves custom folder settings, history, CSS and existing links', async () => {
+ const {vault,config,old}=await fixture();
+ const data=JSON.stringify({settings:{atlasFolder:'Work/atlas',coloringsFolder:'Work/playground'},state:{versions:[{id:'keep'}]}});
+ await writeFile(path.join(old,'data.json'),data);
+ await mkdir(path.join(config,'snippets'));
+ await writeFile(path.join(config,'snippets/mine.css'),'body { color: red; }');
+ const release=await releaseFixture();
+ installRelease(vault,release);
+ const before=await lstat(path.join(vault,'Work/atlas'));
+ installRelease(vault,release);
+ expect((await lstat(path.join(vault,'Work/atlas'))).ino).toBe(before.ino);
+ expect(await readFile(path.join(config,'plugins/hacksidian/data.json'),'utf8')).toBe(data);
+ expect(await readFile(path.join(config,'snippets/mine.css'),'utf8')).toBe('body { color: red; }');
+ expect(await realpath(path.join(vault,'Work/playground'))).toBe(await realpath(path.resolve(import.meta.dirname,'../../content/playground')));
+});
+test('incomplete or unrelated release does not change vault or create links', async () => {
+ const {vault,old,data}=await fixture();
+ const release=await releaseFixture();
+ await rm(path.join(release,'styles.css'));
+ expect(()=>installRelease(vault,release)).toThrow();
+ await expect(lstat(path.join(vault,'Hacksidian'))).rejects.toMatchObject({code:'ENOENT'});
+ expect(await readFile(path.join(old,'data.json'),'utf8')).toBe(data);
+ await writeFile(path.join(release,'manifest.json'),JSON.stringify({id:'../other',name:'Hacksidian',version:'0.2.0'}));
+ expect(()=>installRelease(vault,release)).toThrow();
+ expect(await readFile(path.join(old,'data.json'),'utf8')).toBe(data);
+});
+test('downloaded release refuses existing content directories without changing plugin files', async () => {
+ const {vault,old,data}=await fixture();
+ const release=await releaseFixture();
+ await mkdir(path.join(vault,'Hacksidian/atlas'),{recursive:true});
+ await writeFile(path.join(vault,'Hacksidian/atlas/mine.md'),'keep');
+ expect(()=>installRelease(vault,release)).toThrow();
+ expect(await readFile(path.join(old,'data.json'),'utf8')).toBe(data);
+ expect(await readFile(path.join(vault,'Hacksidian/atlas/mine.md'),'utf8')).toBe('keep');
+});
