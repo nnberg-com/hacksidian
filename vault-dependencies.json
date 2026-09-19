@@ -1,0 +1,120 @@
+{
+  "plugins": [
+    {
+      "id": "dataview",
+      "version": "0.5.68",
+      "repository": "blacksmithgu/obsidian-dataview",
+      "tag": "0.5.68"
+    },
+    {
+      "id": "obsidian-tasks-plugin",
+      "version": "8.4.0",
+      "repository": "obsidian-tasks-group/obsidian-tasks",
+      "tag": "8.4.0"
+    },
+    {
+      "id": "folder-notes",
+      "version": "1.8.26",
+      "repository": "lostpaul/obsidian-folder-notes",
+      "tag": "1.8.26"
+    },
+    {
+      "id": "obsidian-icon-folder",
+      "version": "2.14.7",
+      "repository": "florianwoelki/obsidian-iconize",
+      "tag": "2.14.7"
+    }
+  ],
+  "files": [
+    {
+      "url": "https://github.com/blacksmithgu/obsidian-dataview/releases/download/0.5.68/main.js",
+      "path": ".obsidian/plugins/dataview/main.js",
+      "sha256": "794e9eaede73920bb8d54b0eda4f5de2182d698cc638774500f24f14bcd4da0b"
+    },
+    {
+      "url": "https://github.com/blacksmithgu/obsidian-dataview/releases/download/0.5.68/manifest.json",
+      "path": ".obsidian/plugins/dataview/manifest.json",
+      "sha256": "9235db47112da81b85591c79ecb9ae2574e5e72207056e976472f90616286185"
+    },
+    {
+      "url": "https://github.com/blacksmithgu/obsidian-dataview/releases/download/0.5.68/styles.css",
+      "path": ".obsidian/plugins/dataview/styles.css",
+      "sha256": "3306dd9032e00f989ba7233a37fd255bc4d3f4340cee661762e952f3f6aa1de9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blacksmithgu/obsidian-dataview/0.5.68/LICENSE.txt",
+      "path": "licenses/dataview/LICENSE.txt",
+      "sha256": "17aef9ec4eb5b89ff105e257ae1d5c84adb3af0b6f596ae1c5726093bec6801c"
+    },
+    {
+      "url": "https://github.com/obsidian-tasks-group/obsidian-tasks/releases/download/8.4.0/main.js",
+      "path": ".obsidian/plugins/obsidian-tasks-plugin/main.js",
+      "sha256": "c1e3333bce3fee7c1a06397ea2989cd27e1659cc30795c53ed5a60e7941e48fa"
+    },
+    {
+      "url": "https://github.com/obsidian-tasks-group/obsidian-tasks/releases/download/8.4.0/manifest.json",
+      "path": ".obsidian/plugins/obsidian-tasks-plugin/manifest.json",
+      "sha256": "499cfa146ba9cbdd70ccfc9d16b6b6cbfb4243158d14335b2b336259e867c33f"
+    },
+    {
+      "url": "https://github.com/obsidian-tasks-group/obsidian-tasks/releases/download/8.4.0/styles.css",
+      "path": ".obsidian/plugins/obsidian-tasks-plugin/styles.css",
+      "sha256": "3b2ca53d3b74162b5899b251d18b695f532546181ebaed6354befbe72c29935d"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/obsidian-tasks-group/obsidian-tasks/8.4.0/LICENSE",
+      "path": "licenses/obsidian-tasks-plugin/LICENSE",
+      "sha256": "88debbb735b26a9f2b022da623acc41867149887e2f34ea2e8bbe94f1c9b9bad"
+    },
+    {
+      "url": "https://github.com/LostPaul/obsidian-folder-notes/releases/download/1.8.26/main.js",
+      "path": ".obsidian/plugins/folder-notes/main.js",
+      "sha256": "83d7b91819abac39626349c1b20aef2503a7cb4339334d52115650aec011a216"
+    },
+    {
+      "url": "https://github.com/LostPaul/obsidian-folder-notes/releases/download/1.8.26/manifest.json",
+      "path": ".obsidian/plugins/folder-notes/manifest.json",
+      "sha256": "d68704cb787fb687a3d6261a77e93d39c9409ef1dab4e37bfc67a6f96b493536"
+    },
+    {
+      "url": "https://github.com/LostPaul/obsidian-folder-notes/releases/download/1.8.26/styles.css",
+      "path": ".obsidian/plugins/folder-notes/styles.css",
+      "sha256": "c736732880c7737a30f713d5496f36612a4f64cce96bab0315397ce14b975f6b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/LostPaul/obsidian-folder-notes/1.8.26/LICENSE",
+      "path": "licenses/folder-notes/LICENSE",
+      "sha256": "7f8f48e4266aa8fd3033dfaa4bb7f6e83a60c6e099f82d4959b81de90e67cd8f"
+    },
+    {
+      "url": "https://github.com/FlorianWoelki/obsidian-iconize/releases/download/2.14.7/main.js",
+      "path": ".obsidian/plugins/obsidian-icon-folder/main.js",
+      "sha256": "ada0b009706556c98101f953a6a87f5cafd3001085df593d3be28eeeea218201"
+    },
+    {
+      "url": "https://github.com/FlorianWoelki/obsidian-iconize/releases/download/2.14.7/manifest.json",
+      "path": ".obsidian/plugins/obsidian-icon-folder/manifest.json",
+      "sha256": "f524a18d69e990a244173a3595681c39a20bcbc9dc18b59af51e45660fef5ca2"
+    },
+    {
+      "url": "https://github.com/FlorianWoelki/obsidian-iconize/releases/download/2.14.7/styles.css",
+      "path": ".obsidian/plugins/obsidian-icon-folder/styles.css",
+      "sha256": "56ffeb8349f4af97dab8a14fcadcb0019d3b37b116d7a34aa21e958e98455a89"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/FlorianWoelki/obsidian-iconize/2.14.7/LICENSE",
+      "path": "licenses/obsidian-icon-folder/LICENSE",
+      "sha256": "41b2d7006e7b415bdced366912072e01aedc742ee16e8fd13813713486fe3d84"
+    },
+    {
+      "url": "https://github.com/FortAwesome/Font-Awesome/releases/download/6.5.1/fontawesome-free-6.5.1-web.zip",
+      "path": ".obsidian/icons/font-awesome-brands.zip",
+      "sha256": "a84cbf6d35590400f403171aad9cfedd662c970ea5ab41cea32f272c12b7d0ce"
+    },
+    {
+      "url": "https://github.com/FortAwesome/Font-Awesome/releases/download/6.5.1/fontawesome-free-6.5.1-web.zip",
+      "path": ".obsidian/icons/font-awesome-regular.zip",
+      "sha256": "a84cbf6d35590400f403171aad9cfedd662c970ea5ab41cea32f272c12b7d0ce"
+    }
+  ]
+}
