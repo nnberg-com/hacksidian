@@ -8,7 +8,7 @@ sources:
   - https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break
 format: markdown
 themes: []
-favourite: true
+favourite: false
 ---
 
 ```hacksidian-id

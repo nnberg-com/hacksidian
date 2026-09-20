@@ -8,7 +8,7 @@ sources:
   - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator
 format: markdown
 themes: []
-favourite: true
+favourite: false
 ---
 
 ```hacksidian-id

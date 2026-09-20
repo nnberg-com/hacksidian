@@ -20,7 +20,7 @@
    * @max 3
    * @step 0.05
    */
-  --hacksidian-table-e015-horizontal: 1.5em;
+  --hacksidian-table-e015-horizontal: 1em;
   padding: var(--hacksidian-table-e015-vertical) var(--hacksidian-table-e015-horizontal);
   line-height: calc(var(--table-line-height) * 1.00000038);
 }

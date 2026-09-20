@@ -8,7 +8,7 @@ sources: []
 format: markdown
 themes:
   - ultra-lobster
-favourite: true
+favourite: false
 ---
 
 ```hacksidian-id

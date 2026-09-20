@@ -20,7 +20,7 @@
    * @max 3
    * @step 0.05
    */
-  --hacksidian-callout-technical-round-padding: 2em;
+  --hacksidian-callout-technical-round-padding: 1.9em;
   border: 0;
   border-radius: var(--hacksidian-callout-technical-round-radius);
   padding: var(--hacksidian-callout-technical-round-padding);

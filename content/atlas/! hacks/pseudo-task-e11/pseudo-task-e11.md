@@ -2,14 +2,14 @@
 tags:
   - hacksidian_technique
   - hacksidian_pseudo-task
-title: "Специальные маркеры Minimal"
+title: Специальные маркеры Minimal
 category: pseudo-task
 sources:
   - https://minimal.guide/checklists
 format: markdown
 themes:
   - minimal
-favourite: true
+favourite: false
 ---
 
 ```hacksidian-id

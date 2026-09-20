@@ -9,7 +9,7 @@ sources:
   - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric
 format: markdown
 themes: []
-favourite: true
+favourite: false
 ---
 
 ```hacksidian-id

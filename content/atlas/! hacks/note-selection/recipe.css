@@ -13,7 +13,7 @@
    * @option var(--color-purple) | Фиолетовый | Purple
    * @option var(--color-pink) | Розовый | Pink
    */
-  --hacksidian-note-selection-color: var(--color-purple);
+  --hacksidian-note-selection-color: var(--color-green);
 }
 :is(.markdown-preview-view, .markdown-source-view) ::selection {
   background: var(--hacksidian-note-selection-color);
