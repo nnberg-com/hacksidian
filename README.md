@@ -1,6 +1,13 @@
+> [!TIP]
+> **State:** Proof of Concept.\
+> Ready for [EWGH AI Hackathon](https://elevatewomen.ai) only (`Sep 2026`)
+
 # Hacksidian
 
-CSS grooming for Obsidian / Настройка оформления Obsidian.
+CSS grooming for Obsidian • LLM chat + recommended system
+
+<img width="2032" height="1162" alt="image" src="https://github.com/user-attachments/assets/543c0984-41e7-4fa3-971f-b6acf983615e" />
+
 
 - [English documentation](docs/en/README.md)
 - [Документация на русском](docs/ru/README.md)
@@ -14,3 +21,6 @@ CSS grooming for Obsidian / Настройка оформления Obsidian.
 - [Сборка и выпуск шаблонного vault](docs/starter-vault.md)
 
 - [Выпуск и обновление плагина](docs/plugin-release.md)
+
+> [!IMPORTANT]
+> **Any questions:** olgapavlova@gmail.com
