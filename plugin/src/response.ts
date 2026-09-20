@@ -33,10 +33,20 @@ function isModelDecision(value: unknown): value is ModelDecision {
   if (!value || typeof value !== "object") return false;
   const candidate = value as Partial<ModelDecision>;
   if (!['recommend', 'ask_question', 'no_match'].includes(candidate.action ?? '') || typeof candidate.message !== 'string' || !Array.isArray(candidate.recommendations)) return false;
-  if (Object.keys(candidate).some(key => !['action', 'message', 'recommendations'].includes(key))) return false;
+  if (Object.keys(candidate).some(key => !['action', 'message', 'recommendations', 'clarificationId', 'alternatives'].includes(key))) return false;
   if (candidate.recommendations.length > 6 || candidate.message.length > 6000) return false;
   if ((candidate.action === 'recommend') !== (candidate.recommendations.length > 0)) return false;
+  if (candidate.clarificationId !== undefined && (typeof candidate.clarificationId !== 'string' || (candidate.clarificationId && (candidate.action !== 'ask_question' || !/^[a-z0-9_-]+$/.test(candidate.clarificationId))))) return false;
   const ids = new Set<string>();
+  if (candidate.alternatives !== undefined) {
+    if (!Array.isArray(candidate.alternatives) || candidate.alternatives.length > 6) return false;
+    for (const item of candidate.alternatives) {
+      if (!item || typeof item.id !== 'string' || !/^[a-z0-9_-]+$/.test(item.id) || ids.has(item.id) ||
+        typeof item.reason !== 'string' || !item.reason.trim() || item.reason.length > 3000 ||
+        Object.keys(item).some(key => !['id','reason'].includes(key))) return false;
+      ids.add(item.id);
+    }
+  }
   return candidate.recommendations.every(item => {
     if (!item || typeof item.id !== 'string' || !/^[a-z0-9_-]+$/.test(item.id) || ids.has(item.id) || typeof item.reason !== 'string' || typeof item.instructions !== 'string' || item.reason.length > 3000 || item.instructions.length > 3000) return false;
     if (!validCommand(item) || Object.keys(item).some(key => !['id', 'reason', 'instructions', 'parameterChanges', 'command', 'commandEvidence'].includes(key))) return false;

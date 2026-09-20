@@ -2,6 +2,7 @@
   inline-size: fit-content;
   background: var(--background-secondary);
   padding: .55em 1em;
+  margin-inline-start: -1em;
   border-radius: 2em;
   font-size: calc(var(--h3-size) * 0.948407);
 }

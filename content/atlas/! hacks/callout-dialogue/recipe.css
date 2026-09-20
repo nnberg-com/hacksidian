@@ -1,15 +1,28 @@
-:is(.markdown-preview-view, .markdown-source-view) [data-callout="dialogue"] {
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="dialogue"] {
+  /**
+   * @parameter Базовый цвет
+   * @label-en Base color
+   * @type select
+   * @default var(--color-cyan)
+   * @option var(--color-red) | Красный | Red
+   * @option var(--color-orange) | Оранжевый | Orange
+   * @option var(--color-yellow) | Жёлтый | Yellow
+   * @option var(--color-green) | Зелёный | Green
+   * @option var(--color-cyan) | Cyan | Cyan
+   * @option var(--color-blue) | Синий | Blue
+   * @option var(--color-purple) | Фиолетовый | Purple
+   * @option var(--color-pink) | Розовый | Pink
+   */
+  --hacksidian-callout-dialogue-color: var(--color-cyan);
   padding: calc(var(--size-4-1) * 6);
-  background: #eaf0f6;
+  background: color-mix(in srgb, var(--hacksidian-callout-dialogue-color) 12%, white);
   color: #213647;
-  border-radius: calc(var(--radius-s) * 4.5);
+  border: none;
+  box-shadow: none;
+  border-radius: calc(var(--radius-s) * 6) calc(var(--radius-s) * 6) 0 calc(var(--radius-s) * 6);
 }
 :is(.markdown-preview-view, .markdown-source-view) [data-callout="dialogue"] > .callout-title {
-  text-align: center;
-  margin-bottom: calc(var(--size-4-1) * 6);
-  font-size: calc(var(--font-text-size) * 0.8125);
-  text-transform: uppercase;
-  letter-spacing: .1em;
+  display: none;
 }
 :is(.markdown-preview-view, .markdown-source-view) [data-callout="dialogue"] > .callout-content {
   display: flex;
@@ -27,7 +40,7 @@
 }
 :is(.markdown-preview-view, .markdown-source-view) [data-callout="dialogue"] p:nth-child(even) {
   align-self: flex-end;
-  background: #294c66;
+  background: color-mix(in srgb, var(--hacksidian-callout-dialogue-color) 55%, black);
   color: white;
   border-radius: calc(var(--radius-s) * 4) calc(var(--radius-s) * 4) calc(var(--radius-s) * 0.75) calc(var(--radius-s) * 4);
 }
@@ -41,3 +54,8 @@
   opacity: .8;
 }
 
+
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="dialogue"]::before,
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="dialogue"]::after {
+  display: none;
+}

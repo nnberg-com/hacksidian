@@ -75,13 +75,13 @@ test('history reset clears a stale response status and pending conversation text
  expect(view.busy).toBe(false);
 });
 
-test('source themes have card and Community links without offering automatic theme application',async()=>{
+test('chat technique preview omits source-theme references',async()=>{
  const {view,plugin}=setup();const open=vi.fn(async()=>{});(plugin as any).openRecommendation=open;
  const theme={id:'theme-minimal',title:'Minimal',kind:'theme',path:'atlas/! themes/minimal.md',helpUrl:'https://community.obsidian.md/themes/minimal'};
  (plugin.state.turns as any[]).push({userText:'Photos',systemMessage:'Found',usage:{totalTokens:1,estimatedCostUsd:0},recommendations:[{id:'image-round',title:'Rounded',kind:'technique',path:'atlas/image-round.md',reason:'Corners',instructions:'Open',relatedThemes:[theme]}]});
  await view.refresh();const links=view.conversationEl.querySelectorAll('a');
- expect(links.map((e:Element)=>e.textContent)).toEqual(['Rounded','Minimal','Тема в Obsidian Community']);
- links[1].listeners.click({preventDefault(){}});expect(open).toHaveBeenCalledWith(theme);
+ expect(links.map((e:Element)=>e.textContent)).toEqual(['Rounded']);
+ expect(open).not.toHaveBeenCalled();
  expect(plugin.applyCurrentHack).not.toHaveBeenCalled();
 });
 
@@ -136,4 +136,44 @@ test('recommendation order is heading, example, full model description without t
  const item=view.conversationEl.querySelectorAll('div').find((e:Element)=>e.className==='hacksidian-recommendation');
  expect(item.children.map((e:Element)=>e.className)).toEqual(['hacksidian-card-header hacksidian-chat-technique-heading','hacksidian-chat-example','hacksidian-chat-description']);
  expect(item.children[2].textContent).toBe('а'.repeat(250));
+});
+
+test('saved current-card replies render the same interactive example and description as recommendations',async()=>{
+ const {view,plugin}=setup();
+ (plugin.state.turns as any[]).push({userText:'emphasis-s19 — разве не подходит?',systemMessage:'Наклонная подсветка маркером.',techniqueId:'emphasis-s19',techniqueTitle:'19 · Неровный маркер',techniquePath:'atlas/! hacks/emphasis-s19/emphasis-s19.md'});
+ await view.refresh();
+ expect(view.examples.map((e:any)=>e.path)).toEqual(['atlas/! hacks/emphasis-s19/emphasis-s19.md']);
+ const item=view.conversationEl.querySelectorAll('div').find((e:Element)=>e.className==='hacksidian-recommendation');
+ expect(item.children.map((e:Element)=>e.className)).toEqual(['hacksidian-card-header hacksidian-chat-technique-heading','hacksidian-chat-example','hacksidian-chat-description']);
+ expect(item.children[2].textContent).toBe('Наклонная подсветка маркером.');
+});
+
+test('a near match on no_match is a complete interactive card with its limitation',async()=>{
+ const {view,plugin}=setup();
+ (plugin.state.turns as any[]).push({userText:'Lists in two columns',action:'no_match',systemMessage:'No exact match',recommendations:[{id:'callout-columns',title:'Two columns',kind:'technique',path:'atlas/columns.md',partialMatch:true,reason:'Only callout content, not ordinary lists.',instructions:''}]});
+ await view.refresh();
+ expect(view.examples.map((e:any)=>e.path)).toEqual(['atlas/columns.md']);
+ expect(view.conversationEl.querySelectorAll('a')[0].textContent).toBe('Two columns');
+ const nodes=view.conversationEl.querySelectorAll('div');
+ expect(nodes.some((e:Element)=>e.className==='hacksidian-chat-match-note')).toBe(true);
+ expect(nodes.some((e:Element)=>e.textContent==='Only callout content, not ordinary lists.')).toBe(true);
+});
+
+test('a new answer preserves existing message nodes and loaded examples', async()=>{
+ const {view,plugin}=setup();
+ const turn={userText:'First',systemMessage:'Answer',recommendations:[]};
+ (plugin.state.turns as any[]).push(turn);await view.refresh();
+ const first=view.conversationEl.children[0], answer=view.conversationEl.children[1];
+ const example={};view.examples.push(example);
+ (plugin.state.turns as any[]).push({userText:'Second',systemMessage:'Next answer'});await view.refresh();
+ expect(view.conversationEl.children[0]).toBe(first);
+ expect(view.conversationEl.children[1]).toBe(answer);
+ expect(view.examples).toContain(example);
+ expect(view.conversationEl.children).toHaveLength(4);
+});
+
+test('clearing history removes previous messages instead of appending over them',async()=>{
+ const {view,plugin}=setup();(plugin.state.turns as any[]).push({userText:'Old',systemMessage:'Old answer'});
+ await view.refresh();plugin.state.turns=[];await view.refresh();
+ expect(view.conversationEl.children).toHaveLength(0);expect(view.examples).toHaveLength(0);
 });

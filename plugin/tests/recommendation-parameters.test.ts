@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { collectRecommendationParameters, recommendationParameterPatch } from '../src/recommendation-parameters';
+import { shouldApplyTechnique } from '../src/technique-command';
 import { parseModelDecision } from '../src/response';
 import type { CatalogEntry } from '../src/catalog';
 const css=readFileSync(new URL('../../content/atlas/! hacks/quote-dashed/recipe.css',import.meta.url),'utf8');
@@ -39,4 +40,15 @@ test('strict response accepts one preset and rejects multiple preset alternative
  expect(recommendationParameterPatch([recommendation,{...recommendation,id:'other'}],[],[entry],[entry.id])).toBeNull();
  expect(()=>parse([{...recommendation,parameterChanges:[{variable:'x',input:4}]}])).toThrow();
  expect(()=>parse([{...recommendation,parameterChanges:[{variable:'x',input:'4',css:'body{}'}]}])).toThrow();
+});
+
+test('green selection is configured from fresh local options despite an older purple catalog record',async()=>{
+ const selection=readFileSync(new URL('../../content/atlas/! hacks/note-selection/recipe.css',import.meta.url),'utf8');
+ const record:CatalogEntry={...entry,id:'note-selection',path:'atlas/! hacks/note-selection/note-selection.md',text:'Selection background is fixed purple #743f91'};
+ const snapshots=await collectRecommendationParameters([record],async()=>selection);
+ const rec={id:record.id,reason:'Green selection',instructions:'',command:'apply' as const,commandEvidence:'Сделай',parameterChanges:[{variable:'--hacksidian-note-selection-color',input:'var(--color-green)'}]};
+ const patch=recommendationParameterPatch([rec],snapshots,[record],[record.id])!;
+ expect(shouldApplyTechnique(rec,'Сделай так, чтобы при выделении текст был на зелёном фоне.')).toBe(true);
+ expect(patch.css).toContain('--hacksidian-note-selection-color: var(--color-green);');
+ expect(patch.css).toContain('background: var(--hacksidian-note-selection-color)');
 });

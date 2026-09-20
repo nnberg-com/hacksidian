@@ -48,7 +48,7 @@ if(process.argv.includes('--live')) {
    const row:any={query:userText};
    report.results.push(row);
    try {
-    const result=await new OpenAIResponsesProvider(settings).createIteration({instructions:SYSTEM_PROMPT,prompt:buildTurnPrompt({userText,interfaceLanguage:'ru',conversation:[],revision:snapshot.revision}),catalog:snapshot,onUsage:async(usage,id)=>{row.usage=usage;row.responseId=id;total+=usage.estimatedCostUsd??0;await writeFile(output,JSON.stringify(report,null,2));}});
+    const result=await new OpenAIResponsesProvider(settings).createIteration({instructions:SYSTEM_PROMPT,userText,prompt:buildTurnPrompt({userText,interfaceLanguage:'ru',conversation:[],revision:snapshot.revision}),catalog:snapshot,onUsage:async(usage,id)=>{total+=(usage.estimatedCostUsd??0)-(row.usage?.estimatedCostUsd??0);row.usage=usage;row.responseId=id;await writeFile(output,JSON.stringify(report,null,2));}});
     Object.assign(row,result);
     if(wavyRegression) {
      row.passed=result.decision.action==='recommend' && result.decision.recommendations.some(item=>item.id==='link-e023') && result.retrievedIds.includes('link-e023');

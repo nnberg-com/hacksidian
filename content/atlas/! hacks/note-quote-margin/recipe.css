@@ -1,16 +1,24 @@
-:is(.markdown-preview-view, .markdown-source-view) {
+.markdown-preview-view,
+.markdown-preview-view .markdown-preview-sizer {
+  container-type: inline-size;
   display: flow-root;
 }
-:is(.markdown-preview-view, .markdown-source-view) blockquote {
+.markdown-preview-view > blockquote,
+.markdown-preview-view .el-blockquote > blockquote {
   background: var(--background-secondary);
   padding: 1em;
 }
-@container preview (min-width:430px) {
-  :is(.markdown-preview-view, .markdown-source-view) blockquote {
+@container (min-width: 430px) {
+  .markdown-preview-view > blockquote,
+  .markdown-preview-view .el-blockquote:has(> blockquote) {
     float: right;
     width: 42%;
+    box-sizing: border-box;
     margin: .3em 0 1em 1.2em;
     font-size: .9em;
   }
+  .markdown-preview-view .el-blockquote > blockquote {
+    margin: 0;
+    width: auto;
+  }
 }
-

@@ -1,6 +1,7 @@
 import { t, numberLocale, currentLanguage } from "../i18n";
 import { ItemView, Notice, WorkspaceLeaf } from "obsidian";
 import type { Component } from "obsidian";
+import { ConversationScroll } from "./conversation-scroll";
 import { ChatTechnique } from "./chat-technique";
 import { VIEW_TYPE_CALLMERED } from "./constants";
 import type CallMeRedPlugin from "./main";
@@ -12,6 +13,9 @@ export class ConversationView extends ItemView {
   private hackRenderKey: string | null = null;
   private refreshId = 0;
   private conversationKey = "";
+  private renderedTurnKeys: string[] = [];
+  private scroll?: ConversationScroll;
+  private pendingEl?: HTMLElement;
   private examples: Component[] = [];
   private pageObserver?: MutationObserver;
   private observedPage: HTMLElement | null = null;
@@ -52,6 +56,8 @@ export class ConversationView extends ItemView {
 
     this.hackRenderKey = null;
     this.conversationKey = "";
+    this.renderedTurnKeys = [];
+    this.scroll?.destroy();
     this.hackEl = this.contentEl.createDiv({ cls: "hacksidian-page-context" });
 
     const toolbar = this.contentEl.createDiv({ cls: "callmered-toolbar" });
@@ -75,6 +81,7 @@ export class ConversationView extends ItemView {
       await this.refresh();
     });
     this.conversationEl = this.contentEl.createDiv({ cls: "callmered-conversation" });
+    if (typeof ResizeObserver !== "undefined") this.scroll = new ConversationScroll(this.conversationEl);
     this.usageEl = this.contentEl.createDiv({ cls: "callmered-usage" });
 
     const composer = this.contentEl.createDiv({ cls: "callmered-composer" });
@@ -153,6 +160,7 @@ export class ConversationView extends ItemView {
   }
 
   async onClose(): Promise<void> {
+    this.scroll?.destroy();
     for (const example of this.examples) this.removeChild(example);
     this.examples = [];
     this.pageObserver?.disconnect();
@@ -192,23 +200,35 @@ export class ConversationView extends ItemView {
     const conversationKey = JSON.stringify([currentLanguage(), this.plugin.state.turns]);
     if (conversationKey !== this.conversationKey) {
       this.conversationKey = conversationKey;
-      for (const example of this.examples) this.removeChild(example);
-      this.examples = [];
-      this.conversationEl.empty();
-      for (const turn of this.plugin.state.turns) {
+      const keys = this.plugin.state.turns.map(turn => JSON.stringify([currentLanguage(), turn]));
+      const appendOnly = this.renderedTurnKeys.length <= keys.length && this.renderedTurnKeys.every((key, i) => key === keys[i]);
+      const start = appendOnly ? this.renderedTurnKeys.length : 0;
+      if (!appendOnly) {
+        for (const example of this.examples) this.removeChild(example);
+        this.examples = [];
+        this.conversationEl.empty();
+        this.pendingEl = undefined;
+      }
+      if (keys.length > start || this.pendingText === null) {
+        this.pendingEl?.remove();
+        this.pendingEl = undefined;
+      }
+      this.renderedTurnKeys = keys;
+      for (const turn of this.plugin.state.turns.slice(start)) {
         const user = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-user" });
         user.createDiv({ text: turn.userText });
         if (turn.systemMessage || turn.recommendations?.length) {
           const system = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-system" });
-          if (turn.techniquePath) {
-            const link = system.createEl('a', { text: turn.techniqueTitle || (this.plugin.catalog?.active?.entries.find(entry => entry.id === turn.techniqueId)?.title) || (currentLanguage() === 'en' ? 'Technique' : 'Приём'), href: '#', cls: 'internal-link hacksidian-technique-link' });
-            if (!turn.techniqueTitle && this.plugin.getHackAt) {
-              void this.plugin.getHackAt(turn.techniquePath).then(hack => { if (hack) link.setText(hack.title); }).catch(() => {});
-            }
-            link.addEventListener('click', event => { event.preventDefault(); void this.plugin.openRecommendation({ path: turn.techniquePath!, kind: 'technique' }).catch(error => new Notice(String(error))); });
+          // Both search results and current-card replies use the same interactive presentation.
+          const recommendations = [...(turn.recommendations ?? [])];
+          if (turn.techniquePath && !recommendations.some(item => item.path === turn.techniquePath)) {
+            recommendations.push({ id: turn.techniqueId ?? '', title: turn.techniqueTitle ||
+              this.plugin.catalog?.active?.entries.find(entry => entry.id === turn.techniqueId)?.title ||
+              (currentLanguage() === 'en' ? 'Technique' : 'Приём'),
+              path: turn.techniquePath, kind: 'technique', reason: turn.systemMessage, instructions: '' });
           }
-          system.createDiv({ text: turn.systemMessage });
-          for (const recommendation of turn.recommendations ?? []) {
+          if (!turn.techniquePath) system.createDiv({ text: turn.systemMessage });
+          for (const recommendation of recommendations) {
             const item = system.createDiv({ cls: 'hacksidian-recommendation' });
             const heading = item.createDiv({ cls: 'hacksidian-card-header hacksidian-chat-technique-heading' });
             if (recommendation.path) {
@@ -220,6 +240,7 @@ export class ConversationView extends ItemView {
               const example = new ChatTechnique(preview, heading, this.plugin, recommendation.path);
               this.examples.push(example); this.addChild(example);
             }
+            if (recommendation.partialMatch) item.createDiv({ cls: 'hacksidian-chat-match-note', text: currentLanguage() === 'en' ? 'Partial match — check the limitation below.' : 'Не полностью соответствует запросу — ограничение указано ниже.' });
             item.createDiv({ cls: 'hacksidian-chat-description', text: recommendation.reason });
             const instructions = recommendation.kind === 'technique'
               ? recommendation.instructions.replace(/Откройте карточку и нажмите «Применить приём»\.?/g, '').replace(/Open the card and (?:click|press) [“"]Apply technique[”"]\.?/g, '').trim()
@@ -227,25 +248,14 @@ export class ConversationView extends ItemView {
             if (instructions) item.createDiv({ text: instructions });
             if (recommendation.kind === 'variable') item.createEl('code', { text: recommendation.path });
             if (recommendation.helpUrl) item.createEl('a', { text: t(recommendation.kind === 'theme' ? 'catalog.theme_community' : 'catalog.help'), href: recommendation.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
-            if (recommendation.relatedThemes?.length) {
-              const themes = item.createDiv({ cls: 'hacksidian-related-themes' });
-              themes.createDiv({ text: t('catalog.related_themes') });
-              for (const theme of recommendation.relatedThemes) {
-                const row = themes.createDiv();
-                const link = row.createEl('a', { text: theme.title, href: '#', cls: 'internal-link' });
-                link.addEventListener('click', event => { event.preventDefault(); void this.plugin.openRecommendation(theme).catch(error => new Notice(String(error))); });
-                if (theme.helpUrl) {
-                  row.appendText(' · ');
-                  row.createEl('a', { text: t('catalog.theme_community'), href: theme.helpUrl, attr: { target: '_blank', rel: 'noopener noreferrer' } });
-                }
-              }
-            }
+
           }
 
         }
       }
 
     }
+    if (this.pendingText === null && this.pendingEl) { this.pendingEl.remove(); this.pendingEl = undefined; }
     const spending = this.plugin.spendingSummary();
     this.usageEl.setText(
       t("view.total_tokens", { p0: this.plugin.totalUsage().totalTokens.toLocaleString(numberLocale()) }) + " · " +
@@ -331,8 +341,10 @@ ${this.pendingText}`);
 
   private appendPendingTurn(text: string): void {
     const user = this.conversationEl.createDiv({ cls: "callmered-turn callmered-turn-user is-pending" });
+    this.pendingEl = user;
     user.createDiv({ text });
     user.createDiv({ cls: "callmered-turn-usage", text: t("view.sent_waiting_for_a_response") });
-    this.conversationEl.scrollTop = this.conversationEl.scrollHeight;
+    if (this.scroll) this.scroll.follow();
+    else this.conversationEl.scrollTop = this.conversationEl.scrollHeight;
   }
 }

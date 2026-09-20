@@ -371,7 +371,7 @@ test('recommendation refuses to overwrite a recipe edited during search and reta
  } finally {search.mockRestore();}
 });
 
-test.each([false,true])('single recommendation with explicit apply works with parameter changes=%s and activates a new tab',async(withChanges)=>{
+test.each([false,true])('single recommendation with explicit apply works with parameter changes=%s without opening a tab',async(withChanges)=>{
  const f=await recommendationFixture(),before=await readFileStyle(dir);
  const request='Сделай разделитель толще';
  const recommendation={...f.response.decision.recommendations[0],parameterChanges:withChanges?f.response.decision.recommendations[0].parameterChanges:[],command:'apply' as const,commandEvidence:request};
@@ -382,18 +382,17 @@ test.each([false,true])('single recommendation with explicit apply works with pa
   expect(after.modules.find(m=>m.id==='g-hr')?.css).toContain(`--hacksidian-hr-e070-height: ${withChanges?'4':'2'}px`);
   expect(after.modules.filter(m=>m.id!=='g-hr')).toEqual(before.modules.filter(m=>m.id!=='g-hr'));
   expect(f.plugin.state.turns.at(-1)?.recommendations?.[0].applied).toBe(true);
-  expect(f.plugin.app.workspace.getLeaf).toHaveBeenCalledWith('tab');
-  expect(f.leaf.openFile).toHaveBeenCalledWith(expect.objectContaining({path:f.cardPath}),{active:true,state:{mode:'preview'}});
-  expect(f.plugin.app.workspace.setActiveLeaf).toHaveBeenCalledWith(f.leaf,{focus:true});
+  expect(f.plugin.app.workspace.getLeaf).not.toHaveBeenCalled();
+  expect(f.leaf.openFile).not.toHaveBeenCalled();
  } finally {search.mockRestore();}
 });
-test.each(['show','uncertain'] as const)('single %s recommendation opens its own new active tab without applying',async(command)=>{
+test.each(['show','uncertain'] as const)('single %s recommendation stays in chat without applying',async(command)=>{
  const f=await recommendationFixture(),before=await readFileStyle(dir);
  const search=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({...f.response,decision:{...f.response.decision,recommendations:[{...f.response.decision.recommendations[0],parameterChanges:[],command,commandEvidence:''}]}});
  try {
   await f.plugin.processFeedback('Покажи разделитель',()=>{});
   expect(await readFileStyle(dir)).toEqual(before);
-  expect(f.plugin.app.workspace.getLeaf).toHaveBeenCalledWith('tab');expect(f.plugin.app.workspace.setActiveLeaf).toHaveBeenCalledWith(f.leaf,{focus:true});
+  expect(f.plugin.app.workspace.getLeaf).not.toHaveBeenCalled();
  } finally {search.mockRestore();}
 });
 test('multiple candidates remain a list even if model erroneously proposes commands and parameters',async()=>{
@@ -434,4 +433,27 @@ test('interrupted synchronization permits chat using recorded partial sources',a
   expect(plugin.catalog.sync).toBeDefined();
   expect(plugin.apiAttempts.at(-1)?.status).toBe('completed');
  } finally {create.mockRestore();}
+});
+
+
+test('only a grounded clarification about one technique opens its card, without applying',async()=>{
+ const f=await recommendationFixture(),before=await readFileStyle(dir);
+ const search=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({...f.response,decision:{action:'ask_question',message:'Какая толщина нужна?',recommendations:[],clarificationId:'hr-e070'}});
+ try {
+  await f.plugin.processFeedback('Помоги выбрать толщину',()=>{});
+  expect(await readFileStyle(dir)).toEqual(before);
+  expect(f.leaf.openFile).toHaveBeenCalledWith(expect.objectContaining({path:f.cardPath}),{active:true,state:{mode:'preview'}});
+  expect(f.plugin.state.turns.at(-1)?.techniquePath).toBe(f.cardPath);
+ } finally {search.mockRestore();}
+});
+
+test('near matches are displayed on no_match without changing CSS, parameters or tabs',async()=>{
+ const f=await recommendationFixture(),before=await readFileStyle(dir),source=f.source();
+ const search=vi.spyOn(OpenAIResponsesProvider.prototype,'createIteration').mockResolvedValue({...f.response,decision:{action:'no_match',message:'No exact match',recommendations:[],alternatives:[{id:'hr-e070',reason:'A related effect, but for a different element.'}]}});
+ try {
+  await f.plugin.processFeedback('Сделай',()=>{});
+  expect(await readFileStyle(dir)).toEqual(before);expect(f.source()).toBe(source);
+  expect(f.plugin.app.workspace.getLeaf).not.toHaveBeenCalled();
+  expect(f.plugin.state.turns.at(-1)?.recommendations?.[0]).toMatchObject({id:'hr-e070',partialMatch:true,command:'show',applied:false,path:f.cardPath});
+ }finally{search.mockRestore();}
 });

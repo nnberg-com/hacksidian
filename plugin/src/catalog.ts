@@ -133,3 +133,9 @@ export function searchableCatalog(state: CatalogState, currentEntries: CatalogEn
     revision: digest(JSON.stringify(documents.map(doc => [doc.fileId, doc.hash]))),
     documents, entries: [...entries.values()] };
 }
+
+/** Resolve explicit IDs as complete tokens, independently of semantic ranking. */
+export function explicitlyNamedTechniques(userText: string, entries: CatalogEntry[]): CatalogEntry[] {
+  const tokens = new Set(userText.match(/[a-z0-9_-]+/gi)?.map(token => token.toLowerCase()) ?? []);
+  return entries.filter(entry => entry.kind === 'technique' && entry.applyAvailable && tokens.has(entry.id));
+}

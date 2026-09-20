@@ -1,5 +1,6 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout-icon {
-  display: none;
+  /* Explicit icon suppression wins over icon positioning recipes. */
+  display: none !important;
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-title {
   gap: 0;

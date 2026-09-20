@@ -17,5 +17,5 @@ it('saves a real CSS color rather than a quoted string and shares validation wit
  expect(readParameters(result.css)[0].value).toBe('#aabbcc');
  expect(result.css).toContain('--color-red: var(--hacksidian-semantic-red)');
  for(const input of ['red','"#aabbcc"','#fff','transparent','#abcdef; color:red'])expect(()=>parameterValue(p,input)).toThrow();
- expect(css.replace('#e93147;', '#aabbcc;')).toBe(result.css);
+ expect(css.replace(`${p.variable}: ${p.value};`, `${p.variable}: #aabbcc;`)).toBe(result.css);
 });

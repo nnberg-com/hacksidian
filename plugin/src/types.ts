@@ -6,6 +6,8 @@ export type SupportedLocale = "ru-Cyrl" | "sr-Cyrl" | "he";
 
 export interface Recommendation extends CommandIntent { id: string; reason: string; instructions: string; parameterChanges?: Array<{variable: string; input: string}> }
 export interface ModelDecision {
+  clarificationId?: string;
+  alternatives?: Array<{id: string; reason: string}>;
   action: "recommend" | "ask_question" | "no_match";
   message: string;
   recommendations: Recommendation[];
@@ -27,7 +29,7 @@ export interface TurnRecord {
   techniqueTitle?: string;
   techniquePath?: string;
   parameterChanges?: Array<{ variable: string; before: string; after: string }>;
-  recommendations?: Array<Recommendation & { applied?: boolean; preparedParameters?: Array<{variable: string; before: string; after: string}>; title: string; path: string; helpUrl?: string; kind: string;
+  recommendations?: Array<Recommendation & { partialMatch?: boolean; applied?: boolean; preparedParameters?: Array<{variable: string; before: string; after: string}>; title: string; path: string; helpUrl?: string; kind: string;
     relatedThemes?: Array<{ id: string; title: string; path: string; helpUrl?: string; kind: 'theme' }> }>;
   catalogRevision?: string;
   searchQueries?: string[];

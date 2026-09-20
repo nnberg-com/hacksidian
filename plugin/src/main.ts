@@ -2,7 +2,7 @@ import { searchableCatalog } from './catalog';
 import { shouldApplyTechnique } from './technique-command';
 import { collectRecommendationParameters, recommendationParameterPatch } from './recommendation-parameters';
 import { pendingParameters, processParameterSource } from './parameter-storage';
-import { PARAMETER_PROMPT_VERSION, PARAMETER_INSTRUCTIONS, parameterChatPrompt, applyParameterDecision } from './parameter-chat';
+import { PARAMETER_PROMPT_VERSION, PARAMETER_INSTRUCTIONS, parameterChatPrompt, applyParameterDecision, parameterInputs } from './parameter-chat';
 import { enabledTechniquePaths } from './enabled-techniques';
 import { Favourites } from './favourites';
 import { registerSourceBlocks } from './source-blocks';
@@ -537,7 +537,8 @@ export default class CallMeRedPlugin extends Plugin {
 
   private async runFeedback(userText: string, onStatus: (message: string) => void): Promise<void> {
     const currentHack = await this.getCurrentHack();
-    if (currentHack && await this.runParameterFeedback(currentHack, userText, onStatus)) return;
+    const namedId = /\b[a-z][a-z0-9]*-[a-z0-9_-]+\b/i.test(userText);
+    if (currentHack && !namedId && parameterInputs(currentHack.css).length && await this.runParameterFeedback(currentHack, userText, onStatus)) return;
     const legacyEntries = this.catalog.sync && !this.catalog.sync.entries
       ? (await this.collectCatalog()).entries : [];
     const catalog = searchableCatalog(this.catalog, legacyEntries);
@@ -565,7 +566,8 @@ export default class CallMeRedPlugin extends Plugin {
     this.apiAttempts.push(attempt);
     await this.savePluginData();
     try {
-      const result = await createProvider(requestSettings).createIteration({ instructions: SYSTEM_PROMPT, prompt, catalog,
+      const result = await createProvider(requestSettings).createIteration({ instructions: SYSTEM_PROMPT, prompt, catalog, userText,
+        searchContext: this.state.turns.slice(-2).map(turn => `${turn.userText}\n${(turn.recommendations ?? []).map(r => `${r.id}: ${r.reason}`).join("\n")}`).join("\n").slice(-4000),
         onUsage: async (usage, responseId) => { attempt.usage = usage; attempt.responseId = responseId; attempt.status = 'received'; await this.savePluginData(); },
       });
       attempt.usage = result.usage; attempt.responseId = result.responseId;
@@ -580,7 +582,7 @@ export default class CallMeRedPlugin extends Plugin {
           : entry.kind === 'theme' ? t('catalog.theme_instruction')
           : entry.kind === 'technique' ? '' : item.instructions;
         const themes = relatedThemes(entry, catalog.entries).map(theme => ({ id: theme.id, title: theme.title, path: theme.path, helpUrl: theme.helpUrl, kind: 'theme' as const }));
-        return { ...item, ...(result.decision.recommendations.length > 1 ? {parameterChanges: [], command: 'show' as const, commandEvidence: ''} : {}), applied: false, preparedParameters: [] as Array<{variable: string; before: string; after: string}>, instructions, title: entry.title, path: entry.path, kind: entry.kind, helpUrl: entry.helpUrl, relatedThemes: themes };
+        return { ...item, partialMatch: false, ...(result.decision.recommendations.length > 1 ? {parameterChanges: [], command: 'show' as const, commandEvidence: ''} : {}), applied: false, preparedParameters: [] as Array<{variable: string; before: string; after: string}>, instructions, title: entry.title, path: entry.path, kind: entry.kind, helpUrl: entry.helpUrl, relatedThemes: themes };
       });
       const preparation = recommendationParameterPatch(result.decision.recommendations, parameterSnapshots, catalog.entries, result.retrievedIds);
       if (preparation) {
@@ -609,10 +611,21 @@ export default class CallMeRedPlugin extends Plugin {
           const summary = preparation?.changes.map(change => `${change.label}: ${change.before} → ${change.after}`).join('\n');
           recommendation.instructions = `${this.interfaceLanguage === 'en' ? 'Technique applied.' : 'Приём применён.'}${summary ? '\n' + summary : ''}`;
         }
-        try { await this.openUniqueTechnique(recommendation.path); }
-        catch (error) { recommendation.instructions += `\n${this.interfaceLanguage === 'en' ? 'Could not open the card' : 'Не удалось открыть карточку'}: ${String(error)}`; }
       }
+      // Near matches are display-only; they never enter the preparation/apply path.
+      for (const alternative of result.decision.alternatives ?? []) {
+        const entry = catalog.entries.find(entry => entry.id === alternative.id && entry.kind === 'technique');
+        if (!entry || !result.retrievedIds.includes(entry.id)) throw new Error(t('catalog.invalid_recommendation'));
+        recommendations.push({id: entry.id, reason: alternative.reason, instructions: '', command: 'show', commandEvidence: '',
+          parameterChanges: [], partialMatch: true, applied: false, preparedParameters: [], title: entry.title, path: entry.path,
+          kind: entry.kind, helpUrl: entry.helpUrl, relatedThemes: relatedThemes(entry,catalog.entries).map(theme=>({id:theme.id,title:theme.title,path:theme.path,kind:'theme' as const,helpUrl:theme.helpUrl}))});
+      }
+      const clarification = result.decision.action === 'ask_question' && result.decision.clarificationId
+        ? catalog.entries.find(entry => entry.id === result.decision.clarificationId && entry.kind === 'technique' && result.retrievedIds.includes(entry.id)) : undefined;
+      if (clarification) await this.openUniqueTechnique(clarification.path);
+
       this.state.turns.push({ id: turnId, createdAt: new Date().toISOString(), coloringPath: '', userText,
+        ...(clarification ? {techniqueId: clarification.id, techniqueTitle: clarification.title, techniquePath: clarification.path} : {}),
         action: result.decision.action, systemMessage: result.decision.action === 'recommend' ? t('catalog.found') : result.decision.message, recommendations,
         catalogRevision: catalog.revision, searchQueries: result.searchQueries, retrievedIds: result.retrievedIds,
         provider: 'openai', model: requestSettings.model, promptVersion: PROMPT_VERSION, usage: result.usage, rawResponseId: result.responseId });

@@ -1,15 +1,40 @@
-:is(.markdown-preview-view, .markdown-source-view) {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.5rem;
-  align-items: center;
+.markdown-preview-view .el-h6 {
+  float: none;
+  clear: left;
+  margin: 0;
 }
-:is(.markdown-preview-view, .markdown-source-view) h6 {
+.markdown-preview-view > h6,
+.markdown-preview-view .el-h6 > h6 {
+  float: left;
+  clear: left;
+  /* Obsidian adds this margin to headings after lists and paragraphs. */
+  --heading-spacing: 0;
+  margin: 0 1.5rem 1rem 0;
+  inline-size: max-content;
+  text-align: end;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: calc(var(--h6-size) * 0.758725);
   letter-spacing: .12em;
+  font-size: 1em;
+  font-weight: var(--font-bold);
   text-transform: uppercase;
   color: var(--interactive-accent);
 }
+.markdown-preview-view .el-h6 + * > :first-child,
+.markdown-preview-view > h6 + * {
+  margin-top: 0;
+}
+.markdown-preview-view > :has(+ h6)::after {
+  content: "";
+  display: block;
+  clear: left;
+}
+.markdown-preview-view > :is(h1, h2, h3, h4, h5),
+.markdown-preview-view :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5) {
+  clear: left;
+}
 
+.markdown-preview-view .el-h6 ~ :has(+ :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6)),
+.markdown-preview-view > h6 ~ :has(+ :is(h1, h2, h3, h4, h5, h6)) {
+  padding-bottom: .5rem;
+}

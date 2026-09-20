@@ -6,7 +6,7 @@ body.theme-light, body.theme-dark {
    * @type color
    * @default #e93147
    */
-  --hacksidian-semantic-red: #e93147;
+  --hacksidian-semantic-red: #cb0008;
   --color-red: var(--hacksidian-semantic-red);
 
   /**
@@ -15,7 +15,7 @@ body.theme-light, body.theme-dark {
    * @type color
    * @default #ec7500
    */
-  --hacksidian-semantic-orange: #ec7500;
+  --hacksidian-semantic-orange: #d6670e;
   --color-orange: var(--hacksidian-semantic-orange);
 
   /**
@@ -24,7 +24,7 @@ body.theme-light, body.theme-dark {
    * @type color
    * @default #e0ac00
    */
-  --hacksidian-semantic-yellow: #e0ac00;
+  --hacksidian-semantic-yellow: #f3ac06;
   --color-yellow: var(--hacksidian-semantic-yellow);
 
   /**
@@ -33,7 +33,7 @@ body.theme-light, body.theme-dark {
    * @type color
    * @default #08b94e
    */
-  --hacksidian-semantic-green: #08b94e;
+  --hacksidian-semantic-green: #9a9a00;
   --color-green: var(--hacksidian-semantic-green);
 
   /**
@@ -42,7 +42,7 @@ body.theme-light, body.theme-dark {
    * @type color
    * @default #00bfbc
    */
-  --hacksidian-semantic-cyan: #00bfbc;
+  --hacksidian-semantic-cyan: #08849b;
   --color-cyan: var(--hacksidian-semantic-cyan);
 
   /**
@@ -51,7 +51,7 @@ body.theme-light, body.theme-dark {
    * @type color
    * @default #086ddd
    */
-  --hacksidian-semantic-blue: #086ddd;
+  --hacksidian-semantic-blue: #0a6fc3;
   --color-blue: var(--hacksidian-semantic-blue);
 
   /**

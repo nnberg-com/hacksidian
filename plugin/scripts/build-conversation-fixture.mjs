@@ -1,0 +1,12 @@
+import { build } from 'esbuild';
+import { mkdir, copyFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const fixture=path.join(root,'tests/browser/conversation');
+const out=process.argv[2];
+if(!out) throw new Error('Provide an output directory for the browser fixture');
+await mkdir(out,{recursive:true});
+await build({entryPoints:[path.join(fixture,'app.ts')],outfile:path.join(out,'app.js'),bundle:true,format:'esm',alias:{obsidian:path.join(fixture,'obsidian.ts')},plugins:[{name:'delayed-example',setup(b){b.onResolve({filter:/^\.\/chat-technique$/},()=>({path:path.join(fixture,'cards.ts')}))}}]});
+await copyFile(path.join(fixture,'index.html'),path.join(out,'index.html'));
+await copyFile(path.join(root,'styles.css'),path.join(out,'styles.css'));

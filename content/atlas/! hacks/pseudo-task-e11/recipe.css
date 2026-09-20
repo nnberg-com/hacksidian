@@ -1,100 +1,46 @@
-:is(.markdown-preview-view, .markdown-source-view) li[data-task] {
-  position: relative;
-  list-style: none;
-  padding-inline-start: 1.9em;
-  text-decoration: none;
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="/"] { --hacksidian-task-icon: "◐"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="x"] { --hacksidian-task-icon: "✓"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="-"] { --hacksidian-task-icon: "−"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task=">"] { --hacksidian-task-icon: "→"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="<"] { --hacksidian-task-icon: "←"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="?"] { --hacksidian-task-icon: "?"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="!"] { --hacksidian-task-icon: "!"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="*"] { --hacksidian-task-icon: "★"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="\""] { --hacksidian-task-icon: "❝"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="l"] { --hacksidian-task-icon: "⌖"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="b"] { --hacksidian-task-icon: "⚑"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="i"] { --hacksidian-task-icon: "i"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="S"] { --hacksidian-task-icon: "$"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="I"] { --hacksidian-task-icon: "✦"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="p"] { --hacksidian-task-icon: "+"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="c"] { --hacksidian-task-icon: "−"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="f"] { --hacksidian-task-icon: "♨"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="k"] { --hacksidian-task-icon: "⚿"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="w"] { --hacksidian-task-icon: "♜"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="u"] { --hacksidian-task-icon: "↑"; }
+:is(.markdown-preview-view, .markdown-source-view) li[data-task="d"] { --hacksidian-task-icon: "↓"; }
+
+:is(.markdown-preview-view, .markdown-source-view) li:is([data-task="/"], [data-task="x"], [data-task="-"], [data-task=">"], [data-task="<"], [data-task="?"], [data-task="!"], [data-task="*"], [data-task="\""], [data-task="l"], [data-task="b"], [data-task="i"], [data-task="S"], [data-task="I"], [data-task="p"], [data-task="c"], [data-task="f"], [data-task="k"], [data-task="w"], [data-task="u"], [data-task="d"]) > input[type="checkbox"],
+:is(.markdown-preview-view, .markdown-source-view) li:is([data-task="/"], [data-task="x"], [data-task="-"], [data-task=">"], [data-task="<"], [data-task="?"], [data-task="!"], [data-task="*"], [data-task="\""], [data-task="l"], [data-task="b"], [data-task="i"], [data-task="S"], [data-task="I"], [data-task="p"], [data-task="c"], [data-task="f"], [data-task="k"], [data-task="w"], [data-task="u"], [data-task="d"]) > p:first-child > input[type="checkbox"] {
+  border-color: transparent;
+  background: transparent;
 }
-:is(.markdown-preview-view, .markdown-source-view) li[data-task] > input, :is(.markdown-preview-view, .markdown-source-view) li[data-task] > p:first-child > input {
-  display: none;
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task]::before {
-  content: attr(data-task);
+:is(.markdown-preview-view, .markdown-source-view) li:is([data-task="/"], [data-task="x"], [data-task="-"], [data-task=">"], [data-task="<"], [data-task="?"], [data-task="!"], [data-task="*"], [data-task="\""], [data-task="l"], [data-task="b"], [data-task="i"], [data-task="S"], [data-task="I"], [data-task="p"], [data-task="c"], [data-task="f"], [data-task="k"], [data-task="w"], [data-task="u"], [data-task="d"]) > input[type="checkbox"]::after,
+:is(.markdown-preview-view, .markdown-source-view) li:is([data-task="/"], [data-task="x"], [data-task="-"], [data-task=">"], [data-task="<"], [data-task="?"], [data-task="!"], [data-task="*"], [data-task="\""], [data-task="l"], [data-task="b"], [data-task="i"], [data-task="S"], [data-task="I"], [data-task="p"], [data-task="c"], [data-task="f"], [data-task="k"], [data-task="w"], [data-task="u"], [data-task="d"]) > p:first-child > input[type="checkbox"]::after {
+  content: var(--hacksidian-task-icon);
   position: absolute;
-  inset-inline-start: 0;
-  inset-block-start: .14em;
+  inset: 0;
+  width: auto;
+  height: auto;
   display: grid;
   place-items: center;
-  width: 1.25em;
-  height: 1.25em;
+  margin: 0;
+  background: none;
+  -webkit-mask: none;
+  mask: none;
+  font-family: var(--font-text);
+  font-size: var(--checkbox-size);
   line-height: 1;
-  font-weight: var(--font-bold);
-  color: var(--interactive-accent);
+  color: var(--text-normal);
+  pointer-events: none;
 }
-:is(.markdown-preview-view, .markdown-source-view) li[data-task=" "]::before {
-  content: "○";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="/"]::before {
-  content: "◐";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="x"]::before {
-  content: "✓";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="-"]::before {
-  content: "−";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task=">"]::before {
-  content: "→";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="<"]::before {
-  content: "←";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="?"]::before {
-  content: "?";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="!"]::before {
-  content: "!";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="*"]::before {
-  content: "★";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="\""]::before {
-  content: "❝";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="l"]::before {
-  content: "⌖";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="b"]::before {
-  content: "⚑";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="i"]::before {
-  content: "i";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="S"]::before {
-  content: "$";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="I"]::before {
-  content: "✦";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="p"]::before {
-  content: "+";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="c"]::before {
-  content: "−";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="f"]::before {
-  content: "♨";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="k"]::before {
-  content: "⚿";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="w"]::before {
-  content: "♜";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="u"]::before {
-  content: "↑";
-}
-:is(.markdown-preview-view, .markdown-source-view) li[data-task="d"]::before {
-  content: "↓";
-}
-@media(min-width:1100px) {
-  :is(.markdown-preview-view, .markdown-source-view) ul:not(li ul) {
-    columns: 2;
-    column-gap: 2em;
-  }
-}
-@media(min-width:1100px) {
-  :is(.markdown-preview-view, .markdown-source-view) li {
-    break-inside: avoid;
-  }
-}
-

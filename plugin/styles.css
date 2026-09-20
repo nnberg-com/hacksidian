@@ -72,6 +72,8 @@
 }
 
 .callmered-conversation {
+  overflow-anchor: none;
+  scroll-behavior: auto;
   flex: 1;
   min-height: 0;
   overflow: auto;
@@ -81,6 +83,7 @@
 }
 
 .callmered-turn {
+  flex-shrink: 0;
   padding: 8px 10px;
   border-radius: var(--radius-m);
   white-space: pre-wrap;

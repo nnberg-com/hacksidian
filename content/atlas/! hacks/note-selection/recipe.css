@@ -1,4 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Цвет выделения
+   * @label-en Selection color
+   * @type select
+   * @default var(--color-purple)
+   * @option var(--color-red) | Красный | Red
+   * @option var(--color-orange) | Оранжевый | Orange
+   * @option var(--color-yellow) | Жёлтый | Yellow
+   * @option var(--color-green) | Зелёный | Green
+   * @option var(--color-cyan) | Cyan | Cyan
+   * @option var(--color-blue) | Синий | Blue
+   * @option var(--color-purple) | Фиолетовый | Purple
+   * @option var(--color-pink) | Розовый | Pink
+   */
+  --hacksidian-note-selection-color: var(--color-purple);
+}
 :is(.markdown-preview-view, .markdown-source-view) ::selection {
-  background: #743f91;
+  background: var(--hacksidian-note-selection-color);
   color: #fff;
 }

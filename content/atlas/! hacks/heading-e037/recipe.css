@@ -1,14 +1,18 @@
-:is(.markdown-preview-view, .markdown-source-view) {
-  counter-reset: chapter 2;
+:is(.markdown-preview-view, .markdown-source-view),
+.markdown-preview-view > .markdown-preview-section {
+  counter-reset: hacksidian-heading-e037-h2 0;
 }
 :is(.markdown-preview-view, .markdown-source-view) h2 {
   position: relative;
   isolation: isolate;
   padding-block: 2rem;
-  counter-increment: chapter;
+}
+.markdown-preview-view .el-h2,
+:is(.markdown-preview-view, .markdown-source-view) h2:not(.el-h2 > h2) {
+  counter-increment: hacksidian-heading-e037-h2;
 }
 :is(.markdown-preview-view, .markdown-source-view) h2::before {
-  content: counter(chapter,decimal-leading-zero);
+  content: counter(hacksidian-heading-e037-h2, decimal-leading-zero);
   position: absolute;
   z-index: -1;
   font-size: 9rem;
