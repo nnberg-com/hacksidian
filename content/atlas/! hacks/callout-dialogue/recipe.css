@@ -13,7 +13,7 @@
    * @option var(--color-purple) | Фиолетовый | Purple
    * @option var(--color-pink) | Розовый | Pink
    */
-  --hacksidian-callout-dialogue-color: var(--color-cyan);
+  --hacksidian-callout-dialogue-color: var(--color-green);
   padding: calc(var(--size-4-1) * 6);
   background: color-mix(in srgb, var(--hacksidian-callout-dialogue-color) 12%, white);
   color: #213647;
