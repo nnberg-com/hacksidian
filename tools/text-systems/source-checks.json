@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://cdn.jsdelivr.net/npm/@primer/css@22.3.1/dist/base.css",
+    "checked": "2026-09-23",
+    "sha256": "bbfd23f5549105c01cddf45e3303b150d3a4350a7ea2e6441fb6c56ad452e802"
+  },
+  {
+    "url": "https://cdn.jsdelivr.net/npm/@uswds/uswds@3.14.0/dist/css/uswds.css",
+    "checked": "2026-09-23",
+    "sha256": "29529e9a2b03ad4c51699b5cdc3b9595ad82c32d70a73880cf4372d70fd6b31f"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/oreillymedia/atlas_tech1c_theme/master/epub/epub.css",
+    "checked": "2026-09-23",
+    "sha256": "0ab412fd36f56f48426637f70a75eb1791643d07f66cc466540f7997639e4763"
+  },
+  {
+    "url": "https://mirrors.ctan.org/macros/latex/contrib/memoir/memoir.dtx",
+    "checked": "2026-09-23",
+    "sha256": "18cb218c8a884243a99f364545c2444d9f44649038ff80cebb71d256f9a6caa4"
+  },
+  {
+    "url": "https://www.dmkpress.com/upload/iblock/b5f/ajo1tfftyk2yebgba53x9k9jdms1dor1.pdf",
+    "checked": "2026-09-23",
+    "sha256": "f180c241a7b6d6203726abbec90cbb806ec06593f7de466ddecbf16dfedd6288"
+  },
+  {
+    "url": "https://nostarch.com/download/samples/modernweb_ch6.pdf?download=1",
+    "checked": "2026-09-23",
+    "sha256": "883fb24b9198bd8f0fb29dc3dac50962474df437a1c0e97f07e08ea6ac7922ec"
+  },
+  {
+    "url": "https://carbondesignsystem.com/elements/typography/type-sets/",
+    "checked": "2026-09-23",
+    "method": "Official HTML read via web tool; extracted numerical facts documented in sources.json"
+  },
+  {
+    "url": "https://fluent2.microsoft.design/typography",
+    "checked": "2026-09-23",
+    "method": "Official HTML read via web tool; extracted numerical facts documented in sources.json"
+  },
+  {
+    "url": "https://spencermortensen.com/articles/typographic-scale/",
+    "checked": "2026-09-23",
+    "method": "Official HTML read via web tool; extracted numerical facts documented in sources.json"
+  },
+  {
+    "url": "https://webtypography.net/2.2.2",
+    "checked": "2026-09-23",
+    "method": "Official HTML read via web tool; extracted numerical facts documented in sources.json"
+  }
+]

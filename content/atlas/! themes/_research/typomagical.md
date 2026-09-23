@@ -20,7 +20,7 @@ Commit: `403987c83fb8a70e0d0ce480799e2dadfda4da6f`. Основной файл: `
 - [[atlas/! hacks/list-ordered-o017/list-ordered-o017|Круглый номер]] — существующая карточка
 - [[atlas/! hacks/note-quote-pull/note-quote-pull|Крупная цитата-врезка]] — существующая карточка
 - [[atlas/! hacks/callout-technical-gradient/callout-technical-gradient|Градиентная рамка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s17/emphasis-s17|17 · Градиентная подложка]] — существующая карточка
+- [[atlas/! hacks/emphasis-s17/emphasis-s17|Градиентная подложка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/image-e006/image-e006|По центру]] — существующая карточка
 

@@ -19,8 +19,8 @@ Commit: `cf9c544c4950529e0ce87587127e6b72d5451848`. Основной файл: `
 - [[atlas/! hacks/callout-receipt/callout-receipt|Чек экспедиции]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/image-e028/image-e028|Чёрно-белая]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка

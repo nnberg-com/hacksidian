@@ -12,8 +12,8 @@ Commit: `a0dcf21666d8a7a1b178f7b8d01648a0fa72a633`. Основной файл: `
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/callout-technical-outline/callout-technical-outline|Тонкая рамка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
 
 ## Реестр настроек

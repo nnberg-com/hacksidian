@@ -48,8 +48,8 @@ Commit: `05d2df5d157e15f13be1a43da2d3034c995dd8e2`. Основной файл: `
 - [[atlas/! hacks/callout-technical-outline/callout-technical-outline|Тонкая рамка]] — существующая карточка
 - [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
 - [[atlas/! hacks/interface-keyboard-focus/interface-keyboard-focus|Заметный клавиатурный фокус]] — существующая карточка

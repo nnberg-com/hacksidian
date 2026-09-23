@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_emphasis
-title: 30 · Приглушённое удаление
-category: emphasis
+  - hacksidian_strikethrough
+title: Приглушённое удаление
+category: strikethrough
 sources: []
 format: markdown
 themes: []

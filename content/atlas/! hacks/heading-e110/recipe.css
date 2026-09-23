@@ -1,4 +1,21 @@
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e110-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e110-level h3 {
+.markdown-preview-view h3 {
   font-size: calc(var(--h3-size) * 1.138088);
   white-space: nowrap;
   overflow: hidden;
@@ -6,7 +23,9 @@
   max-inline-size: 100%;
   display: block;
 }
-:is(.markdown-preview-view, .markdown-source-view) p {
+.markdown-preview-view p {
   font-size: calc(var(--font-text-size) * 0.8);
   color: var(--text-muted);
+}
+
 }

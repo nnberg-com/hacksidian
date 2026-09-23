@@ -9,6 +9,8 @@
 - [ ] Obtain visual acceptance of the additional ten cards.
 
 ## Following slices
-- [ ] Normalize text systems to a variable-driven shared CSS contract before adding system selection.
-- [ ] Decide which palette preview settings become persisted CSS parameters.
-- [ ] Preserve parameter values explicitly when introducing catalog regeneration/upgrades for these files.
+- [x] Normalize text systems to a variable-driven shared CSS contract before adding system selection.
+- [x] Decide which palette preview settings become persisted CSS parameters.
+- [x] Preserve parameter values explicitly when introducing catalog regeneration/upgrades for these files.
+
+Following slices delivered by resolve-text-systems-category-mapping (2026-09-23): system selection, light palette selection and selection-preserving generators. Native visual acceptance remains separate.

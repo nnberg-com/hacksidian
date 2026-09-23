@@ -1,7 +1,45 @@
-:is(.markdown-preview-view, .markdown-source-view) strong {
+.markdown-preview-view {
+  /**
+   * @parameter Применить к…
+   * @label-en Apply to…
+   * @type select
+   * @default bold
+   * @option bold | **…** (bold)
+   * @option italic | _…_ (italic)
+   * @option highlight | ==…== (highlight)
+   */
+  --hacksidian-emphasis-s06-target: bold;
+}
+
+@hacksidian-target --hacksidian-emphasis-s06-target {
+.markdown-preview-view :--hacksidian-target {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: var(--bold-weight);
+  font-style: normal;
+  font-variant: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--text-normal);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  text-shadow: none;
+  text-emphasis: none;
+  -webkit-text-stroke: 0;
+  display: inline;
+  position: static;
+}
+.markdown-preview-view :--hacksidian-target {
   font-family: Georgia, serif;
 }
-:is(.markdown-preview-view, .markdown-source-view) strong {
+.markdown-preview-view :--hacksidian-target {
   font-family: Georgia,serif;
 }
 
+
+}

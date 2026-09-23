@@ -14,8 +14,8 @@ Commit: `28f67f18a24f5c8d3b58954eb8374bf2ecffbb50`. Основной файл: `
 - Выделение активного файла в проводнике — новая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
 - [[atlas/! hacks/table-e003/table-e003|Только горизонтали]] — существующая карточка

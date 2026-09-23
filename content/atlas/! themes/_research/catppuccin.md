@@ -18,8 +18,8 @@ Commit: `1316e03af5c31964116661ab08e7784bfa1d00b3`. Основной файл: `
 - [[atlas/! hacks/tag-e021/tag-e021|Мягкая капсула]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
 
 ## Реестр настроек

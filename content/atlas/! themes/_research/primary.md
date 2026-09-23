@@ -26,8 +26,8 @@ Commit: `789c99e357d8c0049058ef358a906ea9b350fb09`. Основной файл: `
 - [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/tag-e064/tag-e064|Радуга по позиции]] — существующая карточка
 
 ## Реестр настроек

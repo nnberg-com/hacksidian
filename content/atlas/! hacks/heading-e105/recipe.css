@@ -1,8 +1,27 @@
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e105-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e105-level h3 {
+.markdown-preview-view h3 {
   font-size: calc(var(--h3-size) * 1.213961);
   transition: color .2s;
 }
-:is(.markdown-preview-view, .markdown-source-view):focus-within h3 {
+.markdown-preview-view:focus-within h3 {
   color: var(--interactive-accent);
 }
 
+
+}

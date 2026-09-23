@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_callout
+  - hacksidian_composition
 title: Собственный тип Callout
-category: callout
+category: composition
 sources:
   - https://help.obsidian.md/callouts
 format: markdown

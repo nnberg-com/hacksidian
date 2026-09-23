@@ -1,8 +1,25 @@
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e066-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e066-level h3 {
+.markdown-preview-view h3 {
   color: var(--interactive-accent);
 }
 @supports (background-clip:text) {
-  :is(.markdown-preview-view, .markdown-source-view) h3 {
+  .markdown-preview-view h3 {
     background: linear-gradient(90deg,#ae3824,#8051bd,#087e85,#ae3824);
     background-size: 300% 100%;
     background-clip: text;
@@ -16,3 +33,5 @@
   }
 }
 
+
+}

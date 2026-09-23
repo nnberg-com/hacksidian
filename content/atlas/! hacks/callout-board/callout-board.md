@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_callout
+  - hacksidian_composition
 title: Доска состояния
-category: callout
+category: composition
 sources:
   - https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Guide/Callouts.md
 format: markdown

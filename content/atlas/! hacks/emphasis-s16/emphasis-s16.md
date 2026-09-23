@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 16 · Рамка
+title: Рамка
 category: emphasis
 sources: []
 format: markdown
@@ -18,6 +18,8 @@ emphasis-s16
 ```hacksidian-live
 emphasis-s16
 ```
+
+Параметр «Применить к…» выбирает `**…**`, `_…_` или `==…==`. Приём полностью задаёт оформление выбранной разметки в Preview mode. Другие параметры приёма настраиваются независимо.
 
 ```hacksidian-sources
 emphasis-s16

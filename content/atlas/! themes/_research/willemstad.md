@@ -44,12 +44,12 @@ Commit: `4b0cbba45b3d87ef6ac6cad51fbf58e347e8a14c`. Основной файл: `
 - [[atlas/! hacks/heading-e027/heading-e027|Прямоугольная плашка]] — существующая карточка
 - [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s20/emphasis-s20|20 · Маркер через внутреннюю тень]] — существующая карточка
+- [[atlas/! hacks/emphasis-s20/emphasis-s20|Маркер через внутреннюю тень]] — существующая карточка
 - [[atlas/! hacks/callout-technical-outline/callout-technical-outline|Тонкая рамка]] — существующая карточка
 - [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/code-e018/code-e018|Мягкий перенос]] — существующая карточка

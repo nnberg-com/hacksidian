@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 17 · Градиентная подложка
+title: Градиентная подложка
 category: emphasis
 sources: []
 format: markdown
@@ -17,6 +17,8 @@ emphasis-s17
 ```hacksidian-live
 emphasis-s17
 ```
+
+Параметр «Применить к…» выбирает `**…**`, `_…_` или `==…==`. Приём полностью задаёт оформление выбранной разметки в Preview mode. Другие параметры приёма настраиваются независимо.
 
 ```hacksidian-sources
 emphasis-s17

@@ -1,11 +1,28 @@
-:is(.markdown-preview-view, .markdown-source-view) h3 em {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e067-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e067-level h3 {
+.markdown-preview-view h3 em {
   display: inline-block;
   animation: hack-heading-e067-heading-e067-word-in 5s both infinite;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 em:nth-of-type(2) {
+.markdown-preview-view h3 em:nth-of-type(2) {
   animation-delay: .25s;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 em:nth-of-type(3) {
+.markdown-preview-view h3 em:nth-of-type(3) {
   animation-delay: .5s;
 }
 @keyframes hack-heading-e067-heading-e067-word-in {
@@ -21,7 +38,9 @@
     opacity: 0;
   }
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 em {
+.markdown-preview-view h3 em {
   font-style: normal;
 }
 
+
+}

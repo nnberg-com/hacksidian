@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 01 · Более плотный bold
+title: Более плотный bold
 category: emphasis
 sources: []
 format: markdown

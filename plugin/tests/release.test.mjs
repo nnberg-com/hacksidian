@@ -64,12 +64,11 @@ test('rejects manifest drift and package drift', async () => {
   await expect(prepareRelease(root, {})).rejects.toThrow('versions must match');
 });
 
-test('rejects wrong plugin tags but permits independent vault tags and branch builds', async () => {
+test('rejects nonmatching tags and permits branch builds', async () => {
   const root = await fixture();
-  for (const tag of ['v0.1.0', '0.2.0', 'plugin-0.1.0']) {
+  for (const tag of ['v0.1.0', '0.2.0', 'plugin-0.1.0', 'vault-9.0.0']) {
     await expect(prepareRelease(root, { GITHUB_REF_TYPE: 'tag', GITHUB_REF_NAME: tag })).rejects.toThrow('Tag must equal');
   }
-  await prepareRelease(root, { GITHUB_REF_TYPE: 'tag', GITHUB_REF_NAME: 'vault-9.0.0' });
   await prepareRelease(root, { GITHUB_REF_TYPE: 'branch', GITHUB_REF_NAME: 'main' });
 });
 

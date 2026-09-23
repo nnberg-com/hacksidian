@@ -34,7 +34,7 @@ Commit: `ac69e5992a66d2aeabb30d8c2d90c636d155fc25`. Основной файл: `
 - [[atlas/! hacks/code-e052/code-e052|Читаемая метка языка]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/heading-e048/heading-e048|Контурные буквы]] — существующая карточка
-- [[atlas/! hacks/emphasis-s33/emphasis-s33|33 · Комбинация как отдельный стиль]] — существующая карточка
+- [[atlas/! hacks/emphasis-s33/emphasis-s33|Курсив с маркером]] — существующая карточка
 - [[atlas/! hacks/note-quote-margin/note-quote-margin|Цитата на боковом поле]] — существующая карточка
 - [[atlas/! hacks/note-quote-frame/note-quote-frame|Рамка вокруг цитаты]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка

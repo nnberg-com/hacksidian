@@ -26,8 +26,8 @@ Commit: `06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0`. Основной файл: `
 - Плавающий заголовок панели заметки — новая карточка
 - [[atlas/! hacks/note-indent/note-indent|Красная строка]] — существующая карточка
 - [[atlas/! hacks/heading-e027/heading-e027|Прямоугольная плашка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/interface-quiet-actions/interface-quiet-actions|Тихая панель действий]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/code-e020/code-e020|Пробелы в конце строки]] — существующая карточка

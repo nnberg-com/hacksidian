@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_emphasis
-title: 35 · Заметное удаление
-category: emphasis
+  - hacksidian_emphasis-combinations
+title: Зачёркивание с маркером
+category: emphasis-combinations
 sources: []
 format: markdown
 themes: []

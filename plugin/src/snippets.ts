@@ -44,7 +44,29 @@ export async function migrateSnippetGroups(directory: string): Promise<string[]>
   const manifestPath = path.join(directory, "hacksidian-manifest.json");
   const raw = await readFile(manifestPath, "utf8");
   const old = JSON.parse(raw);
-  if (old.structure === 2) return [];
+  if (old.structure === 2) {
+    const missing = groupManifest.modules.filter(entry => !old.modules.some((m: {id: string}) => m.id === entry.id));
+    if (!missing.length) return [];
+    const created: string[] = [];
+    try {
+      for (const entry of missing) {
+        if (old.modules.some((m: {file: string}) => m.file === entry.file)) throw new Error(t('file-style.invalid_or_duplicate_css_path'));
+        try {
+          await writeFile(path.join(directory, entry.file), '', {flag: 'wx'});
+          created.push(entry.file);
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error;
+        }
+      }
+      if (await readFile(manifestPath, 'utf8') !== raw) throw new Error(t('snippets.css_changed_while_updating_the_structure'));
+      await writeFile(manifestPath + '.tmp', JSON.stringify({...old, modules: [...old.modules, ...missing]}, null, 2) + '\n');
+      await rename(manifestPath + '.tmp', manifestPath);
+    } catch (error) {
+      await Promise.all(created.map(file => unlink(path.join(directory, file))));
+      throw error;
+    }
+    return created.map(file => file.slice(0, -4));
+  }
   const before = await readFileStyle(directory);
   const next = splitLegacyStyle(before);
   const created: string[] = [];

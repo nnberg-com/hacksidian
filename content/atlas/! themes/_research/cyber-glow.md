@@ -27,7 +27,7 @@ Commit: `a9a9776d5cb68ce09bec36e29f1084da6757f6db`. Основной файл: `
 - [[atlas/! hacks/note-list-markers/note-list-markers|Цвет и форма маркеров]] — существующая карточка
 - [[atlas/! hacks/list-e013/list-e013|Без видимых маркеров]] — существующая карточка
 - [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/heading-e051/heading-e051|Неоновая вывеска]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка

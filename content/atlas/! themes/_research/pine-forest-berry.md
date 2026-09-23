@@ -13,8 +13,8 @@ Commit: `e74bd849e654c22b857229ef0f9c6c6834090d2a`. Основной файл: `
 - Встроенная заметка без отдельной рамки — новая карточка
 - [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка

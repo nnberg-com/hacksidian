@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_emphasis
-title: 29 · Двойное зачёркивание
-category: emphasis
+  - hacksidian_strikethrough
+title: Двойное зачёркивание
+category: strikethrough
 sources: []
 format: markdown
 themes: []

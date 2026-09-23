@@ -35,9 +35,9 @@ Commit: `e3121703dddda008218872f4ac38cad602e25619`. Основной файл: `
 - Примечание без заголовка — новая карточка
 - [[atlas/! hacks/note-print-links/note-print-links|Адреса ссылок на бумаге]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
-- [[atlas/! hacks/emphasis-s19/emphasis-s19|19 · Неровный маркер]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s19/emphasis-s19|Неровный маркер]] — существующая карточка
 - [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion|Уважать уменьшение движения]] — существующая карточка
 - [[atlas/! hacks/text-tabular/text-tabular|Цифры одинаковой ширины]] — существующая карточка
 - [[atlas/! hacks/note-hyphens/note-hyphens|Переносы длинных слов]] — существующая карточка

@@ -1,10 +1,27 @@
-:is(.markdown-preview-view, .markdown-source-view) {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e058-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e058-level h3 {
+.markdown-preview-view {
   display: block;
   block-size: 230px;
   overflow: auto;
   padding: 0;
 }
-:is(.markdown-preview-view, .markdown-source-view) p:first-child {
+.markdown-preview-view p:first-child {
   position: sticky;
   top: 0;
   background: var(--text-normal);
@@ -13,18 +30,20 @@
   z-index: 2;
   font-size: calc(var(--font-text-size) * 0.75);
 }
-:is(.markdown-preview-view, .markdown-source-view) p {
+.markdown-preview-view p {
   padding: 1rem;
 }
-:is(.markdown-preview-view, .markdown-source-view) p:nth-of-type(3) {
+.markdown-preview-view p:nth-of-type(3) {
   min-block-size: 160px;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view h3 {
   scroll-margin-top: 65px;
   margin: 1rem;
   font-size: calc(var(--h3-size) * 1.138088);
 }
-:is(.markdown-preview-view, .markdown-source-view) h3+p, :is(.markdown-preview-view, .markdown-source-view) .el-h3+.el-p > p {
+.markdown-preview-view h3+p, .markdown-preview-view .el-h3+.el-p > p {
   min-block-size: 230px;
 }
 
+
+}

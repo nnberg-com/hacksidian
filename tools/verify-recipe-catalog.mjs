@@ -13,7 +13,7 @@ const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'hacksidian-recipes-'));
 try{
  buildSync({entryPoints:[path.join(repo,'plugin/src/hacks.ts')],bundle:true,platform:'node',format:'cjs',outfile:path.join(tmp,'hacks.cjs')});
  const {compileHack,addHack}=require(path.join(tmp,'hacks.cjs'));
- const counts={total:0,withCss:0,withoutCss:0,exactSnippetCopies:0,idempotentUpdates:0};
+ const counts={total:0,withCss:0,withoutCss:0,exactSnippetCopies:0,resolvedParameterRecipes:0,idempotentUpdates:0};
  for(const id of fs.readdirSync(root)){
   const dir=path.join(root,id);if(!fs.existsSync(path.join(dir,'hack.json')))continue;
   const spec=JSON.parse(fs.readFileSync(path.join(dir,'hack.json'),'utf8'));
@@ -24,15 +24,18 @@ try{
   if(!spec.hasCss){counts.withoutCss++;assert.equal(css,'',id);continue;}
   counts.withCss++;
   const hack={id,spec,css,path:dir+'/'+id+'.md',title:id};
-  assert.equal(compileHack(hack),css,id);
+  const compiled=compileHack(hack);
+  if (!/@hacksidian-(?:variants|target|heading)\b/.test(css)) assert.equal(compiled,css,id);
+  assert(!/@hacksidian-(?:variants|target|heading)\b/.test(compiled),id);
   const old={format:1,modules:[{id:spec.target,component:'test',css:'/* before */\n'+`/* hacksidian:hack:${id}:start */\n.old {}\n/* hacksidian:hack:${id}:end */\n`+'/* after */\n'}]};
   const next=addHack(old,hack);assert(next.changed,id);
   const start=`/* hacksidian:hack:${id}:start */\n`,end=`/* hacksidian:hack:${id}:end */`;
-  assert.equal(next.style.modules[0].css.split(start)[1].split(end)[0],css,id);
+  assert.equal(next.style.modules[0].css.split(start)[1].split(end)[0],compiled,id);
   assert(next.style.modules[0].css.startsWith('/* before */\n'),id);
   assert(next.style.modules[0].css.endsWith('/* after */\n'),id);
   assert.equal(addHack(next.style,hack).changed,false,id);
-  counts.exactSnippetCopies++;counts.idempotentUpdates++;
+  if (compiled===css) counts.exactSnippetCopies++; else counts.resolvedParameterRecipes++;
+  counts.idempotentUpdates++;
  }
  fs.mkdirSync(path.join(repo,'build'),{recursive:true});
  fs.writeFileSync(path.join(repo,'build/recipe-verification.json'),JSON.stringify(counts,null,2)+'\n');

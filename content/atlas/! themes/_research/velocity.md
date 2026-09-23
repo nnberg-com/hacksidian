@@ -26,8 +26,8 @@ Commit: `5ddc6c2e0028baad1b98fb5586517ff520291e7a`. Основной файл: `
 - Состояния задач по символу в квадратных скобках — новая карточка
 - Встроенная заметка без повторного заголовка — новая карточка
 - Рабочая область без видимых полос прокрутки — новая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/note-list-markers/note-list-markers|Цвет и форма маркеров]] — существующая карточка
 - [[atlas/! hacks/callout-technical-round/callout-technical-round|Большое скругление]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка

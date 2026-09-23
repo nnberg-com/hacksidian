@@ -25,14 +25,14 @@ Commit: `8e1c7429e227083438be61f511557879df388b7d`. Основной файл: `
 - Примечание без заголовка — новая карточка
 - [[atlas/! hacks/text-justify/text-justify|Выравнивание по ширине]] — существующая карточка
 - [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion|Уважать уменьшение движения]] — существующая карточка
-- [[atlas/! hacks/emphasis-s37/emphasis-s37|37 · Псевдоспойлер]] — существующая карточка
+- [[atlas/! hacks/emphasis-s37/emphasis-s37|Псевдоспойлер]] — существующая карточка
 - [[atlas/! hacks/callout-technical-solid/callout-technical-solid|Плотная цветная панель]] — существующая карточка
 - [[atlas/! hacks/task-e04/task-e04|Круг с галочкой]] — существующая карточка
 - [[atlas/! hacks/image-e006/image-e006|По центру]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка

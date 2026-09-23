@@ -1,0 +1,18 @@
+{
+  "format": 2,
+  "target": "g-text",
+  "hasCss": true,
+  "group": "text",
+  "replaces": [
+    "text-system-carbon",
+    "text-system-dmk",
+    "text-system-fluentcompact",
+    "text-system-memoir",
+    "text-system-mortensen",
+    "text-system-nostarch",
+    "text-system-oreillyepub",
+    "text-system-primer",
+    "text-system-rutter",
+    "text-system-uswds"
+  ]
+}

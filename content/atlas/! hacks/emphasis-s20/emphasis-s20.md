@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 20 · Маркер через внутреннюю тень
+title: Маркер через внутреннюю тень
 category: emphasis
 sources: []
 format: markdown

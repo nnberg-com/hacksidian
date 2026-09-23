@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_emphasis
-title: 28 · Отдельный цвет линии
-category: emphasis
+  - hacksidian_strikethrough
+title: Цвет линии зачёркивания
+category: strikethrough
 sources: []
 format: markdown
 themes: []

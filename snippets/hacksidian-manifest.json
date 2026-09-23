@@ -263,6 +263,30 @@
         "--metadata-gap",
         "--metadata-padding"
       ]
+    },
+    {
+      "id": "g-composition",
+      "component": "composition",
+      "group": "composition",
+      "title": "Композиции",
+      "file": "hacksidian-22-composition.css",
+      "nativeVariables": []
+    },
+    {
+      "id": "g-strikethrough",
+      "component": "strikethrough",
+      "group": "strikethrough",
+      "title": "Зачёркивание",
+      "file": "hacksidian-23-strikethrough.css",
+      "nativeVariables": []
+    },
+    {
+      "id": "g-emphasis-combinations",
+      "component": "emphasis-combinations",
+      "group": "emphasis-combinations",
+      "title": "Сочетания выделений",
+      "file": "hacksidian-24-emphasis-combinations.css",
+      "nativeVariables": []
     }
   ]
 }

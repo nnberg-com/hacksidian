@@ -1,4 +1,42 @@
-:is(.markdown-preview-view, .markdown-source-view) em {
+.markdown-preview-view {
+  /**
+   * @parameter Применить к…
+   * @label-en Apply to…
+   * @type select
+   * @default italic
+   * @option bold | **…** (bold)
+   * @option italic | _…_ (italic)
+   * @option highlight | ==…== (highlight)
+   */
+  --hacksidian-emphasis-s05-target: italic;
+}
+
+@hacksidian-target --hacksidian-emphasis-s05-target {
+.markdown-preview-view :--hacksidian-target {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: normal;
+  font-style: italic;
+  font-variant: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--text-normal);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  text-shadow: none;
+  text-emphasis: none;
+  -webkit-text-stroke: 0;
+  display: inline;
+  position: static;
+}
+.markdown-preview-view :--hacksidian-target {
   font-style: normal;
   font-variant-caps: small-caps;
+}
+
 }

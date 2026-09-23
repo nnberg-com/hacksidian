@@ -1,6 +1,6 @@
 # Проверка палитры
 
-[[atlas/! categories/palette|Выбрать палитру]]
+[[atlas/! hacks/palette/expanded|Выбрать палитру]]
 
 # Цвет и внимание
 

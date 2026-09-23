@@ -6,6 +6,10 @@ title: Задачи
 
 # Задачи
 
+```hacksidian-category-count
+task
+```
+
 Значение поля `category`: `task`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

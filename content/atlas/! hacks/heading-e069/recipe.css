@@ -1,4 +1,21 @@
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e069-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e069-level h3 {
+.markdown-preview-view h3 {
   animation: hack-heading-e069-heading-e069-weight-breath 4s ease-in-out infinite alternate;
 }
 @keyframes hack-heading-e069-heading-e069-weight-breath {
@@ -10,3 +27,5 @@
   }
 }
 
+
+}

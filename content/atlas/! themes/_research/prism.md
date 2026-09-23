@@ -31,8 +31,8 @@ Commit: `d1b0b2fad28778b96a19777020e42961e293d90a`. Основной файл: `
 - [[atlas/! hacks/note-highlight/note-highlight|Маркер за важным текстом]] — существующая карточка
 - [[atlas/! hacks/callout-technical-round/callout-technical-round|Большое скругление]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/image-e034/image-e034|Негатив]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка

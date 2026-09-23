@@ -15,7 +15,7 @@ export async function prepareRelease(root, env = process.env) {
     .some(version => version !== manifest.version)) {
     throw new Error('Package and manifest versions must match. Run release:version.');
   }
-  if (env.GITHUB_REF_TYPE === 'tag' && !env.GITHUB_REF_NAME?.startsWith('vault-') && env.GITHUB_REF_NAME !== manifest.version) {
+  if (env.GITHUB_REF_TYPE === 'tag' && env.GITHUB_REF_NAME !== manifest.version) {
     throw new Error('Tag must equal manifest.version (without v prefix).');
   }
   // Read all inputs before replacing the package. Never include vault content or data.json.

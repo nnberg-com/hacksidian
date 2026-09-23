@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 02 · Цветной bold
+title: Цветной bold
 category: emphasis
 sources: []
 format: markdown

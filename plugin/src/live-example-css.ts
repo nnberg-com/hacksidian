@@ -1,12 +1,13 @@
+import { resolveParameterVariants } from './parameter-variants';
 import path from "node:path";
 import postcss from 'postcss';
 import selectorParser from 'postcss-selector-parser';
 import { paletteVariables } from './palette';
 
-/** CSS for embedded Reading-view content only. Installation still uses the unchanged recipe. */
+/** CSS for embedded Reading-view content only. Installation resolves the same parameter table without preview scoping. */
 export function scopeLiveExample(css: string, id: string): string {
   if (!/^hacksidian-live-[a-z0-9-]+$/.test(id)) throw new Error('Invalid preview ID');
-  const tree = postcss.parse(css);
+  const tree = postcss.parse(resolveParameterVariants(css));
   const animations = new Map<string, string>();
   tree.walkAtRules(a => {
     if (/^(?:(?:-webkit-)?keyframes|counter-style)$/.test(a.name)) {
@@ -37,7 +38,7 @@ export function scopeLiveExample(css: string, id: string): string {
       const nodes = selector.nodes, index = nodes.findIndex(n => n === anchor);
       // Ancestors may only be the document's theme; never map interface ancestors or sibling hosts.
       const prefix = nodes.slice(0, index).map(n => n.toString()).join('').trim();
-      if (prefix && !/^(?:(?:body|html|\.theme-dark|\.theme-light)(?:\.theme-dark|\.theme-light)?\s*)+$/.test(prefix)) throw new Error('Requires external container: ' + prefix);
+      if (prefix && !/^(?:(?:body|html|\.theme-light)(?:\.theme-light)?\s*)+$/.test(prefix)) throw new Error('Requires external container: ' + prefix);
       const nextCombinator = nodes.slice(index + 1).find(n => n.type === 'combinator');
       if (nextCombinator && !['', '>'].includes(nextCombinator.value.trim())) throw new Error('Selector escapes preview through a sibling');
       if (/\.markdown-preview-sizer|\.is-readable-line-width/.test(selector.toString())) throw new Error('Requires document navigation or page sizing');
@@ -60,9 +61,7 @@ export function scopeLiveExample(css: string, id: string): string {
 export function liveExampleIssue(group: string, markdown: string, css: string): string | null {
   if (group === 'palette') {
     try {
-      const selector = postcss.parse(css).nodes.find(node => node.type === 'rule');
-      const mode = selector?.type === 'rule' && selector.selector === 'body.theme-dark' ? 'dark' : 'light';
-      paletteVariables(css, mode);
+      paletteVariables(css, 'light');
       return null;
     } catch (e) { return String(e); }
   }

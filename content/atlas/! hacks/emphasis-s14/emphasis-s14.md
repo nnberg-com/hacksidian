@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 14 · Мягкая плашка с переносами
+title: Мягкая плашка с переносами
 category: emphasis
 sources: []
 format: markdown
@@ -18,6 +18,8 @@ emphasis-s14
 ```hacksidian-live
 emphasis-s14
 ```
+
+Параметр «Применить к…» выбирает `**…**`, `_…_` или `==…==`. Приём полностью задаёт оформление выбранной разметки в Preview mode. Другие параметры приёма настраиваются независимо.
 
 ```hacksidian-sources
 emphasis-s14

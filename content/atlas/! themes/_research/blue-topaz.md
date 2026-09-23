@@ -82,7 +82,7 @@ Commit: `54821893b8f293f9c738580f59d4f1beec5c4284`. Основной файл: `
 - [[atlas/! hacks/table-e030/table-e030|Многоточие]] — существующая карточка
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
-- [[atlas/! hacks/emphasis-s37/emphasis-s37|37 · Псевдоспойлер]] — существующая карточка
+- [[atlas/! hacks/emphasis-s37/emphasis-s37|Псевдоспойлер]] — существующая карточка
 - [[atlas/! hacks/link-e004/link-e004|Только цвет — без линии]] — существующая карточка
 - [[atlas/! hacks/task-e04/task-e04|Круг с галочкой]] — существующая карточка
 - [[atlas/! hacks/callout-dialogue/callout-dialogue|Переписка]] — существующая карточка
@@ -92,7 +92,7 @@ Commit: `54821893b8f293f9c738580f59d4f1beec5c4284`. Основной файл: `
 - [[atlas/! hacks/tag-e010/tag-e010|Надстрочная метка]] — существующая карточка
 - [[atlas/! hacks/tag-e064/tag-e064|Радуга по позиции]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s14/emphasis-s14|14 · Мягкая плашка с переносами]] — существующая карточка
+- [[atlas/! hacks/emphasis-s14/emphasis-s14|Мягкая плашка с переносами]] — существующая карточка
 - [[atlas/! hacks/note-highlight/note-highlight|Маркер за важным текстом]] — существующая карточка
 - [[atlas/! hacks/callout-technical-tint/callout-technical-tint|Мягкая цветная подложка]] — существующая карточка
 - [[atlas/! hacks/table-e066/table-e066|Нумерация строк]] — существующая карточка
@@ -100,8 +100,8 @@ Commit: `54821893b8f293f9c738580f59d4f1beec5c4284`. Основной файл: `
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
 - [[atlas/! hacks/image-e063/image-e063|Обтекание справа]] — существующая карточка
 - [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/note-quote-line/note-quote-line|Классическая цитата с линией]] — существующая карточка
 - [[atlas/! hacks/table-e034/table-e034|Подсветка строки]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка

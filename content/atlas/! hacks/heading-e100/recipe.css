@@ -1,10 +1,27 @@
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e100-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e100-level h3 {
+.markdown-preview-view h3 {
   font-size: calc(var(--h3-size) * 1.138088);
 }
-:is(.markdown-preview-view, .markdown-source-view) h3:has(em) {
+.markdown-preview-view h3:has(em) {
   color: var(--interactive-accent);
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 em {
+.markdown-preview-view h3 em {
   display: block;
   font-size: calc(var(--h3-size) * 0.758725);
   color: var(--text-muted);
@@ -12,3 +29,5 @@
   margin-top: .4rem;
 }
 
+
+}

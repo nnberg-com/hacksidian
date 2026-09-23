@@ -6,9 +6,9 @@
 
 [[atlas/! themes/! themes|Темы Obsidian]]
 
-1426 сниппетов · 23 категории · 22 базовых CSS-сниппета. **Один приём — одна папка.** Категории «Текст» и «Текстовые системы» используют общий текстовый сниппет.
+1387 приёмов · 25 категорий · 25 базовых CSS-сниппета. **Один приём — одна папка.** Варианты текстовой системы и палитры выбираются параметрами; их expanded-страницы позволяют сравнивать примеры.
 
-[[atlas/! categories/! categories|Группы приёмов]]: 20 категорий разметки, палитры и две служебные — интерфейс Obsidian, платформы и метанастройки. Техническое поле `category` сохраняет ID категории.
+[[atlas/! categories/! categories|Группы приёмов]]: 22 категории разметки, одна категория палитр и две служебные — интерфейс Obsidian, платформы и метанастройки. Техническое поле `category` сохраняет ID категории.
 
 В каждой папке `! hacks/<ID>` находятся карточка, пример Markdown, единый `recipe.css` и описание целевого сниппета `hack.json`. Локальные ресурсы и необязательные HTML-модели находятся здесь же.
 
@@ -18,7 +18,7 @@
 
 [[atlas/! digests/! digests|Дайджесты]] — тематические подборки. Свойство `digest` содержит список ID; один приём может входить в несколько подборок.
 
-## Выноски и композиции · 90
+## Композиции · 19
 
 - [[atlas/! hacks/callout-dossier/callout-dossier|Досье]]
 - [[atlas/! hacks/callout-chronicle/callout-chronicle|Хронология]]
@@ -38,6 +38,11 @@
 - [[atlas/! hacks/callout-social/callout-social|Пост из полевого дневника]]
 - [[atlas/! hacks/callout-receipt/callout-receipt|Чек экспедиции]]
 - [[atlas/! hacks/callout-ticket/callout-ticket|Билет на встречу]]
+- [[atlas/! hacks/callout-technical-custom/callout-technical-custom|Собственный тип Callout]]
+
+## Выноски · 54
+
+- [[atlas/! hacks/callout-no-background/callout-no-background|Выноска без фона]]
 - [[atlas/! hacks/callout-technical-line/callout-technical-line|Только боковая линия]]
 - [[atlas/! hacks/callout-technical-tint/callout-technical-tint|Мягкая цветная подложка]]
 - [[atlas/! hacks/callout-technical-outline/callout-technical-outline|Тонкая рамка]]
@@ -66,7 +71,6 @@
 - [[atlas/! hacks/callout-technical-nested/callout-technical-nested|Примечание внутри примечания]]
 - [[atlas/! hacks/callout-technical-nested-quiet/callout-technical-nested-quiet|Тихий вложенный note]]
 - [[atlas/! hacks/callout-technical-three-levels/callout-technical-three-levels|Три уровня уточнения]]
-- [[atlas/! hacks/callout-technical-custom/callout-technical-custom|Собственный тип Callout]]
 - [[atlas/! hacks/callout-technical-aliases/callout-technical-aliases|Алиас сохраняет назначение]]
 - [[atlas/! hacks/callout-technical-list/callout-technical-list|Список внутри примечания]]
 - [[atlas/! hacks/callout-technical-steps/callout-technical-steps|Мини-инструкция внутри TIP]]
@@ -153,49 +157,54 @@
 - [[atlas/! hacks/code-e053/code-e053|Перенос только для text]]
 - [[atlas/! hacks/code-e054/code-e054|Shell без знака в исходнике]]
 - [[atlas/! hacks/code-e055/code-e055|Адаптация на узком экране]]
-- [[atlas/! hacks/code-e056/code-e056|Следовать системной теме]]
 - [[atlas/! hacks/code-e057/code-e057|Версия для печати]]
 - [[atlas/! hacks/code-e058/code-e058|Повышенный контраст]]
 
-## Выделения текста (bold, italic, …) · 37
+## Зачёркивание · 5
 
-- [[atlas/! hacks/emphasis-s01/emphasis-s01|01 · Более плотный bold]]
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]]
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]]
-- [[atlas/! hacks/emphasis-s04/emphasis-s04|04 · Разрядка]]
-- [[atlas/! hacks/emphasis-s05/emphasis-s05|05 · Капитель]]
-- [[atlas/! hacks/emphasis-s06/emphasis-s06|06 · Другая гарнитура]]
-- [[atlas/! hacks/emphasis-s07/emphasis-s07|07 · Прописные]]
-- [[atlas/! hacks/emphasis-s08/emphasis-s08|08 · Подчёркивание]]
-- [[atlas/! hacks/emphasis-s09/emphasis-s09|09 · Двойная линия]]
-- [[atlas/! hacks/emphasis-s10/emphasis-s10|10 · Пунктир]]
-- [[atlas/! hacks/emphasis-s11/emphasis-s11|11 · Волна]]
-- [[atlas/! hacks/emphasis-s12/emphasis-s12|12 · Линия сверху]]
-- [[atlas/! hacks/emphasis-s13/emphasis-s13|13 · Полоса под нижней частью букв]]
-- [[atlas/! hacks/emphasis-s14/emphasis-s14|14 · Мягкая плашка с переносами]]
-- [[atlas/! hacks/emphasis-s15/emphasis-s15|15 · Выворотка]]
-- [[atlas/! hacks/emphasis-s16/emphasis-s16|16 · Рамка]]
-- [[atlas/! hacks/emphasis-s17/emphasis-s17|17 · Градиентная подложка]]
-- [[atlas/! hacks/emphasis-s18/emphasis-s18|18 · Штриховка]]
-- [[atlas/! hacks/emphasis-s19/emphasis-s19|19 · Неровный маркер]]
-- [[atlas/! hacks/emphasis-s20/emphasis-s20|20 · Маркер через внутреннюю тень]]
-- [[atlas/! hacks/emphasis-s21/emphasis-s21|21 · Смещённая тень]]
-- [[atlas/! hacks/emphasis-s22/emphasis-s22|22 · Свечение]]
-- [[atlas/! hacks/emphasis-s23/emphasis-s23|23 · Градиентные буквы]]
-- [[atlas/! hacks/emphasis-s24/emphasis-s24|24 · Контурные буквы]]
-- [[atlas/! hacks/emphasis-s25/emphasis-s25|25 · Точки под буквами]]
-- [[atlas/! hacks/emphasis-s26/emphasis-s26|26 · Декоративные скобки]]
-- [[atlas/! hacks/emphasis-s27/emphasis-s27|27 · Обвести слово]]
-- [[atlas/! hacks/emphasis-s28/emphasis-s28|28 · Отдельный цвет линии]]
-- [[atlas/! hacks/emphasis-s29/emphasis-s29|29 · Двойное зачёркивание]]
-- [[atlas/! hacks/emphasis-s30/emphasis-s30|30 · Приглушённое удаление]]
-- [[atlas/! hacks/emphasis-s31/emphasis-s31|31 · Косой штрих]]
-- [[atlas/! hacks/emphasis-s32/emphasis-s32|32 · Четыре маркера]]
-- [[atlas/! hacks/emphasis-s33/emphasis-s33|33 · Комбинация как отдельный стиль]]
-- [[atlas/! hacks/emphasis-s34/emphasis-s34|34 · Третий уровень акцента]]
-- [[atlas/! hacks/emphasis-s35/emphasis-s35|35 · Заметное удаление]]
-- [[atlas/! hacks/emphasis-s36/emphasis-s36|36 · Заливка при наведении]]
-- [[atlas/! hacks/emphasis-s37/emphasis-s37|37 · Псевдоспойлер]]
+- [[atlas/! hacks/emphasis-s28/emphasis-s28|Цвет линии зачёркивания]]
+- [[atlas/! hacks/emphasis-s29/emphasis-s29|Двойное зачёркивание]]
+- [[atlas/! hacks/emphasis-s30/emphasis-s30|Приглушённое удаление]]
+- [[atlas/! hacks/emphasis-s31/emphasis-s31|Косой штрих]]
+- [[atlas/! hacks/emphasis-s37/emphasis-s37|Псевдоспойлер]]
+
+## Сочетания выделений · 4
+
+- [[atlas/! hacks/emphasis-s32/emphasis-s32|Контекстные маркеры]]
+- [[atlas/! hacks/emphasis-s33/emphasis-s33|Курсив с маркером]]
+- [[atlas/! hacks/emphasis-s34/emphasis-s34|Двойной акцент]]
+- [[atlas/! hacks/emphasis-s35/emphasis-s35|Зачёркивание с маркером]]
+
+## Выделения текста (bold, italic, …) · 28
+
+- [[atlas/! hacks/emphasis-s01/emphasis-s01|Более плотный bold]]
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]]
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]]
+- [[atlas/! hacks/emphasis-s04/emphasis-s04|Разрядка]]
+- [[atlas/! hacks/emphasis-s05/emphasis-s05|Капитель]]
+- [[atlas/! hacks/emphasis-s06/emphasis-s06|Другая гарнитура]]
+- [[atlas/! hacks/emphasis-s07/emphasis-s07|Прописные]]
+- [[atlas/! hacks/emphasis-s08/emphasis-s08|Подчёркивание]]
+- [[atlas/! hacks/emphasis-s09/emphasis-s09|Двойная линия]]
+- [[atlas/! hacks/emphasis-s10/emphasis-s10|Пунктир]]
+- [[atlas/! hacks/emphasis-s11/emphasis-s11|Волна]]
+- [[atlas/! hacks/emphasis-s12/emphasis-s12|Линия сверху]]
+- [[atlas/! hacks/emphasis-s13/emphasis-s13|Полоса под нижней частью букв]]
+- [[atlas/! hacks/emphasis-s14/emphasis-s14|Мягкая плашка с переносами]]
+- [[atlas/! hacks/emphasis-s15/emphasis-s15|Выворотка]]
+- [[atlas/! hacks/emphasis-s16/emphasis-s16|Рамка]]
+- [[atlas/! hacks/emphasis-s17/emphasis-s17|Градиентная подложка]]
+- [[atlas/! hacks/emphasis-s18/emphasis-s18|Штриховка]]
+- [[atlas/! hacks/emphasis-s19/emphasis-s19|Неровный маркер]]
+- [[atlas/! hacks/emphasis-s20/emphasis-s20|Маркер через внутреннюю тень]]
+- [[atlas/! hacks/emphasis-s21/emphasis-s21|Смещённая тень]]
+- [[atlas/! hacks/emphasis-s22/emphasis-s22|Свечение]]
+- [[atlas/! hacks/emphasis-s23/emphasis-s23|Градиентные буквы]]
+- [[atlas/! hacks/emphasis-s24/emphasis-s24|Контурные буквы]]
+- [[atlas/! hacks/emphasis-s25/emphasis-s25|Точки под буквами]]
+- [[atlas/! hacks/emphasis-s26/emphasis-s26|Декоративные скобки]]
+- [[atlas/! hacks/emphasis-s27/emphasis-s27|Обвести слово]]
+- [[atlas/! hacks/emphasis-s36/emphasis-s36|Заливка при наведении]]
 
 ## Сноски · 55
 
@@ -495,7 +504,6 @@
 - [[atlas/! hacks/iframe-e024/iframe-e024|Круглое окно]]
 - [[atlas/! hacks/iframe-e025/iframe-e025|Срезанные углы]]
 - [[atlas/! hacks/iframe-e026/iframe-e026|Растворение нижнего края]]
-- [[atlas/! hacks/iframe-e027/iframe-e027|Светлая и тёмная схема]]
 - [[atlas/! hacks/iframe-e028/iframe-e028|Инверсия светлой вставки]]
 - [[atlas/! hacks/iframe-e029/iframe-e029|Монохромная иллюстрация]]
 - [[atlas/! hacks/iframe-e030/iframe-e030|Тонировка через смешивание]]
@@ -607,7 +615,6 @@
 - [[atlas/! hacks/image-e083/image-e083|Стиль по пути файла]]
 - [[atlas/! hacks/image-e084/image-e084|Изображение внутри цитаты]]
 - [[atlas/! hacks/image-e085/image-e085|Адаптация к узкому экрану]]
-- [[atlas/! hacks/image-e086/image-e086|Ночная схема страницы]]
 - [[atlas/! hacks/image-e087/image-e087|Печатная версия]]
 
 ## Инлайн-код · 75
@@ -777,7 +784,6 @@
 - [[atlas/! hacks/link-e096/link-e096|Соседние пункты отступают]]
 - [[atlas/! hacks/link-e103/link-e103|Нет наведения: метка всегда видна]]
 - [[atlas/! hacks/link-e104/link-e104|Грубый указатель: крупнее область]]
-- [[atlas/! hacks/link-e105/link-e105|Светлая и тёмная схема]]
 - [[atlas/! hacks/link-e106/link-e106|Уменьшение движения]]
 - [[atlas/! hacks/link-e107/link-e107|Печать: дописать адрес]]
 - [[atlas/! hacks/link-e108/link-e108|Принудительные системные цвета]]
@@ -945,7 +951,6 @@
 - [[atlas/! hacks/metadata-mask/metadata-mask|Иконка из SVG-маски]]
 - [[atlas/! hacks/metadata-help/metadata-help|Подсказка во время редактирования]]
 - [[atlas/! hacks/metadata-leaders/metadata-leaders|Пунктир между названием и значением]]
-- [[atlas/! hacks/metadata-palette/metadata-palette|Светлая и тёмная карточка]]
 - [[atlas/! hacks/metadata-yaml-font/metadata-yaml-font|Отдельная типографика YAML]]
 - [[atlas/! hacks/metadata-yaml-tokens/metadata-yaml-tokens|Ключи, значения, числа и комментарии]]
 - [[atlas/! hacks/metadata-yaml-bg/metadata-yaml-bg|Полосы на ширину строки]]
@@ -1241,7 +1246,6 @@
 - [[atlas/! hacks/table-e074/table-e074|Переносы вместо скрытых столбцов]]
 - [[atlas/! hacks/table-e075/table-e075|Заголовки ссылок с адресами при печати]]
 - [[atlas/! hacks/table-e076/table-e076|Печать без разрыва коротких строк]]
-- [[atlas/! hacks/table-e077/table-e077|Тёмная тема через переменные]]
 - [[atlas/! hacks/table-e078/table-e078|Финансовая сводка]]
 - [[atlas/! hacks/table-e079/table-e079|Сравнение вариантов]]
 - [[atlas/! hacks/table-e080/table-e080|Реестр документов]]
@@ -1418,7 +1422,7 @@
 - [[atlas/! hacks/task-e80/task-e80|Зачеркнуть только название]]
 - [[atlas/! hacks/task-e81/task-e81|Фильтр сохраняет счётчик завершённых]]
 
-## Текст · 27
+## Текст · 28
 
 - [[atlas/! hacks/text-measure/text-measure|Ограниченная длина строки]]
 - [[atlas/! hacks/text-compact/text-compact|Компактный набор]]
@@ -1449,6 +1453,8 @@
 - [[atlas/! hacks/text-letter-composition/text-letter-composition|Личное письмо]]
 
 
+- [[atlas/! hacks/text-system/text-system|Текстовая система]] · [[atlas/! hacks/text-system/expanded|Сравнить 10 систем]]
+
 ## Интерфейс Obsidian · 8
 
 - [[atlas/! hacks/interface-focused-pane/interface-focused-pane|Рамка панели с фокусом]]
@@ -1468,7 +1474,6 @@
 - [[atlas/! hacks/meta-print-links/meta-print-links|Адреса ссылок на бумаге]]
 - [[atlas/! hacks/meta-print-pagination/meta-print-pagination|Печатные страницы без одиноких заголовков]]
 - [[atlas/! hacks/meta-higher-contrast/meta-higher-contrast|Усиление границ по системной настройке]]
-- [[atlas/! hacks/meta-follow-obsidian-theme/meta-follow-obsidian-theme|Следовать теме Obsidian, а не системе]]
 - [[atlas/! hacks/meta-progressive-color/meta-progressive-color|Современный цвет с запасным вариантом]]
 
 ## Опорные переменные
@@ -1484,46 +1489,6 @@
 - [[atlas/! hacks/footnote-opentype-superscript/footnote-opentype-superscript|Настоящие надстрочные глифы в сносках]]
 - [[atlas/! hacks/task-ascii-marker/task-ascii-marker|Текстовые отметки задач [ ] и [x]]]
 
-## Текстовые системы · 10
+## Приёмы с подборкой вариантов
 
-- [[atlas/! hacks/text-system-uswds/text-system-uswds|USWDS — стандартная сборка]]
-- [[atlas/! hacks/text-system-primer/text-system-primer|Primer — базовая типографика]]
-- [[atlas/! hacks/text-system-oreillyepub/text-system-oreillyepub|O’Reilly Technical — EPUB]]
-- [[atlas/! hacks/text-system-rutter/text-system-rutter|По Раттеру — ритм строки]]
-- [[atlas/! hacks/text-system-mortensen/text-system-mortensen|По Мортенсену — четыре ступени]]
-- [[atlas/! hacks/text-system-nostarch/text-system-nostarch|No Starch Press — The Modern Web]]
-- [[atlas/! hacks/text-system-dmk/text-system-dmk|ДМК Пресс — Цифровой свет и рендеринг]]
-- [[atlas/! hacks/text-system-memoir/text-system-memoir|memoir — ntglike без курсива]]
-- [[atlas/! hacks/text-system-carbon/text-system-carbon|Carbon — контраст насыщенности]]
-- [[atlas/! hacks/text-system-fluentcompact/text-system-fluentcompact|Fluent 2 — насыщенность и шаг размера]]
-
-## Палитры · 26
-
-[[atlas/! categories/palette|Галерея палитр с живым примером]]
-
-- [[atlas/! hacks/palette-flexoki-1/palette-flexoki-1|Flexoki — Light]]
-- [[atlas/! hacks/palette-flexoki-2/palette-flexoki-2|Flexoki — Dark]]
-- [[atlas/! hacks/palette-solarized-1/palette-solarized-1|Solarized — Light]]
-- [[atlas/! hacks/palette-solarized-2/palette-solarized-2|Solarized — Dark]]
-- [[atlas/! hacks/palette-catppuccin-1/palette-catppuccin-1|Catppuccin — Latte]]
-- [[atlas/! hacks/palette-catppuccin-2/palette-catppuccin-2|Catppuccin — Frappé]]
-- [[atlas/! hacks/palette-catppuccin-3/palette-catppuccin-3|Catppuccin — Macchiato]]
-- [[atlas/! hacks/palette-catppuccin-4/palette-catppuccin-4|Catppuccin — Mocha]]
-- [[atlas/! hacks/palette-gruvbox-1/palette-gruvbox-1|Gruvbox — Light medium]]
-- [[atlas/! hacks/palette-gruvbox-2/palette-gruvbox-2|Gruvbox — Dark medium]]
-- [[atlas/! hacks/palette-nord-1/palette-nord-1|Nord — Polar Night]]
-- [[atlas/! hacks/palette-dracula-1/palette-dracula-1|Dracula — Classic]]
-- [[atlas/! hacks/palette-vscode-1/palette-vscode-1|VS Code — Light Modern]]
-- [[atlas/! hacks/palette-vscode-2/palette-vscode-2|VS Code — Dark Modern]]
-- [[atlas/! hacks/palette-material-1/palette-material-1|Material — Seed 6750A4 · Light]]
-- [[atlas/! hacks/palette-material-2/palette-material-2|Material — Seed 6750A4 · Dark]]
-- [[atlas/! hacks/palette-tailwind-1/palette-tailwind-1|Tailwind CSS — Slate + Indigo · Light]]
-- [[atlas/! hacks/palette-tailwind-2/palette-tailwind-2|Tailwind CSS — Slate + Indigo · Dark]]
-- [[atlas/! hacks/palette-radix-1/palette-radix-1|Radix Colors — Slate + Iris · Light]]
-- [[atlas/! hacks/palette-radix-2/palette-radix-2|Radix Colors — Slate + Iris · Dark]]
-- [[atlas/! hacks/palette-carbon-1/palette-carbon-1|IBM Carbon — WHITE]]
-- [[atlas/! hacks/palette-carbon-2/palette-carbon-2|IBM Carbon — G10]]
-- [[atlas/! hacks/palette-carbon-3/palette-carbon-3|IBM Carbon — G90]]
-- [[atlas/! hacks/palette-carbon-4/palette-carbon-4|IBM Carbon — G100]]
-- [[atlas/! hacks/palette-base16-1/palette-base16-1|Tinted / Base16 — Default Light]]
-- [[atlas/! hacks/palette-base16-2/palette-base16-2|Tinted / Base16 — Default Dark]]
+- [[atlas/! hacks/palette/palette|Палитра]] · [[atlas/! hacks/palette/expanded|Сравнить 11 светлых вариантов]]

@@ -1,41 +1,60 @@
-:is(.markdown-preview-view, .markdown-source-view) {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e109-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e109-level h3 {
+.markdown-preview-view {
   counter-reset: chapter 3;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view h3 {
   counter-increment: chapter;
   display: flex;
   align-items: center;
   gap: 1rem;
   font-size: calc(var(--h3-size) * 1.365706);
 }
-:is(.markdown-preview-view, .markdown-source-view) h3::before {
+.markdown-preview-view h3::before {
   content: counter(chapter,decimal-leading-zero);
   font-size: 4rem;
   color: var(--interactive-accent);
   line-height: 1;
 }
 @container markdown-demo (max-width:350px) {
-  :is(.markdown-preview-view, .markdown-source-view) h3 {
+  .markdown-preview-view h3 {
     display: block;
     font-size: calc(var(--h3-size) * 1.062215);
   }
-  :is(.markdown-preview-view, .markdown-source-view) h3::before {
+  .markdown-preview-view h3::before {
     font-size: 1rem;
     display: block;
     margin-bottom: .5rem;
   }
 }
 @container markdown-demo (max-width:350px) {
-  :is(.markdown-preview-view, .markdown-source-view) h3 {
+  .markdown-preview-view h3 {
     display: block;
     font-size: calc(var(--h3-size) * 1.062215);
   }
 }
 @container markdown-demo (max-width:350px) {
-  :is(.markdown-preview-view, .markdown-source-view) h3::before {
+  .markdown-preview-view h3::before {
     font-size: 1rem;
     display: block;
     margin-bottom: .5rem;
   }
 }
 
+
+}

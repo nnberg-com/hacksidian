@@ -1,3 +1,4 @@
+import { registerExpandedExamples } from './expanded-example';
 import { registerLiveExamples } from './live-example';
 import { ParameterControls } from './parameter-controls';
 import { previewState } from './preview-state';
@@ -37,6 +38,7 @@ export class TechniqueBlock extends MarkdownRenderChild {
       const texts = await Promise.all(kinds.map(kind => readTechniqueSource(adapter, this.directory, kind)));
       const id = this.directory.split('/').pop()!;
       const card = ['sources', 'id'].includes(this.kind) ? await adapter.read(`${this.directory}/${id}.md`) : '';
+      const hasExpanded = this.kind === 'id' && await adapter.exists(`${this.directory}/expanded.md`);
       if (this.stopped || epoch !== this.epoch) return;
       if (this.owner) this.removeChild(this.owner);
       const owner = new Component(); this.owner = owner; this.addChild(owner);
@@ -63,6 +65,7 @@ export class TechniqueBlock extends MarkdownRenderChild {
           }
         }
         }
+        if (hasExpanded) this.internalLink(this.containerEl, en ? 'Compare variants' : 'Сравнить варианты', `${this.directory}/expanded.md`, owner);
         const row = this.containerEl.createDiv({ cls: 'hacksidian-card-row' });
         const heading = row.createEl('h2', { cls: 'hacksidian-card-title', text: this.embedded ? '' : String(metadata.title || id) });
         if (this.embedded) this.internalLink(heading, String(metadata.title || id), path, owner);
@@ -190,12 +193,12 @@ export class TechniqueBlock extends MarkdownRenderChild {
 }
 export function registerSourceBlocks(plugin: Plugin, favourites?: FavouriteControls): void {
   registerLiveExamples(plugin, favourites);
+  registerExpandedExamples(plugin, favourites);
+  plugin.registerMarkdownCodeBlockProcessor('hacksidian-category-count', async (source, el, ctx) => {
+    const { CategoryExamples } = await import('./category-examples');
+    ctx.addChild(new CategoryExamples(el, plugin, ctx.sourcePath, source.trim(), favourites, true));
+  });
   plugin.registerMarkdownCodeBlockProcessor('hacksidian-category', async (source, el, ctx) => {
-    if (source.trim() === 'palette') {
-      const { PaletteGallery } = await import('./palette-gallery');
-      ctx.addChild(new PaletteGallery(el, plugin, ctx.sourcePath, favourites));
-      return;
-    }
     const { CategoryExamples } = await import('./category-examples');
     ctx.addChild(new CategoryExamples(el, plugin, ctx.sourcePath, source.trim(), favourites));
   });

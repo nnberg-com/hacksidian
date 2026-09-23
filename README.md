@@ -18,8 +18,6 @@ CSS grooming for Obsidian • LLM chat + recommended system
 
 - [Требования и будущие изменения — OpenSpec](openspec/README.md)
 
-- [Сборка и выпуск шаблонного vault](docs/starter-vault.md)
-
 - [Выпуск и обновление плагина](docs/plugin-release.md)
 
 > [!IMPORTANT]

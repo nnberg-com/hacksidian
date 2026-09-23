@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_emphasis
-title: 37 · Псевдоспойлер
-category: emphasis
+  - hacksidian_strikethrough
+title: Псевдоспойлер
+category: strikethrough
 sources: []
 format: markdown
 themes:

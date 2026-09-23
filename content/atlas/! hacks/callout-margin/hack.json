@@ -1,6 +1,9 @@
 {
   "format": 2,
-  "target": "g-callout",
+  "target": "g-composition",
   "hasCss": true,
-  "group": "callout"
+  "group": "composition",
+  "previousTargets": [
+    "g-callout"
+  ]
 }

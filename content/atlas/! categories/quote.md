@@ -6,6 +6,10 @@ title: Цитаты
 
 # Цитаты
 
+```hacksidian-category-count
+quote
+```
+
 Значение поля `category`: `quote`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

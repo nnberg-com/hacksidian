@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 09 · Двойная линия
+title: Двойная линия
 category: emphasis
 sources: []
 format: markdown
@@ -16,6 +16,8 @@ emphasis-s09
 ```hacksidian-live
 emphasis-s09
 ```
+
+Параметр «Применить к…» выбирает `**…**`, `_…_` или `==…==`. Приём полностью задаёт оформление выбранной разметки в Preview mode. Другие параметры приёма настраиваются независимо.
 
 ```hacksidian-sources
 emphasis-s09

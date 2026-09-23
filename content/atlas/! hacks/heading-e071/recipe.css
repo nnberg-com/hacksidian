@@ -1,10 +1,27 @@
-:is(.markdown-preview-view, .markdown-source-view) {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e071-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e071-level h3 {
+.markdown-preview-view {
   display: block;
   block-size: 230px;
   overflow: auto;
   padding: 0;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view h3 {
   position: sticky;
   top: 0;
   padding: .7rem;
@@ -15,12 +32,12 @@
   background-size: 0% 100%;
   z-index: 1;
 }
-:is(.markdown-preview-view, .markdown-source-view) p {
+.markdown-preview-view p {
   min-block-size: 650px;
   padding: 1rem;
 }
 @supports (animation-timeline:scroll()) {
-  :is(.markdown-preview-view, .markdown-source-view) h3 {
+  .markdown-preview-view h3 {
     animation: hack-heading-e071-heading-e071-progress-fill 1s linear both;
     animation-timeline: scroll(nearest block);
   }
@@ -31,3 +48,5 @@
   }
 }
 
+
+}

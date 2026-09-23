@@ -10,8 +10,8 @@ test('comma lists, pseudo classes, children and descendant siblings stay inside 
  expect(result).toContain('#hacksidian-live-two a:hover'); expect(result).toContain('#hacksidian-live-two p + p');
 });
 test('theme ancestors and conditional CSS remain effective', () => {
- const result = scopeLiveExample('@media (max-width:600px){.theme-dark .markdown-preview-view p {color:var(--text-normal)}}', 'hacksidian-live-one');
- expect(result).toContain('.theme-dark #hacksidian-live-one p');expect(result).toContain('@container preview (max-width:600px)');
+ const result = scopeLiveExample('@media (max-width:600px){.theme-light .markdown-preview-view p {color:var(--text-normal)}}', 'hacksidian-live-one');
+ expect(result).toContain('.theme-light #hacksidian-live-one p');expect(result).toContain('@container preview (max-width:600px)');
 });
 test('global targets, resources, nesting and host siblings cannot escape', () => {
  for(const css of ['body {color:red}', '@import "x";', '@font-face{src:url(x)}', `${host} + p {color:red}`, `.workspace:has(${host}){color:red}`, `${host}{& a{color:red}}`]) expect(() => scopeLiveExample(css, 'hacksidian-live-one')).toThrow();

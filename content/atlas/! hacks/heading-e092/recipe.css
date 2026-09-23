@@ -1,12 +1,31 @@
-:is(.markdown-preview-view, .markdown-source-view) {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e092-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e092-level h3 {
+.markdown-preview-view {
   --hack-heading-e092-texture: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iMTYwIj48ZmlsdGVyIGlkPSJncmFpbiI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9Ii4wNTUiIG51bU9jdGF2ZXM9IjQiIHNlZWQ9IjYiLz48ZmVDb2xvck1hdHJpeCB0eXBlPSJzYXR1cmF0ZSIgdmFsdWVzPSIwIi8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIG1vZGU9Im11bHRpcGx5Ii8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxNjAiIGZpbGw9IiNiNDY5MzMiLz48cGF0aCBkPSJNLTQwIDEzMEwyNjAgMTVNLTIwIDE4MEwyODAgNjUiIHN0cm9rZT0iIzI5NGY0YiIgc3Ryb2tlLXdpZHRoPSI0MCIvPjxyZWN0IHdpZHRoPSIyNDAiIGhlaWdodD0iMTYwIiBmaWxsPSIjYmRhNDYyIiBvcGFjaXR5PSIuNjUiIGZpbHRlcj0idXJsKCNncmFpbikiLz48L3N2Zz4=");
 }
-:is(.markdown-preview-view, .markdown-source-view) {
+.markdown-preview-view {
   background: #e8cf96 var(--hack-heading-e092-texture) center/cover;
   isolation: isolate;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view h3 {
   color: #483c79;
   mix-blend-mode: multiply;
   font-size: calc(var(--h3-size) * 2.124431);
+}
+
 }

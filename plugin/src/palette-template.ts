@@ -13,7 +13,6 @@ export const PALETTE_TEMPLATE = `<div id="obsidian-palette-lab"><style>
 #obsidian-palette-lab select{max-width:100%}
 #obsidian-palette-lab .meta{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:10px 0}
 #obsidian-palette-lab .workspace{border:1px solid var(--background-modifier-border);border-radius:9px;overflow:hidden;background:var(--background-primary);color:var(--text-normal);color-scheme:light}
-#obsidian-palette-lab .workspace.dark{color-scheme:dark}
 #obsidian-palette-lab .workspace ::selection{background:var(--text-selection)}
 #obsidian-palette-lab .appbar{background:var(--background-secondary);border-bottom:1px solid var(--background-modifier-border);padding:10px 16px;display:flex;justify-content:space-between;gap:10px;color:var(--text-muted);font-size:12px}
 #obsidian-palette-lab .panes{display:grid;grid-template-columns:175px minmax(0,1fr)}
@@ -73,7 +72,7 @@ export const PALETTE_TEMPLATE = `<div id="obsidian-palette-lab"><style>
 <h3 id="op-related">Небольшой фрагмент кода</h3>
 <pre><code><span style="color:var(--color-purple)">const</span> palette = <span style="color:var(--color-green)">"согласованный набор"</span>;
 <span style="color:var(--color-blue)">apply</span>(palette); <span class="faint">// второстепенный текст</span></code></pre>
-<label style="display:block"><input type="checkbox" checked style="accent-color:var(--color-accent)"> Проверить заметку на светлом и тёмном фоне</label>
+<label style="display:block"><input type="checkbox" checked style="accent-color:var(--color-accent)"> Проверить заметку на светлом фоне</label>
 <div class="actions"><button class="appbutton primary" type="button" id="op-save">Сохранить заметку</button><button class="appbutton" type="button" id="op-more">Показать подпись</button><span class="muted" id="op-saved" aria-live="polite"></span></div>
 <div class="faint" id="op-caption" hidden>Служебная подпись · роль --text-faint</div>
 </article></div></div>

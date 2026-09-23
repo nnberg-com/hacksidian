@@ -6,6 +6,10 @@ title: Свойства заметки
 
 # Свойства заметки
 
+```hacksidian-category-count
+metadata
+```
+
 Значение поля `category`: `metadata`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

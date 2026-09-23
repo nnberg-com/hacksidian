@@ -29,8 +29,8 @@ Commit: `4a0888fc37caf88d98607c6fa2fd4cb35d32082e`. Основной файл: `
 - [[atlas/! hacks/callout-technical-round/callout-technical-round|Большое скругление]] — существующая карточка
 - [[atlas/! hacks/tag-e064/tag-e064|Радуга по позиции]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 
 ## Реестр настроек
 

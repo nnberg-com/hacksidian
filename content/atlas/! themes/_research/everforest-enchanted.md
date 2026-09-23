@@ -36,8 +36,8 @@ Commit: `9dacd9c655427f36cb14e2e5ed1607629732e577`. Основной файл: `
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
 - [[atlas/! hacks/image-e063/image-e063|Обтекание справа]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
 - [[atlas/! hacks/table-e034/table-e034|Подсветка строки]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка

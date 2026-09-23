@@ -3,7 +3,6 @@
 * {box-sizing:border-box;}
 html {scroll-behavior:smooth;scroll-padding-top:85px;}
 body {margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 Onest,system-ui,sans-serif;}
-body:has(#dark:checked) {color-scheme:dark;--paper:#202428;--ink:#f5f1e8;--muted:#b7b4af;--accent:#ff9daf;--purple:#c3a8f1;--tint:#393039;--marker:#655323;--line:#4a4946;--wash:#272b30;}
 a {color:var(--accent);text-underline-offset:.15em;}
 a:focus-visible, summary:focus-visible, input:focus-visible {outline:2px solid var(--accent);outline-offset:4px;}
 button,input {font:inherit;accent-color:var(--accent);}
@@ -299,7 +298,6 @@ footer {display:flex;justify-content:space-between;border-top:1px solid var(--li
 
 .e105 {padding:1em;background:#fffdf7;color:#252728;--local-link:#a12c49;}
 .e105 a {color:var(--local-link);}
-@media(prefers-color-scheme:dark) {.e105 {background:#202428;color:#f5f1e8;--local-link:#ff9daf;}}
 
 .e106 a {display:inline-block;transition:transform .25s;}
 .e106 a:is(:hover, :focus-visible) {transform:translateX(.4em);color:var(--purple);}
@@ -363,7 +361,7 @@ html:has(#still:checked) {scroll-behavior:auto!important;}
 @media(prefers-reduced-motion:reduce) {html,*,*::before,*::after {animation:none!important;transition:none!important;scroll-behavior:auto!important;} .sample :target {outline:2px solid var(--accent);outline-offset:3px;} }
 @media(forced-colors:active) {body .sample a {color:LinkText!important;background:none!important;text-decoration-line:underline!important;text-decoration-color:LinkText!important;} body .sample a:focus-visible {outline:2px solid Highlight!important;} }
 @media print {
-  :root,body:has(#dark:checked) {color-scheme:light;--paper:white;--ink:black;--muted:#333;--accent:black;--purple:black;--wash:#f4f4f4;--line:#bbb;--marker:#eee;--tint:#eee;}
+  :root {color-scheme:light;--paper:white;--ink:black;--muted:#333;--accent:black;--purple:black;--wash:#f4f4f4;--line:#bbb;--marker:#eee;--tint:#eee;}
   .topbar,.toc,.skip {display:none;} .layout {display:block;} main {padding:0;max-width:none;} .hero {padding:0;} h1 {font-size:48px;} .hero h1>span {display:none;} .hero-facts {padding:8px 0;margin:15px 0;}
   .catalog-section {padding-top:25px;} .example {gap:20px;padding:18px 0;break-inside:avoid;} .sample {font-size:12px;} .explanation {font-size:10px;} h3 {font-size:13px;} h2 {font-size:22px;} .eyebrow {font-size:8px;}
   .e079 blockquote > p {display:block!important;} .e080 blockquote > p + p {visibility:visible!important;}

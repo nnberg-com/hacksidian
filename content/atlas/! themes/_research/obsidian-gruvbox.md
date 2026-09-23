@@ -10,8 +10,8 @@ Commit: `bec6c083415980155aefc1a0d26c7cfe68fd85eb`. Основной файл: `
 
 - Выделение активной строки редактора — новая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
 - [[atlas/! hacks/table-e003/table-e003|Только горизонтали]] — существующая карточка

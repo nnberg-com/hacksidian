@@ -17,9 +17,9 @@ Commit: `9b8bef93d3919f7693ac78597beaa35bbbd4cfff`. Основной файл: `
 - Состояния задач по символу в квадратных скобках — новая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/heading-e006/heading-e006|Капитель]] — существующая карточка
-- [[atlas/! hacks/emphasis-s13/emphasis-s13|13 · Полоса под нижней частью букв]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s13/emphasis-s13|Полоса под нижней частью букв]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/note-code-scroll/note-code-scroll|Длинные строки с прокруткой]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка

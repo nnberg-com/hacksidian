@@ -11,8 +11,8 @@ Commit: `fe7bcb027b40ce391bd89e8379dda8672cb4a22b`. Основной файл: `
 - Встроенная заметка без повторного заголовка — новая карточка
 - Встроенная заметка без отдельной рамки — новая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/metadata-no-icons/metadata-no-icons|Без иконок типов]] — существующая карточка
 
 ## Реестр настроек

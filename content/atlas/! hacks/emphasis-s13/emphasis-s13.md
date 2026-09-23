@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 13 · Полоса под нижней частью букв
+title: Полоса под нижней частью букв
 category: emphasis
 sources: []
 format: markdown
@@ -17,6 +17,8 @@ emphasis-s13
 ```hacksidian-live
 emphasis-s13
 ```
+
+Параметр «Применить к…» выбирает `**…**`, `_…_` или `==…==`. Приём полностью задаёт оформление выбранной разметки в Preview mode. Другие параметры приёма настраиваются независимо.
 
 ```hacksidian-sources
 emphasis-s13

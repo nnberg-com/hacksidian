@@ -14,6 +14,10 @@ sources:
 
 # Ссылки
 
+```hacksidian-category-count
+link
+```
+
 Значение поля `category`: `link`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

@@ -1,3 +1,4 @@
+import { parameterExample } from './parameter-variants';
 import { Component, MarkdownRenderChild, Plugin } from 'obsidian';
 import { paletteVariables, parsePaletteInfo, contrastRatio, type PaletteInfo } from './palette';
 import { PALETTE_TEMPLATE } from './palette-template';
@@ -7,7 +8,7 @@ export class PaletteExample extends MarkdownRenderChild {
   private stopped = false;
   private epoch = 0;
   private owner?: Component;
-  constructor(el: HTMLElement, private plugin: Plugin, private directory: string) { super(el); }
+  constructor(el: HTMLElement, private plugin: Plugin, private directory: string, private values?: Record<string, string>) { super(el); }
   onload(): void {
     this.registerEvent(this.plugin.app.vault.on('modify', file => {
       if (file.path === `${this.directory}/palette.json` || file.path === `${this.directory}/recipe.css`) void this.render();
@@ -19,8 +20,9 @@ export class PaletteExample extends MarkdownRenderChild {
     const epoch = ++this.epoch;
     try {
       const adapter = this.plugin.app.vault.adapter;
-      const [raw, css] = await Promise.all([adapter.read(`${this.directory}/palette.json`), adapter.read(`${this.directory}/recipe.css`)]);
-      const info = parsePaletteInfo(raw), values = paletteVariables(css, info.mode);
+      const [raw, rawCss] = await Promise.all([adapter.read(`${this.directory}/palette.json`), adapter.read(`${this.directory}/recipe.css`)]);
+      const css = parameterExample(rawCss, this.values ?? {});
+      const info = parsePaletteInfo(raw, css), values = paletteVariables(css, info.mode);
       if (this.stopped || epoch !== this.epoch) return;
       if (this.owner) this.removeChild(this.owner);
       const owner = new Component(); this.owner = owner; this.addChild(owner);
@@ -30,7 +32,7 @@ export class PaletteExample extends MarkdownRenderChild {
   }
 }
 
-/** Shadow boundary isolates light/dark models from the active theme and other examples. */
+/** Shadow boundary isolates palette models from the active theme and other examples. */
 export function mountPaletteExample(el: HTMLElement, info: PaletteInfo, values: Record<string, string>, owner: Component, directory: string): void {
   const doc = el.ownerDocument;
   const controls = el.createDiv({cls: 'hacksidian-palette-controls'});
@@ -40,7 +42,7 @@ export function mountPaletteExample(el: HTMLElement, info: PaletteInfo, values: 
   accent.createEl('option', {value: 'author', text: 'Из палитры · только пример'});
   const description = el.createEl('p', {cls: 'setting-item-description', text: info.note});
   description.createEl('a', {text: ' Первоисточник ↗', href: info.source});
-  el.createEl('p', {cls: 'setting-item-description', text: `${info.mode === 'dark' ? 'Тёмный' : 'Светлый'} режим. Включение сохраняет ваш акцент. Выбор акцента здесь меняет только пример.`});
+  el.createEl('p', {cls: 'setting-item-description', text: 'Светлый режим. Включение сохраняет ваш акцент. Выбор акцента здесь меняет только пример.'});
   const host = el.createDiv({cls: 'hacksidian-palette-model'});
   const shadow = host.attachShadow({mode: 'open'});
   shadow.innerHTML = PALETTE_TEMPLATE;
@@ -64,9 +66,12 @@ export function mountPaletteExample(el: HTMLElement, info: PaletteInfo, values: 
   const update = () => {
     const native = doc.defaultView!.getComputedStyle(doc.body);
     sample.removeAttribute('style');
+    // Custom properties inherit across Shadow DOM; compare the source palette,
+    // not the manual semantic overrides currently active on the host page.
+    if (state.enabled) for (const color of ['red','orange','yellow','green','cyan','blue','purple','pink']) {
+      sample.style.setProperty(`--hacksidian-semantic-${color}`, 'initial');
+    }
     const selected = state.enabled ? values : Object.fromEntries(Object.keys(values).map(k => [k, native.getPropertyValue(k)]));
-    const dark = state.enabled ? info.mode === 'dark' : doc.body.classList.contains('theme-dark');
-    sample.classList.toggle('dark', dark);
     for (const [key, value] of Object.entries(selected)) sample.style.setProperty(key, value);
     // These aliases are explicitly local. Installed recipes leave Obsidian's accent logic intact.
     sample.style.setProperty('--color-accent', state.enabled && accent.value === 'author' ? info.accent : native.getPropertyValue('--color-accent').trim());
@@ -78,7 +83,7 @@ export function mountPaletteExample(el: HTMLElement, info: PaletteInfo, values: 
     const computed = doc.defaultView!.getComputedStyle(sample);
     const a = rgb(computed.getPropertyValue('--color-accent'));
     sample.style.setProperty('--text-on-accent', contrastRatio(a,[255,255,255]) > contrastRatio(a,[0,0,0]) ? '#fff' : '#000');
-    shadow.querySelector('#op-mode')!.textContent = (dark ? 'Тёмный' : 'Светлый') + (state.enabled ? ' режим' : ' · текущее оформление');
+    shadow.querySelector('#op-mode')!.textContent = state.enabled ? 'Светлый режим' : 'Текущее оформление';
     const bg = rgb(computed.getPropertyValue('--background-primary'));
     ratios.empty();
     for (const [title,key] of [['Основной текст','--text-normal'],['Приглушённый','--text-muted'],['Ссылка','--color-accent']]) {
@@ -92,7 +97,7 @@ export function mountPaletteExample(el: HTMLElement, info: PaletteInfo, values: 
     body.empty();
     for (const [key,value] of Object.entries(values)) {
       const row = body.createEl('tr');
-      for (const text of [key,value,info.refs[key.slice(2)] || (value.includes('color-mix') ? 'Смешение · адаптация Hacksidian' : value.startsWith('var(') ? 'Связь штатных ролей' : key.endsWith('-rgb') ? 'sRGB · совместимость со старыми темами' : 'Адаптация Hacksidian')]) row.createEl('td',{text});
+      for (const text of [key,value,info.refs[key.slice(2)] || (value.includes('color-mix') ? 'Смешение · адаптация Hacksidian' : value.startsWith('var(') ? 'Связь штатных ролей' : 'Адаптация Hacksidian')]) row.createEl('td',{text});
     }
   };
   owner.registerDomEvent(accent,'change',update);

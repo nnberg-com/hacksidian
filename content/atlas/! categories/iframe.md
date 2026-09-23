@@ -6,6 +6,10 @@ title: Iframe
 
 # Iframe
 
+```hacksidian-category-count
+iframe
+```
+
 Значение поля `category`: `iframe`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

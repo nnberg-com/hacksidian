@@ -51,7 +51,7 @@ Commit: `d7a6dc1834116e15f4a11c4d41276db6d7cb7437`. Основной файл: `
 - [[atlas/! hacks/code-e036/code-e036|Окно с тремя кружками]] — существующая карточка
 - [[atlas/! hacks/code-e052/code-e052|Читаемая метка языка]] — существующая карточка
 - [[atlas/! hacks/heading-e006/heading-e006|Капитель]] — существующая карточка
-- [[atlas/! hacks/emphasis-s14/emphasis-s14|14 · Мягкая плашка с переносами]] — существующая карточка
+- [[atlas/! hacks/emphasis-s14/emphasis-s14|Мягкая плашка с переносами]] — существующая карточка
 - [[atlas/! hacks/list-e047/list-e047|Направляющая вложенности]] — существующая карточка
 - [[atlas/! hacks/quote-italic/quote-italic|Курсив]] — существующая карточка
 - [[atlas/! hacks/note-quote-glyph/note-quote-glyph|Большая кавычка на поле]] — существующая карточка
@@ -69,8 +69,8 @@ Commit: `d7a6dc1834116e15f4a11c4d41276db6d7cb7437`. Основной файл: `
 - [[atlas/! hacks/tag-e022/tag-e022|Контурная капсула]] — существующая карточка
 - [[atlas/! hacks/note-print-flow/note-print-flow|Разрывы страниц и висячие строки]] — существующая карточка
 - [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/code-e018/code-e018|Мягкий перенос]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка

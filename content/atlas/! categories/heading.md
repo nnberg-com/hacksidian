@@ -6,6 +6,10 @@ title: Заголовки
 
 # Заголовки
 
+```hacksidian-category-count
+heading
+```
+
 Значение поля `category`: `heading`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

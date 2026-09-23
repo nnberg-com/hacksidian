@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_emphasis
-title: 34 · Третий уровень акцента
-category: emphasis
+  - hacksidian_emphasis-combinations
+title: Двойной акцент
+category: emphasis-combinations
 sources: []
 format: markdown
 themes: []

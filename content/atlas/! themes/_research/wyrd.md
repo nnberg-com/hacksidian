@@ -10,10 +10,10 @@ Commit: `69026fb887ace5a89e9010145a495eee81970dac`. Основной файл: `
 
 - Визуальная цензура фрагмента текста — новая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s33/emphasis-s33|33 · Комбинация как отдельный стиль]] — существующая карточка
-- [[atlas/! hacks/emphasis-s37/emphasis-s37|37 · Псевдоспойлер]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s33/emphasis-s33|Курсив с маркером]] — существующая карточка
+- [[atlas/! hacks/emphasis-s37/emphasis-s37|Псевдоспойлер]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/heading-e051/heading-e051|Неоновая вывеска]] — существующая карточка
 - [[atlas/! hacks/note-quote-line/note-quote-line|Классическая цитата с линией]] — существующая карточка
 - [[atlas/! hacks/table-e027/table-e027|Компактная таблица по центру]] — существующая карточка

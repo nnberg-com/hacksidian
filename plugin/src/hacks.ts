@@ -1,3 +1,4 @@
+import { resolveParameterVariants } from './parameter-variants';
 import { readParameters, parameterValue, parameterInput } from './parameters';
 import { t } from "../i18n";
 import postcss from 'postcss';
@@ -8,8 +9,10 @@ export interface HackSpec {
   target: string;
   requirements?: string[];
   hasCss: boolean;
-  /** Mutually exclusive recipes, independently for light/dark palettes. */
-  exclusiveGroup?: string;
+  /** Legacy recipe IDs replaced only when this technique is explicitly applied. */
+  replaces?: string[];
+  /** Earlier category modules; move this recipe only on explicit apply/update. */
+  previousTargets?: string[];
 }
 export interface HackContext {
   installed?: boolean;
@@ -35,20 +38,22 @@ export function compileHack(hack: HackContext): string {
   if (!hack.spec.hasCss) throw new Error(t("hacks.this_technique_has_no_css_of_its"));
   postcss.parse(hack.css);
   for (const parameter of readParameters(hack.css)) parameterValue(parameter, parameterInput(parameter));
-  return hack.css;
+  return resolveParameterVariants(hack.css);
 }
 
 export function addHack(style: ModularStyle, hack: HackContext): { style: ModularStyle; changed: boolean } {
   const original = style;
-  if (hack.spec.exclusiveGroup) {
-    if (!/^palette-(light|dark)$/.test(hack.spec.exclusiveGroup) || hack.spec.target !== 'g-palette' || !hack.css.includes(`/* hacksidian:exclusive:${hack.spec.exclusiveGroup} */`)) throw new Error(t('hacks.invalid_technique_format'));
-    // Ownership is stored inside the removable recipe block, never in a second registry.
-    const selectedModule = style.modules.find(m => m.id === hack.spec.target);
-    const blocks = [...(selectedModule?.css.matchAll(/\/\* hacksidian:hack:([a-z0-9-]+):start \*\/([\s\S]*?)\/\* hacksidian:hack:\1:end \*\//g) ?? [])];
-    const marker = `/* hacksidian:exclusive:${hack.spec.exclusiveGroup} */`;
-    if ((selectedModule?.css.split(marker).length ?? 1) - 1 !== blocks.filter(b => b[2].includes(marker)).length) throw new Error(t('hacks.invalid_technique_format'));
-    for (const block of blocks) {
-      if (block[1] !== hack.id && block[2].includes(`/* hacksidian:exclusive:${hack.spec.exclusiveGroup} */`)) style = removeHack(style, block[1]).style;
+  if (hack.spec.previousTargets !== undefined) {
+    if (!Array.isArray(hack.spec.previousTargets) || hack.spec.previousTargets.some(id => typeof id !== 'string' || !/^g-[a-z0-9-]+$/.test(id) || id === hack.spec.target)) throw new Error(t('hacks.invalid_technique_format'));
+    const earlier = style.modules.some(m => hack.spec.previousTargets!.includes(m.id) &&
+      (m.css.includes(`/* hacksidian:hack:${hack.id}:start */`) || m.css.includes(`/* hacksidian:hack:${hack.id}:end */`)));
+    if (earlier) style = removeHack(style, hack.id).style;
+  }
+  if (hack.spec.replaces !== undefined) {
+    if (!Array.isArray(hack.spec.replaces) || hack.spec.replaces.some(id => typeof id !== 'string' || !/^[a-z0-9][a-z0-9-]*$/.test(id) || id === hack.id)) throw new Error(t('hacks.invalid_technique_format'));
+    for (const id of hack.spec.replaces) {
+      if (style.modules.some(m => m.id !== hack.spec.target && m.css.includes(`/* hacksidian:hack:${id}:`))) throw new Error(t('hacks.invalid_technique_format'));
+      style = removeHack(style, id).style;
     }
   }
   const selected = style.modules.find(m => m.id === hack.spec.target);

@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 03 · Цвет вместо курсива
+title: Цвет вместо курсива
 category: emphasis
 sources: []
 format: markdown

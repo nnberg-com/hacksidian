@@ -58,6 +58,8 @@ test('reported callout request reaches the candidate set across the full reposit
   return [techniqueEntry(`atlas/! hacks/${d.name}/${d.name}.md`,md,meta,spec,readFileSync(new URL('recipe.css',folder),'utf8'))];
  });
  const query="Хочу, чтобы некоторые callout'ы (специально оформленные) отображались как диалоги в чате. Сделай.";
- expect(entries.length).toBeGreaterThan(1400);
+ expect(entries.length).toBeGreaterThan(1300); // Consolidated system/palette variants are single techniques.
+ expect(entries.some(e=>e.id==='text-system')).toBe(true);
+ expect(entries.some(e=>e.id==='palette')).toBe(true);
  expect(lexicalCandidates(query,entries)[0].id).toBe('callout-dialogue');
 });

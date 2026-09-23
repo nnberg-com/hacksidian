@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_emphasis
-title: 32 · Четыре маркера
-category: emphasis
+  - hacksidian_emphasis-combinations
+title: Контекстные маркеры
+category: emphasis-combinations
 sources: []
 format: markdown
 themes: []

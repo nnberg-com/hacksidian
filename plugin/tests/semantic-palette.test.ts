@@ -19,3 +19,10 @@ it('saves a real CSS color rather than a quoted string and shares validation wit
  for(const input of ['red','"#aabbcc"','#fff','transparent','#abcdef; color:red'])expect(()=>parameterValue(p,input)).toThrow();
  expect(css.replace(`${p.variable}: ${p.value};`, `${p.variable}: #aabbcc;`)).toBe(result.css);
 });
+
+it('uses only full named colors in light mode without deprecated RGB/HSL copies',()=>{
+ expect(css).not.toMatch(/--[\w-]+-(?:rgb|hsl)\b/);
+ expect(css).toContain('body.theme-light');
+ expect(css).not.toContain('theme-dark');
+ for(const p of readParameters(css))expect(css).toContain(`--color-${p.variable.replace('--hacksidian-semantic-','')}: var(${p.variable})`);
+});

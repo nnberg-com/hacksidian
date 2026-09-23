@@ -1,17 +1,34 @@
-:is(.markdown-preview-view, .markdown-source-view),
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h2
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e037-level: h2;
+}
+
+@hacksidian-heading --hacksidian-heading-e037-level h2 {
+.markdown-preview-view,
 .markdown-preview-view > .markdown-preview-section {
   counter-reset: hacksidian-heading-e037-h2 0;
 }
-:is(.markdown-preview-view, .markdown-source-view) h2 {
+.markdown-preview-view h2 {
   position: relative;
   isolation: isolate;
   padding-block: 2rem;
 }
 .markdown-preview-view .el-h2,
-:is(.markdown-preview-view, .markdown-source-view) h2:not(.el-h2 > h2) {
+.markdown-preview-view h2:not(.el-h2 > h2) {
   counter-increment: hacksidian-heading-e037-h2;
 }
-:is(.markdown-preview-view, .markdown-source-view) h2::before {
+.markdown-preview-view h2::before {
   content: counter(hacksidian-heading-e037-h2, decimal-leading-zero);
   position: absolute;
   z-index: -1;
@@ -23,3 +40,5 @@
   line-height: 1;
 }
 
+
+}

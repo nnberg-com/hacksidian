@@ -39,8 +39,8 @@ Commit: `82d207c646904e7af371ced499f682fbdfad1012`. Основной файл: `
 - [[atlas/! hacks/table-e013/table-e013|Акцентная шапка]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
-- [[atlas/! hacks/emphasis-s03/emphasis-s03|03 · Цвет вместо курсива]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/callout-technical-tint/callout-technical-tint|Мягкая цветная подложка]] — существующая карточка
 - [[atlas/! hacks/callout-technical-line/callout-technical-line|Только боковая линия]] — существующая карточка
 - [[atlas/! hacks/callout-dialogue/callout-dialogue|Переписка]] — существующая карточка

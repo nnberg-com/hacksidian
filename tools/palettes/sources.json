@@ -6,7 +6,6 @@
     "variants": [
       {
         "name": "Light",
-        "dark": false,
         "values": {
           "background-primary": "#fffcf0",
           "background-secondary": "#f2f0e5",
@@ -44,47 +43,6 @@
           "color-pink": "magenta-600"
         },
         "id": "flexoki-1"
-      },
-      {
-        "name": "Dark",
-        "dark": true,
-        "values": {
-          "background-primary": "#100f0f",
-          "background-secondary": "#1c1b1a",
-          "text-normal": "#cecdc3",
-          "text-muted": "#878580",
-          "text-faint": "#575653",
-          "background-modifier-border": "#282726",
-          "background-modifier-hover": "#282726",
-          "color-accent": "#3aa99f",
-          "color-red": "#d14d41",
-          "color-orange": "#da702c",
-          "color-yellow": "#d0a215",
-          "color-green": "#879a39",
-          "color-cyan": "#3aa99f",
-          "color-blue": "#4385be",
-          "color-purple": "#8b7ec8",
-          "color-pink": "#ce5d97"
-        },
-        "refs": {
-          "background-primary": "black / bg",
-          "background-secondary": "base-950 / bg-2",
-          "text-normal": "base-200 / tx",
-          "text-muted": "base-500 / tx-2",
-          "text-faint": "base-700 / tx-3",
-          "background-modifier-border": "base-900 / ui",
-          "background-modifier-hover": "base-900 → hover",
-          "color-accent": "cyan-400",
-          "color-red": "red-400",
-          "color-orange": "orange-400",
-          "color-yellow": "yellow-400",
-          "color-green": "green-400",
-          "color-cyan": "cyan-400",
-          "color-blue": "blue-400",
-          "color-purple": "purple-400",
-          "color-pink": "magenta-400"
-        },
-        "id": "flexoki-2"
       }
     ],
     "id": "flexoki"
@@ -92,11 +50,10 @@
   {
     "name": "Solarized",
     "url": "https://ethanschoonover.com/solarized/",
-    "note": "Авторские Light/Dark. Дополнительные состояния Obsidian получаются смешением; акцент выбран blue.",
+    "note": "Авторская светлая палитра. Дополнительные состояния Obsidian получаются смешением; акцент выбран blue.",
     "variants": [
       {
         "name": "Light",
-        "dark": false,
         "values": {
           "background-primary": "#fdf6e3",
           "background-secondary": "#eee8d5",
@@ -134,47 +91,6 @@
           "color-pink": "Палитра источника → наша роль"
         },
         "id": "solarized-1"
-      },
-      {
-        "name": "Dark",
-        "dark": true,
-        "values": {
-          "background-primary": "#002b36",
-          "background-secondary": "#073642",
-          "text-normal": "#839496",
-          "text-muted": "#93a1a1",
-          "text-faint": "#586e75",
-          "background-modifier-border": "#073642",
-          "background-modifier-hover": "#073642",
-          "color-accent": "#268bd2",
-          "color-red": "#dc322f",
-          "color-orange": "#cb4b16",
-          "color-yellow": "#b58900",
-          "color-green": "#859900",
-          "color-cyan": "#2aa198",
-          "color-blue": "#268bd2",
-          "color-purple": "#6c71c4",
-          "color-pink": "#d33682"
-        },
-        "refs": {
-          "background-primary": "Палитра источника → наша роль",
-          "background-secondary": "Палитра источника → наша роль",
-          "text-normal": "Палитра источника → наша роль",
-          "text-muted": "Палитра источника → наша роль",
-          "text-faint": "Палитра источника → наша роль",
-          "background-modifier-border": "Палитра источника → наша роль",
-          "background-modifier-hover": "Палитра источника → наша роль",
-          "color-accent": "Палитра источника → наша роль",
-          "color-red": "Палитра источника → наша роль",
-          "color-orange": "Палитра источника → наша роль",
-          "color-yellow": "Палитра источника → наша роль",
-          "color-green": "Палитра источника → наша роль",
-          "color-cyan": "Палитра источника → наша роль",
-          "color-blue": "Палитра источника → наша роль",
-          "color-purple": "Палитра источника → наша роль",
-          "color-pink": "Палитра источника → наша роль"
-        },
-        "id": "solarized-2"
       }
     ],
     "id": "solarized"
@@ -182,11 +98,10 @@
   {
     "name": "Catppuccin",
     "url": "https://github.com/catppuccin/catppuccin",
-    "note": "Четыре авторских варианта. Акцент выбран mauve; роли перенесены из именованных токенов.",
+    "note": "Светлый авторский вариант Latte. Акцент выбран mauve; роли перенесены из именованных токенов.",
     "variants": [
       {
         "name": "Latte",
-        "dark": false,
         "values": {
           "background-primary": "#eff1f5",
           "background-secondary": "#e6e9ef",
@@ -224,129 +139,6 @@
           "color-pink": "pink"
         },
         "id": "catppuccin-1"
-      },
-      {
-        "name": "Frappé",
-        "dark": true,
-        "values": {
-          "background-primary": "#303446",
-          "background-secondary": "#292c3c",
-          "text-normal": "#c6d0f5",
-          "text-muted": "#b5bfe2",
-          "text-faint": "#a5adce",
-          "background-modifier-border": "#51576d",
-          "background-modifier-hover": "#414559",
-          "color-accent": "#ca9ee6",
-          "color-red": "#e78284",
-          "color-orange": "#ef9f76",
-          "color-yellow": "#e5c890",
-          "color-green": "#a6d189",
-          "color-cyan": "#81c8be",
-          "color-blue": "#8caaee",
-          "color-purple": "#ca9ee6",
-          "color-pink": "#f4b8e4"
-        },
-        "refs": {
-          "background-primary": "base",
-          "background-secondary": "mantle",
-          "text-normal": "text",
-          "text-muted": "subtext1",
-          "text-faint": "subtext0",
-          "background-modifier-border": "surface1",
-          "background-modifier-hover": "surface0",
-          "color-accent": "mauve",
-          "color-red": "red",
-          "color-orange": "peach",
-          "color-yellow": "yellow",
-          "color-green": "green",
-          "color-cyan": "teal",
-          "color-blue": "blue",
-          "color-purple": "mauve",
-          "color-pink": "pink"
-        },
-        "id": "catppuccin-2"
-      },
-      {
-        "name": "Macchiato",
-        "dark": true,
-        "values": {
-          "background-primary": "#24273a",
-          "background-secondary": "#1e2030",
-          "text-normal": "#cad3f5",
-          "text-muted": "#b8c0e0",
-          "text-faint": "#a5adcb",
-          "background-modifier-border": "#494d64",
-          "background-modifier-hover": "#363a4f",
-          "color-accent": "#c6a0f6",
-          "color-red": "#ed8796",
-          "color-orange": "#f5a97f",
-          "color-yellow": "#eed49f",
-          "color-green": "#a6da95",
-          "color-cyan": "#8bd5ca",
-          "color-blue": "#8aadf4",
-          "color-purple": "#c6a0f6",
-          "color-pink": "#f5bde6"
-        },
-        "refs": {
-          "background-primary": "base",
-          "background-secondary": "mantle",
-          "text-normal": "text",
-          "text-muted": "subtext1",
-          "text-faint": "subtext0",
-          "background-modifier-border": "surface1",
-          "background-modifier-hover": "surface0",
-          "color-accent": "mauve",
-          "color-red": "red",
-          "color-orange": "peach",
-          "color-yellow": "yellow",
-          "color-green": "green",
-          "color-cyan": "teal",
-          "color-blue": "blue",
-          "color-purple": "mauve",
-          "color-pink": "pink"
-        },
-        "id": "catppuccin-3"
-      },
-      {
-        "name": "Mocha",
-        "dark": true,
-        "values": {
-          "background-primary": "#1e1e2e",
-          "background-secondary": "#181825",
-          "text-normal": "#cdd6f4",
-          "text-muted": "#bac2de",
-          "text-faint": "#a6adc8",
-          "background-modifier-border": "#45475a",
-          "background-modifier-hover": "#313244",
-          "color-accent": "#cba6f7",
-          "color-red": "#f38ba8",
-          "color-orange": "#fab387",
-          "color-yellow": "#f9e2af",
-          "color-green": "#a6e3a1",
-          "color-cyan": "#94e2d5",
-          "color-blue": "#89b4fa",
-          "color-purple": "#cba6f7",
-          "color-pink": "#f5c2e7"
-        },
-        "refs": {
-          "background-primary": "base",
-          "background-secondary": "mantle",
-          "text-normal": "text",
-          "text-muted": "subtext1",
-          "text-faint": "subtext0",
-          "background-modifier-border": "surface1",
-          "background-modifier-hover": "surface0",
-          "color-accent": "mauve",
-          "color-red": "red",
-          "color-orange": "peach",
-          "color-yellow": "yellow",
-          "color-green": "green",
-          "color-cyan": "teal",
-          "color-blue": "blue",
-          "color-purple": "mauve",
-          "color-pink": "pink"
-        },
-        "id": "catppuccin-4"
       }
     ],
     "id": "catppuccin"
@@ -358,7 +150,6 @@
     "variants": [
       {
         "name": "Light medium",
-        "dark": false,
         "values": {
           "background-primary": "#fbf1c7",
           "background-secondary": "#ebdbb2",
@@ -396,148 +187,9 @@
           "color-pink": "faded_purple"
         },
         "id": "gruvbox-1"
-      },
-      {
-        "name": "Dark medium",
-        "dark": true,
-        "values": {
-          "background-primary": "#282828",
-          "background-secondary": "#3c3836",
-          "text-normal": "#ebdbb2",
-          "text-muted": "#bdae93",
-          "text-faint": "#928374",
-          "background-modifier-border": "#504945",
-          "background-modifier-hover": "#3c3836",
-          "color-accent": "#83a598",
-          "color-red": "#fb4934",
-          "color-orange": "#fe8019",
-          "color-yellow": "#fabd2f",
-          "color-green": "#b8bb26",
-          "color-cyan": "#8ec07c",
-          "color-blue": "#83a598",
-          "color-purple": "#d3869b",
-          "color-pink": "#d3869b"
-        },
-        "refs": {
-          "background-primary": "dark0",
-          "background-secondary": "dark1",
-          "text-normal": "light1",
-          "text-muted": "light3",
-          "text-faint": "gray",
-          "background-modifier-border": "dark2",
-          "background-modifier-hover": "dark1",
-          "color-accent": "bright_blue",
-          "color-red": "bright_red",
-          "color-orange": "bright_orange",
-          "color-yellow": "bright_yellow",
-          "color-green": "bright_green",
-          "color-cyan": "bright_aqua",
-          "color-blue": "bright_blue",
-          "color-purple": "bright_purple",
-          "color-pink": "bright_purple"
-        },
-        "id": "gruvbox-2"
       }
     ],
     "id": "gruvbox"
-  },
-  {
-    "name": "Nord",
-    "url": "https://www.nordtheme.com/docs/colors-and-palettes/",
-    "note": "Тёмная адаптация. Orange = nord12; pink повторяет nord15 (purple). Светлый вариант здесь не сочинён.",
-    "variants": [
-      {
-        "name": "Polar Night",
-        "dark": true,
-        "values": {
-          "background-primary": "#2e3440",
-          "background-secondary": "#3b4252",
-          "text-normal": "#eceff4",
-          "text-muted": "#d8dee9",
-          "text-faint": "#81a1c1",
-          "background-modifier-border": "#4c566a",
-          "background-modifier-hover": "#434c5e",
-          "color-accent": "#88c0d0",
-          "color-red": "#bf616a",
-          "color-orange": "#d08770",
-          "color-yellow": "#ebcb8b",
-          "color-green": "#a3be8c",
-          "color-cyan": "#8fbcbb",
-          "color-blue": "#81a1c1",
-          "color-purple": "#b48ead",
-          "color-pink": "#b48ead"
-        },
-        "refs": {
-          "background-primary": "nord0",
-          "background-secondary": "nord1",
-          "text-normal": "nord6",
-          "text-muted": "nord4",
-          "text-faint": "nord9 → faint",
-          "background-modifier-border": "nord3",
-          "background-modifier-hover": "nord2",
-          "color-accent": "nord8",
-          "color-red": "nord11",
-          "color-orange": "nord12",
-          "color-yellow": "nord13",
-          "color-green": "nord14",
-          "color-cyan": "nord7",
-          "color-blue": "nord9",
-          "color-purple": "nord15",
-          "color-pink": "nord15 повтор"
-        },
-        "id": "nord-1"
-      }
-    ],
-    "id": "nord"
-  },
-  {
-    "name": "Dracula",
-    "url": "https://draculatheme.com/contribute",
-    "note": "Классическая тёмная схема. Для отсутствующего blue используется purple; отдельный синий не выдуман.",
-    "variants": [
-      {
-        "name": "Classic",
-        "dark": true,
-        "values": {
-          "background-primary": "#282a36",
-          "background-secondary": "#44475a",
-          "text-normal": "#f8f8f2",
-          "text-muted": "#6272a4",
-          "text-faint": "#6272a4",
-          "background-modifier-border": "#44475a",
-          "background-modifier-hover": "#44475a",
-          "color-accent": "#bd93f9",
-          "color-red": "#ff5555",
-          "color-orange": "#ffb86c",
-          "color-yellow": "#f1fa8c",
-          "color-green": "#50fa7b",
-          "color-cyan": "#8be9fd",
-          "color-blue": "#bd93f9",
-          "color-purple": "#bd93f9",
-          "color-pink": "#ff79c6"
-        },
-        "refs": {
-          "background-primary": "Палитра источника → наша роль",
-          "background-secondary": "Палитра источника → наша роль",
-          "text-normal": "Палитра источника → наша роль",
-          "text-muted": "Палитра источника → наша роль",
-          "text-faint": "Палитра источника → наша роль",
-          "background-modifier-border": "Палитра источника → наша роль",
-          "background-modifier-hover": "Палитра источника → наша роль",
-          "color-accent": "Палитра источника → наша роль",
-          "color-red": "Палитра источника → наша роль",
-          "color-orange": "Палитра источника → наша роль",
-          "color-yellow": "Палитра источника → наша роль",
-          "color-green": "Палитра источника → наша роль",
-          "color-cyan": "Палитра источника → наша роль",
-          "color-blue": "Палитра источника → наша роль",
-          "color-purple": "Палитра источника → наша роль",
-          "color-pink": "Палитра источника → наша роль"
-        },
-        "id": "dracula-1"
-      }
-    ],
-    "id": "dracula"
   },
   {
     "name": "VS Code",
@@ -546,7 +198,6 @@
     "variants": [
       {
         "name": "Light Modern",
-        "dark": false,
         "values": {
           "background-primary": "#FFFFFF",
           "background-secondary": "#F8F8F8",
@@ -584,47 +235,6 @@
           "color-pink": "terminal.ansiBrightMagenta / fallback"
         },
         "id": "vscode-1"
-      },
-      {
-        "name": "Dark Modern",
-        "dark": true,
-        "values": {
-          "background-primary": "#1F1F1F",
-          "background-secondary": "#181818",
-          "text-normal": "#CCCCCC",
-          "text-muted": "#9D9D9D",
-          "text-faint": "#6b6b6b",
-          "background-modifier-border": "#2B2B2B",
-          "background-modifier-hover": "#2a2d2e",
-          "color-accent": "#0078D4",
-          "color-red": "#cd3131",
-          "color-orange": "#ce9178",
-          "color-yellow": "#949800",
-          "color-green": "#0dbc79",
-          "color-cyan": "#11a8cd",
-          "color-blue": "#2472c8",
-          "color-purple": "#bc3fbc",
-          "color-pink": "#d670d6"
-        },
-        "refs": {
-          "background-primary": "editor.background",
-          "background-secondary": "sideBar.background",
-          "text-normal": "editor.foreground",
-          "text-muted": "descriptionForeground",
-          "text-faint": "disabledForeground",
-          "background-modifier-border": "panel.border",
-          "background-modifier-hover": "list.hoverBackground",
-          "color-accent": "button.background",
-          "color-red": "terminal.ansiRed / fallback",
-          "color-orange": "syntax string → orange (адаптация)",
-          "color-yellow": "terminal.ansiYellow / fallback",
-          "color-green": "terminal.ansiGreen / fallback",
-          "color-cyan": "terminal.ansiCyan / fallback",
-          "color-blue": "terminal.ansiBlue / fallback",
-          "color-purple": "terminal.ansiMagenta / fallback",
-          "color-pink": "terminal.ansiBrightMagenta / fallback"
-        },
-        "id": "vscode-2"
       }
     ],
     "id": "vscode"
@@ -636,7 +246,6 @@
     "variants": [
       {
         "name": "Seed 6750A4 · Light",
-        "dark": false,
         "values": {
           "background-primary": "#fffbff",
           "background-secondary": "#e7e0eb",
@@ -674,47 +283,6 @@
           "color-pink": "TonalPalette(#ad1457).tone(40)"
         },
         "id": "material-1"
-      },
-      {
-        "name": "Seed 6750A4 · Dark",
-        "dark": true,
-        "values": {
-          "background-primary": "#1c1b1e",
-          "background-secondary": "#49454e",
-          "text-normal": "#e6e1e6",
-          "text-muted": "#cac4cf",
-          "text-faint": "#948f99",
-          "background-modifier-border": "#49454e",
-          "background-modifier-hover": "#49454e",
-          "color-accent": "#cfbcff",
-          "color-red": "#ffb4aa",
-          "color-orange": "#ffb694",
-          "color-yellow": "#f2bf43",
-          "color-green": "#82db7e",
-          "color-cyan": "#75d5e2",
-          "color-blue": "#a9c7ff",
-          "color-purple": "#cfbcff",
-          "color-pink": "#ffb1c5"
-        },
-        "refs": {
-          "background-primary": "background",
-          "background-secondary": "surfaceVariant",
-          "text-normal": "onBackground",
-          "text-muted": "onSurfaceVariant",
-          "text-faint": "outline",
-          "background-modifier-border": "outlineVariant",
-          "background-modifier-hover": "surfaceVariant",
-          "color-accent": "primary",
-          "color-red": "TonalPalette(#b3261e).tone(80)",
-          "color-orange": "TonalPalette(#bc5215).tone(80)",
-          "color-yellow": "TonalPalette(#b58900).tone(80)",
-          "color-green": "TonalPalette(#388e3c).tone(80)",
-          "color-cyan": "TonalPalette(#00838f).tone(80)",
-          "color-blue": "TonalPalette(#1565c0).tone(80)",
-          "color-purple": "TonalPalette(#6750a4).tone(80)",
-          "color-pink": "TonalPalette(#ad1457).tone(80)"
-        },
-        "id": "material-2"
       }
     ],
     "id": "material"
@@ -726,7 +294,6 @@
     "variants": [
       {
         "name": "Slate + Indigo · Light",
-        "dark": false,
         "values": {
           "background-primary": "oklch(98.4% 0.003 247.858)",
           "background-secondary": "oklch(96.8% 0.007 247.896)",
@@ -764,47 +331,6 @@
           "color-pink": "pink-600"
         },
         "id": "tailwind-1"
-      },
-      {
-        "name": "Slate + Indigo · Dark",
-        "dark": true,
-        "values": {
-          "background-primary": "oklch(12.9% 0.042 264.695)",
-          "background-secondary": "oklch(20.8% 0.042 265.755)",
-          "text-normal": "oklch(96.8% 0.007 247.896)",
-          "text-muted": "oklch(70.4% 0.04 256.788)",
-          "text-faint": "oklch(55.4% 0.046 257.417)",
-          "background-modifier-border": "oklch(37.2% 0.044 257.287)",
-          "background-modifier-hover": "oklch(27.9% 0.041 260.031)",
-          "color-accent": "oklch(67.3% 0.182 276.935)",
-          "color-red": "oklch(70.4% 0.191 22.216)",
-          "color-orange": "oklch(75% 0.183 55.934)",
-          "color-yellow": "oklch(85.2% 0.199 91.936)",
-          "color-green": "oklch(79.2% 0.209 151.711)",
-          "color-cyan": "oklch(78.9% 0.154 211.53)",
-          "color-blue": "oklch(70.7% 0.165 254.624)",
-          "color-purple": "oklch(71.4% 0.203 305.504)",
-          "color-pink": "oklch(71.8% 0.202 349.761)"
-        },
-        "refs": {
-          "background-primary": "slate-950",
-          "background-secondary": "slate-900",
-          "text-normal": "slate-100",
-          "text-muted": "slate-400",
-          "text-faint": "slate-500",
-          "background-modifier-border": "slate-700",
-          "background-modifier-hover": "slate-800",
-          "color-accent": "indigo-400",
-          "color-red": "red-400",
-          "color-orange": "orange-400",
-          "color-yellow": "yellow-400",
-          "color-green": "green-400",
-          "color-cyan": "cyan-400",
-          "color-blue": "blue-400",
-          "color-purple": "purple-400",
-          "color-pink": "pink-400"
-        },
-        "id": "tailwind-2"
       }
     ],
     "id": "tailwind"
@@ -816,7 +342,6 @@
     "variants": [
       {
         "name": "Slate + Iris · Light",
-        "dark": false,
         "values": {
           "background-primary": "#fcfcfd",
           "background-secondary": "#f9f9fb",
@@ -854,47 +379,6 @@
           "color-pink": "pink11"
         },
         "id": "radix-1"
-      },
-      {
-        "name": "Slate + Iris · Dark",
-        "dark": true,
-        "values": {
-          "background-primary": "#111113",
-          "background-secondary": "#18191b",
-          "text-normal": "#edeef0",
-          "text-muted": "#b0b4ba",
-          "text-faint": "#777b84",
-          "background-modifier-border": "#363a3f",
-          "background-modifier-hover": "#272a2d",
-          "color-accent": "#5b5bd6",
-          "color-red": "#ff9592",
-          "color-orange": "#ffa057",
-          "color-yellow": "#f5e147",
-          "color-green": "#3dd68c",
-          "color-cyan": "#4ccce6",
-          "color-blue": "#70b8ff",
-          "color-purple": "#d19dff",
-          "color-pink": "#ff8dcc"
-        },
-        "refs": {
-          "background-primary": "slate1",
-          "background-secondary": "slate2",
-          "text-normal": "slate12",
-          "text-muted": "slate11",
-          "text-faint": "slate10",
-          "background-modifier-border": "slate6",
-          "background-modifier-hover": "slate4",
-          "color-accent": "iris9",
-          "color-red": "red11",
-          "color-orange": "orange11",
-          "color-yellow": "yellow11",
-          "color-green": "green11",
-          "color-cyan": "cyan11",
-          "color-blue": "blue11",
-          "color-purple": "purple11",
-          "color-pink": "pink11"
-        },
-        "id": "radix-2"
       }
     ],
     "id": "radix"
@@ -902,11 +386,10 @@
   {
     "name": "IBM Carbon",
     "url": "https://carbondesignsystem.com/elements/themes/overview/",
-    "note": "Готовые темы Carbon. Восемь цветных ролей взяты из IBM palette: 60 для светлых, 40 для тёмных; pink = magenta.",
+    "note": "Готовые темы Carbon. Восемь цветных ролей взяты из IBM palette: ступень 60 для светлых вариантов; pink = magenta.",
     "variants": [
       {
         "name": "WHITE",
-        "dark": false,
         "values": {
           "background-primary": "#ffffff",
           "background-secondary": "#f4f4f4",
@@ -947,7 +430,6 @@
       },
       {
         "name": "G10",
-        "dark": false,
         "values": {
           "background-primary": "#f4f4f4",
           "background-secondary": "#ffffff",
@@ -985,88 +467,6 @@
           "color-pink": "magenta60"
         },
         "id": "carbon-2"
-      },
-      {
-        "name": "G90",
-        "dark": true,
-        "values": {
-          "background-primary": "#262626",
-          "background-secondary": "#393939",
-          "text-normal": "#f4f4f4",
-          "text-muted": "#c6c6c6",
-          "text-faint": "rgba(244, 244, 244, 0.4)",
-          "background-modifier-border": "#6f6f6f",
-          "background-modifier-hover": "#474747",
-          "color-accent": "#78a9ff",
-          "color-red": "#ff8389",
-          "color-orange": "#ff832b",
-          "color-yellow": "#d2a106",
-          "color-green": "#42be65",
-          "color-cyan": "#33b1ff",
-          "color-blue": "#78a9ff",
-          "color-purple": "#be95ff",
-          "color-pink": "#ff7eb6"
-        },
-        "refs": {
-          "background-primary": "background",
-          "background-secondary": "layer01",
-          "text-normal": "textPrimary",
-          "text-muted": "textSecondary",
-          "text-faint": "textPlaceholder",
-          "background-modifier-border": "borderSubtle01",
-          "background-modifier-hover": "layerHover01",
-          "color-accent": "linkPrimary",
-          "color-red": "red40",
-          "color-orange": "orange40",
-          "color-yellow": "yellow40",
-          "color-green": "green40",
-          "color-cyan": "cyan40",
-          "color-blue": "blue40",
-          "color-purple": "purple40",
-          "color-pink": "magenta40"
-        },
-        "id": "carbon-3"
-      },
-      {
-        "name": "G100",
-        "dark": true,
-        "values": {
-          "background-primary": "#161616",
-          "background-secondary": "#262626",
-          "text-normal": "#f4f4f4",
-          "text-muted": "#c6c6c6",
-          "text-faint": "rgba(244, 244, 244, 0.4)",
-          "background-modifier-border": "#525252",
-          "background-modifier-hover": "#333333",
-          "color-accent": "#78a9ff",
-          "color-red": "#ff8389",
-          "color-orange": "#ff832b",
-          "color-yellow": "#d2a106",
-          "color-green": "#42be65",
-          "color-cyan": "#33b1ff",
-          "color-blue": "#78a9ff",
-          "color-purple": "#be95ff",
-          "color-pink": "#ff7eb6"
-        },
-        "refs": {
-          "background-primary": "background",
-          "background-secondary": "layer01",
-          "text-normal": "textPrimary",
-          "text-muted": "textSecondary",
-          "text-faint": "textPlaceholder",
-          "background-modifier-border": "borderSubtle01",
-          "background-modifier-hover": "layerHover01",
-          "color-accent": "linkPrimary",
-          "color-red": "red40",
-          "color-orange": "orange40",
-          "color-yellow": "yellow40",
-          "color-green": "green40",
-          "color-cyan": "cyan40",
-          "color-blue": "blue40",
-          "color-purple": "purple40",
-          "color-pink": "magenta40"
-        },
-        "id": "carbon-4"
       }
     ],
     "id": "carbon"
@@ -1074,11 +474,10 @@
   {
     "name": "Tinted / Base16",
     "url": "https://github.com/tinted-theming/schemes",
-    "note": "Представитель коллекции: Default от Chris Kempson. Pink повторяет base0E. Это две схемы, не весь каталог Tinted.",
+    "note": "Представитель коллекции: Default от Chris Kempson. Pink повторяет base0E. Выбрана светлая схема Default, не весь каталог Tinted.",
     "variants": [
       {
         "name": "Default Light",
-        "dark": false,
         "values": {
           "background-primary": "#f8f8f8",
           "background-secondary": "#e8e8e8",
@@ -1116,47 +515,6 @@
           "color-pink": "base0E"
         },
         "id": "base16-1"
-      },
-      {
-        "name": "Default Dark",
-        "dark": true,
-        "values": {
-          "background-primary": "#181818",
-          "background-secondary": "#282828",
-          "text-normal": "#d8d8d8",
-          "text-muted": "#b8b8b8",
-          "text-faint": "#585858",
-          "background-modifier-border": "#383838",
-          "background-modifier-hover": "#383838",
-          "color-accent": "#7cafc2",
-          "color-red": "#ab4642",
-          "color-orange": "#dc9656",
-          "color-yellow": "#f7ca88",
-          "color-green": "#a1b56c",
-          "color-cyan": "#86c1b9",
-          "color-blue": "#7cafc2",
-          "color-purple": "#ba8baf",
-          "color-pink": "#ba8baf"
-        },
-        "refs": {
-          "background-primary": "base00",
-          "background-secondary": "base01",
-          "text-normal": "base05",
-          "text-muted": "base04",
-          "text-faint": "base03",
-          "background-modifier-border": "base02",
-          "background-modifier-hover": "base02",
-          "color-accent": "base0D",
-          "color-red": "base08",
-          "color-orange": "base09",
-          "color-yellow": "base0A",
-          "color-green": "base0B",
-          "color-cyan": "base0C",
-          "color-blue": "base0D",
-          "color-purple": "base0E",
-          "color-pink": "base0E"
-        },
-        "id": "base16-2"
       }
     ],
     "id": "base16"

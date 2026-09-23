@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_callout
+  - hacksidian_composition
 title: Чек экспедиции
-category: callout
+category: composition
 sources:
   - https://github.com/emarpiee/Retroma/blob/main/assets/examples/retroma-retro-callouts.md
 format: markdown

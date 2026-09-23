@@ -14,7 +14,7 @@ const flush=()=>new Promise(resolve=>setTimeout(resolve,0));
 function setup(controls?: FavouriteControls){
  const handlers=new Map<string,Function>(),events=new Map<string,Function>();
  const files:any={'recipe.css':'a {color: red;}','markdown.md':'<script>literal</script>\n```hacksidian-live\nx\n```','link-e023.md':'---\nthemes: [minimal]\n---'};
- const adapter={exists:vi.fn(async()=>true),read:vi.fn(async(path:string)=>files[path.split('/').pop()!]),getFullPath:(path:string)=>'/vault name/'+path};
+ const adapter={exists:vi.fn(async(path:string)=>!path.endsWith("/expanded.md")),read:vi.fn(async(path:string)=>files[path.split('/').pop()!]),getFullPath:(path:string)=>'/vault name/'+path};
  const workspace={openLinkText:vi.fn()};
  const plugin={app:{vault:{adapter,on:(name:string,callback:Function)=>{events.set(name,callback);return {};}} ,workspace,metadataCache:{getCache:(path:string)=>({frontmatter:{title:path.includes('! categories')?'Ссылки':'Minimal'}})}},addCommand:()=>{},registerMarkdownCodeBlockProcessor:(name:string,fn:Function)=>handlers.set(name,fn)};
  registerSourceBlocks(plugin as any, controls);
@@ -87,4 +87,11 @@ test('embedded category headers omit top navigation while retaining the card tit
  expect(el.children.some((item:any)=>item.cls==='hacksidian-card-nav')).toBe(false);
  expect(el.children[0].cls).toBe('hacksidian-card-row');
  const title=el.children[0].children[0].children[0];expect(title.tag).toBe('a');expect(title.href).toBe('atlas/! hacks/link-e023/link-e023.md');
+});
+test('expanded navigation appears for any technique with that optional file',async()=>{
+ const {adapter,render}=setup();
+ const noPage=await render('id');expect(noPage.children.some((child:any)=>child.href?.endsWith('/expanded.md'))).toBe(false);
+ adapter.exists.mockImplementation(async()=>true);
+ const withPage=await render('id');const link=withPage.children.find((child:any)=>child.href?.endsWith('/expanded.md'));
+ expect(link?.text).toBe('Сравнить варианты');expect(link?.href).toBe('atlas/! hacks/link-e023/expanded.md');
 });

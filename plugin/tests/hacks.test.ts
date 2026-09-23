@@ -34,3 +34,16 @@ test('malformed or duplicate blocks are never partially removed',()=>{
   expect(()=>removeHack({format:1,modules:[{id:'g-text',component:'text',css}]},hack.id)).toThrow();
  }
 });
+
+test('explicit category move removes only the old marked recipe and stays idempotent',()=>{
+ const moved={...hack,spec:{...hack.spec,target:'g-composition',previousTargets:['g-text']}};
+ const original={format:1 as const,modules:[{id:'g-text',component:'text',css:'/* keep */'},{id:'g-composition',component:'composition',css:''}]};
+ const old=addHack(original,hack).style;
+ const next=addHack(old,moved).style;
+ expect(next.modules[0].css.trim()).toBe('/* keep */');
+ expect(next.modules[1].css).toContain('hacksidian:hack:text-demo:start');
+ expect(addHack(next,moved).changed).toBe(false);
+ expect(old.modules[0].css).toContain('hacksidian:hack:text-demo:start');
+ expect(()=>addHack({...old,modules:old.modules.map((m,i)=>i===0?{...m,css:m.css.replace('/* hacksidian:hack:text-demo:end */','')}:m)},moved)).toThrow();
+ expect(()=>addHack({...old,modules:old.modules.map((m,i)=>i===1?{...m,css:old.modules[0].css}:m)},moved)).toThrow();
+});

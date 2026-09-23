@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_emphasis
-title: 05 · Капитель
+title: Капитель
 category: emphasis
 sources: []
 format: markdown
@@ -16,6 +16,8 @@ emphasis-s05
 ```hacksidian-live
 emphasis-s05
 ```
+
+Параметр «Применить к…» выбирает `**…**`, `_…_` или `==…==`. Приём полностью задаёт оформление выбранной разметки в Preview mode. Другие параметры приёма настраиваются независимо.
 
 ```hacksidian-sources
 emphasis-s05

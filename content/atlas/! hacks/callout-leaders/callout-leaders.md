@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_callout
+  - hacksidian_composition
 title: Программа с отточиями
-category: callout
+category: composition
 sources:
   - https://github.com/r-u-s-h-i-k-e-s-h/Obsidian-CSS-Snippets/blob/Collection/snippets/callout%20styling%20-%20leader%20list.md
 format: markdown

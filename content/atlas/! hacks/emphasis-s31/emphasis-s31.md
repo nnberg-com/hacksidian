@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_emphasis
-title: 31 · Косой штрих
-category: emphasis
+  - hacksidian_strikethrough
+title: Косой штрих
+category: strikethrough
 sources: []
 format: markdown
 themes: []

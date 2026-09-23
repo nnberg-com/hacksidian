@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_emphasis
-title: 33 · Комбинация как отдельный стиль
-category: emphasis
+  - hacksidian_emphasis-combinations
+title: Курсив с маркером
+category: emphasis-combinations
 sources: []
 format: markdown
 themes:

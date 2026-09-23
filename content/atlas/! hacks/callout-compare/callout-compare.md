@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_callout
+  - hacksidian_composition
 title: Сравнение решений
-category: callout
+category: composition
 sources:
   - https://github.com/efemkay/obsidian-modular-css-layout#multi-column
 format: markdown

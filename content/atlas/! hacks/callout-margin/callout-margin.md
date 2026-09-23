@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_callout
+  - hacksidian_composition
 title: Заметка на полях
-category: callout
+category: composition
 sources:
   - https://github.com/efemkay/obsidian-modular-css-layout#float-callout
 format: markdown

@@ -26,6 +26,9 @@ export const GROUPS = [
  ['iframe', 'Встроенные страницы', ['--embed-border-start','--embed-padding']],
  ['footnote', 'Сноски', ['--footnote-size']],
  ['metadata', 'Свойства заметки', ['--metadata-label-width','--metadata-gap','--metadata-padding']],
+ ['composition', 'Композиции', []],
+ ['strikethrough', 'Зачёркивание', []],
+ ['emphasis-combinations', 'Сочетания выделений', []],
 ] as const;
 export const groupManifest = { format: 1, structure: 2, modules: GROUPS.map(([group,title,nativeVariables],i) => ({
  id: `g-${group}`, component: group, group, title, file: `hacksidian-${String(i).padStart(2,'0')}-${group}.css`,

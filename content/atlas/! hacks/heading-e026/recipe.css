@@ -1,9 +1,28 @@
-:is(.markdown-preview-view, .markdown-source-view) h3 em {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e026-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e026-level h3 {
+.markdown-preview-view h3 em {
   background: linear-gradient(transparent 62%,var(--text-highlight-bg) 62%);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 em {
+.markdown-preview-view h3 em {
   font-style: normal;
 }
 
+
+}

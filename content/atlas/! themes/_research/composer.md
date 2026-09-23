@@ -26,7 +26,7 @@ Commit: `b08629a587e91f46c30cbb9231e0ad5ec0cef5cd`. Основной файл: `
 - [[atlas/! hacks/tag-e022/tag-e022|Контурная капсула]] — существующая карточка
 - [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/emphasis-s02/emphasis-s02|02 · Цветной bold]] — существующая карточка
+- [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 
 ## Реестр настроек
 

@@ -13,6 +13,10 @@ sources:
 
 # Сноски
 
+```hacksidian-category-count
+footnote
+```
+
 Значение поля `category`: `footnote`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

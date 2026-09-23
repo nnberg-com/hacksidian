@@ -1,3 +1,4 @@
+import { parameterExample, parameterMarkdown } from './parameter-variants';
 import { readParameters, parameterValue } from './parameters';
 import { ParameterControls } from './parameter-controls';
 import type { FavouriteControls } from './favourites';
@@ -12,10 +13,10 @@ export class LiveExample extends MarkdownRenderChild {
   private stopped = false;
   private renderer: Component | null = null;
   private timer: ReturnType<typeof setTimeout> | undefined;
-  constructor(el: HTMLElement, private plugin: Plugin, private directory: string, private language: 'ru' | 'en', private controls?: FavouriteControls) { super(el); }
+  constructor(el: HTMLElement, private plugin: Plugin, private directory: string, private language: 'ru' | 'en', private controls?: FavouriteControls, private values?: Record<string, string>) { super(el); }
   onload(): void {
     this.previewEl = this.containerEl.createDiv();
-    this.addChild(new ParameterControls(this.containerEl.createDiv(), this.plugin, this.directory, this.controls));
+    if (!this.values) this.addChild(new ParameterControls(this.containerEl.createDiv(), this.plugin, this.directory, this.controls));
     this.registerEvent(this.plugin.app.vault.on('modify', file => {
       if ([`${this.directory}/recipe.css`, `${this.directory}/markdown.md`].includes(file.path)) {
         clearTimeout(this.timer); this.timer = setTimeout(() => void this.render(), 150);
@@ -40,7 +41,7 @@ export class LiveExample extends MarkdownRenderChild {
         return;
       }
       if (spec.preview === 'semantic-colors') {
-        const parameters = readParameters(await adapter.read(`${this.directory}/recipe.css`));
+        const parameters = readParameters(parameterExample(await adapter.read(`${this.directory}/recipe.css`), this.values ?? {}));
         if (this.stopped || epoch !== this.epoch) return;
         if (this.renderer) { this.removeChild(this.renderer); this.renderer = null; }
         this.previewEl.empty();
@@ -63,11 +64,12 @@ export class LiveExample extends MarkdownRenderChild {
         if (this.stopped || epoch !== this.epoch) return;
         if (this.renderer) this.removeChild(this.renderer);
         this.previewEl.empty();
-        this.renderer = new PaletteExample(this.previewEl.createDiv(), this.plugin, this.directory);
+        this.renderer = new PaletteExample(this.previewEl.createDiv(), this.plugin, this.directory, this.values);
         this.addChild(this.renderer);
         return;
       }
-      const [markdown, css] = await Promise.all([adapter.read(`${this.directory}/markdown.md`), adapter.read(`${this.directory}/recipe.css`)]);
+      const [markdown, rawCss] = await Promise.all([adapter.read(`${this.directory}/markdown.md`), adapter.read(`${this.directory}/recipe.css`)]);
+      const css = parameterExample(rawCss, this.values ?? {});
       const issue = liveExampleIssue(spec.group, markdown, css);
       if (issue) throw new Error(issue);
       if (this.stopped || epoch !== this.epoch) return;
@@ -107,7 +109,7 @@ export class LiveExample extends MarkdownRenderChild {
       this.previewEl.createEl('hr', { cls: 'hacksidian-live-separator' });
       const update = () => { style.textContent = preview.enabled ? scoped : ''; };
       owner.register(preview.subscribe(update)); update();
-      await MarkdownRenderer.render(this.plugin.app, markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, ''), sample, `${this.directory}/markdown.md`, owner);
+      await MarkdownRenderer.render(this.plugin.app, parameterMarkdown(markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, ''), css), sample, `${this.directory}/markdown.md`, owner);
       if (this.stopped || epoch !== this.epoch) return;
       sample.querySelectorAll<HTMLInputElement>('input[type=checkbox]').forEach(input => { input.disabled = false; });
       if (/:target\b/.test(css)) this.previewEl.createEl('small', { text: ru ? 'Нажмите ссылку или номер сноски внутри примера: эффект появится у выбранной цели.' : 'Click a link or footnote number inside the example to select its target.' });

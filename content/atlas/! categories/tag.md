@@ -14,6 +14,10 @@ sources:
 
 # Теги
 
+```hacksidian-category-count
+tag
+```
+
 Значение поля `category`: `tag`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

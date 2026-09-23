@@ -1,9 +1,45 @@
-:is(.markdown-preview-view, .markdown-source-view) mark {
+.markdown-preview-view {
+  /**
+   * @parameter Применить к…
+   * @label-en Apply to…
+   * @type select
+   * @default highlight
+   * @option bold | **…** (bold)
+   * @option italic | _…_ (italic)
+   * @option highlight | ==…== (highlight)
+   */
+  --hacksidian-emphasis-s15-target: highlight;
+}
+
+@hacksidian-target --hacksidian-emphasis-s15-target {
+.markdown-preview-view :--hacksidian-target {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--text-normal);
+  background: var(--text-highlight-bg);
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  text-shadow: none;
+  text-emphasis: none;
+  -webkit-text-stroke: 0;
+  display: inline;
+  position: static;
+}
+.markdown-preview-view :--hacksidian-target {
   background: var(--text-normal);
   color: var(--background-primary);
   padding: .02em .2em;
 }
-:is(.markdown-preview-view, .markdown-source-view) mark {
+.markdown-preview-view :--hacksidian-target {
   background: var(--text-normal);
   color: var(--background-primary);
   padding: .02em .2em;
@@ -11,3 +47,5 @@
   box-decoration-break: clone;
 }
 
+
+}

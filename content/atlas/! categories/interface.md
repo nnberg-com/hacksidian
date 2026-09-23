@@ -6,6 +6,10 @@ title: Интерфейс Obsidian
 
 # Интерфейс Obsidian
 
+```hacksidian-category-count
+interface
+```
+
 Практики отобраны 11 сентября 2026 года по документации Obsidian, MDN и материалам автора Minimal. CSS-примеры написаны для атласа; нативное отображение в Obsidian не подтверждено.
 
 ## Приёмы

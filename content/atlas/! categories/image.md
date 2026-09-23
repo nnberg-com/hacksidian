@@ -6,6 +6,10 @@ title: Изображения
 
 # Изображения
 
+```hacksidian-category-count
+image
+```
+
 Значение поля `category`: `image`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

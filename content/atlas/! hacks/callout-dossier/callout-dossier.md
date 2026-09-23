@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_callout
+  - hacksidian_composition
 title: Досье
-category: callout
+category: composition
 sources:
   - https://elsatam.github.io/obsidian-fancy-a-story/docs/callouts/fas-infobox.html
 format: markdown

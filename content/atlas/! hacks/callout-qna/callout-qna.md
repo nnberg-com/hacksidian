@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_callout
+  - hacksidian_composition
 title: Вопрос → ответ
-category: callout
+category: composition
 sources:
   - https://github.com/r-u-s-h-i-k-e-s-h/Obsidian-CSS-Snippets/blob/Collection/snippets/callout%20styling%20-%20qna%20callout.md
 format: markdown

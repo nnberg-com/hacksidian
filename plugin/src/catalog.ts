@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import postcss from 'postcss';
+import { readParameters } from './parameters';
 
 export interface CatalogEntry {
   id: string;
@@ -73,6 +74,7 @@ export function techniqueEntry(path: string, markdown: string, meta: Record<stri
   return { id, kind: 'technique', title, path, applyAvailable: spec.hasCss, text: [
     `Category: ${meta.category ?? ''}`,
     description,
+    `Parameter choices for discovery: ${readParameters(css).filter(p => p.type === "select").map(p => `${p.label}: ${p.options.map(o => [o.label, o.labelEn, o.value].filter(Boolean).join(" / ")).join("; ")}`).join(" | ")}`,
     `Requirements: ${(spec.requirements ?? []).join('; ') || 'Not specified; do not infer compatibility.'}`,
     `Apply: ${spec.hasCss ? 'The card supports application. Current chat command rules decide whether to show or apply; an explicit user command can enable or update this technique.' : 'No applicable CSS; follow the card instructions manually.'}`,
     `Selectors (scope evidence): ${[...selectors].join(' | ')}`,

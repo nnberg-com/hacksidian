@@ -1,0 +1,653 @@
+/* H1–H6. Source facts and explicit adaptations: sources.md. */
+.markdown-preview-view, .markdown-source-view {
+  /**
+   * @parameter Текстовая система
+   * @type select
+   * @default uswds
+   * @option carbon | Carbon — фиксированная шкала
+   * @option dmk | ДМК Пресс — Цифровой свет и рендеринг
+   * @option fluentcompact | Fluent 2 — Web
+   * @option memoir | memoir — ntglike без курсива
+   * @option mortensen | По Мортенсену — четыре ступени
+   * @option nostarch | No Starch Press — The Modern Web
+   * @option oreillyepub | O’Reilly Technical — EPUB
+   * @option primer | Primer — базовая типографика
+   * @option rutter | По Раттеру — ритм строки
+   * @option uswds | USWDS — стандартная сборка
+   */
+  --hacksidian-text-system-choice: uswds;
+  @hacksidian-variants --hacksidian-text-system-choice {
+    @variant carbon {
+      --hacksidian-text-system-leading: 1.5;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 2.625);
+      --hacksidian-text-system-h1-leading: 1.19047619;
+      --hacksidian-text-system-h1-weight: 300;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 3.9375);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h1-tracking: 0.00000000em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 2);
+      --hacksidian-text-system-h2-leading: 1.25;
+      --hacksidian-text-system-h2-weight: 400;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 3);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h2-tracking: 0.00000000em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1.75);
+      --hacksidian-text-system-h3-leading: 1.28571429;
+      --hacksidian-text-system-h3-weight: 400;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 2.625);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h3-tracking: 0.00000000em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 1.25);
+      --hacksidian-text-system-h4-leading: 1.4;
+      --hacksidian-text-system-h4-weight: 400;
+      --hacksidian-text-system-h4-style: normal;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 1.875);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h4-tracking: 0.00000000em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h5-leading: 1.5;
+      --hacksidian-text-system-h5-weight: 600;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 1.5);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h5-tracking: 0.00000000em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 0.875);
+      --hacksidian-text-system-h6-leading: 1.42857143;
+      --hacksidian-text-system-h6-weight: 600;
+      --hacksidian-text-system-h6-style: normal;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 1.3125);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h6-tracking: 0.01142857em;
+      --hacksidian-text-system-h6-transform: none;
+    }
+    @variant dmk {
+      --hacksidian-text-system-leading: 1.19;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 2.06428571);
+      --hacksidian-text-system-h1-leading: 1.2;
+      --hacksidian-text-system-h1-weight: 700;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 2.25);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 0.375);
+      --hacksidian-text-system-h1-tracking: 0em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 1.7);
+      --hacksidian-text-system-h2-leading: 1.2;
+      --hacksidian-text-system-h2-weight: 700;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 1.75);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 0.375);
+      --hacksidian-text-system-h2-tracking: 0em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1.4);
+      --hacksidian-text-system-h3-leading: 1.2;
+      --hacksidian-text-system-h3-weight: 700;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 1.375);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 0.375);
+      --hacksidian-text-system-h3-tracking: 0em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 1.15294118);
+      --hacksidian-text-system-h4-leading: 1.2;
+      --hacksidian-text-system-h4-weight: 700;
+      --hacksidian-text-system-h4-style: normal;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 1.375);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 0.375);
+      --hacksidian-text-system-h4-tracking: 0em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h5-leading: 1.2;
+      --hacksidian-text-system-h5-weight: 700;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 1.375);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 0.375);
+      --hacksidian-text-system-h5-tracking: 0em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h6-leading: 1.2;
+      --hacksidian-text-system-h6-weight: 400;
+      --hacksidian-text-system-h6-style: normal;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 1.375);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 0.375);
+      --hacksidian-text-system-h6-tracking: 0em;
+      --hacksidian-text-system-h6-transform: none;
+    }
+    @variant fluentcompact {
+      --hacksidian-text-system-leading: 1.4285714;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 2.28571429);
+      --hacksidian-text-system-h1-leading: 1.25;
+      --hacksidian-text-system-h1-weight: 600;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 3.42857143);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 0.28571429);
+      --hacksidian-text-system-h1-tracking: 0em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 2);
+      --hacksidian-text-system-h2-leading: 1.28571429;
+      --hacksidian-text-system-h2-weight: 600;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 3);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 0.28571429);
+      --hacksidian-text-system-h2-tracking: 0em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1.71428571);
+      --hacksidian-text-system-h3-leading: 1.33333333;
+      --hacksidian-text-system-h3-weight: 600;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 2.57142857);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 0.28571429);
+      --hacksidian-text-system-h3-tracking: 0em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 1.42857143);
+      --hacksidian-text-system-h4-leading: 1.3;
+      --hacksidian-text-system-h4-weight: 600;
+      --hacksidian-text-system-h4-style: normal;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 2.14285714);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 0.28571429);
+      --hacksidian-text-system-h4-tracking: 0em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 1.14285714);
+      --hacksidian-text-system-h5-leading: 1.375;
+      --hacksidian-text-system-h5-weight: 600;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 1.71428571);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 0.28571429);
+      --hacksidian-text-system-h5-tracking: 0em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h6-leading: 1.42857143;
+      --hacksidian-text-system-h6-weight: 600;
+      --hacksidian-text-system-h6-style: normal;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 1.5);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 0.28571429);
+      --hacksidian-text-system-h6-tracking: 0em;
+      --hacksidian-text-system-h6-transform: none;
+    }
+    @variant memoir {
+      --hacksidian-text-system-leading: 1.2;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h1-leading: 1.20833333;
+      --hacksidian-text-system-h1-weight: 700;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 5);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 4);
+      --hacksidian-text-system-h1-tracking: 0em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 1.095);
+      --hacksidian-text-system-h2-leading: 1.24200913;
+      --hacksidian-text-system-h2-weight: 700;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 2.4);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 0.6);
+      --hacksidian-text-system-h2-tracking: 0em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h3-leading: 1.2;
+      --hacksidian-text-system-h3-weight: 700;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 0.012);
+      --hacksidian-text-system-h3-tracking: 0em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h4-leading: 1.2;
+      --hacksidian-text-system-h4-weight: 400;
+      --hacksidian-text-system-h4-style: normal;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 0.012);
+      --hacksidian-text-system-h4-tracking: 0em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h5-leading: 1.2;
+      --hacksidian-text-system-h5-weight: 400;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 0.012);
+      --hacksidian-text-system-h5-tracking: 0em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h6-leading: 1.2;
+      --hacksidian-text-system-h6-weight: 400;
+      --hacksidian-text-system-h6-style: normal;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 0.012);
+      --hacksidian-text-system-h6-tracking: 0em;
+      --hacksidian-text-system-h6-transform: none;
+    }
+    @variant mortensen {
+      --hacksidian-text-system-leading: 1.6;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 2);
+      --hacksidian-text-system-h1-leading: 1.2;
+      --hacksidian-text-system-h1-weight: 600;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 0);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h1-tracking: 0em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 1.6817928);
+      --hacksidian-text-system-h2-leading: 1.2;
+      --hacksidian-text-system-h2-weight: 600;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 2);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h2-tracking: 0em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1.4142136);
+      --hacksidian-text-system-h3-leading: 1.2;
+      --hacksidian-text-system-h3-weight: 600;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 1.5);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h3-tracking: 0em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 1.1892071);
+      --hacksidian-text-system-h4-leading: 1.2;
+      --hacksidian-text-system-h4-weight: 600;
+      --hacksidian-text-system-h4-style: normal;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 1.25);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 0.25);
+      --hacksidian-text-system-h4-tracking: 0em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h5-leading: 1.6;
+      --hacksidian-text-system-h5-weight: 700;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 1.6);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 0.8);
+      --hacksidian-text-system-h5-tracking: 0em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 0.84089642);
+      --hacksidian-text-system-h6-leading: 1.90273138;
+      --hacksidian-text-system-h6-weight: 700;
+      --hacksidian-text-system-h6-style: normal;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 1.6);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 0.8);
+      --hacksidian-text-system-h6-tracking: 0em;
+      --hacksidian-text-system-h6-transform: none;
+    }
+    @variant nostarch {
+      --hacksidian-text-system-leading: 1.2;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 1.44);
+      --hacksidian-text-system-h1-leading: 1.2;
+      --hacksidian-text-system-h1-weight: 700;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 2.4);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 0.6);
+      --hacksidian-text-system-h1-tracking: 0em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h2-leading: 1.1979167;
+      --hacksidian-text-system-h2-weight: 700;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 2);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 0.5);
+      --hacksidian-text-system-h2-tracking: 0em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h3-leading: 1.2;
+      --hacksidian-text-system-h3-weight: 700;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 0.3);
+      --hacksidian-text-system-h3-tracking: 0em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h4-leading: 1.2;
+      --hacksidian-text-system-h4-weight: 700;
+      --hacksidian-text-system-h4-style: italic;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 0.3);
+      --hacksidian-text-system-h4-tracking: 0em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h5-leading: 1.2;
+      --hacksidian-text-system-h5-weight: 400;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 0.3);
+      --hacksidian-text-system-h5-tracking: 0em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h6-leading: 1.2;
+      --hacksidian-text-system-h6-weight: 400;
+      --hacksidian-text-system-h6-style: italic;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 1.2);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 0.3);
+      --hacksidian-text-system-h6-tracking: 0em;
+      --hacksidian-text-system-h6-transform: none;
+    }
+    @variant oreillyepub {
+      --hacksidian-text-system-leading: 1.25;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 2.22222222);
+      --hacksidian-text-system-h1-leading: 1.2;
+      --hacksidian-text-system-h1-weight: 400;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 4.86111111);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 3.47222222);
+      --hacksidian-text-system-h1-tracking: 0em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 1.6666667);
+      --hacksidian-text-system-h2-leading: 1.2;
+      --hacksidian-text-system-h2-weight: 700;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 2.7777778);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 0.69444444);
+      --hacksidian-text-system-h2-tracking: 0em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1.3888889);
+      --hacksidian-text-system-h3-leading: 1.2;
+      --hacksidian-text-system-h3-weight: 700;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 2.0833333);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 0.69444444);
+      --hacksidian-text-system-h3-tracking: 0em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 1.1111111);
+      --hacksidian-text-system-h4-leading: 1.2;
+      --hacksidian-text-system-h4-weight: 700;
+      --hacksidian-text-system-h4-style: normal;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 1.3888889);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 0.69444444);
+      --hacksidian-text-system-h4-tracking: 0em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h5-leading: 1.2;
+      --hacksidian-text-system-h5-weight: 700;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 1.38888889);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 0.69444444);
+      --hacksidian-text-system-h5-tracking: 0em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h6-leading: 1.2;
+      --hacksidian-text-system-h6-weight: 400;
+      --hacksidian-text-system-h6-style: italic;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 1.38888889);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 0.69444444);
+      --hacksidian-text-system-h6-tracking: 0em;
+      --hacksidian-text-system-h6-transform: none;
+    }
+    @variant primer {
+      --hacksidian-text-system-leading: 1.5;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 2.2857143);
+      --hacksidian-text-system-h1-leading: 1.5;
+      --hacksidian-text-system-h1-weight: 600;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 0);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 0);
+      --hacksidian-text-system-h1-tracking: 0em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 1.7142857);
+      --hacksidian-text-system-h2-leading: 1.5;
+      --hacksidian-text-system-h2-weight: 600;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 0.71428571);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 0);
+      --hacksidian-text-system-h2-tracking: 0em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1.4285714);
+      --hacksidian-text-system-h3-leading: 1.5;
+      --hacksidian-text-system-h3-weight: 600;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 0.71428571);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 0);
+      --hacksidian-text-system-h3-tracking: 0em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 1.1428571);
+      --hacksidian-text-system-h4-leading: 1.5;
+      --hacksidian-text-system-h4-weight: 600;
+      --hacksidian-text-system-h4-style: normal;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 0.71428571);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 0);
+      --hacksidian-text-system-h4-tracking: 0em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h5-leading: 1.5;
+      --hacksidian-text-system-h5-weight: 600;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 1.5);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 0.5);
+      --hacksidian-text-system-h5-tracking: 0em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 0.85714286);
+      --hacksidian-text-system-h6-leading: 1.5;
+      --hacksidian-text-system-h6-weight: 600;
+      --hacksidian-text-system-h6-style: normal;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 1.28571429);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 0.5);
+      --hacksidian-text-system-h6-tracking: 0em;
+      --hacksidian-text-system-h6-transform: none;
+    }
+    @variant rutter {
+      --hacksidian-text-system-leading: 1.5;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 2.25);
+      --hacksidian-text-system-h1-leading: 1.3333333;
+      --hacksidian-text-system-h1-weight: 600;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 0);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 0);
+      --hacksidian-text-system-h1-tracking: 0em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 1.875);
+      --hacksidian-text-system-h2-leading: 1.2;
+      --hacksidian-text-system-h2-weight: 600;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 1.875);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 0.375);
+      --hacksidian-text-system-h2-tracking: 0em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1.5);
+      --hacksidian-text-system-h3-leading: 1;
+      --hacksidian-text-system-h3-weight: 600;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 1.125);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 0.375);
+      --hacksidian-text-system-h3-tracking: 0em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 1.3125);
+      --hacksidian-text-system-h4-leading: 1.1428571;
+      --hacksidian-text-system-h4-weight: 600;
+      --hacksidian-text-system-h4-style: normal;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 1.125);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 0.375);
+      --hacksidian-text-system-h4-tracking: 0em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 1.125);
+      --hacksidian-text-system-h5-leading: 1.33333333;
+      --hacksidian-text-system-h5-weight: 700;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 2.25);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 0.75);
+      --hacksidian-text-system-h5-tracking: 0em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h6-leading: 1.5;
+      --hacksidian-text-system-h6-weight: 700;
+      --hacksidian-text-system-h6-style: normal;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 2.25);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 0.75);
+      --hacksidian-text-system-h6-tracking: 0em;
+      --hacksidian-text-system-h6-transform: none;
+    }
+    @variant uswds {
+      --hacksidian-text-system-leading: 1.5;
+      --hacksidian-text-system-h1-size: calc(var(--font-text-size) * 2.3018868);
+      --hacksidian-text-system-h1-leading: 1.2;
+      --hacksidian-text-system-h1-weight: 700;
+      --hacksidian-text-system-h1-style: normal;
+      --hacksidian-text-system-h1-before: calc(var(--font-text-size) * 0);
+      --hacksidian-text-system-h1-after: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h1-tracking: 0em;
+      --hacksidian-text-system-h1-transform: none;
+      --hacksidian-text-system-h2-size: calc(var(--font-text-size) * 1.8396226);
+      --hacksidian-text-system-h2-leading: 1.2;
+      --hacksidian-text-system-h2-weight: 700;
+      --hacksidian-text-system-h2-style: normal;
+      --hacksidian-text-system-h2-before: calc(var(--font-text-size) * 2.759434);
+      --hacksidian-text-system-h2-after: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h2-tracking: 0em;
+      --hacksidian-text-system-h2-transform: none;
+      --hacksidian-text-system-h3-size: calc(var(--font-text-size) * 1.2641509);
+      --hacksidian-text-system-h3-leading: 1.2;
+      --hacksidian-text-system-h3-weight: 700;
+      --hacksidian-text-system-h3-style: normal;
+      --hacksidian-text-system-h3-before: calc(var(--font-text-size) * 1.8962264);
+      --hacksidian-text-system-h3-after: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h3-tracking: 0em;
+      --hacksidian-text-system-h3-transform: none;
+      --hacksidian-text-system-h4-size: calc(var(--font-text-size) * 0.9245283);
+      --hacksidian-text-system-h4-leading: 1.2;
+      --hacksidian-text-system-h4-weight: 700;
+      --hacksidian-text-system-h4-style: normal;
+      --hacksidian-text-system-h4-before: calc(var(--font-text-size) * 1.3867925);
+      --hacksidian-text-system-h4-after: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h4-tracking: 0em;
+      --hacksidian-text-system-h4-transform: none;
+      --hacksidian-text-system-h5-size: calc(var(--font-text-size) * 0.85849057);
+      --hacksidian-text-system-h5-leading: 1.2;
+      --hacksidian-text-system-h5-weight: 700;
+      --hacksidian-text-system-h5-style: normal;
+      --hacksidian-text-system-h5-before: calc(var(--font-text-size) * 1.28773585);
+      --hacksidian-text-system-h5-after: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h5-tracking: 0em;
+      --hacksidian-text-system-h5-transform: none;
+      --hacksidian-text-system-h6-size: calc(var(--font-text-size) * 0.82075472);
+      --hacksidian-text-system-h6-leading: 1.1;
+      --hacksidian-text-system-h6-weight: 400;
+      --hacksidian-text-system-h6-style: normal;
+      --hacksidian-text-system-h6-before: calc(var(--font-text-size) * 1.23113208);
+      --hacksidian-text-system-h6-after: calc(var(--font-text-size) * 1);
+      --hacksidian-text-system-h6-tracking: .025em;
+      --hacksidian-text-system-h6-transform: uppercase;
+    }
+  }
+  --line-height-normal: var(--hacksidian-text-system-leading);
+  --h1-size: var(--hacksidian-text-system-h1-size);
+  --h1-line-height: var(--hacksidian-text-system-h1-leading);
+  --h1-weight: var(--hacksidian-text-system-h1-weight);
+  --h1-style: var(--hacksidian-text-system-h1-style);
+  --h2-size: var(--hacksidian-text-system-h2-size);
+  --h2-line-height: var(--hacksidian-text-system-h2-leading);
+  --h2-weight: var(--hacksidian-text-system-h2-weight);
+  --h2-style: var(--hacksidian-text-system-h2-style);
+  --h3-size: var(--hacksidian-text-system-h3-size);
+  --h3-line-height: var(--hacksidian-text-system-h3-leading);
+  --h3-weight: var(--hacksidian-text-system-h3-weight);
+  --h3-style: var(--hacksidian-text-system-h3-style);
+  --h4-size: var(--hacksidian-text-system-h4-size);
+  --h4-line-height: var(--hacksidian-text-system-h4-leading);
+  --h4-weight: var(--hacksidian-text-system-h4-weight);
+  --h4-style: var(--hacksidian-text-system-h4-style);
+  --h5-size: var(--hacksidian-text-system-h5-size);
+  --h5-line-height: var(--hacksidian-text-system-h5-leading);
+  --h5-weight: var(--hacksidian-text-system-h5-weight);
+  --h5-style: var(--hacksidian-text-system-h5-style);
+  --h6-size: var(--hacksidian-text-system-h6-size);
+  --h6-line-height: var(--hacksidian-text-system-h6-leading);
+  --h6-weight: var(--hacksidian-text-system-h6-weight);
+  --h6-style: var(--hacksidian-text-system-h6-style);
+}
+.markdown-preview-view, .markdown-source-view .cm-scroller { line-height: var(--line-height-normal); }
+
+.markdown-preview-view h1, .markdown-source-view .cm-line.HyperMD-header-1 {
+  --heading-spacing: var(--hacksidian-text-system-h1-before);
+  --p-spacing: var(--hacksidian-text-system-h1-after);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line-height);
+  font-weight: var(--h1-weight);
+  font-style: var(--h1-style);
+  letter-spacing: var(--hacksidian-text-system-h1-tracking);
+  text-transform: var(--hacksidian-text-system-h1-transform);
+}
+.markdown-preview-view h1 { margin-block-start: var(--heading-spacing); margin-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-1 { padding-block-start: var(--heading-spacing); padding-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-1 + .cm-line:not(.HyperMD-header) { padding-top: 0; }
+.markdown-preview-view h1 + p, .markdown-preview-view .el-h1 + .el-p > p { margin-block-start: 0; }
+.markdown-preview-view p:has(+ h1), .markdown-preview-view .el-p:has(+ .el-h1) > p { margin-block-end: 0; }
+
+.markdown-preview-view h2, .markdown-source-view .cm-line.HyperMD-header-2 {
+  --heading-spacing: var(--hacksidian-text-system-h2-before);
+  --p-spacing: var(--hacksidian-text-system-h2-after);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line-height);
+  font-weight: var(--h2-weight);
+  font-style: var(--h2-style);
+  letter-spacing: var(--hacksidian-text-system-h2-tracking);
+  text-transform: var(--hacksidian-text-system-h2-transform);
+}
+.markdown-preview-view h2 { margin-block-start: var(--heading-spacing); margin-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-2 { padding-block-start: var(--heading-spacing); padding-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-2 + .cm-line:not(.HyperMD-header) { padding-top: 0; }
+.markdown-preview-view h2 + p, .markdown-preview-view .el-h2 + .el-p > p { margin-block-start: 0; }
+.markdown-preview-view p:has(+ h2), .markdown-preview-view .el-p:has(+ .el-h2) > p { margin-block-end: 0; }
+
+.markdown-preview-view h3, .markdown-source-view .cm-line.HyperMD-header-3 {
+  --heading-spacing: var(--hacksidian-text-system-h3-before);
+  --p-spacing: var(--hacksidian-text-system-h3-after);
+  font-size: var(--h3-size);
+  line-height: var(--h3-line-height);
+  font-weight: var(--h3-weight);
+  font-style: var(--h3-style);
+  letter-spacing: var(--hacksidian-text-system-h3-tracking);
+  text-transform: var(--hacksidian-text-system-h3-transform);
+}
+.markdown-preview-view h3 { margin-block-start: var(--heading-spacing); margin-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-3 { padding-block-start: var(--heading-spacing); padding-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-3 + .cm-line:not(.HyperMD-header) { padding-top: 0; }
+.markdown-preview-view h3 + p, .markdown-preview-view .el-h3 + .el-p > p { margin-block-start: 0; }
+.markdown-preview-view p:has(+ h3), .markdown-preview-view .el-p:has(+ .el-h3) > p { margin-block-end: 0; }
+
+.markdown-preview-view h4, .markdown-source-view .cm-line.HyperMD-header-4 {
+  --heading-spacing: var(--hacksidian-text-system-h4-before);
+  --p-spacing: var(--hacksidian-text-system-h4-after);
+  font-size: var(--h4-size);
+  line-height: var(--h4-line-height);
+  font-weight: var(--h4-weight);
+  font-style: var(--h4-style);
+  letter-spacing: var(--hacksidian-text-system-h4-tracking);
+  text-transform: var(--hacksidian-text-system-h4-transform);
+}
+.markdown-preview-view h4 { margin-block-start: var(--heading-spacing); margin-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-4 { padding-block-start: var(--heading-spacing); padding-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-4 + .cm-line:not(.HyperMD-header) { padding-top: 0; }
+.markdown-preview-view h4 + p, .markdown-preview-view .el-h4 + .el-p > p { margin-block-start: 0; }
+.markdown-preview-view p:has(+ h4), .markdown-preview-view .el-p:has(+ .el-h4) > p { margin-block-end: 0; }
+
+.markdown-preview-view h5, .markdown-source-view .cm-line.HyperMD-header-5 {
+  --heading-spacing: var(--hacksidian-text-system-h5-before);
+  --p-spacing: var(--hacksidian-text-system-h5-after);
+  font-size: var(--h5-size);
+  line-height: var(--h5-line-height);
+  font-weight: var(--h5-weight);
+  font-style: var(--h5-style);
+  letter-spacing: var(--hacksidian-text-system-h5-tracking);
+  text-transform: var(--hacksidian-text-system-h5-transform);
+}
+.markdown-preview-view h5 { margin-block-start: var(--heading-spacing); margin-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-5 { padding-block-start: var(--heading-spacing); padding-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-5 + .cm-line:not(.HyperMD-header) { padding-top: 0; }
+.markdown-preview-view h5 + p, .markdown-preview-view .el-h5 + .el-p > p { margin-block-start: 0; }
+.markdown-preview-view p:has(+ h5), .markdown-preview-view .el-p:has(+ .el-h5) > p { margin-block-end: 0; }
+
+.markdown-preview-view h6, .markdown-source-view .cm-line.HyperMD-header-6 {
+  --heading-spacing: var(--hacksidian-text-system-h6-before);
+  --p-spacing: var(--hacksidian-text-system-h6-after);
+  font-size: var(--h6-size);
+  line-height: var(--h6-line-height);
+  font-weight: var(--h6-weight);
+  font-style: var(--h6-style);
+  letter-spacing: var(--hacksidian-text-system-h6-tracking);
+  text-transform: var(--hacksidian-text-system-h6-transform);
+}
+.markdown-preview-view h6 { margin-block-start: var(--heading-spacing); margin-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-6 { padding-block-start: var(--heading-spacing); padding-block-end: var(--p-spacing); }
+.markdown-source-view .cm-line.HyperMD-header-6 + .cm-line:not(.HyperMD-header) { padding-top: 0; }
+.markdown-preview-view h6 + p, .markdown-preview-view .el-h6 + .el-p > p { margin-block-start: 0; }
+.markdown-preview-view p:has(+ h6), .markdown-preview-view .el-p:has(+ .el-h6) > p { margin-block-end: 0; }

@@ -1,9 +1,9 @@
 ---
 tags:
   - hacksidian_technique
-  - hacksidian_callout
+  - hacksidian_composition
 title: Пост из полевого дневника
-category: callout
+category: composition
 sources:
   - https://gist.github.com/masaki39/dbf19b19333ae9b7b687b93b0c4ac346
 format: markdown

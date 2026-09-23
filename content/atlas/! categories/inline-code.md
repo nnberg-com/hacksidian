@@ -13,6 +13,10 @@ sources:
 
 # Инлайн-код
 
+```hacksidian-category-count
+inline-code
+```
+
 Значение поля `category`: `inline-code`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

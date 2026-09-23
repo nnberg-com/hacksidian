@@ -6,6 +6,10 @@ title: Псевдозадачи
 
 # Псевдозадачи
 
+```hacksidian-category-count
+pseudo-task
+```
+
 Значение поля `category`: `pseudo-task`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

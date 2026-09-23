@@ -1,4 +1,21 @@
-:is(.markdown-preview-view, .markdown-source-view) h3 {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e019-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e019-level h3 {
+.markdown-preview-view h3 {
   /**
    * @parameter Толщина черты
    * @label-en Line thickness
@@ -11,8 +28,8 @@
    */
   --hacksidian-heading-e019-width: 1px;
   /**
-   * @parameter Отступ под заголовком H3
-   * @label-en Gap below H3
+   * @parameter Отступ под заголовком
+   * @label-en Gap below heading
    * @type number
    * @default 0.65rem
    * @unit rem
@@ -25,3 +42,5 @@
   padding-block-end: var(--hacksidian-heading-e019-gap);
 }
 
+
+}

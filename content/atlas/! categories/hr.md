@@ -6,6 +6,10 @@ title: Разделители
 
 # Разделители
 
+```hacksidian-category-count
+hr
+```
+
 Значение поля `category`: `hr`.
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]

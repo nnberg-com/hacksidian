@@ -1,0 +1,692 @@
+[
+  {
+    "id": "carbon",
+    "title": "Carbon — фиксированная шкала",
+    "source": "https://carbondesignsystem.com/elements/typography/type-sets/",
+    "leading": 1.5,
+    "headings": [
+      {
+        "size": 2.625,
+        "leading": 1.1904761904761905,
+        "weight": 300,
+        "style": "normal",
+        "before": 3.9375,
+        "after": 0.25,
+        "tracking": "0.00000000em",
+        "transform": "none"
+      },
+      {
+        "size": 2.0,
+        "leading": 1.25,
+        "weight": 400,
+        "style": "normal",
+        "before": 3.0,
+        "after": 0.25,
+        "tracking": "0.00000000em",
+        "transform": "none"
+      },
+      {
+        "size": 1.75,
+        "leading": 1.2857142857142858,
+        "weight": 400,
+        "style": "normal",
+        "before": 2.625,
+        "after": 0.25,
+        "tracking": "0.00000000em",
+        "transform": "none"
+      },
+      {
+        "size": 1.25,
+        "leading": 1.4,
+        "weight": 400,
+        "style": "normal",
+        "before": 1.875,
+        "after": 0.25,
+        "tracking": "0.00000000em",
+        "transform": "none"
+      },
+      {
+        "size": 1.0,
+        "leading": 1.5,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.5,
+        "after": 0.25,
+        "tracking": "0.00000000em",
+        "transform": "none"
+      },
+      {
+        "size": 0.875,
+        "leading": 1.4285714285714286,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.3125,
+        "after": 0.25,
+        "tracking": "0.01142857em",
+        "transform": "none"
+      }
+    ],
+    "evidence": "Точные токены heading-06…01: 42/50/300, 32/40/400, 28/36/400, 20/28/400, 16/24/600, 14/20/600 (px/px/weight). body-02: 16/24. Сопоставление токенов H1–H6 и отбивки 1.5 размера заголовка / 0.25 базового размера — адаптация Hacksidian; Carbon не предписывает это соответствие HTML."
+  },
+  {
+    "id": "dmk",
+    "title": "ДМК Пресс — Цифровой свет и рендеринг",
+    "source": "https://www.dmkpress.com/upload/iblock/b5f/ajo1tfftyk2yebgba53x9k9jdms1dor1.pdf#page=9",
+    "leading": 1.19,
+    "headings": [
+      {
+        "size": 2.0642857142857145,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 2.25,
+        "after": 0.375,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.7,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.75,
+        "after": 0.375,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.4,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.375,
+        "after": 0.375,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.1529411764705881,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.375,
+        "after": 0.375,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.375,
+        "after": 0.375,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 400,
+        "style": "normal",
+        "before": 1.375,
+        "after": 0.375,
+        "tracking": "0em",
+        "transform": "none"
+      }
+    ],
+    "evidence": "PDF, стр. 14 (9-я страница файла): реальные размеры текста 10pt, двух заголовков 17pt и 14pt проверены по текстовым объектам PDF. H2/H3 = 1.7/1.4. H1,H4–H6 — адаптация: продолжение отношения 17/14 с нижней границей 1; H6 regular. Интерлиньяж 1.19 и отбивки — адаптация по образцу, не издательский норматив."
+  },
+  {
+    "id": "fluentcompact",
+    "title": "Fluent 2 — Web",
+    "source": "https://fluent2.microsoft.design/typography",
+    "leading": 1.4285714,
+    "headings": [
+      {
+        "size": 2.2857142857142856,
+        "leading": 1.25,
+        "weight": 600,
+        "style": "normal",
+        "before": 3.4285714285714284,
+        "after": 0.2857142857142857,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 2.0,
+        "leading": 1.2857142857142858,
+        "weight": 600,
+        "style": "normal",
+        "before": 3.0,
+        "after": 0.2857142857142857,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.7142857142857142,
+        "leading": 1.3333333333333333,
+        "weight": 600,
+        "style": "normal",
+        "before": 2.571428571428571,
+        "after": 0.2857142857142857,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.4285714285714286,
+        "leading": 1.3,
+        "weight": 600,
+        "style": "normal",
+        "before": 2.142857142857143,
+        "after": 0.2857142857142857,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.1428571428571428,
+        "leading": 1.375,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.7142857142857142,
+        "after": 0.2857142857142857,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.0,
+        "leading": 1.4285714285714286,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.5,
+        "after": 0.2857142857142857,
+        "tracking": "0em",
+        "transform": "none"
+      }
+    ],
+    "evidence": "Точные Web-токены Title 1, Title 2, Title 3, Subtitle 1, Subtitle 2, Body 1 Strong: 32/40, 28/36, 24/32, 20/26, 16/22, 14/20 px, semibold. Текст Body 1: 14/20. Назначение этих токенов H1–H6 и отбивки — адаптация Hacksidian."
+  },
+  {
+    "id": "memoir",
+    "title": "memoir — ntglike без курсива",
+    "source": "https://ctan.org/pkg/memoir",
+    "leading": 1.2,
+    "headings": [
+      {
+        "size": 1.2,
+        "leading": 1.2083333333333333,
+        "weight": 700,
+        "style": "normal",
+        "before": 5,
+        "after": 4,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.095,
+        "leading": 1.2420091324200915,
+        "weight": 700,
+        "style": "normal",
+        "before": 2.4,
+        "after": 0.6,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.0,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.2,
+        "after": 0.012,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.0,
+        "leading": 1.2,
+        "weight": 400,
+        "style": "normal",
+        "before": 1.2,
+        "after": 0.012,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 400,
+        "style": "normal",
+        "before": 1.2,
+        "after": 0.012,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 400,
+        "style": "normal",
+        "before": 1.2,
+        "after": 0.012,
+        "tracking": "0em",
+        "transform": "none"
+      }
+    ],
+    "evidence": "memoir.dtx, ntglike: chapter Large bold, section large bold, subsection normalsize bold, следующие уровни normalsize slanted. В секции 10pt этого источника: Large 12/14.5pt, large 10.95/13.6pt, normalsize 10/12pt. H1–H6 = chapter…subparagraph. Сохранена адаптация «без курсива»; run-in paragraph/subparagraph превращены в блоки с ритмом subsubsection; гибкие TeX-отбивки фиксированы. H1: до 50pt, после 40pt; нормирование к 10pt."
+  },
+  {
+    "id": "mortensen",
+    "title": "По Мортенсену — четыре ступени",
+    "source": "https://spencermortensen.com/articles/typographic-scale/",
+    "leading": 1.6,
+    "headings": [
+      {
+        "size": 2.0,
+        "leading": 1.2,
+        "weight": 600,
+        "style": "normal",
+        "before": 0.0,
+        "after": 0.25,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.6817928,
+        "leading": 1.2,
+        "weight": 600,
+        "style": "normal",
+        "before": 2.0,
+        "after": 0.25,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.4142136,
+        "leading": 1.2,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.5,
+        "after": 0.25,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.1892071,
+        "leading": 1.2,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.25,
+        "after": 0.25,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.6,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.6,
+        "after": 0.8,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 0.8408964152537145,
+        "leading": 1.9027313840043538,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.6,
+        "after": 0.8,
+        "tracking": "0em",
+        "transform": "none"
+      }
+    ],
+    "evidence": "Источник задаёт формулу fᵢ=f₀·r^(i/n), а не готовые HTML-заголовки. Адаптация Hacksidian: r=2,n=4; H1–H6 = 2^(4/4),2^(3/4),2^(2/4),2^(1/4),1,2^(-1/4). Body leading 1.6, насыщенность и отбивки — наша сборка. Все шесть уровней — применение формулы, не авторская таблица H1–H6."
+  },
+  {
+    "id": "nostarch",
+    "title": "No Starch Press — The Modern Web",
+    "source": "https://nostarch.com/download/samples/modernweb_ch6.pdf#page=6",
+    "leading": 1.2,
+    "headings": [
+      {
+        "size": 1.44,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 2.4,
+        "after": 0.6,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.2,
+        "leading": 1.1979167,
+        "weight": 700,
+        "style": "normal",
+        "before": 2.0,
+        "after": 0.5,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.2,
+        "after": 0.3,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "italic",
+        "before": 1.2,
+        "after": 0.3,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 400,
+        "style": "normal",
+        "before": 1.2,
+        "after": 0.3,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 400,
+        "style": "italic",
+        "before": 1.2,
+        "after": 0.3,
+        "tracking": "0em",
+        "transform": "none"
+      }
+    ],
+    "evidence": "The Modern Web, стр. 111 (6-я страница PDF): Fullscreen 12pt Futura Bold, основной текст 10pt NewBaskerville, шаг строк 12pt. H2 = 1.2. H1 = 1.2²; H3–H6 сохраняют размер текста и разделены насыщенностью/курсивом — адаптация Hacksidian. Все отбивки и line-height заголовков — адаптация, не универсальные правила No Starch."
+  },
+  {
+    "id": "oreillyepub",
+    "title": "O’Reilly Technical — EPUB",
+    "source": "https://github.com/oreillymedia/atlas_tech1c_theme/blob/master/epub/epub.css",
+    "leading": 1.25,
+    "headings": [
+      {
+        "size": 2.2222222222222223,
+        "leading": 1.2,
+        "weight": 400,
+        "style": "normal",
+        "before": 4.861111111111111,
+        "after": 3.4722222222222223,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.6666667,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 2.7777778,
+        "after": 0.69444444,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.3888889,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 2.0833333,
+        "after": 0.69444444,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.1111111,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.3888889,
+        "after": 0.69444444,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.3888888888888888,
+        "after": 0.6944444444444444,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.2,
+        "weight": 400,
+        "style": "italic",
+        "before": 1.3888888888888888,
+        "after": 0.6944444444444444,
+        "tracking": "0em",
+        "transform": "none"
+      }
+    ],
+    "evidence": "epub.css: p 0.9em/125%; chapter 2em/120%, margin 70/50px; A/B/C 1.5/1.25/1em, margin 40/10,30/10,20/10px. H1–H4 соответствуют chapter/A/B/C; базовая сетка 16px (p=14.4px) выбрана для пересчёта px. H5/H6 — адаптация, размер текста, bold/italic. Шрифты и выравнивание книги не переносятся."
+  },
+  {
+    "id": "primer",
+    "title": "Primer — базовая типографика",
+    "source": "https://cdn.jsdelivr.net/npm/@primer/css@22.3.1/dist/base.css",
+    "leading": 1.5,
+    "headings": [
+      {
+        "size": 2.2857143,
+        "leading": 1.5,
+        "weight": 600,
+        "style": "normal",
+        "before": 0.0,
+        "after": 0.0,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.7142857,
+        "leading": 1.5,
+        "weight": 600,
+        "style": "normal",
+        "before": 0.71428571,
+        "after": 0.0,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.4285714,
+        "leading": 1.5,
+        "weight": 600,
+        "style": "normal",
+        "before": 0.71428571,
+        "after": 0.0,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.1428571,
+        "leading": 1.5,
+        "weight": 600,
+        "style": "normal",
+        "before": 0.71428571,
+        "after": 0.0,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.0,
+        "leading": 1.5,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.5,
+        "after": 0.5,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 0.8571428571428571,
+        "leading": 1.5,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.2857142857142856,
+        "after": 0.5,
+        "tracking": "0em",
+        "transform": "none"
+      }
+    ],
+    "evidence": "@primer/css 22.3.1 base.css: H1–H6 32,24,20,16,14,12 px; weight 600; body 14px/1.5. Размеры и насыщенность из CSS. Вертикальные интервалы — адаптация Hacksidian: исходный base.css обнуляет margin заголовков."
+  },
+  {
+    "id": "rutter",
+    "title": "По Раттеру — ритм строки",
+    "source": "https://webtypography.net/2.2.2",
+    "leading": 1.5,
+    "headings": [
+      {
+        "size": 2.25,
+        "leading": 1.3333333,
+        "weight": 600,
+        "style": "normal",
+        "before": 0.0,
+        "after": 0.0,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.875,
+        "leading": 1.2,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.875,
+        "after": 0.375,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.5,
+        "leading": 1.0,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.125,
+        "after": 0.375,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.3125,
+        "leading": 1.1428571,
+        "weight": 600,
+        "style": "normal",
+        "before": 1.125,
+        "after": 0.375,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.125,
+        "leading": 1.3333333333333333,
+        "weight": 700,
+        "style": "normal",
+        "before": 2.25,
+        "after": 0.75,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1,
+        "leading": 1.5,
+        "weight": 700,
+        "style": "normal",
+        "before": 2.25,
+        "after": 0.75,
+        "tracking": "0em",
+        "transform": "none"
+      }
+    ],
+    "evidence": "Раттер §2.2.2: интервалы кратны базовой строке; разрешены асимметричные отбивки 1.5/0.5 строки. H1–H6 и насыщенность — адаптация Hacksidian, источник не задаёт такую шкалу. База 1.5; H5/H6 занимают строку с отбивками 2.25/0.75 базового размера. CSS-ритм не компенсирует переносы заголовков JavaScript-кодом."
+  },
+  {
+    "id": "uswds",
+    "title": "USWDS — стандартная сборка",
+    "source": "https://cdn.jsdelivr.net/npm/@uswds/uswds@3.14.0/dist/css/uswds.css",
+    "leading": 1.5,
+    "headings": [
+      {
+        "size": 2.3018868,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 0.0,
+        "after": 1.0,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.8396226,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 2.759434,
+        "after": 1.0,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 1.2641509,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.8962264,
+        "after": 1.0,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 0.9245283,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.3867925,
+        "after": 1.0,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 0.8584905660377359,
+        "leading": 1.2,
+        "weight": 700,
+        "style": "normal",
+        "before": 1.2877358490566038,
+        "after": 1,
+        "tracking": "0em",
+        "transform": "none"
+      },
+      {
+        "size": 0.820754716981132,
+        "leading": 1.1,
+        "weight": 400,
+        "style": "normal",
+        "before": 1.231132075471698,
+        "after": 1,
+        "tracking": ".025em",
+        "transform": "uppercase"
+      }
+    ],
+    "evidence": "@uswds/uswds 3.14.0: .usa-prose 1.06rem/1.5; H1–H6 2.44,1.95,1.34,.98,.91,.87rem. H1–H5 700/1.2; H6 normal/1.1, .025em, uppercase. Нормализация относительно 1.06rem и перевод отступов соседних элементов в локальные отбивки — адаптация; гарнитуры не переносятся."
+  }
+]

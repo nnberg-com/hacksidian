@@ -1,10 +1,27 @@
-:is(.markdown-preview-view, .markdown-source-view) a {
+.markdown-preview-view {
+  /**
+   * @parameter Уровень заголовка
+   * @label-en Heading level
+   * @type select
+   * @default h3
+   * @option h1 | H1
+   * @option h2 | H2
+   * @option h3 | H3
+   * @option h4 | H4
+   * @option h5 | H5
+   * @option h6 | H6
+   */
+  --hacksidian-heading-e062-level: h3;
+}
+
+@hacksidian-heading --hacksidian-heading-e062-level h3 {
+.markdown-preview-view h3 a {
   position: relative;
   color: inherit;
   text-decoration: none;
   display: inline-block;
 }
-:is(.markdown-preview-view, .markdown-source-view) a::after {
+.markdown-preview-view h3 a::after {
   content: "";
   position: absolute;
   inset-inline: 0;
@@ -15,7 +32,9 @@
   transform-origin: right;
   transition: transform .3s;
 }
-:is(.markdown-preview-view, .markdown-source-view) a:hover::after, :is(.markdown-preview-view, .markdown-source-view) a:focus-visible::after {
+.markdown-preview-view h3 a:hover::after, .markdown-preview-view h3 a:focus-visible::after {
   transform: scaleX(1);
 }
 
+
+}

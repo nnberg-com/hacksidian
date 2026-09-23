@@ -5,7 +5,7 @@ import { readParameters, updateParameter, parameterValue, parameterInput } from 
 import { addHack, removeHack, compileHack } from '../src/hacks';
 import { scopeLiveExample } from '../src/live-example-css';
 const read = (id: string) => readFileSync(new URL(`../../content/atlas/! hacks/${id}/recipe.css`, import.meta.url), 'utf8');
-const ids = ['quote-dashed', 'note-dropcap', 'quote-corner-marks', 'text-system-uswds',
+const ids = ['quote-dashed', 'note-dropcap', 'quote-corner-marks', 'text-system',
   'image-e016', 'link-e014', 'table-e015', 'code-e011', 'list-e010', 'heading-e019',
   'tag-e008', 'task-e09', 'hr-e070', 'callout-technical-round'];
 test('all experiment defaults round-trip exactly and remain independently scopeable', () => {
