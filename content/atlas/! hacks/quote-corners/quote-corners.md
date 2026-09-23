@@ -29,9 +29,6 @@ quote-corners
 quote-corners
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-corners

@@ -29,9 +29,6 @@ outline добавляет второй контур без дополнител
 task-e06
 ```
 
-###### Локальные зависимости
-
-- [assets/check.svg](<./assets/check.svg>)
 
 ```hacksidian-files
 task-e06

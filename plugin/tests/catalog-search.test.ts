@@ -39,11 +39,11 @@ test('source-theme research cannot claim an effect for the local recipe',()=>{
  expect(lexicalCandidates('sparkle',[unrelated])).toEqual([]);
 });
 test('dialogue callout matches the reported request and retains its activation condition',()=>{
- const base=new URL('../../content/atlas/! hacks/callout-dialogue/',import.meta.url);
- const real=techniqueEntry('atlas/! hacks/callout-dialogue/callout-dialogue.md',readFileSync(new URL('callout-dialogue.md',base),'utf8'),{title:'Переписка',category:'callout'},{hasCss:true},readFileSync(new URL('recipe.css',base),'utf8'));
+ const base=new URL('../../content/atlas/! hacks/composition-dialogue/',import.meta.url);
+ const real=techniqueEntry('atlas/! hacks/composition-dialogue/composition-dialogue.md',readFileSync(new URL('composition-dialogue.md',base),'utf8'),{title:'Переписка',category:'callout'},{hasCss:true},readFileSync(new URL('recipe.css',base),'utf8'));
  const decoys=Array.from({length:80},(_,i)=>entry(`callout-${i}`,'Специальное оформление callout','Category: callout\nСпециально оформленные блоки.'));
  const query="Хочу, чтобы некоторые callout'ы (специально оформленные) отображались как диалоги в чате. Сделай.";
- expect(lexicalCandidates(query,[...decoys,real])[0].id).toBe('callout-dialogue');
+ expect(lexicalCandidates(query,[...decoys,real])[0].id).toBe('composition-dialogue');
  expect(real.text).toContain('[!dialogue]');expect(real.text).toContain('остальные callout');
 });
 
@@ -61,5 +61,5 @@ test('reported callout request reaches the candidate set across the full reposit
  expect(entries.length).toBeGreaterThan(1300); // Consolidated system/palette variants are single techniques.
  expect(entries.some(e=>e.id==='text-system')).toBe(true);
  expect(entries.some(e=>e.id==='palette')).toBe(true);
- expect(lexicalCandidates(query,entries)[0].id).toBe('callout-dialogue');
+ expect(lexicalCandidates(query,entries)[0].id).toBe('composition-dialogue');
 });

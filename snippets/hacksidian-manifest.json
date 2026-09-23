@@ -17,42 +17,6 @@
       ]
     },
     {
-      "id": "g-meta",
-      "component": "meta",
-      "group": "meta",
-      "title": "Платформы и метанастройки",
-      "file": "hacksidian-01-meta.css",
-      "nativeVariables": [
-        "--file-line-width",
-        "--font-text-size",
-        "--line-height-normal"
-      ]
-    },
-    {
-      "id": "g-interface",
-      "component": "interface",
-      "group": "interface",
-      "title": "Интерфейс Obsidian",
-      "file": "hacksidian-02-interface.css",
-      "nativeVariables": [
-        "--font-interface",
-        "--ribbon-width",
-        "--sidebar-width",
-        "--tab-font-size"
-      ]
-    },
-    {
-      "id": "g-note",
-      "component": "note",
-      "group": "note",
-      "title": "Заметка",
-      "file": "hacksidian-03-note.css",
-      "nativeVariables": [
-        "--file-line-width",
-        "--file-margins"
-      ]
-    },
-    {
       "id": "g-text",
       "component": "text",
       "group": "text",
@@ -138,11 +102,11 @@
       ]
     },
     {
-      "id": "g-list",
-      "component": "list",
-      "group": "list",
-      "title": "Списки",
-      "file": "hacksidian-11-list.css",
+      "id": "g-unordered",
+      "component": "unordered",
+      "group": "unordered",
+      "title": "Маркированные списки",
+      "file": "hacksidian-11-unordered.css",
       "nativeVariables": [
         "--list-indent",
         "--list-spacing",
@@ -162,11 +126,11 @@
       ]
     },
     {
-      "id": "g-pseudo-task",
-      "component": "pseudo-task",
-      "group": "pseudo-task",
+      "id": "g-taskplus",
+      "component": "taskplus",
+      "group": "taskplus",
       "title": "Псевдозадачи",
-      "file": "hacksidian-13-pseudo-task.css",
+      "file": "hacksidian-13-taskplus.css",
       "nativeVariables": [
         "--checkbox-size",
         "--checkbox-marker-color"
@@ -270,22 +234,45 @@
       "group": "composition",
       "title": "Композиции",
       "file": "hacksidian-22-composition.css",
-      "nativeVariables": []
+      "nativeVariables": [
+        "--file-line-width",
+        "--file-margins"
+      ]
     },
     {
-      "id": "g-strikethrough",
-      "component": "strikethrough",
-      "group": "strikethrough",
+      "id": "g-strike",
+      "component": "strike",
+      "group": "strike",
       "title": "Зачёркивание",
-      "file": "hacksidian-23-strikethrough.css",
+      "file": "hacksidian-23-strike.css",
       "nativeVariables": []
     },
     {
-      "id": "g-emphasis-combinations",
-      "component": "emphasis-combinations",
-      "group": "emphasis-combinations",
+      "id": "g-combinations",
+      "component": "combinations",
+      "group": "combinations",
       "title": "Сочетания выделений",
-      "file": "hacksidian-24-emphasis-combinations.css",
+      "file": "hacksidian-24-combinations.css",
+      "nativeVariables": []
+    },
+    {
+      "id": "g-ordered",
+      "component": "ordered",
+      "group": "ordered",
+      "title": "Нумерованные списки",
+      "file": "hacksidian-25-ordered.css",
+      "nativeVariables": [
+        "--list-indent",
+        "--list-spacing",
+        "--list-marker-color"
+      ]
+    },
+    {
+      "id": "g-callin",
+      "component": "callin",
+      "group": "callin",
+      "title": "Markdown внутри выносок",
+      "file": "hacksidian-26-callin.css",
       "nativeVariables": []
     }
   ]

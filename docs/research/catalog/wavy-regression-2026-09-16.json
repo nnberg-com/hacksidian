@@ -36,8 +36,8 @@
       },
       "retrievedIds": [
         "quote-underline",
-        "note-link-underline",
-        "note-underline",
+        "link-underline",
+        "emphasis-underline",
         "interface-hide-source-link-urls",
         "note-contrast",
         "link-e023"

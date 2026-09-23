@@ -1,9 +1,0 @@
-.workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)) .view-actions .clickable-icon {
-  min-width: 36px;
-  min-height: 36px;
-  padding: 8px;
-}
-.workspace-leaf:has(:is(.markdown-preview-view, .markdown-source-view)) .view-actions {
-  gap: 4px;
-}
-

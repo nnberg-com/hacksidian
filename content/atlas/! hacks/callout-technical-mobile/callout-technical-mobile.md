@@ -20,34 +20,19 @@ callout-technical-mobile
 
 ```hacksidian-details
 > Зачем
-Один Callout в основной колонке и на мобильном экране.
+Уменьшает внутренние поля выноски в узком контейнере.
 
 > Как работает
 Контейнерный запрос уменьшает поля и расстояние между значком и названием.
 
 > Ограничения
-Узкую полосу можно включить в верхней панели стенда.
+Сузьте живой пример до 340 px или меньше. CSS привязан к именованному контейнеру `preview`: вне стенда нужен такой контейнер. Это проверка ширины области, а не мобильной ОС.
 ```
 
 ```hacksidian-sources
 callout-technical-mobile
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ```hacksidian-files
 callout-technical-mobile

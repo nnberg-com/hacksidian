@@ -33,9 +33,6 @@ font-variant-ligatures переключает common-ligatures. Здесь ла�
 heading-e074
 ```
 
-###### Локальные зависимости
-
-- [assets/RobotoFlex.ttf](<./assets/RobotoFlex.ttf>)
 
 ###### Подтверждения в темах — исследование 2026-09-16
 

@@ -3,6 +3,7 @@ import path from "node:path";
 import postcss from 'postcss';
 import selectorParser from 'postcss-selector-parser';
 import { paletteVariables } from './palette';
+import { metadataDocument } from './metadata-model';
 
 /** CSS for embedded Reading-view content only. Installation resolves the same parameter table without preview scoping. */
 export function scopeLiveExample(css: string, id: string): string {
@@ -58,12 +59,15 @@ export function scopeLiveExample(css: string, id: string): string {
   return tree.toString();
 }
 
-export function liveExampleIssue(group: string, markdown: string, css: string): string | null {
+export function liveExampleIssue(group: string, markdown: string, css: string, model?: string): string | null {
   if (group === 'palette') {
     try {
       paletteVariables(css, 'light');
       return null;
     } catch (e) { return String(e); }
+  }
+  if (group === 'metadata' && model) {
+    try { metadataDocument(model, css, {}); return null; } catch (error) { return String(error); }
   }
   if (['interface', 'metadata', 'meta'].includes(group)) return 'Части интерфейса, свойства или настройки Obsidian — вне текущего этапа.';
   if (/hacksidian-(?:source|interface|properties)-model/.test(markdown)) return 'Пример является моделью редактора или интерфейса, а не содержимым заметки.';

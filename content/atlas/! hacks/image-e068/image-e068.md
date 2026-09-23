@@ -32,10 +32,6 @@ image-e068
 image-e068
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
-- [assets/landscape.svg](<./assets/landscape.svg>)
 
 ```hacksidian-files
 image-e068

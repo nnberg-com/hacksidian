@@ -35,9 +35,6 @@ heading-e095
 heading-e095
 ```
 
-###### Локальные зависимости
-
-- [assets/landscape.svg](<./assets/landscape.svg>)
 
 ```hacksidian-files
 heading-e095

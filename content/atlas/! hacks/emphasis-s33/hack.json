@@ -1,9 +1,0 @@
-{
-  "format": 2,
-  "target": "g-emphasis-combinations",
-  "hasCss": true,
-  "group": "emphasis-combinations",
-  "previousTargets": [
-    "g-emphasis"
-  ]
-}

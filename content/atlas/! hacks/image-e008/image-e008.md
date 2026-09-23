@@ -29,9 +29,6 @@ aspect-ratio задаёт квадрат, cover заполняет его с о�
 image-e008
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e008

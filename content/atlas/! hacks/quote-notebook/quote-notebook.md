@@ -29,9 +29,6 @@ quote-notebook
 quote-notebook
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-notebook

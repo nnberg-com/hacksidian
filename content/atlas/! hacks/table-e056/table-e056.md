@@ -33,11 +33,6 @@ alt остаётся описанием изображения, а не скры
 table-e056
 ```
 
-###### Локальные зависимости
-
-- [assets/blue.svg](<./assets/blue.svg>)
-- [assets/green.svg](<./assets/green.svg>)
-- [assets/orange.svg](<./assets/orange.svg>)
 
 ```hacksidian-files
 table-e056

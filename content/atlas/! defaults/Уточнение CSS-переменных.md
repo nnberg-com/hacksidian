@@ -35,7 +35,7 @@
 ## Требуют отдельных решений
 
 - [callout-technical-band](../!%20hacks/callout-technical-band/callout-technical-band.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
-- [callout-technical-code](../!%20hacks/callout-technical-code/callout-technical-code.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
+- [callin-technical-code](../!%20hacks/callin-technical-code/callin-technical-code.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [callout-technical-dark](../!%20hacks/callout-technical-dark/callout-technical-dark.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма. Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [callout-technical-dashed](../!%20hacks/callout-technical-dashed/callout-technical-dashed.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [callout-technical-dots](../!%20hacks/callout-technical-dots/callout-technical-dots.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма. Штатная толщина границы равна 0; умножение не создаст видимую границу.
@@ -45,8 +45,8 @@
 - [callout-technical-gradient](../!%20hacks/callout-technical-gradient/callout-technical-gradient.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [callout-technical-label](../!%20hacks/callout-technical-label/callout-technical-label.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма. Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [callout-technical-line](../!%20hacks/callout-technical-line/callout-technical-line.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
-- [callout-technical-nested](../!%20hacks/callout-technical-nested/callout-technical-nested.md): Штатная толщина границы равна 0; умножение не создаст видимую границу. Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
-- [callout-technical-nested-quiet](../!%20hacks/callout-technical-nested-quiet/callout-technical-nested-quiet.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
+- [callin-technical-nested](../!%20hacks/callin-technical-nested/callin-technical-nested.md): Штатная толщина границы равна 0; умножение не создаст видимую границу. Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
+- [callin-technical-nested-quiet](../!%20hacks/callin-technical-nested-quiet/callin-technical-nested-quiet.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [callout-technical-outline](../!%20hacks/callout-technical-outline/callout-technical-outline.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма. Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [callout-technical-print](../!%20hacks/callout-technical-print/callout-technical-print.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [callout-technical-right](../!%20hacks/callout-technical-right/callout-technical-right.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
@@ -82,14 +82,14 @@
 - [inline-code-ex-70](../!%20hacks/inline-code-ex-70/inline-code-ex-70.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [inline-code-ex-71](../!%20hacks/inline-code-ex-71/inline-code-ex-71.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
 - [inline-code-ex-74](../!%20hacks/inline-code-ex-74/inline-code-ex-74.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
-- [note-code-panel](../!%20hacks/note-code-panel/note-code-panel.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
-- [note-inline-code](../!%20hacks/note-inline-code/note-inline-code.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
-- [note-quote-glyph](../!%20hacks/note-quote-glyph/note-quote-glyph.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
-- [note-quote-margin](../!%20hacks/note-quote-margin/note-quote-margin.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
-- [note-quote-nested](../!%20hacks/note-quote-nested/note-quote-nested.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
-- [note-quote-panel](../!%20hacks/note-quote-panel/note-quote-panel.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
-- [note-quote-title](../!%20hacks/note-quote-title/note-quote-title.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
-- [note-table-sticky](../!%20hacks/note-table-sticky/note-table-sticky.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
+- [code-panel](../!%20hacks/code-panel/code-panel.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
+- [inline-code-inline-code](../!%20hacks/inline-code-inline-code/inline-code-inline-code.md): Штатная толщина границы равна 0; умножение не создаст видимую границу.
+- [quote-glyph](../!%20hacks/quote-glyph/quote-glyph.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
+- [quote-margin](../!%20hacks/quote-margin/quote-margin.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
+- [quote-nested](../!%20hacks/quote-nested/quote-nested.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
+- [quote-panel](../!%20hacks/quote-panel/quote-panel.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
+- [quote-title](../!%20hacks/quote-title/quote-title.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
+- [table-sticky](../!%20hacks/table-sticky/table-sticky.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
 - [quote-bubble](../!%20hacks/quote-bubble/quote-bubble.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
 - [quote-inset](../!%20hacks/quote-inset/quote-inset.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.
 - [quote-nested-panels](../!%20hacks/quote-nested-panels/quote-nested-panels.md): Проверить роль заливки отдельно: штатная подложка может быть прозрачной; её замена может убрать смысл приёма.

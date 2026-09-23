@@ -32,9 +32,6 @@ repeating-linear-gradient повторяется с шагом, равным lin
 quote-ruled
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-ruled

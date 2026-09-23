@@ -29,9 +29,6 @@ quote-gradient-rail
 quote-gradient-rail
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-gradient-rail

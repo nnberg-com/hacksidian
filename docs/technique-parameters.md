@@ -39,7 +39,7 @@
 
 ## Первый набор
 
-Первый набор включал четырнадцать карточек (первые эксперименты помечены `hacksidian_parameter_experiment`): `quote-dashed`, `note-dropcap`, `quote-corner-marks`, `text-system`, а также `image-e016`, `link-e014`, `table-e015`, `code-e011`, `list-e010`, `heading-e019`, `tag-e008`, `task-e09`, `hr-e070`, `callout-technical-round`. Исходный вид сохраняется при значениях по умолчанию.
+Первый набор включал четырнадцать карточек (первые эксперименты помечены `hacksidian_parameter_experiment`): `quote-dashed`, `text-dropcap-accent`, `quote-corner-marks`, `text-system`, а также `image-e016`, `link-e014`, `table-e015`, `code-e011`, `unordered-e010`, `heading-e019`, `tag-e008`, `task-e09`, `hr-e070`, `callout-technical-round`. Исходный вид сохраняется при значениях по умолчанию.
 
 Текстовые системы объединены в один приём `text-system` в категории `text`. Параметр выбирает одну из десяти систем; каждая явно задаёт H1–H6. Источники и адаптации приведены в `content/atlas/! hacks/text-system/sources.md`.
 

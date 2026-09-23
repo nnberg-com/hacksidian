@@ -12,14 +12,13 @@ Commit: `c05841901d10ce280b9cf614a343e75000f0d738`. Основной файл: `
 - Полные имена файлов в проводнике — новая карточка
 - Встроенная заметка без отдельной рамки — новая карточка
 - Плавающий заголовок панели заметки — новая карточка
-- [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
+- [[atlas/! hacks/text-selection-custom/text-selection-custom|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
-- [[atlas/! hacks/note-quote-line/note-quote-line|Классическая цитата с линией]] — существующая карточка
+- [[atlas/! hacks/quote-line/quote-line|Классическая цитата с линией]] — существующая карточка
 - [[atlas/! hacks/code-e018/code-e018|Мягкий перенос]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 
 ## Реестр настроек
 

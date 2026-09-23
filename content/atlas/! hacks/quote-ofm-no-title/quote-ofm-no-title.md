@@ -33,9 +33,6 @@ quote-ofm-no-title
 quote-ofm-no-title
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-ofm-no-title

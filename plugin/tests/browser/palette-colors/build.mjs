@@ -12,7 +12,7 @@ const {resolveParameterVariants,parameterExample}=createRequire(import.meta.url)
 const css=fs.readFileSync(path.join(repo,'content/atlas/! hacks/palette/recipe.css'),'utf8');
 const names=[...css.matchAll(/@option ([\w-]+) \|/g)].map(m=>m[1]);
 const variants=names.map(name=>({name,css:resolveParameterVariants(parameterExample(css,{'--hacksidian-palette-choice':name}))}));
-const semantic=fs.readFileSync(path.join(repo,'content/atlas/! hacks/semantic-palette-custom/recipe.css'),'utf8');
+const semantic=fs.readFileSync(path.join(repo,'content/atlas/! hacks/palette-semantic-palette-custom/recipe.css'),'utf8');
 fs.writeFileSync(path.join(destination,'data.json'),JSON.stringify({variants,semantic}));
 fs.copyFileSync(stockCss,path.join(destination,'stock.css'));
 fs.copyFileSync(path.join(import.meta.dirname,'test.js'),path.join(destination,'test.js'));

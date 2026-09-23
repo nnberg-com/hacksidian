@@ -10,7 +10,6 @@ Commit: `75efcbbd6a89abc04265b467997fb60638de9157`. Основной файл: `
 
 - Выборочное скрытие служебных кнопок — новая карточка
 - Оформление интерфейса под операционную систему — новая карточка
-- [[atlas/! hacks/interface-readable-tabs/interface-readable-tabs|Больше места названиям вкладок]] — существующая карточка
 
 ## Реестр настроек
 
@@ -23,7 +22,6 @@ Commit: `75efcbbd6a89abc04265b467997fb60638de9157`. Основной файл: `
 | Hide maximize button | `adwaita-window-button-maximize-hide` | Есть карточка | Подтверждено правилом CSS. Выборочное скрытие служебных кнопок | [код](https://github.com/birneee/obsidian-adwaita-theme/blob/75efcbbd6a89abc04265b467997fb60638de9157/theme.css#L47) |
 | Hide close button | `adwaita-window-button-close-hide` | Есть карточка | Подтверждено правилом CSS. Выборочное скрытие служебных кнопок | [код](https://github.com/birneee/obsidian-adwaita-theme/blob/75efcbbd6a89abc04265b467997fb60638de9157/theme.css#L51) |
 | Enable | `adwaita-tabs` | Есть карточка | Варианты always/linux-only/never применяют оформление компонентов по платформе. Шрифт Cantarell должен быть установлен отдельно. Оформление интерфейса под операционную систему | [код](https://github.com/birneee/obsidian-adwaita-theme/blob/75efcbbd6a89abc04265b467997fb60638de9157/theme.css#L61) |
-| Short | `adwaita-tabs-short` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/interface-readable-tabs/interface-readable-tabs\|Больше места названиям вкладок]] | [код](https://github.com/birneee/obsidian-adwaita-theme/blob/75efcbbd6a89abc04265b467997fb60638de9157/theme.css#L78) |
 | Enable | `adwaita-colors` | Есть карточка | Варианты always/linux-only/never применяют оформление компонентов по платформе. Шрифт Cantarell должен быть установлен отдельно. Оформление интерфейса под операционную систему | [код](https://github.com/birneee/obsidian-adwaita-theme/blob/75efcbbd6a89abc04265b467997fb60638de9157/theme.css#L88) |
 | Enable | `adwaita-font` | Есть карточка | Варианты always/linux-only/never применяют оформление компонентов по платформе. Шрифт Cantarell должен быть установлен отдельно. Оформление интерфейса под операционную систему | [код](https://github.com/birneee/obsidian-adwaita-theme/blob/75efcbbd6a89abc04265b467997fb60638de9157/theme.css#L111) |
 | Enable | `adwaita-icon` | Есть карточка | Варианты always/linux-only/never применяют оформление компонентов по платформе. Шрифт Cantarell должен быть установлен отдельно. Оформление интерфейса под операционную систему | [код](https://github.com/birneee/obsidian-adwaita-theme/blob/75efcbbd6a89abc04265b467997fb60638de9157/theme.css#L134) |

@@ -17,11 +17,10 @@ Commit: `a4ea25406cb354561365e4e0f622941650c06218`. Основной файл: `
 - Встроенная заметка без повторного заголовка — новая карточка
 - Размер и форма полос прокрутки — новая карточка
 - [[atlas/! hacks/tag-e001/tag-e001|Только акцентный цвет]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
 - [[atlas/! hacks/image-e063/image-e063|Обтекание справа]] — существующая карточка
-- [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
+- [[atlas/! hacks/composition-margin/composition-margin|Заметка на полях]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/table-e034/table-e034|Подсветка строки]] — существующая карточка

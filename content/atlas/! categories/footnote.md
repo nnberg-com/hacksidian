@@ -1,5 +1,4 @@
 ---
-group: footnote
 snippet: hacksidian-20-footnote.css
 title: Сноски
 sources:
@@ -11,17 +10,9 @@ sources:
 - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/column-width
 ---
 
-# Сноски
-
-```hacksidian-category-count
-footnote
-```
-
-Значение поля `category`: `footnote`.
+# Сноски → `$=dv.el("code", dv.app.vault.getAbstractFileByPath(dv.currentFilePath).basename)` • `$=const file = dv.app.vault.getAbstractFileByPath(dv.currentFilePath); (dv.app.vault.getAbstractFileByPath(file.parent.path.replace(/! categories$/, "! hacks"))?.children ?? []).filter(f => f.children && (f.name === file.basename || f.name.startsWith(file.basename + "-"))).length`
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]
-
-## Приёмы
 
 ```hacksidian-category
 footnote

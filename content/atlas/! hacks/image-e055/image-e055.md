@@ -29,9 +29,6 @@ image-e055
 image-e055
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e055

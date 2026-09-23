@@ -1,0 +1,35 @@
+---
+tags:
+  - hacksidian_technique
+  - hacksidian_parameter_experiment
+  - hacksidian_ordered
+title: Подпись «Шаг»
+category: ordered
+sources: []
+format: markdown
+themes: []
+favourite: false
+---
+
+```hacksidian-id
+ordered-o012
+```
+
+```hacksidian-live
+ordered-o012
+```
+
+```hacksidian-details
+> Как работает
+Параметр «Текст перед номером» задаёт подпись через CSS-переменную; по умолчанию — «Шаг». Нативный `::marker` объединяет подпись, пробел, номер `counter(list-item)` и разделитель « — ». Нумерация остаётся стандартной, включая начальный номер и вложенные списки.
+
+Можно ввести, например, «Step» или оставить поле пустым. Для длинной подписи может потребоваться больший отступ списка. Для включённого оформления используйте кнопку «Обновить уже существующий стиль».
+```
+
+```hacksidian-sources
+ordered-o012
+```
+
+```hacksidian-files
+ordered-o012
+```

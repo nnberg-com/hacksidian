@@ -659,7 +659,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "emphasis-s33"
+        "id": "combinations-s33"
       }
     ],
     "settingSource": "https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L158",
@@ -673,7 +673,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-highlight"
+        "id": "emphasis-highlight"
       }
     ],
     "settingSource": "https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L199",
@@ -2044,7 +2044,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-hierarchy"
+        "id": "heading-hierarchy"
       }
     ],
     "settingSource": "https://github.com/7368697661/Origami/blob/8779debf0eedf8f33b68c22ac50a37c0759caaa3/theme.css#L238",
@@ -4389,7 +4389,7 @@
     "reason": "Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки.",
     "links": [
       {
-        "id": "note-hierarchy",
+        "id": "heading-hierarchy",
         "selector": "body\\.type\\-scale\\-none",
         "property": "--h6-size"
       }
@@ -4405,7 +4405,7 @@
     "reason": "Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки.",
     "links": [
       {
-        "id": "note-hierarchy",
+        "id": "heading-hierarchy",
         "selector": "body:not\\(\\.source\\-mode\\-headings\\-regular\\)\\ \\.markdown\\-source\\-view:not\\(\\.is\\-live\\-preview\\)",
         "property": "--h1-size"
       }
@@ -5068,7 +5068,7 @@
     "reason": "Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки.",
     "links": [
       {
-        "id": "note-quote-glyph",
+        "id": "quote-glyph",
         "selector": "\\.naked\\-bq\\ \\.markdown\\-preview\\-view\\ blockquote:before",
         "property": "content"
       }
@@ -6805,7 +6805,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "list-ordered-o017",
+        "id": "ordered-o017",
         "property": "content"
       }
     ],
@@ -6820,7 +6820,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-quote-pull",
+        "id": "quote-pull-accent",
         "property": "font-size"
       }
     ],
@@ -7047,7 +7047,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-image-fluid",
+        "id": "image-fluid",
         "property": "width",
         "selector": "img|image"
       }
@@ -7480,7 +7480,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers",
+        "id": "unordered-markers",
         "property": "width"
       }
     ],
@@ -7600,7 +7600,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-quote-margin",
+        "id": "quote-margin",
         "property": "border-left"
       }
     ],
@@ -7615,7 +7615,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-quote-frame"
+        "id": "quote-frame"
       }
     ],
     "settingSource": "https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7278",
@@ -7629,7 +7629,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-quote-frame"
+        "id": "quote-frame"
       }
     ],
     "settingSource": "https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7283",
@@ -7658,7 +7658,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers"
+        "id": "unordered-markers"
       }
     ],
     "settingSource": "https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8237",
@@ -7672,7 +7672,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers"
+        "id": "unordered-markers"
       }
     ],
     "settingSource": "https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8265",
@@ -7686,7 +7686,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers"
+        "id": "unordered-markers"
       }
     ],
     "settingSource": "https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8293",
@@ -8045,7 +8045,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers",
+        "id": "unordered-markers",
         "property": "content"
       }
     ],
@@ -8060,7 +8060,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "list-e013",
+        "id": "unordered-e013",
         "property": "color"
       }
     ],
@@ -8120,7 +8120,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "callout-dialogue",
+        "id": "composition-dialogue",
         "property": "border-radius"
       }
     ],
@@ -8135,7 +8135,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers",
+        "id": "unordered-markers",
         "property": "--list-bullet-border"
       }
     ],
@@ -8584,7 +8584,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-quote-frame",
+        "id": "quote-frame",
         "property": "border"
       }
     ],
@@ -8756,7 +8756,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-highlight"
+        "id": "emphasis-highlight"
       }
     ],
     "settingSource": "https://github.com/damiankorcz/Prism-Theme/blob/d1b0b2fad28778b96a19777020e42961e293d90a/theme.css#L11155",
@@ -8770,7 +8770,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-highlight"
+        "id": "emphasis-highlight"
       }
     ],
     "settingSource": "https://github.com/damiankorcz/Prism-Theme/blob/d1b0b2fad28778b96a19777020e42961e293d90a/theme.css#L11193",
@@ -8784,7 +8784,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-highlight"
+        "id": "emphasis-highlight"
       }
     ],
     "settingSource": "https://github.com/damiankorcz/Prism-Theme/blob/d1b0b2fad28778b96a19777020e42961e293d90a/theme.css#L11737",
@@ -9234,7 +9234,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-image-fluid",
+        "id": "image-fluid",
         "property": "max-width"
       }
     ],
@@ -9624,7 +9624,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-quote-panel"
+        "id": "quote-panel"
       }
     ],
     "settingSource": "https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2494",
@@ -9678,7 +9678,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-image-fluid",
+        "id": "image-fluid",
         "property": "width"
       }
     ],
@@ -9693,7 +9693,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-image-gallery",
+        "id": "image-gallery",
         "property": "display",
         "value": "flex"
       }
@@ -10053,7 +10053,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers",
+        "id": "unordered-markers",
         "property": "--list-bullet-radius"
       }
     ],
@@ -10393,7 +10393,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-tree",
+        "id": "unordered-tree",
         "property": "background-image"
       }
     ],
@@ -10452,7 +10452,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "callout-technical-two-columns",
+        "id": "callin-technical-two-columns",
         "property": "flex-basis",
         "usage": "Вложенные блоки внутри [!col] размещаются колонками; ulu-col-3 задаёт три колонки вместо двух."
       }
@@ -10518,7 +10518,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-levels"
+        "id": "unordered-levels"
       }
     ],
     "settingSource": "https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L238",
@@ -10532,7 +10532,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-hierarchy"
+        "id": "heading-hierarchy"
       }
     ],
     "settingSource": "https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L257",
@@ -10546,7 +10546,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-hierarchy"
+        "id": "heading-hierarchy"
       }
     ],
     "settingSource": "https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L289",
@@ -10815,7 +10815,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-highlight"
+        "id": "emphasis-highlight"
       }
     ],
     "settingSource": "https://github.com/pipeittodevnull/PLN/blob/85a60c8340ab74668f4c12e92f020aaacc122b8d/theme.css#L319",
@@ -11433,7 +11433,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers",
+        "id": "unordered-markers",
         "property": "content"
       }
     ],
@@ -11713,7 +11713,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "callout-margin",
+        "id": "composition-margin",
         "property": "--fas-callout-infobox",
         "usage": "Infobox — боковой блок, не отдельный data-heading с портретом."
       }
@@ -12346,7 +12346,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-dotted",
+        "id": "composition-dotted",
         "property": "background-image"
       }
     ],
@@ -12646,7 +12646,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-quote-frame",
+        "id": "quote-frame",
         "property": "border"
       }
     ],
@@ -12661,7 +12661,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers",
+        "id": "unordered-markers",
         "property": "--list-marker-color"
       }
     ],
@@ -12706,7 +12706,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-print-flow",
+        "id": "text-print-flow",
         "property": "widows"
       }
     ],
@@ -13636,7 +13636,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-paper"
+        "id": "composition-paper"
       }
     ],
     "settingSource": "https://github.com/slrvb/Obsidian--ITS-Theme/blob/95924dce2d8025a116c54e586e8cf55e3150de68/theme.css#L601",
@@ -13650,7 +13650,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-paper"
+        "id": "composition-paper"
       }
     ],
     "settingSource": "https://github.com/slrvb/Obsidian--ITS-Theme/blob/95924dce2d8025a116c54e586e8cf55e3150de68/theme.css#L606",
@@ -14013,7 +14013,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers",
+        "id": "unordered-markers",
         "property": "content"
       }
     ],
@@ -15227,7 +15227,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "list-ordered-o020",
+        "id": "ordered-o020",
         "property": "-webkit-text-stroke"
       }
     ],
@@ -15242,7 +15242,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "list-ordered-o013"
+        "id": "ordered-o013"
       }
     ],
     "settingSource": "https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L2550",
@@ -15256,7 +15256,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-tree"
+        "id": "unordered-tree"
       }
     ],
     "settingSource": "https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L2604",
@@ -15365,7 +15365,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-quote-glyph",
+        "id": "quote-glyph",
         "property": "content"
       }
     ],
@@ -15380,7 +15380,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-print-flow",
+        "id": "text-print-flow",
         "property": "break-after"
       }
     ],
@@ -15537,7 +15537,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "emphasis-s37",
+        "id": "strike-s37",
         "property": "color"
       }
     ],
@@ -15609,7 +15609,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "callout-dialogue"
+        "id": "composition-dialogue"
       }
     ],
     "settingSource": "https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3412",
@@ -15667,7 +15667,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-image-gallery"
+        "id": "image-gallery"
       }
     ],
     "settingSource": "https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3504",
@@ -15890,7 +15890,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-highlight"
+        "id": "emphasis-highlight"
       }
     ],
     "settingSource": "https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L4219",
@@ -16014,7 +16014,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "note-list-markers",
+        "id": "unordered-markers",
         "property": "content"
       }
     ],
@@ -16044,7 +16044,7 @@
     "reason": "Механизм уже описан в каталоге; добавлено подтверждение для этой темы.",
     "links": [
       {
-        "id": "callout-dialogue"
+        "id": "composition-dialogue"
       }
     ],
     "settingSource": "https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L4584",
@@ -16172,7 +16172,7 @@
     "reason": "Сопоставление уточнено после проверки конкретной цели CSS.",
     "links": [
       {
-        "id": "note-image-fluid"
+        "id": "image-fluid"
       }
     ],
     "settingSource": "https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1540",

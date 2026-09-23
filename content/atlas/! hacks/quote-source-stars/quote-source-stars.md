@@ -29,9 +29,6 @@ quote-source-stars
 quote-source-stars
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-source-stars

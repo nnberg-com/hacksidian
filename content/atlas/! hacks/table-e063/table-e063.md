@@ -30,11 +30,6 @@ table:has(img) увеличивает отступы и центрирует я�
 table-e063
 ```
 
-###### Локальные зависимости
-
-- [assets/blue.svg](<./assets/blue.svg>)
-- [assets/green.svg](<./assets/green.svg>)
-- [assets/orange.svg](<./assets/orange.svg>)
 
 ```hacksidian-files
 table-e063

@@ -9,7 +9,8 @@ try {
  for(const rel of fs.readdirSync(root,{recursive:true})){
   if(!rel.endsWith('/hack.json'))continue;const dir=path.join(root,path.dirname(rel)),id=path.basename(dir),card=path.join(dir,id+'.md');if(!fs.existsSync(card))continue;
   const s=fs.readFileSync(card,'utf8'),spec=JSON.parse(fs.readFileSync(path.join(dir,'hack.json'))),md=path.join(dir,'markdown.md'),css=fs.readFileSync(path.join(dir,'recipe.css'),'utf8');
-  const issue=!spec.hasCss?'theme-native':!fs.existsSync(md)?'missing-markdown':liveExampleIssue(spec.group,fs.readFileSync(md,'utf8'),css);
+  const model=fs.existsSync(path.join(dir,'Model.ru.html'))?fs.readFileSync(path.join(dir,'Model.ru.html'),'utf8'):undefined;
+  const issue=!spec.hasCss?'theme-native':spec.group==='metadata'&&model?liveExampleIssue(spec.group,'',css,model):!fs.existsSync(md)?'missing-markdown':liveExampleIssue(spec.group,fs.readFileSync(md,'utf8'),css);
   const present=s.includes('```hacksidian-live');
   let status=present?(issue?'broken-block':'supported-not-visually-verified'):!issue?'missing-block':issue==='theme-native'?'not-adapted':/печати|Части интерфейса|моделью редактора|page sizing/.test(issue)?'outside-inline-preview':'preview-not-implemented';
   rows.push({id,path:path.relative(root,card),present,status,issue});

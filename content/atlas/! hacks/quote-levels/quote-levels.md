@@ -29,9 +29,6 @@ quote-levels
 quote-levels
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-levels

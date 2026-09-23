@@ -194,10 +194,6 @@ export class TechniqueBlock extends MarkdownRenderChild {
 export function registerSourceBlocks(plugin: Plugin, favourites?: FavouriteControls): void {
   registerLiveExamples(plugin, favourites);
   registerExpandedExamples(plugin, favourites);
-  plugin.registerMarkdownCodeBlockProcessor('hacksidian-category-count', async (source, el, ctx) => {
-    const { CategoryExamples } = await import('./category-examples');
-    ctx.addChild(new CategoryExamples(el, plugin, ctx.sourcePath, source.trim(), favourites, true));
-  });
   plugin.registerMarkdownCodeBlockProcessor('hacksidian-category', async (source, el, ctx) => {
     const { CategoryExamples } = await import('./category-examples');
     ctx.addChild(new CategoryExamples(el, plugin, ctx.sourcePath, source.trim(), favourites));

@@ -29,9 +29,6 @@ strong получает text-decoration: underline wavy; никаких span в 
 quote-underline
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-underline

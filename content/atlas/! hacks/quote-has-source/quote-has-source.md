@@ -33,9 +33,6 @@ CSS проверяет адрес, но не достоверность и не 
 quote-has-source
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-has-source

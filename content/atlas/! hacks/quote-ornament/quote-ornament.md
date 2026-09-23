@@ -29,9 +29,6 @@ border-image получает повторяющийся диагональны�
 quote-ornament
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-ornament

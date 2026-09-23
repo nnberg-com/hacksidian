@@ -32,9 +32,6 @@ image-e087
 image-e087
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e087

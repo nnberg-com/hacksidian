@@ -29,10 +29,6 @@ image-e070
 image-e070
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
-- [assets/landscape.svg](<./assets/landscape.svg>)
 
 ```hacksidian-files
 image-e070

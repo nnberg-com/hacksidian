@@ -29,9 +29,6 @@ polygon отсекает четыре угла по 20px.
 image-e046
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e046

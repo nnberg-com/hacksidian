@@ -33,28 +33,26 @@ Commit: `e3121703dddda008218872f4ac38cad602e25619`. Основной файл: `
 - Выделение активного файла в проводнике — новая карточка
 - Фон у раскрытой папки — новая карточка
 - Примечание без заголовка — новая карточка
-- [[atlas/! hacks/note-print-links/note-print-links|Адреса ссылок на бумаге]] — существующая карточка
+- [[atlas/! hacks/link-print-links/link-print-links|Адреса ссылок на бумаге]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/emphasis-s19/emphasis-s19|Неровный маркер]] — существующая карточка
-- [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion|Уважать уменьшение движения]] — существующая карточка
 - [[atlas/! hacks/text-tabular/text-tabular|Цифры одинаковой ширины]] — существующая карточка
-- [[atlas/! hacks/note-hyphens/note-hyphens|Переносы длинных слов]] — существующая карточка
+- [[atlas/! hacks/text-hyphens/text-hyphens|Переносы длинных слов]] — существующая карточка
 - [[atlas/! hacks/code-e012/code-e012|Без программных лигатур]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/callout-technical-outline/callout-technical-outline|Тонкая рамка]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
 - [[atlas/! hacks/tag-e079/tag-e079|Решётка как отдельный сегмент]] — существующая карточка
 - [[atlas/! hacks/heading-e046/heading-e046|Градиент внутри букв]] — существующая карточка
 - [[atlas/! hacks/link-e004/link-e004|Только цвет — без линии]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 - [[atlas/! hacks/heading-e013/heading-e013|Баланс строк]] — существующая карточка
-- [[atlas/! hacks/callout-technical-two-columns/callout-technical-two-columns|Две колонки внутри note]] — существующая карточка
-- [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
+- [[atlas/! hacks/callin-technical-two-columns/callin-technical-two-columns|Две колонки внутри note]] — существующая карточка
+- [[atlas/! hacks/text-selection-custom/text-selection-custom|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
-- [[atlas/! hacks/note-quote-line/note-quote-line|Классическая цитата с линией]] — существующая карточка
+- [[atlas/! hacks/composition-margin/composition-margin|Заметка на полях]] — существующая карточка
+- [[atlas/! hacks/quote-line/quote-line|Классическая цитата с линией]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/table-e034/table-e034|Подсветка строки]] — существующая карточка
 - [[atlas/! hacks/code-e018/code-e018|Мягкий перенос]] — существующая карточка
@@ -80,9 +78,7 @@ Commit: `e3121703dddda008218872f4ac38cad602e25619`. Основной файл: `
 | Floating Header — Hover to Reveal | `ulu-float-header-peek` | Есть карточка | Подтверждено правилом CSS. Плавающий заголовок панели заметки | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L372) |
 | Status Bar — Hover to Reveal | `ulu-peek-statusbar` | Есть карточка | Подтверждено правилом CSS. Строка состояния появляется при наведении | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L377) |
 | Horizontal Settings Nav | `ulu-settings-horizontal` | Есть карточка | Подтверждено правилом CSS. Горизонтальная навигация настроек | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L382) |
-| Flat Active Tab Style | `ulu-tab-flat` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/interface-active-tab/interface-active-tab\|Выразительная активная вкладка]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L387) |
 | Hide Tab Control Pill Borders | `ulu-no-tab-pills` | Вариант оформления | Комплексные палитры и стеклянные/плоские поверхности: границы, тени, градиенты. Отдельные механизмы описаны рядом.  | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L392) |
-| Reduce Motion | `ulu-no-motion` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion\|Уважать уменьшение движения]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L397) |
 | New-Tab Empty State (Gradient + Lobster) | `ulu-we1` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Фоновое изображение рабочего пространства | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L410) |
 | Halo Gradient | `ulu-grad` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Фоновое изображение рабочего пространства | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L414) |
 | Enable Custom Workspace Background | `ulu-enable-custom-bg` | Есть карточка | Подтверждено правилом CSS. Фоновое изображение рабочего пространства | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L418) |
@@ -108,8 +104,8 @@ Commit: `e3121703dddda008218872f4ac38cad602e25619`. Основной файл: `
 | Accent Bold & Italic | `ulu-accent-bold-italic` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/emphasis-s02/emphasis-s02\|02 · Цветной bold]]; [[atlas/! hacks/emphasis-s03/emphasis-s03\|03 · Цвет вместо курсива]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L678) |
 | Serif Italic | `ulu-serif-italic` | Типографический параметр | Настройка типографических параметров: font-family, font-variation-settings. Отдельного способа взаимодействия или структуры блока не добавляет.  | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L682) |
 | Split Tags | `ulu-duo-tag` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/tag-e079/tag-e079\|Решётка как отдельный сегмент]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L705) |
-| Disable Auto-Hyphenation | `ulu-no-hyphenate` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-hyphens/note-hyphens\|Переносы длинных слов]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L708) |
-| Print / PDF — Show Link URLs | `ulu-print-link-urls` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-print-links/note-print-links\|Адреса ссылок на бумаге]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L713) |
+| Disable Auto-Hyphenation | `ulu-no-hyphenate` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/text-hyphens/text-hyphens\|Переносы длинных слов]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L708) |
+| Print / PDF — Show Link URLs | `ulu-print-link-urls` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/link-print-links/link-print-links\|Адреса ссылок на бумаге]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L713) |
 | Underline | `ulu-title-underline` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Оформление названия файла над заметкой | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L803) |
 | Shimmer | `ulu-shimmer-title` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/heading-e046/heading-e046\|Градиент внутри букв]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L833) |
 | Tabular Numbers | `ulu-tabular-nums` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/text-tabular/text-tabular\|Цифры одинаковой ширины]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L846) |
@@ -123,7 +119,7 @@ Commit: `e3121703dddda008218872f4ac38cad602e25619`. Основной файл: `
 | Rough Marker Highlight | `ulu-rough-highlight` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/emphasis-s19/emphasis-s19\|19 · Неровный маркер]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L949) |
 | Highlight Color | `ulu-highlight-color` | Палитра | Вариант цветов темы: --ulu-marker-color. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L953) |
 | List Indent Guide Color | `ulu-indent-guide-color` | Палитра | Вариант цветов темы: --ulu-indent-guide-color. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L970) |
-| Indent Guide — Dashed | `ulu-indent-dashed` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-list-tree/note-list-tree\|Линии вложенного плана]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L981) |
+| Indent Guide — Dashed | `ulu-indent-dashed` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/unordered-tree/unordered-tree\|Линии вложенного плана]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L981) |
 | Rainbow Headers | `ulu-colorfo-headings` | Палитра | Вариант цветов темы: --h1-color, --h2-color, --h3-color, --h4-color, --h5-color, --h6-color. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L994) |
 | Disable Balanced Heading Wrap | `ulu-no-balance-headings` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/heading-e013/heading-e013\|Баланс строк]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L997) |
 | Teardrop Fold Indicator | `ulu-teardrop-fold` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Положение маркера сворачивания заголовка | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L1002) |
@@ -149,7 +145,7 @@ Commit: `e3121703dddda008218872f4ac38cad602e25619`. Основной файл: `
 | Disable Border — Blue | `ulu-canvas-border4` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Оформление карточек Canvas | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L1756) |
 | Canvas Style — Purple | `ulu-fancy-canvas-6` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Оформление карточек Canvas | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L1759) |
 | Disable Border — Purple | `ulu-canvas-border5` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Оформление карточек Canvas | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L1773) |
-| Max columns per row | `ulu-col-count` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/callout-technical-two-columns/callout-technical-two-columns\|Две колонки внутри note]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L1792) |
+| Max columns per row | `ulu-col-count` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/callin-technical-two-columns/callin-technical-two-columns\|Две колонки внутри note]] | [код](https://github.com/7368697661/Ultra-Lobster/blob/e3121703dddda008218872f4ac38cad602e25619/theme.css#L1792) |
 
 ## Документация в репозитории
 

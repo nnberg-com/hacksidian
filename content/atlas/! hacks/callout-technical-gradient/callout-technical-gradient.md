@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_callout
-title: Градиентная рамка
+title: Растворяющаяся рамка
 category: callout
 sources:
   - https://help.obsidian.md/callouts
@@ -21,31 +21,19 @@ callout-technical-gradient
 
 ```hacksidian-details
 > Зачем
-Акцентное примечание в визуально насыщенной теме.
+Выделяет левый край выноски; рамка постепенно растворяется вправо в цвете фона заметки.
 
 > Как работает
-Два слоя background заполняют padding-box и border-box; сама граница прозрачная.
+Внутренний слой `background` заполняет выноску цветом `--background-primary`. Внешний слой рисует рамку толщиной 2 px: слева цвет типа выноски `--callout-color`, справа — тот же `--background-primary`. Поэтому рамка исчезает в фоне без жёстко заданного белого цвета.
+
+> Ограничения
+Цвет назначения — основной фон текущей темы Obsidian. Если выноска расположена на другом фоне, например внутри цветной выноски, полного слияния с окружением может не быть.
 ```
 
 ```hacksidian-sources
 callout-technical-gradient
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ###### Подтверждения в темах — исследование 2026-09-16
 

@@ -43,8 +43,8 @@ test('strict response accepts one preset and rejects multiple preset alternative
 });
 
 test('green selection is configured from fresh local options despite an older purple catalog record',async()=>{
- const selection=readFileSync(new URL('../../content/atlas/! hacks/note-selection/recipe.css',import.meta.url),'utf8');
- const record:CatalogEntry={...entry,id:'note-selection',path:'atlas/! hacks/note-selection/note-selection.md',text:'Selection background is fixed purple #743f91'};
+ const selection=readFileSync(new URL('../../content/atlas/! hacks/text-selection-custom/recipe.css',import.meta.url),'utf8');
+ const record:CatalogEntry={...entry,id:'text-selection-custom',path:'atlas/! hacks/text-selection-custom/text-selection-custom.md',text:'Selection background is fixed purple #743f91'};
  const snapshots=await collectRecommendationParameters([record],async()=>selection);
  const rec={id:record.id,reason:'Green selection',instructions:'',command:'apply' as const,commandEvidence:'Сделай',parameterChanges:[{variable:'--hacksidian-note-selection-color',input:'var(--color-green)'}]};
  const patch=recommendationParameterPatch([rec],snapshots,[record],[record.id])!;

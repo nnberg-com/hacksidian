@@ -32,9 +32,6 @@ cqi измеряется от внешнего контейнера preview; cla
 quote-responsive
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-responsive

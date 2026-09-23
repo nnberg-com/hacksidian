@@ -32,9 +32,6 @@ title может показываться как подсказка. Это яв
 image-e082
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e082

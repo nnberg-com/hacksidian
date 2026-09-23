@@ -29,9 +29,6 @@ quote-nested-panels
 quote-nested-panels
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-nested-panels

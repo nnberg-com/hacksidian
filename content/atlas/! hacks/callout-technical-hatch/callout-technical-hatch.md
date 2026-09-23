@@ -23,6 +23,8 @@ callout-technical-hatch
 Заметное предупреждение без заливки всего блока.
 
 > Как работает
+Ширина штрихованного края регулируется параметром. Левое поле увеличивается вместе с краем, чтобы текст не накладывался на штриховку.
+
 Повторяющийся градиент рисуется в узком псевдоэлементе слева.
 ```
 
@@ -30,21 +32,6 @@ callout-technical-hatch
 callout-technical-hatch
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ```hacksidian-files
 callout-technical-hatch

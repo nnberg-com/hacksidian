@@ -29,9 +29,6 @@ image-e004
 image-e004
 ```
 
-###### Локальные зависимости
-
-- [assets/leaf.svg](<./assets/leaf.svg>)
 
 ```hacksidian-files
 image-e004

@@ -29,9 +29,6 @@ quote-ofm-icon-corner
 quote-ofm-icon-corner
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-ofm-icon-corner

@@ -26,11 +26,9 @@ Commit: `080cea8d2c680c66e26b61b58970e56fd6f30ae4`. Основной файл: `
 - Состояния задач по символу в квадратных скобках — новая карточка
 - Больше места для перетаскивания окна — новая карточка
 - Плавающий заголовок панели заметки — новая карточка
-- [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion|Уважать уменьшение движения]] — существующая карточка
-- [[atlas/! hacks/note-image-fluid/note-image-fluid|Изображение по ширине заметки]] — существующая карточка
+- [[atlas/! hacks/image-fluid/image-fluid|Изображение по ширине заметки]] — существующая карточка
 - [[atlas/! hacks/table-e072/table-e072|Карточки с фиксированными подписями]] — существующая карточка
 - [[atlas/! hacks/link-e004/link-e004|Только цвет — без линии]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/table-e034/table-e034|Подсветка строки]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
@@ -42,7 +40,7 @@ Commit: `080cea8d2c680c66e26b61b58970e56fd6f30ae4`. Основной файл: `
 - [[atlas/! hacks/image-e015/image-e015|Тонкая рамка]] — существующая карточка
 - [[atlas/! hacks/image-e019/image-e019|Приподнятая карточка]] — существующая карточка
 - [[atlas/! hacks/image-e037/image-e037|Рисунок на цветной бумаге]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 - [[atlas/! hacks/metadata-no-icons/metadata-no-icons|Без иконок типов]] — существующая карточка
 
 ## Реестр настроек
@@ -66,10 +64,9 @@ Commit: `080cea8d2c680c66e26b61b58970e56fd6f30ae4`. Основной файл: `
 | Disable banner | `banner-off` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Обложка в верхней части заметки | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L82) |
 | Disable block width | `block-width-off` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Таблица шире текстовой полосы | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L86) |
 | Disable font variants | `font-variant-off` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Альтернативные формы букв шрифта | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L90) |
-| Disable full-width elements | `full-width-media-off` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-image-fluid/note-image-fluid\|Изображение по ширине заметки]] | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L94) |
+| Disable full-width elements | `full-width-media-off` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-fluid/image-fluid\|Изображение по ширине заметки]] | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L94) |
 | Disable quick mode switcher | `mode-switcher-off` | Есть карточка | Подтверждено правилом CSS. Плавающая кнопка переключения чтения и редактирования | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L98) |
 | Reduce contrast change | `reduce-contrast-change` | Вариант оформления | Приглушение контраста разделителей и подсветки при наведении; настройка фонового шума интерфейса.  | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L108) |
-| Reduce motion | `reduce-motion` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion\|Уважать уменьшение движения]] | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L113) |
 | Standard font size | `dynamic-type-off` | Типографический параметр | Размеры интерфейсного шрифта и значков; стандартные значения вместо динамических.  | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L118) |
 | Underlined links | `clean-link-off` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/link-e004/link-e004\|Только цвет — без линии]] | [код](https://github.com/aaaaalexis/obsidian-cupertino/blob/080cea8d2c680c66e26b61b58970e56fd6f30ae4/theme.css#L143) |
 

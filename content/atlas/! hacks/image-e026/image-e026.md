@@ -29,9 +29,6 @@ drop-shadow учитывает альфа-канал исходника.
 image-e026
 ```
 
-###### Локальные зависимости
-
-- [assets/leaf.svg](<./assets/leaf.svg>)
 
 ```hacksidian-files
 image-e026

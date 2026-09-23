@@ -28,9 +28,8 @@ Commit: `5ddc6c2e0028baad1b98fb5586517ff520291e7a`. Основной файл: `
 - Рабочая область без видимых полос прокрутки — новая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
-- [[atlas/! hacks/note-list-markers/note-list-markers|Цвет и форма маркеров]] — существующая карточка
+- [[atlas/! hacks/unordered-markers/unordered-markers|Цвет и форма маркеров]] — существующая карточка
 - [[atlas/! hacks/callout-technical-round/callout-technical-round|Большое скругление]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
@@ -51,7 +50,7 @@ Commit: `5ddc6c2e0028baad1b98fb5586517ff520291e7a`. Основной файл: `
 | Override dedicated theme typeface | `override-default-font` | Типографический параметр | Настройка типографических параметров: --font-interface-override, --font-text-override. Отдельного способа взаимодействия или структуры блока не добавляет.  | [код](https://github.com/gonzalo-d-sales/obsidian-velocity/blob/5ddc6c2e0028baad1b98fb5586517ff520291e7a/theme.css#L173) |
 | Inverted editing mode toggle display | `switch-edit-icons` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Согласованный набор значков интерфейса | [код](https://github.com/gonzalo-d-sales/obsidian-velocity/blob/5ddc6c2e0028baad1b98fb5586517ff520291e7a/theme.css#L178) |
 | Hide titlebar buttons | `titlebar-button-visibility` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Выборочное скрытие служебных кнопок | [код](https://github.com/gonzalo-d-sales/obsidian-velocity/blob/5ddc6c2e0028baad1b98fb5586517ff520291e7a/theme.css#L183) |
-| Restore bullet-style list markers | `disable-list-styling` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-list-markers/note-list-markers\|Цвет и форма маркеров]] | [код](https://github.com/gonzalo-d-sales/obsidian-velocity/blob/5ddc6c2e0028baad1b98fb5586517ff520291e7a/theme.css#L216) |
+| Restore bullet-style list markers | `disable-list-styling` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/unordered-markers/unordered-markers\|Цвет и форма маркеров]] | [код](https://github.com/gonzalo-d-sales/obsidian-velocity/blob/5ddc6c2e0028baad1b98fb5586517ff520291e7a/theme.css#L216) |
 | Restore default Callout styling | `disable-callout-styling` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/callout-technical-round/callout-technical-round\|Большое скругление]] | [код](https://github.com/gonzalo-d-sales/obsidian-velocity/blob/5ddc6c2e0028baad1b98fb5586517ff520291e7a/theme.css#L220) |
 | Restore default icon styling | `disable-custom-icons` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Согласованный набор значков интерфейса | [код](https://github.com/gonzalo-d-sales/obsidian-velocity/blob/5ddc6c2e0028baad1b98fb5586517ff520291e7a/theme.css#L224) |
 | Restore table scrolling behavior | `restore-table-scroll` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Таблица шире текстовой полосы | [код](https://github.com/gonzalo-d-sales/obsidian-velocity/blob/5ddc6c2e0028baad1b98fb5586517ff520291e7a/theme.css#L228) |

@@ -13,11 +13,11 @@ Commit: `1c4f985cda861771a31f8c22c1d575deea32643a`. Основной файл: `
 - [[atlas/! hacks/heading-e046/heading-e046|Градиент внутри букв]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
-- [[atlas/! hacks/note-quote-line/note-quote-line|Классическая цитата с линией]] — существующая карточка
+- [[atlas/! hacks/quote-line/quote-line|Классическая цитата с линией]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 
 ## Реестр настроек
 

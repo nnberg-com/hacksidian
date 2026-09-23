@@ -33,9 +33,6 @@ focus-within на родительской цитате и focus-visible на с
 quote-focus
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-focus

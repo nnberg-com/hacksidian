@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_callout
-title: Весь note реагирует на фокус ссылки
+title: Реакция на наведение и фокус ссылки
 category: callout
 sources:
   - https://help.obsidian.md/callouts
@@ -20,34 +20,19 @@ callout-technical-focus
 
 ```hacksidian-details
 > Зачем
-Помогает понять, в каком примечании находится клавиатурный фокус.
+Выделяет примечание, со ссылкой которого вы взаимодействуете мышью или клавиатурой.
 
 > Как работает
-focus-within меняет рамку родителя при фокусе любой ссылки внутри.
+При наведении на ссылку внутри тела выноски `:has(a:hover)` включает контур вокруг всей выноски. `:focus-within` сохраняет тот же акцент при клавиатурном фокусе внутри. Ссылка получает собственный тонкий контур.
 
 > Ограничения
-Нажмите Tab до ссылки. На hover можно назначить такой же визуальный акцент, но он не заменяет фокус.
+Наведите указатель именно на ссылку внутри примера или перейдите к ней клавишей Tab. Наведение на фон и обычный текст не включает подсветку. Доступность перехода по Tab зависит от режима и настроек Obsidian.
 ```
 
 ```hacksidian-sources
 callout-technical-focus
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ```hacksidian-files
 callout-technical-focus

@@ -29,9 +29,6 @@ image-e027
 image-e027
 ```
 
-###### Локальные зависимости
-
-- [assets/leaf.svg](<./assets/leaf.svg>)
 
 ```hacksidian-files
 image-e027

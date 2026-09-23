@@ -8,7 +8,7 @@ Commit: `4594f5d39e70ffffe04d6982af2eb57057dbe485`. Основной файл: `
 
 Новых карточек: 0; ранее существовавших приёмов с найденными подтверждениями: 6.
 
-- [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
+- [[atlas/! hacks/text-selection-custom/text-selection-custom|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/table-e034/table-e034|Подсветка строки]] — существующая карточка

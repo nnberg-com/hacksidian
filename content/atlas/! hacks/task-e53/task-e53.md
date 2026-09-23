@@ -33,9 +33,6 @@ task-e53
 task-e53
 ```
 
-###### Локальные зависимости
-
-- [assets/check.svg](<./assets/check.svg>)
 
 ```hacksidian-files
 task-e53

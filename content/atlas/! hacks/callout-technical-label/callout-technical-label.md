@@ -7,11 +7,14 @@ category: callout
 sources:
   - https://help.obsidian.md/callouts
 format: markdown
-themes:
-  - minimal
+themes: []
 ---
 
 ```hacksidian-id
+callout-technical-label
+```
+
+```hacksidian-live
 callout-technical-label
 ```
 
@@ -23,27 +26,12 @@ callout-technical-label
 Заголовок шириной по содержимому смещён вверх отрицательным margin, под ним непрозрачный фон. Сверху оставлен запас места.
 
 > Ограничения
-Живой пример пока не готов: CSS зависит от контейнера `.explanation`, оставшегося от HTML-атласа. Селектор нужно адаптировать к Obsidian.
+Ярлычок использует фон заметки, чтобы перекрыть верхнюю линию рамки. При очень длинном названии он может занять несколько строк.
 ```
 ```hacksidian-sources
 callout-technical-label
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ###### Подтверждения в темах — исследование 2026-09-16
 

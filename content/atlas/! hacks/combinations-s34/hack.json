@@ -1,0 +1,9 @@
+{
+  "format": 2,
+  "target": "g-combinations",
+  "hasCss": true,
+  "group": "combinations",
+  "previousTargets": [
+    "g-emphasis"
+  ]
+}

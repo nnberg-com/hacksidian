@@ -1,13 +1,23 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout {
+  /**
+   * @parameter Ширина штрихованного края
+   * @type number
+   * @default 0.45em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-callout-hatch-width: 1em;
   position: relative;
   border: 0;
-  padding-inline-start: 1.5em;
+  padding-inline-start: calc(var(--hacksidian-callout-hatch-width) + 1em);
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout::before {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
-  width: .45em;
+  width: var(--hacksidian-callout-hatch-width);
   background: repeating-linear-gradient(135deg,var(--callout-color) 0,var(--callout-color) 4px,transparent 4px,transparent 8px);
 }
 

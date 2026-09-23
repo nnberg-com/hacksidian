@@ -29,9 +29,6 @@ quote-ofm-frameless
 quote-ofm-frameless
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-ofm-frameless

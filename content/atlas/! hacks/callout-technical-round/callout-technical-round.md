@@ -3,7 +3,7 @@ tags:
   - hacksidian_technique
   - hacksidian_parameter_experiment
   - hacksidian_callout
-title: Большое скругление
+title: Скругление углов
 category: callout
 sources:
   - https://help.obsidian.md/callouts
@@ -28,30 +28,17 @@ callout-technical-round
 Дружелюбная подсказка в неформальном документе.
 
 > Как работает
-Параметры на карточке: скругление и внутренние поля выноски. Значения сохраняются в CSS приёма; для включённого оформления используется кнопка «Обновить уже существующий стиль».
+Меняет только скругление. Внутренние поля настраиваются отдельным приёмом «Разные поля по разным сторонам».
 
-Увеличены border-radius и поля; содержание не изменяется.
+Параметр на карточке — скругление выноски. Значения сохраняются в CSS приёма; для включённого оформления используется кнопка «Обновить уже существующий стиль».
+
+Меняется border-radius; поля и содержание не изменяются.
 ```
 
 ```hacksidian-sources
 callout-technical-round
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ###### Подтверждения в темах — исследование 2026-09-16
 

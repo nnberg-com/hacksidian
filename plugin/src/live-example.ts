@@ -6,6 +6,7 @@ import { previewState } from './preview-state';
 import { activatePreviewTarget } from './live-example-target';
 import { Component, MarkdownRenderChild, MarkdownRenderer, Notice, Plugin, TFile } from 'obsidian';
 import { liveExampleIssue, resolveLiveUrls, scopeLiveExample } from './live-example-css';
+import { MetadataExample } from './metadata-example';
 import { PaletteExample } from './palette-example';
 export class LiveExample extends MarkdownRenderChild {
   private previewEl!: HTMLElement;
@@ -18,7 +19,7 @@ export class LiveExample extends MarkdownRenderChild {
     this.previewEl = this.containerEl.createDiv();
     if (!this.values) this.addChild(new ParameterControls(this.containerEl.createDiv(), this.plugin, this.directory, this.controls));
     this.registerEvent(this.plugin.app.vault.on('modify', file => {
-      if ([`${this.directory}/recipe.css`, `${this.directory}/markdown.md`].includes(file.path)) {
+      if ([`${this.directory}/recipe.css`, `${this.directory}/markdown.md`, `${this.directory}/Model.ru.html`].includes(file.path)) {
         clearTimeout(this.timer); this.timer = setTimeout(() => void this.render(), 150);
       }
     }));
@@ -30,6 +31,17 @@ export class LiveExample extends MarkdownRenderChild {
     try {
       const adapter = this.plugin.app.vault.adapter;
       const spec = JSON.parse(await adapter.read(`${this.directory}/hack.json`));
+      if (spec.group === 'metadata' && await adapter.exists(`${this.directory}/Model.ru.html`)) {
+        const [model,rawCss] = await Promise.all([adapter.read(`${this.directory}/Model.ru.html`),adapter.read(`${this.directory}/recipe.css`)]);
+        if (this.stopped || epoch !== this.epoch) return;
+        if (this.renderer) this.removeChild(this.renderer);
+        this.previewEl.empty();
+        const state=previewState(this.previewEl,this.directory);
+        const example=new MetadataExample(this.previewEl.createDiv(),model,parameterExample(rawCss,this.values ?? {}),state.enabled,ru);
+        this.renderer=example;this.addChild(example);
+        example.register(state.subscribe(()=>example.update(state.enabled)));
+        return;
+      }
       const interfaceExample = ['interface', 'metadata', 'meta'].includes(spec.group);
       if (interfaceExample || (spec.group !== 'palette' && !await adapter.exists(`${this.directory}/markdown.md`))) {
         if (this.stopped || epoch !== this.epoch) return;

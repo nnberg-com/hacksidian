@@ -33,9 +33,6 @@ quote-print-proof
 quote-print-proof
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-print-proof

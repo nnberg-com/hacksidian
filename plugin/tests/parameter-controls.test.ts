@@ -13,6 +13,7 @@ import { readFileSync } from 'node:fs';
 import { readParameters } from '../src/parameters';
 class Element {
   children: Element[] = []; events: Record<string, Function> = {}; attrs: Record<string, string> = {};
+  checked = false; type = '';
   tag = ''; text = ''; value = ''; hidden = false; disabled = false; id = '';
   createEl(tag: string, options: any = {}) { const el = new Element(); Object.assign(el, options); el.tag = tag; el.attrs = options.attr ?? {}; el.id = el.attrs.id ?? ''; this.children.push(el); return el; }
   createDiv(options: any = {}) { return this.createEl('div', options); }
@@ -23,7 +24,7 @@ class Element {
   all(tag: string): Element[] { return this.children.flatMap(el => [...(el.tag === tag ? [el] : []), ...el.all(tag)]); }
 }
 const flush = () => new Promise(resolve => setTimeout(resolve, 10));
-async function fixture(id = 'note-dropcap') {
+async function fixture(id = 'text-dropcap-accent') {
   const directory = `atlas/! hacks/${id}`;
   let css = readFileSync(new URL(`../../content/atlas/! hacks/${id}/recipe.css`, import.meta.url), 'utf8');
   let fail = false;
@@ -54,7 +55,7 @@ test('valid input saves immediately, invalid input retains source, update is exp
   expect(update.disabled).toBe(true); expect(input.attrs['aria-invalid']).toBe('true'); expect(readParameters(f.source())[0].value).toBe('5em');
   input.value = '6'; input.events.input(); await flush();
   expect(update.disabled).toBe(false); update.events.click(); await flush();
-  expect(f.technique.update).toHaveBeenCalledWith('atlas/! hacks/note-dropcap/note-dropcap.md');
+  expect(f.technique.update).toHaveBeenCalledWith('atlas/! hacks/text-dropcap-accent/text-dropcap-accent.md');
   f.el.all('button').find(el => el.text === 'Сбросить')!.events.click(); await flush();
   expect(readParameters(f.source())[0].value).toBe('4em');
 });
@@ -90,3 +91,17 @@ test('concurrent edits of different parameters converge in both editors', async 
   expect(f.el.all('select').map(el => el.value)).toEqual(['4px', 'dotted']);
   expect(second.el.all('select').map(el => el.value)).toEqual(['4px', 'dotted']);
 });
+
+ test.each([['right', true], ['line', false]] as const)('background checkbox for %s saves, syncs and resets', async (side, enabled) => {
+  const f = await fixture('callout-technical-'+side), second = await f.mount();
+  const checkbox = f.el.all('input').find(el => el.type === 'checkbox')!;
+  const other = second.el.all('input').find(el => el.type === 'checkbox')!;
+  const parameter = () => readParameters(f.source()).find(p => p.control === 'checkbox')!;
+  expect(checkbox.checked).toBe(enabled);
+  checkbox.checked = !enabled; checkbox.events.change(); await flush();
+  expect(parameter().value).toBe(parameter().options[!enabled ? 0 : 1].value);
+  expect(other.checked).toBe(!enabled);
+  f.el.all('button').filter(el => el.text === 'Сбросить').at(-1)!.events.click(); await flush();
+  expect(parameter().value).toBe(parameter().default);
+  expect(checkbox.checked).toBe(enabled); expect(other.checked).toBe(enabled);
+ });

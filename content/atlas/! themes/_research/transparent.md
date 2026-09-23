@@ -14,7 +14,6 @@ Commit: `1b42ea12a80e5efde58cd50ab0f18133308370af`. Основной файл: `
 - Скорость и отключение анимации темы — новая карточка
 - Размытие фона за всплывающими панелями — новая карточка
 - Компактный файловый проводник — новая карточка
-- [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion|Уважать уменьшение движения]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/task-e14/task-e14|Приглушение без зачёркивания]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
@@ -34,7 +33,6 @@ Commit: `1b42ea12a80e5efde58cd50ab0f18133308370af`. Основной файл: `
 | Disable Inline Formatting Animations | `disable-formatting-animations` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Скорость и отключение анимации темы | [код](https://github.com/oczko24/Obsidian-transparent/blob/1b42ea12a80e5efde58cd50ab0f18133308370af/theme.css#L300) |
 | Disable Checkbox Animations | `disable-checkbox-animations` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Скорость и отключение анимации темы | [код](https://github.com/oczko24/Obsidian-transparent/blob/1b42ea12a80e5efde58cd50ab0f18133308370af/theme.css#L306) |
 | Animate Note Opening (beta) | `animate-note-open` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Скорость и отключение анимации темы | [код](https://github.com/oczko24/Obsidian-transparent/blob/1b42ea12a80e5efde58cd50ab0f18133308370af/theme.css#L312) |
-| Disable All Animations | `no-animation` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion\|Уважать уменьшение движения]] | [код](https://github.com/oczko24/Obsidian-transparent/blob/1b42ea12a80e5efde58cd50ab0f18133308370af/theme.css#L317) |
 | Show Scrollbars | `show-scrollbars` | Есть карточка | Подтверждено правилом CSS. Рабочая область без видимых полос прокрутки | [код](https://github.com/oczko24/Obsidian-transparent/blob/1b42ea12a80e5efde58cd50ab0f18133308370af/theme.css#L328) |
 | Hide Canvas Dots | `hide-canvas-dots` | Есть карточка | Подтверждено правилом CSS. Выборочное скрытие служебных кнопок | [код](https://github.com/oczko24/Obsidian-transparent/blob/1b42ea12a80e5efde58cd50ab0f18133308370af/theme.css#L333) |
 | Accent Color Everywhere | `accent-everywhere` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/heading-e007/heading-e007\|Цвет всего заголовка]] | [код](https://github.com/oczko24/Obsidian-transparent/blob/1b42ea12a80e5efde58cd50ab0f18133308370af/theme.css#L357) |

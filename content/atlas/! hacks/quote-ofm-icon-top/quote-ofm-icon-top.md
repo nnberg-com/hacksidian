@@ -29,9 +29,6 @@ quote-ofm-icon-top
 quote-ofm-icon-top
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-ofm-icon-top

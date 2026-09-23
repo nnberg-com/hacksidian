@@ -32,9 +32,6 @@ quote-verse
 quote-verse
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-verse

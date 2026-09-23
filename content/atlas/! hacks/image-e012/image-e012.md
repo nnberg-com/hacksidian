@@ -29,9 +29,6 @@ object-position выбирает правую область изображен�
 image-e012
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e012

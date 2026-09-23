@@ -1,6 +1,7 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout {
   background: var(--background-primary);
   border: 1px solid var(--background-modifier-border);
+  margin: 1.5em;
   box-shadow: 0 .5em 1.2em #00000014;
 }
 

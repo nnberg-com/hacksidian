@@ -31,13 +31,12 @@ Commit: `9c59d86962dd8bd9030ff436ce6a58c248a9c43d`. Основной файл: `
 - Плавающий заголовок панели заметки — новая карточка
 - Выделение активного файла в проводнике — новая карточка
 - Примечание без заголовка — новая карточка
-- [[atlas/! hacks/note-ornament/note-ornament|Орнамент вместо горизонтальной черты]] — существующая карточка
-- [[atlas/! hacks/note-magazine/note-magazine|Текст в двух колонках]] — существующая карточка
+- [[atlas/! hacks/hr-ornament/hr-ornament|Орнамент вместо горизонтальной черты]] — существующая карточка
+- [[atlas/! hacks/composition-magazine/composition-magazine|Текст в двух колонках]] — существующая карточка
 - [[atlas/! hacks/image-e077/image-e077|Подпись появляется]] — существующая карточка
-- [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
+- [[atlas/! hacks/composition-margin/composition-margin|Заметка на полях]] — существующая карточка
 - [[atlas/! hacks/heading-e022/heading-e022|Линии по сторонам]] — существующая карточка
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
 - [[atlas/! hacks/image-e063/image-e063|Обтекание справа]] — существующая карточка
@@ -51,7 +50,7 @@ Commit: `9c59d86962dd8bd9030ff436ce6a58c248a9c43d`. Основной файл: `
 - [[atlas/! hacks/image-e006/image-e006|По центру]] — существующая карточка
 - [[atlas/! hacks/image-e037/image-e037|Рисунок на цветной бумаге]] — существующая карточка
 - [[atlas/! hacks/image-e047/image-e047|Растворение вниз]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 - [[atlas/! hacks/heading-e013/heading-e013|Баланс строк]] — существующая карточка
 - [[atlas/! hacks/heading-e005/heading-e005|Прописные с разрядкой]] — существующая карточка
 
@@ -86,7 +85,7 @@ Commit: `9c59d86962dd8bd9030ff436ce6a58c248a9c43d`. Основной файл: `
 | Export to PDF | `fas-print-note-background` | Палитра | Вариант цветов темы: --fas-note-background-image-blend-mode, --fas-note-background-image-blur, --fas-note-background-image-brightness, --fas-note-background-image-opacity, --fas-note-background-image-repeat, --fas-note-background-image-url. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1054) |
 | Banner style in edit mode | `fas-banner-edit-mode` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Обложка в верхней части заметки | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1091) |
 | Theme quote callout | `fas-callout-cite-alt` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Цитата с подписью автора под текстом | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1114) |
-| Use > [!infobox] | `fas-callout-infobox` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/callout-margin/callout-margin\|Заметка на полях]] | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1120) |
+| Use > [!infobox] | `fas-callout-infobox` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/composition-margin/composition-margin\|Заметка на полях]] | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1120) |
 | Minimize infobox in live preview | `fas-infobox-lp-mini` | Есть карточка | Подтверждено правилом CSS. Компактный infobox при редактировании | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1126) |
 | Color for the headings | `header-color` | Палитра | Вариант цветов темы: --heading-color. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1209) |
 | Appearance | `header-style-h-inline` | Есть карточка | Stroke в этой теме означает декоративную линию у заголовка, а не контур букв. Display — крупный типографический вариант. [[atlas/! hacks/heading-e022/heading-e022\|Линии по сторонам]] | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1246) |
@@ -97,7 +96,7 @@ Commit: `9c59d86962dd8bd9030ff436ce6a58c248a9c43d`. Основной файл: `
 | Appearance | `header-style-h4` | Есть карточка | Stroke в этой теме означает декоративную линию у заголовка, а не контур букв. Display — крупный типографический вариант. [[atlas/! hacks/heading-e022/heading-e022\|Линии по сторонам]] | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1513) |
 | Appearance | `header-style-h5` | Есть карточка | Stroke в этой теме означает декоративную линию у заголовка, а не контур букв. Display — крупный типографический вариант. [[atlas/! hacks/heading-e022/heading-e022\|Линии по сторонам]] | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1587) |
 | Appearance | `header-style-h6` | Есть карточка | Stroke в этой теме означает декоративную линию у заголовка, а не контур букв. Display — крупный типографический вариант. [[atlas/! hacks/heading-e022/heading-e022\|Линии по сторонам]] | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1661) |
-| Enable custom HR | `fas-hr` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-ornament/note-ornament\|Орнамент вместо горизонтальной черты]] | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1806) |
+| Enable custom HR | `fas-hr` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/hr-ornament/hr-ornament\|Орнамент вместо горизонтальной черты]] | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L1806) |
 | Table style | `table-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/table-e002/table-e002\|Полная сетка]] | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L2096) |
 | Change the style of Fantasy Statblocks | `fas-statblocks-custom` | Вариант оформления | Палитра, рамки и типографика Fantasy Statblocks; функции плагина не приписываются теме.  | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L2201) |
 | Accent color | `fas-statblocks-accent-class` | Палитра | Все связанные декларации меняют только цвета/цветовые переменные. Это вариант палитры темы; новая операция над заметкой не появляется.  | [код](https://github.com/elsatam/obsidian-fancy-a-story/blob/9c59d86962dd8bd9030ff436ce6a58c248a9c43d/theme.css#L2206) |

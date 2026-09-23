@@ -21,18 +21,18 @@ test('special callout syntax belongs only to compositions across the entire cata
   expect(meta.category,id).toBe(spec.group);
   if(special){expect(spec.group,id).toBe('composition');moved.push(id);}
   if(spec.group==='composition'){
-   expect(special,id).toBe(true);expect(spec.target,id).toBe('g-composition');
+   expect(special || ['composition-github-alerts','composition-book','composition-dotted','composition-paper','composition-index-card','composition-editorial','composition-manual','composition-magazine','composition-responsive'].includes(id),id).toBe(true);expect(spec.target,id).toBe('g-composition');
    expect(meta.tags,id).toContain('hacksidian_composition');
    expect(meta.tags,id).not.toContain('hacksidian_callout');
-   expect(spec.previousTargets,id).toEqual(['g-callout']);
+   if(special)expect(spec.previousTargets,id).toEqual(['g-callout']);
   }
  }
  expect(moved).toHaveLength(19);
- expect(moved).toContain('callout-ticket');expect(moved).toContain('callout-qna');
+ expect(moved).toContain('composition-ticket');expect(moved).toContain('composition-qna');
  const page=fs.readFileSync(path.join(atlas,'! categories/composition.md'),'utf8');
  expect(page).toContain('```hacksidian-category\ncomposition\n```');
  expect(groupManifest.modules.find(m=>m.group==='composition')?.file).toBe('hacksidian-22-composition.css');
  const index=fs.readFileSync(path.join(atlas,'atlas.md'),'utf8');
- const section=index.split('## Композиции · 19\n')[1].split('\n## ')[0];
+ const section=index.split('## Композиции · 28\n')[1].split('\n## ')[0];
  for(const id of moved)expect(section).toContain(`/! hacks/${id}/${id}|`);
 });

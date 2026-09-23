@@ -29,9 +29,6 @@ task-e37
 task-e37
 ```
 
-###### Локальные зависимости
-
-- [assets/cover.svg](<./assets/cover.svg>)
 
 ```hacksidian-files
 task-e37

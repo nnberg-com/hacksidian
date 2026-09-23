@@ -40,28 +40,28 @@
           "retrievedIds": [
             "setting-line-length",
             "setting-text-font",
-            "note-cards",
+            "unordered-cards",
             "tag-e011",
             "meta-pane-container",
-            "pseudo-task-e24",
+            "taskplus-e24",
             "interface-readable-tabs",
             "link-e087",
-            "list-e018",
-            "list-e044",
+            "unordered-e018",
+            "unordered-e044",
             "metadata-sections",
-            "note-sticky-heading",
-            "pseudo-task-e02",
+            "heading-sticky-heading",
+            "taskplus-e02",
             "inline-code-ex-58",
-            "list-e034",
+            "unordered-e034",
             "meta-follow-obsidian-theme",
             "metadata-wide-field",
             "task-e09",
-            "note-endmark",
-            "pseudo-task-e08",
+            "text-endmark",
+            "taskplus-e08",
             "metadata-sticky",
-            "note-list-columns",
+            "unordered-columns",
             "task-e02",
-            "callout-technical-two-columns",
+            "callin-technical-two-columns",
             "heading-e004",
             "inline-code-ex-47"
           ],
@@ -88,7 +88,7 @@
             "message": "Для отображения вертикальной временной шкалы подходит техника «Вертикальная временная шкала». Она оформляет нумерованный список как хронологию: у пунктов появляются линия и точка, а последняя линия обрывается. Даты нужно указывать в Markdown обычным выделением strong — CSS сам даты не распознаёт, поэтому порядок и выделение задаются вручную. ",
             "recommendations": [
               {
-                "id": "note-timeline",
+                "id": "ordered-timeline",
                 "reason": "Точно соответствует запросу: предназначена для хронологии работы и дневника исследования.",
                 "instructions": "Откройте карточку техники и нажмите Apply. Затем оформляйте события как последовательный нумерованный список и выделяйте даты через strong. Автоматическое применение из чата не выполняется."
               }
@@ -107,7 +107,7 @@
             "tag-e050",
             "tag-e022",
             "metadata-technical",
-            "note-timeline",
+            "ordered-timeline",
             "task-e30",
             "tag-e011",
             "tag-e077"
@@ -199,14 +199,14 @@
                 "instructions": "Откройте карточку link-e054 и нажмите Apply technique. Ограничение: решение ориентируется на окончание адреса .pdf без учёта регистра; в записи с параметрами после расширения, например .pdf?download=1, оно может не сработать."
               },
               {
-                "id": "note-link-type",
+                "id": "link-type",
                 "reason": "Подходит, если кроме PDF нужно различать также почтовые и обычные веб-ссылки: для PDF используется значок через ::after, а для mailto: — через ::before. ",
-                "instructions": "Откройте карточку note-link-type и нажмите Apply technique. Ограничение: PDF-значок добавляется после текста ссылки, поэтому для требования «перед ссылкой» точнее подходит link-e054; MIME-тип ресурса не определяется."
+                "instructions": "Откройте карточку link-type и нажмите Apply technique. Ограничение: PDF-значок добавляется после текста ссылки, поэтому для требования «перед ссылкой» точнее подходит link-e054; MIME-тип ресурса не определяется."
               }
             ]
           },
           "retrievedIds": [
-            "pseudo-task-e06",
+            "taskplus-e06",
             "inline-code-ex-31",
             "meta-print-links",
             "tag-e026",
@@ -215,12 +215,12 @@
             "task-e39",
             "link-e016",
             "metadata-hover-tools",
-            "note-link-type",
+            "link-type",
             "callout-technical-no-icon",
             "hr-e010",
             "interface-roomy-actions",
-            "callout-technical-links",
-            "callout-technical-steps",
+            "callin-technical-links",
+            "callin-technical-steps",
             "emphasis-s16",
             "link-e113",
             "tag-e011",
@@ -306,11 +306,11 @@
             "interface-focused-pane",
             "interface-readable-tabs",
             "metadata-yaml-tokens",
-            "pseudo-task-e04",
+            "taskplus-e04",
             "metadata-note-classes",
-            "pseudo-task-e26",
-            "note-sticky-heading",
-            "pseudo-task-e02",
+            "taskplus-e26",
+            "heading-sticky-heading",
+            "taskplus-e02",
             "task-e30",
             "inline-code-ex-75",
             "meta-reduced-motion",
@@ -322,10 +322,10 @@
             "inline-code-ex-67",
             "interface-keyboard-focus",
             "interface-active-tab",
-            "note-code-wrap",
-            "note-image-float",
-            "note-hierarchy",
-            "pseudo-task-e21"
+            "code-wrap",
+            "image-float",
+            "heading-hierarchy",
+            "taskplus-e21"
           ],
           "searchQueries": [
             "Покажи живую погоду в заметке без интернета в Obsidian",
@@ -364,7 +364,7 @@
             "message": "Для этой задачи подходит техника «Текст в двух колонках». Она распределяет содержимое заметки по двум колонкам, а заголовки H1 и H2 оставляет на всю ширину. На узком экране заметка отображается в одну колонку. Учтите, что для длинных страниц чтение может быть неудобным: чтобы продолжить текст, иногда придётся возвращаться вверх. Откройте карточку техники и нажмите Apply. ",
             "recommendations": [
               {
-                "id": "note-magazine",
+                "id": "composition-magazine",
                 "reason": "Точное совпадение с запросом: техника предназначена для отображения текста заметки в двух колонках.",
                 "instructions": "Откройте карточку «Текст в двух колонках» и нажмите Apply. Дополнительная настройка параметров в каталоге не предусмотрена."
               }
@@ -373,14 +373,14 @@
           "retrievedIds": [
             "setting-line-length",
             "setting-text-font",
-            "note-cards",
+            "unordered-cards",
             "tag-e011",
             "metadata-sticky",
-            "note-list-columns",
+            "unordered-columns",
             "task-e02",
-            "callout-ticket",
+            "composition-ticket",
             "footnote-e034",
-            "note-magazine",
+            "composition-magazine",
             "table-e071",
             "tag-e070"
           ],
@@ -407,7 +407,7 @@
             "message": "Подходит техника «Вертикальная временная шкала»: она оформляет нумерованный список как хронологию с вертикальной линией и точками, а у последнего пункта линия обрывается. ",
             "recommendations": [
               {
-                "id": "note-timeline",
+                "id": "ordered-timeline",
                 "reason": "Точное совпадение с запросом: предназначена для отображения хронологии работы или дневника исследования.",
                 "instructions": "Откройте карточку техники «Вертикальная временная шкала» и нажмите Apply. Затем оформляйте события в заметке как последовательный Markdown-список; даты указывайте обычным выделенным текстом strong. Техника сама не распознаёт даты — порядок и выделение задаются в Markdown."
               }
@@ -422,7 +422,7 @@
             "tag-e022",
             "tag-e040",
             "metadata-technical",
-            "note-timeline"
+            "ordered-timeline"
           ],
           "searchQueries": [
             "Хочу показывать timeline в Obsidian",
@@ -465,8 +465,8 @@
             "tag-e064",
             "tag-e081",
             "interface-wrap-breadcrumbs",
-            "list-e050",
-            "note-fade-rule",
+            "unordered-e050",
+            "hr-fade-rule",
             "tag-e036",
             "tag-e001",
             "tag-e048"
@@ -579,15 +579,15 @@
             "interface-focused-pane",
             "interface-readable-tabs",
             "metadata-note-classes",
-            "pseudo-task-e26",
+            "taskplus-e26",
             "iframe-e001",
             "note-contrast",
             "table-e055",
-            "note-hierarchy",
-            "pseudo-task-e21",
-            "note-sticky-heading",
-            "pseudo-task-e02",
-            "pseudo-task-e18",
+            "heading-hierarchy",
+            "taskplus-e21",
+            "heading-sticky-heading",
+            "taskplus-e02",
+            "taskplus-e18",
             "table-e031"
           ],
           "searchQueries": [

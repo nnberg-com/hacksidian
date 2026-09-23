@@ -42,9 +42,6 @@ inline-code-ex-62
 - В исходном обзоре примеры GitHub, Bootstrap и Tailwind адаптировались к обычному `code`; остальные сочетания составлены для атласа. Ссылки на CSS-механизмы не означают, что рецепт заимствован у этих проектов.
 
 
-###### Локальные зависимости
-
-- [assets/Onest.ttf](<./assets/Onest.ttf>)
 
 ```hacksidian-files
 inline-code-ex-62

@@ -30,9 +30,6 @@ border-style: dashed меняет рисунок линии без новых э
 quote-dashed
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-dashed

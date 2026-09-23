@@ -29,9 +29,6 @@ image-rendering:pixelated запрещает обычное сглаживани
 image-e039
 ```
 
-###### Локальные зависимости
-
-- [assets/pixel.svg](<./assets/pixel.svg>)
 
 ```hacksidian-files
 image-e039

@@ -1,5 +1,13 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout {
+  /**
+   * @parameter Есть/нет рамка
+   * @type select
+   * @default 1px
+   * @option 1px | Есть | On
+   * @option 0px | Нет | Off
+   */
+  --hacksidian-callout-square-border: 1px;
   border-radius: 0;
   padding: 1em;
-  border: 1px solid var(--background-modifier-border);
+  border: var(--hacksidian-callout-square-border) solid var(--background-modifier-border);
 }

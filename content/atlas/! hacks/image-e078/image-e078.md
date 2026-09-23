@@ -29,9 +29,6 @@ object-position двигается по горизонтальному исхо�
 image-e078
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e078

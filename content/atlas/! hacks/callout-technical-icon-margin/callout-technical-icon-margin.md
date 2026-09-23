@@ -24,28 +24,13 @@ callout-technical-icon-margin
 Примечание с чистым прямоугольником текста.
 
 > Как работает
-Значок вынесен на левое поле и позиционируется относительно заголовка: его центр совпадает с серединой заголовка по высоте. Верхний и нижний отступы выноски — 1.35em, промежуток между заголовком и содержимым — 0.45em. Внешние отступы первого и последнего блоков содержимого убраны, чтобы расстояния не складывались с отступами абзацев.
+Место под значок зарезервировано внутри заголовка. Значок расположен в этой области и выровнен по центру первой строки. Тело сдвинуто вправо на ту же ширину. Приём не заменяет внешние или внутренние поля самой выноски и не использует отрицательный вынос за её край.
 ```
 
 ```hacksidian-sources
 callout-technical-icon-margin
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ```hacksidian-files
 callout-technical-icon-margin

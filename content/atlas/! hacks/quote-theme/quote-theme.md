@@ -32,9 +32,6 @@ quote-theme
 quote-theme
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-theme

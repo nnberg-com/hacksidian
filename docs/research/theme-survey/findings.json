@@ -801,7 +801,7 @@
     ]
   },
   {
-    "id": "note-code-scroll",
+    "id": "code-scroll",
     "existing": true,
     "theme": "minimal",
     "name": "Minimal",
@@ -824,7 +824,7 @@
     ]
   },
   {
-    "id": "note-list-inline",
+    "id": "unordered-inline",
     "existing": true,
     "theme": "minimal",
     "name": "Minimal",
@@ -940,7 +940,7 @@
     "usage": "Выберите E-ink в плагине Minimal Theme Settings; руководство указывает поддержку начиная с версии 7.2."
   },
   {
-    "id": "note-cards",
+    "id": "unordered-cards",
     "existing": true,
     "theme": "minimal",
     "name": "Minimal",
@@ -2614,7 +2614,7 @@
     ]
   },
   {
-    "id": "note-code-scroll",
+    "id": "code-scroll",
     "existing": true,
     "theme": "things",
     "name": "Things",
@@ -2749,7 +2749,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "things",
     "name": "Things",
@@ -2790,7 +2790,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -4496,7 +4496,7 @@
     "matchedProperty": "border-left"
   },
   {
-    "id": "callout-dialogue",
+    "id": "composition-dialogue",
     "existing": true,
     "theme": "anuppuccin",
     "name": "AnuPpuccin",
@@ -4542,7 +4542,7 @@
     "matchedProperty": "border-radius"
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "anuppuccin",
     "name": "AnuPpuccin",
@@ -5088,7 +5088,7 @@
     "matchedProperty": "color"
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "anuppuccin",
     "name": "AnuPpuccin",
@@ -5476,7 +5476,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-code-wrap",
+    "id": "code-wrap",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -5524,7 +5524,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-print-links",
+    "id": "link-print-links",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -5784,7 +5784,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-indent",
+    "id": "text-indent-book",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -6096,7 +6096,7 @@
     "recoveredCss": true
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -6120,7 +6120,7 @@
     "recoveredCss": true
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -6348,7 +6348,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-code-scroll",
+    "id": "code-scroll",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -6372,7 +6372,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -6396,7 +6396,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -6461,7 +6461,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -6485,7 +6485,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-ornament",
+    "id": "hr-ornament",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -6554,7 +6554,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-paper",
+    "id": "composition-paper",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -6578,7 +6578,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -8468,7 +8468,7 @@
     "recoveredCss": true
   },
   {
-    "id": "list-ordered-o020",
+    "id": "ordered-o020",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -8499,7 +8499,7 @@
     "recoveredCss": true
   },
   {
-    "id": "list-ordered-o013",
+    "id": "ordered-o013",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -8535,7 +8535,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -8767,7 +8767,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-quote-glyph",
+    "id": "quote-glyph",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -8839,7 +8839,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-print-flow",
+    "id": "text-print-flow",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -9187,7 +9187,7 @@
     "recoveredCss": true
   },
   {
-    "id": "emphasis-s37",
+    "id": "strike-s37",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -9310,7 +9310,7 @@
     "recoveredCss": true
   },
   {
-    "id": "callout-dialogue",
+    "id": "composition-dialogue",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -9430,7 +9430,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-image-gallery",
+    "id": "image-gallery",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -9979,7 +9979,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-highlight",
+    "id": "emphasis-highlight",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -10089,7 +10089,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -10152,7 +10152,7 @@
     "recoveredCss": true
   },
   {
-    "id": "callout-dialogue",
+    "id": "composition-dialogue",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -10292,7 +10292,7 @@
     "recoveredCss": true
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -10405,7 +10405,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "blue-topaz",
     "name": "Blue Topaz",
@@ -11092,7 +11092,7 @@
     ]
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "obsidianite",
     "name": "Obsidianite",
@@ -11238,7 +11238,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "obsidianite",
     "name": "Obsidianite",
@@ -11413,7 +11413,7 @@
     }
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "wasp",
     "name": "Wasp",
@@ -11838,7 +11838,7 @@
     ]
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "its-theme",
     "name": "ITS Theme",
@@ -12028,7 +12028,7 @@
     ]
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "its-theme",
     "name": "ITS Theme",
@@ -12071,7 +12071,7 @@
     ]
   },
   {
-    "id": "note-ornament",
+    "id": "hr-ornament",
     "existing": true,
     "theme": "its-theme",
     "name": "ITS Theme",
@@ -12953,7 +12953,7 @@
     "matchedProperty": "--outline-symbol"
   },
   {
-    "id": "note-paper",
+    "id": "composition-paper",
     "existing": true,
     "theme": "its-theme",
     "name": "ITS Theme",
@@ -12970,7 +12970,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-paper",
+    "id": "composition-paper",
     "existing": true,
     "theme": "its-theme",
     "name": "ITS Theme",
@@ -13635,7 +13635,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "its-theme",
     "name": "ITS Theme",
@@ -14664,7 +14664,7 @@
     ]
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "its-theme",
     "name": "ITS Theme",
@@ -14718,7 +14718,7 @@
     ]
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "its-theme",
     "name": "ITS Theme",
@@ -16034,7 +16034,7 @@
     "matchedProperty": "--link-decoration"
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "primary",
     "name": "Primary",
@@ -16616,7 +16616,7 @@
     ]
   },
   {
-    "id": "note-indent",
+    "id": "text-indent-book",
     "existing": true,
     "theme": "shimmering-focus",
     "name": "Shimmering Focus",
@@ -17393,7 +17393,7 @@
     "matchedProperty": "content"
   },
   {
-    "id": "note-image-fluid",
+    "id": "image-fluid",
     "existing": true,
     "theme": "shimmering-focus",
     "name": "Shimmering Focus",
@@ -17419,7 +17419,7 @@
     "matchedProperty": "max-width"
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "shimmering-focus",
     "name": "Shimmering Focus",
@@ -17506,7 +17506,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "shimmering-focus",
     "name": "Shimmering Focus",
@@ -17539,7 +17539,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -18479,7 +18479,7 @@
     ]
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "willemstad",
     "name": "Willemstad",
@@ -19360,7 +19360,7 @@
     "matchedProperty": "display"
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "willemstad",
     "name": "Willemstad",
@@ -20140,7 +20140,7 @@
     "matchedProperty": "background-image"
   },
   {
-    "id": "note-highlight",
+    "id": "emphasis-highlight",
     "existing": true,
     "theme": "prism",
     "name": "Prism",
@@ -20195,7 +20195,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-highlight",
+    "id": "emphasis-highlight",
     "existing": true,
     "theme": "prism",
     "name": "Prism",
@@ -20250,7 +20250,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-highlight",
+    "id": "emphasis-highlight",
     "existing": true,
     "theme": "prism",
     "name": "Prism",
@@ -21665,7 +21665,7 @@
     ]
   },
   {
-    "id": "note-dotted",
+    "id": "composition-dotted",
     "existing": true,
     "theme": "border",
     "name": "Border",
@@ -22737,7 +22737,7 @@
     "matchedProperty": "border-bottom"
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "border",
     "name": "Border",
@@ -22978,7 +22978,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "border",
     "name": "Border",
@@ -23798,7 +23798,7 @@
     ]
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "dracula-for-obsidian",
     "name": "Dracula for Obsidian",
@@ -24585,7 +24585,7 @@
     ]
   },
   {
-    "id": "emphasis-s33",
+    "id": "combinations-s33",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -24788,7 +24788,7 @@
     "matchedProperty": "content"
   },
   {
-    "id": "note-quote-margin",
+    "id": "quote-margin",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -24810,7 +24810,7 @@
     "matchedProperty": "border-left"
   },
   {
-    "id": "note-quote-frame",
+    "id": "quote-frame",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -24832,7 +24832,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-quote-frame",
+    "id": "quote-frame",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -24892,7 +24892,7 @@
     "matchedProperty": "outline"
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -24963,7 +24963,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -25034,7 +25034,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -25211,7 +25211,7 @@
     ]
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -25257,7 +25257,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -25303,7 +25303,7 @@
     ]
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -25348,14 +25348,14 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
     }
   },
   {
-    "id": "list-ordered-o013",
+    "id": "ordered-o013",
     "existing": true,
     "theme": "sanctum",
     "name": "Sanctum",
@@ -25384,7 +25384,7 @@
       }
     ],
     "proofRule": {
-      "id": "list-ordered-o013",
+      "id": "ordered-o013",
       "selector": "\\bol.*::?(?:before|marker)",
       "property": "^content$",
       "value": "counters\\("
@@ -26523,7 +26523,7 @@
     "usage": "cssclasses: [table-100] расширяет таблицу до области заметки."
   },
   {
-    "id": "note-image-fluid",
+    "id": "image-fluid",
     "existing": true,
     "theme": "cupertino",
     "name": "Cupertino",
@@ -26807,7 +26807,7 @@
     "matchedProperty": "font-feature-settings"
   },
   {
-    "id": "note-image-fluid",
+    "id": "image-fluid",
     "existing": true,
     "theme": "cupertino",
     "name": "Cupertino",
@@ -27247,7 +27247,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "cupertino",
     "name": "Cupertino",
@@ -27290,7 +27290,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -27411,7 +27411,7 @@
     }
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "notation",
     "name": "Notation",
@@ -27770,7 +27770,7 @@
     ]
   },
   {
-    "id": "note-hierarchy",
+    "id": "heading-hierarchy",
     "existing": true,
     "theme": "typomagical",
     "name": "Typomagical",
@@ -27833,7 +27833,7 @@
     "matchedProperty": "--h6-size"
   },
   {
-    "id": "note-hierarchy",
+    "id": "heading-hierarchy",
     "existing": true,
     "theme": "typomagical",
     "name": "Typomagical",
@@ -27906,7 +27906,7 @@
     "matchedProperty": "text-align"
   },
   {
-    "id": "list-ordered-o017",
+    "id": "ordered-o017",
     "existing": true,
     "theme": "typomagical",
     "name": "Typomagical",
@@ -27961,7 +27961,7 @@
     "matchedProperty": "content"
   },
   {
-    "id": "note-quote-pull",
+    "id": "quote-pull-accent",
     "existing": true,
     "theme": "typomagical",
     "name": "Typomagical",
@@ -28392,7 +28392,7 @@
     "usage": "Тема применяет column-width:150px к файловому дереву. Автор предупреждает о несовместимости с новыми версиями Obsidian; это исторический механизм, не рекомендация безусловной установки."
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "ono-sendai",
     "name": "Ono Sendai",
@@ -28474,7 +28474,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "ono-sendai",
     "name": "Ono Sendai",
@@ -28694,7 +28694,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "ono-sendai",
     "name": "Ono Sendai",
@@ -28719,7 +28719,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -30864,7 +30864,7 @@
     "matchedProperty": "--shib-callout-fold-position"
   },
   {
-    "id": "note-quote-frame",
+    "id": "quote-frame",
     "existing": true,
     "theme": "shiba-inu",
     "name": "Shiba Inu",
@@ -31055,7 +31055,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "shiba-inu",
     "name": "Shiba Inu",
@@ -31282,7 +31282,7 @@
     ]
   },
   {
-    "id": "note-ornament",
+    "id": "hr-ornament",
     "existing": true,
     "theme": "encore",
     "name": "Encore",
@@ -32918,7 +32918,7 @@
     "matchedProperty": "--link-decoration"
   },
   {
-    "id": "note-highlight",
+    "id": "emphasis-highlight",
     "existing": true,
     "theme": "pln",
     "name": "PLN",
@@ -33577,7 +33577,7 @@
     ]
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "pink-topaz",
     "name": "Pink Topaz",
@@ -33961,7 +33961,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "pink-topaz",
     "name": "Pink Topaz",
@@ -33994,7 +33994,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -34147,7 +34147,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "dracula-official",
     "name": "Dracula Official",
@@ -34176,7 +34176,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -34397,7 +34397,7 @@
     ]
   },
   {
-    "id": "note-ornament",
+    "id": "hr-ornament",
     "existing": true,
     "theme": "cyber-glow",
     "name": "Cyber Glow",
@@ -34712,7 +34712,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "cyber-glow",
     "name": "Cyber Glow",
@@ -34755,7 +34755,7 @@
     "matchedProperty": "content"
   },
   {
-    "id": "list-e013",
+    "id": "unordered-e013",
     "existing": true,
     "theme": "cyber-glow",
     "name": "Cyber Glow",
@@ -34781,7 +34781,7 @@
     "matchedProperty": "color"
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "cyber-glow",
     "name": "Cyber Glow",
@@ -35171,7 +35171,7 @@
     }
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "obuntu",
     "name": "Obuntu",
@@ -35227,7 +35227,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "obuntu",
     "name": "Obuntu",
@@ -35451,7 +35451,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "obuntu",
     "name": "Obuntu",
@@ -35476,7 +35476,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -35570,7 +35570,7 @@
     "usage": "Укажите `$pop` в метаданных callout, например `> [!note|$pop] Пояснение`: содержимое появляется при наведении на значок слева."
   },
   {
-    "id": "callout-technical-two-columns",
+    "id": "callin-technical-two-columns",
     "existing": true,
     "theme": "ukiyo",
     "name": "Ukiyo",
@@ -35815,7 +35815,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "ukiyo",
     "name": "Ukiyo",
@@ -36720,7 +36720,7 @@
     ]
   },
   {
-    "id": "note-code-wrap",
+    "id": "code-wrap",
     "existing": true,
     "theme": "baseline",
     "name": "Baseline",
@@ -37357,7 +37357,7 @@
     "usage": "cssclasses: [table-100] расширяет таблицу до области заметки."
   },
   {
-    "id": "note-image-fluid",
+    "id": "image-fluid",
     "existing": true,
     "theme": "baseline",
     "name": "Baseline",
@@ -38336,7 +38336,7 @@
     "matchedProperty": "--pill-background"
   },
   {
-    "id": "note-quote-panel",
+    "id": "quote-panel",
     "existing": true,
     "theme": "baseline",
     "name": "Baseline",
@@ -38467,7 +38467,7 @@
     "matchedProperty": "--embed-border-start"
   },
   {
-    "id": "note-image-fluid",
+    "id": "image-fluid",
     "existing": true,
     "theme": "baseline",
     "name": "Baseline",
@@ -38512,7 +38512,7 @@
     "matchedProperty": "width"
   },
   {
-    "id": "note-image-gallery",
+    "id": "image-gallery",
     "existing": true,
     "theme": "baseline",
     "name": "Baseline",
@@ -38691,7 +38691,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-image-fluid",
+    "id": "image-fluid",
     "existing": true,
     "theme": "baseline",
     "name": "Baseline",
@@ -38965,7 +38965,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "baseline",
     "name": "Baseline",
@@ -39008,7 +39008,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -39518,7 +39518,7 @@
     ]
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "yin-and-yang",
     "name": "Yin and Yang",
@@ -39541,7 +39541,7 @@
     ]
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "yin-and-yang",
     "name": "Yin and Yang",
@@ -39730,7 +39730,7 @@
     "matchedProperty": "border"
   },
   {
-    "id": "note-quote-glyph",
+    "id": "quote-glyph",
     "existing": true,
     "theme": "yin-and-yang",
     "name": "Yin and Yang",
@@ -40455,7 +40455,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "yin-and-yang",
     "name": "Yin and Yang",
@@ -40474,7 +40474,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -40746,7 +40746,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "royal-velvet",
     "name": "Royal Velvet",
@@ -40841,7 +40841,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "royal-velvet",
     "name": "Royal Velvet",
@@ -40858,7 +40858,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -40915,7 +40915,7 @@
     ]
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "golden-topaz",
     "name": "Golden Topaz",
@@ -41299,7 +41299,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "golden-topaz",
     "name": "Golden Topaz",
@@ -41332,7 +41332,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -41409,7 +41409,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "obsidianotion",
     "name": "Obsidianotion",
@@ -42092,7 +42092,7 @@
     "usage": "В Retroma используйте типы `floppy`, `cassette-1`, `calculator`, `pagerunit` и другие из руководства. Суффиксы `-s`, `-m`, `-l` выбирают размер."
   },
   {
-    "id": "callout-photo",
+    "id": "composition-photo",
     "existing": true,
     "theme": "retroma",
     "name": "Retroma",
@@ -42139,7 +42139,7 @@
     "usage": "Типы `polaroid-1` и `polaroid-2` оформляют изображение фотокарточкой."
   },
   {
-    "id": "callout-ticket",
+    "id": "composition-ticket",
     "existing": true,
     "theme": "retroma",
     "name": "Retroma",
@@ -42186,7 +42186,7 @@
     "usage": "Тип `ticketstub` оформляет заметку билетом; это декоративный документ."
   },
   {
-    "id": "callout-receipt",
+    "id": "composition-receipt",
     "existing": true,
     "theme": "retroma",
     "name": "Retroma",
@@ -43583,7 +43583,7 @@
     ]
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "maple",
     "name": "Maple",
@@ -43633,7 +43633,7 @@
     ]
   },
   {
-    "id": "note-quote-glyph",
+    "id": "quote-glyph",
     "existing": true,
     "theme": "maple",
     "name": "Maple",
@@ -43756,7 +43756,7 @@
     ]
   },
   {
-    "id": "note-code-scroll",
+    "id": "code-scroll",
     "existing": true,
     "theme": "maple",
     "name": "Maple",
@@ -44845,7 +44845,7 @@
     "matchedProperty": "display"
   },
   {
-    "id": "note-dotted",
+    "id": "composition-dotted",
     "existing": true,
     "theme": "maple",
     "name": "Maple",
@@ -45213,7 +45213,7 @@
     "matchedProperty": "border-start-start-radius"
   },
   {
-    "id": "note-quote-frame",
+    "id": "quote-frame",
     "existing": true,
     "theme": "maple",
     "name": "Maple",
@@ -45256,7 +45256,7 @@
     "matchedProperty": "border"
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "maple",
     "name": "Maple",
@@ -45388,7 +45388,7 @@
     "matchedProperty": "--tag-border-width"
   },
   {
-    "id": "note-print-flow",
+    "id": "text-print-flow",
     "existing": true,
     "theme": "maple",
     "name": "Maple",
@@ -45420,7 +45420,7 @@
     "matchedProperty": "widows"
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "maple",
     "name": "Maple",
@@ -45613,7 +45613,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "maple",
     "name": "Maple",
@@ -45658,7 +45658,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -45794,7 +45794,7 @@
     "recoveredCss": true
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "sodalite",
     "name": "Sodalite",
@@ -46164,7 +46164,7 @@
     ]
   },
   {
-    "id": "note-print-links",
+    "id": "link-print-links",
     "existing": true,
     "theme": "ultra-lobster",
     "name": "Ultra Lobster",
@@ -46596,7 +46596,7 @@
     ]
   },
   {
-    "id": "note-hyphens",
+    "id": "text-hyphens",
     "existing": true,
     "theme": "ultra-lobster",
     "name": "Ultra Lobster",
@@ -48000,7 +48000,7 @@
     "matchedProperty": "text-decoration"
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "ultra-lobster",
     "name": "Ultra Lobster",
@@ -48087,7 +48087,7 @@
     "matchedProperty": "opacity"
   },
   {
-    "id": "callout-technical-two-columns",
+    "id": "callin-technical-two-columns",
     "existing": true,
     "theme": "ultra-lobster",
     "name": "Ultra Lobster",
@@ -48169,7 +48169,7 @@
     "matchedProperty": "box-shadow"
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "ultra-lobster",
     "name": "Ultra Lobster",
@@ -48255,7 +48255,7 @@
     ]
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "ultra-lobster",
     "name": "Ultra Lobster",
@@ -48285,7 +48285,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "ultra-lobster",
     "name": "Ultra Lobster",
@@ -49175,7 +49175,7 @@
     ]
   },
   {
-    "id": "note-ornament",
+    "id": "hr-ornament",
     "existing": true,
     "theme": "dune",
     "name": "Dune",
@@ -49275,7 +49275,7 @@
     "usage": "Используйте `#raisecap ==А==` для приподнятой начальной буквы."
   },
   {
-    "id": "emphasis-s37",
+    "id": "strike-s37",
     "existing": true,
     "theme": "dune",
     "name": "Dune",
@@ -49294,7 +49294,7 @@
     "usage": "Используйте `#-spoiler ==текст==`; содержимое лишь визуально скрыто, оно остаётся доступным в исходнике."
   },
   {
-    "id": "callout-technical-two-columns",
+    "id": "callin-technical-two-columns",
     "existing": true,
     "theme": "dune",
     "name": "Dune",
@@ -49594,7 +49594,7 @@
     "matchedProperty": "display"
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "dune",
     "name": "Dune",
@@ -49908,7 +49908,7 @@
     ]
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "dune",
     "name": "Dune",
@@ -51780,7 +51780,7 @@
     "matchedProperty": "order"
   },
   {
-    "id": "note-list-levels",
+    "id": "unordered-levels",
     "existing": true,
     "theme": "kakano",
     "name": "Kakano",
@@ -51797,7 +51797,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-hierarchy",
+    "id": "heading-hierarchy",
     "existing": true,
     "theme": "kakano",
     "name": "Kakano",
@@ -51852,7 +51852,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-hierarchy",
+    "id": "heading-hierarchy",
     "existing": true,
     "theme": "kakano",
     "name": "Kakano",
@@ -52362,7 +52362,7 @@
     ]
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "sandstorm",
     "name": "Sandstorm",
@@ -52498,7 +52498,7 @@
     ]
   },
   {
-    "id": "note-code-scroll",
+    "id": "code-scroll",
     "existing": true,
     "theme": "sandstorm",
     "name": "Sandstorm",
@@ -52977,7 +52977,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "sandstorm",
     "name": "Sandstorm",
@@ -53018,7 +53018,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -53316,7 +53316,7 @@
     ]
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "wikipedia",
     "name": "Wikipedia",
@@ -53810,7 +53810,7 @@
     }
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "obsidiania",
     "name": "obsidian_ia",
@@ -54127,7 +54127,7 @@
     ]
   },
   {
-    "id": "emphasis-s37",
+    "id": "strike-s37",
     "existing": true,
     "theme": "underwater",
     "name": "Underwater",
@@ -54852,7 +54852,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "underwater",
     "name": "Underwater",
@@ -54869,7 +54869,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -54900,7 +54900,7 @@
     }
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "typora-vue",
     "name": "Typora-Vue",
@@ -54986,7 +54986,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "typora-vue",
     "name": "Typora-Vue",
@@ -55003,7 +55003,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -55436,7 +55436,7 @@
     "matchedProperty": "--minimize-visibility"
   },
   {
-    "id": "note-list-markers",
+    "id": "unordered-markers",
     "existing": true,
     "theme": "velocity",
     "name": "Velocity",
@@ -56009,7 +56009,7 @@
     ]
   },
   {
-    "id": "emphasis-s33",
+    "id": "combinations-s33",
     "existing": true,
     "theme": "wyrd",
     "name": "Wyrd",
@@ -56039,7 +56039,7 @@
     ]
   },
   {
-    "id": "emphasis-s37",
+    "id": "strike-s37",
     "existing": true,
     "theme": "wyrd",
     "name": "Wyrd",
@@ -56147,7 +56147,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "wyrd",
     "name": "Wyrd",
@@ -57564,7 +57564,7 @@
     }
   },
   {
-    "id": "note-print-flow",
+    "id": "text-print-flow",
     "existing": true,
     "theme": "everforest-enchanted",
     "name": "Everforest Enchanted",
@@ -57587,7 +57587,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-print-flow",
+      "id": "text-print-flow",
       "selector": "\\bhr\\b",
       "property": "^(?:page-)?break-after$",
       "value": "page|always"
@@ -58221,7 +58221,7 @@
     ]
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "aura",
     "name": "Aura",
@@ -59054,7 +59054,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "gitsidian",
     "name": "Gitsidian",
@@ -59186,7 +59186,7 @@
     ]
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "dracula-lyt",
     "name": "Dracula + LYT",
@@ -59709,7 +59709,7 @@
     ]
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "moonlight",
     "name": "Moonlight",
@@ -59818,7 +59818,7 @@
     ]
   },
   {
-    "id": "note-ornament",
+    "id": "hr-ornament",
     "existing": true,
     "theme": "fancy-a-story",
     "name": "Fancy-a-Story",
@@ -59841,7 +59841,7 @@
     ]
   },
   {
-    "id": "note-magazine",
+    "id": "composition-magazine",
     "existing": true,
     "theme": "fancy-a-story",
     "name": "Fancy-a-Story",
@@ -60527,7 +60527,7 @@
     "matchedProperty": "--fas-callout-cite-alt"
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "fancy-a-story",
     "name": "Fancy-a-Story",
@@ -61492,7 +61492,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "fancy-a-story",
     "name": "Fancy-a-Story",
@@ -61523,7 +61523,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -62100,7 +62100,7 @@
     ]
   },
   {
-    "id": "note-hierarchy",
+    "id": "heading-hierarchy",
     "existing": true,
     "theme": "origami",
     "name": "Origami",
@@ -62291,7 +62291,7 @@
     ]
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "origami",
     "name": "Origami",
@@ -62413,7 +62413,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "origami",
     "name": "Origami",
@@ -62458,7 +62458,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -62680,7 +62680,7 @@
     ]
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "vicious",
     "name": "Vicious",
@@ -62812,7 +62812,7 @@
     "matchedProperty": null
   },
   {
-    "id": "emphasis-s33",
+    "id": "combinations-s33",
     "existing": true,
     "theme": "vicious",
     "name": "Vicious",
@@ -62879,7 +62879,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-highlight",
+    "id": "emphasis-highlight",
     "existing": true,
     "theme": "vicious",
     "name": "Vicious",
@@ -64464,7 +64464,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "dawn",
     "name": "Dawn",
@@ -65106,7 +65106,7 @@
     ]
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "ebullientworks",
     "name": "Ebullientworks",
@@ -65351,7 +65351,7 @@
     ]
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "pisum",
     "name": "Pisum",
@@ -65478,7 +65478,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "pisum",
     "name": "Pisum",
@@ -65507,7 +65507,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -65662,7 +65662,7 @@
     ]
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "faded",
     "name": "Faded",
@@ -65827,7 +65827,7 @@
     ]
   },
   {
-    "id": "callout-margin",
+    "id": "composition-margin",
     "existing": true,
     "theme": "faded",
     "name": "Faded",
@@ -65855,7 +65855,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "faded",
     "name": "Faded",
@@ -66006,7 +66006,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "faded",
     "name": "Faded",
@@ -66023,7 +66023,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -66471,7 +66471,7 @@
     ]
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "dark-graphite-pie",
     "name": "Dark Graphite Pie",
@@ -66517,7 +66517,7 @@
     ]
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "dark-graphite-pie",
     "name": "Dark Graphite Pie",
@@ -66542,7 +66542,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"
@@ -67392,7 +67392,7 @@
     }
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "kanagawa",
     "name": "Kanagawa",
@@ -67550,7 +67550,7 @@
     }
   },
   {
-    "id": "note-selection",
+    "id": "text-selection-custom",
     "existing": true,
     "theme": "pine-forest-berry",
     "name": "Pine Forest Berry",
@@ -68053,7 +68053,7 @@
     ]
   },
   {
-    "id": "note-code-scroll",
+    "id": "code-scroll",
     "existing": true,
     "theme": "material-ocean",
     "name": "Material Ocean",
@@ -69163,7 +69163,7 @@
     ]
   },
   {
-    "id": "note-indent",
+    "id": "text-indent-book",
     "existing": true,
     "theme": "composer",
     "name": "Composer",
@@ -69186,7 +69186,7 @@
     ]
   },
   {
-    "id": "list-e047",
+    "id": "unordered-e047",
     "existing": true,
     "theme": "composer",
     "name": "Composer",
@@ -69733,7 +69733,7 @@
     }
   },
   {
-    "id": "note-code-wrap",
+    "id": "code-wrap",
     "existing": true,
     "theme": "lagom",
     "name": "Lagom",
@@ -69837,7 +69837,7 @@
     ]
   },
   {
-    "id": "note-magazine",
+    "id": "composition-magazine",
     "existing": true,
     "theme": "lagom",
     "name": "Lagom",
@@ -70183,7 +70183,7 @@
     "matchedProperty": null
   },
   {
-    "id": "note-quote-line",
+    "id": "quote-line",
     "existing": true,
     "theme": "lagom",
     "name": "Lagom",
@@ -70229,7 +70229,7 @@
     ]
   },
   {
-    "id": "note-code-scroll",
+    "id": "code-scroll",
     "existing": true,
     "theme": "lagom",
     "name": "Lagom",
@@ -70494,7 +70494,7 @@
     }
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "existing": true,
     "theme": "lagom",
     "name": "Lagom",
@@ -70519,7 +70519,7 @@
       }
     ],
     "proofRule": {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "selector": "\\bli.*::?(?:before|after)|indentation-guide",
       "property": "^border-(?:left|inline-start|inline-end)$",
       "value": "^(?!none|0)"

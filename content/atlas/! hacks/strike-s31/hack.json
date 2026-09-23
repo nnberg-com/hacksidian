@@ -1,0 +1,9 @@
+{
+  "format": 2,
+  "target": "g-strike",
+  "hasCss": true,
+  "group": "strike",
+  "previousTargets": [
+    "g-emphasis"
+  ]
+}

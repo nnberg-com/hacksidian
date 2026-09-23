@@ -14,22 +14,20 @@ Commit: `27bc77c071a939ef58fe589b9c52f073515524f9`. Основной файл: `
 - Встроенная заметка без отдельной рамки — новая карточка
 - Больше места для перетаскивания окна — новая карточка
 - Плавающий заголовок панели заметки — новая карточка
-- [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
+- [[atlas/! hacks/text-selection-custom/text-selection-custom|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
-- [[atlas/! hacks/note-code-scroll/note-code-scroll|Длинные строки с прокруткой]] — существующая карточка
+- [[atlas/! hacks/code-scroll/code-scroll|Длинные строки с прокруткой]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/table-e034/table-e034|Подсветка строки]] — существующая карточка
 - [[atlas/! hacks/table-e043/table-e043|Закреплённая шапка]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
-- [[atlas/! hacks/interface-keyboard-focus/interface-keyboard-focus|Заметный клавиатурный фокус]] — существующая карточка
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
 - [[atlas/! hacks/table-e035/table-e035|Подсветка отдельной ячейки]] — существующая карточка
 - [[atlas/! hacks/image-e015/image-e015|Тонкая рамка]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 
 ## Реестр настроек
 

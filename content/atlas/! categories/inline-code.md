@@ -1,5 +1,4 @@
 ---
-group: inline-code
 snippet: hacksidian-09-inline-code.css
 title: Инлайн-код
 sources:
@@ -11,17 +10,9 @@ sources:
 - https://developer.mozilla.org/en-US/docs/Web/CSS
 ---
 
-# Инлайн-код
-
-```hacksidian-category-count
-inline-code
-```
-
-Значение поля `category`: `inline-code`.
+# Инлайн-код → `$=dv.el("code", dv.app.vault.getAbstractFileByPath(dv.currentFilePath).basename)` • `$=const file = dv.app.vault.getAbstractFileByPath(dv.currentFilePath); (dv.app.vault.getAbstractFileByPath(file.parent.path.replace(/! categories$/, "! hacks"))?.children ?? []).filter(f => f.children && (f.name === file.basename || f.name.startsWith(file.basename + "-"))).length`
 
 [[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]
-
-## Приёмы
 
 ```hacksidian-category
 inline-code

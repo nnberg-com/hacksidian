@@ -29,9 +29,6 @@ quote-thick
 quote-thick
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-thick

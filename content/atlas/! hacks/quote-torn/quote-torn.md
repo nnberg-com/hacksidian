@@ -32,9 +32,6 @@ quote-torn
 quote-torn
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-torn

@@ -29,9 +29,6 @@ border и outline разделены промежутком.
 image-e021
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e021

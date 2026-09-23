@@ -29,9 +29,6 @@ Markdown-разделитель hr сужен до 3em; следующий аб�
 quote-source-rule
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-source-rule

@@ -1,8 +1,10 @@
-:is(.markdown-preview-view, .markdown-source-view) .callout:focus-within {
+:is(.markdown-preview-view, .markdown-source-view) .callout:focus-within,
+:is(.markdown-preview-view, .markdown-source-view) .callout:has(.callout-content a:hover) {
   outline: 2px solid var(--callout-color);
   outline-offset: 3px;
 }
-:is(.markdown-preview-view, .markdown-source-view) .callout-content a:focus-visible {
+:is(.markdown-preview-view, .markdown-source-view) .callout-content a:focus-visible,
+:is(.markdown-preview-view, .markdown-source-view) .callout-content a:hover {
   outline: 1px solid var(--callout-color);
   outline-offset: 2px;
 }

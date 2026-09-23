@@ -8,6 +8,7 @@ vi.mock('obsidian', () => ({
  Plugin: class { app = { vault: { configDir: '.obsidian' } }; async loadData(){return state.data;} async saveData(value: any){state.data=structuredClone(value);} },
  Notice: class { constructor(message: string){state.notices.push(message);} },
  TFile: class {},
+ Component: class {},
  MarkdownRenderChild: class {},
  ItemView: class {}, PluginSettingTab: class {}, MarkdownView: class {},
  MarkdownRenderer: {render:vi.fn(async(_app:any,source:string,target:any)=>{target.textContent=source.replace(/<br\s*\/?>/gi," ").replace(/<[^>]*>/g,"").replace(/\[\[([^\]]+)\]\]/g,"$1");})},

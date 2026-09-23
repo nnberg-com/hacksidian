@@ -32,9 +32,6 @@ transition меняет фон и рамку; reduced-motion отключает 
 task-e51
 ```
 
-###### Локальные зависимости
-
-- [assets/check.svg](<./assets/check.svg>)
 
 ```hacksidian-files
 task-e51

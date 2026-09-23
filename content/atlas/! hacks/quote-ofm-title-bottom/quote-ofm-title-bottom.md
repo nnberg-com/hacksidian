@@ -32,9 +32,6 @@ Flex order перемещает существующий заголовок по
 quote-ofm-title-bottom
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-ofm-title-bottom

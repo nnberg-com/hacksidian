@@ -29,9 +29,6 @@ max-inline-size и автоматический начальный отступ 
 quote-epigraph
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-epigraph

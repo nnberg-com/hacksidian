@@ -30,9 +30,6 @@ quote-source-band
 quote-source-band
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-source-band

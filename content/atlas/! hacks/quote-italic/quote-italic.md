@@ -30,9 +30,6 @@ font-style применяется к тексту всего blockquote.
 quote-italic
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ###### Подтверждения в темах — исследование 2026-09-16
 

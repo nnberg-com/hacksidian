@@ -32,9 +32,6 @@ image-e083
 image-e083
 ```
 
-###### Локальные зависимости
-
-- [assets/leaf.svg](<./assets/leaf.svg>)
 
 ```hacksidian-files
 image-e083

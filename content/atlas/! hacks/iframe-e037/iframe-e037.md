@@ -33,10 +33,6 @@ CSS снаружи iframe не меняет фон, прокрутку и сод
 iframe-e037
 ```
 
-###### Локальные зависимости
-
-- [assets/documents/dashboard.html](<./assets/documents/dashboard.html>)
-- [assets/documents/map.html](<./assets/documents/map.html>)
 
 ```hacksidian-files
 iframe-e037

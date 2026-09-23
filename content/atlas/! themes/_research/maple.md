@@ -52,30 +52,28 @@ Commit: `d7a6dc1834116e15f4a11c4d41276db6d7cb7437`. Основной файл: `
 - [[atlas/! hacks/code-e052/code-e052|Читаемая метка языка]] — существующая карточка
 - [[atlas/! hacks/heading-e006/heading-e006|Капитель]] — существующая карточка
 - [[atlas/! hacks/emphasis-s14/emphasis-s14|Мягкая плашка с переносами]] — существующая карточка
-- [[atlas/! hacks/list-e047/list-e047|Направляющая вложенности]] — существующая карточка
+- [[atlas/! hacks/unordered-e047/unordered-e047|Направляющая вложенности]] — существующая карточка
 - [[atlas/! hacks/quote-italic/quote-italic|Курсив]] — существующая карточка
-- [[atlas/! hacks/note-quote-glyph/note-quote-glyph|Большая кавычка на поле]] — существующая карточка
+- [[atlas/! hacks/quote-glyph/quote-glyph|Большая кавычка на поле]] — существующая карточка
 - [[atlas/! hacks/task-e14/task-e14|Приглушение без зачёркивания]] — существующая карточка
-- [[atlas/! hacks/note-code-scroll/note-code-scroll|Длинные строки с прокруткой]] — существующая карточка
-- [[atlas/! hacks/meta-print-pagination/meta-print-pagination|Печатные страницы без одиноких заголовков]] — существующая карточка
+- [[atlas/! hacks/code-scroll/code-scroll|Длинные строки с прокруткой]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
-- [[atlas/! hacks/note-dotted/note-dotted|Заметка на точечной сетке]] — существующая карточка
+- [[atlas/! hacks/composition-dotted/composition-dotted|Заметка на точечной сетке]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/table-e013/table-e013|Акцентная шапка]] — существующая карточка
 - [[atlas/! hacks/table-e012/table-e012|Скруглённая общая рамка]] — существующая карточка
-- [[atlas/! hacks/note-quote-frame/note-quote-frame|Рамка вокруг цитаты]] — существующая карточка
-- [[atlas/! hacks/note-list-markers/note-list-markers|Цвет и форма маркеров]] — существующая карточка
+- [[atlas/! hacks/quote-frame/quote-frame|Рамка вокруг цитаты]] — существующая карточка
+- [[atlas/! hacks/unordered-markers/unordered-markers|Цвет и форма маркеров]] — существующая карточка
 - [[atlas/! hacks/tag-e022/tag-e022|Контурная капсула]] — существующая карточка
-- [[atlas/! hacks/note-print-flow/note-print-flow|Разрывы страниц и висячие строки]] — существующая карточка
-- [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
+- [[atlas/! hacks/text-print-flow/text-print-flow|Разрывы страниц и висячие строки]] — существующая карточка
+- [[atlas/! hacks/text-selection-custom/text-selection-custom|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/code-e018/code-e018|Мягкий перенос]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
 - [[atlas/! hacks/table-e003/table-e003|Только горизонтали]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 
 ## Реестр настроек
 
@@ -109,7 +107,6 @@ Commit: `d7a6dc1834116e15f4a11c4d41276db6d7cb7437`. Основной файл: `
 | Styled Slider | `modal-slider` | Вариант оформления | Градиенты кнопок, форма бегунка и переключателя. Декоративные варианты штатных контролов.  | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L490) |
 | Styled Toggle Button | `modal-toggle` | Вариант оформления | Градиенты кнопок, форма бегунка и переключателя. Декоративные варианты штатных контролов.  | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L495) |
 | Enable Vertical Navigation Bar | `labeled-nav` | Есть карточка | Подтверждено правилом CSS. Боковые вкладки с текстовыми подписями | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L518) |
-| Enable Floating Style Tab Bar | `tab-float` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/interface-active-tab/interface-active-tab\|Выразительная активная вкладка]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L526) |
 | Enable Tab Slide Up Animation | `tab-slide-up` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Скорость и отключение анимации темы | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L540) |
 | When To Show Close Button On Tabs | `tab-show-close` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Служебные элементы появляются при наведении | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L547) |
 | Font Size of File Name On Tab Title Bar | `tab-title-bar-text` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Служебные элементы появляются при наведении | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L560) |
@@ -123,7 +120,7 @@ Commit: `d7a6dc1834116e15f4a11c4d41276db6d7cb7437`. Основной файл: `
 | Enable Scrollbar Style | `scrollbar-enable` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Размер и форма полос прокрутки | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L649) |
 | Scrollbar Hover Action | `scrollbar-hover` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Размер и форма полос прокрутки | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L656) |
 | Enable Scrollbar Move In/Out Animation | `scrollbar-movein-animation-enable` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Скорость и отключение анимации темы | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L669) |
-| Pattern Style | `editor-bg-pattern` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-dotted/note-dotted\|Заметка на точечной сетке]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L687) |
+| Pattern Style | `editor-bg-pattern` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/composition-dotted/composition-dotted\|Заметка на точечной сетке]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L687) |
 | Custom Page Bottom Spacing | `editor-custom-bottom-spacing` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Свободное место после конца заметки | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L749) |
 | Hover Line Marker | `line-indicator` | Есть карточка | Подтверждено правилом CSS. Маркер строки под указателем | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L789) |
 | Active Line Highlight | `line-active` | Есть карточка | Подтверждено правилом CSS. Выделение активной строки редактора | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L804) |
@@ -186,16 +183,16 @@ Commit: `d7a6dc1834116e15f4a11c4d41276db6d7cb7437`. Основной файл: `
 | Click to Zoom Image | `image-zoom` | Есть карточка | Подтверждено правилом CSS. Крупный просмотр изображения при нажатии | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1741) |
 | Decrease Brightness in Dark Mode | `image-dark-hover` | Есть карточка | Подтверждено правилом CSS. Приглушение ярких изображений в тёмном режиме | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1748) |
 | Use Italic Style in Blockquote | `quote-italic` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/quote-italic/quote-italic\|Курсив]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1761) |
-| Enable Quote Mark Style in Reading View | `quote-mark` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-quote-glyph/note-quote-glyph\|Большая кавычка на поле]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1765) |
-| Blockquote Style in Reading View | `quote-outline-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-quote-frame/note-quote-frame\|Рамка вокруг цитаты]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1771) |
-| Optimize List Style | `list-enable` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-list-markers/note-list-markers\|Цвет и форма маркеров]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1790) |
-| Logseq Bullet Thread Style List | `list-bullet-thread-style` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/list-e047/list-e047\|Направляющая вложенности]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1797) |
+| Enable Quote Mark Style in Reading View | `quote-mark` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/quote-glyph/quote-glyph\|Большая кавычка на поле]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1765) |
+| Blockquote Style in Reading View | `quote-outline-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/quote-frame/quote-frame\|Рамка вокруг цитаты]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1771) |
+| Optimize List Style | `list-enable` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/unordered-markers/unordered-markers\|Цвет и форма маркеров]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1790) |
+| Logseq Bullet Thread Style List | `list-bullet-thread-style` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/unordered-e047/unordered-e047\|Направляющая вложенности]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1797) |
 | Completed Items Decoration Style | `list-checkbox-line` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Оформление текста по состоянию задачи | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1836) |
 | Gray Out Completed Items | `list-checkbox-gray` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/task-e14/task-e14\|Приглушение без зачёркивания]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1849) |
 | Enhanced Checkbox Styles | `list-checkbox-alternative` | Есть карточка | Подтверждено правилом CSS. Состояния задач по символу в квадратных скобках | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1853) |
 | Enable Code Block Line Numbers in Live Preview Mode | `code-line-number` | Есть карточка | Подтверждено правилом CSS. Номера строк внутри блока кода | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1906) |
 | Enable Code Block Language Indicator in Reading View | `code-language` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/code-e052/code-e052\|Читаемая метка языка]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1922) |
-| Prevent Code Wrapping in Reading View | `code-nowrap` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-code-scroll/note-code-scroll\|Длинные строки с прокруткой]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1927) |
+| Prevent Code Wrapping in Reading View | `code-nowrap` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/code-scroll/code-scroll\|Длинные строки с прокруткой]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1927) |
 | Enable Code Block Background in Reading View | `code-preview-bg` | Вариант оформления | Градиентная подложка блока кода в Reading View; не фон рабочего пространства.  | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1934) |
 | Add macOS Style Code Block Header in Reading View | `code-mac-style-header` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/code-e036/code-e036\|Окно с тремя кружками]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1945) |
 | Use Theme's Color Scheme | `code-theme` | Есть карточка | Подтверждено правилом CSS. Согласованная палитра синтаксиса кода | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L1951) |
@@ -206,8 +203,7 @@ Commit: `d7a6dc1834116e15f4a11c4d41276db6d7cb7437`. Основной файл: `
 | Decrease Brightness in Dark Mode | `pdf-dark-hover` | Есть карточка | Подтверждено правилом CSS. Приглушение яркости встроенного PDF | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L2033) |
 | Invert Colors in Dark Mode | `pdf-dark-invert` | Есть карточка | Подтверждено правилом CSS. Инверсия страниц PDF в тёмном режиме | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L2040) |
 | Set Background to Transparent | `pdf-export-transparent` | Палитра | Вариант цветов темы: --background-primary. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L2050) |
-| Better Page Break Strategy | `pdf-export-page-break` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/meta-print-pagination/meta-print-pagination\|Печатные страницы без одиноких заголовков]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L2054) |
-| Standard Spacing Between Paragraphs and List | `pdf-export-standard` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-print-flow/note-print-flow\|Разрывы страниц и висячие строки]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L2061) |
+| Standard Spacing Between Paragraphs and List | `pdf-export-standard` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/text-print-flow/text-print-flow\|Разрывы страниц и висячие строки]] | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L2061) |
 | Use Default Style for Horizontal Rule | `pdf-export-default-hr` | Вариант оформления | Градиентный экранный разделитель и его нейтральный вариант для печати.  | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L2065) |
 | Add Outline for Property Panel | `prop-outline` | Вариант оформления | Рамка, фон, радиус и отступы свойств; оформление существующей панели.  | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L2083) |
 | Hide Property Panel in Reading View | `prop-hide-preview` | Есть карточка | Подтверждено правилом CSS. Скрытые свойства в режиме чтения | [код](https://github.com/subframe7536/obsidian-theme-maple/blob/d7a6dc1834116e15f4a11c4d41276db6d7cb7437/theme.css#L2087) |

@@ -1,0 +1,38 @@
+---
+tags:
+  - hacksidian_technique
+  - hacksidian_unordered
+title: Пункт с выделением становится акцентным
+category: unordered
+sources:
+  - https://developer.mozilla.org/en-US/docs/Web/CSS/:has
+format: markdown
+themes: []
+---
+
+```hacksidian-id
+unordered-context-strong
+```
+
+```hacksidian-live
+unordered-context-strong
+```
+
+```hacksidian-details
+> Зачем
+Заметный пункт по явно заданному смысловому выделению.
+
+> Как работает
+li:has(strong) реагирует на **выделение** внутри пункта.
+
+> Ограничения
+Любой strong в пункте запускает правило. CSS не понимает важность по обычному тексту.
+```
+
+```hacksidian-sources
+unordered-context-strong
+```
+
+```hacksidian-files
+unordered-context-strong
+```

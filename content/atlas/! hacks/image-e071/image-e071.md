@@ -29,10 +29,6 @@ image-e071
 image-e071
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
-- [assets/landscape.svg](<./assets/landscape.svg>)
 
 ```hacksidian-files
 image-e071

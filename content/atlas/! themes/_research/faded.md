@@ -18,14 +18,13 @@ Commit: `4dc3b9ba1abe8fb150873bf9c55a7e6d410214a2`. Основной файл: `
 - Плавающий заголовок панели заметки — новая карточка
 - Выделение активного файла в проводнике — новая карточка
 - Примечание без заголовка — новая карточка
-- [[atlas/! hacks/list-e047/list-e047|Направляющая вложенности]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
-- [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
-- [[atlas/! hacks/note-quote-line/note-quote-line|Классическая цитата с линией]] — существующая карточка
+- [[atlas/! hacks/unordered-e047/unordered-e047|Направляющая вложенности]] — существующая карточка
+- [[atlas/! hacks/composition-margin/composition-margin|Заметка на полях]] — существующая карточка
+- [[atlas/! hacks/quote-line/quote-line|Классическая цитата с линией]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 - [[atlas/! hacks/heading-e046/heading-e046|Градиент внутри букв]] — существующая карточка
 - [[atlas/! hacks/tag-e084/tag-e084|Скрытая решётка в покое]] — существующая карточка
 
@@ -36,7 +35,7 @@ Commit: `4dc3b9ba1abe8fb150873bf9c55a7e6d410214a2`. Основной файл: `
 | Настройка | ID | Результат | Обоснование / карточки | Источник |
 |---|---|---|---|---|
 | Font | `fonts` | Типографический параметр | Переключаются только значения переменной font.  | [код](https://github.com/joshkasap/Obsidian-Faded-Theme/blob/4dc3b9ba1abe8fb150873bf9c55a7e6d410214a2/theme.css#L6) |
-| Gradient Bullet Point Lines | `Gradient-Bullet-Point-Lines` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/list-e047/list-e047\|Направляющая вложенности]] | [код](https://github.com/joshkasap/Obsidian-Faded-Theme/blob/4dc3b9ba1abe8fb150873bf9c55a7e6d410214a2/theme.css#L29) |
+| Gradient Bullet Point Lines | `Gradient-Bullet-Point-Lines` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/unordered-e047/unordered-e047\|Направляющая вложенности]] | [код](https://github.com/joshkasap/Obsidian-Faded-Theme/blob/4dc3b9ba1abe8fb150873bf9c55a7e6d410214a2/theme.css#L29) |
 | Check List Strikeout (In Development) | `Check-List-Strikeout` | Переключатель не подтверждён CSS | В настройках ID есть, но ни ID, ни значения class-select не используются в CSS после удаления комментариев. Не выдаём этот переключатель за реализованную возможность текущего commit.  | [код](https://github.com/joshkasap/Obsidian-Faded-Theme/blob/4dc3b9ba1abe8fb150873bf9c55a7e6d410214a2/theme.css#L43) |
 | Header Icons | `Header-Icons` | Есть карточка | Подтверждено правилом CSS. Обозначение уровня заголовка в редакторе | [код](https://github.com/joshkasap/Obsidian-Faded-Theme/blob/4dc3b9ba1abe8fb150873bf9c55a7e6d410214a2/theme.css#L57) |
 | Folder Icons | `Folder-Icons` | Есть карточка | Подтверждено правилом CSS. Значки папок вместо стрелок дерева | [код](https://github.com/joshkasap/Obsidian-Faded-Theme/blob/4dc3b9ba1abe8fb150873bf9c55a7e6d410214a2/theme.css#L71) |

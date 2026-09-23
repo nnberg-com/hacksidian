@@ -23,28 +23,13 @@ callout-technical-icon-disc
 Подсказка с хорошо различимым символом.
 
 > Как работает
-Контейнер значка получает круглый фон; его ::before рисует знак через CSS-маску.
+Штатный SVG-значок Obsidian размещён по центру круглого фона. Собственная маска не подменяет значок, служебные псевдоэлементы не занимают место.
 ```
 
 ```hacksidian-sources
 callout-technical-icon-disc
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ```hacksidian-files
 callout-technical-icon-disc

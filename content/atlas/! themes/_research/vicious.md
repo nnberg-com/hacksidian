@@ -14,10 +14,10 @@ Commit: `8a46212741d5beca548d18849d4617f85e887f32`. Основной файл: `
 - Выделение активной строки редактора — новая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
-- [[atlas/! hacks/list-e047/list-e047|Направляющая вложенности]] — существующая карточка
+- [[atlas/! hacks/unordered-e047/unordered-e047|Направляющая вложенности]] — существующая карточка
 - [[atlas/! hacks/callout-technical-solid/callout-technical-solid|Плотная цветная панель]] — существующая карточка
-- [[atlas/! hacks/emphasis-s33/emphasis-s33|Курсив с маркером]] — существующая карточка
-- [[atlas/! hacks/note-highlight/note-highlight|Маркер за важным текстом]] — существующая карточка
+- [[atlas/! hacks/combinations-s33/combinations-s33|Курсив с маркером]] — существующая карточка
+- [[atlas/! hacks/emphasis-highlight/emphasis-highlight|Маркер за важным текстом]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
 - [[atlas/! hacks/table-e027/table-e027|Компактная таблица по центру]] — существующая карточка
@@ -30,14 +30,14 @@ Commit: `8a46212741d5beca548d18849d4617f85e887f32`. Основной файл: `
 | Настройка | ID | Результат | Обоснование / карточки | Источник |
 |---|---|---|---|---|
 | Disable Scrollbar | `scrollbar-hide` | Есть карточка | Подтверждено правилом CSS. Рабочая область без видимых полос прокрутки | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L27) |
-| Disable Vibrant Indent | `vibrant-indents` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/list-e047/list-e047\|Направляющая вложенности]] | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L34) |
+| Disable Vibrant Indent | `vibrant-indents` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/unordered-e047/unordered-e047\|Направляющая вложенности]] | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L34) |
 | Disable Alternative Checkboxes | `disable-alternative-checkboxes` | Есть карточка | Подтверждено правилом CSS. Состояния задач по символу в квадратных скобках | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L40) |
 | Disable Vibrant Folders | `vibrant-folders` | Есть карточка | Подтверждено правилом CSS. Цветовые группы папок в проводнике | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L46) |
 | Callout Style | `callout Style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/callout-technical-solid/callout-technical-solid\|Плотная цветная панель]] | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L51) |
 | Bold Color | `boldcolors` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/emphasis-s02/emphasis-s02\|02 · Цветной bold]] | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L76) |
 | Italics Color | `italicscolors` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/emphasis-s03/emphasis-s03\|03 · Цвет вместо курсива]] | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L117) |
-| Bold + Italics Color | `bold-italicscolors` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/emphasis-s33/emphasis-s33\|33 · Комбинация как отдельный стиль]] | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L158) |
-| Highlight Color | `highlightcolors` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-highlight/note-highlight\|Маркер за важным текстом]] | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L199) |
+| Bold + Italics Color | `bold-italicscolors` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/combinations-s33/combinations-s33\|33 · Комбинация как отдельный стиль]] | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L158) |
+| Highlight Color | `highlightcolors` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/emphasis-highlight/emphasis-highlight\|Маркер за важным текстом]] | [код](https://github.com/zaheralmajed/vicious-theme-obsidian/blob/8a46212741d5beca548d18849d4617f85e887f32/theme.css#L199) |
 
 ## Документация в репозитории
 

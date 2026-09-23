@@ -20,13 +20,12 @@ Commit: `8779debf0eedf8f33b68c22ac50a37c0759caaa3`. Основной файл: `
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
-- [[atlas/! hacks/note-hierarchy/note-hierarchy|Шкала заголовков H1–H6]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
-- [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
+- [[atlas/! hacks/heading-hierarchy/heading-hierarchy|Шкала заголовков H1–H6]] — существующая карточка
+- [[atlas/! hacks/composition-margin/composition-margin|Заметка на полях]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 
 ## Реестр настроек
 
@@ -41,7 +40,7 @@ Commit: `8779debf0eedf8f33b68c22ac50a37c0759caaa3`. Основной файл: `
 | change bold-italic to accent color | `o-bold-italic` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/emphasis-s02/emphasis-s02\|02 · Цветной bold]]; [[atlas/! hacks/emphasis-s03/emphasis-s03\|03 · Цвет вместо курсива]] | [код](https://github.com/7368697661/Origami/blob/8779debf0eedf8f33b68c22ac50a37c0759caaa3/theme.css#L215) |
 | justify text | `o-justify` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/text-justify/text-justify\|Выравнивание по ширине]] | [код](https://github.com/7368697661/Origami/blob/8779debf0eedf8f33b68c22ac50a37c0759caaa3/theme.css#L220) |
 | rainbow headers | `o-colorful-headings` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/heading-e007/heading-e007\|Цвет всего заголовка]] | [код](https://github.com/7368697661/Origami/blob/8779debf0eedf8f33b68c22ac50a37c0759caaa3/theme.css#L233) |
-| header size arrays | `o-header-size` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-hierarchy/note-hierarchy\|Шкала заголовков H1–H6]] | [код](https://github.com/7368697661/Origami/blob/8779debf0eedf8f33b68c22ac50a37c0759caaa3/theme.css#L238) |
+| header size arrays | `o-header-size` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/heading-hierarchy/heading-hierarchy\|Шкала заголовков H1–H6]] | [код](https://github.com/7368697661/Origami/blob/8779debf0eedf8f33b68c22ac50a37c0759caaa3/theme.css#L238) |
 | header underline color | `o-header-line-accent` | Палитра | Все связанные декларации меняют только цвета/цветовые переменные. Это вариант палитры темы; новая операция над заметкой не появляется.  | [код](https://github.com/7368697661/Origami/blob/8779debf0eedf8f33b68c22ac50a37c0759caaa3/theme.css#L264) |
 | header 1 underline | `o-header-line-h1` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/heading-e019/heading-e019\|Черта на всю ширину]] | [код](https://github.com/7368697661/Origami/blob/8779debf0eedf8f33b68c22ac50a37c0759caaa3/theme.css#L280) |
 | header 2 underline | `o-header-line-h2` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/heading-e019/heading-e019\|Черта на всю ширину]] | [код](https://github.com/7368697661/Origami/blob/8779debf0eedf8f33b68c22ac50a37c0759caaa3/theme.css#L284) |

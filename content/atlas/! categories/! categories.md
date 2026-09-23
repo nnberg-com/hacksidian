@@ -1,33 +1,82 @@
-# Группы атласа
+# Категории приёмов • `24`
 
-25 категорий. Заголовки, кнопки и живые примеры в категориях собираются автоматически блоком `hacksidian-category`.
+```mermaid
+---
+config:   
+  theme: 'forest'  
+---
+mindmap
+root(( ))
+	_base(( ))
+		text
+		:::internal-link
+		palette
+		:::internal-link
+		heading
+		:::internal-link
+		hr
+		:::internal-link
+		metadata
+		:::internal-link
+	_text_line(( ))
+		_em(( ))
+			emphasis
+			:::internal-link
+			combinations
+			:::internal-link
+		strike
+		:::internal-link
+		inline-code
+		:::internal-link
+		tag
+		:::internal-link
+	_links(( ))
+		link
+		:::internal-link
+		footnote
+		:::internal-link
+	_lists(( ))
+		_list(( ))
+			ordered
+			:::internal-link
+			unordered
+			:::internal-link
+		_t(( ))
+			task
+			:::internal-link
+			taskplus
+			:::internal-link
+	_blocks(( ))
+		code
+		:::internal-link
+		quote
+		:::internal-link
+		_callouts(( ))
+			callout
+			:::internal-link
+			callin
+			:::internal-link
+			composition
+			:::internal-link
+		table
+		:::internal-link
+	_media(( ))
+		image
+		:::internal-link
+		iframe
+		:::internal-link
 
-- [[atlas/! categories/callout|Выноски]]
-- [[atlas/! categories/composition|Композиции]]
-- [[atlas/! categories/code|Блоки кода]]
-- [[atlas/! categories/strikethrough|Зачёркивание]]
-- [[atlas/! categories/emphasis-combinations|Сочетания выделений]]
-- [[atlas/! categories/emphasis|Выделения текста (bold, italic, …)]]
-- [[atlas/! categories/footnote|Сноски]]
-- [[atlas/! categories/heading|Заголовки]]
-- [[atlas/! categories/hr|Разделители]]
-- [[atlas/! categories/iframe|Iframe]]
-- [[atlas/! categories/image|Изображения]]
-- [[atlas/! categories/inline-code|Инлайн-код]]
-- [[atlas/! categories/link|Ссылки]]
-- [[atlas/! categories/list|Списки]]
-- [[atlas/! categories/metadata|Свойства заметки]]
-- [[atlas/! categories/note|Заметки]]
-- [[atlas/! categories/pseudo-task|Псевдозадачи]]
-- [[atlas/! categories/quote|Цитаты]]
-- [[atlas/! categories/table|Таблицы]]
-- [[atlas/! categories/tag|Теги]]
-- [[atlas/! categories/task|Задачи]]
-- [[atlas/! categories/text|Текст]]
+```
 
-- [[atlas/! categories/palette|Палитры]]
+- **Основное** → [[text|текст]] — [[palette|палитры]] — [[heading|заголовки]] — [[hr|разделители]] — [[metadata|свойства заметки]]
+- **В строке** → [[emphasis|выделения текста (bold, italic, …)]] — [[combinations|сочетания выделений]] — [[strike|зачёркивание]] — [[inline-code|код в строке]] — [[tag|теги]]
+- **Ссылки** → [[link|ссылки]] — [[footnote|сноски]]
+- **Списки** → [[ordered|нумерованные]] — [[unordered|маркированные]] — [[task|задачи]] — [[taskplus|задачи +]]
+- **Блоки** → [[code|блоки кода]] — [[quote|цитаты]] — [[callout|выноски]] — [[callin|Markdown внутри выносок]] — [[composition|композиции]] — [[table|таблицы]]
+- **Медиа** → [[image|изображения]] — [[iframe|Iframe]]
 
-## Служебные группы
+> Заголовки, кнопки и живые примеры в категориях собираются блоком кода с меткой `hacksidian-category`
 
-- [[atlas/! categories/meta|Платформы и метанастройки]]
-- [[atlas/! categories/interface|Интерфейс Obsidian]]
+
+
+

@@ -1,25 +1,17 @@
-:is(.markdown-preview-view, .markdown-source-view) {
-  padding-block-start: .8em;
-}
-.explanation :is(.markdown-preview-view, .markdown-source-view) {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: .09em;
-  font-size: calc(var(--font-text-size) * 0.5625);
-  color: var(--text-muted);
-  margin-bottom: calc(var(--size-4-1) * 0.75);
-}
 :is(.markdown-preview-view, .markdown-source-view) .callout {
   background: var(--background-primary);
   border: 1px solid var(--callout-color);
-  margin-block-start: .7em;
+  margin-block: 1.5em 1em;
+  padding: 0 1em .75em;
+  overflow: visible;
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-title {
   width: fit-content;
   max-width: 100%;
   background: var(--background-primary);
-  padding-inline: .5em;
-  margin-block-start: -1.8em;
-  margin-inline-start: -.3em;
+  padding: 0 .5em;
+  margin: -.75em 0 0 -.5em;
+  line-height: 1.5;
 }
-
+:is(.markdown-preview-view, .markdown-source-view) .callout-content > :first-child { margin-top: .5em; }
+:is(.markdown-preview-view, .markdown-source-view) .callout-content > :last-child { margin-bottom: 0; }

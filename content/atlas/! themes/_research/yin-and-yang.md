@@ -28,10 +28,9 @@ Commit: `e780f0d58301cfa11c05d0cc351ee82a95d920de`. Основной файл: `
 - Выделение активного файла в проводнике — новая карточка
 - [[atlas/! hacks/code-e052/code-e052|Читаемая метка языка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
-- [[atlas/! hacks/list-e047/list-e047|Направляющая вложенности]] — существующая карточка
+- [[atlas/! hacks/unordered-e047/unordered-e047|Направляющая вложенности]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
-- [[atlas/! hacks/note-quote-glyph/note-quote-glyph|Большая кавычка на поле]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
+- [[atlas/! hacks/quote-glyph/quote-glyph|Большая кавычка на поле]] — существующая карточка
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
 - [[atlas/! hacks/image-e063/image-e063|Обтекание справа]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
@@ -42,7 +41,7 @@ Commit: `e780f0d58301cfa11c05d0cc351ee82a95d920de`. Основной файл: `
 - [[atlas/! hacks/image-e034/image-e034|Негатив]] — существующая карточка
 - [[atlas/! hacks/code-e018/code-e018|Мягкий перенос]] — существующая карточка
 - [[atlas/! hacks/image-e006/image-e006|По центру]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 
 ## Реестр настроек
 
@@ -60,10 +59,10 @@ Commit: `e780f0d58301cfa11c05d0cc351ee82a95d920de`. Основной файл: `
 | Minimalize Embedded Notes | `min-clean-embed` | Есть карточка | Подтверждено правилом CSS. Встроенная заметка без отдельной рамки | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L496) |
 | Remove Languages | `no-show-lang` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/code-e052/code-e052\|Читаемая метка языка]] | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L507) |
 | Remove Block Borders | `no-show-code-block-border` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. [[atlas/! hacks/code-e002/code-e002\|Контур без заливки]] | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L512) |
-| Remove Blockquote Icon | `naked-bq` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. [[atlas/! hacks/note-quote-glyph/note-quote-glyph\|Большая кавычка на поле]] | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L531) |
+| Remove Blockquote Icon | `naked-bq` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. [[atlas/! hacks/quote-glyph/quote-glyph\|Большая кавычка на поле]] | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L531) |
 | Remove Vault Title | `no-show-titlebar-text` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Выборочное скрытие служебных кнопок | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L542) |
-| Remove Relationship Lines in Preview | `remove-pre-rel-lines` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/list-e047/list-e047\|Направляющая вложенности]] | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L554) |
-| Remove Relationship Lines in Editor | `remove-ed-rel-lines` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/list-e047/list-e047\|Направляющая вложенности]] | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L559) |
+| Remove Relationship Lines in Preview | `remove-pre-rel-lines` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/unordered-e047/unordered-e047\|Направляющая вложенности]] | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L554) |
+| Remove Relationship Lines in Editor | `remove-ed-rel-lines` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/unordered-e047/unordered-e047\|Направляющая вложенности]] | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L559) |
 | Remove Custom Icons | `no-show-fx-custom-icons` | Переключатель не подтверждён CSS | В настройках ID есть, но ни ID, ни значения class-select не используются в CSS после удаления комментариев. Не выдаём этот переключатель за реализованную возможность текущего commit.  | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L602) |
 | Show Folder Icons | `show-fx-folder-icons` | Есть карточка | Подтверждено правилом CSS. Значки папок вместо стрелок дерева | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L607) |
 | Remove Text Reverse on Attachments | `no-fx-reverse` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Порядок подписи и расширения вложения | [код](https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme/blob/e780f0d58301cfa11c05d0cc351ee82a95d920de/obsidian.css#L612) |

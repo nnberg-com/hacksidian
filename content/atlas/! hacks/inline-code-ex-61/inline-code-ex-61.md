@@ -41,9 +41,6 @@ inline-code-ex-61
 - В исходном обзоре примеры GitHub, Bootstrap и Tailwind адаптировались к обычному `code`; остальные сочетания составлены для атласа. Ссылки на CSS-механизмы не означают, что рецепт заимствован у этих проектов.
 
 
-###### Локальные зависимости
-
-- [assets/example.json](<./assets/example.json>)
 
 ```hacksidian-files
 inline-code-ex-61

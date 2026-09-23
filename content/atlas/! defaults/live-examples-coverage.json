@@ -4,7 +4,7 @@
   "deferred": 176,
   "recipes": [
     {
-      "id": "callout-board",
+      "id": "composition-board",
       "title": "Доска состояния",
       "group": "callout",
       "languages": {
@@ -13,7 +13,7 @@
       "reasons": []
     },
     {
-      "id": "callout-catalogue",
+      "id": "composition-catalogue",
       "title": "Каталог из таблицы",
       "group": "callout",
       "languages": {
@@ -22,7 +22,7 @@
       "reasons": []
     },
     {
-      "id": "callout-chronicle",
+      "id": "composition-chronicle",
       "title": "Хронология",
       "group": "callout",
       "languages": {
@@ -31,7 +31,7 @@
       "reasons": []
     },
     {
-      "id": "callout-compare",
+      "id": "composition-compare",
       "title": "Сравнение решений",
       "group": "callout",
       "languages": {
@@ -40,7 +40,7 @@
       "reasons": []
     },
     {
-      "id": "callout-dialogue",
+      "id": "composition-dialogue",
       "title": "Переписка",
       "group": "callout",
       "languages": {
@@ -49,7 +49,7 @@
       "reasons": []
     },
     {
-      "id": "callout-dossier",
+      "id": "composition-dossier",
       "title": "Досье",
       "group": "callout",
       "languages": {
@@ -58,7 +58,7 @@
       "reasons": []
     },
     {
-      "id": "callout-film",
+      "id": "composition-film",
       "title": "Лента наблюдений",
       "group": "callout",
       "languages": {
@@ -67,7 +67,7 @@
       "reasons": []
     },
     {
-      "id": "callout-leaders",
+      "id": "composition-leaders",
       "title": "Программа с отточиями",
       "group": "callout",
       "languages": {
@@ -76,7 +76,7 @@
       "reasons": []
     },
     {
-      "id": "callout-letter",
+      "id": "composition-letter",
       "title": "Письмо из архива",
       "group": "callout",
       "languages": {
@@ -85,7 +85,7 @@
       "reasons": []
     },
     {
-      "id": "callout-margin",
+      "id": "composition-margin",
       "title": "Заметка на полях",
       "group": "callout",
       "languages": {
@@ -94,7 +94,7 @@
       "reasons": []
     },
     {
-      "id": "callout-photo",
+      "id": "composition-photo",
       "title": "Фотокарточка",
       "group": "callout",
       "languages": {
@@ -103,7 +103,7 @@
       "reasons": []
     },
     {
-      "id": "callout-qna",
+      "id": "composition-qna",
       "title": "Вопрос → ответ",
       "group": "callout",
       "languages": {
@@ -112,7 +112,7 @@
       "reasons": []
     },
     {
-      "id": "callout-receipt",
+      "id": "composition-receipt",
       "title": "Чек экспедиции",
       "group": "callout",
       "languages": {
@@ -121,7 +121,7 @@
       "reasons": []
     },
     {
-      "id": "callout-social",
+      "id": "composition-social",
       "title": "Пост из полевого дневника",
       "group": "callout",
       "languages": {
@@ -130,7 +130,7 @@
       "reasons": []
     },
     {
-      "id": "callout-storyboard",
+      "id": "composition-storyboard",
       "title": "Раскадровка",
       "group": "callout",
       "languages": {
@@ -157,7 +157,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-code",
+      "id": "callin-technical-code",
       "title": "Блок кода внутри NOTE",
       "group": "callout",
       "languages": {
@@ -184,7 +184,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-custom",
+      "id": "composition-technical-custom",
       "title": "Собственный тип Callout",
       "group": "callout",
       "languages": {
@@ -194,7 +194,7 @@
     },
     {
       "id": "callout-technical-dark",
-      "title": "Светлая и тёмная палитра note",
+      "title": "Нейтральный фон и рамка выноски",
       "group": "callout",
       "languages": {
         "ru": true
@@ -274,7 +274,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-formatted-title",
+      "id": "callin-technical-formatted-title",
       "title": "Выделение внутри названия",
       "group": "callout",
       "languages": {
@@ -328,7 +328,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-image",
+      "id": "callin-technical-image",
       "title": "Иллюстрация внутри NOTE",
       "group": "callout",
       "languages": {
@@ -384,7 +384,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-links",
+      "id": "callin-technical-links",
       "title": "Источники внутри INFO",
       "group": "callout",
       "languages": {
@@ -420,7 +420,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-nested",
+      "id": "callin-technical-nested",
       "title": "Примечание внутри примечания",
       "group": "callout",
       "languages": {
@@ -429,7 +429,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-nested-quiet",
+      "id": "callin-technical-nested-quiet",
       "title": "Тихий вложенный note",
       "group": "callout",
       "languages": {
@@ -456,7 +456,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-paragraphs",
+      "id": "callin-technical-paragraphs",
       "title": "Многоабзацное примечание",
       "group": "callout",
       "languages": {
@@ -530,7 +530,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-steps",
+      "id": "callin-technical-steps",
       "title": "Мини-инструкция внутри TIP",
       "group": "callout",
       "languages": {
@@ -539,7 +539,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-subhead",
+      "id": "callin-technical-subhead",
       "title": "Подзаголовки внутри тела",
       "group": "callout",
       "languages": {
@@ -611,7 +611,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-two-columns",
+      "id": "callin-technical-two-columns",
       "title": "Две колонки внутри note",
       "group": "callout",
       "languages": {
@@ -620,7 +620,7 @@
       "reasons": []
     },
     {
-      "id": "callout-technical-with-code",
+      "id": "callin-technical-with-code",
       "title": "Note с кодом получает другой фон",
       "group": "callout",
       "languages": {
@@ -629,7 +629,7 @@
       "reasons": []
     },
     {
-      "id": "callout-theorem",
+      "id": "composition-theorem",
       "title": "Утверждение и доказательство",
       "group": "callout",
       "languages": {
@@ -638,7 +638,7 @@
       "reasons": []
     },
     {
-      "id": "callout-ticket",
+      "id": "composition-ticket",
       "title": "Билет на встречу",
       "group": "callout",
       "languages": {
@@ -647,7 +647,7 @@
       "reasons": []
     },
     {
-      "id": "callout-tree",
+      "id": "composition-tree",
       "title": "Дерево архива",
       "group": "callout",
       "languages": {
@@ -1448,7 +1448,7 @@
       "reasons": []
     },
     {
-      "id": "emphasis-s28",
+      "id": "strike-s28",
       "title": "28 · Отдельный цвет линии",
       "group": "emphasis",
       "languages": {
@@ -1457,7 +1457,7 @@
       "reasons": []
     },
     {
-      "id": "emphasis-s29",
+      "id": "strike-s29",
       "title": "29 · Двойное зачёркивание",
       "group": "emphasis",
       "languages": {
@@ -1466,7 +1466,7 @@
       "reasons": []
     },
     {
-      "id": "emphasis-s30",
+      "id": "strike-s30",
       "title": "30 · Приглушённое удаление",
       "group": "emphasis",
       "languages": {
@@ -1475,7 +1475,7 @@
       "reasons": []
     },
     {
-      "id": "emphasis-s31",
+      "id": "strike-s31",
       "title": "31 · Косой штрих",
       "group": "emphasis",
       "languages": {
@@ -1484,7 +1484,7 @@
       "reasons": []
     },
     {
-      "id": "emphasis-s32",
+      "id": "combinations-s32",
       "title": "32 · Четыре маркера",
       "group": "emphasis",
       "languages": {
@@ -1493,7 +1493,7 @@
       "reasons": []
     },
     {
-      "id": "emphasis-s33",
+      "id": "combinations-s33",
       "title": "33 · Комбинация как отдельный стиль",
       "group": "emphasis",
       "languages": {
@@ -1502,7 +1502,7 @@
       "reasons": []
     },
     {
-      "id": "emphasis-s34",
+      "id": "combinations-s34",
       "title": "34 · Третий уровень акцента",
       "group": "emphasis",
       "languages": {
@@ -1511,7 +1511,7 @@
       "reasons": []
     },
     {
-      "id": "emphasis-s35",
+      "id": "combinations-s35",
       "title": "35 · Заметное удаление",
       "group": "emphasis",
       "languages": {
@@ -1529,7 +1529,7 @@
       "reasons": []
     },
     {
-      "id": "emphasis-s37",
+      "id": "strike-s37",
       "title": "37 · Псевдоспойлер",
       "group": "emphasis",
       "languages": {
@@ -7000,7 +7000,7 @@
       "reasons": []
     },
     {
-      "id": "list-e001",
+      "id": "unordered-e001",
       "title": "Круглая точка",
       "group": "list",
       "languages": {
@@ -7009,7 +7009,7 @@
       "reasons": []
     },
     {
-      "id": "list-e002",
+      "id": "unordered-e002",
       "title": "Полый кружок",
       "group": "list",
       "languages": {
@@ -7018,7 +7018,7 @@
       "reasons": []
     },
     {
-      "id": "list-e003",
+      "id": "unordered-e003",
       "title": "Квадрат",
       "group": "list",
       "languages": {
@@ -7027,7 +7027,7 @@
       "reasons": []
     },
     {
-      "id": "list-e004",
+      "id": "unordered-e004",
       "title": "Тире",
       "group": "list",
       "languages": {
@@ -7036,7 +7036,7 @@
       "reasons": []
     },
     {
-      "id": "list-e005",
+      "id": "unordered-e005",
       "title": "Короткое тире",
       "group": "list",
       "languages": {
@@ -7045,7 +7045,7 @@
       "reasons": []
     },
     {
-      "id": "list-e006",
+      "id": "unordered-e006",
       "title": "Ромб",
       "group": "list",
       "languages": {
@@ -7054,7 +7054,7 @@
       "reasons": []
     },
     {
-      "id": "list-e007",
+      "id": "unordered-e007",
       "title": "Звёздочка",
       "group": "list",
       "languages": {
@@ -7063,7 +7063,7 @@
       "reasons": []
     },
     {
-      "id": "list-e008",
+      "id": "unordered-e008",
       "title": "Цвет только маркера",
       "group": "list",
       "languages": {
@@ -7072,7 +7072,7 @@
       "reasons": []
     },
     {
-      "id": "list-e009",
+      "id": "unordered-e009",
       "title": "Приглушённый маркер",
       "group": "list",
       "languages": {
@@ -7081,7 +7081,7 @@
       "reasons": []
     },
     {
-      "id": "list-e010",
+      "id": "unordered-e010",
       "title": "Крупный маркер",
       "group": "list",
       "languages": {
@@ -7090,7 +7090,7 @@
       "reasons": []
     },
     {
-      "id": "list-e011",
+      "id": "unordered-e011",
       "title": "Мелкий маркер",
       "group": "list",
       "languages": {
@@ -7099,7 +7099,7 @@
       "reasons": []
     },
     {
-      "id": "list-e012",
+      "id": "unordered-e012",
       "title": "Знак через ::marker",
       "group": "list",
       "languages": {
@@ -7108,7 +7108,7 @@
       "reasons": []
     },
     {
-      "id": "list-e013",
+      "id": "unordered-e013",
       "title": "Без видимых маркеров",
       "group": "list",
       "languages": {
@@ -7117,7 +7117,7 @@
       "reasons": []
     },
     {
-      "id": "list-e014",
+      "id": "unordered-e014",
       "title": "Круг заданного размера",
       "group": "list",
       "languages": {
@@ -7126,7 +7126,7 @@
       "reasons": []
     },
     {
-      "id": "list-e015",
+      "id": "unordered-e015",
       "title": "Тонкое кольцо",
       "group": "list",
       "languages": {
@@ -7135,7 +7135,7 @@
       "reasons": []
     },
     {
-      "id": "list-e016",
+      "id": "unordered-e016",
       "title": "Повёрнутый квадрат",
       "group": "list",
       "languages": {
@@ -7144,7 +7144,7 @@
       "reasons": []
     },
     {
-      "id": "list-e017",
+      "id": "unordered-e017",
       "title": "Короткая черта",
       "group": "list",
       "languages": {
@@ -7153,7 +7153,7 @@
       "reasons": []
     },
     {
-      "id": "list-e018",
+      "id": "unordered-e018",
       "title": "Скруглённый квадрат",
       "group": "list",
       "languages": {
@@ -7162,7 +7162,7 @@
       "reasons": []
     },
     {
-      "id": "list-e019",
+      "id": "unordered-e019",
       "title": "Двухцветная точка",
       "group": "list",
       "languages": {
@@ -7171,7 +7171,7 @@
       "reasons": []
     },
     {
-      "id": "list-e020",
+      "id": "unordered-e020",
       "title": "Точка с обводкой",
       "group": "list",
       "languages": {
@@ -7180,7 +7180,7 @@
       "reasons": []
     },
     {
-      "id": "list-e021",
+      "id": "unordered-e021",
       "title": "Локальное SVG как маркер",
       "group": "list",
       "languages": {
@@ -7189,7 +7189,7 @@
       "reasons": []
     },
     {
-      "id": "list-e022",
+      "id": "unordered-e022",
       "title": "SVG-маска в цвете темы",
       "group": "list",
       "languages": {
@@ -7198,7 +7198,7 @@
       "reasons": []
     },
     {
-      "id": "list-e024",
+      "id": "unordered-e024",
       "title": "Маркер снаружи",
       "group": "list",
       "languages": {
@@ -7207,7 +7207,7 @@
       "reasons": []
     },
     {
-      "id": "list-e025",
+      "id": "unordered-e025",
       "title": "Маркер внутри",
       "group": "list",
       "languages": {
@@ -7216,7 +7216,7 @@
       "reasons": []
     },
     {
-      "id": "list-e026",
+      "id": "unordered-e026",
       "title": "Небольшой отступ списка",
       "group": "list",
       "languages": {
@@ -7225,7 +7225,7 @@
       "reasons": []
     },
     {
-      "id": "list-e027",
+      "id": "unordered-e027",
       "title": "Глубокий отступ списка",
       "group": "list",
       "languages": {
@@ -7234,7 +7234,7 @@
       "reasons": []
     },
     {
-      "id": "list-e028",
+      "id": "unordered-e028",
       "title": "Зазор после маркера",
       "group": "list",
       "languages": {
@@ -7243,7 +7243,7 @@
       "reasons": []
     },
     {
-      "id": "list-e029",
+      "id": "unordered-e029",
       "title": "Плотное перечисление",
       "group": "list",
       "languages": {
@@ -7252,7 +7252,7 @@
       "reasons": []
     },
     {
-      "id": "list-e030",
+      "id": "unordered-e030",
       "title": "Воздух между пунктами",
       "group": "list",
       "languages": {
@@ -7261,7 +7261,7 @@
       "reasons": []
     },
     {
-      "id": "list-e031",
+      "id": "unordered-e031",
       "title": "Свободное межстрочие",
       "group": "list",
       "languages": {
@@ -7270,7 +7270,7 @@
       "reasons": []
     },
     {
-      "id": "list-e032",
+      "id": "unordered-e032",
       "title": "Список между абзацами",
       "group": "list",
       "languages": {
@@ -7279,7 +7279,7 @@
       "reasons": []
     },
     {
-      "id": "list-e033",
+      "id": "unordered-e033",
       "title": "Текст по краю абзаца",
       "group": "list",
       "languages": {
@@ -7288,7 +7288,7 @@
       "reasons": []
     },
     {
-      "id": "list-e034",
+      "id": "unordered-e034",
       "title": "Книжная гарнитура",
       "group": "list",
       "languages": {
@@ -7297,7 +7297,7 @@
       "reasons": []
     },
     {
-      "id": "list-e035",
+      "id": "unordered-e035",
       "title": "Увеличенный текст",
       "group": "list",
       "languages": {
@@ -7306,7 +7306,7 @@
       "reasons": []
     },
     {
-      "id": "list-e036",
+      "id": "unordered-e036",
       "title": "Выделенное начало пункта",
       "group": "list",
       "languages": {
@@ -7315,7 +7315,7 @@
       "reasons": []
     },
     {
-      "id": "list-e037",
+      "id": "unordered-e037",
       "title": "Пояснение отдельной строкой",
       "group": "list",
       "languages": {
@@ -7324,7 +7324,7 @@
       "reasons": []
     },
     {
-      "id": "list-e038",
+      "id": "unordered-e038",
       "title": "Несколько абзацев в пункте",
       "group": "list",
       "languages": {
@@ -7333,7 +7333,7 @@
       "reasons": []
     },
     {
-      "id": "list-e039",
+      "id": "unordered-e039",
       "title": "Ссылка и код внутри пункта",
       "group": "list",
       "languages": {
@@ -7342,7 +7342,7 @@
       "reasons": []
     },
     {
-      "id": "list-e040",
+      "id": "unordered-e040",
       "title": "Длинное слово или адрес",
       "group": "list",
       "languages": {
@@ -7351,7 +7351,7 @@
       "reasons": []
     },
     {
-      "id": "list-e041",
+      "id": "unordered-e041",
       "title": "Контроль длины строки",
       "group": "list",
       "languages": {
@@ -7360,7 +7360,7 @@
       "reasons": []
     },
     {
-      "id": "list-e042",
+      "id": "unordered-e042",
       "title": "Круг, кольцо, квадрат",
       "group": "list",
       "languages": {
@@ -7369,7 +7369,7 @@
       "reasons": []
     },
     {
-      "id": "list-e043",
+      "id": "unordered-e043",
       "title": "Одинаковые точки на всех уровнях",
       "group": "list",
       "languages": {
@@ -7378,7 +7378,7 @@
       "reasons": []
     },
     {
-      "id": "list-e044",
+      "id": "unordered-e044",
       "title": "Компактная глубина",
       "group": "list",
       "languages": {
@@ -7387,7 +7387,7 @@
       "reasons": []
     },
     {
-      "id": "list-e045",
+      "id": "unordered-e045",
       "title": "Цвет маркера по уровню",
       "group": "list",
       "languages": {
@@ -7396,7 +7396,7 @@
       "reasons": []
     },
     {
-      "id": "list-e046",
+      "id": "unordered-e046",
       "title": "Ритм ветвей",
       "group": "list",
       "languages": {
@@ -7405,7 +7405,7 @@
       "reasons": []
     },
     {
-      "id": "list-e047",
+      "id": "unordered-e047",
       "title": "Направляющая вложенности",
       "group": "list",
       "languages": {
@@ -7414,7 +7414,7 @@
       "reasons": []
     },
     {
-      "id": "list-e048",
+      "id": "unordered-e048",
       "title": "Акцент на родительском пункте",
       "group": "list",
       "languages": {
@@ -7423,7 +7423,7 @@
       "reasons": []
     },
     {
-      "id": "list-e049",
+      "id": "unordered-e049",
       "title": "Вложенный список и продолжение",
       "group": "list",
       "languages": {
@@ -7432,7 +7432,7 @@
       "reasons": []
     },
     {
-      "id": "list-e050",
+      "id": "unordered-e050",
       "title": "Разделители между пунктами",
       "group": "list",
       "languages": {
@@ -7441,7 +7441,7 @@
       "reasons": []
     },
     {
-      "id": "list-e051",
+      "id": "unordered-e051",
       "title": "Пунктирные разделители",
       "group": "list",
       "languages": {
@@ -7450,7 +7450,7 @@
       "reasons": []
     },
     {
-      "id": "list-e052",
+      "id": "unordered-e052",
       "title": "Общая подложка",
       "group": "list",
       "languages": {
@@ -7459,7 +7459,7 @@
       "reasons": []
     },
     {
-      "id": "list-e053",
+      "id": "unordered-e053",
       "title": "Рамка вокруг списка",
       "group": "list",
       "languages": {
@@ -7468,7 +7468,7 @@
       "reasons": []
     },
     {
-      "id": "list-e054",
+      "id": "unordered-e054",
       "title": "Акцентная линия на поле",
       "group": "list",
       "languages": {
@@ -7477,7 +7477,7 @@
       "reasons": []
     },
     {
-      "id": "list-e055",
+      "id": "unordered-e055",
       "title": "Подложка каждого пункта",
       "group": "list",
       "languages": {
@@ -7486,7 +7486,7 @@
       "reasons": []
     },
     {
-      "id": "list-e056",
+      "id": "unordered-e056",
       "title": "Чередование строк",
       "group": "list",
       "languages": {
@@ -7495,7 +7495,7 @@
       "reasons": []
     },
     {
-      "id": "list-e058",
+      "id": "unordered-e058",
       "title": "Подсветка строк текста",
       "group": "list",
       "languages": {
@@ -7504,7 +7504,7 @@
       "reasons": []
     },
     {
-      "id": "list-e059",
+      "id": "unordered-e059",
       "title": "Перечисление в колонках",
       "group": "list",
       "languages": {
@@ -7513,7 +7513,7 @@
       "reasons": []
     },
     {
-      "id": "list-e060",
+      "id": "unordered-e060",
       "title": "Линия между колонками",
       "group": "list",
       "languages": {
@@ -7522,7 +7522,7 @@
       "reasons": []
     },
     {
-      "id": "list-e061",
+      "id": "unordered-e061",
       "title": "Справа налево",
       "group": "list",
       "languages": {
@@ -7531,7 +7531,7 @@
       "reasons": []
     },
     {
-      "id": "list-e062",
+      "id": "unordered-e062",
       "title": "Отступ зависит от колонки",
       "group": "list",
       "languages": {
@@ -7540,7 +7540,7 @@
       "reasons": []
     },
     {
-      "id": "list-e063",
+      "id": "unordered-e063",
       "title": "Пункт целиком при печати",
       "group": "list",
       "languages": {
@@ -7551,7 +7551,7 @@
       ]
     },
     {
-      "id": "list-e065",
+      "id": "unordered-e065",
       "title": "Точка в середине первой строки",
       "group": "list",
       "languages": {
@@ -7560,7 +7560,7 @@
       "reasons": []
     },
     {
-      "id": "list-e067",
+      "id": "unordered-e067",
       "title": "Висячие знаки двух уровней",
       "group": "list",
       "languages": {
@@ -7569,7 +7569,7 @@
       "reasons": []
     },
     {
-      "id": "list-e069",
+      "id": "unordered-e069",
       "title": "Цитата внутри пункта",
       "group": "list",
       "languages": {
@@ -7578,7 +7578,7 @@
       "reasons": []
     },
     {
-      "id": "list-e070",
+      "id": "unordered-e070",
       "title": "Блок кода внутри пункта",
       "group": "list",
       "languages": {
@@ -7587,7 +7587,7 @@
       "reasons": []
     },
     {
-      "id": "list-e072",
+      "id": "unordered-e072",
       "title": "Крупный тезис и пояснение",
       "group": "list",
       "languages": {
@@ -7596,7 +7596,7 @@
       "reasons": []
     },
     {
-      "id": "list-e075",
+      "id": "unordered-e075",
       "title": "Ветки к подпунктам",
       "group": "list",
       "languages": {
@@ -7605,7 +7605,7 @@
       "reasons": []
     },
     {
-      "id": "list-e076",
+      "id": "unordered-e076",
       "title": "Направляющая заканчивается на последнем пункте",
       "group": "list",
       "languages": {
@@ -7614,7 +7614,7 @@
       "reasons": []
     },
     {
-      "id": "list-e077",
+      "id": "unordered-e077",
       "title": "Скобка вокруг группы уточнений",
       "group": "list",
       "languages": {
@@ -7623,7 +7623,7 @@
       "reasons": []
     },
     {
-      "id": "list-e078",
+      "id": "unordered-e078",
       "title": "Две гарнитуры для двух уровней",
       "group": "list",
       "languages": {
@@ -7634,7 +7634,7 @@
       ]
     },
     {
-      "id": "list-e080",
+      "id": "unordered-e080",
       "title": "Родитель над линией уточнений",
       "group": "list",
       "languages": {
@@ -7643,7 +7643,7 @@
       "reasons": []
     },
     {
-      "id": "list-e081",
+      "id": "unordered-e081",
       "title": "Перечисление строкой",
       "group": "list",
       "languages": {
@@ -7652,7 +7652,7 @@
       "reasons": []
     },
     {
-      "id": "list-e082",
+      "id": "unordered-e082",
       "title": "Строчные пункты без разрыва внутри",
       "group": "list",
       "languages": {
@@ -7661,7 +7661,7 @@
       "reasons": []
     },
     {
-      "id": "list-e083",
+      "id": "unordered-e083",
       "title": "Сетка с чтением по строкам",
       "group": "list",
       "languages": {
@@ -7670,7 +7670,7 @@
       "reasons": []
     },
     {
-      "id": "list-e085",
+      "id": "unordered-e085",
       "title": "Вводная фраза тесно связана со списком",
       "group": "list",
       "languages": {
@@ -7679,7 +7679,7 @@
       "reasons": []
     },
     {
-      "id": "list-e086",
+      "id": "unordered-e086",
       "title": "Завершающая черта",
       "group": "list",
       "languages": {
@@ -7688,7 +7688,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o001",
+      "id": "ordered-o001",
       "title": "Обычная нумерация",
       "group": "list",
       "languages": {
@@ -7697,7 +7697,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o002",
+      "id": "ordered-o002",
       "title": "Две цифры: 01, 02",
       "group": "list",
       "languages": {
@@ -7706,7 +7706,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o003",
+      "id": "ordered-o003",
       "title": "Буквы: a, b, c",
       "group": "list",
       "languages": {
@@ -7715,7 +7715,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o004",
+      "id": "ordered-o004",
       "title": "Римские цифры: I, II, III",
       "group": "list",
       "languages": {
@@ -7724,7 +7724,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o005",
+      "id": "ordered-o005",
       "title": "Разные обозначения уровней",
       "group": "list",
       "languages": {
@@ -7733,7 +7733,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o006",
+      "id": "ordered-o006",
       "title": "Акцентный номер",
       "group": "list",
       "languages": {
@@ -7742,7 +7742,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o007",
+      "id": "ordered-o007",
       "title": "Табличные цифры",
       "group": "list",
       "languages": {
@@ -7751,7 +7751,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o008",
+      "id": "ordered-o008",
       "title": "Висячие номера",
       "group": "list",
       "languages": {
@@ -7760,7 +7760,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o009",
+      "id": "ordered-o009",
       "title": "Номер внутри строки",
       "group": "list",
       "languages": {
@@ -7769,7 +7769,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o010",
+      "id": "ordered-o010",
       "title": "Скобки вокруг номера",
       "group": "list",
       "languages": {
@@ -7778,7 +7778,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o011",
+      "id": "ordered-o011",
       "title": "Три цифры и разделитель",
       "group": "list",
       "languages": {
@@ -7787,7 +7787,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o012",
+      "id": "ordered-o012",
       "title": "Подпись «Шаг»",
       "group": "list",
       "languages": {
@@ -7796,7 +7796,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o013",
+      "id": "ordered-o013",
       "title": "Составные номера",
       "group": "list",
       "languages": {
@@ -7805,7 +7805,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o014",
+      "id": "ordered-o014",
       "title": "Начать с пяти",
       "group": "list",
       "languages": {
@@ -7814,7 +7814,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o015",
+      "id": "ordered-o015",
       "title": "Считать через два",
       "group": "list",
       "languages": {
@@ -7823,7 +7823,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o016",
+      "id": "ordered-o016",
       "title": "Обратный отсчёт",
       "group": "list",
       "languages": {
@@ -7832,7 +7832,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o017",
+      "id": "ordered-o017",
       "title": "Круглый номер",
       "group": "list",
       "languages": {
@@ -7841,7 +7841,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o018",
+      "id": "ordered-o018",
       "title": "Плашка в рамке",
       "group": "list",
       "languages": {
@@ -7850,7 +7850,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o019",
+      "id": "ordered-o019",
       "title": "Крупная журнальная цифра",
       "group": "list",
       "languages": {
@@ -7859,7 +7859,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o020",
+      "id": "ordered-o020",
       "title": "Контурная цифра",
       "group": "list",
       "languages": {
@@ -7868,7 +7868,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o021",
+      "id": "ordered-o021",
       "title": "Градиентная цифра",
       "group": "list",
       "languages": {
@@ -7877,7 +7877,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o022",
+      "id": "ordered-o022",
       "title": "Номер над карточкой",
       "group": "list",
       "languages": {
@@ -7886,7 +7886,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o023",
+      "id": "ordered-o023",
       "title": "Последовательность с линией",
       "group": "list",
       "languages": {
@@ -7895,7 +7895,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o024",
+      "id": "ordered-o024",
       "title": "Несколько колонок",
       "group": "list",
       "languages": {
@@ -7904,7 +7904,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o025",
+      "id": "ordered-o025",
       "title": "Сетка карточек",
       "group": "list",
       "languages": {
@@ -7913,7 +7913,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o026",
+      "id": "ordered-o026",
       "title": "Наведение и плавный переход",
       "group": "list",
       "languages": {
@@ -7922,7 +7922,7 @@
       "reasons": []
     },
     {
-      "id": "list-ordered-o027",
+      "id": "ordered-o027",
       "title": "Фокус на ссылке",
       "group": "list",
       "languages": {
@@ -8547,7 +8547,7 @@
       ]
     },
     {
-      "id": "note-anchor",
+      "id": "heading-anchor",
       "title": "Подсветка заголовка назначения",
       "group": "note",
       "languages": {
@@ -8567,7 +8567,7 @@
       "reasons": []
     },
     {
-      "id": "note-book",
+      "id": "composition-book",
       "title": "Книжная полоса",
       "group": "note",
       "languages": {
@@ -8576,7 +8576,7 @@
       "reasons": []
     },
     {
-      "id": "note-cards",
+      "id": "unordered-cards",
       "title": "Список карточками",
       "group": "note",
       "languages": {
@@ -8585,7 +8585,7 @@
       "reasons": []
     },
     {
-      "id": "note-code-dark",
+      "id": "code-dark",
       "title": "Контрастный блок кода",
       "group": "note",
       "languages": {
@@ -8594,7 +8594,7 @@
       "reasons": []
     },
     {
-      "id": "note-code-language",
+      "id": "code-language",
       "title": "Метка языка из fenced code",
       "group": "note",
       "languages": {
@@ -8603,7 +8603,7 @@
       "reasons": []
     },
     {
-      "id": "note-code-panel",
+      "id": "code-panel",
       "title": "Код на собственной подложке",
       "group": "note",
       "languages": {
@@ -8612,7 +8612,7 @@
       "reasons": []
     },
     {
-      "id": "note-code-scroll",
+      "id": "code-scroll",
       "title": "Длинные строки с прокруткой",
       "group": "note",
       "languages": {
@@ -8621,7 +8621,7 @@
       "reasons": []
     },
     {
-      "id": "note-code-stripes",
+      "id": "code-stripes",
       "title": "Строковая подложка листинга",
       "group": "note",
       "languages": {
@@ -8630,7 +8630,7 @@
       "reasons": []
     },
     {
-      "id": "note-code-wrap",
+      "id": "code-wrap",
       "title": "Длинные строки с переносом",
       "group": "note",
       "languages": {
@@ -8639,7 +8639,7 @@
       "reasons": []
     },
     {
-      "id": "note-color-emphasis",
+      "id": "emphasis-color-emphasis",
       "title": "Цветовая иерархия выделений",
       "group": "note",
       "languages": {
@@ -8648,7 +8648,7 @@
       "reasons": []
     },
     {
-      "id": "note-context-list",
+      "id": "text-context-list",
       "title": "Вводный абзац перед списком",
       "group": "note",
       "languages": {
@@ -8657,7 +8657,7 @@
       "reasons": []
     },
     {
-      "id": "note-context-quote",
+      "id": "quote-context-quote",
       "title": "Цитата со списком получает другой вид",
       "group": "note",
       "languages": {
@@ -8666,7 +8666,7 @@
       "reasons": []
     },
     {
-      "id": "note-context-strong",
+      "id": "unordered-context-strong",
       "title": "Пункт с выделением становится акцентным",
       "group": "note",
       "languages": {
@@ -8684,7 +8684,7 @@
       "reasons": []
     },
     {
-      "id": "note-deleted",
+      "id": "strike-deleted",
       "title": "Устаревшее решение остаётся видимым",
       "group": "note",
       "languages": {
@@ -8693,7 +8693,7 @@
       "reasons": []
     },
     {
-      "id": "note-dotted",
+      "id": "composition-dotted",
       "title": "Заметка на точечной сетке",
       "group": "note",
       "languages": {
@@ -8702,7 +8702,7 @@
       "reasons": []
     },
     {
-      "id": "note-double-emphasis",
+      "id": "combinations-double-emphasis",
       "title": "Особый вид двойного выделения",
       "group": "note",
       "languages": {
@@ -8711,7 +8711,7 @@
       "reasons": []
     },
     {
-      "id": "note-dropcap",
+      "id": "text-dropcap-accent",
       "title": "Буквица",
       "group": "note",
       "languages": {
@@ -8720,7 +8720,7 @@
       "reasons": []
     },
     {
-      "id": "note-editorial",
+      "id": "composition-editorial",
       "title": "Редакционная заметка",
       "group": "note",
       "languages": {
@@ -8729,7 +8729,7 @@
       "reasons": []
     },
     {
-      "id": "note-endmark",
+      "id": "text-endmark",
       "title": "Знак окончания заметки",
       "group": "note",
       "languages": {
@@ -8738,7 +8738,7 @@
       "reasons": []
     },
     {
-      "id": "note-fade-rule",
+      "id": "hr-fade-rule",
       "title": "Затухающая линия разделителя",
       "group": "note",
       "languages": {
@@ -8747,7 +8747,7 @@
       "reasons": []
     },
     {
-      "id": "note-firstline",
+      "id": "text-firstline-accent",
       "title": "Акцент на первой строке",
       "group": "note",
       "languages": {
@@ -8756,7 +8756,7 @@
       "reasons": []
     },
     {
-      "id": "note-heading-band",
+      "id": "heading-band",
       "title": "Заголовки на цветной полосе",
       "group": "note",
       "languages": {
@@ -8765,7 +8765,7 @@
       "reasons": []
     },
     {
-      "id": "note-hierarchy",
+      "id": "heading-hierarchy",
       "title": "Шкала заголовков H1–H6",
       "group": "note",
       "languages": {
@@ -8774,7 +8774,7 @@
       "reasons": []
     },
     {
-      "id": "note-highlight",
+      "id": "emphasis-highlight",
       "title": "Маркер за важным текстом",
       "group": "note",
       "languages": {
@@ -8783,7 +8783,7 @@
       "reasons": []
     },
     {
-      "id": "note-hyphens",
+      "id": "text-hyphens",
       "title": "Переносы длинных слов",
       "group": "note",
       "languages": {
@@ -8792,7 +8792,7 @@
       "reasons": []
     },
     {
-      "id": "note-image-caption",
+      "id": "image-caption",
       "title": "Подпись соседним абзацем",
       "group": "note",
       "languages": {
@@ -8801,7 +8801,7 @@
       "reasons": []
     },
     {
-      "id": "note-image-crop",
+      "id": "image-crop",
       "title": "Единый формат кадра",
       "group": "note",
       "languages": {
@@ -8810,7 +8810,7 @@
       "reasons": []
     },
     {
-      "id": "note-image-float",
+      "id": "image-float",
       "title": "Иллюстрация с обтеканием",
       "group": "note",
       "languages": {
@@ -8819,7 +8819,7 @@
       "reasons": []
     },
     {
-      "id": "note-image-fluid",
+      "id": "image-fluid",
       "title": "Изображение по ширине заметки",
       "group": "note",
       "languages": {
@@ -8828,7 +8828,7 @@
       "reasons": []
     },
     {
-      "id": "note-image-frame",
+      "id": "image-frame",
       "title": "Рамка и паспарту",
       "group": "note",
       "languages": {
@@ -8837,7 +8837,7 @@
       "reasons": []
     },
     {
-      "id": "note-image-gallery",
+      "id": "image-gallery",
       "title": "Галерея из списка картинок",
       "group": "note",
       "languages": {
@@ -8846,7 +8846,7 @@
       "reasons": []
     },
     {
-      "id": "note-image-linked",
+      "id": "image-linked",
       "title": "Ссылка-картинка без текстового декора",
       "group": "note",
       "languages": {
@@ -8855,7 +8855,7 @@
       "reasons": []
     },
     {
-      "id": "note-image-strip",
+      "id": "image-strip",
       "title": "Горизонтальная фотолента",
       "group": "note",
       "languages": {
@@ -8864,7 +8864,7 @@
       "reasons": []
     },
     {
-      "id": "note-indent",
+      "id": "text-indent-book",
       "title": "Красная строка",
       "group": "note",
       "languages": {
@@ -8873,7 +8873,7 @@
       "reasons": []
     },
     {
-      "id": "note-index-card",
+      "id": "composition-index-card",
       "title": "Карточка наблюдения",
       "group": "note",
       "languages": {
@@ -8882,7 +8882,7 @@
       "reasons": []
     },
     {
-      "id": "note-inline-code",
+      "id": "inline-code-inline-code",
       "title": "Метки файлов и команд",
       "group": "note",
       "languages": {
@@ -8891,7 +8891,7 @@
       "reasons": []
     },
     {
-      "id": "note-lead",
+      "id": "text-lead-color",
       "title": "Первый абзац как лид",
       "group": "note",
       "languages": {
@@ -8900,7 +8900,7 @@
       "reasons": []
     },
     {
-      "id": "note-link-button",
+      "id": "link-button",
       "title": "Отдельная ссылка как кнопка перехода",
       "group": "note",
       "languages": {
@@ -8909,7 +8909,7 @@
       "reasons": []
     },
     {
-      "id": "note-link-domain",
+      "id": "link-domain",
       "title": "Оформление по известному домену",
       "group": "note",
       "languages": {
@@ -8918,7 +8918,7 @@
       "reasons": []
     },
     {
-      "id": "note-link-focus",
+      "id": "link-focus",
       "title": "Заметный клавиатурный фокус",
       "group": "note",
       "languages": {
@@ -8927,7 +8927,7 @@
       "reasons": []
     },
     {
-      "id": "note-link-title",
+      "id": "link-title",
       "title": "Пояснение из стандартного title",
       "group": "note",
       "languages": {
@@ -8936,7 +8936,7 @@
       "reasons": []
     },
     {
-      "id": "note-link-type",
+      "id": "link-type",
       "title": "Значки по типу адреса",
       "group": "note",
       "languages": {
@@ -8945,7 +8945,7 @@
       "reasons": []
     },
     {
-      "id": "note-link-underline",
+      "id": "link-underline",
       "title": "Подчёркивание с воздухом",
       "group": "note",
       "languages": {
@@ -8954,7 +8954,7 @@
       "reasons": []
     },
     {
-      "id": "note-link-visited",
+      "id": "link-visited",
       "title": "Прочитанные источники другим цветом",
       "group": "note",
       "languages": {
@@ -8963,7 +8963,7 @@
       "reasons": []
     },
     {
-      "id": "note-list-columns",
+      "id": "unordered-columns",
       "title": "Список в две колонки",
       "group": "note",
       "languages": {
@@ -8972,7 +8972,7 @@
       "reasons": []
     },
     {
-      "id": "note-list-inline",
+      "id": "unordered-inline",
       "title": "Перечисление одной строкой",
       "group": "note",
       "languages": {
@@ -8981,7 +8981,7 @@
       "reasons": []
     },
     {
-      "id": "note-list-levels",
+      "id": "unordered-levels",
       "title": "Маркеры по глубине",
       "group": "note",
       "languages": {
@@ -8990,7 +8990,7 @@
       "reasons": []
     },
     {
-      "id": "note-list-markers",
+      "id": "unordered-markers",
       "title": "Цвет и форма маркеров",
       "group": "note",
       "languages": {
@@ -8999,7 +8999,7 @@
       "reasons": []
     },
     {
-      "id": "note-list-rows",
+      "id": "unordered-rows",
       "title": "Перечень с чередованием строк",
       "group": "note",
       "languages": {
@@ -9008,7 +9008,7 @@
       "reasons": []
     },
     {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "title": "Линии вложенного плана",
       "group": "note",
       "languages": {
@@ -9017,7 +9017,7 @@
       "reasons": []
     },
     {
-      "id": "note-magazine",
+      "id": "composition-magazine",
       "title": "Текст в двух колонках",
       "group": "note",
       "languages": {
@@ -9026,7 +9026,7 @@
       "reasons": []
     },
     {
-      "id": "note-manual",
+      "id": "composition-manual",
       "title": "Практическая памятка",
       "group": "note",
       "languages": {
@@ -9035,7 +9035,7 @@
       "reasons": []
     },
     {
-      "id": "note-numbers",
+      "id": "heading-numbers",
       "title": "Нумерация разделов и подразделов",
       "group": "note",
       "languages": {
@@ -9044,7 +9044,7 @@
       "reasons": []
     },
     {
-      "id": "note-ornament",
+      "id": "hr-ornament",
       "title": "Орнамент вместо горизонтальной черты",
       "group": "note",
       "languages": {
@@ -9053,7 +9053,7 @@
       "reasons": []
     },
     {
-      "id": "note-paper",
+      "id": "composition-paper",
       "title": "Блокнот с линованной бумагой",
       "group": "note",
       "languages": {
@@ -9062,7 +9062,7 @@
       "reasons": []
     },
     {
-      "id": "note-print-flow",
+      "id": "text-print-flow",
       "title": "Разрывы страниц и висячие строки",
       "group": "note",
       "languages": {
@@ -9073,7 +9073,7 @@
       ]
     },
     {
-      "id": "note-print-links",
+      "id": "link-print-links",
       "title": "Адреса ссылок на бумаге",
       "group": "note",
       "languages": {
@@ -9084,7 +9084,7 @@
       ]
     },
     {
-      "id": "note-quote-frame",
+      "id": "quote-frame",
       "title": "Рамка вокруг цитаты",
       "group": "note",
       "languages": {
@@ -9093,7 +9093,7 @@
       "reasons": []
     },
     {
-      "id": "note-quote-glyph",
+      "id": "quote-glyph",
       "title": "Большая кавычка на поле",
       "group": "note",
       "languages": {
@@ -9102,7 +9102,7 @@
       "reasons": []
     },
     {
-      "id": "note-quote-line",
+      "id": "quote-line",
       "title": "Классическая цитата с линией",
       "group": "note",
       "languages": {
@@ -9111,7 +9111,7 @@
       "reasons": []
     },
     {
-      "id": "note-quote-margin",
+      "id": "quote-margin",
       "title": "Цитата на боковом поле",
       "group": "note",
       "languages": {
@@ -9120,7 +9120,7 @@
       "reasons": []
     },
     {
-      "id": "note-quote-nested",
+      "id": "quote-nested",
       "title": "Вложенные голоса",
       "group": "note",
       "languages": {
@@ -9129,7 +9129,7 @@
       "reasons": []
     },
     {
-      "id": "note-quote-panel",
+      "id": "quote-panel",
       "title": "Цитата на подложке",
       "group": "note",
       "languages": {
@@ -9138,7 +9138,7 @@
       "reasons": []
     },
     {
-      "id": "note-quote-pull",
+      "id": "quote-pull-accent",
       "title": "Крупная цитата-врезка",
       "group": "note",
       "languages": {
@@ -9147,7 +9147,7 @@
       "reasons": []
     },
     {
-      "id": "note-quote-title",
+      "id": "quote-title",
       "title": "Врезка с собственным заголовком",
       "group": "note",
       "languages": {
@@ -9156,7 +9156,7 @@
       "reasons": []
     },
     {
-      "id": "note-reference",
+      "id": "unordered-reference",
       "title": "Карточки терминов из списка",
       "group": "note",
       "languages": {
@@ -9165,7 +9165,7 @@
       "reasons": []
     },
     {
-      "id": "note-responsive",
+      "id": "composition-responsive",
       "title": "Поля и заголовок по ширине области",
       "group": "note",
       "languages": {
@@ -9174,7 +9174,7 @@
       "reasons": []
     },
     {
-      "id": "note-rhythm",
+      "id": "text-rhythm",
       "title": "Ритм по типу соседнего блока",
       "group": "note",
       "languages": {
@@ -9183,7 +9183,7 @@
       "reasons": []
     },
     {
-      "id": "note-rule",
+      "id": "heading-rule",
       "title": "Заголовок с нижней линией",
       "group": "note",
       "languages": {
@@ -9192,7 +9192,7 @@
       "reasons": []
     },
     {
-      "id": "note-selection",
+      "id": "text-selection-custom",
       "title": "Собственный цвет выделения мышью",
       "group": "note",
       "languages": {
@@ -9201,7 +9201,7 @@
       "reasons": []
     },
     {
-      "id": "note-smallcaps",
+      "id": "emphasis-smallcaps",
       "title": "Капитель для выделения",
       "group": "note",
       "languages": {
@@ -9210,7 +9210,7 @@
       "reasons": []
     },
     {
-      "id": "note-steps",
+      "id": "ordered-steps",
       "title": "Крупные номера шагов",
       "group": "note",
       "languages": {
@@ -9219,7 +9219,7 @@
       "reasons": []
     },
     {
-      "id": "note-sticky-heading",
+      "id": "heading-sticky-heading",
       "title": "Заголовок остаётся над текстом",
       "group": "note",
       "languages": {
@@ -9228,7 +9228,7 @@
       "reasons": []
     },
     {
-      "id": "note-table-hover",
+      "id": "table-hover",
       "title": "Подсветка строки таблицы",
       "group": "note",
       "languages": {
@@ -9237,7 +9237,7 @@
       "reasons": []
     },
     {
-      "id": "note-table-ledger",
+      "id": "table-ledger",
       "title": "Таблица как ведомость",
       "group": "note",
       "languages": {
@@ -9246,7 +9246,7 @@
       "reasons": []
     },
     {
-      "id": "note-table-sticky",
+      "id": "table-sticky",
       "title": "Прокручиваемая таблица с шапкой",
       "group": "note",
       "languages": {
@@ -9255,7 +9255,7 @@
       "reasons": []
     },
     {
-      "id": "note-table-zebra",
+      "id": "table-zebra",
       "title": "Таблица с полосатыми строками",
       "group": "note",
       "languages": {
@@ -9264,7 +9264,7 @@
       "reasons": []
     },
     {
-      "id": "note-tasks",
+      "id": "task-tasks",
       "title": "Оформленные задачи",
       "group": "note",
       "languages": {
@@ -9273,7 +9273,7 @@
       "reasons": []
     },
     {
-      "id": "note-tasks-count",
+      "id": "task-tasks-count",
       "title": "Счётчик завершённых задач",
       "group": "note",
       "languages": {
@@ -9282,7 +9282,7 @@
       "reasons": []
     },
     {
-      "id": "note-timeline",
+      "id": "ordered-timeline",
       "title": "Вертикальная временная шкала",
       "group": "note",
       "languages": {
@@ -9291,7 +9291,7 @@
       "reasons": []
     },
     {
-      "id": "note-underline",
+      "id": "emphasis-underline",
       "title": "Широкое подчёркивание",
       "group": "note",
       "languages": {
@@ -9300,7 +9300,7 @@
       "reasons": []
     },
     {
-      "id": "note-wrap",
+      "id": "text-wrap",
       "title": "Сбалансированный набор",
       "group": "note",
       "languages": {
@@ -9309,7 +9309,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e01",
+      "id": "taskplus-e01",
       "title": "Знак в квадрате",
       "group": "pseudo-task",
       "languages": {
@@ -9318,7 +9318,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e02",
+      "id": "taskplus-e02",
       "title": "Залитая кнопка-маркер",
       "group": "pseudo-task",
       "languages": {
@@ -9327,7 +9327,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e03",
+      "id": "taskplus-e03",
       "title": "Бумажный Bullet Journal",
       "group": "pseudo-task",
       "languages": {
@@ -9336,7 +9336,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e04",
+      "id": "taskplus-e04",
       "title": "Иконки без квадрата",
       "group": "pseudo-task",
       "languages": {
@@ -9345,7 +9345,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e05",
+      "id": "taskplus-e05",
       "title": "Цветные emoji-маркеры",
       "group": "pseudo-task",
       "languages": {
@@ -9354,7 +9354,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e06",
+      "id": "taskplus-e06",
       "title": "SVG-маска: единый контур",
       "group": "pseudo-task",
       "languages": {
@@ -9363,7 +9363,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e07",
+      "id": "taskplus-e07",
       "title": "Маска внутри цветного диска",
       "group": "pseudo-task",
       "languages": {
@@ -9372,7 +9372,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e08",
+      "id": "taskplus-e08",
       "title": "SVG как фоновая картинка",
       "group": "pseudo-task",
       "languages": {
@@ -9381,7 +9381,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e09",
+      "id": "taskplus-e09",
       "title": "Настоящий иконочный шрифт ITS",
       "group": "pseudo-task",
       "languages": {
@@ -9392,7 +9392,7 @@
       ]
     },
     {
-      "id": "pseudo-task-e10",
+      "id": "taskplus-e10",
       "title": "Геометрия одним CSS",
       "group": "pseudo-task",
       "languages": {
@@ -9401,7 +9401,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e11",
+      "id": "taskplus-e11",
       "title": "Весь словарь Minimal: 22 маркера",
       "group": "pseudo-task",
       "languages": {
@@ -9410,7 +9410,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e12",
+      "id": "taskplus-e12",
       "title": "Расширение ITS: исследование и истории",
       "group": "pseudo-task",
       "languages": {
@@ -9421,7 +9421,7 @@
       ]
     },
     {
-      "id": "pseudo-task-e13",
+      "id": "taskplus-e13",
       "title": "Половина квадрата",
       "group": "pseudo-task",
       "languages": {
@@ -9430,7 +9430,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e14",
+      "id": "taskplus-e14",
       "title": "Четыре степени заполнения",
       "group": "pseudo-task",
       "languages": {
@@ -9439,7 +9439,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e15",
+      "id": "taskplus-e15",
       "title": "Круговые сектора",
       "group": "pseudo-task",
       "languages": {
@@ -9448,7 +9448,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e16",
+      "id": "taskplus-e16",
       "title": "Кольцо прогресса",
       "group": "pseudo-task",
       "languages": {
@@ -9457,7 +9457,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e17",
+      "id": "taskplus-e17",
       "title": "Полоска под записью",
       "group": "pseudo-task",
       "languages": {
@@ -9466,7 +9466,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e18",
+      "id": "taskplus-e18",
       "title": "Цвет только у значка",
       "group": "pseudo-task",
       "languages": {
@@ -9475,7 +9475,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e19",
+      "id": "taskplus-e19",
       "title": "Цвет всей записи",
       "group": "pseudo-task",
       "languages": {
@@ -9484,7 +9484,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e20",
+      "id": "taskplus-e20",
       "title": "Приоритет начертанием",
       "group": "pseudo-task",
       "languages": {
@@ -9493,7 +9493,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e21",
+      "id": "taskplus-e21",
       "title": "Мягкие цветные подложки",
       "group": "pseudo-task",
       "languages": {
@@ -9502,7 +9502,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e22",
+      "id": "taskplus-e22",
       "title": "Полоса на полях",
       "group": "pseudo-task",
       "languages": {
@@ -9511,7 +9511,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e23",
+      "id": "taskplus-e23",
       "title": "Только отменённое зачёркнуто",
       "group": "pseudo-task",
       "languages": {
@@ -9520,7 +9520,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e24",
+      "id": "taskplus-e24",
       "title": "Слова вместо криптограммы",
       "group": "pseudo-task",
       "languages": {
@@ -9529,7 +9529,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e25",
+      "id": "taskplus-e25",
       "title": "Плашка после текста",
       "group": "pseudo-task",
       "languages": {
@@ -9538,7 +9538,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e26",
+      "id": "taskplus-e26",
       "title": "Незнакомый символ не пропадает",
       "group": "pseudo-task",
       "languages": {
@@ -9547,7 +9547,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e27",
+      "id": "taskplus-e27",
       "title": "Реплики AnuPpuccin",
       "group": "pseudo-task",
       "languages": {
@@ -9556,7 +9556,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e28",
+      "id": "taskplus-e28",
       "title": "Все десять цветов реплик",
       "group": "pseudo-task",
       "languages": {
@@ -9565,7 +9565,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e29",
+      "id": "taskplus-e29",
       "title": "Диалог по двум сторонам",
       "group": "pseudo-task",
       "languages": {
@@ -9574,7 +9574,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e30",
+      "id": "taskplus-e30",
       "title": "Соседние реплики одного автора",
       "group": "pseudo-task",
       "languages": {
@@ -9583,7 +9583,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e31",
+      "id": "taskplus-e31",
       "title": "Скрытая строка: наведение или фокус",
       "group": "pseudo-task",
       "languages": {
@@ -9592,7 +9592,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e32",
+      "id": "taskplus-e32",
       "title": "Скрыт только ответ, вопрос виден",
       "group": "pseudo-task",
       "languages": {
@@ -9601,7 +9601,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e33",
+      "id": "taskplus-e33",
       "title": "Размытый ответ",
       "group": "pseudo-task",
       "languages": {
@@ -9610,7 +9610,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e34",
+      "id": "taskplus-e34",
       "title": "Вопрос внутри ветви",
       "group": "pseudo-task",
       "languages": {
@@ -9619,7 +9619,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e35",
+      "id": "taskplus-e35",
       "title": "Вся группа готова",
       "group": "pseudo-task",
       "languages": {
@@ -9628,7 +9628,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e36",
+      "id": "taskplus-e36",
       "title": "Важное выделяет весь список",
       "group": "pseudo-task",
       "languages": {
@@ -9637,7 +9637,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e37",
+      "id": "taskplus-e37",
       "title": "Родитель приглушён, дети читаемы",
       "group": "pseudo-task",
       "languages": {
@@ -9646,7 +9646,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e38",
+      "id": "taskplus-e38",
       "title": "Нумеруются только вопросы",
       "group": "pseudo-task",
       "languages": {
@@ -9655,7 +9655,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e39",
+      "id": "taskplus-e39",
       "title": "Отдельные номера вопросов и идей",
       "group": "pseudo-task",
       "languages": {
@@ -9664,7 +9664,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e40",
+      "id": "taskplus-e40",
       "title": "Сводка в конце списка",
       "group": "pseudo-task",
       "languages": {
@@ -9673,7 +9673,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e41",
+      "id": "taskplus-e41",
       "title": "Длинные записи и несколько абзацев",
       "group": "pseudo-task",
       "languages": {
@@ -9682,7 +9682,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e42",
+      "id": "taskplus-e42",
       "title": "Аргументы «за» и «против»",
       "group": "pseudo-task",
       "languages": {
@@ -9691,7 +9691,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e43",
+      "id": "taskplus-e43",
       "title": "Цитата, источник и код внутри пункта",
       "group": "pseudo-task",
       "languages": {
@@ -9700,7 +9700,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e44",
+      "id": "taskplus-e44",
       "title": "Цепочка переноса и ожидания",
       "group": "pseudo-task",
       "languages": {
@@ -9709,7 +9709,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e45",
+      "id": "taskplus-e45",
       "title": "Объединить соседние предупреждения",
       "group": "pseudo-task",
       "languages": {
@@ -9718,7 +9718,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e46",
+      "id": "taskplus-e46",
       "title": "Подсказка для вопроса без ссылки",
       "group": "pseudo-task",
       "languages": {
@@ -9727,7 +9727,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e47",
+      "id": "taskplus-e47",
       "title": "Компактный список с длинными переносами",
       "group": "pseudo-task",
       "languages": {
@@ -9736,7 +9736,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e48",
+      "id": "taskplus-e48",
       "title": "Фокус на записи со ссылкой",
       "group": "pseudo-task",
       "languages": {
@@ -9745,7 +9745,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e49",
+      "id": "taskplus-e49",
       "title": "Мягкий акцент при наведении",
       "group": "pseudo-task",
       "languages": {
@@ -9754,7 +9754,7 @@
       "reasons": []
     },
     {
-      "id": "pseudo-task-e50",
+      "id": "taskplus-e50",
       "title": "Печать: различия сохраняются без цвета",
       "group": "pseudo-task",
       "languages": {

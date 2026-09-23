@@ -29,9 +29,6 @@ image-e059
 image-e059
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e059

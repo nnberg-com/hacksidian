@@ -29,10 +29,6 @@ image-e067
 image-e067
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
-- [assets/landscape.svg](<./assets/landscape.svg>)
 
 ```hacksidian-files
 image-e067

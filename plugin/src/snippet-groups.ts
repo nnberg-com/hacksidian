@@ -5,9 +5,6 @@ import type { ModularStyle } from './style-modules';
 // The same IDs identify catalogue groups, snippet modules and variable sets.
 export const GROUPS = [
  ['palette', 'Палитры', ['--background-primary','--background-secondary','--text-normal','--text-muted','--interactive-accent']],
- ['meta', 'Платформы и метанастройки', ['--file-line-width','--font-text-size','--line-height-normal']],
- ['interface', 'Интерфейс Obsidian', ['--font-interface','--ribbon-width','--sidebar-width','--tab-font-size']],
- ['note', 'Заметка', ['--file-line-width','--file-margins']],
  ['text', 'Текст', ['--font-text','--font-text-size','--line-height-normal','--p-spacing']],
  ['heading', 'Заголовки', ['--h1-size','--h2-size','--h3-size','--heading-spacing']],
  ['hr', 'Горизонтальные разделители', ['--hr-color','--hr-thickness']],
@@ -15,9 +12,9 @@ export const GROUPS = [
  ['emphasis', 'Выделения', ['--bold-weight','--italic-color','--text-highlight-bg']],
  ['inline-code', 'Строчный код', ['--code-normal','--code-background','--code-size']],
  ['tag', 'Теги', ['--tag-color','--tag-background','--tag-radius']],
- ['list', 'Списки', ['--list-indent','--list-spacing','--list-marker-color']],
+ ['unordered', 'Маркированные списки', ['--list-indent','--list-spacing','--list-marker-color']],
  ['task', 'Задачи', ['--checkbox-size','--checkbox-color','--checklist-done-color']],
- ['pseudo-task', 'Псевдозадачи', ['--checkbox-size','--checkbox-marker-color']],
+ ['taskplus', 'Псевдозадачи', ['--checkbox-size','--checkbox-marker-color']],
  ['quote', 'Цитаты', ['--blockquote-border-color','--blockquote-border-thickness','--blockquote-font-style']],
  ['callout', 'Callout-блоки', ['--callout-color','--callout-radius','--callout-padding']],
  ['table', 'Таблицы', ['--table-border-color','--table-border-width','--table-text-size']],
@@ -26,23 +23,26 @@ export const GROUPS = [
  ['iframe', 'Встроенные страницы', ['--embed-border-start','--embed-padding']],
  ['footnote', 'Сноски', ['--footnote-size']],
  ['metadata', 'Свойства заметки', ['--metadata-label-width','--metadata-gap','--metadata-padding']],
- ['composition', 'Композиции', []],
- ['strikethrough', 'Зачёркивание', []],
- ['emphasis-combinations', 'Сочетания выделений', []],
+ ['composition', 'Композиции', ['--file-line-width','--file-margins']],
+ ['strike', 'Зачёркивание', []],
+ ['combinations', 'Сочетания выделений', []],
+ ['ordered', 'Нумерованные списки', ['--list-indent','--list-spacing','--list-marker-color']],
+ ['callin', 'Markdown внутри выносок', []],
 ] as const;
+// Slots 01–03 are retired; retain the remaining file numbers.
 export const groupManifest = { format: 1, structure: 2, modules: GROUPS.map(([group,title,nativeVariables],i) => ({
- id: `g-${group}`, component: group, group, title, file: `hacksidian-${String(i).padStart(2,'0')}-${group}.css`,
+ id: `g-${group}`, component: group, group, title, file: `hacksidian-${String(i === 0 ? 0 : i + 3).padStart(2,'0')}-${group}.css`,
  nativeVariables: [...nativeVariables],
 })) };
 
 function owner(selector: string, source: string): string {
- if (source === 'm-90-hide-note-header') return /metadata|frontmatter/.test(selector) ? 'metadata' : 'interface';
+ if (source === 'm-90-hide-note-header') return /metadata|frontmatter/.test(selector) ? 'metadata' : 'composition';
  if (source === 'm-80-footnotes') return 'footnote';
  if (source === 'm-70-images') return 'image';
  if (source === 'm-60-code') return 'code';
  if (source === 'm-50-tables') return 'table';
  if (source === 'm-40-quotes-and-callouts') return selector.includes('blockquote') ? 'quote' : 'callout';
- if (source === 'm-30-lists-and-tasks') return /task-list|checkbox/.test(selector) && !selector.includes(':not(.contains-task-list)') ? 'task' : 'list';
+ if (source === 'm-30-lists-and-tasks') return /task-list|checkbox/.test(selector) && !selector.includes(':not(.contains-task-list)') ? 'task' : /\bol\b/.test(selector) ? 'ordered' : 'unordered';
  if (/a\.tag|multi-select-pill/.test(selector)) return 'tag';
  if (/:not\(pre\) > code/.test(selector)) return 'inline-code';
  if (/\bmark\b|\bdel\b|:is\(em, i\)/.test(selector)) return 'emphasis';
@@ -54,7 +54,7 @@ function nativeOwner(prop:string):string {
  if (prop.startsWith('--link-')) return 'link';
  if (prop.startsWith('--tag-')) return 'tag';
  if (prop.startsWith('--code-') || prop==='--font-monospace') return 'code';
- if (prop.startsWith('--indentation-')) return 'list';
+ if (prop.startsWith('--indentation-')) return 'unordered';
  return 'text';
 }
 
@@ -87,7 +87,7 @@ export function splitLegacyStyle(style: ModularStyle): ModularStyle {
      const clone=node.clone({selector:selectors.join(',\n')});
      if(module.id==='m-10-reading' && clone.selector===scope){
       const layout=clone.clone();layout.walkDecls(d=>{if(!d.prop.startsWith('padding'))d.remove();});
-      clone.walkDecls(d=>{if(d.prop.startsWith('padding'))d.remove();});append('note',layout);
+      clone.walkDecls(d=>{if(d.prop.startsWith('padding'))d.remove();});append('composition',layout);
      }
      append(group,clone);
     }

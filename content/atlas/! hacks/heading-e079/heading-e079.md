@@ -32,10 +32,6 @@ heading-e079
 heading-e079
 ```
 
-###### Локальные зависимости
-
-- [assets/Onest.ttf](<./assets/Onest.ttf>)
-- [assets/RobotoFlex.ttf](<./assets/RobotoFlex.ttf>)
 
 ```hacksidian-files
 heading-e079

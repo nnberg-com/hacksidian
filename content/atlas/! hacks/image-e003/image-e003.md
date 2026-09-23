@@ -29,9 +29,6 @@ image-e003
 image-e003
 ```
 
-###### Локальные зависимости
-
-- [assets/pixel.svg](<./assets/pixel.svg>)
 
 ```hacksidian-files
 image-e003

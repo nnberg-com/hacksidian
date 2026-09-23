@@ -1,0 +1,43 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  /**
+   * @parameter Поле сверху
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-callout-padding-top: 1.5em;
+  /**
+   * @parameter Поле справа
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-callout-padding-right: 1em;
+  /**
+   * @parameter Поле снизу
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-callout-padding-bottom: 1em;
+  /**
+   * @parameter Поле слева
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-callout-padding-left: 1em;
+  padding: var(--hacksidian-callout-padding-top) var(--hacksidian-callout-padding-right) var(--hacksidian-callout-padding-bottom) var(--hacksidian-callout-padding-left);
+}

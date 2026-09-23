@@ -32,9 +32,6 @@ mix-blend-mode: multiply затемняет цвет фона внутри бу�
 heading-e092
 ```
 
-###### Локальные зависимости
-
-- [assets/texture.svg](<./assets/texture.svg>)
 
 ```hacksidian-files
 heading-e092

@@ -29,10 +29,6 @@ CSS-счётчик выводится на абзаце; номера декор
 image-e065
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
-- [assets/landscape.svg](<./assets/landscape.svg>)
 
 ```hacksidian-files
 image-e065

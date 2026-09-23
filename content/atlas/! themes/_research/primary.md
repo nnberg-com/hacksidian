@@ -21,10 +21,8 @@ Commit: `789c99e357d8c0049058ef358a906ea9b350fb09`. Основной файл: `
 - Служебные элементы появляются при наведении — новая карточка
 - Выборочное скрытие служебных кнопок — новая карточка
 - Состояния задач по символу в квадратных скобках — новая карточка
-- [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion|Уважать уменьшение движения]] — существующая карточка
 - [[atlas/! hacks/link-e004/link-e004|Только цвет — без линии]] — существующая карточка
-- [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
+- [[atlas/! hacks/text-selection-custom/text-selection-custom|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
@@ -36,8 +34,6 @@ Commit: `789c99e357d8c0049058ef358a906ea9b350fb09`. Основной файл: `
 
 | Настройка | ID | Результат | Обоснование / карточки | Источник |
 |---|---|---|---|---|
-| Remove Jumpy Tab Animations | `zero-tab-anim` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion\|Уважать уменьшение движения]] | [код](https://github.com/primary-theme/obsidian/blob/789c99e357d8c0049058ef358a906ea9b350fb09/theme.css#L370) |
-| Remove Popup and Pop Down Animations | `zero-popup-popdown` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion\|Уважать уменьшение движения]] | [код](https://github.com/primary-theme/obsidian/blob/789c99e357d8c0049058ef358a906ea9b350fb09/theme.css#L374) |
 | Remove Popup Background Blur | `zero-popup-blur` | Есть карточка | Подтверждено правилом CSS. Размытие фона за всплывающими панелями | [код](https://github.com/primary-theme/obsidian/blob/789c99e357d8c0049058ef358a906ea9b350fb09/theme.css#L378) |
 | Ribbon Style | `ribbon_styles` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Лента команд появляется при наведении | [код](https://github.com/primary-theme/obsidian/blob/789c99e357d8c0049058ef358a906ea9b350fb09/theme.css#L389) |
 | Editor Background Type | `interface_editor-bg` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Фоновое изображение рабочего пространства | [код](https://github.com/primary-theme/obsidian/blob/789c99e357d8c0049058ef358a906ea9b350fb09/theme.css#L457) |

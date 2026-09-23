@@ -33,9 +33,6 @@ Markdown-картинка плавает слева, shape-outside задаёт 
 task-e77
 ```
 
-###### Локальные зависимости
-
-- [assets/cover.svg](<./assets/cover.svg>)
 
 ```hacksidian-files
 task-e77

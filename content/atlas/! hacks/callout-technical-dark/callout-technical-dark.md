@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_callout
-title: Светлая и тёмная палитра note
+title: Фон и рамка выноски в цветах интерфейса
 category: callout
 sources:
   - https://help.obsidian.md/callouts
@@ -20,34 +20,19 @@ callout-technical-dark
 
 ```hacksidian-details
 > Зачем
-Читаемый Callout в обоих режимах просмотра.
+Выноска с нейтральным фоном и тонкой рамкой вместо цветной заливки.
 
 > Как работает
-Палитра задаётся через CSS-переменные; стенд переключает их без JavaScript.
+Фон берётся из `--background-secondary`, рамка — из `--background-modifier-border`, заголовок сохраняет цвет типа выноски.
 
 > Ограничения
-Включите «Тёмный стенд». В приложении эти переменные можно связать с его темой или prefers-color-scheme.
+Оттенки зависят от текущей темы Obsidian. Приём не переключает тему и не задаёт отдельную тёмную палитру.
 ```
 
 ```hacksidian-sources
 callout-technical-dark
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ```hacksidian-files
 callout-technical-dark

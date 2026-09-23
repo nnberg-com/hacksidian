@@ -33,9 +33,6 @@ quote-link-title
 quote-link-title
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-link-title

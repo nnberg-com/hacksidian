@@ -12,7 +12,7 @@ Commit: `b3187a105ebc4c28693777d228fd1707d3c01c06`. Основной файл: `
 - Лента команд появляется при наведении — новая карточка
 - Свойства заметки в боковом блоке — новая карточка
 - Примечание без заголовка — новая карточка
-- [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
+- [[atlas/! hacks/composition-margin/composition-margin|Заметка на полях]] — существующая карточка
 - [[atlas/! hacks/callout-technical-no-icon/callout-technical-no-icon|Заголовок без значка]] — существующая карточка
 - [[atlas/! hacks/heading-e027/heading-e027|Прямоугольная плашка]] — существующая карточка
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
@@ -35,7 +35,7 @@ Commit: `b3187a105ebc4c28693777d228fd1707d3c01c06`. Основной файл: `
 | Infobox Header 6 | `special-h6` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/heading-e027/heading-e027\|Прямоугольная плашка]] | [код](https://github.com/bluemoondragon07/Wikipedia-Theme/blob/b3187a105ebc4c28693777d228fd1707d3c01c06/theme.css#L1029) |
 | Hide Callout Icons | `hide-callout-icons` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/callout-technical-no-icon/callout-technical-no-icon\|Заголовок без значка]] | [код](https://github.com/bluemoondragon07/Wikipedia-Theme/blob/b3187a105ebc4c28693777d228fd1707d3c01c06/theme.css#L1053) |
 | Hide Info Callout Title | `hide-callout-title` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Примечание без заголовка | [код](https://github.com/bluemoondragon07/Wikipedia-Theme/blob/b3187a105ebc4c28693777d228fd1707d3c01c06/theme.css#L1058) |
-| Don't Render Info Callout as an Infobox | `info-normal` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/callout-margin/callout-margin\|Заметка на полях]] | [код](https://github.com/bluemoondragon07/Wikipedia-Theme/blob/b3187a105ebc4c28693777d228fd1707d3c01c06/theme.css#L1063) |
+| Don't Render Info Callout as an Infobox | `info-normal` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/composition-margin/composition-margin\|Заметка на полях]] | [код](https://github.com/bluemoondragon07/Wikipedia-Theme/blob/b3187a105ebc4c28693777d228fd1707d3c01c06/theme.css#L1063) |
 | Image Placement | `image-placement` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-e062/image-e062\|Обтекание слева]]; [[atlas/! hacks/image-e063/image-e063\|Обтекание справа]]; [[atlas/! hacks/image-e006/image-e006\|По центру]] | [код](https://github.com/bluemoondragon07/Wikipedia-Theme/blob/b3187a105ebc4c28693777d228fd1707d3c01c06/theme.css#L1081) |
 
 ## Документация в репозитории

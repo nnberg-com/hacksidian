@@ -54,7 +54,7 @@ Commit: `8c56e831e1abb1d3841c4ffdecbe06b5182fbc68`. Основной файл: `
 - [[atlas/! hacks/metadata-compact/metadata-compact|Компактные строки]] — существующая карточка
 - [[atlas/! hacks/metadata-no-heading/metadata-no-heading|Без заголовка Properties]] — существующая карточка
 - [[atlas/! hacks/metadata-no-icons/metadata-no-icons|Без иконок типов]] — существующая карточка
-- [[atlas/! hacks/note-code-wrap/note-code-wrap|Длинные строки с переносом]] — существующая карточка
+- [[atlas/! hacks/code-wrap/code-wrap|Длинные строки с переносом]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/table-e003/table-e003|Только горизонтали]] — существующая карточка
 - [[atlas/! hacks/metadata-long/metadata-long|Длинное значение без обрезки]] — существующая карточка
@@ -62,15 +62,12 @@ Commit: `8c56e831e1abb1d3841c4ffdecbe06b5182fbc68`. Основной файл: `
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/heading-e027/heading-e027|Прямоугольная плашка]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
-- [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion|Уважать уменьшение движения]] — существующая карточка
-- [[atlas/! hacks/interface-readable-tabs/interface-readable-tabs|Больше места названиям вкладок]] — существующая карточка
-- [[atlas/! hacks/note-image-fluid/note-image-fluid|Изображение по ширине заметки]] — существующая карточка
+- [[atlas/! hacks/image-fluid/image-fluid|Изображение по ширине заметки]] — существующая карточка
 - [[atlas/! hacks/table-e072/table-e072|Карточки с фиксированными подписями]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/metadata-no-add/metadata-no-add|Без строки добавления]] — существующая карточка
-- [[atlas/! hacks/note-quote-panel/note-quote-panel|Цитата на подложке]] — существующая карточка
+- [[atlas/! hacks/quote-panel/quote-panel|Цитата на подложке]] — существующая карточка
 - [[atlas/! hacks/callout-technical-shadow/callout-technical-shadow|Панель с тенью]] — существующая карточка
-- [[atlas/! hacks/note-image-gallery/note-image-gallery|Галерея из списка картинок]] — существующая карточка
+- [[atlas/! hacks/image-gallery/image-gallery|Галерея из списка картинок]] — существующая карточка
 - [[atlas/! hacks/tag-e001/tag-e001|Только акцентный цвет]] — существующая карточка
 - [[atlas/! hacks/image-e034/image-e034|Негатив]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
@@ -78,7 +75,7 @@ Commit: `8c56e831e1abb1d3841c4ffdecbe06b5182fbc68`. Основной файл: `
 - [[atlas/! hacks/image-e015/image-e015|Тонкая рамка]] — существующая карточка
 - [[atlas/! hacks/image-e019/image-e019|Приподнятая карточка]] — существующая карточка
 - [[atlas/! hacks/image-e037/image-e037|Рисунок на цветной бумаге]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 
 ## Реестр настроек
 
@@ -97,11 +94,8 @@ Commit: `8c56e831e1abb1d3841c4ffdecbe06b5182fbc68`. Основной файл: `
 | Personality | `element-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Оформление интерфейса под операционную систему | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L756) |
 | Status bar | `status-bar-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Положение и выравнивание строки состояния | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L781) |
 | Reduce contrast change | `reduce-contrast-change` | Вариант оформления | Набор контраста, цвета и границ поверхностей; декоративные варианты темы.  | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L806) |
-| Reduce motion | `reduce-motion` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion\|Уважать уменьшение движения]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L811) |
 | Standard font size | `dynamic-type-off` | Типографический параметр | Размеры шрифта, высота строки и интервалы заголовков/абзацев.  | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L816) |
-| Editor tab style | `tab-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/interface-active-tab/interface-active-tab\|Выразительная активная вкладка]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L881) |
 | Editor tab divider | `tab-divider` | Вариант оформления | Разделители между вкладками через псевдоэлемент; декоративное оформление.  | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L915) |
-| Full width tabs | `tab-full-width` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/interface-readable-tabs/interface-readable-tabs\|Больше места названиям вкладок]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L919) |
 | Spine text orientation | `tab-stacked-spine-orientation` | Есть карточка | Подтверждено правилом CSS. Направление подписей в сложенных вкладках | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L939) |
 | Tab title visibility | `file-header-visibility` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Служебные элементы появляются при наведении | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L986) |
 | Tab style (Left top) | `tab-top-left-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Боковые вкладки с текстовыми подписями | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1032) |
@@ -130,7 +124,7 @@ Commit: `8c56e831e1abb1d3841c4ffdecbe06b5182fbc68`. Основной файл: `
 | Disable block width | `block-width-off` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Таблица шире текстовой полосы | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1488) |
 | Table block width | `table-block-width` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Таблица шире текстовой полосы | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1502) |
 | Bases block width | `bases-block-width` | Есть карточка | Сопоставление уточнено после проверки конкретной цели CSS. Независимая ширина встроенных объектов | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1521) |
-| Image block width | `image-block-width` | Есть карточка | Сопоставление уточнено после проверки конкретной цели CSS. [[atlas/! hacks/note-image-fluid/note-image-fluid\|Изображение по ширине заметки]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1540) |
+| Image block width | `image-block-width` | Есть карточка | Сопоставление уточнено после проверки конкретной цели CSS. [[atlas/! hacks/image-fluid/image-fluid\|Изображение по ширине заметки]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1540) |
 | Property style | `metadata-style` | Вариант оформления | Оформление блока свойств: фон, рамка, скругление и отступы.  | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1614) |
 | Add property button visibility | `metadata-add-property` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/metadata-no-add/metadata-no-add\|Без строки добавления]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1630) |
 | Compact properties | `metadata-compact` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/metadata-compact/metadata-compact\|Компактные строки]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L1654) |
@@ -153,17 +147,17 @@ Commit: `8c56e831e1abb1d3841c4ffdecbe06b5182fbc68`. Основной файл: `
 | Disable banner | `banner-off` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Обложка в верхней части заметки | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2380) |
 | Alternating row background | `bases-row-alt` | Палитра | Вариант цветов темы: background-color. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2480) |
 | Alternating column background | `bases-col-alt` | Палитра | Вариант цветов темы: background-color. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2484) |
-| Blockquote style | `blockquote-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-quote-panel/note-quote-panel\|Цитата на подложке]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2494) |
+| Blockquote style | `blockquote-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/quote-panel/quote-panel\|Цитата на подложке]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2494) |
 | Callout style | `callouts-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/callout-technical-shadow/callout-technical-shadow\|Панель с тенью]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2608) |
 | Disable custom icons | `callout-lucide` | Вариант оформления | Замена пиктограмм callout SVG-масками; не системные значки интерфейса.  | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2632) |
 | Code style | `code-style` | Вариант оформления | Градиентный фон и тактильная тень блока кода; вариант поверхности.  | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2663) |
 | Code line numbers | `code-line-numbers` | Есть карточка | Подтверждено правилом CSS. Номера строк внутри блока кода | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2688) |
-| Disable line wrap | `code-scroll` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-code-wrap/note-code-wrap\|Длинные строки с переносом]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2692) |
+| Disable line wrap | `code-scroll` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/code-wrap/code-wrap\|Длинные строки с переносом]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2692) |
 | Embed style | `embed-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Встроенная заметка без отдельной рамки | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2707) |
 | Hide embed titles | `embed-hide-title` | Есть карточка | Подтверждено правилом CSS. Встроенная заметка без повторного заголовка | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2748) |
 | Disable checkbox strikethrough | `strike-lists-off` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/task-e13/task-e13\|Зачёркивание]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2932) |
-| Media width | `media-width` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-image-fluid/note-image-fluid\|Изображение по ширине заметки]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2942) |
-| Always show image grids | `img-grid` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-image-gallery/note-image-gallery\|Галерея из списка картинок]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2969) |
+| Media width | `media-width` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-fluid/image-fluid\|Изображение по ширине заметки]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2942) |
+| Always show image grids | `img-grid` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-gallery/image-gallery\|Галерея из списка картинок]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2969) |
 | Dim media in dark mode | `media-muted` | Есть карточка | Подтверждено правилом CSS. Приглушение ярких изображений в тёмном режиме | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2973) |
 | Disable image zoom | `zoom-off` | Есть карточка | Подтверждено правилом CSS. Крупный просмотр изображения при нажатии | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2977) |
 | Disable rounded media | `img-radius-off` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/image-e016/image-e016\|Мягкое скругление]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2981) |

@@ -35,7 +35,7 @@ Commit: `85a60c8340ab74668f4c12e92f020aaacc122b8d`. Основной файл: `
 - [[atlas/! hacks/table-e033/table-e033|Вертикальные заголовки]] — существующая карточка
 - [[atlas/! hacks/table-e021/table-e021|Иерархия первой колонки]] — существующая карточка
 - [[atlas/! hacks/link-e004/link-e004|Только цвет — без линии]] — существующая карточка
-- [[atlas/! hacks/note-highlight/note-highlight|Маркер за важным текстом]] — существующая карточка
+- [[atlas/! hacks/emphasis-highlight/emphasis-highlight|Маркер за важным текстом]] — существующая карточка
 - [[atlas/! hacks/tag-e022/tag-e022|Контурная капсула]] — существующая карточка
 - [[atlas/! hacks/table-e072/table-e072|Карточки с фиксированными подписями]] — существующая карточка
 - [[atlas/! hacks/table-e003/table-e003|Только горизонтали]] — существующая карточка
@@ -49,7 +49,7 @@ Commit: `85a60c8340ab74668f4c12e92f020aaacc122b8d`. Основной файл: `
 |---|---|---|---|---|
 | More italic italics | `pln-italics` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Дополнительный наклон курсивного текста | [код](https://github.com/pipeittodevnull/PLN/blob/85a60c8340ab74668f4c12e92f020aaacc122b8d/theme.css#L301) |
 | Link modifications | `pln-link-mods` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/link-e004/link-e004\|Только цвет — без линии]] | [код](https://github.com/pipeittodevnull/PLN/blob/85a60c8340ab74668f4c12e92f020aaacc122b8d/theme.css#L313) |
-| Highlight (mark) modifications | `pln-hilite-mods` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-highlight/note-highlight\|Маркер за важным текстом]] | [код](https://github.com/pipeittodevnull/PLN/blob/85a60c8340ab74668f4c12e92f020aaacc122b8d/theme.css#L319) |
+| Highlight (mark) modifications | `pln-hilite-mods` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/emphasis-highlight/emphasis-highlight\|Маркер за важным текстом]] | [код](https://github.com/pipeittodevnull/PLN/blob/85a60c8340ab74668f4c12e92f020aaacc122b8d/theme.css#L319) |
 | Highlight active line | `pln-hi-line` | Есть карточка | Подтверждено правилом CSS. Выделение активной строки редактора | [код](https://github.com/pipeittodevnull/PLN/blob/85a60c8340ab74668f4c12e92f020aaacc122b8d/theme.css#L325) |
 | Highlight cursor line | `pln-hi-line-hover` | Есть карточка | Подтверждено правилом CSS. Маркер строки под указателем | [код](https://github.com/pipeittodevnull/PLN/blob/85a60c8340ab74668f4c12e92f020aaacc122b8d/theme.css#L331) |
 | Highlight table rows when hovering | `pln-hi-tr` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/table-e034/table-e034\|Подсветка строки]] | [код](https://github.com/pipeittodevnull/PLN/blob/85a60c8340ab74668f4c12e92f020aaacc122b8d/theme.css#L337) |

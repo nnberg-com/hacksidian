@@ -33,9 +33,6 @@ inline-code-ex-06
 - В исходном обзоре примеры GitHub, Bootstrap и Tailwind адаптировались к обычному `code`; остальные сочетания составлены для атласа. Ссылки на CSS-механизмы не означают, что рецепт заимствован у этих проектов.
 
 
-###### Локальные зависимости
-
-- [assets/JetBrainsMono-Regular.ttf](<./assets/JetBrainsMono-Regular.ttf>)
 
 ```hacksidian-files
 inline-code-ex-06

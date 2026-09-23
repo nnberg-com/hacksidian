@@ -29,9 +29,6 @@ quote-fold
 quote-fold
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-fold

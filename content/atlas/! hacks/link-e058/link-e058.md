@@ -32,9 +32,6 @@ link-e058
 - Основа: пользовательский материал «2026-09-08 • Возможности оформления ссылок.md» из хранилища CallMeRed.
 
 
-###### Локальные зависимости
-
-- [assets/example.txt](<./assets/example.txt>)
 
 ```hacksidian-files
 link-e058

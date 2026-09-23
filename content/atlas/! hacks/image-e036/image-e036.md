@@ -29,9 +29,6 @@ opacity смешивает изображение с фоном.
 image-e036
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e036

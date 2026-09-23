@@ -29,9 +29,6 @@ quote-double
 quote-double
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-double

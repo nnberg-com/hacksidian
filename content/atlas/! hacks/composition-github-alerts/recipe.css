@@ -1,0 +1,81 @@
+/* GitHub Alerts adapted to Obsidian. Icons: Primer Octicons, MIT (assets/LICENSE). */
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="note"] {
+  --hacksidian-github-alert-color: var(--color-blue);
+  --hacksidian-github-alert-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMCA4YTggOCAwIDEgMSAxNiAwQTggOCAwIDAgMSAwIDhabTgtNi41YTYuNSA2LjUgMCAxIDAgMCAxMyA2LjUgNi41IDAgMCAwIDAtMTNaTTYuNSA3Ljc1QS43NS43NSAwIDAgMSA3LjI1IDdoMWEuNzUuNzUgMCAwIDEgLjc1Ljc1djIuNzVoLjI1YS43NS43NSAwIDAgMSAwIDEuNWgtMmEuNzUuNzUgMCAwIDEgMC0xLjVoLjI1di0yaC0uMjVhLjc1Ljc1IDAgMCAxLS43NS0uNzVaTTggNmExIDEgMCAxIDEgMC0yIDEgMSAwIDAgMSAwIDJaIi8+PC9zdmc+");
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="tip"] {
+  --hacksidian-github-alert-color: var(--color-green);
+  --hacksidian-github-alert-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNOCAxLjVjLTIuMzYzIDAtNCAxLjY5LTQgMy43NSAwIC45ODQuNDI0IDEuNjI1Ljk4NCAyLjMwNGwuMjE0LjI1M2MuMjIzLjI2NC40Ny41NTYuNjczLjg0OC4yODQuNDExLjUzNy44OTYuNjIxIDEuNDlhLjc1Ljc1IDAgMCAxLTEuNDg0LjIxMWMtLjA0LS4yODItLjE2My0uNTQ3LS4zNy0uODQ3YTguNDU2IDguNDU2IDAgMCAwLS41NDItLjY4Yy0uMDg0LS4xLS4xNzMtLjIwNS0uMjY4LS4zMkMzLjIwMSA3Ljc1IDIuNSA2Ljc2NiAyLjUgNS4yNSAyLjUgMi4zMSA0Ljg2MyAwIDggMHM1LjUgMi4zMSA1LjUgNS4yNWMwIDEuNTE2LS43MDEgMi41LTEuMzI4IDMuMjU5LS4wOTUuMTE1LS4xODQuMjItLjI2OC4zMTktLjIwNy4yNDUtLjM4My40NTMtLjU0MS42ODEtLjIwOC4zLS4zMy41NjUtLjM3Ljg0N2EuNzUxLjc1MSAwIDAgMS0xLjQ4NS0uMjEyYy4wODQtLjU5My4zMzctMS4wNzguNjIxLTEuNDg5LjIwMy0uMjkyLjQ1LS41ODQuNjczLS44NDguMDc1LS4wODguMTQ3LS4xNzMuMjEzLS4yNTMuNTYxLS42NzkuOTg1LTEuMzIuOTg1LTIuMzA0IDAtMi4wNi0xLjYzNy0zLjc1LTQtMy43NVpNNS43NSAxMmg0LjVhLjc1Ljc1IDAgMCAxIDAgMS41aC00LjVhLjc1Ljc1IDAgMCAxIDAtMS41Wk02IDE1LjI1YS43NS43NSAwIDAgMSAuNzUtLjc1aDIuNWEuNzUuNzUgMCAwIDEgMCAxLjVoLTIuNWEuNzUuNzUgMCAwIDEtLjc1LS43NVoiLz48L3N2Zz4=");
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="important"] {
+  --hacksidian-github-alert-color: var(--color-purple);
+  --hacksidian-github-alert-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMCAxLjc1QzAgLjc4NC43ODQgMCAxLjc1IDBoMTIuNUMxNS4yMTYgMCAxNiAuNzg0IDE2IDEuNzV2OS41QTEuNzUgMS43NSAwIDAgMSAxNC4yNSAxM0g4LjA2bC0yLjU3MyAyLjU3M0ExLjQ1OCAxLjQ1OCAwIDAgMSAzIDE0LjU0M1YxM0gxLjc1QTEuNzUgMS43NSAwIDAgMSAwIDExLjI1Wm0xLjc1LS4yNWEuMjUuMjUgMCAwIDAtLjI1LjI1djkuNWMwIC4xMzguMTEyLjI1LjI1LjI1aDJhLjc1Ljc1IDAgMCAxIC43NS43NXYyLjE5bDIuNzItMi43MmEuNzQ5Ljc0OSAwIDAgMSAuNTMtLjIyaDYuNWEuMjUuMjUgMCAwIDAgLjI1LS4yNXYtOS41YS4yNS4yNSAwIDAgMC0uMjUtLjI1Wm03IDIuMjV2Mi41YS43NS43NSAwIDAgMS0xLjUgMHYtMi41YS43NS43NSAwIDAgMSAxLjUgMFpNOSA5YTEgMSAwIDEgMS0yIDAgMSAxIDAgMCAxIDIgMFoiLz48L3N2Zz4=");
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="warning"] {
+  --hacksidian-github-alert-color: var(--color-yellow);
+  --hacksidian-github-alert-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNNi40NTcgMS4wNDdjLjY1OS0xLjIzNCAyLjQyNy0xLjIzNCAzLjA4NiAwbDYuMDgyIDExLjM3OEExLjc1IDEuNzUgMCAwIDEgMTQuMDgyIDE1SDEuOTE4YTEuNzUgMS43NSAwIDAgMS0xLjU0My0yLjU3NVptMS43NjMuNzA3YS4yNS4yNSAwIDAgMC0uNDQgMEwxLjY5OCAxMy4xMzJhLjI1LjI1IDAgMCAwIC4yMi4zNjhoMTIuMTY0YS4yNS4yNSAwIDAgMCAuMjItLjM2OFptLjUzIDMuOTk2djIuNWEuNzUuNzUgMCAwIDEtMS41IDB2LTIuNWEuNzUuNzUgMCAwIDEgMS41IDBaTTkgMTFhMSAxIDAgMSAxLTIgMCAxIDEgMCAwIDEgMiAwWiIvPjwvc3ZnPg==");
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="caution"] {
+  --hacksidian-github-alert-color: var(--color-red);
+  --hacksidian-github-alert-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNNC40Ny4yMkEuNzQ5Ljc0OSAwIDAgMSA1IDBoNmMuMTk5IDAgLjM4OS4wNzkuNTMuMjJsNC4yNSA0LjI1Yy4xNDEuMTQuMjIuMzMxLjIyLjUzdjZhLjc0OS43NDkgMCAwIDEtLjIyLjUzbC00LjI1IDQuMjVBLjc0OS43NDkgMCAwIDEgMTEgMTZINWEuNzQ5Ljc0OSAwIDAgMS0uNTMtLjIyTC4yMiAxMS41M0EuNzQ5Ljc0OSAwIDAgMSAwIDExVjVjMC0uMTk5LjA3OS0uMzg5LjIyLS41M1ptLjg0IDEuMjhMMS41IDUuMzF2NS4zOGwzLjgxIDMuODFoNS4zOGwzLjgxLTMuODFWNS4zMUwxMC42OSAxLjVaTTggNGEuNzUuNzUgMCAwIDEgLjc1Ljc1djMuNWEuNzUuNzUgMCAwIDEtMS41IDB2LTMuNUEuNzUuNzUgMCAwIDEgOCA0Wm0wIDhhMSAxIDAgMSAxIDAtMiAxIDEgMCAwIDEgMCAyWiIvPjwvc3ZnPg==");
+}
+
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) {
+  --callout-color: var(--hacksidian-github-alert-color);
+  --callout-title-color: var(--hacksidian-github-alert-color);
+  --callout-title-weight: var(--font-semibold);
+  background: transparent;
+  border: 0;
+  border-inline-start: 4px solid var(--hacksidian-github-alert-color);
+  border-radius: 0;
+  box-shadow: none;
+  padding: .5em 1em;
+  margin-block: 1em;
+  color: var(--text-normal);
+  mix-blend-mode: normal;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-title {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  padding: 0;
+  margin: 0 0 1em;
+  font-size: inherit;
+  line-height: var(--line-height-normal);
+  color: var(--hacksidian-github-alert-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-title::after {
+  content: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-title > .callout-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: var(--hacksidian-github-alert-color);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-title > .callout-icon > svg,
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-title > .callout-icon::after {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-title > .callout-icon::before {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 1em;
+  background: currentColor;
+  -webkit-mask: var(--hacksidian-github-alert-icon) center / contain no-repeat;
+  mask: var(--hacksidian-github-alert-icon) center / contain no-repeat;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-content {
+  display: block;
+  padding: 0;
+  background: transparent;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-content > p {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-content > :first-child {
+  margin-block-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="note"],[data-callout="tip"],[data-callout="important"],[data-callout="warning"],[data-callout="caution"]) > .callout-content > :last-child {
+  margin-block-end: 0;
+}

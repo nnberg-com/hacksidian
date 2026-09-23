@@ -29,9 +29,6 @@ CSS выбирает img внутри стандартной Markdown-ссылк
 image-e081
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e081

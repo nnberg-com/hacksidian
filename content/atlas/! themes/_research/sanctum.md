@@ -34,18 +34,17 @@ Commit: `ac69e5992a66d2aeabb30d8c2d90c636d155fc25`. Основной файл: `
 - [[atlas/! hacks/code-e052/code-e052|Читаемая метка языка]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/heading-e048/heading-e048|Контурные буквы]] — существующая карточка
-- [[atlas/! hacks/emphasis-s33/emphasis-s33|Курсив с маркером]] — существующая карточка
-- [[atlas/! hacks/note-quote-margin/note-quote-margin|Цитата на боковом поле]] — существующая карточка
-- [[atlas/! hacks/note-quote-frame/note-quote-frame|Рамка вокруг цитаты]] — существующая карточка
+- [[atlas/! hacks/combinations-s33/combinations-s33|Курсив с маркером]] — существующая карточка
+- [[atlas/! hacks/quote-margin/quote-margin|Цитата на боковом поле]] — существующая карточка
+- [[atlas/! hacks/quote-frame/quote-frame|Рамка вокруг цитаты]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
-- [[atlas/! hacks/note-list-markers/note-list-markers|Цвет и форма маркеров]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
+- [[atlas/! hacks/unordered-markers/unordered-markers|Цвет и форма маркеров]] — существующая карточка
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
 - [[atlas/! hacks/image-e063/image-e063|Обтекание справа]] — существующая карточка
-- [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
-- [[atlas/! hacks/note-quote-line/note-quote-line|Классическая цитата с линией]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
-- [[atlas/! hacks/list-ordered-o013/list-ordered-o013|Составные номера]] — существующая карточка
+- [[atlas/! hacks/composition-margin/composition-margin|Заметка на полях]] — существующая карточка
+- [[atlas/! hacks/quote-line/quote-line|Классическая цитата с линией]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/ordered-o013/ordered-o013|Составные номера]] — существующая карточка
 
 ## Реестр настроек
 
@@ -56,9 +55,9 @@ Commit: `ac69e5992a66d2aeabb30d8c2d90c636d155fc25`. Основной файл: `
 | Light mode contrast mode | `light-mode-contrast-mode` | Палитра | Выбор согласованной палитры и контраста темы. CSS задаёт цвета поверхностей, текста и акцентов; это контекст рекомендации темы.  | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7073) |
 | Dark mode contrast mode | `dark-mode-contrast-mode` | Палитра | Выбор согласованной палитры и контраста темы. CSS задаёт цвета поверхностей, текста и акцентов; это контекст рекомендации темы.  | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7089) |
 | Toggle aside counter [Beta] | `aside-counter` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Автоматическая нумерация боковых примечаний | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7219) |
-| Toggle aside borders | `aside-border` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-quote-margin/note-quote-margin\|Цитата на боковом поле]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7223) |
-| Toggle blockquote short divider | `blockquote-marker` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-quote-frame/note-quote-frame\|Рамка вокруг цитаты]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7278) |
-| Toggle blockquote horizontal dividers | `blockquote-border` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-quote-frame/note-quote-frame\|Рамка вокруг цитаты]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7283) |
+| Toggle aside borders | `aside-border` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/quote-margin/quote-margin\|Цитата на боковом поле]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7223) |
+| Toggle blockquote short divider | `blockquote-marker` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/quote-frame/quote-frame\|Рамка вокруг цитаты]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7278) |
+| Toggle blockquote horizontal dividers | `blockquote-border` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/quote-frame/quote-frame\|Рамка вокруг цитаты]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7283) |
 | Toggle code block line numbers | `code-lines` | Есть карточка | Подтверждено правилом CSS. Номера строк внутри блока кода | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7334) |
 | Toggle code block labels | `code-label` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/code-e052/code-e052\|Читаемая метка языка]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7339) |
 | Code borders | `code-border` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/code-e002/code-e002\|Контур без заливки]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7344) |
@@ -73,9 +72,9 @@ Commit: `ac69e5992a66d2aeabb30d8c2d90c636d155fc25`. Основной файл: `
 | H4 divider line | `h4-line` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/heading-e019/heading-e019\|Черта на всю ширину]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7804) |
 | H5 divider line | `h5-line` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/heading-e019/heading-e019\|Черта на всю ширину]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7872) |
 | H6 divider line | `h6-line` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/heading-e019/heading-e019\|Черта на всю ширину]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L7940) |
-| Odd numbered list marker style | `odd-marker` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-list-markers/note-list-markers\|Цвет и форма маркеров]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8237) |
-| Odd numbered list marker style | `even-marker` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-list-markers/note-list-markers\|Цвет и форма маркеров]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8265) |
-| Ordered list marker style | `step-list` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-list-markers/note-list-markers\|Цвет и форма маркеров]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8293) |
+| Odd numbered list marker style | `odd-marker` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/unordered-markers/unordered-markers\|Цвет и форма маркеров]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8237) |
+| Odd numbered list marker style | `even-marker` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/unordered-markers/unordered-markers\|Цвет и форма маркеров]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8265) |
+| Ordered list marker style | `step-list` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/unordered-markers/unordered-markers\|Цвет и форма маркеров]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8293) |
 | Cell borders | `table-cell-border` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/table-e002/table-e002\|Полная сетка]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8316) |
 | Row lines | `table-row-border` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/table-e003/table-e003\|Только горизонтали]] | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8320) |
 | Column lines | `table-column-border` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Только вертикальные разделители таблицы | [код](https://github.com/jdanielmourao/obsidian-sanctum/blob/ac69e5992a66d2aeabb30d8c2d90c636d155fc25/theme.css#L8324) |

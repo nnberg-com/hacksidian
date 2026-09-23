@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_callout
-title: Крупный значок рядом с текстом
+title: Крупный значок и текст
 category: callout
 sources:
   - https://help.obsidian.md/callouts
@@ -23,28 +23,13 @@ callout-technical-large-icon
 Короткое предупреждение, узнаваемое по силуэту.
 
 > Как работает
-У блока оставлено место слева, SVG увеличен и вынесен из потока.
+Штатный значок отображается вчетверо крупнее стандартного и занимает отдельное поле слева от заголовка и тела. Он центрирован по высоте выноски. Заголовок и основной текст сохраняют обычный размер. SVG не подменяется. Вынос на поле включён в сам приём; отдельное включение «Значок вынесен на поле» не меняет эту компоновку.
 ```
 
 ```hacksidian-sources
 callout-technical-large-icon
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ```hacksidian-files
 callout-technical-large-icon

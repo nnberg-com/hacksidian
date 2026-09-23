@@ -32,9 +32,6 @@ quote-selection
 quote-selection
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-selection

@@ -32,9 +32,6 @@ quote-firstline
 quote-firstline
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-firstline

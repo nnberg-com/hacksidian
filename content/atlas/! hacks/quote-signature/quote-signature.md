@@ -33,9 +33,6 @@ quote-signature
 quote-signature
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-signature

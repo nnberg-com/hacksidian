@@ -30,9 +30,6 @@ quote-link-chip
 quote-link-chip
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-link-chip

@@ -29,9 +29,6 @@ rotate меняет угол, уменьшенная ширина оставля
 image-e025
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e025

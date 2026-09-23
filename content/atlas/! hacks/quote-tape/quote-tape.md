@@ -29,9 +29,6 @@ quote-tape
 quote-tape
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-tape

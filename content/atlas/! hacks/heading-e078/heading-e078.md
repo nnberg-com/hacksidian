@@ -30,10 +30,6 @@ heading-e078
 heading-e078
 ```
 
-###### Локальные зависимости
-
-- [assets/Onest.ttf](<./assets/Onest.ttf>)
-- [assets/RobotoFlex.ttf](<./assets/RobotoFlex.ttf>)
 
 ```hacksidian-files
 heading-e078

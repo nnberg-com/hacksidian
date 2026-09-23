@@ -29,9 +29,6 @@ em становится прямым, strong остаётся жирным — �
 quote-emphasis
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-emphasis

@@ -43,14 +43,13 @@ Commit: `c4704fbc23625f4b35b0ab9b2e1eb584e6891be2`. Основной файл: `
 - [[atlas/! hacks/metadata-ledger/metadata-ledger|Таблица с разделителями]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
-- [[atlas/! hacks/note-code-scroll/note-code-scroll|Длинные строки с прокруткой]] — существующая карточка
-- [[atlas/! hacks/note-list-inline/note-list-inline|Перечисление одной строкой]] — существующая карточка
-- [[atlas/! hacks/note-cards/note-cards|Список карточками]] — существующая карточка
+- [[atlas/! hacks/code-scroll/code-scroll|Длинные строки с прокруткой]] — существующая карточка
+- [[atlas/! hacks/unordered-inline/unordered-inline|Перечисление одной строкой]] — существующая карточка
+- [[atlas/! hacks/unordered-cards/unordered-cards|Список карточками]] — существующая карточка
 - [[atlas/! hacks/callout-technical-outline/callout-technical-outline|Тонкая рамка]] — существующая карточка
 - [[atlas/! hacks/callout-technical-label/callout-technical-label|Заголовок-ярлычок]] — существующая карточка
 - [[atlas/! hacks/image-e037/image-e037|Рисунок на цветной бумаге]] — существующая карточка
 - [[atlas/! hacks/task-e03/task-e03|Собственный квадрат]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/tag-e001/tag-e001|Только акцентный цвет]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
@@ -65,9 +64,9 @@ Commit: `c4704fbc23625f4b35b0ab9b2e1eb584e6891be2`. Основной файл: `
 | Настройка | ID | Результат | Обоснование / карточки | Источник |
 |---|---|---|---|---|
 | Callout style | `callouts-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/callout-technical-outline/callout-technical-outline\|Тонкая рамка]]; [[atlas/! hacks/callout-technical-label/callout-technical-label\|Заголовок-ярлычок]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L6829) |
-| Scroll long lines | `minimal-code-scroll` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-code-scroll/note-code-scroll\|Длинные строки с прокруткой]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L6882) |
+| Scroll long lines | `minimal-code-scroll` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/code-scroll/code-scroll\|Длинные строки с прокруткой]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L6882) |
 | Trim Dataview columns | `trim-cols` | Есть карточка | Подтверждено правилом CSS. Обрезка длинных значений в таблице Dataview | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L6996) |
-| Force tables lists inline | `dataview-inline-lists` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-list-inline/note-list-inline\|Перечисление одной строкой]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7002) |
+| Force tables lists inline | `dataview-inline-lists` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/unordered-inline/unordered-inline\|Перечисление одной строкой]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7002) |
 | Use strict embed style globally | `embed-strict` | Есть карточка | Подтверждено правилом CSS. Встроенная заметка без отдельной рамки | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7020) |
 | Hide embed titles | `embed-hide-title` | Есть карточка | Подтверждено правилом CSS. Встроенная заметка без повторного заголовка | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7026) |
 | Underline embedded text | `embed-underline` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Подчёркнутый заимствованный текст | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7032) |
@@ -88,7 +87,6 @@ Commit: `c4704fbc23625f4b35b0ab9b2e1eb584e6891be2`. Основной файл: `
 | Hide "Add property" button | `metadata-add-property-off` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/metadata-no-add/metadata-no-add\|Без строки добавления]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7909) |
 | Hide property icons | `metadata-icons-off` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/metadata-no-icons/metadata-no-icons\|Без иконок типов]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7915) |
 | Property row lines | `metadata-dividers` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/metadata-ledger/metadata-ledger\|Таблица с разделителями]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7921) |
-| Sidebar tab style | `sidebar-tabs-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/interface-active-tab/interface-active-tab\|Выразительная активная вкладка]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7942) |
 | Sidebar tab names | `sidebar-tabs-names` | Есть карточка | Подтверждено правилом CSS. Боковые вкладки с текстовыми подписями | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7967) |
 | Vault profile position | `vault-profile-display` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Расположение меню хранилища | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7983) |
 | Hide help button | `hide-help` | Есть карточка | Подтверждено правилом CSS. Выборочное скрытие служебных кнопок | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L7996) |
@@ -105,7 +103,6 @@ Commit: `c4704fbc23625f4b35b0ab9b2e1eb584e6891be2`. Основной файл: `
 | Center small tables | `table-center` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/table-e027/table-e027\|Компактная таблица по центру]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L8129) |
 | Disable line wrap | `table-nowrap` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Таблица без переноса содержимого ячеек | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L8135) |
 | Highlight active row | `row-hover` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/table-e034/table-e034\|Подсветка строки]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L8141) |
-| Tab style | `tabs-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/interface-active-tab/interface-active-tab\|Выразительная активная вкладка]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L8167) |
 | Spine text orientation | `tab-stacked-spine-orientation` | Есть карточка | Подтверждено правилом CSS. Направление подписей в сложенных вкладках | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L8225) |
 | Plain tags | `minimal-unstyled-tags` | Есть карточка | Тег остаётся цветным текстом без плашки и рамки. [[atlas/! hacks/tag-e001/tag-e001\|Только акцентный цвет]] | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L8267) |
 | Tab title visibility | `file-header-visibility` | Есть карточка | Настройка управляет видимостью заголовка/описания; удержание названия раскрывает описание настройки Minimal. Выборочное скрытие служебных кнопок | [код](https://github.com/kepano/obsidian-minimal/blob/c4704fbc23625f4b35b0ab9b2e1eb584e6891be2/theme.css#L8432) |

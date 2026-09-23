@@ -29,10 +29,6 @@ task-e05
 task-e05
 ```
 
-###### Локальные зависимости
-
-- [assets/check-accent.svg](<./assets/check-accent.svg>)
-- [assets/check.svg](<./assets/check.svg>)
 
 ```hacksidian-files
 task-e05

@@ -32,9 +32,6 @@ hover меняет цвет рамки и фон, без движения тек
 quote-hover
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-hover

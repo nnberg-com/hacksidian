@@ -23,10 +23,9 @@ Commit: `358388cb3a5929dbcaaa19906c210f4508332665`. Основной файл: `
 - Выделение активного файла в проводнике — новая карточка
 - Примечание без заголовка — новая карточка
 - [[atlas/! hacks/image-e006/image-e006|По центру]] — существующая карточка
-- [[atlas/! hacks/note-list-levels/note-list-levels|Маркеры по глубине]] — существующая карточка
-- [[atlas/! hacks/note-hierarchy/note-hierarchy|Шкала заголовков H1–H6]] — существующая карточка
+- [[atlas/! hacks/unordered-levels/unordered-levels|Маркеры по глубине]] — существующая карточка
+- [[atlas/! hacks/heading-hierarchy/heading-hierarchy|Шкала заголовков H1–H6]] — существующая карточка
 - [[atlas/! hacks/image-e063/image-e063|Обтекание справа]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
@@ -47,9 +46,9 @@ Commit: `358388cb3a5929dbcaaa19906c210f4508332665`. Основной файл: `
 | Properties position | `setting-properties-position` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Свойства до или после текста заметки | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L187) |
 | Embedded note titles | `theme-setting-embeddedNoteTitleVisibility` | Есть карточка | Подтверждено правилом CSS. Встроенная заметка без повторного заголовка | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L201) |
 | Embedded links scroll position | `theme-setting-stickyEmbeddedLinks` | Есть карточка | Подтверждено правилом CSS. Обратные ссылки в закреплённой нижней области | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L218) |
-| Style nested bullet levels differently | `theme-setting-differentiateBulletLevels` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-list-levels/note-list-levels\|Маркеры по глубине]] | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L238) |
-| Heading scale factor – desktop/tablet | `theme-setting-headingScaleFactor` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-hierarchy/note-hierarchy\|Шкала заголовков H1–H6]] | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L257) |
-| Heading scale factor – phone | `theme-setting-headingScaleFactorPhone` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-hierarchy/note-hierarchy\|Шкала заголовков H1–H6]] | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L289) |
+| Style nested bullet levels differently | `theme-setting-differentiateBulletLevels` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/unordered-levels/unordered-levels\|Маркеры по глубине]] | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L238) |
+| Heading scale factor – desktop/tablet | `theme-setting-headingScaleFactor` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/heading-hierarchy/heading-hierarchy\|Шкала заголовков H1–H6]] | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L257) |
+| Heading scale factor – phone | `theme-setting-headingScaleFactorPhone` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/heading-hierarchy/heading-hierarchy\|Шкала заголовков H1–H6]] | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L289) |
 | Highlight active line | `theme-setting-highlightActiveLine` | Есть карточка | Подтверждено правилом CSS. Выделение активной строки редактора | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L363) |
 | Line numbers in code blocks | `theme-setting-codeBlockLineNumbers` | Есть карточка | Подтверждено правилом CSS. Номера строк внутри блока кода | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L368) |
 | Center images | `theme-setting-centerImages` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/image-e006/image-e006\|По центру]] | [код](https://github.com/isaacfreeman/kakano-obsidian-theme/blob/358388cb3a5929dbcaaa19906c210f4508332665/theme.css#L380) |

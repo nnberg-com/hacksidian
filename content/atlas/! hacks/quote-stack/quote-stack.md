@@ -29,9 +29,6 @@ quote-stack
 quote-stack
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-stack

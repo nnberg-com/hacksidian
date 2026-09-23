@@ -16,15 +16,13 @@ Commit: `b08629a587e91f46c30cbb9231e0ad5ec0cef5cd`. Основной файл: `
 - Выборочное скрытие служебных кнопок — новая карточка
 - Состояния задач по символу в квадратных скобках — новая карточка
 - Размер и форма полос прокрутки — новая карточка
-- [[atlas/! hacks/note-indent/note-indent|Красная строка]] — существующая карточка
-- [[atlas/! hacks/list-e047/list-e047|Направляющая вложенности]] — существующая карточка
+- [[atlas/! hacks/text-indent-book/text-indent-book|Красная строка]] — существующая карточка
+- [[atlas/! hacks/unordered-e047/unordered-e047|Направляющая вложенности]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
-- [[atlas/! hacks/interface-quiet-actions/interface-quiet-actions|Тихая панель действий]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/callout-technical-outline/callout-technical-outline|Тонкая рамка]] — существующая карточка
 - [[atlas/! hacks/table-e005/table-e005|Без линий]] — существующая карточка
 - [[atlas/! hacks/tag-e022/tag-e022|Контурная капсула]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 
@@ -39,14 +37,13 @@ Commit: `b08629a587e91f46c30cbb9231e0ad5ec0cef5cd`. Основной файл: `
 | Callout Style | `callout-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/callout-technical-outline/callout-technical-outline\|Тонкая рамка]] | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L68) |
 | Table Style | `table-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/table-e005/table-e005\|Без линий]] | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L93) |
 | Hide Striped Background | `composer--HideStripedTableBackground` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. [[atlas/! hacks/table-e007/table-e007\|Зебра по строкам]] | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L110) |
-| Paragraph Indent | `composer--ParagraphIndent` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-indent/note-indent\|Красная строка]] | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L120) |
+| Paragraph Indent | `composer--ParagraphIndent` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/text-indent-book/text-indent-book\|Красная строка]] | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L120) |
 | Remove Task Completed Decoration | `composer--RemoveTaskCompletedDecoration` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/task-e13/task-e13\|Зачёркивание]] | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L211) |
 | Disable Heading Line Editing Highlight | `composer--DisableHeadingLineEditingHighlight` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Выделение активной строки редактора | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L246) |
 | Disable Heading Decoration (Reading View) | `composer--DisableHeadingDecoration-ReadingView` | Вариант оформления | Цветной декоративный маркер перед заголовком; не текстовое обозначение уровня H1–H6.  | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L254) |
 | Disable Heading Decoration (Live Preview View) | `composer--DisableHeadingDecoration-LivePreview` | Вариант оформления | Цветной декоративный маркер перед заголовком; не текстовое обозначение уровня H1–H6.  | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L261) |
-| Disable Nav Header Auto Hide | `composer--DisableNavHeaderAutoHide` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/interface-quiet-actions/interface-quiet-actions\|Тихая панель действий]] | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L367) |
 | Disable File Folder Icon | `composer--DisableFileFolderIcon` | Есть карточка | Подтверждено правилом CSS. Значки файлов в проводнике | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L373) |
-| Enable Indentation Guide Line | `composer--EnableIndentationGuidLine` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/list-e047/list-e047\|Направляющая вложенности]] | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L377) |
+| Enable Indentation Guide Line | `composer--EnableIndentationGuidLine` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/unordered-e047/unordered-e047\|Направляющая вложенности]] | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L377) |
 | Toggle Desktop View Header Title Parent | `composer--DisableDesktopViewHeaderTitleParent` | Переключатель не подтверждён CSS | В настройках ID есть, но ни ID, ни значения class-select не используются в CSS после удаления комментариев. Не выдаём этот переключатель за реализованную возможность текущего commit.  | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L392) |
 | Enable Filename Line Feed | `composer--EnableFilenameLineFeed` | Есть карточка | Подтверждено правилом CSS. Полные имена файлов в проводнике | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L403) |
 | Enable Hidden File Tag | `composer--EnableHiddenFileTag` | Есть карточка | Показывает/скрывает индикаторы свойств файла; не доказано скрытие файлов-вложений. Выборочное скрытие служебных кнопок | [код](https://github.com/vran-dev/obsidian-composer/blob/b08629a587e91f46c30cbb9231e0ad5ec0cef5cd/theme.css#L409) |

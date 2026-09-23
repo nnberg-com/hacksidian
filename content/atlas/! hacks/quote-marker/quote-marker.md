@@ -29,9 +29,6 @@ quote-marker
 quote-marker
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-marker

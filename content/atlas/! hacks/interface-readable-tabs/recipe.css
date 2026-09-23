@@ -1,5 +1,0 @@
-.workspace-tabs:has(:is(.markdown-preview-view, .markdown-source-view)) {
-  --tab-width: 220px;
-  --tab-max-width: 260px;
-  --tab-font-size: 14px;
-}

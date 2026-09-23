@@ -2,7 +2,7 @@ import {test,expect} from 'vitest';
 import {readFileSync} from 'node:fs';
 import {readParameters,updateParameter} from '../src/parameters';
 import {scopeLiveExample} from '../src/live-example-css';
-const css=readFileSync(new URL('../../content/atlas/! hacks/callout-dialogue/recipe.css',import.meta.url),'utf8');
+const css=readFileSync(new URL('../../content/atlas/! hacks/composition-dialogue/recipe.css',import.meta.url),'utf8');
 test('dialogue exposes semantic palette choices with cyan default and a scoped live preview',()=>{
  const [p]=readParameters(css);
  expect(p.type).toBe('select');expect(p.default).toBe('var(--color-cyan)');

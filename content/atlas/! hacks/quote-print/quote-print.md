@@ -30,9 +30,6 @@ quote-print
 quote-print
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-print

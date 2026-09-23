@@ -32,9 +32,6 @@ link-e079
 - Основа: пользовательский материал «2026-09-08 • Возможности оформления ссылок.md» из хранилища CallMeRed.
 
 
-###### Локальные зависимости
-
-- [assets/preview.svg](<./assets/preview.svg>)
 
 ```hacksidian-files
 link-e079

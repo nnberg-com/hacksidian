@@ -17,14 +17,14 @@ Commit: `826c84596d013ca1cd61cf144f7996e688df0ee4`. Основной файл: `
 - Разделители файлов в корне хранилища — новая карточка
 - Выделение активной строки редактора — новая карточка
 - Рабочая область без видимых полос прокрутки — новая карточка
-- [[atlas/! hacks/note-code-wrap/note-code-wrap|Длинные строки с переносом]] — существующая карточка
+- [[atlas/! hacks/code-wrap/code-wrap|Длинные строки с переносом]] — существующая карточка
 - [[atlas/! hacks/image-e028/image-e028|Чёрно-белая]] — существующая карточка
-- [[atlas/! hacks/note-magazine/note-magazine|Текст в двух колонках]] — существующая карточка
+- [[atlas/! hacks/composition-magazine/composition-magazine|Текст в двух колонках]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
 - [[atlas/! hacks/heading-e005/heading-e005|Прописные с разрядкой]] — существующая карточка
 - [[atlas/! hacks/image-e019/image-e019|Приподнятая карточка]] — существующая карточка
-- [[atlas/! hacks/note-quote-line/note-quote-line|Классическая цитата с линией]] — существующая карточка
-- [[atlas/! hacks/note-code-scroll/note-code-scroll|Длинные строки с прокруткой]] — существующая карточка
+- [[atlas/! hacks/quote-line/quote-line|Классическая цитата с линией]] — существующая карточка
+- [[atlas/! hacks/code-scroll/code-scroll|Длинные строки с прокруткой]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/code-e018/code-e018|Мягкий перенос]] — существующая карточка
@@ -32,7 +32,7 @@ Commit: `826c84596d013ca1cd61cf144f7996e688df0ee4`. Основной файл: `
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
 - [[atlas/! hacks/table-e003/table-e003|Только горизонтали]] — существующая карточка
 - [[atlas/! hacks/image-e015/image-e015|Тонкая рамка]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 
 ## Реестр настроек
 
@@ -43,10 +43,10 @@ Commit: `826c84596d013ca1cd61cf144f7996e688df0ee4`. Основной файл: `
 | Style Page | `page-style-read-mode` | Есть карточка | В этой теме карточкой выглядит область отдельной заметки: рамка, поля и тень; это не весь layout приложения. Панели рабочего пространства отдельными карточками | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2487) |
 | Style Page (Editor) | `page-style-editor-mode` | Есть карточка | В этой теме карточкой выглядит область отдельной заметки: рамка, поля и тень; это не весь layout приложения. Панели рабочего пространства отдельными карточками | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2493) |
 | Inline title separator | `enable-inline-title-separator` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/heading-e019/heading-e019\|Черта на всю ширину]] | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2632) |
-| Magazine style | `magazine-style` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-magazine/note-magazine\|Текст в двух колонках]] | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2638) |
+| Magazine style | `magazine-style` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/composition-magazine/composition-magazine\|Текст в двух колонках]] | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2638) |
 | Block Inline Title | `block-title-read-mode` | Есть карточка | Название настройки говорит о full-width block, но фактическое правило только pointer-events:none. В карточке отражено действие CSS. Защита названия заметки от случайного клика | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2663) |
 | Uppercase lock | `inline-title-always-uppercase` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/heading-e005/heading-e005\|Прописные с разрядкой]] | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2701) |
-| Wrap code (Read mode) | `wrap-code-blocks` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-code-wrap/note-code-wrap\|Длинные строки с переносом]] | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2713) |
+| Wrap code (Read mode) | `wrap-code-blocks` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/code-wrap/code-wrap\|Длинные строки с переносом]] | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2713) |
 | Hide  embed title | `hide-embed-title` | Есть карточка | Подтверждено правилом CSS. Встроенная заметка без повторного заголовка | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2925) |
 | Enable shadows and borders | `enable-shadows-borders-img` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-e019/image-e019\|Приподнятая карточка]] | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2957) |
 | Grayscale images | `grayscale-dark-mode` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/image-e028/image-e028\|Чёрно-белая]] | [код](https://github.com/leslyecream/Lagom-Obsidian-Theme/blob/826c84596d013ca1cd61cf144f7996e688df0ee4/theme.css#L2963) |

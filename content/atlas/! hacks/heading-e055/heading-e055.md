@@ -35,10 +35,6 @@ heading-e055
 heading-e055
 ```
 
-###### Локальные зависимости
-
-- [assets/Onest.ttf](<./assets/Onest.ttf>)
-- [assets/RobotoFlex.ttf](<./assets/RobotoFlex.ttf>)
 
 ```hacksidian-files
 heading-e055

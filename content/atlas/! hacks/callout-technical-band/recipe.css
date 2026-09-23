@@ -9,7 +9,8 @@
   padding: .75em 1em;
   margin: 0;
 }
-:is(.markdown-preview-view, .markdown-source-view) .callout-content {
-  padding: 1em;
-}
-
+:is(.markdown-preview-view, .markdown-source-view) .callout-icon { display: none; }
+:is(.markdown-preview-view, .markdown-source-view) .callout-title-inner { color: inherit; }
+:is(.markdown-preview-view, .markdown-source-view) .callout-content { padding: 1em; }
+:is(.markdown-preview-view, .markdown-source-view) .callout-content > :first-child { margin-top: 0; }
+:is(.markdown-preview-view, .markdown-source-view) .callout-content > :last-child { margin-bottom: 0; }

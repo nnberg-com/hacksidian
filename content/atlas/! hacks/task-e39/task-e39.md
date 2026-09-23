@@ -33,9 +33,6 @@ task-e39
 task-e39
 ```
 
-###### Локальные зависимости
-
-- [assets/brief.pdf](<./assets/brief.pdf>)
 
 ```hacksidian-files
 task-e39

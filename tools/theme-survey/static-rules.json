@@ -169,19 +169,19 @@
     "value": "^(?:none|0(?:px)?)$"
   },
   {
-    "id": "note-list-tree",
+    "id": "unordered-tree",
     "selector": "\\bli.*::?(?:before|after)|indentation-guide",
     "property": "^border-(?:left|inline-start|inline-end)$",
     "value": "^(?!none|0)"
   },
   {
-    "id": "list-e059",
+    "id": "unordered-e059",
     "selector": "\\bul\\b|\\bol\\b",
     "property": "^column-count$",
     "value": "^[2-9]$"
   },
   {
-    "id": "list-ordered-o013",
+    "id": "ordered-o013",
     "selector": "\\bol.*::?(?:before|marker)",
     "property": "^content$",
     "value": "counters\\("
@@ -217,7 +217,7 @@
     "value": "^text$"
   },
   {
-    "id": "note-print-flow",
+    "id": "text-print-flow",
     "selector": "\\bhr\\b",
     "property": "^(?:page-)?break-after$",
     "value": "page|always"

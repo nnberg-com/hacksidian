@@ -29,9 +29,6 @@ quote-rich
 quote-rich
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-rich

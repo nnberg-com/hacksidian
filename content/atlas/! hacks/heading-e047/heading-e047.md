@@ -34,9 +34,6 @@ heading-e047
 heading-e047
 ```
 
-###### Локальные зависимости
-
-- [assets/texture.svg](<./assets/texture.svg>)
 
 ```hacksidian-files
 heading-e047

@@ -29,9 +29,6 @@ quote-reading
 quote-reading
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-reading

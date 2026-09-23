@@ -1,9 +1,0 @@
-{
-  "format": 2,
-  "target": "g-strikethrough",
-  "hasCss": true,
-  "group": "strikethrough",
-  "previousTargets": [
-    "g-emphasis"
-  ]
-}

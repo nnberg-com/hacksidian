@@ -1,5 +1,6 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout {
   border: 2px solid transparent;
-  background: linear-gradient(var(--background-primary),var(--background-primary)) padding-box,linear-gradient(125deg,var(--callout-color),#c68f50) border-box;
+  background:
+    linear-gradient(var(--background-primary), var(--background-primary)) padding-box,
+    linear-gradient(90deg, var(--callout-color), var(--background-primary)) border-box;
 }
-

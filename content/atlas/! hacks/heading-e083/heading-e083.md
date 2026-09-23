@@ -31,9 +31,6 @@ Markdown-картинка создаёт img в абзаце. Следующий
 heading-e083
 ```
 
-###### Локальные зависимости
-
-- [assets/landscape.svg](<./assets/landscape.svg>)
 
 ```hacksidian-files
 heading-e083

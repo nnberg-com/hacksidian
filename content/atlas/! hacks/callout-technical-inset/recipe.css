@@ -5,6 +5,7 @@
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-title {
   padding: .6em .8em;
+  --hacksidian-icon-title-top: .6em;
   margin: 0;
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-content {

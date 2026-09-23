@@ -1,25 +1,19 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout {
   display: grid;
-  grid-template-columns: 8em minmax(0,1fr);
+  grid-template-columns: minmax(0, 8em) minmax(0, 1fr);
   gap: 1em;
+  align-items: first baseline;
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-title {
   margin: 0;
-  align-self: start;
+  padding: 0;
+  line-height: var(--line-height-normal);
+  align-items: baseline;
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-content {
-  border-inline-start: 1px solid var(--background-modifier-border);
-  padding-inline-start: 1em;
+  border: 0;
+  padding: 0;
 }
-@container preview (max-width:380px) {
-  :is(.markdown-preview-view, .markdown-source-view) .callout {
-    grid-template-columns: 1fr;
-  }
-}
-@container preview (max-width:380px) {
-  :is(.markdown-preview-view, .markdown-source-view) .callout-content {
-    border: 0;
-    padding: 0;
-  }
-}
-
+:is(.markdown-preview-view, .markdown-source-view) .callout-content > :first-child { margin-top: 0; }
+:is(.markdown-preview-view, .markdown-source-view) .callout-content > :last-child { margin-bottom: 0; }
+:is(.markdown-preview-view, .markdown-source-view) .callout-icon { align-self: center; }

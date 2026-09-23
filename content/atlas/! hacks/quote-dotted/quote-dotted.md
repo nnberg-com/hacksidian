@@ -29,9 +29,6 @@ quote-dotted
 quote-dotted
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-dotted

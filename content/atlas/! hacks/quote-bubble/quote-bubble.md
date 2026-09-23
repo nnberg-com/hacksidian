@@ -29,9 +29,6 @@ quote-bubble
 quote-bubble
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-bubble

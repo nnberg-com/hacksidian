@@ -29,9 +29,6 @@ quote-has-nesting
 quote-has-nesting
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-has-nesting

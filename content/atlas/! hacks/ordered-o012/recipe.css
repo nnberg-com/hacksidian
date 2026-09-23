@@ -1,0 +1,16 @@
+:is(.markdown-preview-view, .markdown-source-view) ol {
+  /**
+   * @parameter Текст перед номером
+   * @label-en Text before number
+   * @type text
+   * @default "Шаг"
+   * @maxlength 40
+   */
+  --hacksidian-list-ordered-o012-prefix: "Шаг";
+  list-style-type: decimal;
+  list-style-position: inside;
+  padding-inline-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) ol > li::marker {
+  content: var(--hacksidian-list-ordered-o012-prefix) " " counter(list-item) " — ";
+}

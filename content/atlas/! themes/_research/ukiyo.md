@@ -17,10 +17,10 @@ Commit: `e3115884c6fd30cff56381aee9eccffa1504b2e7`. Основной файл: `
 - Изображение без случайного перетаскивания — новая карточка
 - Встроенная заметка без отдельной рамки — новая карточка
 - Примечание без заголовка — новая карточка
-- [[atlas/! hacks/callout-technical-two-columns/callout-technical-two-columns|Две колонки внутри note]] — существующая карточка
+- [[atlas/! hacks/callin-technical-two-columns/callin-technical-two-columns|Две колонки внутри note]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
-- [[atlas/! hacks/note-quote-line/note-quote-line|Классическая цитата с линией]] — существующая карточка
+- [[atlas/! hacks/quote-line/quote-line|Классическая цитата с линией]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/table-e003/table-e003|Только горизонтали]] — существующая карточка
 - [[atlas/! hacks/table-e027/table-e027|Компактная таблица по центру]] — существующая карточка

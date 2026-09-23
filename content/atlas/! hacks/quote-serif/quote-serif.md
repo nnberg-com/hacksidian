@@ -29,9 +29,6 @@ quote-serif
 quote-serif
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-serif

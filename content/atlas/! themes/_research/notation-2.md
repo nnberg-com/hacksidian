@@ -16,7 +16,6 @@ Commit: `58e6626182fe78f71d6125c2bf1b07501f268f11`. Основной файл: `
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/heading-e027/heading-e027|Прямоугольная плашка]] — существующая карточка
 - [[atlas/! hacks/image-e047/image-e047|Растворение вниз]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/table-e003/table-e003|Только горизонтали]] — существующая карточка
 - [[atlas/! hacks/image-e006/image-e006|По центру]] — существующая карточка

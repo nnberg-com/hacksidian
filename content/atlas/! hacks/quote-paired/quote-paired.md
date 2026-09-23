@@ -32,9 +32,6 @@ quotes задаёт пару; open-quote и close-quote вставляют зн�
 quote-paired
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-paired

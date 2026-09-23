@@ -29,9 +29,6 @@ quote-top-mark
 quote-top-mark
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-top-mark

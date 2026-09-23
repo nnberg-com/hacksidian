@@ -29,9 +29,6 @@ image-e040
 image-e040
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e040

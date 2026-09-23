@@ -29,9 +29,6 @@ image-e017
 image-e017
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e017

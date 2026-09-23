@@ -29,10 +29,6 @@ nth-child различает соседние пункты стандартно�
 image-e072
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
-- [assets/landscape.svg](<./assets/landscape.svg>)
 
 ```hacksidian-files
 image-e072

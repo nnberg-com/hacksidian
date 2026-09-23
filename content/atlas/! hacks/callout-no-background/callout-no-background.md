@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_callout
-title: Выноска без фона
+title: Прозрачный фон
 category: callout
 sources: []
 format: markdown

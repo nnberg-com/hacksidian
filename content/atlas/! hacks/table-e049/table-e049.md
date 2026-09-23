@@ -33,9 +33,6 @@ table-e049
 table-e049
 ```
 
-###### Локальные зависимости
-
-- [assets/Onest.ttf](<./assets/Onest.ttf>)
 
 ```hacksidian-files
 table-e049

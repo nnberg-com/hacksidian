@@ -29,9 +29,6 @@ image-e074
 image-e074
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e074

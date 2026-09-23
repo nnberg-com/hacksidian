@@ -33,11 +33,6 @@ table-e055
 table-e055
 ```
 
-###### Локальные зависимости
-
-- [assets/blue.svg](<./assets/blue.svg>)
-- [assets/green.svg](<./assets/green.svg>)
-- [assets/orange.svg](<./assets/orange.svg>)
 
 ```hacksidian-files
 table-e055

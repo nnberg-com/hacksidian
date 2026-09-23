@@ -2,7 +2,7 @@
   "sourceSha256": "f612f1e8f36486fa57f3b8bd45f0c848409d5b168002e757a13c6d286a7b4c41",
   "recipes": [
     {
-      "id": "callout-board",
+      "id": "composition-board",
       "group": "callout",
       "changes": [
         {
@@ -63,7 +63,7 @@
       "questions": []
     },
     {
-      "id": "callout-catalogue",
+      "id": "composition-catalogue",
       "group": "callout",
       "changes": [
         {
@@ -124,7 +124,7 @@
       "questions": []
     },
     {
-      "id": "callout-chronicle",
+      "id": "composition-chronicle",
       "group": "callout",
       "changes": [
         {
@@ -161,7 +161,7 @@
       "questions": []
     },
     {
-      "id": "callout-compare",
+      "id": "composition-compare",
       "group": "callout",
       "changes": [
         {
@@ -198,7 +198,7 @@
       "questions": []
     },
     {
-      "id": "callout-dialogue",
+      "id": "composition-dialogue",
       "group": "callout",
       "changes": [
         {
@@ -253,7 +253,7 @@
       "questions": []
     },
     {
-      "id": "callout-dossier",
+      "id": "composition-dossier",
       "group": "callout",
       "changes": [
         {
@@ -314,7 +314,7 @@
       "questions": []
     },
     {
-      "id": "callout-film",
+      "id": "composition-film",
       "group": "callout",
       "changes": [
         {
@@ -345,7 +345,7 @@
       "questions": []
     },
     {
-      "id": "callout-leaders",
+      "id": "composition-leaders",
       "group": "callout",
       "changes": [
         {
@@ -388,7 +388,7 @@
       "questions": []
     },
     {
-      "id": "callout-letter",
+      "id": "composition-letter",
       "group": "callout",
       "changes": [
         {
@@ -413,7 +413,7 @@
       "questions": []
     },
     {
-      "id": "callout-margin",
+      "id": "composition-margin",
       "group": "callout",
       "changes": [
         {
@@ -438,7 +438,7 @@
       "questions": []
     },
     {
-      "id": "callout-photo",
+      "id": "composition-photo",
       "group": "callout",
       "changes": [
         {
@@ -463,7 +463,7 @@
       "questions": []
     },
     {
-      "id": "callout-qna",
+      "id": "composition-qna",
       "group": "callout",
       "changes": [
         {
@@ -512,7 +512,7 @@
       "questions": []
     },
     {
-      "id": "callout-receipt",
+      "id": "composition-receipt",
       "group": "callout",
       "changes": [
         {
@@ -573,7 +573,7 @@
       "questions": []
     },
     {
-      "id": "callout-social",
+      "id": "composition-social",
       "group": "callout",
       "changes": [
         {
@@ -622,7 +622,7 @@
       "questions": []
     },
     {
-      "id": "callout-storyboard",
+      "id": "composition-storyboard",
       "group": "callout",
       "changes": [
         {
@@ -691,7 +691,7 @@
       ]
     },
     {
-      "id": "callout-technical-code",
+      "id": "callin-technical-code",
       "group": "callout",
       "changes": [
         {
@@ -754,7 +754,7 @@
       "questions": []
     },
     {
-      "id": "callout-technical-custom",
+      "id": "composition-technical-custom",
       "group": "callout",
       "changes": [],
       "questions": []
@@ -883,7 +883,7 @@
       ]
     },
     {
-      "id": "callout-technical-formatted-title",
+      "id": "callin-technical-formatted-title",
       "group": "callout",
       "changes": [],
       "questions": []
@@ -927,7 +927,7 @@
       "questions": []
     },
     {
-      "id": "callout-technical-image",
+      "id": "callin-technical-image",
       "group": "callout",
       "changes": [],
       "questions": []
@@ -993,7 +993,7 @@
       ]
     },
     {
-      "id": "callout-technical-links",
+      "id": "callin-technical-links",
       "group": "callout",
       "changes": [],
       "questions": []
@@ -1017,7 +1017,7 @@
       "questions": []
     },
     {
-      "id": "callout-technical-nested",
+      "id": "callin-technical-nested",
       "group": "callout",
       "changes": [],
       "questions": [
@@ -1038,7 +1038,7 @@
       ]
     },
     {
-      "id": "callout-technical-nested-quiet",
+      "id": "callin-technical-nested-quiet",
       "group": "callout",
       "changes": [],
       "questions": [
@@ -1079,7 +1079,7 @@
       ]
     },
     {
-      "id": "callout-technical-paragraphs",
+      "id": "callin-technical-paragraphs",
       "group": "callout",
       "changes": [],
       "questions": []
@@ -1166,13 +1166,13 @@
       ]
     },
     {
-      "id": "callout-technical-steps",
+      "id": "callin-technical-steps",
       "group": "callout",
       "changes": [],
       "questions": []
     },
     {
-      "id": "callout-technical-subhead",
+      "id": "callin-technical-subhead",
       "group": "callout",
       "changes": [],
       "questions": []
@@ -1271,19 +1271,19 @@
       ]
     },
     {
-      "id": "callout-technical-two-columns",
+      "id": "callin-technical-two-columns",
       "group": "callout",
       "changes": [],
       "questions": []
     },
     {
-      "id": "callout-technical-with-code",
+      "id": "callin-technical-with-code",
       "group": "callout",
       "changes": [],
       "questions": []
     },
     {
-      "id": "callout-theorem",
+      "id": "composition-theorem",
       "group": "callout",
       "changes": [
         {
@@ -1314,7 +1314,7 @@
       "questions": []
     },
     {
-      "id": "callout-ticket",
+      "id": "composition-ticket",
       "group": "callout",
       "changes": [
         {
@@ -1387,7 +1387,7 @@
       "questions": []
     },
     {
-      "id": "callout-tree",
+      "id": "composition-tree",
       "group": "callout",
       "changes": [
         {
@@ -2284,49 +2284,49 @@
       "questions": []
     },
     {
-      "id": "emphasis-s28",
+      "id": "strike-s28",
       "group": "emphasis",
       "changes": [],
       "questions": []
     },
     {
-      "id": "emphasis-s29",
+      "id": "strike-s29",
       "group": "emphasis",
       "changes": [],
       "questions": []
     },
     {
-      "id": "emphasis-s30",
+      "id": "strike-s30",
       "group": "emphasis",
       "changes": [],
       "questions": []
     },
     {
-      "id": "emphasis-s31",
+      "id": "strike-s31",
       "group": "emphasis",
       "changes": [],
       "questions": []
     },
     {
-      "id": "emphasis-s32",
+      "id": "combinations-s32",
       "group": "emphasis",
       "changes": [],
       "questions": []
     },
     {
-      "id": "emphasis-s33",
+      "id": "combinations-s33",
       "group": "emphasis",
       "changes": [],
       "questions": []
     },
     {
-      "id": "emphasis-s34",
+      "id": "combinations-s34",
       "group": "emphasis",
       "changes": [],
       "questions": []
     },
     {
-      "id": "emphasis-s35",
+      "id": "combinations-s35",
       "group": "emphasis",
       "changes": [],
       "questions": []
@@ -2338,7 +2338,7 @@
       "questions": []
     },
     {
-      "id": "emphasis-s37",
+      "id": "strike-s37",
       "group": "emphasis",
       "changes": [],
       "questions": []
@@ -6762,229 +6762,229 @@
       "questions": []
     },
     {
-      "id": "list-e001",
+      "id": "unordered-e001",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e002",
+      "id": "unordered-e002",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e003",
+      "id": "unordered-e003",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e004",
+      "id": "unordered-e004",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e005",
+      "id": "unordered-e005",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e006",
+      "id": "unordered-e006",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e007",
+      "id": "unordered-e007",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e008",
+      "id": "unordered-e008",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e009",
+      "id": "unordered-e009",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e010",
+      "id": "unordered-e010",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e011",
+      "id": "unordered-e011",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e012",
+      "id": "unordered-e012",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e013",
+      "id": "unordered-e013",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e014",
+      "id": "unordered-e014",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e015",
+      "id": "unordered-e015",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e016",
+      "id": "unordered-e016",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e017",
+      "id": "unordered-e017",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e018",
+      "id": "unordered-e018",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e019",
+      "id": "unordered-e019",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e020",
+      "id": "unordered-e020",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e021",
+      "id": "unordered-e021",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e022",
+      "id": "unordered-e022",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e024",
+      "id": "unordered-e024",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e025",
+      "id": "unordered-e025",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e026",
+      "id": "unordered-e026",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e027",
+      "id": "unordered-e027",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e028",
+      "id": "unordered-e028",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e029",
+      "id": "unordered-e029",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e030",
+      "id": "unordered-e030",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e031",
+      "id": "unordered-e031",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e032",
+      "id": "unordered-e032",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e033",
+      "id": "unordered-e033",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e034",
+      "id": "unordered-e034",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e035",
+      "id": "unordered-e035",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e036",
+      "id": "unordered-e036",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e037",
+      "id": "unordered-e037",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e038",
+      "id": "unordered-e038",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e039",
+      "id": "unordered-e039",
       "group": "list",
       "changes": [
         {
@@ -6997,157 +6997,157 @@
       "questions": []
     },
     {
-      "id": "list-e040",
+      "id": "unordered-e040",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e041",
+      "id": "unordered-e041",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e042",
+      "id": "unordered-e042",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e043",
+      "id": "unordered-e043",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e044",
+      "id": "unordered-e044",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e045",
+      "id": "unordered-e045",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e046",
+      "id": "unordered-e046",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e047",
+      "id": "unordered-e047",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e048",
+      "id": "unordered-e048",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e049",
+      "id": "unordered-e049",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e050",
+      "id": "unordered-e050",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e051",
+      "id": "unordered-e051",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e052",
+      "id": "unordered-e052",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e053",
+      "id": "unordered-e053",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e054",
+      "id": "unordered-e054",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e055",
+      "id": "unordered-e055",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e056",
+      "id": "unordered-e056",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e058",
+      "id": "unordered-e058",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e059",
+      "id": "unordered-e059",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e060",
+      "id": "unordered-e060",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e061",
+      "id": "unordered-e061",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e062",
+      "id": "unordered-e062",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e063",
+      "id": "unordered-e063",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e065",
+      "id": "unordered-e065",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e067",
+      "id": "unordered-e067",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e069",
+      "id": "unordered-e069",
       "group": "list",
       "changes": [
         {
@@ -7160,235 +7160,235 @@
       "questions": []
     },
     {
-      "id": "list-e070",
+      "id": "unordered-e070",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e072",
+      "id": "unordered-e072",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e075",
+      "id": "unordered-e075",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e076",
+      "id": "unordered-e076",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e077",
+      "id": "unordered-e077",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e078",
+      "id": "unordered-e078",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e080",
+      "id": "unordered-e080",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e081",
+      "id": "unordered-e081",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e082",
+      "id": "unordered-e082",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e083",
+      "id": "unordered-e083",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e085",
+      "id": "unordered-e085",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-e086",
+      "id": "unordered-e086",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o001",
+      "id": "ordered-o001",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o002",
+      "id": "ordered-o002",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o003",
+      "id": "ordered-o003",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o004",
+      "id": "ordered-o004",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o005",
+      "id": "ordered-o005",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o006",
+      "id": "ordered-o006",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o007",
+      "id": "ordered-o007",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o008",
+      "id": "ordered-o008",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o009",
+      "id": "ordered-o009",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o010",
+      "id": "ordered-o010",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o011",
+      "id": "ordered-o011",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o012",
+      "id": "ordered-o012",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o013",
+      "id": "ordered-o013",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o014",
+      "id": "ordered-o014",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o015",
+      "id": "ordered-o015",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o016",
+      "id": "ordered-o016",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o017",
+      "id": "ordered-o017",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o018",
+      "id": "ordered-o018",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o019",
+      "id": "ordered-o019",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o020",
+      "id": "ordered-o020",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o021",
+      "id": "ordered-o021",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o022",
+      "id": "ordered-o022",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o023",
+      "id": "ordered-o023",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o024",
+      "id": "ordered-o024",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o025",
+      "id": "ordered-o025",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o026",
+      "id": "ordered-o026",
       "group": "list",
       "changes": [],
       "questions": []
     },
     {
-      "id": "list-ordered-o027",
+      "id": "ordered-o027",
       "group": "list",
       "changes": [],
       "questions": []
@@ -7730,7 +7730,7 @@
       "questions": []
     },
     {
-      "id": "note-anchor",
+      "id": "heading-anchor",
       "group": "note",
       "changes": [],
       "questions": []
@@ -7742,31 +7742,31 @@
       "questions": []
     },
     {
-      "id": "note-book",
+      "id": "composition-book",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-cards",
+      "id": "unordered-cards",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-code-dark",
+      "id": "code-dark",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-code-language",
+      "id": "code-language",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-code-panel",
+      "id": "code-panel",
       "group": "note",
       "changes": [
         {
@@ -7787,37 +7787,37 @@
       ]
     },
     {
-      "id": "note-code-scroll",
+      "id": "code-scroll",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-code-stripes",
+      "id": "code-stripes",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-code-wrap",
+      "id": "code-wrap",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-color-emphasis",
+      "id": "emphasis-color-emphasis",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-context-list",
+      "id": "text-context-list",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-context-quote",
+      "id": "quote-context-quote",
       "group": "note",
       "changes": [
         {
@@ -7830,7 +7830,7 @@
       "questions": []
     },
     {
-      "id": "note-context-strong",
+      "id": "unordered-context-strong",
       "group": "note",
       "changes": [],
       "questions": []
@@ -7842,31 +7842,31 @@
       "questions": []
     },
     {
-      "id": "note-deleted",
+      "id": "strike-deleted",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-dotted",
+      "id": "composition-dotted",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-double-emphasis",
+      "id": "combinations-double-emphasis",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-dropcap",
+      "id": "text-dropcap-accent",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-editorial",
+      "id": "composition-editorial",
       "group": "note",
       "changes": [
         {
@@ -7879,109 +7879,109 @@
       "questions": []
     },
     {
-      "id": "note-endmark",
+      "id": "text-endmark",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-fade-rule",
+      "id": "hr-fade-rule",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-firstline",
+      "id": "text-firstline-accent",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-heading-band",
+      "id": "heading-band",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-hierarchy",
+      "id": "heading-hierarchy",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-highlight",
+      "id": "emphasis-highlight",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-hyphens",
+      "id": "text-hyphens",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-image-caption",
+      "id": "image-caption",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-image-crop",
+      "id": "image-crop",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-image-float",
+      "id": "image-float",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-image-fluid",
+      "id": "image-fluid",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-image-frame",
+      "id": "image-frame",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-image-gallery",
+      "id": "image-gallery",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-image-linked",
+      "id": "image-linked",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-image-strip",
+      "id": "image-strip",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-indent",
+      "id": "text-indent-book",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-index-card",
+      "id": "composition-index-card",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-inline-code",
+      "id": "inline-code-inline-code",
       "group": "note",
       "changes": [
         {
@@ -8002,25 +8002,25 @@
       ]
     },
     {
-      "id": "note-lead",
+      "id": "text-lead-color",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-link-button",
+      "id": "link-button",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-link-domain",
+      "id": "link-domain",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-link-focus",
+      "id": "link-focus",
       "group": "note",
       "changes": [
         {
@@ -8033,109 +8033,109 @@
       "questions": []
     },
     {
-      "id": "note-link-title",
+      "id": "link-title",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-link-type",
+      "id": "link-type",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-link-underline",
+      "id": "link-underline",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-link-visited",
+      "id": "link-visited",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-list-columns",
+      "id": "unordered-columns",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-list-inline",
+      "id": "unordered-inline",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-list-levels",
+      "id": "unordered-levels",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-list-markers",
+      "id": "unordered-markers",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-list-rows",
+      "id": "unordered-rows",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-list-tree",
+      "id": "unordered-tree",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-magazine",
+      "id": "composition-magazine",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-manual",
+      "id": "composition-manual",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-numbers",
+      "id": "heading-numbers",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-ornament",
+      "id": "hr-ornament",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-paper",
+      "id": "composition-paper",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-print-flow",
+      "id": "text-print-flow",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-print-links",
+      "id": "link-print-links",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-quote-frame",
+      "id": "quote-frame",
       "group": "note",
       "changes": [
         {
@@ -8148,7 +8148,7 @@
       "questions": []
     },
     {
-      "id": "note-quote-glyph",
+      "id": "quote-glyph",
       "group": "note",
       "changes": [],
       "questions": [
@@ -8162,7 +8162,7 @@
       ]
     },
     {
-      "id": "note-quote-line",
+      "id": "quote-line",
       "group": "note",
       "changes": [
         {
@@ -8175,7 +8175,7 @@
       "questions": []
     },
     {
-      "id": "note-quote-margin",
+      "id": "quote-margin",
       "group": "note",
       "changes": [],
       "questions": [
@@ -8189,7 +8189,7 @@
       ]
     },
     {
-      "id": "note-quote-nested",
+      "id": "quote-nested",
       "group": "note",
       "changes": [
         {
@@ -8210,7 +8210,7 @@
       ]
     },
     {
-      "id": "note-quote-panel",
+      "id": "quote-panel",
       "group": "note",
       "changes": [],
       "questions": [
@@ -8224,7 +8224,7 @@
       ]
     },
     {
-      "id": "note-quote-pull",
+      "id": "quote-pull-accent",
       "group": "note",
       "changes": [
         {
@@ -8237,7 +8237,7 @@
       "questions": []
     },
     {
-      "id": "note-quote-title",
+      "id": "quote-title",
       "group": "note",
       "changes": [
         {
@@ -8258,55 +8258,55 @@
       ]
     },
     {
-      "id": "note-reference",
+      "id": "unordered-reference",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-responsive",
+      "id": "composition-responsive",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-rhythm",
+      "id": "text-rhythm",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-rule",
+      "id": "heading-rule",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-selection",
+      "id": "text-selection-custom",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-smallcaps",
+      "id": "emphasis-smallcaps",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-steps",
+      "id": "ordered-steps",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-sticky-heading",
+      "id": "heading-sticky-heading",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-table-hover",
+      "id": "table-hover",
       "group": "note",
       "changes": [
         {
@@ -8319,7 +8319,7 @@
       "questions": []
     },
     {
-      "id": "note-table-ledger",
+      "id": "table-ledger",
       "group": "note",
       "changes": [
         {
@@ -8332,7 +8332,7 @@
       "questions": []
     },
     {
-      "id": "note-table-sticky",
+      "id": "table-sticky",
       "group": "note",
       "changes": [
         {
@@ -8359,7 +8359,7 @@
       ]
     },
     {
-      "id": "note-table-zebra",
+      "id": "table-zebra",
       "group": "note",
       "changes": [
         {
@@ -8372,331 +8372,331 @@
       "questions": []
     },
     {
-      "id": "note-tasks",
+      "id": "task-tasks",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-tasks-count",
+      "id": "task-tasks-count",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-timeline",
+      "id": "ordered-timeline",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-underline",
+      "id": "emphasis-underline",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "note-wrap",
+      "id": "text-wrap",
       "group": "note",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e01",
+      "id": "taskplus-e01",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e02",
+      "id": "taskplus-e02",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e03",
+      "id": "taskplus-e03",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e04",
+      "id": "taskplus-e04",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e05",
+      "id": "taskplus-e05",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e06",
+      "id": "taskplus-e06",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e07",
+      "id": "taskplus-e07",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e08",
+      "id": "taskplus-e08",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e09",
+      "id": "taskplus-e09",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e10",
+      "id": "taskplus-e10",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e11",
+      "id": "taskplus-e11",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e12",
+      "id": "taskplus-e12",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e13",
+      "id": "taskplus-e13",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e14",
+      "id": "taskplus-e14",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e15",
+      "id": "taskplus-e15",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e16",
+      "id": "taskplus-e16",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e17",
+      "id": "taskplus-e17",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e18",
+      "id": "taskplus-e18",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e19",
+      "id": "taskplus-e19",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e20",
+      "id": "taskplus-e20",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e21",
+      "id": "taskplus-e21",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e22",
+      "id": "taskplus-e22",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e23",
+      "id": "taskplus-e23",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e24",
+      "id": "taskplus-e24",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e25",
+      "id": "taskplus-e25",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e26",
+      "id": "taskplus-e26",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e27",
+      "id": "taskplus-e27",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e28",
+      "id": "taskplus-e28",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e29",
+      "id": "taskplus-e29",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e30",
+      "id": "taskplus-e30",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e31",
+      "id": "taskplus-e31",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e32",
+      "id": "taskplus-e32",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e33",
+      "id": "taskplus-e33",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e34",
+      "id": "taskplus-e34",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e35",
+      "id": "taskplus-e35",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e36",
+      "id": "taskplus-e36",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e37",
+      "id": "taskplus-e37",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e38",
+      "id": "taskplus-e38",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e39",
+      "id": "taskplus-e39",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e40",
+      "id": "taskplus-e40",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e41",
+      "id": "taskplus-e41",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e42",
+      "id": "taskplus-e42",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e43",
+      "id": "taskplus-e43",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e44",
+      "id": "taskplus-e44",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e45",
+      "id": "taskplus-e45",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e46",
+      "id": "taskplus-e46",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e47",
+      "id": "taskplus-e47",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e48",
+      "id": "taskplus-e48",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e49",
+      "id": "taskplus-e49",
       "group": "pseudo-task",
       "changes": [],
       "questions": []
     },
     {
-      "id": "pseudo-task-e50",
+      "id": "taskplus-e50",
       "group": "pseudo-task",
       "changes": [],
       "questions": []

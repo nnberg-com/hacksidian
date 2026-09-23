@@ -1,20 +1,9 @@
 ---
-group: code
 snippet: hacksidian-17-code.css
 title: Блоки кода
 ---
 
-# Блоки кода
-
-```hacksidian-category-count
-code
-```
-
-Значение поля `category`: `code`.
-
-[[atlas/! categories/! categories|Все категории]] · [[atlas/atlas|Атлас приёмов]]
-
-## Приёмы
+# Блоки кода → `$=dv.el("code", dv.app.vault.getAbstractFileByPath(dv.currentFilePath).basename)` • `$=const file = dv.app.vault.getAbstractFileByPath(dv.currentFilePath); (dv.app.vault.getAbstractFileByPath(file.parent.path.replace(/! categories$/, "! hacks"))?.children ?? []).filter(f => f.children && (f.name === file.basename || f.name.startsWith(file.basename + "-"))).length`
 
 ```hacksidian-category
 code

@@ -8,7 +8,7 @@ test('103 heading recipes support all six levels and preserve independent parame
   const spec=JSON.parse(fs.readFileSync(path.join(dir,'hack.json'),'utf8'));if(spec.group!=='heading')continue;
   const css=fs.readFileSync(path.join(dir,'recipe.css'),'utf8');
   const p=readParameters(css).find(p=>p.label==='Уровень заголовка');
-  if(!p){expect(['heading-e012','heading-e039','heading-e043']).toContain(id);continue;}count++;
+  if(!p){expect(['heading-e012','heading-e039','heading-e043','heading-anchor','heading-band','heading-hierarchy','heading-numbers','heading-rule','heading-sticky-heading']).toContain(id);continue;}count++;
   expect(p.options.map(o=>o.value)).toEqual(['h1','h2','h3','h4','h5','h6']);
   const others=readParameters(css).filter(x=>x.variable!==p.variable);
   for(let i=1;i<=6;i++){

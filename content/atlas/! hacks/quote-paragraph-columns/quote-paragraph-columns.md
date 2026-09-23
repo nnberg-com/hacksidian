@@ -32,9 +32,6 @@ Grid на blockquote использует абзацы renderer-а как яче
 quote-paragraph-columns
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-paragraph-columns

@@ -1,4 +1,0 @@
-:is(.markdown-preview-view, .markdown-source-view) .callout:is([data-callout="tip"],[data-callout="hint"],[data-callout="important"]) {
-  border-block-start: 3px solid var(--callout-color);
-}
-

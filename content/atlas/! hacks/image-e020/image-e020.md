@@ -29,9 +29,6 @@ image-e020
 image-e020
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e020

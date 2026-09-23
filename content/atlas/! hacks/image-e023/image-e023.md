@@ -29,9 +29,6 @@ image-e023
 image-e023
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e023

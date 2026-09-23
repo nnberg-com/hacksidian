@@ -29,9 +29,6 @@ box-shadow не требует дополнительной обёртки.
 quote-shadow
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-shadow

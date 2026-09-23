@@ -32,18 +32,6 @@ link-e089
 - Основа: пользовательский материал «2026-09-08 • Возможности оформления ссылок.md» из хранилища CallMeRed.
 
 
-###### Локальные зависимости
-
-- [assets/Onest.ttf](<./assets/Onest.ttf>)
-- [assets/example.txt](<./assets/example.txt>)
-- [assets/example.zip](<./assets/example.zip>)
-- [assets/link.svg](<./assets/link.svg>)
-- [assets/marker.svg](<./assets/marker.svg>)
-- [assets/preview.svg](<./assets/preview.svg>)
-- [assets/sample.pdf](<./assets/sample.pdf>)
-- [assets/index.html](<./assets/index.html>)
-- [assets/styles.css](<./assets/styles.css>)
-- [assets/visited.html](<./assets/visited.html>)
 
 ```hacksidian-files
 link-e089

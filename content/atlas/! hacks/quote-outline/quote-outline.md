@@ -29,9 +29,6 @@ quote-outline
 quote-outline
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-outline

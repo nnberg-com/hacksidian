@@ -23,28 +23,16 @@ callout-technical-inline
 Очень короткое примечание.
 
 > Как работает
-В GitHub заголовок и абзац — соседи. Они становятся строчными; разделитель создаётся CSS.
+В Obsidian заголовок содержит отдельные контейнеры иконки и названия. `inline-flex` удерживает их вместе с разделителем в одной строке, а контейнер содержимого и абзац становятся строчными. Текст примечания продолжается сразу после заголовка. Поддерживается также разметка GitHub Alerts.
+
+> Ограничения
+Приём предназначен для короткого примечания из одного абзаца. Если ширины не хватает, текст переносится естественным образом.
 ```
 
 ```hacksidian-sources
 callout-technical-inline
 ```
 
-###### Локальные зависимости
-
-- [assets/abstract.svg](<./assets/abstract.svg>)
-- [assets/bug.svg](<./assets/bug.svg>)
-- [assets/danger.svg](<./assets/danger.svg>)
-- [assets/example.svg](<./assets/example.svg>)
-- [assets/failure.svg](<./assets/failure.svg>)
-- [assets/info.svg](<./assets/info.svg>)
-- [assets/note.svg](<./assets/note.svg>)
-- [assets/question.svg](<./assets/question.svg>)
-- [assets/quote.svg](<./assets/quote.svg>)
-- [assets/success.svg](<./assets/success.svg>)
-- [assets/tip.svg](<./assets/tip.svg>)
-- [assets/todo.svg](<./assets/todo.svg>)
-- [assets/warning.svg](<./assets/warning.svg>)
 
 ```hacksidian-files
 callout-technical-inline

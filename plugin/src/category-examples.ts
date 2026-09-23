@@ -14,7 +14,7 @@ export class CategoryExamples extends MarkdownRenderChild {
   private signature = '';
   private stopped = false;
   private epoch = 0;
-  constructor(el: HTMLElement, private plugin: Plugin, private sourcePath: string, private category: string, private controls?: FavouriteControls, private countOnly = false) { super(el); }
+  constructor(el: HTMLElement, private plugin: Plugin, private sourcePath: string, private category: string, private controls?: FavouriteControls) { super(el); }
   onload(): void {
     const refresh = () => { clearTimeout(this.timer); this.timer = setTimeout(() => void this.render(), 150); };
     this.registerEvent(this.plugin.app.metadataCache.on('changed', refresh));
@@ -36,11 +36,6 @@ export class CategoryExamples extends MarkdownRenderChild {
       if (this.stopped || signature === this.signature) return;
       this.epoch = epoch;
       this.signature = signature;
-      if (this.countOnly) {
-        this.containerEl.empty();
-        this.containerEl.createEl('p', {text: `Приёмов: ${cards.length}`, cls: 'hacksidian-category-count'});
-        return;
-      }
       if (this.owner) this.removeChild(this.owner);
       const owner = new Component(); this.owner = owner; this.addChild(owner); this.containerEl.empty();
       if (!cards.length) { this.containerEl.createEl('p',{text:'В этой категории пока нет сниппетов.'}); return; }

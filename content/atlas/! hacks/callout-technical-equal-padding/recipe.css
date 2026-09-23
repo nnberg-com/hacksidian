@@ -1,0 +1,20 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  padding-block: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:not(.is-collapsed) > .callout-content:not(:empty) {
+  margin-block-start: .75em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :first-child {
+  margin-block-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :last-child {
+  margin-block-end: 0;
+}

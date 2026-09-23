@@ -32,9 +32,6 @@ orphans и widows защищают строки; break-inside:auto позвол�
 quote-pagination
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-pagination

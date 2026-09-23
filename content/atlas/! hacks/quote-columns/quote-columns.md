@@ -29,9 +29,6 @@ column-count раскладывает поток без дополнительн
 quote-columns
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-columns

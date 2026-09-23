@@ -32,20 +32,19 @@ Commit: `9d24a27f53ac03dccccd4a4d211eda45320791ff`. Основной файл: `
 - [[atlas/! hacks/table-e008/table-e008|Полосы по столбцам]] — существующая карточка
 - [[atlas/! hacks/task-e13/task-e13|Зачёркивание]] — существующая карточка
 - [[atlas/! hacks/emphasis-s16/emphasis-s16|Рамка]] — существующая карточка
-- [[atlas/! hacks/note-ornament/note-ornament|Орнамент вместо горизонтальной черты]] — существующая карточка
+- [[atlas/! hacks/hr-ornament/hr-ornament|Орнамент вместо горизонтальной черты]] — существующая карточка
 - [[atlas/! hacks/text-dropcap/text-dropcap|Буквица с обтеканием]] — существующая карточка
 - [[atlas/! hacks/text-raised-initial/text-raised-initial|Приподнятая начальная буква]] — существующая карточка
-- [[atlas/! hacks/emphasis-s37/emphasis-s37|Псевдоспойлер]] — существующая карточка
-- [[atlas/! hacks/callout-technical-two-columns/callout-technical-two-columns|Две колонки внутри note]] — существующая карточка
-- [[atlas/! hacks/note-list-markers/note-list-markers|Цвет и форма маркеров]] — существующая карточка
+- [[atlas/! hacks/strike-s37/strike-s37|Псевдоспойлер]] — существующая карточка
+- [[atlas/! hacks/callin-technical-two-columns/callin-technical-two-columns|Две колонки внутри note]] — существующая карточка
+- [[atlas/! hacks/unordered-markers/unordered-markers|Цвет и форма маркеров]] — существующая карточка
 - [[atlas/! hacks/table-e012/table-e012|Скруглённая общая рамка]] — существующая карточка
 - [[atlas/! hacks/image-e047/image-e047|Растворение вниз]] — существующая карточка
 - [[atlas/! hacks/code-e017/code-e017|Горизонтальная прокрутка]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
 - [[atlas/! hacks/image-e063/image-e063|Обтекание справа]] — существующая карточка
-- [[atlas/! hacks/callout-margin/callout-margin|Заметка на полях]] — существующая карточка
+- [[atlas/! hacks/composition-margin/composition-margin|Заметка на полях]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
@@ -86,7 +85,7 @@ Commit: `9d24a27f53ac03dccccd4a4d211eda45320791ff`. Основной файл: `
 | Scrollbars | `show-scrollbars` | Есть карточка | Подтверждено правилом CSS. Рабочая область без видимых полос прокрутки | [код](https://github.com/jopp-gh/Obsidian-Dune84/blob/9d24a27f53ac03dccccd4a4d211eda45320791ff/theme.css#L759) |
 | Dune accent | `dune-accent-col` | Палитра | Вариант цветов темы: --interactive-accent. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/jopp-gh/Obsidian-Dune84/blob/9d24a27f53ac03dccccd4a4d211eda45320791ff/theme.css#L767) |
 | Tasks strikeout | `show-strikeout` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/task-e13/task-e13\|Зачёркивание]] | [код](https://github.com/jopp-gh/Obsidian-Dune84/blob/9d24a27f53ac03dccccd4a4d211eda45320791ff/theme.css#L782) |
-| List marker | `show-ls-marker` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-list-markers/note-list-markers\|Цвет и форма маркеров]] | [код](https://github.com/jopp-gh/Obsidian-Dune84/blob/9d24a27f53ac03dccccd4a4d211eda45320791ff/theme.css#L789) |
+| List marker | `show-ls-marker` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/unordered-markers/unordered-markers\|Цвет и форма маркеров]] | [код](https://github.com/jopp-gh/Obsidian-Dune84/blob/9d24a27f53ac03dccccd4a4d211eda45320791ff/theme.css#L789) |
 | Tables, edgy | `edgy-tables` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/table-e012/table-e012\|Скруглённая общая рамка]] | [код](https://github.com/jopp-gh/Obsidian-Dune84/blob/9d24a27f53ac03dccccd4a4d211eda45320791ff/theme.css#L796) |
 | Banners, edgy | `edgy-banners` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-e047/image-e047\|Растворение вниз]] | [код](https://github.com/jopp-gh/Obsidian-Dune84/blob/9d24a27f53ac03dccccd4a4d211eda45320791ff/theme.css#L803) |
 | Simple Mini-Admonitions | `monoch-admo` | Палитра | Выбор согласованной палитры и контраста темы. CSS задаёт цвета поверхностей, текста и акцентов; это контекст рекомендации темы.  | [код](https://github.com/jopp-gh/Obsidian-Dune84/blob/9d24a27f53ac03dccccd4a4d211eda45320791ff/theme.css#L811) |

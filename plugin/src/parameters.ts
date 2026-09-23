@@ -5,6 +5,7 @@ export interface CssParameter {
   label: string;
   labelEn?: string;
   type: 'number' | 'select' | 'text' | 'color';
+  control?: 'checkbox';
   value: string;
   default: string;
   unit: string;
@@ -58,8 +59,11 @@ function definitions(css: string): { parameter: CssParameter; declaration: Decla
       if (!safeValue(value) || !label) throw Error('Invalid @option');
       return { value, label, labelEn };
     });
+    const control = one('control');
+    if (control !== undefined && (control !== 'checkbox' || type !== 'select' || options.length !== 2)) throw Error('Checkbox requires exactly two select options');
     const parameter: CssParameter = {
       variable: declaration.prop, label: one('parameter')!, labelEn: one('label-en'), type,
+      ...(control === 'checkbox' ? {control} : {}),
       value: declaration.value, default: one('default') ?? '',
       unit: one('unit') ?? '', min: numeric('min'), max: numeric('max'), step: numeric('step'),
       maxLength: numeric('maxlength') ?? 40, options,

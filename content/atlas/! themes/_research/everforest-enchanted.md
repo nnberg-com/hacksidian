@@ -31,7 +31,6 @@ Commit: `9dacd9c655427f36cb14e2e5ed1607629732e577`. Основной файл: `
 - [[atlas/! hacks/table-e012/table-e012|Скруглённая общая рамка]] — существующая карточка
 - [[atlas/! hacks/table-e027/table-e027|Компактная таблица по центру]] — существующая карточка
 - [[atlas/! hacks/heading-e019/heading-e019|Черта на всю ширину]] — существующая карточка
-- [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion|Уважать уменьшение движения]] — существующая карточка
 - [[atlas/! hacks/image-e076/image-e076|Размытие снимается]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/image-e062/image-e062|Обтекание слева]] — существующая карточка
@@ -44,7 +43,7 @@ Commit: `9dacd9c655427f36cb14e2e5ed1607629732e577`. Основной файл: `
 - [[atlas/! hacks/table-e003/table-e003|Только горизонтали]] — существующая карточка
 - [[atlas/! hacks/image-e019/image-e019|Приподнятая карточка]] — существующая карточка
 - [[atlas/! hacks/image-e006/image-e006|По центру]] — существующая карточка
-- [[atlas/! hacks/note-print-flow/note-print-flow|Разрывы страниц и висячие строки]] — существующая карточка
+- [[atlas/! hacks/text-print-flow/text-print-flow|Разрывы страниц и висячие строки]] — существующая карточка
 
 ## Реестр настроек
 
@@ -54,7 +53,6 @@ Commit: `9dacd9c655427f36cb14e2e5ed1607629732e577`. Основной файл: `
 |---|---|---|---|---|
 | Enable highlighted active folders | `highlighted-folders` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Фон у раскрытой папки | [код](https://github.com/fireisgood/obsidian-everforest-enchanted/blob/9dacd9c655427f36cb14e2e5ed1607629732e577/theme.css#L1358) |
 | Disable stacked tabs floating line numbers | `stacked-panes-gutter-disable-float` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Плавающая колонка номеров строк | [код](https://github.com/fireisgood/obsidian-everforest-enchanted/blob/9dacd9c655427f36cb14e2e5ed1607629732e577/theme.css#L1389) |
-| Disable menu animations | `disable-menu-animations` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion\|Уважать уменьшение движения]] | [код](https://github.com/fireisgood/obsidian-everforest-enchanted/blob/9dacd9c655427f36cb14e2e5ed1607629732e577/theme.css#L1400) |
 | Enable menu blur | `enable-menu-blur` | Есть карточка | Подтверждено правилом CSS. Размытие фона за всплывающими панелями | [код](https://github.com/fireisgood/obsidian-everforest-enchanted/blob/9dacd9c655427f36cb14e2e5ed1607629732e577/theme.css#L1405) |
 | Animate vim cursor | `vim-curor-animate` | Есть карточка | Настройка движения конкретного элемента — Vim-курсора. Скорость и отключение анимации темы | [код](https://github.com/fireisgood/obsidian-everforest-enchanted/blob/9dacd9c655427f36cb14e2e5ed1607629732e577/theme.css#L1423) |
 | Headers - h1 underline | `h1-underline` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/heading-e019/heading-e019\|Черта на всю ширину]] | [код](https://github.com/fireisgood/obsidian-everforest-enchanted/blob/9dacd9c655427f36cb14e2e5ed1607629732e577/theme.css#L1500) |

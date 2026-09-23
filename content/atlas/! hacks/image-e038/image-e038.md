@@ -32,9 +32,6 @@ image-e038
 image-e038
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e038

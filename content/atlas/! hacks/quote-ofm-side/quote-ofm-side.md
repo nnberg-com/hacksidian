@@ -29,9 +29,6 @@ Grid раскладывает существующие title и content; кон�
 quote-ofm-side
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-ofm-side

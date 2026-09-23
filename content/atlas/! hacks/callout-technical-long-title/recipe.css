@@ -8,6 +8,11 @@
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-icon {
   flex-shrink: 0;
-  margin-top: .15em;
+  margin: 0;
+  height: 1lh;
+  display: flex;
+  align-items: center;
 }
 
+
+:is(.markdown-preview-view, .markdown-source-view) .callout-icon::after { content: none; }

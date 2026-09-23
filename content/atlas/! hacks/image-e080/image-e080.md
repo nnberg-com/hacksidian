@@ -32,9 +32,6 @@ view timeline управляет opacity и смещением.
 image-e080
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e080

@@ -24,12 +24,10 @@ Commit: `8e1c7429e227083438be61f511557879df388b7d`. Основной файл: `
 - Встроенная заметка без повторного заголовка — новая карточка
 - Примечание без заголовка — новая карточка
 - [[atlas/! hacks/text-justify/text-justify|Выравнивание по ширине]] — существующая карточка
-- [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion|Уважать уменьшение движения]] — существующая карточка
-- [[atlas/! hacks/emphasis-s37/emphasis-s37|Псевдоспойлер]] — существующая карточка
+- [[atlas/! hacks/strike-s37/strike-s37|Псевдоспойлер]] — существующая карточка
 - [[atlas/! hacks/callout-technical-solid/callout-technical-solid|Плотная цветная панель]] — существующая карточка
 - [[atlas/! hacks/task-e04/task-e04|Круг с галочкой]] — существующая карточка
 - [[atlas/! hacks/image-e006/image-e006|По центру]] — существующая карточка
-- [[atlas/! hacks/interface-active-tab/interface-active-tab|Выразительная активная вкладка]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
@@ -39,7 +37,7 @@ Commit: `8e1c7429e227083438be61f511557879df388b7d`. Основной файл: `
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
 - [[atlas/! hacks/table-e022/table-e022|Короткая шапка капителью]] — существующая карточка
 - [[atlas/! hacks/table-e027/table-e027|Компактная таблица по центру]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 
 ## Реестр настроек
 
@@ -57,7 +55,6 @@ Commit: `8e1c7429e227083438be61f511557879df388b7d`. Основной файл: `
 | Disable styling for Bases | `no-bases` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Упрощённый заголовок Bases | [код](https://github.com/seniblue/Underwater/blob/8e1c7429e227083438be61f511557879df388b7d/theme.css#L2714) |
 | Disable h5 header centering | `no-h5` | Типографический параметр | Выравнивание H5 по центру; text-align.  | [код](https://github.com/seniblue/Underwater/blob/8e1c7429e227083438be61f511557879df388b7d/theme.css#L2719) |
 | Disable image/videos/embeds/etc. + Tables centering | `no-center` | Есть карточка | Сопоставление уточнено после проверки конкретной цели CSS. [[atlas/! hacks/image-e006/image-e006\|По центру]] | [код](https://github.com/seniblue/Underwater/blob/8e1c7429e227083438be61f511557879df388b7d/theme.css#L2724) |
-| Disable slight image animation on hover | `no-animation` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/meta-reduced-motion/meta-reduced-motion\|Уважать уменьшение движения]] | [код](https://github.com/seniblue/Underwater/blob/8e1c7429e227083438be61f511557879df388b7d/theme.css#L2729) |
 | Disable slight button zoom on hover | `no-button` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Скорость и отключение анимации темы | [код](https://github.com/seniblue/Underwater/blob/8e1c7429e227083438be61f511557879df388b7d/theme.css#L2734) |
 | Allow properties to be visible in reading mode as well | `visible-properties` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Скрытые свойства в режиме чтения | [код](https://github.com/seniblue/Underwater/blob/8e1c7429e227083438be61f511557879df388b7d/theme.css#L2739) |
 | Disable checkboxes | `no-checkboxes` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Состояния задач по символу в квадратных скобках | [код](https://github.com/seniblue/Underwater/blob/8e1c7429e227083438be61f511557879df388b7d/theme.css#L2744) |

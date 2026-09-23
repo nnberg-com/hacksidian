@@ -24,19 +24,18 @@ Commit: `06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0`. Основной файл: `
 - Служебные элементы появляются при наведении — новая карточка
 - Ширина текстовой полосы заметки — новая карточка
 - Плавающий заголовок панели заметки — новая карточка
-- [[atlas/! hacks/note-indent/note-indent|Красная строка]] — существующая карточка
+- [[atlas/! hacks/text-indent-book/text-indent-book|Красная строка]] — существующая карточка
 - [[atlas/! hacks/heading-e027/heading-e027|Прямоугольная плашка]] — существующая карточка
 - [[atlas/! hacks/emphasis-s02/emphasis-s02|Цветной bold]] — существующая карточка
 - [[atlas/! hacks/emphasis-s03/emphasis-s03|Цвет вместо курсива]] — существующая карточка
-- [[atlas/! hacks/interface-quiet-actions/interface-quiet-actions|Тихая панель действий]] — существующая карточка
 - [[atlas/! hacks/heading-e007/heading-e007|Цвет всего заголовка]] — существующая карточка
 - [[atlas/! hacks/code-e020/code-e020|Пробелы в конце строки]] — существующая карточка
-- [[atlas/! hacks/note-image-fluid/note-image-fluid|Изображение по ширине заметки]] — существующая карточка
-- [[atlas/! hacks/note-selection/note-selection|Собственный цвет выделения мышью]] — существующая карточка
+- [[atlas/! hacks/image-fluid/image-fluid|Изображение по ширине заметки]] — существующая карточка
+- [[atlas/! hacks/text-selection-custom/text-selection-custom|Собственный цвет выделения мышью]] — существующая карточка
 - [[atlas/! hacks/table-e007/table-e007|Зебра по строкам]] — существующая карточка
 - [[atlas/! hacks/image-e016/image-e016|Мягкое скругление]] — существующая карточка
 - [[atlas/! hacks/table-e002/table-e002|Полная сетка]] — существующая карточка
-- [[atlas/! hacks/note-list-tree/note-list-tree|Линии вложенного плана]] — существующая карточка
+- [[atlas/! hacks/unordered-tree/unordered-tree|Линии вложенного плана]] — существующая карточка
 - [[atlas/! hacks/metadata-no-add/metadata-no-add|Без строки добавления]] — существующая карточка
 
 ## Реестр настроек
@@ -48,7 +47,6 @@ Commit: `06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0`. Основной файл: `
 | Always show tab bar | `normal-tab-bar` | Есть карточка | Подтверждено правилом CSS. Не показывать полосу единственной вкладки | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L38) |
 | Hide inline title when more than one tab | `hide-inline-title-when-more-than-one-tab` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Выборочное скрытие служебных кнопок | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L43) |
 | Left sidebar: Hide the vault switcher and settings button | `hide-vault-switcher-and-settings` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Выборочное скрытие служебных кнопок | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L48) |
-| Permanently show the sidebar header buttons | `show-sidebar-header-buttons` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/interface-quiet-actions/interface-quiet-actions\|Тихая панель действий]] | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L53) |
 | Re-enable suggester hints | `show-suggester-instructions` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Выборочное скрытие служебных кнопок | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L59) |
 | Re-enable new tab button | `show-new-tab-button` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Выборочное скрытие служебных кнопок | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L66) |
 | Re-enable tab list button | `show-tab-list-button` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Выборочное скрытие служебных кнопок | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L72) |
@@ -78,7 +76,7 @@ Commit: `06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0`. Основной файл: `
 | readable line length | `readable-line-length-toggle` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Ширина текстовой полосы заметки | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L358) |
 | Hide trailing spaces | `hide-trailing-whitespace` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/code-e020/code-e020\|Пробелы в конце строки]] | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L363) |
 | Images: No alt-text as caption | `no-image-alttext-caption` | Есть карточка | Подтверждено правилом CSS. Подпись изображения из alt-текста | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L379) |
-| between reduced and full image size | `max-image-size-toggle` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/note-image-fluid/note-image-fluid\|Изображение по ширине заметки]] | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L396) |
+| between reduced and full image size | `max-image-size-toggle` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-fluid/image-fluid\|Изображение по ширине заметки]] | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L396) |
 | Automatically disable `readable line length` on notes with tables | `unrestricted-line-length-tables` | Есть карточка | Подтверждено правилом CSS. Широкая заметка автоматически при наличии таблицы | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L401) |
 | Relative line numbers | `use-relative-line-numbers` | Есть карточка | Подтверждено правилом CSS. Относительные номера строк для Vim | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L424) |
 | Cursorline | `vim-active-visual-line` | Есть карточка | Подтверждено правилом CSS. Выделение активной строки редактора | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L430) |
@@ -87,7 +85,7 @@ Commit: `06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0`. Основной файл: `
 | Status bar: Hide longform wordcount | `hide-longform-status-bar` | Есть карточка | Настройка сопоставлена с механизмом каталога по назначению и действующим CSS-свойствам. Конкретный селектор и свойство сохранены для проверки. Выборочное скрытие служебных кнопок | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L487) |
 | Tasks: Use gray instead of normal text color | `longform-tasks-different` | Палитра | Вариант цветов темы: color. Механизм размещения и взаимодействия не изменяется.  | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L493) |
 | Left-aligned text | `longform-left-aligned` | Типографический параметр | Выключка текста: по ширине с переносами либо по левому краю.  | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L498) |
-| First-line indent & no spacing between paragraphs (reading mode) | `longform-text-indent` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/note-indent/note-indent\|Красная строка]] | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L503) |
+| First-line indent & no spacing between paragraphs (reading mode) | `longform-text-indent` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/text-indent-book/text-indent-book\|Красная строка]] | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L503) |
 | File explorer: Hide attachments folders | `hide-attachment-folders` | Есть карточка | Подтверждено правилом CSS. Скрытие вложений из файлового дерева | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L516) |
 | File explorer: Show buttons | `show-file-explorer-navigation` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Выборочное скрытие служебных кнопок | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L521) |
 | Bookmarks: Show buttons in sidebar | `show-bookmark-controls` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Выборочное скрытие служебных кнопок | [код](https://github.com/chrisgrieser/shimmering-focus/blob/06a5b0784d91e8862d3f6502c4e48b5bf2cc0fa0/theme.css#L528) |

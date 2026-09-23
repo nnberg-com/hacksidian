@@ -1,12 +1,33 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout {
   position: relative;
-  padding-inline-start: 4.5em;
-  min-height: 7em;
+  font-size: var(--font-text-size);
+  padding-inline-start: calc(var(--icon-m) * 4 + 2em);
+  min-height: calc(var(--icon-m) * 4 + 2em);
 }
-:is(.markdown-preview-view, .markdown-source-view) .callout-icon {
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title:has(> .callout-icon) {
+  position: static;
+  padding-inline-start: 0;
+  font-size: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title:has(> .callout-icon) > .callout-icon {
+  --icon-size: calc(var(--icon-m) * 4);
   position: absolute;
-  inset: 1em auto auto .7em;
-  width: 2.5em;
-  height: 2.5em;
+  inset-inline-start: 1em;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
-
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title > .callout-icon .svg-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  flex-shrink: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title > .callout-icon::after { content: none; }
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title + .callout-content {
+  margin-inline-start: 0;
+}

@@ -29,9 +29,6 @@ contain сохраняет всё изображение; свободные п�
 image-e011
 ```
 
-###### Локальные зависимости
-
-- [assets/lake.jpg](<./assets/lake.jpg>)
 
 ```hacksidian-files
 image-e011

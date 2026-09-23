@@ -41,7 +41,7 @@
     "category": "interface",
     "setting": "^ssopt-sticky-nav-folder-title$",
     "why": "Не терять контекст папки при прокрутке длинного файлового дерева.",
-    "difference": "note-sticky-heading закрепляет заголовок внутри текста, а не раздел проводника."
+    "difference": "heading-sticky-heading закрепляет заголовок внутри текста, а не раздел проводника."
   },
   {
     "id": "interface-tabs-multiple-rows",
@@ -129,7 +129,7 @@
     "category": "interface",
     "setting": "(?:(?:^(app-layout-card|anp-layout-select|aura-layout-select|card-layout-open-light|card-layout-open-dark|layout-style)$)|^(?:card-layout-pad-open)$)|^(?:shib-layout-select|aura-card-layout-fileexplorer)$",
     "why": "Визуально разделить редактор и боковые панели зазорами и поверхностями.",
-    "difference": "note-cards оформляет список внутри заметки, а не оболочку приложения.",
+    "difference": "unordered-cards оформляет список внутри заметки, а не оболочку приложения.",
     "evidenceHint": {
       "declaration": "border-radius:"
     }
@@ -176,7 +176,7 @@
     "category": "interface",
     "setting": "^(outline-enable|outline-enhanced)$",
     "why": "Лучше видеть иерархию заголовков в боковом оглавлении.",
-    "difference": "note-list-tree относится к списку в тексте; здесь оформляется служебное оглавление.",
+    "difference": "unordered-tree относится к списку в тексте; здесь оформляется служебное оглавление.",
     "evidenceHint": {
       "declaration": "(?:border|background|--.*color)",
       "selector": "indent|before|after"
@@ -205,7 +205,7 @@
     "category": "image",
     "setting": "(?:^(no-image-alttext-caption|ss-image-caption|image-alt)$)|^(?:image-caption)$",
     "why": "Использовать текст описания изображения как видимую подпись без отдельного абзаца.",
-    "difference": "image-e058 и note-image-caption требуют соседнего абзаца; здесь источником служит alt.",
+    "difference": "image-e058 и image-caption требуют соседнего абзаца; здесь источником служит alt.",
     "limitations": "Зависит от разметки embed в Obsidian; это не универсальная возможность CSS для произвольного img.",
     "evidence": [
       {
@@ -421,7 +421,7 @@
     "setting": "^(text-justify|text-align-justify|no-justify|o-justify)$"
   },
   {
-    "existing": "note-code-wrap",
+    "existing": "code-wrap",
     "setting": "^(code-scroll|wrap-code-blocks|whole-code-wrap)$"
   },
   {
@@ -445,7 +445,7 @@
     "setting": "^rounded-tables$"
   },
   {
-    "existing": "note-print-links",
+    "existing": "link-print-links",
     "setting": "^(show-url-after-link|ulu-print-link-urls)$"
   },
   {
@@ -686,7 +686,7 @@
     "setting": "(?:^(anp-codeblock-wrap-preview|anp-codeblock-wrap-edit|anp-codeblock-wrap-hl-preview)$)|^(?:anp-codeblock-wrap-edit|anp-codeblock-wrap-preview|anp-codeblock-wrap-hl-preview)$"
   },
   {
-    "existing": "note-indent",
+    "existing": "text-indent-book",
     "setting": "^(text-indentation-two-em|longform-text-indent|composer--ParagraphIndent)$"
   },
   {
@@ -702,7 +702,7 @@
     "setting": "^metadata-dividers$"
   },
   {
-    "existing": "note-dotted",
+    "existing": "composition-dotted",
     "setting": "^editor-grid-background-pattren$"
   },
   {
@@ -746,7 +746,7 @@
     "setting": "^text-highlight-all-round$"
   },
   {
-    "existing": "list-e047",
+    "existing": "unordered-e047",
     "setting": "(?:^(remove-pre-rel-lines|remove-ed-rel-lines|list-bullet-thread-style|composer--EnableIndentationGuidLine)$)|^(?:bt-colorful-indentation-lines|bt-colorful-indentation-lines-editing|list-lines-color|Gradient-Bullet-Point-Lines|vibrant-indents|aura-neon-list)$"
   },
   {
@@ -754,7 +754,7 @@
     "setting": "^quote-italic$"
   },
   {
-    "existing": "note-quote-glyph",
+    "existing": "quote-glyph",
     "setting": "^quote-mark$"
   },
   {
@@ -774,7 +774,7 @@
     "setting": "^ulu-tabular-nums$"
   },
   {
-    "existing": "note-hyphens",
+    "existing": "text-hyphens",
     "setting": "^ulu-no-hyphenate$"
   },
   {
@@ -809,7 +809,7 @@
     "category": "callout",
     "setting": "^fas-infobox-lp-mini$",
     "why": "Не занимать большую часть рабочей области информационной карточкой во время редактирования.",
-    "difference": "callout-dossier оформляет саму карточку, но не её переход к компактному состоянию в Live Preview.",
+    "difference": "composition-dossier оформляет саму карточку, но не её переход к компактному состоянию в Live Preview.",
     "limitations": "Зависит от темы и версии Obsidian. Для Excalidraw и Memos нужен соответствующий плагин. Проверка выполнена по исходникам, без запуска на устройстве."
   },
   {
@@ -1031,15 +1031,15 @@
     "limitations": "Terminal использует в том числе устаревшие селекторы редактора. Значки требуют привыкания."
   },
   {
-    "existing": "note-code-scroll",
+    "existing": "code-scroll",
     "setting": "^(?:minimal-code-scroll|nowrap-edit-codebox|code-nowrap)$"
   },
   {
-    "existing": "note-list-inline",
+    "existing": "unordered-inline",
     "setting": "^(?:dataview-inline-lists)$"
   },
   {
-    "existing": "callout-margin",
+    "existing": "composition-margin",
     "setting": "^(?:info-normal|ssopt-callout-aside-float-left)$"
   },
   {
@@ -1059,11 +1059,11 @@
     "setting": "^(?:encore-highlight-border|simple-border)$"
   },
   {
-    "existing": "note-list-markers",
+    "existing": "unordered-markers",
     "setting": "^(?:colorful-unordered-list|colorful-ordered-list|list-bullet-color|unordered-list-style-options)$"
   },
   {
-    "existing": "note-ornament",
+    "existing": "hr-ornament",
     "setting": "^(?:fancy-hr|CG-hr|fas-hr|hr-no-icon|encore-disable-logo-on-hr)$",
     "evidence": [
       {
@@ -1076,11 +1076,11 @@
     ]
   },
   {
-    "existing": "note-paper",
+    "existing": "composition-paper",
     "setting": "^(?:background-notebook-liked-switch)$"
   },
   {
-    "existing": "note-magazine",
+    "existing": "composition-magazine",
     "setting": "^(?:magazine-style)$",
     "evidence": [
       {
@@ -1093,7 +1093,7 @@
     ]
   },
   {
-    "existing": "note-selection",
+    "existing": "text-selection-custom",
     "setting": "^(?:remove-selectionbackground)$"
   },
   {
@@ -1311,7 +1311,7 @@
     ]
   },
   {
-    "existing": "emphasis-s33",
+    "existing": "combinations-s33",
     "setting": "(?!)",
     "evidence": [
       {
@@ -1337,7 +1337,7 @@
     ]
   },
   {
-    "existing": "callout-photo",
+    "existing": "composition-photo",
     "setting": "(?!)",
     "evidence": [
       {
@@ -1350,7 +1350,7 @@
     ]
   },
   {
-    "existing": "callout-ticket",
+    "existing": "composition-ticket",
     "setting": "(?!)",
     "evidence": [
       {
@@ -1363,7 +1363,7 @@
     ]
   },
   {
-    "existing": "callout-receipt",
+    "existing": "composition-receipt",
     "setting": "(?!)",
     "evidence": [
       {
@@ -1501,7 +1501,7 @@
     ]
   },
   {
-    "existing": "emphasis-s37",
+    "existing": "strike-s37",
     "setting": "(?!)",
     "evidence": [
       {
@@ -1522,7 +1522,7 @@
     ]
   },
   {
-    "existing": "callout-technical-two-columns",
+    "existing": "callin-technical-two-columns",
     "setting": "(?!)",
     "evidence": [
       {
@@ -1542,7 +1542,7 @@
     ]
   },
   {
-    "existing": "note-cards",
+    "existing": "unordered-cards",
     "setting": "(?!)",
     "evidence": [
       {
@@ -2387,7 +2387,7 @@
     ]
   },
   {
-    "existing": "note-image-fluid",
+    "existing": "image-fluid",
     "setting": "(?!)",
     "evidence": [
       {

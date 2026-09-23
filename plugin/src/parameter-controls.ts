@@ -49,6 +49,7 @@ export class ParameterControls extends MarkdownRenderChild {
           if (!actual) { invalid.add(parameter.variable); errors.get(parameter.variable)!.setText(en ? 'Parameter removed. Reopen the card.' : 'Параметр удалён. Откройте карточку заново.'); continue; }
           if (actual.value !== parameter.value) {
             parameter.value = actual.value; fields.get(parameter.variable)!.value = parameterInput(actual);
+            if (parameter.control === 'checkbox') (fields.get(parameter.variable) as HTMLInputElement).checked = actual.value === parameter.options[0].value;
             invalid.delete(parameter.variable); errors.get(parameter.variable)!.empty(); fields.get(parameter.variable)!.removeAttribute('aria-invalid');
             try { parameterValue(actual, parameterInput(actual)); } catch (e) { invalid.add(parameter.variable); errors.get(parameter.variable)!.setText(String(e)); }
           }
@@ -83,7 +84,9 @@ export class ParameterControls extends MarkdownRenderChild {
         const row = this.containerEl.createDiv({ cls: 'hacksidian-parameter' });
         const label = row.createEl('label', { text: (en ? parameter.labelEn : undefined) || parameter.label });
         let field: HTMLInputElement | HTMLSelectElement;
-        if (parameter.type === 'select') {
+        if (parameter.control === 'checkbox') {
+          field = label.createEl('input', {type: 'checkbox'});
+        } else if (parameter.type === 'select') {
           const select = label.createEl('select'); field = select;
           for (const option of parameter.options) select.createEl('option', { value: option.value, text: (en ? option.labelEn : undefined) || option.label });
           if (!parameter.options.some(option => option.value === parameter.value)) select.createEl('option', { value: parameter.value, text: parameter.value });
@@ -97,11 +100,17 @@ export class ParameterControls extends MarkdownRenderChild {
           if (parameter.unit) label.createSpan({ text: ` ${parameter.unit}` });
         }
         field.value = parameterInput(parameter); fields.set(parameter.variable, field);
+        if (parameter.control === 'checkbox') (field as HTMLInputElement).checked = parameter.value === parameter.options[0].value;
         const error = row.createDiv({ attr: { role: 'alert', id: `parameter-error-${crypto.randomUUID()}` } });
         field.setAttribute('aria-describedby', error.id); errors.set(parameter.variable, error);
-        this.registerDomEvent(field, parameter.type === 'select' || parameter.type === 'color' ? 'change' : 'input', () => save(parameter.variable, field.value));
+        this.registerDomEvent(field, parameter.type === 'select' || parameter.type === 'color' ? 'change' : 'input', () => {
+          if (parameter.control === 'checkbox') field.value = parameter.options[(field as HTMLInputElement).checked ? 0 : 1].value;
+          save(parameter.variable, field.value);
+        });
         const reset = row.createEl('button', { text: en ? 'Reset' : 'Сбросить' });
-        this.registerDomEvent(reset, 'click', () => { field.value = parameterInput({ ...parameter, value: parameter.default }); save(parameter.variable, field.value); });
+        this.registerDomEvent(reset, 'click', () => { field.value = parameterInput({ ...parameter, value: parameter.default });
+          if (parameter.control === 'checkbox') (field as HTMLInputElement).checked = field.value === parameter.options[0].value;
+          save(parameter.variable, field.value); });
         try { parameterValue(parameter, field.value); } catch (e) { invalid.add(parameter.variable); field.setAttribute('aria-invalid', 'true'); error.setText(String(e)); }
       }
       this.containerEl.appendChild(status); this.containerEl.appendChild(updateButton);

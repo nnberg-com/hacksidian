@@ -34,9 +34,6 @@ heading-e082
 heading-e082
 ```
 
-###### Локальные зависимости
-
-- [assets/landscape.svg](<./assets/landscape.svg>)
 
 ```hacksidian-files
 heading-e082

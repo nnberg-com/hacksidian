@@ -58293,7 +58293,7 @@
         "disposition": "parameter-or-heading"
       },
       {
-        "id": "callout-margin",
+        "id": "composition-margin",
         "title": "Sub-Callout Margin (any unit)",
         "type": "variable-text",
         "source": "https://github.com/joshkasap/Obsidian-Faded-Theme/blob/4dc3b9ba1abe8fb150873bf9c55a7e6d410214a2/theme.css#L4480",

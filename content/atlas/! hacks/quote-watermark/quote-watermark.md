@@ -29,9 +29,6 @@ quote-watermark
 quote-watermark
 ```
 
-###### Локальные зависимости
-
-- [assets/quote.svg](<./assets/quote.svg>)
 
 ```hacksidian-files
 quote-watermark
