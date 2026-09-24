@@ -46,6 +46,7 @@ export async function migrateSnippetGroups(directory: string): Promise<string[]>
   const old = JSON.parse(raw);
   if (old.structure === 2) {
     const retired = old.modules.filter((entry: {id: string}) => !groupManifest.modules.some(current => current.id === entry.id));
+    const preserved = new Map<string, string>();
     // Missing renamed files and empty retired slots must not prevent startup.
     // Do not silently discard CSS that still needs a deliberate migration.
     for (const entry of retired) {
@@ -54,7 +55,21 @@ export async function migrateSnippetGroups(directory: string): Promise<string[]>
         if (error.code === 'ENOENT') return '';
         throw error;
       });
-      if (css.trim()) throw new Error(`Retired snippet contains CSS; move it to a current category before migration: ${entry.file}`);
+      if (css.trim()) {
+        // This category was renamed without changing its CSS semantics.
+        const replacement = entry.id === 'g-pseudo-task'
+          ? groupManifest.modules.find(current => current.id === 'g-taskplus') : undefined;
+        if (!replacement) throw new Error(`Retired snippet contains CSS; move it to a current category before migration: ${entry.file}`);
+        const existing = await readFile(path.join(directory, replacement.file), 'utf8').catch(error => {
+          if (error.code === 'ENOENT') return null;
+          throw error;
+        });
+        if (existing !== null && existing !== css) throw new Error(`Conflicting renamed snippet: ${replacement.file}; no files changed.`);
+        if (existing === null && old.modules.some((m: {id: string}) => m.id === replacement.id)) {
+          throw new Error(`Missing current snippet: ${replacement.file}; no files changed.`);
+        }
+        preserved.set(replacement.file, css);
+      }
     }
     const missing = groupManifest.modules.filter(entry => !old.modules.some((m: {id: string}) => m.id === entry.id));
     if (!missing.length && !retired.length) return [];
@@ -63,7 +78,7 @@ export async function migrateSnippetGroups(directory: string): Promise<string[]>
       for (const entry of missing) {
         if (old.modules.some((m: {file: string}) => m.file === entry.file)) throw new Error(t('file-style.invalid_or_duplicate_css_path'));
         try {
-          await writeFile(path.join(directory, entry.file), '', {flag: 'wx'});
+          await writeFile(path.join(directory, entry.file), preserved.get(entry.file) ?? '', {flag: 'wx'});
           created.push(entry.file);
         } catch (error) {
           if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error;

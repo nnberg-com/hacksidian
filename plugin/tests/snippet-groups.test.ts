@@ -70,3 +70,25 @@ test('category manifest removes missing aliases and empty retired slots, preserv
   expect(await readFile(path.join(dir,obsolete[3].file),'utf8')).toBe('ul { color: red; }');
  }finally{await rm(dir,{recursive:true,force:true});}
 });
+
+test('renames nonempty pseudo-task CSS byte-for-byte, rejects conflicts and is idempotent',async()=>{
+ const dir=await mkdtemp(path.join(tmpdir(),'hs-taskplus-'));
+ try {
+  const current=groupManifest.modules.find(m=>m.id==='g-taskplus')!;
+  const previous={id:'g-pseudo-task',component:'pseudo-task',file:'hacksidian-13-pseudo-task.css'};
+  const old={...groupManifest,modules:groupManifest.modules.map(m=>m.id===current.id?previous:m)};
+  const css='/* hacksidian:hack:pseudo-task-e11:start */\nli[data-task="/"] { color: red; }\n/* hacksidian:hack:pseudo-task-e11:end */\n';
+  await writeFile(path.join(dir,'hacksidian-manifest.json'),JSON.stringify(old));
+  for(const m of old.modules)await writeFile(path.join(dir,m.file),m.id===previous.id?css:'/* keep */');
+  await writeFile(path.join(dir,current.file),'/* conflicting user CSS */');
+  await expect(migrateSnippetGroups(dir)).rejects.toThrow('Conflicting renamed snippet');
+  expect(await readFile(path.join(dir,previous.file),'utf8')).toBe(css);
+  expect(await readFile(path.join(dir,'hacksidian-manifest.json'),'utf8')).toBe(JSON.stringify(old));
+  await rm(path.join(dir,current.file));
+  expect(await migrateSnippetGroups(dir)).toContain(current.file.slice(0,-4));
+  expect(await readFile(path.join(dir,current.file),'utf8')).toBe(css);
+  expect(await readdir(dir)).not.toContain(previous.file);
+  for(const m of groupManifest.modules.filter(m=>m.id!==current.id))expect(await readFile(path.join(dir,m.file),'utf8')).toBe('/* keep */');
+  expect(await migrateSnippetGroups(dir)).toEqual([]);
+ }finally{await rm(dir,{recursive:true,force:true});}
+});

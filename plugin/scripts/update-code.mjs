@@ -2,7 +2,7 @@ import { readFile, lstat, mkdtemp, writeFile, rename, rm } from 'node:fs/promise
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Update only main.js in an existing installation. No installer or vault migration.
+// Update runtime code and bundled CSS in an existing installation. No vault migration.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 if (args.length !== 1 || !path.isAbsolute(args[0])) {
@@ -20,23 +20,40 @@ const installed = JSON.parse(await readFile(path.join(destination, 'manifest.jso
 if (installed.id !== manifest.id || installed.name !== manifest.name) {
   throw new Error('The installed plugin does not match this project; no files changed.');
 }
-const target = path.join(destination, 'main.js');
-const stat = await lstat(target);
-if (!stat.isFile()) throw new Error('Installed main.js must be a regular file; no files changed.');
-const code = await readFile(path.join(root, 'dist', 'main.js'));
-if (!code.length) throw new Error('Built main.js is empty; no files changed.');
-if ((await readFile(target)).equals(code)) {
-  console.log(`Already up to date: ${target}`);
+// Validate both artifacts before replacing either of them.
+const artifacts = await Promise.all(['main.js', 'styles.css'].map(async name => {
+  const target = path.join(destination, name);
+  const stat = await lstat(target);
+  if (!stat.isFile()) throw new Error(`Installed ${name} must be a regular file; no files changed.`);
+  const content = await readFile(path.join(root, 'dist', name));
+  if (!content.length) throw new Error(`Built ${name} is empty; no files changed.`);
+  return { name, target, mode: stat.mode & 0o777, content, before: await readFile(target) };
+}));
+const changed = artifacts.filter(item => !item.before.equals(item.content));
+if (!changed.length) {
+  console.log(`Already up to date: ${destination}`);
 } else {
-  // Stage on the same filesystem so replacement is atomic. Leave old code intact on failure.
   const staging = await mkdtemp(path.join(destination, '.code-update-'));
+  const replaced = [];
   try {
-    const pending = path.join(staging, 'main.js');
-    await writeFile(pending, code, { mode: stat.mode & 0o777 });
-    await rename(pending, target);
-  } finally {
-    await rm(staging, { recursive: true, force: true });
+    for (const item of changed) {
+      await writeFile(path.join(staging, item.name), item.content, { mode: item.mode });
+      await writeFile(path.join(staging, item.name + '.backup'), item.before, { mode: item.mode });
+    }
+    try {
+      for (const item of changed) {
+        await rename(path.join(staging, item.name), item.target);
+        replaced.push(item);
+      }
+    } catch (error) {
+      for (const item of replaced.reverse()) await rename(path.join(staging, item.name + '.backup'), item.target);
+      throw error;
+    }
+  } catch (error) {
+    // Retain backups if replacement or recovery fails.
+    throw new Error(`Update failed; recovery files: ${staging}`, { cause: error });
   }
-  console.log(`Updated code: ${target}`);
+  await rm(staging, { recursive: true, force: true });
+  for (const item of changed) console.log(`Updated: ${item.target}`);
 }
-console.log('Reload Hacksidian in Obsidian to load the code. CSS, settings, manifest and links were not changed.');
+console.log('Reload Hacksidian in Obsidian to load the update. User snippets, settings, manifest and links were not changed.');

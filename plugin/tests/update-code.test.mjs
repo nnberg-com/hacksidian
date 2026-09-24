@@ -18,6 +18,8 @@ async function fixture(run) {
     await fs.copyFile(new URL('../scripts/update-code.mjs', import.meta.url), path.join(project, 'scripts/update-code.mjs'));
     await fs.writeFile(path.join(project, 'dist/main.js'), 'new code');
     await fs.writeFile(path.join(dest, 'main.js'), 'old code');
+    await fs.writeFile(path.join(project, 'dist/styles.css'), 'new bundled CSS');
+    await fs.writeFile(path.join(dest, 'styles.css'), 'old bundled CSS');
     const command = (...args) => execFileSync(process.execPath, [path.join(project, 'scripts/update-code.mjs'), ...args], {
       env:{...process.env,HACKSIDIAN_CONFIG_DIR:'.obsidian'}, stdio:'pipe',
     });
@@ -25,9 +27,9 @@ async function fixture(run) {
   } finally { await fs.rm(dir, {recursive:true,force:true}); }
 }
 
-test('updates only code, preserves CSS, data, manifest and symlinks; repeated update is a no-op', async()=>{
+test('updates code and bundled CSS, preserves snippets, data, manifest and symlinks; repeated update is a no-op', async()=>{
   await fixture(async({vault,dest,command,manifest})=>{
-    const files = {'styles.css':'custom CSS','data.json':'{"custom":true}','manifest.json':manifest};
+    const files = {'data.json':'{"custom":true}','manifest.json':manifest};
     for(const [name,content] of Object.entries(files)) await fs.writeFile(path.join(dest,name),content);
     await fs.mkdir(path.join(vault,'.obsidian/snippets'));
     const snippet=path.join(vault,'.obsidian/snippets/mine.css');
@@ -36,6 +38,7 @@ test('updates only code, preserves CSS, data, manifest and symlinks; repeated up
     const inode=(await fs.lstat(link)).ino;
     command(vault);
     expect(await fs.readFile(path.join(dest,'main.js'),'utf8')).toBe('new code');
+    expect(await fs.readFile(path.join(dest,'styles.css'),'utf8')).toBe('new bundled CSS');
     for(const [name,content] of Object.entries(files)) expect(await fs.readFile(path.join(dest,name),'utf8')).toBe(content);
     expect(await fs.readFile(snippet,'utf8')).toBe('user snippet');
     expect(await fs.readlink(link)).toBe('existing-catalog');expect((await fs.lstat(link)).ino).toBe(inode);
@@ -56,5 +59,14 @@ test('invalid target and empty build leave existing code untouched',async()=>{
     await fs.writeFile(path.join(dest,'manifest.json'),'{"id":"another","name":"Another"}');
     expect(()=>command(vault)).toThrow();
     expect(await fs.readFile(path.join(dest,'main.js'),'utf8')).toBe('old code');
+  });
+});
+
+ test('missing bundled CSS fails before replacing code', async()=>{
+  await fixture(async({vault,dest,project,command})=>{
+    await fs.rm(path.join(project,'dist/styles.css'));
+    expect(()=>command(vault)).toThrow();
+    expect(await fs.readFile(path.join(dest,'main.js'),'utf8')).toBe('old code');
+    expect(await fs.readFile(path.join(dest,'styles.css'),'utf8')).toBe('old bundled CSS');
   });
 });
