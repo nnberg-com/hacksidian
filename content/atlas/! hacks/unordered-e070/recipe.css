@@ -3,11 +3,9 @@
   overflow: auto;
   padding: .8em;
   background: var(--background-secondary);
-  font-size: .78em;
   line-height: calc(var(--line-height-normal) * 1);
   margin: .6em 0;
 }
 :is(.markdown-preview-view, .markdown-source-view) li + li {
   margin-block-start: 1em;
 }
-

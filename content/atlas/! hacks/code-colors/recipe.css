@@ -1,130 +1,544 @@
 :is(.markdown-preview-view, .markdown-source-view) {
   /**
-   * @parameter Обычный текст
-   * @label-en Plain text
+   * @parameter Обычный текст — свой цвет
+   * @label-en Plain text — custom color
    * @type color
    * @default #30343b
    */
-  --hacksidian-code-color-normal: #30343b;
+  --hacksidian-code-color-normal: #b0ae9c;
 
   /**
-   * @parameter Комментарий
-   * @label-en Comment
+   * @parameter Обычный текст — источник
+   * @label-en Plain text — source
+   * @type select
+   * @default var(--hacksidian-code-color-normal)
+   * @option var(--hacksidian-code-color-normal) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-normal-source: var(--hacksidian-code-color-normal);
+
+  /**
+   * @parameter Комментарий — свой цвет
+   * @label-en Comment — custom color
    * @type color
    * @default #66706b
    */
   --hacksidian-code-color-comment: #66706b;
 
   /**
-   * @parameter Ключевое слово
-   * @label-en Keyword
+   * @parameter Комментарий — источник
+   * @label-en Comment — source
+   * @type select
+   * @default var(--hacksidian-code-color-comment)
+   * @option var(--hacksidian-code-color-comment) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-comment-source: var(--color-green);
+
+  /**
+   * @parameter Ключевое слово — свой цвет
+   * @label-en Keyword — custom color
    * @type color
    * @default #9b286d
    */
-  --hacksidian-code-color-keyword: #9b286d;
+  --hacksidian-code-color-keyword: #d43bb5;
 
   /**
-   * @parameter Строка
-   * @label-en String
+   * @parameter Ключевое слово — источник
+   * @label-en Keyword — source
+   * @type select
+   * @default var(--hacksidian-code-color-keyword)
+   * @option var(--hacksidian-code-color-keyword) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-keyword-source: var(--hacksidian-code-color-keyword);
+
+  /**
+   * @parameter Строка — свой цвет
+   * @label-en String — custom color
    * @type color
    * @default #28713e
    */
   --hacksidian-code-color-string: #28713e;
 
   /**
-   * @parameter Число и логическое значение
-   * @label-en Number and boolean
+   * @parameter Строка — источник
+   * @label-en String — source
+   * @type select
+   * @default var(--hacksidian-code-color-string)
+   * @option var(--hacksidian-code-color-string) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-string-source: var(--color-yellow);
+
+  /**
+   * @parameter Число и логическое значение — свой цвет
+   * @label-en Number and boolean — custom color
    * @type color
    * @default #7248a5
    */
-  --hacksidian-code-color-value: #7248a5;
+  --hacksidian-code-color-value: #a16be7;
 
   /**
-   * @parameter Функция и класс
-   * @label-en Function and class
+   * @parameter Число и логическое значение — источник
+   * @label-en Number and boolean — source
+   * @type select
+   * @default var(--hacksidian-code-color-value)
+   * @option var(--hacksidian-code-color-value) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-value-source: var(--hacksidian-code-color-value);
+
+  /**
+   * @parameter Функция и класс — свой цвет
+   * @label-en Function and class — custom color
    * @type color
    * @default #8b5b12
    */
-  --hacksidian-code-color-function: #8b5b12;
+  --hacksidian-code-color-function: #ac5209;
 
   /**
-   * @parameter Оператор
-   * @label-en Operator
+   * @parameter Функция и класс — источник
+   * @label-en Function and class — source
+   * @type select
+   * @default var(--hacksidian-code-color-function)
+   * @option var(--hacksidian-code-color-function) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-function-source: var(--hacksidian-code-color-function);
+
+  /**
+   * @parameter Оператор — свой цвет
+   * @label-en Operator — custom color
    * @type color
    * @default #ab3832
    */
   --hacksidian-code-color-operator: #ab3832;
 
   /**
-   * @parameter Свойство и параметр
-   * @label-en Property and parameter
+   * @parameter Оператор — источник
+   * @label-en Operator — source
+   * @type select
+   * @default var(--hacksidian-code-color-operator)
+   * @option var(--hacksidian-code-color-operator) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-operator-source: var(--color-purple);
+
+  /**
+   * @parameter Свойство и параметр — свой цвет
+   * @label-en Property and parameter — custom color
    * @type color
    * @default #087a85
    */
-  --hacksidian-code-color-property: #087a85;
+  --hacksidian-code-color-property: #3fb3cd;
 
   /**
-   * @parameter Переменная
-   * @label-en Variable
+   * @parameter Свойство и параметр — источник
+   * @label-en Property and parameter — source
+   * @type select
+   * @default var(--hacksidian-code-color-property)
+   * @option var(--hacksidian-code-color-property) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-property-source: var(--hacksidian-code-color-property);
+
+  /**
+   * @parameter Переменная — свой цвет
+   * @label-en Variable — custom color
    * @type color
    * @default #245da6
    */
   --hacksidian-code-color-variable: #245da6;
 
   /**
-   * @parameter Пунктуация
-   * @label-en Punctuation
+   * @parameter Переменная — источник
+   * @label-en Variable — source
+   * @type select
+   * @default var(--hacksidian-code-color-variable)
+   * @option var(--hacksidian-code-color-variable) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-variable-source: var(--color-blue);
+
+  /**
+   * @parameter Пунктуация — свой цвет
+   * @label-en Punctuation — custom color
    * @type color
    * @default #697078
    */
-  --hacksidian-code-color-punctuation: #697078;
+  --hacksidian-code-color-punctuation: #b0ae9c;
 
   /**
-   * @parameter Тег и константа
-   * @label-en Tag and constant
+   * @parameter Пунктуация — источник
+   * @label-en Punctuation — source
+   * @type select
+   * @default var(--hacksidian-code-color-punctuation)
+   * @option var(--hacksidian-code-color-punctuation) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-punctuation-source: var(--hacksidian-code-color-punctuation);
+
+  /**
+   * @parameter Тег и константа — свой цвет
+   * @label-en Tag and constant — custom color
    * @type color
    * @default #ab3832
    */
   --hacksidian-code-color-tag: #ab3832;
 
   /**
-   * @parameter Регулярное выражение и важное
-   * @label-en Regex and important
+   * @parameter Тег и константа — источник
+   * @label-en Tag and constant — source
+   * @type select
+   * @default var(--hacksidian-code-color-tag)
+   * @option var(--hacksidian-code-color-tag) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-tag-source: var(--color-orange);
+
+  /**
+   * @parameter Регулярное выражение и важное — свой цвет
+   * @label-en Regex and important — custom color
    * @type color
    * @default #a44d14
    */
   --hacksidian-code-color-important: #a44d14;
 
   /**
-   * @parameter Фон блока кода
-   * @label-en Code background
+   * @parameter Регулярное выражение и важное — источник
+   * @label-en Regex and important — source
+   * @type select
+   * @default var(--hacksidian-code-color-important)
+   * @option var(--hacksidian-code-color-important) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-important-source: var(--hacksidian-code-color-important);
+
+  /**
+   * @parameter Фон блока кода — свой цвет
+   * @label-en Code background — custom color
    * @type color
    * @default #f5f5f5
    */
   --hacksidian-code-color-background: #f5f5f5;
+
+  /**
+   * @parameter Фон блока кода — источник
+   * @label-en Code background — source
+   * @type select
+   * @default unchanged
+   * @option unchanged | Как есть
+   * @option var(--hacksidian-code-color-background) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-color-background-source: unchanged;
 }
 
 :is(.markdown-preview-view, .markdown-source-view) pre,
 .markdown-source-view.mod-cm6 .HyperMD-codeblock {
-  --code-background: var(--hacksidian-code-color-background);
-  --code-normal: var(--hacksidian-code-color-normal);
-  --code-comment: var(--hacksidian-code-color-comment);
-  --code-keyword: var(--hacksidian-code-color-keyword);
-  --code-string: var(--hacksidian-code-color-string);
-  --code-value: var(--hacksidian-code-color-value);
-  --code-function: var(--hacksidian-code-color-function);
-  --code-operator: var(--hacksidian-code-color-operator);
-  --code-property: var(--hacksidian-code-color-property);
-  --code-punctuation: var(--hacksidian-code-color-punctuation);
-  --code-tag: var(--hacksidian-code-color-tag);
-  --code-important: var(--hacksidian-code-color-important);
+  --code-normal: var(--hacksidian-code-color-normal-source);
+  --code-comment: var(--hacksidian-code-color-comment-source);
+  --code-keyword: var(--hacksidian-code-color-keyword-source);
+  --code-string: var(--hacksidian-code-color-string-source);
+  --code-value: var(--hacksidian-code-color-value-source);
+  --code-function: var(--hacksidian-code-color-function-source);
+  --code-operator: var(--hacksidian-code-color-operator-source);
+  --code-property: var(--hacksidian-code-color-property-source);
+  --code-punctuation: var(--hacksidian-code-color-punctuation-source);
+  --code-tag: var(--hacksidian-code-color-tag-source);
+  --code-important: var(--hacksidian-code-color-important-source);
 }
 
 :is(.markdown-preview-view, .markdown-source-view) pre .token.variable,
 .markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
-  color: var(--hacksidian-code-color-variable);
+  color: var(--hacksidian-code-color-variable-source);
 }
 
-:is(.markdown-preview-view, .markdown-source-view) pre {
-  background-color: var(--hacksidian-code-color-background);
+/* Leave the entire background cascade untouched for “Как есть”. */
+@container not style(--hacksidian-code-color-background-source: unchanged) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-background: var(--hacksidian-code-color-background-source);
+  }
+
+  :is(.markdown-preview-view, .markdown-source-view) pre {
+    background-color: var(--hacksidian-code-color-background-source);
+  }
+}
+
+@container style(--hacksidian-code-color-normal-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-normal: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-normal: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-comment-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-comment: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-comment: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-keyword-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-keyword: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-keyword: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-string-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-string: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-string: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-value-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-value: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-value: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-function-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-function: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-function: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-operator-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-operator: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-operator: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-property-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-property: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-property: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-variable-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre .token.variable,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
+    color: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre .token.variable,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
+      color: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-punctuation-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-punctuation: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-punctuation: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-tag-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-tag: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-tag: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-important-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-important: oklch(from var(--code-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-important: contrast-color(var(--code-background));
+    }
+  }
+}
+
+@container style(--hacksidian-code-color-background-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+    --code-background: oklch(from var(--background-primary) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) pre,
+  .markdown-source-view.mod-cm6 .HyperMD-codeblock {
+      --code-background: contrast-color(var(--background-primary));
+    }
+  }
+  :is(.markdown-preview-view, .markdown-source-view) pre {
+    background-color: var(--code-background);
+  }
 }

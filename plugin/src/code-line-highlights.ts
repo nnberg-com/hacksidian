@@ -1,4 +1,5 @@
 import { installCodeWrapMarkers } from './code-wrap-markers';
+import { installInlineCodeSelection } from './inline-code-selection';
 import { MarkdownRenderChild, type Plugin } from 'obsidian';
 import { watchCodeLineHighlights } from './code-line-ranges';
 
@@ -9,6 +10,7 @@ export function registerCodeLineHighlights(plugin: Plugin): void {
     child.onload = () => {
       watchCodeLineHighlights(element, child);
       installCodeWrapMarkers(element, child);
+      installInlineCodeSelection(element, child);
     };
     context.addChild(child);
   }, 1000);

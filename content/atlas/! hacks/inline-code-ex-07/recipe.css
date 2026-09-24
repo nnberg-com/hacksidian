@@ -1,7 +1,3 @@
 :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
-  font-family: inline-code-ex-07-JetBrainsDemo,monospace;
-}
-:is(.markdown-preview-view, .markdown-source-view) p:nth-of-type(2) code:not(pre code) {
   font-variant-numeric: slashed-zero;
 }
-

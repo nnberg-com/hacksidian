@@ -1,10 +1,16 @@
-:is(.markdown-preview-view, .markdown-source-view) p:nth-of-type(1) code:not(pre code) {
-  font-size: calc(var(--code-size) * 1.14285714);
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Размер относительно текста
+   * @label-en Size relative to text
+   * @type number
+   * @default 90%
+   * @unit %
+   * @min 50
+   * @max 150
+   * @step 1
+   */
+  --hacksidian-inline-code-ex-02-size: 90%;
 }
-:is(.markdown-preview-view, .markdown-source-view) p:nth-of-type(2) code:not(pre code) {
-  font-size: calc(var(--code-size) * 1.02857143);
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+  font-size: var(--hacksidian-inline-code-ex-02-size);
 }
-:is(.markdown-preview-view, .markdown-source-view) p:nth-of-type(3) code:not(pre code) {
-  font-size: calc(var(--code-size) * 0.97142857);
-}
-

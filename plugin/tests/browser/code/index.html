@@ -67,7 +67,51 @@ for(const dispose of disposers)dispose();
 
 const language=fixture('code-language','<pre><code class="language-sh is-loaded">mkdir -p notes</code></pre>');style('code-language');ok(getComputedStyle(language.querySelector('code'),'::before').content==='"Shell"','language leaks CSS classes');
 const sticky=fixture('code-e059','<pre><code>'+Array.from({length:40},(_,i)=>'build '+i).join('\n')+'</code></pre>');style('code-e059');const stickyPre=sticky.querySelector('pre');ok(getComputedStyle(stickyPre).paddingLeft==='0px','sticky outer gutter');ok(getComputedStyle(stickyPre,'::before').paddingLeft!=='0px','sticky heading text has no inset');ok(getComputedStyle(stickyPre,'::before').paddingLeft===getComputedStyle(sticky.querySelector('code')).paddingLeft,'header and body text misaligned');ok(stickyPre.scrollHeight>stickyPre.clientHeight,'sticky log should scroll vertically');ok(stickyPre.scrollWidth===stickyPre.clientWidth,'sticky header causes horizontal overflow');
-const customColors=fixture('code-colors','<pre><code>sample</code></pre>');style('code-colors');customColors.style.setProperty('--hacksidian-code-color-background','#123456');ok(getComputedStyle(customColors.querySelector('pre')).backgroundColor==='rgb(18, 52, 86)','background parameter ignored');
+const customColors=fixture('code-colors','<pre><code>sample <span class="token variable">variable</span></code></pre>');
+const colorPre=customColors.querySelector('pre');
+const externalBackground=document.head.appendChild(document.createElement('style'));
+externalBackground.textContent='#hacksidian-live-code-colors pre { --code-background: #345678; background-color: var(--code-background); }';
+const originalBackground=getComputedStyle(colorPre).backgroundColor;
+style('code-colors');
+ok(getComputedStyle(colorPre).backgroundColor===originalBackground,'default background overrides other styles');
+externalBackground.remove();
+customColors.style.setProperty('--hacksidian-code-color-background','#123456');
+customColors.style.setProperty('--hacksidian-code-color-background-source','var(--hacksidian-code-color-background)');
+ok(getComputedStyle(colorPre).backgroundColor==='rgb(18, 52, 86)','custom background parameter ignored');
+const colorKeys=['normal','comment','keyword','string','value','function','operator','property','variable','punctuation','tag','important','background'];
+for(const semantic of ['red','orange','yellow','green','cyan','blue','purple','pink']){
+ customColors.style.setProperty('--color-'+semantic,'#2468ac');
+ for(const key of colorKeys)customColors.style.setProperty('--hacksidian-code-color-'+key+'-source','var(--color-'+semantic+')');
+ ok(getComputedStyle(colorPre).backgroundColor==='rgb(36, 104, 172)','semantic background '+semantic);
+ for(const key of colorKeys.filter(key=>key!=='variable'))ok(getComputedStyle(colorPre).getPropertyValue('--code-'+key).trim()==='#2468ac','semantic token '+key+' '+semantic);
+ ok(getComputedStyle(colorPre.querySelector('.token.variable')).color==='rgb(36, 104, 172)','semantic variable '+semantic);
+}
+customColors.style.setProperty('--hacksidian-code-color-background-source','unchanged');
+externalBackground.textContent='#hacksidian-live-code-colors pre { --code-background: #345678; background-color: var(--code-background); }';document.head.appendChild(externalBackground);
+ok(getComputedStyle(colorPre).backgroundColor===originalBackground,'return to unchanged background');
+
+externalBackground.remove();
+for(const key of colorKeys.filter(key=>key!=='background'))customColors.style.setProperty('--hacksidian-code-color-'+key+'-source','contrast');
+customColors.style.setProperty('--hacksidian-code-color-background-source','var(--hacksidian-code-color-background)');
+const probe=document.body.appendChild(document.createElement('span'));
+for(const [background,foreground] of [['#ffffff','#000000'],['#000000','#ffffff']]){
+ customColors.style.setProperty('--hacksidian-code-color-background',background);
+ for(const key of colorKeys.filter(key=>key!=='background')){
+  probe.style.color=key==='variable'?getComputedStyle(colorPre.querySelector('.token.variable')).color:getComputedStyle(colorPre).getPropertyValue('--code-'+key);
+  const actual=getComputedStyle(probe).color;
+  probe.style.color=CSS.supports('color','contrast-color(red)')?foreground:(foreground==='#ffffff'?'oklch(1 0 0)':'oklch(0 0 0)');
+  ok(actual===getComputedStyle(probe).color,'contrast '+key+' on '+background);
+ }
+}
+for(const [background,lightness] of [['#ffffff',0],['#000000',1]]){
+ customColors.style.setProperty('--background-primary',background);
+ customColors.style.setProperty('--hacksidian-code-color-background-source','contrast');
+ probe.style.color=CSS.supports('color','contrast-color(red)')?(lightness?'white':'black'):'oklch('+lightness+' 0 0)';
+ ok(getComputedStyle(colorPre).backgroundColor===getComputedStyle(probe).color,'contrast code background on '+background);
+}
+probe.remove();
+
+
 
 document.querySelector('#results').textContent='PASS '+checks+' checks: line ranges, copied text, toggle, copy corner, visible panel, heading wrappers, 14 language accents, border toggle, auto contrast, matching shadows, terminal text, no mac overflow, wrapped callouts and backslash markers with 2ch indent, clean language label, sticky header gutters and code background.';document.title='PASS Code checks';
 }catch(e){document.querySelector('#results').textContent='FAIL '+e.stack;document.title='FAIL Code checks';}

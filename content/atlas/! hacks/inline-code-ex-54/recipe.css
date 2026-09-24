@@ -1,11 +1,96 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Фон — свой цвет
+   * @type color
+   * @default #176e60
+   */
+  --hacksidian-inline-code-ex-54-background-custom: #176e60;
+  /**
+   * @parameter Фон — источник
+   * @type select
+   * @default var(--hacksidian-inline-code-ex-54-background-custom)
+   * @option unchanged | Как есть
+   * @option var(--hacksidian-inline-code-ex-54-background-custom) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--code-background) | Фон кода
+   * @option var(--text-highlight-bg) | Фон подсветки
+   * @option var(--text-selection) | Фон выделения
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-inline-code-ex-54-background-source: var(--color-yellow);
+  /**
+   * @parameter Текст — свой цвет
+   * @type color
+   * @default #ffffff
+   */
+  --hacksidian-inline-code-ex-54-text-custom: #ffffff;
+  /**
+   * @parameter Текст — источник
+   * @type select
+   * @default contrast
+   * @option unchanged | Как есть
+   * @option var(--hacksidian-inline-code-ex-54-text-custom) | Свой цвет
+   * @option contrast | Контраст
+   * @option var(--code-normal) | Текст кода
+   * @option var(--text-normal) | Основной текст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-inline-code-ex-54-text-source: contrast;
+}
 :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
-  padding: .1em .3em;
-  border-radius: .28em;
-  background: var(--background-secondary);
+  --hacksidian-inline-code-ex-54-resolved-background: var(--text-selection);
 }
-:is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::selection {
-  background: #176e60;
-  color: white;
-  text-shadow: none;
+@container not style(--hacksidian-inline-code-ex-54-background-source: unchanged) {
+  :is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::selection {
+    background-color: var(--hacksidian-inline-code-ex-54-background-source);
+  }
+  :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+    --hacksidian-inline-code-ex-54-resolved-background: var(--hacksidian-inline-code-ex-54-background-source);
+  }
 }
-
+@container style(--hacksidian-inline-code-ex-54-background-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::selection {
+    background-color: oklch(from var(--background-primary) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+    --hacksidian-inline-code-ex-54-resolved-background: oklch(from var(--background-primary) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::selection {
+      background-color: contrast-color(var(--background-primary));
+    }
+    :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
+      --hacksidian-inline-code-ex-54-resolved-background: contrast-color(var(--background-primary));
+    }
+  }
+}
+@container not style(--hacksidian-inline-code-ex-54-text-source: unchanged) {
+  :is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::selection {
+    color: var(--hacksidian-inline-code-ex-54-text-source);
+  }
+}
+@container style(--hacksidian-inline-code-ex-54-text-source: contrast) {
+  :is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::selection {
+    color: oklch(from var(--hacksidian-inline-code-ex-54-resolved-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  }
+  @supports (color: contrast-color(red)) {
+    :is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::selection {
+      color: contrast-color(var(--hacksidian-inline-code-ex-54-resolved-background));
+    }
+  }
+}

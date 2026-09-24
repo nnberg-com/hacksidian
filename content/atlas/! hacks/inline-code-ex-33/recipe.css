@@ -1,10 +1,7 @@
 :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
   padding: .1em .3em;
-  border-radius: .28em;
-  background: var(--background-secondary);
   white-space: break-spaces;
   overflow-wrap: anywhere;
   word-break: normal;
   hyphens: none;
 }
-

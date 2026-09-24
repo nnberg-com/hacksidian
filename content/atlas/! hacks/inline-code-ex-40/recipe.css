@@ -1,8 +1,18 @@
 :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
   padding: .65em .2em;
+  position: relative;
+  z-index: auto;
+  background: transparent;
+}
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: var(--background-secondary);
+  border-radius: inherit;
+  pointer-events: none;
 }
-:is(.markdown-preview-view, .markdown-source-view) p {
-  line-height: calc(var(--line-height-normal) * 1);
+:is(.markdown-preview-view, .markdown-source-view) :is(p, li, td, th, dt, dd, h1, h2, h3, h4, h5, h6):has(code:not(pre code)) {
+  isolation: isolate;
 }
-

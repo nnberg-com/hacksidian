@@ -1,5 +1,24 @@
-:is(.markdown-preview-view, .markdown-source-view) li::marker {
+.markdown-preview-view ul > li:not(.task-list-item)::marker {
   content: "—  ";
+  font-weight: 800;
+  color: var(--interactive-accent);
+}
+
+/* Keep Obsidian's folding target, but do not draw a second bullet. */
+.markdown-preview-view ul > li:not(.task-list-item) > .list-bullet::after {
+  display: none;
+}
+
+/* Live Preview has editor spans instead of native li markers. */
+.markdown-source-view .cm-line:not(.HyperMD-task-line) .cm-formatting-list-ul .list-bullet::after {
+  content: "—";
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  transform: none;
   font-weight: 800;
   color: var(--interactive-accent);
 }

@@ -8,7 +8,7 @@
    * @max 2
    * @step 0.01
    */
-  --hacksidian-lead-scale: 1.22;
+  --hacksidian-lead-scale: 1.5;
 }
 .markdown-preview-view > h1 + p, .markdown-preview-view .el-h1 + .el-p > p {
   font-size: calc(var(--font-text-size) * var(--hacksidian-lead-scale));

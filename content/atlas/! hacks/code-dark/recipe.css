@@ -4,7 +4,7 @@
    * @type color
    * @default #202e34
    */
-  --hacksidian-code-dark-color-1-custom: #202e34;
+  --hacksidian-code-dark-color-1-custom: #2b291f;
   /**
    * @parameter Фон 1 — источник
    * @type select
@@ -31,7 +31,7 @@
    * @type color
    * @default #e8f0ec
    */
-  --hacksidian-code-dark-color-2-custom: #e8f0ec;
+  --hacksidian-code-dark-color-2-custom: #b0ae9c;
   /**
    * @parameter Текст 2 — источник
    * @type select

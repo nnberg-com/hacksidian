@@ -1,8 +1,13 @@
 :is(.markdown-preview-view, .markdown-source-view) code:not(pre code) {
-  padding: .1em .3em;
-  border-radius: .28em;
-  background: var(--background-secondary);
+  --hacksidian-inline-code-select-all: 1;
   -webkit-user-select: all;
   user-select: all;
 }
 
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code)[data-hacksidian-selected] {
+  box-shadow: inset 0 0 0 100vmax var(--text-selection);
+}
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code)[data-hacksidian-selected]::selection,
+:is(.markdown-preview-view, .markdown-source-view) code:not(pre code)[data-hacksidian-selected] *::selection {
+  background: transparent;
+}

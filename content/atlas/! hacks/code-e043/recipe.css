@@ -24,7 +24,7 @@
    * @option var(--text-muted) | Приглушённый текст
    * @option var(--background-modifier-border) | Рамка темы
    */
-  --hacksidian-code-e043-color-1: var(--hacksidian-code-e043-color-1-custom);
+  --hacksidian-code-e043-color-1: var(--color-green);
 
   /**
    * @parameter Текст 2 — свой цвет

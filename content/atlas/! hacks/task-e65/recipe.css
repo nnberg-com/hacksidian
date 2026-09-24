@@ -6,7 +6,7 @@
    * @default "готово"
    * @maxlength 40
    */
-  --hacksidian-task-e65-done-label: "done";
+  --hacksidian-task-e65-done-label: "готово";
   /**
    * @parameter Подпись раздела в работе
    * @label-en In-progress section label
@@ -14,7 +14,7 @@
    * @default "в работе"
    * @maxlength 40
    */
-  --hacksidian-task-e65-progress-label: "in progress";
+  --hacksidian-task-e65-progress-label: "в работе";
 }
 :is(.markdown-preview-view, .markdown-source-view) h2:has(+ :is(ul, ol) input[type="checkbox"])::after,
 :is(.markdown-preview-view, .markdown-source-view) .el-h2:has(+ :is(.el-ul, .el-ol) input[type="checkbox"]) > h2::after {

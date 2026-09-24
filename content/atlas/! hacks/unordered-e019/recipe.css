@@ -1,3 +1,14 @@
+/* This recipe supplies its own marker; suppress native and themed bullets. */
+.markdown-preview-view ul > li:not(.task-list-item) {
+  list-style: none;
+}
+.markdown-preview-view ul > li:not(.task-list-item)::marker {
+  content: "";
+}
+.markdown-preview-view ul > li:not(.task-list-item) > .list-bullet::after {
+  display: none;
+}
+
 :is(.markdown-preview-view, .markdown-source-view) ul {
   list-style: none;
   padding-inline-start: 0;

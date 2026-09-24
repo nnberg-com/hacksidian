@@ -24,7 +24,7 @@
    * @option var(--text-muted) | Приглушённый текст
    * @option var(--background-modifier-border) | Рамка темы
    */
-  --hacksidian-code-e044-color-1: var(--hacksidian-code-e044-color-1-custom);
+  --hacksidian-code-e044-color-1: var(--text-normal);
 
 }
 
@@ -33,6 +33,7 @@
    * @parameter Цвет акцента
    * @type select
    * @default var(--color-orange)
+   * @option var(--background-modifier-border) | Без акцента
    * @option var(--color-red) | Красный
    * @option var(--color-orange) | Оранжевый
    * @option var(--color-yellow) | Жёлтый
@@ -42,7 +43,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-hover-accent: var(--color-orange);
+  --hacksidian-code-hover-accent: var(--background-modifier-border);
 }
 :is(.markdown-preview-view, .markdown-source-view) pre {
   border: 1px solid var(--background-modifier-border);
@@ -50,5 +51,5 @@
 }
 :is(.markdown-preview-view, .markdown-source-view) pre:is(:hover, :focus-within) {
   border-color: var(--hacksidian-code-hover-accent);
-  box-shadow: 0 .5em 1.2em color-mix(in srgb, var(--hacksidian-code-e044-color-1) 7.8431%, transparent);
+  box-shadow: 0 .5em 1.2em color-mix(in srgb, var(--hacksidian-code-e044-color-1) 28%, transparent);
 }

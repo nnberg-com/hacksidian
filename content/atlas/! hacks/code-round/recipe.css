@@ -8,6 +8,6 @@
    * @max 4
    * @step .1
    */
-  --hacksidian-code-round-radius: 1.4em;
+  --hacksidian-code-round-radius: 1em;
   border-radius: var(--hacksidian-code-round-radius);
 }

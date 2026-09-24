@@ -12,7 +12,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-line-accent: var(--color-yellow);
+  --hacksidian-code-line-accent: var(--color-cyan);
   --hacksidian-code-line-highlight: color-mix(in oklch, var(--hacksidian-code-line-accent) 35%, transparent);
 }
 /* Line selection is prepared by the Hacksidian Markdown postprocessor. */

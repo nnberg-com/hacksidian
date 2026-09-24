@@ -12,6 +12,7 @@
     "test": "vitest run",
     "check": "npm run typecheck && npm run build && npm run test",
     "install:plugin": "npm run build && node scripts/install-vault.mjs",
+    "update:code": "npm run build && node scripts/update-code.mjs",
     "install:release": "node scripts/install-vault.mjs --release",
     "release:prepare": "npm run check && node scripts/prepare-release.mjs",
     "release:version": "node scripts/release-version.mjs"

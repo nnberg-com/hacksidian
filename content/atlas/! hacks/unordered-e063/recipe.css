@@ -1,7 +1,0 @@
-@media print {
-  :is(.markdown-preview-view, .markdown-source-view) li {
-    break-inside: avoid;
-    orphans: 2;
-    widows: 2;
-  }
-}

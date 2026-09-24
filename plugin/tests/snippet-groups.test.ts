@@ -45,3 +45,28 @@ test('adds composition to an existing group manifest without changing installed 
   expect(await migrateSnippetGroups(dir)).toEqual([]);
  }finally{await rm(dir,{recursive:true,force:true});}
 });
+
+test('category manifest removes missing aliases and empty retired slots, preserving current CSS',async()=>{
+ const dir=await mkdtemp(path.join(tmpdir(),'hs-retired-'));
+ try {
+  const obsolete=[['meta','01-meta'],['interface','02-interface'],['note','03-note'],['list','11-list'],['pseudo-task','13-pseudo-task']].map(([id,file])=>({id:'g-'+id,component:id,file:'hacksidian-'+file+'.css'}));
+  const old={...groupManifest,modules:[...groupManifest.modules,...obsolete]};
+  await writeFile(path.join(dir,'hacksidian-manifest.json'),JSON.stringify(old));
+  for(const m of groupManifest.modules)await writeFile(path.join(dir,m.file),'/* user CSS '+m.id+' */');
+  for(const m of obsolete.slice(0,3))await writeFile(path.join(dir,m.file),'');
+  await migrateSnippetGroups(dir);
+  const manifest=JSON.parse(await readFile(path.join(dir,'hacksidian-manifest.json'),'utf8'));
+  expect(manifest.modules).toEqual(groupManifest.modules);
+  expect((await readdir(dir)).filter(f=>f.endsWith('.css')).sort()).toEqual(groupManifest.modules.map(m=>m.file).sort());
+  const style=await readFileStyle(dir);
+  for(const m of style.modules)expect(m.css).toBe('/* user CSS '+m.id+' */');
+  expect(await migrateSnippetGroups(dir)).toEqual([]);
+  const categories=(await readdir(path.resolve(import.meta.dirname,'../../content/atlas/! categories'))).filter(f=>f.endsWith('.md')&&!f.startsWith('!')).map(f=>f.slice(0,-3)).sort();
+  expect(manifest.modules.map((m:{group:string})=>m.group).sort()).toEqual(categories);
+  await writeFile(path.join(dir,'hacksidian-manifest.json'),JSON.stringify(old));
+  await writeFile(path.join(dir,obsolete[3].file),'ul { color: red; }');
+  await expect(migrateSnippetGroups(dir)).rejects.toThrow('Retired snippet contains CSS');
+  expect(await readFile(path.join(dir,'hacksidian-manifest.json'),'utf8')).toBe(JSON.stringify(old));
+  expect(await readFile(path.join(dir,obsolete[3].file),'utf8')).toBe('ul { color: red; }');
+ }finally{await rm(dir,{recursive:true,force:true});}
+});

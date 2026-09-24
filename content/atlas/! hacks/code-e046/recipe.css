@@ -24,7 +24,7 @@
    * @option var(--text-muted) | Приглушённый текст
    * @option var(--background-modifier-border) | Рамка темы
    */
-  --hacksidian-code-e046-color-1: var(--hacksidian-code-e046-color-1-custom);
+  --hacksidian-code-e046-color-1: var(--color-yellow);
 
   /**
    * @parameter Фон 2 — свой цвет
@@ -51,7 +51,7 @@
    * @option var(--text-muted) | Приглушённый текст
    * @option var(--background-modifier-border) | Рамка темы
    */
-  --hacksidian-code-e046-color-2: var(--hacksidian-code-e046-color-2-custom);
+  --hacksidian-code-e046-color-2: var(--text-muted);
 
 }
 
@@ -61,5 +61,18 @@
   padding-left: calc(var(--size-4-1) * 4);
 }
 :is(.markdown-preview-view, .markdown-source-view) blockquote pre {
+  --hacksidian-code-e046-foreground: oklch(from var(--hacksidian-code-e046-color-2) clamp(0, (0.65 - l) * 100000, 1) 0 0);
   background: var(--hacksidian-code-e046-color-2);
+  color: var(--hacksidian-code-e046-foreground);
+}
+:is(.markdown-preview-view, .markdown-source-view) blockquote pre code,
+:is(.markdown-preview-view, .markdown-source-view) blockquote pre code .token {
+  color: var(--hacksidian-code-e046-foreground) !important;
+  text-shadow: none;
+}
+
+@supports (color: contrast-color(red)) {
+  :is(.markdown-preview-view, .markdown-source-view) blockquote pre {
+    --hacksidian-code-e046-foreground: contrast-color(var(--hacksidian-code-e046-color-2));
+  }
 }

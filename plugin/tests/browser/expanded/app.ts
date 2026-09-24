@@ -33,7 +33,7 @@ document.querySelector('#run').addEventListener('click',async()=>{
   for(const system of expected){
    const section=document.querySelector('#text-system section[data-option="'+system.id+'"]');
    for(let i=0;i<6;i++){
-    const a=getComputedStyle(section.querySelector('.hacksidian-live-sample h'+(i+1))),h=system.headings[i];
+    const a=getComputedStyle(section.querySelector('.hacksidian-live-shadow').shadowRoot.querySelector('.hacksidian-live-sample h'+(i+1))),h=system.headings[i];
     if(Math.abs(parseFloat(a.fontSize)-h.size*16)>.02||Math.abs(parseFloat(a.lineHeight)-h.size*16*h.leading)>.02||a.fontWeight!==String(h.weight)||Math.abs(parseFloat(a.marginBlockStart)-h.before*16)>.02||Math.abs(parseFloat(a.marginBlockEnd)-h.after*16)>.02||a.fontStyle!==h.style||a.textTransform!==h.transform)throw Error(system.id+' H'+(i+1));
    }
   }
@@ -52,11 +52,11 @@ document.querySelector('#run').addEventListener('click',async()=>{
 
   document.querySelector('#text-system-carbon > div > button').click();await pause();
   check(document.querySelector('#text-system .main-card select').value==='carbon','expanded → редактор text-system');
-  check(Math.abs(parseFloat(getComputedStyle(document.querySelector('#text-system-uswds .hacksidian-live-sample h1')).fontSize)-expected.find(s=>s.id==='uswds').headings[0].size*16)<.02,'другие варианты не меняются');
+  check(Math.abs(parseFloat(getComputedStyle(document.querySelector('#text-system-uswds .hacksidian-live-shadow').shadowRoot.querySelector('.hacksidian-live-sample h1')).fontSize)-expected.find(s=>s.id==='uswds').headings[0].size*16)<.02,'другие варианты не меняются');
   document.querySelector('#palette-solarized-1 > div > button').click();await pause();
   check(document.querySelector('#palette .main-card .hacksidian-parameters select').value==='solarized-1','expanded → редактор palette');
   const select=document.querySelector('#text-system .main-card select');select.value='primer';select.dispatchEvent(new Event('change'));await pause();
-  check(getComputedStyle(document.querySelector('#text-system-carbon .hacksidian-live-sample h1')).fontSize==='42px','выбор в редакторе не меняет фиксированный пример');
+  check(getComputedStyle(document.querySelector('#text-system-carbon .hacksidian-live-shadow').shadowRoot.querySelector('.hacksidian-live-sample h1')).fontSize==='42px','выбор в редакторе не меняет фиксированный пример');
   check(getComputedStyle(document.querySelector('#unrelated')).fontSize==='17px','окружающая страница не изменена');
   check(writes.length===3,'ровно три явных сохранения');
   report.textContent+='DONE';

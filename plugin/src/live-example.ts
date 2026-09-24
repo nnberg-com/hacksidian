@@ -5,6 +5,9 @@ import { readParameters, parameterValue } from './parameters';
 import { ParameterControls } from './parameter-controls';
 import type { FavouriteControls } from './favourites';
 import { previewState } from './preview-state';
+import { createLiveExampleSurface } from './live-example-surface';
+import { installInlineCodeSelection } from './inline-code-selection';
+import { loadPreviewFont } from './live-example-font';
 import { activatePreviewTarget } from './live-example-target';
 import { Component, MarkdownRenderChild, MarkdownRenderer, Notice, Plugin, TFile } from 'obsidian';
 import { liveExampleIssue, resolveLiveUrls, scopeLiveExample } from './live-example-css';
@@ -24,6 +27,9 @@ export class LiveExample extends MarkdownRenderChild {
       if ([`${this.directory}/recipe.css`, `${this.directory}/markdown.md`, `${this.directory}/Model.ru.html`].includes(file.path)) {
         clearTimeout(this.timer); this.timer = setTimeout(() => void this.render(), 150);
       }
+    }));
+    if (this.plugin.app.workspace) this.registerEvent(this.plugin.app.workspace.on('css-change', () => {
+      clearTimeout(this.timer); this.timer = setTimeout(() => void this.render(), 150);
     }));
     void this.render();
   }
@@ -94,7 +100,12 @@ export class LiveExample extends MarkdownRenderChild {
       const preview = previewState(this.previewEl, this.directory);
       this.previewEl.createEl('hr', { cls: 'hacksidian-live-separator' });
       const viewport = this.previewEl.createDiv({ cls: 'hacksidian-live-viewport' });
-      const sample = viewport.createDiv({ cls: 'markdown-preview-view markdown-rendered hacksidian-live-sample' }); sample.id = id;
+      const surface = createLiveExampleSurface(viewport);
+      const sample = surface.createDiv({ cls: 'markdown-preview-view markdown-rendered hacksidian-live-sample' }); sample.id = id;
+      if (spec.previewFont) {
+        await loadPreviewFont(sample, spec.previewFont, file => adapter.readBinary(`${this.directory}/${file}`), owner);
+        if (this.stopped || epoch !== this.epoch) return;
+      }
       const pageSized = /\.markdown-preview-sizer|\.is-readable-line-width/.test(css);
       if (pageSized) sample.addClass('is-readable-line-width');
       const content = pageSized ? sample.createDiv({ cls: 'markdown-preview-sizer hacksidian-live-page' }) : sample;
@@ -122,15 +133,17 @@ export class LiveExample extends MarkdownRenderChild {
         event.preventDefault(); event.stopPropagation();
         target.scrollIntoView({ block: 'nearest' });
       }, { capture: true });
-      const style = this.previewEl.createEl('style');
+      const style = surface.createEl('style');
       this.previewEl.createEl('hr', { cls: 'hacksidian-live-separator' });
       let refreshWrapMarkers = () => {};
-      const update = () => { style.textContent = preview.enabled ? scoped : ''; refreshWrapMarkers(); };
+      let refreshSelection = () => {};
+      const update = () => { style.textContent = preview.enabled ? scoped : ''; refreshWrapMarkers(); refreshSelection(); };
       owner.register(preview.subscribe(update)); update();
       await MarkdownRenderer.render(this.plugin.app, parameterMarkdown(markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, ''), css), content, `${this.directory}/markdown.md`, owner);
       if (this.stopped || epoch !== this.epoch) return;
       watchCodeLineHighlights(sample, owner);
       refreshWrapMarkers = installCodeWrapMarkers(sample, owner);
+      refreshSelection = installInlineCodeSelection(sample, owner);
       sample.querySelectorAll<HTMLInputElement>('input[type=checkbox]').forEach(input => { input.disabled = false; });
       if (/:target\b/.test(css)) this.previewEl.createEl('small', { text: ru ? 'Нажмите ссылку или номер сноски внутри примера: эффект появится у выбранной цели.' : 'Click a link or footnote number inside the example to select its target.' });
       if (this.directory.endsWith('/link-e025')) this.previewEl.createEl('small', { text: ru ? 'Наведите курсор на ссылку. Если подчёркивание отключено в вашем оформлении, этот приём сам его не включает.' : 'Hover over the link. This technique does not enable underlines if your styling disables them.' });
