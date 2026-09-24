@@ -1,12 +1,102 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Текст 1 — свой цвет
+   * @type color
+   * @default #e2ecd9
+   */
+  --hacksidian-code-e050-color-1-custom: #e2ecd9;
+  /**
+   * @parameter Текст 1 — источник
+   * @type select
+   * @default var(--hacksidian-code-e050-color-1-custom)
+   * @option var(--hacksidian-code-e050-color-1-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e050-color-1: var(--hacksidian-code-e050-color-1-custom);
+
+  /**
+   * @parameter Фон 2 — свой цвет
+   * @type color
+   * @default #25352e
+   */
+  --hacksidian-code-e050-color-2-custom: #25352e;
+  /**
+   * @parameter Фон 2 — источник
+   * @type select
+   * @default var(--hacksidian-code-e050-color-2-custom)
+   * @option var(--hacksidian-code-e050-color-2-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e050-color-2: var(--hacksidian-code-e050-color-2-custom);
+
+  /**
+   * @parameter Рамка 3 — свой цвет
+   * @type color
+   * @default #b3c2a9
+   */
+  --hacksidian-code-e050-color-3-custom: #b3c2a9;
+  /**
+   * @parameter Рамка 3 — источник
+   * @type select
+   * @default var(--hacksidian-code-e050-color-3-custom)
+   * @option var(--hacksidian-code-e050-color-3-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e050-color-3: var(--hacksidian-code-e050-color-3-custom);
+
+}
+
 :is(.markdown-preview-view, .markdown-source-view) pre:has(+ pre), :is(.markdown-preview-view, .markdown-source-view) .el-pre:has(+ .el-pre) > pre {
   margin-bottom: 0;
   border-radius: calc(var(--code-radius) * 2) calc(var(--code-radius) * 2) 0 0;
-  background: #25352e;
-  color: #e2ecd9;
+  --code-normal: var(--hacksidian-code-e050-color-1);
+  background: var(--hacksidian-code-e050-color-2);
+  color: var(--hacksidian-code-e050-color-1);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre + pre, :is(.markdown-preview-view, .markdown-source-view) .el-pre + .el-pre > p {
+:is(.markdown-preview-view, .markdown-source-view) pre + pre, :is(.markdown-preview-view, .markdown-source-view) .el-pre + .el-pre > pre {
   margin-top: 0;
-  border-top: 1px solid #b3c2a9;
+  border-top: 1px solid var(--hacksidian-code-e050-color-3);
   border-radius: 0 0 calc(var(--radius-s) * 2) calc(var(--radius-s) * 2);
 }
 
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(+ pre) > code,
+:is(.markdown-preview-view, .markdown-source-view) .el-pre:has(+ .el-pre) > pre > code {
+  color: inherit;
+}

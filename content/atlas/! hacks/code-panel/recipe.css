@@ -1,8 +1,44 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Цвет панели
+   * @type select
+   * @default var(--color-blue)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-panel-accent: var(--color-red);
+  /**
+   * @parameter Насыщенность подложки
+   * @type number
+   * @default 15%
+   * @unit %
+   * @min 0
+   * @max 50
+   * @step 1
+   */
+  --hacksidian-code-panel-tint: 2%;
+  /**
+   * @parameter Есть/нет рамка
+   * @type select
+   * @control checkbox
+   * @default 1px
+   * @option 1px | Есть | On
+   * @option 0px | Нет | Off
+   */
+  --hacksidian-code-panel-border: 1px;
+}
 :is(.markdown-preview-view, .markdown-source-view) pre {
-  background: var(--background-secondary);
-  padding: 1em;
+  background: color-mix(in oklch, var(--hacksidian-code-panel-accent) var(--hacksidian-code-panel-tint), var(--background-primary));
+  padding: 1.25em;
+  padding-inline-end: calc(var(--icon-size, 18px) + 2em);
   border-radius: .5em;
-  border: 1px solid var(--code-border-color);
+  border: var(--hacksidian-code-panel-border) solid color-mix(in oklch, var(--hacksidian-code-panel-accent) 50%, var(--background-primary));
   overflow: auto;
 }
 :is(.markdown-preview-view, .markdown-source-view) pre > code {
@@ -10,4 +46,3 @@
   border: 0;
   padding: 0;
 }
-

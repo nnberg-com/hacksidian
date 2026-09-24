@@ -1,0 +1,12 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  /**
+   * @parameter Рамка
+   * @type select
+   * @default 1px
+   * @option 1px | Есть
+   * @option 0px | Нет
+   */
+  --hacksidian-code-square-border: 1px;
+  border-radius: 0;
+  border: var(--hacksidian-code-square-border) solid var(--background-modifier-border);
+}

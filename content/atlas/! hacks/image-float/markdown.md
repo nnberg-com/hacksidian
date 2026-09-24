@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-image-float
 ---
 
-## Залив утром
+### Залив утром
 
 ![Вид на залив](assets/bay.svg)
 

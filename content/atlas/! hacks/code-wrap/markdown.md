@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-code-wrap
 ---
 
-## Запись измерений
+### Запись измерений
 
 ```
 time     place                light      observation

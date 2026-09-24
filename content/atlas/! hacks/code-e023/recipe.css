@@ -1,4 +1,6 @@
 :is(.markdown-preview-view, .markdown-source-view) pre {
+  box-sizing: border-box;
+  padding-inline-end: calc(var(--icon-size, 18px) + 2em);
   width: fit-content;
   max-width: 100%;
 }

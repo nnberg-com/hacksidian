@@ -1,3 +1,5 @@
+import { installCodeWrapMarkers } from './code-wrap-markers';
+import { watchCodeLineHighlights } from './code-line-ranges';
 import { parameterExample, parameterMarkdown } from './parameter-variants';
 import { readParameters, parameterValue } from './parameters';
 import { ParameterControls } from './parameter-controls';
@@ -122,10 +124,13 @@ export class LiveExample extends MarkdownRenderChild {
       }, { capture: true });
       const style = this.previewEl.createEl('style');
       this.previewEl.createEl('hr', { cls: 'hacksidian-live-separator' });
-      const update = () => { style.textContent = preview.enabled ? scoped : ''; };
+      let refreshWrapMarkers = () => {};
+      const update = () => { style.textContent = preview.enabled ? scoped : ''; refreshWrapMarkers(); };
       owner.register(preview.subscribe(update)); update();
       await MarkdownRenderer.render(this.plugin.app, parameterMarkdown(markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, ''), css), content, `${this.directory}/markdown.md`, owner);
       if (this.stopped || epoch !== this.epoch) return;
+      watchCodeLineHighlights(sample, owner);
+      refreshWrapMarkers = installCodeWrapMarkers(sample, owner);
       sample.querySelectorAll<HTMLInputElement>('input[type=checkbox]').forEach(input => { input.disabled = false; });
       if (/:target\b/.test(css)) this.previewEl.createEl('small', { text: ru ? 'Нажмите ссылку или номер сноски внутри примера: эффект появится у выбранной цели.' : 'Click a link or footnote number inside the example to select its target.' });
       if (this.directory.endsWith('/link-e025')) this.previewEl.createEl('small', { text: ru ? 'Наведите курсор на ссылку. Если подчёркивание отключено в вашем оформлении, этот приём сам его не включает.' : 'Hover over the link. This technique does not enable underlines if your styling disables them.' });

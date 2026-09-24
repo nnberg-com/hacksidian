@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-link-visited
 ---
 
-## Полезные адреса
+### Полезные адреса
 
 О принципах оформления можно прочитать в [спецификации Markdown](https://spec.commonmark.org/0.31.2/).
 

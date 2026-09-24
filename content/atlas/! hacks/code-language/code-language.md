@@ -8,6 +8,7 @@ sources:
   - https://spec.commonmark.org/0.31.2/#fenced-code-blocks
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id
@@ -23,6 +24,7 @@ code-language
 Быстрая ориентация в заметке с несколькими языками.
 
 > Как работает
+Метка берётся только из класса language-*, служебные классы вроде is-loaded игнорируются. Для распространённых языков есть CSS-подписи без зависимости от обработчика.
 Рендерер переносит css после тройных обратных кавычек в class="language-css" у code. Его ::before выводит метку.
 
 > Ограничения

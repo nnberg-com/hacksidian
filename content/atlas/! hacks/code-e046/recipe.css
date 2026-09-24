@@ -1,8 +1,65 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Рамка 1 — свой цвет
+   * @type color
+   * @default #9aab8c
+   */
+  --hacksidian-code-e046-color-1-custom: #9aab8c;
+  /**
+   * @parameter Рамка 1 — источник
+   * @type select
+   * @default var(--hacksidian-code-e046-color-1-custom)
+   * @option var(--hacksidian-code-e046-color-1-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e046-color-1: var(--hacksidian-code-e046-color-1-custom);
+
+  /**
+   * @parameter Фон 2 — свой цвет
+   * @type color
+   * @default #edf1e6
+   */
+  --hacksidian-code-e046-color-2-custom: #edf1e6;
+  /**
+   * @parameter Фон 2 — источник
+   * @type select
+   * @default var(--hacksidian-code-e046-color-2-custom)
+   * @option var(--hacksidian-code-e046-color-2-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e046-color-2: var(--hacksidian-code-e046-color-2-custom);
+
+}
+
 :is(.markdown-preview-view, .markdown-source-view) blockquote {
   margin: 0;
-  border-left: calc(var(--blockquote-border-thickness) * 1.5) solid #9aab8c;
+  border-left: calc(var(--blockquote-border-thickness) * 1.5) solid var(--hacksidian-code-e046-color-1);
   padding-left: calc(var(--size-4-1) * 4);
 }
 :is(.markdown-preview-view, .markdown-source-view) blockquote pre {
-  background: #edf1e6;
+  background: var(--hacksidian-code-e046-color-2);
 }

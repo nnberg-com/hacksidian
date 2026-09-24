@@ -1,0 +1,39 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  position: relative;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  --hacksidian-code-wrap-markers: 1;
+  display: block;
+  width: auto;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-inline-end: 2ch;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code > .hacksidian-source-line {
+  display: block;
+  min-height: 1lh;
+  padding-inline-start: 2ch;
+  text-indent: -2ch;
+  white-space: pre-wrap;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:has(> .hacksidian-source-line) {
+  white-space: normal;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > .hacksidian-wrap-markers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .hacksidian-wrap-markers > i {
+  position: absolute;
+  font-style: normal;
+  padding-inline-start: .25ch;
+}
+:is(.markdown-preview-view, .markdown-source-view) .hacksidian-wrap-markers > i::before {
+  content: "\\";
+}

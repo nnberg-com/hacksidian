@@ -29,7 +29,7 @@ test('all ten systems compile to the identical selector structure and define eve
  }
 });
 test('expanded examples validate ordinary parameters without changing source or another example',()=>{
- const css=read('text-system'),p=readParameters(css)[0];
+ const css=updateParameter(read('text-system'),'--hacksidian-text-system-choice','uswds'),p=readParameters(css)[0];
  const a=parameterExample(css,{[p.variable]:'carbon'}),b=parameterExample(css,{[p.variable]:'primer'});
  expect(readParameters(css)[0].value).toBe('uswds');
  expect(readParameters(a)[0].value).toBe('carbon');expect(readParameters(b)[0].value).toBe('primer');

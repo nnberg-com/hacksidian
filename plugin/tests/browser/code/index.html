@@ -1,0 +1,74 @@
+<!doctype html><meta charset="utf-8"><title>Code checks</title><link rel="stylesheet" href="stock.css"><body class="theme-light"><pre id="results">Running</pre><script type="module">
+import {prepareCodeLineHighlights, watchCodeLineHighlights} from './ranges.js';
+import {installCodeWrapMarkers} from './wrap.js';
+const data=await(await fetch('data.json')).json();let checks=0;
+function ok(v,msg){if(!v)throw Error(msg);checks++;}
+function fixture(id,html){const e=document.body.appendChild(document.createElement('div'));e.id='hacksidian-live-'+id;e.className='markdown-preview-view markdown-rendered';e.style.cssText='width:600px;padding:24px';e.innerHTML=html;return e;}
+function style(id){const e=document.head.appendChild(document.createElement('style'));e.textContent=data[id];return e;}
+try{
+const h=fixture('code-e033','<div class="callout" data-callout="code-line" data-callout-metadata="1,3-5,8"><div class="callout-content"><pre><code>one\ntwo\nthree\nfour\nfive\nsix\nseven\neight</code></pre></div></div>');const code=h.querySelector('code'),before=code.textContent;prepareCodeLineHighlights(h);const st=style('code-e033');ok(code.textContent===before,'source changed');ok(getComputedStyle(code).backgroundImage.match(/linear-gradient/g)?.length===3,'three bands absent');h.querySelector('.callout').dataset.calloutMetadata='2-4';prepareCodeLineHighlights(h);ok(getComputedStyle(code).backgroundImage.match(/linear-gradient/g)?.length===1,'range edit failed');st.remove();ok(getComputedStyle(code).backgroundImage==='none','disabled recipe still shows bands');style('code-e033');
+const c=fixture('code-e039','<pre><code>npm run build</code><button class="copy-code-button">Copy</button></pre>');style('code-e039');const pre=c.querySelector('pre'),button=c.querySelector('button');button.style.display='block';ok(button.getBoundingClientRect().right<=pre.getBoundingClientRect().right-26,'copy overlaps folded corner');ok(getComputedStyle(pre,'::after').pointerEvents==='none','fold captures clicks');
+const panel=fixture('code-panel','<pre><code>print("Hello")</code></pre>');const base=getComputedStyle(panel.querySelector('pre')).backgroundColor;style('code-panel');ok(getComputedStyle(panel.querySelector('pre')).backgroundColor!==base,'panel unchanged');
+for(const wrapped of [false,true]){const el=fixture('code-e048',wrapped?'<div class="el-h3"><h3>Heading</h3></div><div class="el-pre"><pre><code>value</code></pre></div>':'<h3>Heading</h3><pre><code>value</code></pre>');style('code-e048');el.style.setProperty('--hacksidian-code-heading-body','rgb(12, 34, 56)');ok(getComputedStyle(el.querySelector('pre')).backgroundColor==='rgb(12, 34, 56)','heading body color');el.remove();}
+const langs=['sh','python','c','awk','css','markdown','yaml','json','html','lua','cpp','javascript','typescript','kconfig'];const l=fixture('code-e051',langs.map(x=>'<pre><code class="language-'+x+'">example</code></pre>').join(''));style('code-e051');for(const p of l.querySelectorAll('pre'))ok(getComputedStyle(p).borderLeftWidth==='4px','language border');
+
+const border=panel.querySelector('pre');panel.style.setProperty('--hacksidian-code-panel-border','0px');ok(getComputedStyle(border).borderTopWidth==='0px','border off');panel.style.setProperty('--hacksidian-code-panel-border','1px');ok(getComputedStyle(border).borderTopWidth==='1px','border on');
+const automatic=fixture('code-e048','<h3>Auto contrast</h3><pre><code>value</code></pre>');
+automatic.style.setProperty('--hacksidian-code-heading-tint','100%');
+for(const [bg,lightness] of [['white',0],['black',1]]){
+ automatic.style.setProperty('--hacksidian-code-heading-color',bg);
+ const heading=automatic.querySelector('h3'),actual=getComputedStyle(heading).color;
+ const expected=CSS.supports('color','contrast-color(red)')?(lightness?'rgb(255, 255, 255)':'rgb(0, 0, 0)'):'oklch('+lightness+' 0 0)';
+ ok(actual===expected,'auto contrast '+bg+': '+actual);
+}
+const nativeStyles=[...document.querySelectorAll('style')].map(el=>[el,el.textContent]);
+for(const [el,css] of nativeStyles)el.textContent=css.replace(/color: contrast-color\([^;]+;/g,'');
+for(const [bg,lightness] of [['white',0],['black',1]]){
+ automatic.style.setProperty('--hacksidian-code-heading-color',bg);
+ ok(getComputedStyle(automatic.querySelector('h3')).color==='oklch('+lightness+' 0 0)','fallback contrast '+bg);
+}
+for(const [el,css] of nativeStyles)el.textContent=css;
+automatic.style.setProperty('--hacksidian-code-heading-surface','white');automatic.style.setProperty('--hacksidian-code-heading-tint','0%');ok(getComputedStyle(automatic.querySelector('h3')).backgroundColor!==getComputedStyle(automatic.querySelector('pre')).backgroundColor,'heading tint applies');
+const permanent=fixture('code-e005','<pre><code>shadow</code></pre>');style('code-e005');
+const hover=fixture('code-e044','<pre><code>shadow</code><button>focus</button></pre>');style('code-e044');hover.querySelector('button').focus();
+ok(getComputedStyle(permanent.querySelector('pre')).boxShadow===getComputedStyle(hover.querySelector('pre')).boxShadow,'same permanent and focus shadow');
+
+
+const settle=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+const disposers=[];const owner={register:fn=>disposers.push(fn)};
+const wrappedLines=fixture('code-e033','<div class="callout" data-callout="code-line" data-callout-metadata="1,3-5"><div class="callout-content"><div class="el-pre"><pre><code>one\ntwo\nthree\nfour\nfive</code></pre></div></div></div>');
+watchCodeLineHighlights(wrappedLines,owner);ok(getComputedStyle(wrappedLines.querySelector('code')).backgroundImage.match(/linear-gradient/g)?.length===2,'wrapped Obsidian callout bands');
+wrappedLines.querySelector('.callout').dataset.calloutMetadata='2';await settle();ok(getComputedStyle(wrappedLines.querySelector('code')).backgroundImage.match(/linear-gradient/g)?.length===1,'watched metadata update');
+wrappedLines.remove();
+const mono=fixture('code-e035','<pre><code>terminal output</code></pre>');style('code-e035');ok(getComputedStyle(mono.querySelector('code')).color===getComputedStyle(mono.querySelector('pre')).color,'terminal foreground inheritance');ok(getComputedStyle(mono.querySelector('code')).borderTopWidth==='0px','single terminal border');
+const mac=fixture('code-e036','<pre><code>const palette = { color: "blue" };\n'+('longvalue'.repeat(40))+'</code></pre>');style('code-e036');mac.style.width='320px';ok(mac.querySelector('pre').scrollWidth<=mac.querySelector('pre').clientWidth,'mac horizontal overflow');ok(getComputedStyle(mac.querySelector('code')).color==='rgb(227, 235, 223)','mac foreground');
+const wrapped=fixture('code-wrap-backslash','<pre><code><span class="token comment">'+('abcdefghij '.repeat(12))+'</span>\nshort</code></pre>');wrapped.style.width='300px';style('code-wrap-backslash');const original=wrapped.querySelector('pre').textContent;const refresh=installCodeWrapMarkers(wrapped,owner);await settle();
+const firstLine=wrapped.querySelector('.hacksidian-source-line');ok(firstLine,'source line wrapping');
+firstLine.style.color='rgb(0, 180, 70)';firstLine.style.fontSize='20px';firstLine.style.lineHeight='30px';refresh();await settle();
+const fontSize=parseFloat(getComputedStyle(firstLine).fontSize);const indent=parseFloat(getComputedStyle(firstLine).paddingInlineStart);ok(indent>fontSize*.8,'2ch continuation indent missing');
+const textWalker=document.createTreeWalker(firstLine,NodeFilter.SHOW_TEXT);const textNode=textWalker.nextNode();const measure=document.createRange();measure.setStart(textNode,0);measure.setEnd(textNode,1);const firstRect=measure.getBoundingClientRect();let continuation=null;
+for(let i=1;i<textNode.length;i++){measure.setStart(textNode,i);measure.setEnd(textNode,i+1);const rect=measure.getBoundingClientRect();if(rect.top>firstRect.top+5&&rect.width){continuation=rect;break;}}
+ok(continuation&&Math.abs(continuation.left-firstRect.left-indent)<2,'continuation does not start 2ch to the right');
+let markers=wrapped.querySelectorAll('.hacksidian-wrap-markers > i');ok(markers.length>0,'soft wrap markers missing');ok(wrapped.querySelector('pre').textContent===original,'copy source altered');ok(getComputedStyle(markers[0],'::before').content==='"\\\\"','backslash glyph');
+const marker=markers[0], markerStyle=getComputedStyle(marker), tokenStyle=getComputedStyle(textNode.parentElement);
+ok(markerStyle.color===tokenStyle.color,'marker must match preceding token color');
+ok(markerStyle.fontSize===tokenStyle.fontSize&&markerStyle.fontFamily===tokenStyle.fontFamily,'marker must match token font');
+// A text probe with the pseudo-element's font measures its actual glyph box.
+const probe=document.body.appendChild(document.createElement('span'));probe.style.cssText=marker.style.cssText;probe.style.position='fixed';probe.style.left='0';probe.style.top='0';probe.textContent='\\';
+const probeRange=document.createRange();probeRange.selectNodeContents(probe);const glyphOffset=probeRange.getBoundingClientRect().top-probe.getBoundingClientRect().top;probe.remove();
+ok(Math.abs(marker.getBoundingClientRect().top+glyphOffset-firstRect.top)<1,'marker baseline differs from text');
+const shortLine=wrapped.querySelectorAll('.hacksidian-source-line')[1];ok(shortLine.getBoundingClientRect().top>firstLine.getBoundingClientRect().top,'hard newline collapsed');
+const count=markers.length;wrapped.style.width='600px';await settle();ok(wrapped.querySelectorAll('.hacksidian-wrap-markers > i').length<count,'resize markers');
+wrapped.querySelector('code').textContent='first\nsecond';await settle();ok(!wrapped.querySelector('.hacksidian-wrap-markers'),'hard newlines got markers');
+wrapped.querySelector('code').textContent='abcdefghij '.repeat(80);await settle();ok(wrapped.querySelector('.hacksidian-wrap-markers'),'content change markers');
+wrapped.querySelector('code').style.setProperty('--hacksidian-code-wrap-markers','0');refresh();await settle();ok(!wrapped.querySelector('.hacksidian-wrap-markers'),'disabled markers persist');
+for(const dispose of disposers)dispose();
+
+
+const language=fixture('code-language','<pre><code class="language-sh is-loaded">mkdir -p notes</code></pre>');style('code-language');ok(getComputedStyle(language.querySelector('code'),'::before').content==='"Shell"','language leaks CSS classes');
+const sticky=fixture('code-e059','<pre><code>'+Array.from({length:40},(_,i)=>'build '+i).join('\n')+'</code></pre>');style('code-e059');const stickyPre=sticky.querySelector('pre');ok(getComputedStyle(stickyPre).paddingLeft==='0px','sticky outer gutter');ok(getComputedStyle(stickyPre,'::before').paddingLeft!=='0px','sticky heading text has no inset');ok(getComputedStyle(stickyPre,'::before').paddingLeft===getComputedStyle(sticky.querySelector('code')).paddingLeft,'header and body text misaligned');ok(stickyPre.scrollHeight>stickyPre.clientHeight,'sticky log should scroll vertically');ok(stickyPre.scrollWidth===stickyPre.clientWidth,'sticky header causes horizontal overflow');
+const customColors=fixture('code-colors','<pre><code>sample</code></pre>');style('code-colors');customColors.style.setProperty('--hacksidian-code-color-background','#123456');ok(getComputedStyle(customColors.querySelector('pre')).backgroundColor==='rgb(18, 52, 86)','background parameter ignored');
+
+document.querySelector('#results').textContent='PASS '+checks+' checks: line ranges, copied text, toggle, copy corner, visible panel, heading wrappers, 14 language accents, border toggle, auto contrast, matching shadows, terminal text, no mac overflow, wrapped callouts and backslash markers with 2ch indent, clean language label, sticky header gutters and code background.';document.title='PASS Code checks';
+}catch(e){document.querySelector('#results').textContent='FAIL '+e.stack;document.title='FAIL Code checks';}
+</script>

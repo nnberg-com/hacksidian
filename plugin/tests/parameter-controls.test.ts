@@ -10,6 +10,7 @@ vi.mock('obsidian', () => ({
 import { TFile } from 'obsidian';
 import { ParameterControls } from '../src/parameter-controls';
 import { readFileSync } from 'node:fs';
+import { numericParameterCss } from './fixtures/numeric-parameter';
 import { readParameters } from '../src/parameters';
 class Element {
   children: Element[] = []; events: Record<string, Function> = {}; attrs: Record<string, string> = {};
@@ -24,9 +25,9 @@ class Element {
   all(tag: string): Element[] { return this.children.flatMap(el => [...(el.tag === tag ? [el] : []), ...el.all(tag)]); }
 }
 const flush = () => new Promise(resolve => setTimeout(resolve, 10));
-async function fixture(id = 'text-dropcap-accent') {
+async function fixture(id = 'test-numeric-parameter') {
   const directory = `atlas/! hacks/${id}`;
-  let css = readFileSync(new URL(`../../content/atlas/! hacks/${id}/recipe.css`, import.meta.url), 'utf8');
+  let css = id === 'test-numeric-parameter' ? numericParameterCss : readFileSync(new URL(`../../content/atlas/! hacks/${id}/recipe.css`, import.meta.url), 'utf8');
   let fail = false;
   const listeners: Function[] = [];
   const file = Object.assign(new TFile(), { path: `${directory}/recipe.css` });
@@ -55,7 +56,7 @@ test('valid input saves immediately, invalid input retains source, update is exp
   expect(update.disabled).toBe(true); expect(input.attrs['aria-invalid']).toBe('true'); expect(readParameters(f.source())[0].value).toBe('5em');
   input.value = '6'; input.events.input(); await flush();
   expect(update.disabled).toBe(false); update.events.click(); await flush();
-  expect(f.technique.update).toHaveBeenCalledWith('atlas/! hacks/text-dropcap-accent/text-dropcap-accent.md');
+  expect(f.technique.update).toHaveBeenCalledWith('atlas/! hacks/test-numeric-parameter/test-numeric-parameter.md');
   f.el.all('button').find(el => el.text === 'Сбросить')!.events.click(); await flush();
   expect(readParameters(f.source())[0].value).toBe('4em');
 });

@@ -1,6 +1,63 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Фон 1 — свой цвет
+   * @type color
+   * @default #202e34
+   */
+  --hacksidian-code-dark-color-1-custom: #202e34;
+  /**
+   * @parameter Фон 1 — источник
+   * @type select
+   * @default var(--hacksidian-code-dark-color-1-custom)
+   * @option var(--hacksidian-code-dark-color-1-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-dark-color-1: var(--hacksidian-code-dark-color-1-custom);
+
+  /**
+   * @parameter Текст 2 — свой цвет
+   * @type color
+   * @default #e8f0ec
+   */
+  --hacksidian-code-dark-color-2-custom: #e8f0ec;
+  /**
+   * @parameter Текст 2 — источник
+   * @type select
+   * @default var(--hacksidian-code-dark-color-2-custom)
+   * @option var(--hacksidian-code-dark-color-2-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-dark-color-2: var(--hacksidian-code-dark-color-2-custom);
+
+}
+
 :is(.markdown-preview-view, .markdown-source-view) pre {
-  background: #202e34;
-  color: #e8f0ec;
+  background: var(--hacksidian-code-dark-color-1);
+  color: var(--hacksidian-code-dark-color-2);
   padding: 1.2em;
   border-radius: .5em;
   overflow: auto;

@@ -1,0 +1,130 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Обычный текст
+   * @label-en Plain text
+   * @type color
+   * @default #30343b
+   */
+  --hacksidian-code-color-normal: #30343b;
+
+  /**
+   * @parameter Комментарий
+   * @label-en Comment
+   * @type color
+   * @default #66706b
+   */
+  --hacksidian-code-color-comment: #66706b;
+
+  /**
+   * @parameter Ключевое слово
+   * @label-en Keyword
+   * @type color
+   * @default #9b286d
+   */
+  --hacksidian-code-color-keyword: #9b286d;
+
+  /**
+   * @parameter Строка
+   * @label-en String
+   * @type color
+   * @default #28713e
+   */
+  --hacksidian-code-color-string: #28713e;
+
+  /**
+   * @parameter Число и логическое значение
+   * @label-en Number and boolean
+   * @type color
+   * @default #7248a5
+   */
+  --hacksidian-code-color-value: #7248a5;
+
+  /**
+   * @parameter Функция и класс
+   * @label-en Function and class
+   * @type color
+   * @default #8b5b12
+   */
+  --hacksidian-code-color-function: #8b5b12;
+
+  /**
+   * @parameter Оператор
+   * @label-en Operator
+   * @type color
+   * @default #ab3832
+   */
+  --hacksidian-code-color-operator: #ab3832;
+
+  /**
+   * @parameter Свойство и параметр
+   * @label-en Property and parameter
+   * @type color
+   * @default #087a85
+   */
+  --hacksidian-code-color-property: #087a85;
+
+  /**
+   * @parameter Переменная
+   * @label-en Variable
+   * @type color
+   * @default #245da6
+   */
+  --hacksidian-code-color-variable: #245da6;
+
+  /**
+   * @parameter Пунктуация
+   * @label-en Punctuation
+   * @type color
+   * @default #697078
+   */
+  --hacksidian-code-color-punctuation: #697078;
+
+  /**
+   * @parameter Тег и константа
+   * @label-en Tag and constant
+   * @type color
+   * @default #ab3832
+   */
+  --hacksidian-code-color-tag: #ab3832;
+
+  /**
+   * @parameter Регулярное выражение и важное
+   * @label-en Regex and important
+   * @type color
+   * @default #a44d14
+   */
+  --hacksidian-code-color-important: #a44d14;
+
+  /**
+   * @parameter Фон блока кода
+   * @label-en Code background
+   * @type color
+   * @default #f5f5f5
+   */
+  --hacksidian-code-color-background: #f5f5f5;
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre,
+.markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  --code-background: var(--hacksidian-code-color-background);
+  --code-normal: var(--hacksidian-code-color-normal);
+  --code-comment: var(--hacksidian-code-color-comment);
+  --code-keyword: var(--hacksidian-code-color-keyword);
+  --code-string: var(--hacksidian-code-color-string);
+  --code-value: var(--hacksidian-code-color-value);
+  --code-function: var(--hacksidian-code-color-function);
+  --code-operator: var(--hacksidian-code-color-operator);
+  --code-property: var(--hacksidian-code-color-property);
+  --code-punctuation: var(--hacksidian-code-color-punctuation);
+  --code-tag: var(--hacksidian-code-color-tag);
+  --code-important: var(--hacksidian-code-color-important);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre .token.variable,
+.markdown-source-view.mod-cm6 .HyperMD-codeblock :is(.cm-variable, .cm-variable-2, .cm-variable-3) {
+  color: var(--hacksidian-code-color-variable);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  background-color: var(--hacksidian-code-color-background);
+}

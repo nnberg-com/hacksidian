@@ -1,0 +1,43 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  /**
+   * @parameter Поле сверху
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-code-padding-top: 1em;
+  /**
+   * @parameter Поле справа
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-code-padding-right: 1em;
+  /**
+   * @parameter Поле снизу
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-code-padding-bottom: 1em;
+  /**
+   * @parameter Поле слева
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-code-padding-left: 1em;
+  padding: var(--hacksidian-code-padding-top) var(--hacksidian-code-padding-right) var(--hacksidian-code-padding-bottom) var(--hacksidian-code-padding-left);
+}

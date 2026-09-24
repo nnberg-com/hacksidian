@@ -1,0 +1,29 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  /**
+   * @parameter Цвет акцента
+   * @type select
+   * @default var(--color-orange)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-hatch-accent: var(--color-orange);
+  /**
+   * @parameter Ширина штрихованного края
+   * @type number
+   * @default 1em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step .05
+   */
+  --hacksidian-code-hatch-width: 1em;
+  border: 0;
+  padding-inline-start: calc(var(--hacksidian-code-hatch-width) + 1em);
+  background: repeating-linear-gradient(135deg, var(--hacksidian-code-hatch-accent) 0 4px, transparent 4px 8px) left / var(--hacksidian-code-hatch-width) 100% no-repeat var(--code-background);
+}

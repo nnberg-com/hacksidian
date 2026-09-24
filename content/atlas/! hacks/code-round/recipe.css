@@ -1,0 +1,13 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  /**
+   * @parameter Скругление
+   * @type number
+   * @default 1.4em
+   * @unit em
+   * @min 0
+   * @max 4
+   * @step .1
+   */
+  --hacksidian-code-round-radius: 1.4em;
+  border-radius: var(--hacksidian-code-round-radius);
+}

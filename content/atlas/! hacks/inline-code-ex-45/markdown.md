@@ -3,7 +3,7 @@ cssclasses:
   - atlas-inline-code-ex-45
 ---
 
-## Настройка `fontSize`
+### Настройка `fontSize`
 
 Значение `fontSize` задаётся в настройках.
 

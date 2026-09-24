@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-code-scroll
 ---
 
-## Запись измерений
+### Запись измерений
 
 ```
 time     place                light      observation

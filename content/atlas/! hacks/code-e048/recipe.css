@@ -1,12 +1,101 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Основа фона заголовка
+   * @type select
+   * @default var(--background-primary)
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-heading-surface: var(--background-primary);
+  /**
+   * @parameter Фон блока кода
+   * @type select
+   * @default var(--background-secondary)
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-heading-body: var(--background-secondary);
+  /**
+   * @parameter Насыщенность фона заголовка
+   * @type number
+   * @default 18%
+   * @unit %
+   * @min 0
+   * @max 100
+   * @step 1
+   */
+  --hacksidian-code-heading-tint: 100%;
+}
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Цвет акцента
+   * @type select
+   * @default var(--color-blue)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-heading-color: var(--color-yellow);
+  /**
+   * @parameter Размер заголовка
+   * @type number
+   * @default 12px
+   * @unit px
+   * @min 0
+   * @max 40
+   * @step 1
+   */
+  --hacksidian-code-heading-size: 12px;
+}
+
 :is(.markdown-preview-view, .markdown-source-view) h3:has(+ pre), :is(.markdown-preview-view, .markdown-source-view) .el-h3:has(+ .el-pre) > h3 {
+  --hacksidian-code-heading-background: color-mix(in oklch, var(--hacksidian-code-heading-color) var(--hacksidian-code-heading-tint), var(--hacksidian-code-heading-surface));
+  color: var(--text-normal);
+  /* Older Chromium: choose black/white using OKLCH lightness. */
+  color: oklch(from var(--hacksidian-code-heading-background) clamp(0, (0.65 - l) * 100000, 1) 0 0);
   margin: 0;
   padding: calc(var(--size-4-1) * 2.5) calc(var(--size-4-1) * 4.5);
-  font: 600 12px/1.5 system-ui;
-  background: #dce4d6;
+  font: 600 var(--hacksidian-code-heading-size)/1.5 var(--font-interface);
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+  background: var(--hacksidian-code-heading-background);
   border-radius: calc(var(--radius-s) * 2) calc(var(--radius-s) * 2) 0 0;
 }
-:is(.markdown-preview-view, .markdown-source-view) h3 + pre, :is(.markdown-preview-view, .markdown-source-view) .el-h3 + .el-pre > p {
+:is(.markdown-preview-view, .markdown-source-view) h3 + pre, :is(.markdown-preview-view, .markdown-source-view) .el-h3 + .el-pre > pre {
+  background: var(--hacksidian-code-heading-body);
   margin-top: 0;
   border-radius: 0 0 calc(var(--radius-s) * 2) calc(var(--radius-s) * 2);
 }
 
+
+@supports (color: contrast-color(red)) {
+  :is(.markdown-preview-view, .markdown-source-view) h3:has(+ pre),
+  :is(.markdown-preview-view, .markdown-source-view) .el-h3:has(+ .el-pre) > h3 {
+    color: contrast-color(var(--hacksidian-code-heading-background));
+  }
+}

@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-image-crop
 ---
 
-## Свет у воды
+### Свет у воды
 
 ![Горный залив и маленькая лодка](assets/bay.svg)
 

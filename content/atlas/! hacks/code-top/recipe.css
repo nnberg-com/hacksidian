@@ -1,0 +1,36 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  /**
+   * @parameter Цвет акцента
+   * @type select
+   * @default var(--color-blue)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-top-accent: var(--color-blue);
+  /**
+   * @parameter Толщина полосы
+   * @type number
+   * @default 5px
+   * @unit px
+   * @min 0
+   * @max 40
+   * @step .5
+   */
+  --hacksidian-code-top-width: 5px;
+  /**
+   * @parameter Рамка
+   * @type select
+   * @default 1px
+   * @option 1px | Есть
+   * @option 0px | Нет
+   */
+  --hacksidian-code-top-border: 1px;
+  border: var(--hacksidian-code-top-border) solid var(--background-modifier-border);
+  border-block-start: var(--hacksidian-code-top-width) solid var(--hacksidian-code-top-accent);
+}

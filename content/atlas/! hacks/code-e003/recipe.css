@@ -1,4 +1,61 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Рамка 1 — свой цвет
+   * @type color
+   * @default #bd5036
+   */
+  --hacksidian-code-e003-color-1-custom: #bd5036;
+  /**
+   * @parameter Рамка 1 — источник
+   * @type select
+   * @default var(--hacksidian-code-e003-color-1-custom)
+   * @option var(--hacksidian-code-e003-color-1-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e003-color-1: var(--hacksidian-code-e003-color-1-custom);
+
+  /**
+   * @parameter Фон 2 — свой цвет
+   * @type color
+   * @default #f9eee7
+   */
+  --hacksidian-code-e003-color-2-custom: #f9eee7;
+  /**
+   * @parameter Фон 2 — источник
+   * @type select
+   * @default var(--hacksidian-code-e003-color-2-custom)
+   * @option var(--hacksidian-code-e003-color-2-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e003-color-2: var(--hacksidian-code-e003-color-2-custom);
+
+}
+
 :is(.markdown-preview-view, .markdown-source-view) pre {
-  border-inline-start: 4px solid #bd5036;
-  background: #f9eee7;
+  border-inline-start: 4px solid var(--hacksidian-code-e003-color-1);
+  background: var(--hacksidian-code-e003-color-2);
 }

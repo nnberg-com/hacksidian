@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-image-gallery
 ---
 
-## Три остановки
+### Три остановки
 
 - ![Залив](assets/bay.svg)
 - ![Сад](assets/garden.svg)

@@ -1,0 +1,29 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Цвет акцента
+   * @type select
+   * @default var(--color-blue)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-title-underline-accent: var(--color-blue);
+}
+:is(.markdown-preview-view, .markdown-source-view) h3:has(+ pre),
+:is(.markdown-preview-view, .markdown-source-view) .el-h3:has(+ .el-pre) > h3 {
+  margin-block-end: .75em;
+  font-size: var(--font-text-size);
+  text-decoration: underline;
+  text-decoration-color: var(--hacksidian-code-title-underline-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .25em;
+}
+:is(.markdown-preview-view, .markdown-source-view) h3 + pre,
+:is(.markdown-preview-view, .markdown-source-view) .el-h3 + .el-pre > pre {
+  margin-block-start: 0;
+}

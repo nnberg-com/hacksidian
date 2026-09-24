@@ -1,0 +1,34 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  /**
+   * @parameter Шаг точек по горизонтали
+   * @type number
+   * @default 10px
+   * @unit px
+   * @min 0
+   * @max 100
+   * @step 1
+   */
+  --hacksidian-code-dots-x: 10px;
+  /**
+   * @parameter Шаг точек по вертикали
+   * @type number
+   * @default 10px
+   * @unit px
+   * @min 0
+   * @max 100
+   * @step 1
+   */
+  --hacksidian-code-dots-y: 10px;
+  /**
+   * @parameter Рамка
+   * @type select
+   * @default 1px
+   * @option 1px | Есть
+   * @option 0px | Нет
+   */
+  --hacksidian-code-dots-border: 1px;
+  background-color: var(--background-primary);
+  background-image: radial-gradient(circle, var(--background-modifier-border) 1px, transparent 1.5px);
+  background-size: max(2px, var(--hacksidian-code-dots-x)) max(2px, var(--hacksidian-code-dots-y));
+  border: var(--hacksidian-code-dots-border) solid var(--background-modifier-border);
+}

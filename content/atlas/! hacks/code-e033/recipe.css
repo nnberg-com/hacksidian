@@ -1,6 +1,56 @@
-:is(.markdown-preview-view, .markdown-source-view) pre > code {
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Цвет выделения
+   * @type select
+   * @default var(--color-yellow)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-line-accent: var(--color-yellow);
+  --hacksidian-code-line-highlight: color-mix(in oklch, var(--hacksidian-code-line-accent) 35%, transparent);
+}
+/* Line selection is prepared by the Hacksidian Markdown postprocessor. */
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="code-line"] {
+
+  background: transparent;
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="code-line"] > .callout-title {
+  display: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="code-line"] > .callout-content pre {
+  --code-white-space: pre;
+  margin: 0;
+  overflow-x: auto;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="code-line"] > .callout-content pre > code {
   display: block;
-  line-height: calc(var(--line-height-normal) * 1.066667);
-  background: linear-gradient(transparent 0 3.2em, #edc56a65 3.2em 4.8em, transparent 4.8em);
+  width: max-content;
+  min-width: 100%;
+  white-space: pre;
+  line-height: 1.6;
+  background-image: var(--hacksidian-code-line-bands, none);
 }
 
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="code-line"] > .callout-content {
+  margin: 0;
+  padding: 0;
+}
+
+/* Make a missing runtime handler visible instead of silently showing unmarked code. */
+:is(.markdown-preview-view, .markdown-source-view) .callout[data-callout="code-line"] pre:has(> code:not([style*="--hacksidian-code-line-bands"]))::before {
+  content: "Обработчик подсветки не запущен. Перезагрузите плагин Hacksidian.";
+  display: block;
+  white-space: normal;
+  color: var(--text-error);
+  font: .85em var(--font-interface);
+  margin-bottom: 1em;
+}

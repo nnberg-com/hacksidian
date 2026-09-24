@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-image-linked
 ---
 
-## Рассмотреть ближе
+### Рассмотреть ближе
 
 [![Залив с лодкой](assets/bay.svg)](assets/bay.svg)
 

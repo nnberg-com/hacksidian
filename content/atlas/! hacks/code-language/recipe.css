@@ -2,14 +2,108 @@
   padding: 1em;
   background: var(--background-secondary);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code[class^="language-"]::before {
-  content: attr(class);
+:is(.markdown-preview-view, .markdown-source-view) pre > code[data-hacksidian-language]::before {
+  content: attr(data-hacksidian-language);
   display: block;
   margin-block-end: .7em;
   color: var(--text-muted);
-  font: .72em note-code-language-Onest,sans-serif;
+  font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code.language-css::before {
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-sh,.language-bash,.language-shell)::before {
+  content: "Shell";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-python,.language-py)::before {
+  content: "Python";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-css)::before {
   content: "CSS";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
 }
-
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-javascript,.language-js)::before {
+  content: "JavaScript";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-typescript,.language-ts)::before {
+  content: "TypeScript";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-html,.language-markup)::before {
+  content: "HTML";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-json)::before {
+  content: "JSON";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-yaml,.language-yml)::before {
+  content: "YAML";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-markdown,.language-md)::before {
+  content: "Markdown";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-c)::before {
+  content: "C";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-cpp)::before {
+  content: "C++";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-lua)::before {
+  content: "Lua";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-awk,.language-gawk)::before {
+  content: "AWK";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-kconfig)::before {
+  content: "Kconfig";
+  display: block;
+  margin-block-end: .7em;
+  color: var(--text-muted);
+  font: .72em var(--font-interface);
+}

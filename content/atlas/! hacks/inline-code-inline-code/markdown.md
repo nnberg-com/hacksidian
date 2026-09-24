@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-inline-code
 ---
 
-## Где хранить материалы
+### Где хранить материалы
 
 Заметка — `field-notes.md`, фотографии — в `assets/`. Чтобы открыть папку, выполните `cd notes`.
 

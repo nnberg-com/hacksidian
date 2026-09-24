@@ -1,4 +1,34 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Фон 1 — свой цвет
+   * @type color
+   * @default #eeede7
+   */
+  --hacksidian-code-e001-color-1-custom: #eeede7;
+  /**
+   * @parameter Фон 1 — источник
+   * @type select
+   * @default var(--hacksidian-code-e001-color-1-custom)
+   * @option var(--hacksidian-code-e001-color-1-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e001-color-1: var(--hacksidian-code-e001-color-1-custom);
+
+}
+
 :is(.markdown-preview-view, .markdown-source-view) pre {
-  background: #eeede7;
+  background: var(--hacksidian-code-e001-color-1);
   border-radius: calc(var(--code-radius) * 2);
 }

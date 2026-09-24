@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-reference
 ---
 
-## Три понятия
+### Три понятия
 
 - **Наблюдение**
 

@@ -1,3 +1,4 @@
+import { registerCodeLineHighlights } from './code-line-highlights';
 import { searchableCatalog } from './catalog';
 import { shouldApplyTechnique } from './technique-command';
 import { collectRecommendationParameters, recommendationParameterPatch } from './recommendation-parameters';
@@ -136,6 +137,7 @@ export default class CallMeRedPlugin extends Plugin {
         listener => { this.techniqueListeners.add(listener); return () => this.techniqueListeners.delete(listener); }));
     });
     registerSourceBlocks(this, this.techniqueControls());
+    registerCodeLineHighlights(this);
     this.addCommand({ id: 'open-favourites', name: this.interfaceLanguage === 'en' ? 'Open favourites' : 'Открыть избранное', callback: openFavourites });
     this.addRibbonIcon('star', this.interfaceLanguage === 'en' ? 'Favourite techniques' : 'Избранные приёмы', openFavourites);
     await this.savePluginData();

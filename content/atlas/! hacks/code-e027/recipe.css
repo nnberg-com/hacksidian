@@ -1,6 +1,36 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Фон 1 — свой цвет
+   * @type color
+   * @default #536f5d
+   */
+  --hacksidian-code-e027-color-1-custom: #536f5d;
+  /**
+   * @parameter Фон 1 — источник
+   * @type select
+   * @default var(--hacksidian-code-e027-color-1-custom)
+   * @option var(--hacksidian-code-e027-color-1-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e027-color-1: var(--hacksidian-code-e027-color-1-custom);
+
+}
+
 :is(.markdown-preview-view, .markdown-source-view) pre > code {
   display: block;
   line-height: calc(var(--line-height-normal) * 1.066667);
-  background: repeating-linear-gradient(transparent 0 calc(1em * var(--line-height-normal) * 1.066667), #536f5d12 calc(1em * var(--line-height-normal) * 1.066667) calc(1em * var(--line-height-normal) * 2.133333));
+  background: repeating-linear-gradient(transparent 0 calc(1em * var(--line-height-normal) * 1.066667), color-mix(in srgb, var(--hacksidian-code-e027-color-1) 7.0588%, transparent) calc(1em * var(--line-height-normal) * 1.066667) calc(1em * var(--line-height-normal) * 2.133333));
 }
 

@@ -1,3 +1,33 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Фон 1 — свой цвет
+   * @type color
+   * @default #bd5036
+   */
+  --hacksidian-code-e060-color-1-custom: #bd5036;
+  /**
+   * @parameter Фон 1 — источник
+   * @type select
+   * @default var(--hacksidian-code-e060-color-1-custom)
+   * @option var(--hacksidian-code-e060-color-1-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e060-color-1: var(--hacksidian-code-e060-color-1-custom);
+
+}
+
 :is(.markdown-preview-view, .markdown-source-view) pre {
   max-height: 14rem;
   overflow: auto;
@@ -19,7 +49,7 @@
     height: 4px;
     padding: 0;
     margin-bottom: calc(var(--size-4-1) * 3.5);
-    background: #bd5036;
+    background: var(--hacksidian-code-e060-color-1);
     transform-origin: left;
     animation: hack-code-e060-code-e060-code-scroll-progress linear both;
     animation-timeline: scroll(nearest block);

@@ -6,7 +6,7 @@ import {groupManifest} from '../src/snippet-groups';
 
 const atlas=path.resolve(import.meta.dirname,'../../content/atlas');
 const standard=new Set('note abstract summary tldr info todo tip hint important success check done question help faq warning caution attention failure fail missing danger error bug example quote cite'.split(' '));
-test('special callout syntax belongs only to compositions across the entire catalog',()=>{
+test('special callouts are compositions except the code-line metadata carrier',()=>{
  const moved:string[]=[];
  for(const relative of fs.readdirSync(path.join(atlas,'! hacks'),{recursive:true}) as string[]){
   if(!relative.endsWith('/hack.json'))continue;
@@ -16,7 +16,9 @@ test('special callout syntax belongs only to compositions across the entire cata
   const sample=fs.existsSync(path.join(dir,'markdown.md')) ? fs.readFileSync(path.join(dir,'markdown.md'),'utf8') : '';
   const types=[...css.matchAll(/data-callout\s*(?:[~|^$*]?=)\s*["']([^"']+)/g)].map(m=>m[1].toLowerCase());
   types.push(...[...sample.matchAll(/\[!([\w-]+)\]/g)].map(m=>m[1].toLowerCase()));
-  const special=types.some(type=>!standard.has(type));
+  const codeLineCarrier=id==='code-e033' && types.length>0 && types.every(type=>type==='code-line');
+  if(codeLineCarrier){expect(spec.group).toBe('code');expect(spec.target).toBe('g-code');}
+  const special=!codeLineCarrier && types.some(type=>!standard.has(type));
   const meta=parse(fs.readFileSync(path.join(dir,id+'.md'),'utf8').match(/^---\n([\s\S]*?)\n---/)![1]);
   expect(meta.category,id).toBe(spec.group);
   if(special){expect(spec.group,id).toBe('composition');moved.push(id);}

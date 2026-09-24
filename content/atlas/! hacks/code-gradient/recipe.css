@@ -1,0 +1,18 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  /**
+   * @parameter Цвет акцента
+   * @type select
+   * @default var(--color-blue)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-gradient-accent: var(--color-blue);
+  border: 2px solid transparent;
+  background: linear-gradient(var(--background-primary), var(--background-primary)) padding-box, linear-gradient(90deg, var(--hacksidian-code-gradient-accent), var(--background-primary)) border-box;
+}

@@ -1,0 +1,6 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  background: transparent;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  background: transparent;
+}

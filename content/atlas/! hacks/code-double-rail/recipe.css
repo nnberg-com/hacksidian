@@ -1,0 +1,69 @@
+:is(.markdown-preview-view, .markdown-source-view) pre {
+  /**
+   * @parameter Цвет акцента
+   * @type select
+   * @default var(--color-blue)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-double-rail-accent: var(--color-blue);
+  /**
+   * @parameter Толщина линии
+   * @type number
+   * @default 4px
+   * @unit px
+   * @min 0
+   * @max 40
+   * @step .5
+   */
+  --hacksidian-code-double-rail-width: 4px;
+  /**
+   * @parameter Скругление линии
+   * @type number
+   * @default 0px
+   * @unit px
+   * @min 0
+   * @max 20
+   * @step .5
+   */
+  --hacksidian-code-double-rail-radius: 0px;
+  /**
+   * @parameter Фон
+   * @type select
+   * @default transparent
+   * @option transparent | Нет
+   * @option color-mix(in oklch, var(--hacksidian-code-double-rail-accent) 10%, transparent) | Есть
+   */
+  --hacksidian-code-double-rail-background: transparent;
+  position: relative;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  padding-inline: calc(var(--hacksidian-code-double-rail-width) + 1em);
+  background: var(--hacksidian-code-double-rail-background);
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  display: block;
+  overflow-x: auto;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre::before,
+:is(.markdown-preview-view, .markdown-source-view) pre::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: var(--hacksidian-code-double-rail-width);
+  border-radius: var(--hacksidian-code-double-rail-radius);
+  background: var(--hacksidian-code-double-rail-accent);
+  pointer-events: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre::before {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+}

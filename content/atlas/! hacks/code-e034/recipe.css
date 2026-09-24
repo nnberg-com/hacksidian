@@ -1,6 +1,0 @@
-:is(.markdown-preview-view, .markdown-source-view) pre > code {
-  display: block;
-  line-height: calc(var(--line-height-normal) * 1.066667);
-  background: linear-gradient(transparent 0 1lh, #bed3ae66 1lh 4lh, transparent 4lh);
-}
-

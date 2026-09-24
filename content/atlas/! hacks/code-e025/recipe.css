@@ -1,10 +1,67 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Фон 1 — свой цвет
+   * @type color
+   * @default #f4f3ee
+   */
+  --hacksidian-code-e025-color-1-custom: #f4f3ee;
+  /**
+   * @parameter Фон 1 — источник
+   * @type select
+   * @default var(--hacksidian-code-e025-color-1-custom)
+   * @option var(--hacksidian-code-e025-color-1-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e025-color-1: var(--hacksidian-code-e025-color-1-custom);
+
+  /**
+   * @parameter Фон 2 — свой цвет
+   * @type color
+   * @default #263d32
+   */
+  --hacksidian-code-e025-color-2-custom: #263d32;
+  /**
+   * @parameter Фон 2 — источник
+   * @type select
+   * @default var(--hacksidian-code-e025-color-2-custom)
+   * @option var(--hacksidian-code-e025-color-2-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e025-color-2: var(--hacksidian-code-e025-color-2-custom);
+
+}
+
 :is(.markdown-preview-view, .markdown-source-view) pre {
   max-height: 12rem;
   overflow: auto;
-  background: linear-gradient(#f4f3ee 35%, #f4f3ee00) top / 100% 36px no-repeat local,
- linear-gradient(to top, #f4f3ee 35%, #f4f3ee00) bottom / 100% 36px no-repeat local,
- linear-gradient(#263d3238, transparent) top / 100% 12px no-repeat scroll,
- linear-gradient(to top, #263d3238, transparent) bottom / 100% 12px no-repeat scroll;
-  background-color: #f4f3ee;
+  background: linear-gradient(var(--hacksidian-code-e025-color-1) 35%, transparent) top / 100% 36px no-repeat local,
+ linear-gradient(to top, var(--hacksidian-code-e025-color-1) 35%, transparent) bottom / 100% 36px no-repeat local,
+ linear-gradient(color-mix(in srgb, var(--hacksidian-code-e025-color-2) 21.9608%, transparent), transparent) top / 100% 12px no-repeat scroll,
+ linear-gradient(to top, color-mix(in srgb, var(--hacksidian-code-e025-color-2) 21.9608%, transparent), transparent) bottom / 100% 12px no-repeat scroll;
+  background-color: var(--hacksidian-code-e025-color-1);
 }
 

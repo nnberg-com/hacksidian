@@ -1,7 +1,46 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Фон шапки
+   * @type select
+   * @default var(--color-orange)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-e059-color-1: var(--color-orange);
+  /**
+   * @parameter Линия под шапкой
+   * @type select
+   * @default var(--color-pink)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-e059-color-2: var(--color-pink);
+}
+
 :is(.markdown-preview-view, .markdown-source-view) pre {
+  --hacksidian-code-log-padding: var(--size-4-4, 16px);
   max-height: 14rem;
   overflow: auto;
-  padding-top: 0;
+  padding: 0;
+  white-space: normal;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code {
+  display: block;
+  padding: var(--hacksidian-code-log-padding);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 :is(.markdown-preview-view, .markdown-source-view) pre::before {
   content: "BUILD LOG";
@@ -9,11 +48,17 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  padding: calc(var(--size-4-1) * 3) 0;
-  margin-bottom: calc(var(--size-4-1) * 2.5);
-  background: #f0f1eb;
-  border-bottom: 1px solid #aab9a0;
-  font: 600 11px/1.5 system-ui;
+  box-sizing: border-box;
+  padding: var(--hacksidian-code-log-padding);
+  padding-inline-end: calc(var(--icon-size, 18px) + 2em);
+  margin: 0;
+  background: var(--hacksidian-code-e059-color-1);
+  color: var(--text-normal);
+  color: oklch(from var(--hacksidian-code-e059-color-1) clamp(0, (0.65 - l) * 100000, 1) 0 0);
+  border-bottom: 1px solid var(--hacksidian-code-e059-color-2);
+  font: 600 11px/1.5 var(--font-interface);
   letter-spacing: .1em;
 }
-
+@supports (color: contrast-color(red)) {
+  :is(.markdown-preview-view, .markdown-source-view) pre::before { color: contrast-color(var(--hacksidian-code-e059-color-1)); }
+}

@@ -1,7 +1,37 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Текст 1 — свой цвет
+   * @type color
+   * @default #a34229
+   */
+  --hacksidian-code-e015-color-1-custom: #a34229;
+  /**
+   * @parameter Текст 1 — источник
+   * @type select
+   * @default var(--hacksidian-code-e015-color-1-custom)
+   * @option var(--hacksidian-code-e015-color-1-custom) | Свой цвет
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--background-primary) | Фон страницы
+   * @option var(--background-secondary) | Вторичный фон
+   * @option var(--text-normal) | Основной текст
+   * @option var(--text-muted) | Приглушённый текст
+   * @option var(--background-modifier-border) | Рамка темы
+   */
+  --hacksidian-code-e015-color-1: var(--hacksidian-code-e015-color-1-custom);
+
+}
+
 :is(.markdown-preview-view, .markdown-source-view) pre > code {
   display: block;
 }
 :is(.markdown-preview-view, .markdown-source-view) pre > code::first-line {
-  color: #a34229;
+  color: var(--hacksidian-code-e015-color-1);
   font-weight: var(--font-bold);
 }

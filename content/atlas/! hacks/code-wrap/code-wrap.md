@@ -11,6 +11,7 @@ themes:
   - blue-topaz
   - baseline
   - lagom
+favourite: true
 ---
 
 ```hacksidian-id

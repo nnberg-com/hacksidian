@@ -18,6 +18,7 @@ themes:
   - ultra-lobster
   - discordian
   - lagom
+favourite: false
 ---
 
 ```hacksidian-id

@@ -3,15 +3,14 @@ cssclasses:
   - atlas-note-code-panel
 ---
 
-## Сохранить результат
+### Сохранить результат
 
 Файл `field-notes.md` лежит рядом с изображениями. Открыть папку можно командой `cd notes`.
 
-```css
-blockquote {
-  border-inline-start: 3px solid currentColor;
-  padding-inline-start: 1rem;
-}
+```sh
+mkdir -p notes
+cp field-notes.md notes/
+ls notes
 ```
 
-Этот пример задаёт только границу и отступ цитаты.
+Команды создают папку notes, копируют заметку и показывают содержимое папки.

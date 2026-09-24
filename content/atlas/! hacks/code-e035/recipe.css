@@ -1,6 +1,21 @@
 :is(.markdown-preview-view, .markdown-source-view) pre {
-  background: #202d29;
-  color: #dce8dc;
-  border: 1px solid #41574b;
+  /**
+   * @parameter Цвет текста терминала
+   * @type color
+   * @default #dce8dc
+   */
+  --hacksidian-code-terminal-ink: #dce8dc;
+  --code-normal: var(--hacksidian-code-terminal-ink);
+  background: color-mix(in srgb, var(--hacksidian-code-terminal-ink) 12%, black);
+  color: var(--hacksidian-code-terminal-ink);
+  border: 1px solid color-mix(in srgb, var(--hacksidian-code-terminal-ink) 30%, black);
   border-radius: calc(var(--code-radius) * 2.5);
+  box-shadow: none;
+}
+:is(.markdown-preview-view, .markdown-source-view) pre > code,
+:is(.markdown-preview-view, .markdown-source-view) pre > code .token {
+  color: inherit;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }

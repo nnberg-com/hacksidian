@@ -3,7 +3,7 @@ cssclasses:
   - atlas-note-image-strip
 ---
 
-## Три остановки
+### Три остановки
 
 - ![Залив](assets/bay.svg)
 - ![Сад](assets/garden.svg)

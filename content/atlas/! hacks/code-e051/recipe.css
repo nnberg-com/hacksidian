@@ -1,7 +1,257 @@
-:is(.markdown-preview-view, .markdown-source-view) pre:has(> code.language-python) {
-  border-left: 4px solid #3572a5;
-}
-:is(.markdown-preview-view, .markdown-source-view) pre:has(> code.language-css) {
-  border-left: 4px solid #8a57ac;
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter sh — цвет палитры
+   * @type select
+   * @default var(--color-green)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-sh: var(--color-green);
+  /**
+   * @parameter python — цвет палитры
+   * @type select
+   * @default var(--color-blue)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-python: var(--color-blue);
+  /**
+   * @parameter c — цвет палитры
+   * @type select
+   * @default var(--color-orange)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-c: var(--color-orange);
+  /**
+   * @parameter awk — цвет палитры
+   * @type select
+   * @default var(--color-purple)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-awk: var(--color-purple);
+  /**
+   * @parameter css — цвет палитры
+   * @type select
+   * @default var(--color-pink)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-css: var(--color-pink);
+  /**
+   * @parameter markdown — цвет палитры
+   * @type select
+   * @default var(--color-cyan)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-markdown: var(--color-cyan);
 }
 
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-sh, .language-bash, .language-shell)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-sh);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-python, .language-py)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-python);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-c)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-c);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-awk, .language-gawk)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-awk);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-css)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-css);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-markdown, .language-md)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-markdown);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter yaml — цвет палитры
+   * @type select
+   * @default var(--color-orange)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-yaml: var(--color-orange);
+  /**
+   * @parameter json — цвет палитры
+   * @type select
+   * @default var(--color-yellow)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-json: var(--color-yellow);
+  /**
+   * @parameter html — цвет палитры
+   * @type select
+   * @default var(--color-red)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-html: var(--color-red);
+  /**
+   * @parameter lua — цвет палитры
+   * @type select
+   * @default var(--color-blue)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-lua: var(--color-blue);
+  /**
+   * @parameter cpp — цвет палитры
+   * @type select
+   * @default var(--color-purple)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-cpp: var(--color-purple);
+  /**
+   * @parameter javascript — цвет палитры
+   * @type select
+   * @default var(--color-yellow)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-javascript: var(--color-yellow);
+  /**
+   * @parameter typescript — цвет палитры
+   * @type select
+   * @default var(--color-cyan)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-typescript: var(--color-cyan);
+  /**
+   * @parameter kconfig — цвет палитры
+   * @type select
+   * @default var(--color-green)
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   */
+  --hacksidian-code-language-kconfig: var(--color-green);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-yaml, .language-yml)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-yaml);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-json)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-json);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-html, .language-markup)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-html);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-lua)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-lua);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-cpp)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-cpp);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-javascript, .language-js)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-javascript);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-typescript, .language-ts)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-typescript);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-kconfig)) {
+  border-inline-start: 4px solid var(--hacksidian-code-language-kconfig);
+}
