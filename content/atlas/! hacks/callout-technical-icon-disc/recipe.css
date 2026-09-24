@@ -1,4 +1,38 @@
-:is(.markdown-preview-view, .markdown-source-view) .callout { padding-inline: 1em; --hacksidian-icon-margin-space: 3.3em; }
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  /**
+   * @parameter Дополнительный отступ после заголовка
+   * @label-en Extra spacing after title
+   * @type number
+   * @default 0em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step 0.05
+   */
+  --hacksidian-callout-technical-icon-disc-title-gap: 0em;
+  padding-block: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  font-size: 1em;
+  line-height: 1lh;
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:not(.is-collapsed) > .callout-content:not(:empty) {
+  margin-block-start: var(--hacksidian-callout-technical-icon-disc-title-gap);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :first-child {
+  margin-block-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :last-child {
+  margin-block-end: 0;
+}
+
+:is(.markdown-preview-view, .markdown-source-view) .callout { --hacksidian-callout-icon-disc-field: 1em; padding: var(--hacksidian-callout-icon-disc-field); }
 :is(.markdown-preview-view, .markdown-source-view) .callout-icon {
   display: flex;
   align-items: center;
@@ -22,3 +56,29 @@
   color: inherit;
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-title { align-items: center; gap: 1em; }
+
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  position: relative;
+  padding-inline-start: calc(1.8em + var(--hacksidian-callout-icon-disc-field));
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title > .callout-icon {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: .5lh;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  margin-inline-start: calc(1.8em + var(--hacksidian-callout-icon-disc-field));
+}
+
+/* Measure the top field from the disc, keeping its center aligned with the first text line. */
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  padding-block-start: calc(var(--hacksidian-callout-icon-disc-field) + (1.8em - 1lh) / 2);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:is(.is-collapsed, :not(:has(> .callout-content:not(:empty)))) {
+  padding-block-end: calc(var(--hacksidian-callout-icon-disc-field) + (1.8em - 1lh) / 2);
+}

@@ -15,3 +15,21 @@
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-content > :first-child { margin-top: .5em; }
 :is(.markdown-preview-view, .markdown-source-view) .callout-content > :last-child { margin-bottom: 0; }
+
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  position: relative;
+  padding-inline-start: calc(1.5em + var(--icon-size, var(--icon-m)));
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title > .callout-icon {
+  position: absolute;
+  inset-inline-start: .75em;
+  inset-block-start: calc(.5lh + var(--hacksidian-icon-title-top, 0px));
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  margin-inline-start: calc(1em + var(--icon-size, var(--icon-m)));
+}

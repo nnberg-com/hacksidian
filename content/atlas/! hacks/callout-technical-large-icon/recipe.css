@@ -1,19 +1,53 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout {
+  /**
+   * @parameter Дополнительный отступ после заголовка
+   * @label-en Extra spacing after title
+   * @type number
+   * @default 0em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step 0.05
+   */
+  --hacksidian-callout-technical-large-icon-title-gap: 0em;
+  padding-block: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  line-height: 1lh;
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:not(.is-collapsed) > .callout-content:not(:empty) {
+  margin-block-start: var(--hacksidian-callout-technical-large-icon-title-gap);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :first-child {
+  margin-block-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :last-child {
+  margin-block-end: 0;
+}
+
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  --hacksidian-callout-large-icon-field: 1em;
   position: relative;
   font-size: var(--font-text-size);
-  padding-inline-start: calc(var(--icon-m) * 4 + 2em);
-  min-height: calc(var(--icon-m) * 4 + 2em);
+  padding-inline: calc(var(--icon-m) * 4 + 2 * var(--hacksidian-callout-large-icon-field)) var(--hacksidian-callout-large-icon-field);
+  min-height: calc(var(--icon-m) * 4 + 2 * var(--hacksidian-callout-large-icon-field));
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title:has(> .callout-icon) {
-  position: static;
+  position: relative;
   padding-inline-start: 0;
   font-size: 1em;
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title:has(> .callout-icon) > .callout-icon {
   --icon-size: calc(var(--icon-m) * 4);
   position: absolute;
-  inset-inline-start: 1em;
-  inset-block-start: 50%;
+  inset-inline-start: calc(-1 * var(--hacksidian-callout-large-icon-field) - var(--icon-size));
+  inset-block-start: calc(100% + var(--hacksidian-callout-technical-large-icon-title-gap) / 2);
   transform: translateY(-50%);
   width: var(--icon-size);
   height: var(--icon-size);
@@ -30,4 +64,9 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title > .callout-icon::after { content: none; }
 :is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title + .callout-content {
   margin-inline-start: 0;
+}
+
+/* Reserve room above the title for the upper half of the icon. */
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  padding-block-start: calc(var(--hacksidian-callout-large-icon-field) + var(--icon-m) * 2 - 1lh - var(--hacksidian-callout-technical-large-icon-title-gap) / 2);
 }

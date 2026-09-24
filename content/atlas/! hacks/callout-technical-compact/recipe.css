@@ -1,3 +1,24 @@
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  padding-block: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:not(.is-collapsed) > .callout-content:not(:empty) {
+  margin-block-start: .75em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :first-child {
+  margin-block-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :last-child {
+  margin-block-end: 0;
+}
+
 :is(.markdown-preview-view, .markdown-source-view) .callout-title {
   font-size: .85em;
   gap: .4em;
@@ -7,3 +28,20 @@
   padding: .8em 1em;
 }
 
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  position: relative;
+  padding-inline-start: calc(var(--hacksidian-icon-margin-space, 2.1em) / .85);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title > .callout-icon {
+  position: absolute;
+  inset-inline-start: .25em;
+  inset-block-start: calc(.5lh + var(--hacksidian-icon-title-top, 0px));
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  margin-inline-start: var(--hacksidian-icon-margin-space, 2.1em);
+}

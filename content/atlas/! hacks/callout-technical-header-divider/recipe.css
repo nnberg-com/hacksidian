@@ -1,6 +1,33 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout-title {
   border-block-end: 1px solid var(--callout-color);
-  padding-block-end: .65em;
-  margin-block-end: .7em;
+  padding-block-end: 1em;
+  margin-block: 0;
+  padding-block-start: 0;
+  line-height: 1lh;
 }
 
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  position: relative;
+  padding-inline-start: var(--hacksidian-icon-margin-space, 2.1em);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title > .callout-icon {
+  position: absolute;
+  inset-inline-start: .25em;
+  inset-block-start: calc(.5lh + var(--hacksidian-icon-title-top, 0px));
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  margin-inline-start: var(--hacksidian-icon-margin-space, 2.1em);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) .callout { padding-block: 1em; }
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  padding-block: 0;
+  margin-block: 1em 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :first-child { margin-block-start: 0; }
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :last-child { margin-block-end: 0; }

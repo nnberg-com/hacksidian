@@ -1,5 +1,38 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout {
   /**
+   * @parameter Дополнительный отступ после заголовка
+   * @label-en Extra spacing after title
+   * @type number
+   * @default 0em
+   * @unit em
+   * @min 0
+   * @max 5
+   * @step 0.05
+   */
+  --hacksidian-callout-technical-dots-title-gap: 0em;
+  padding-block: 1em;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  line-height: 1lh;
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  padding-block: 0;
+  margin-block: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout:not(.is-collapsed) > .callout-content:not(:empty) {
+  margin-block-start: var(--hacksidian-callout-technical-dots-title-gap);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :first-child {
+  margin-block-start: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content > :last-child {
+  margin-block-end: 0;
+}
+
+:is(.markdown-preview-view, .markdown-source-view) .callout {
+  /**
    * @parameter Есть/нет рамка
    * @type select
    * @default 1px
@@ -31,4 +64,22 @@
   background-image: radial-gradient(circle, var(--background-modifier-border) 1px, transparent 1.5px);
   background-size: max(2px, var(--hacksidian-callout-dots-spacing-x)) max(2px, var(--hacksidian-callout-dots-spacing-y));
   border: var(--hacksidian-callout-dots-border) solid var(--background-modifier-border);
+}
+
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title {
+  position: relative;
+  padding-inline-start: var(--hacksidian-icon-margin-space, 2.1em);
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title > .callout-icon {
+  position: absolute;
+  inset-inline-start: .25em;
+  inset-block-start: calc(.5lh + var(--hacksidian-icon-title-top, 0px));
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-content {
+  margin-inline-start: var(--hacksidian-icon-margin-space, 2.1em);
 }

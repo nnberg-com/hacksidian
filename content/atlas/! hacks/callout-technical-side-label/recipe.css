@@ -1,7 +1,7 @@
 :is(.markdown-preview-view, .markdown-source-view) .callout {
   display: grid;
   grid-template-columns: minmax(0, 8em) minmax(0, 1fr);
-  gap: 1em;
+  column-gap: calc(var(--icon-size, var(--icon-m)) + 2em);
   align-items: first baseline;
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-title {
@@ -9,6 +9,8 @@
   padding: 0;
   line-height: var(--line-height-normal);
   align-items: baseline;
+  position: relative;
+  min-width: 0;
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-content {
   border: 0;
@@ -16,4 +18,11 @@
 }
 :is(.markdown-preview-view, .markdown-source-view) .callout-content > :first-child { margin-top: 0; }
 :is(.markdown-preview-view, .markdown-source-view) .callout-content > :last-child { margin-bottom: 0; }
-:is(.markdown-preview-view, .markdown-source-view) .callout-icon { align-self: center; }
+:is(.markdown-preview-view, .markdown-source-view) .callout > .callout-title > .callout-icon {
+  position: absolute;
+  inset-inline-start: calc(100% + 1em);
+  inset-block-start: .5lh;
+  transform: translateY(-50%);
+  width: var(--icon-size, var(--icon-m));
+  margin: 0;
+}
