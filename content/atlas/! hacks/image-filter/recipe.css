@@ -1,0 +1,76 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Фильтр
+   * @label-en Filter
+   * @type select
+   * @default warm
+   * @option none | Без фильтра
+   * @option grayscale | Чёрно-белый
+   * @option sepia | Сепия
+   * @option muted | Приглушённый
+   * @option contrast | Контрастный
+   * @option warm | Тёплый
+   * @option cool | Холодный
+   * @option invert | Инверсия
+   * @option tint | Тонирующий слой
+   */
+  --hacksidian-image-filter-choice: warm;
+  @hacksidian-variants --hacksidian-image-filter-choice {
+    @variant none {
+      --hacksidian-image-filter-effect: none;
+      --hacksidian-image-filter-tint: transparent;
+    }
+    @variant grayscale {
+      --hacksidian-image-filter-effect: grayscale(1);
+      --hacksidian-image-filter-tint: transparent;
+    }
+    @variant sepia {
+      --hacksidian-image-filter-effect: sepia(.85);
+      --hacksidian-image-filter-tint: transparent;
+    }
+    @variant muted {
+      --hacksidian-image-filter-effect: saturate(.4) contrast(.9);
+      --hacksidian-image-filter-tint: transparent;
+    }
+    @variant contrast {
+      --hacksidian-image-filter-effect: contrast(1.6) saturate(.8);
+      --hacksidian-image-filter-tint: transparent;
+    }
+    @variant warm {
+      --hacksidian-image-filter-effect: sepia(.45) saturate(1.3);
+      --hacksidian-image-filter-tint: transparent;
+    }
+    @variant cool {
+      --hacksidian-image-filter-effect: sepia(1) hue-rotate(145deg) saturate(.7);
+      --hacksidian-image-filter-tint: transparent;
+    }
+    @variant invert {
+      --hacksidian-image-filter-effect: invert(1);
+      --hacksidian-image-filter-tint: transparent;
+    }
+    @variant tint {
+      --hacksidian-image-filter-effect: none;
+      --hacksidian-image-filter-tint: #c863333b;
+    }
+  }
+}
+:is(.markdown-preview-view, .markdown-source-view) img {
+  filter: var(--hacksidian-image-filter-effect);
+}
+:is(.markdown-preview-view, .markdown-source-view) p:is(:has(> img:only-child), :has(> .image-embed:only-child)) {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  line-height: 0;
+}
+:is(.markdown-preview-view, .markdown-source-view) p:is(:has(> img:only-child), :has(> .image-embed:only-child)) img {
+  display: block;
+  max-width: 100%;
+}
+:is(.markdown-preview-view, .markdown-source-view) p:is(:has(> img:only-child), :has(> .image-embed:only-child))::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hacksidian-image-filter-tint);
+  pointer-events: none;
+}

@@ -36,11 +36,39 @@ export function parameterMarkdown(markdown: string, css: string): string {
 
 /** Resolve value tables into the same rule. Variants cannot introduce selectors or resources. */
 export function resolveParameterVariants(css: string): string {
-  if (!/@hacksidian-(?:variants|target|heading)\b/.test(css)) return css;
+  if (!/@hacksidian-(?:variants|target|heading|image-source)\b/.test(css)) return css;
   const parameters = readParameters(css);
   const tree = postcss.parse(css);
   const used = new Set<string>();
   const headings = headingChoices(css);
+  tree.walkAtRules('hacksidian-image-source', block => {
+    const parameter = parameters.find(p => p.variable === block.params);
+    if (block.parent?.type !== 'root' || !parameter || parameter.type !== 'text') throw Error('Invalid image source parameter');
+    const value = parameterInput(parameter);
+    parameterValue(parameter, value);
+    let matches = 0;
+    block.walkRules(rule => {
+      const ast = selectorParser().astSync(rule.selector);
+      ast.each(selector => {
+        let found = false;
+        selector.walkPseudos(pseudo => {
+          if (pseudo.value !== ':--hacksidian-image-source') return;
+          const previous = pseudo.prev();
+          if (pseudo.nodes?.length || previous?.type !== 'tag' || previous.value !== 'img') throw Error('Image source placeholder must follow img');
+          if (value) {
+            const attribute = selectorParser.attribute({attribute: 'src', operator: '*=', value: '', quoteMark: '"', insensitive: true, raws: {}});
+            attribute.setValue(value, {quoteMark: '"'});
+            pseudo.replaceWith(attribute);
+          } else pseudo.remove();
+          found = true; matches++;
+        });
+        if (!found) throw Error('Image source rule requires a placeholder');
+      });
+      rule.selector = ast.toString();
+    });
+    if (!matches) throw Error('Empty image source block');
+    block.replaceWith(...(block.nodes ?? []));
+  });
   tree.walkAtRules('hacksidian-heading', block => {
     const {source,target} = headings[0];
     let matched = false;

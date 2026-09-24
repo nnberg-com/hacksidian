@@ -52,7 +52,7 @@ export function addHack(style: ModularStyle, hack: HackContext): { style: Modula
   if (hack.spec.replaces !== undefined) {
     if (!Array.isArray(hack.spec.replaces) || hack.spec.replaces.some(id => typeof id !== 'string' || !/^[a-z0-9][a-z0-9-]*$/.test(id) || id === hack.id)) throw new Error(t('hacks.invalid_technique_format'));
     for (const id of hack.spec.replaces) {
-      if (style.modules.some(m => m.id !== hack.spec.target && m.css.includes(`/* hacksidian:hack:${id}:`))) throw new Error(t('hacks.invalid_technique_format'));
+      if (style.modules.some(m => m.id !== hack.spec.target && !hack.spec.previousTargets?.includes(m.id) && m.css.includes(`/* hacksidian:hack:${id}:`))) throw new Error(t('hacks.invalid_technique_format'));
       style = removeHack(style, id).style;
     }
   }

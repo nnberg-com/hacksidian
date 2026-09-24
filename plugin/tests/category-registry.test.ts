@@ -3,9 +3,9 @@ import fs from 'node:fs';import path from 'node:path';
 import {parse} from 'yaml';
 import {groupManifest} from '../src/snippet-groups';
 const root=path.resolve(import.meta.dirname,'../..');
-test('every current card uses one of the 24 active categories, with matching page and target',()=>{
+test('every current card uses one of the 25 active categories, with matching page and target',()=>{
  const groups=new Set(groupManifest.modules.map(m=>String(m.group)));
- expect(groups.size).toBe(24);
+ expect(groups.size).toBe(25);
  for(const group of ['note','list','interface','meta','emphasis-combinations','pseudo-task','strikethrough'])expect(groups.has(group)).toBe(false);
  for(const group of ['combinations','taskplus','strike'])expect(groups.has(group)).toBe(true);
  const hacks=path.join(root,'content/atlas/! hacks');

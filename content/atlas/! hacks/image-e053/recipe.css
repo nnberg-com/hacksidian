@@ -1,23 +1,49 @@
-:is(.markdown-preview-view, .markdown-source-view) p {
+:is(.markdown-preview-view, .markdown-source-view) p:is(:has(> img:only-child), :has(> .image-embed:only-child)) {
+  /**
+   * @parameter Цвет уголков
+   * @label-en Corner color
+   * @type color
+   * @default #e9c876
+   */
+  --hacksidian-image-e053-color: #e9c876;
+  --hacksidian-image-e053-radius: var(--radius-s, 4px);
   position: relative;
-  padding: calc(var(--size-4-1) * 2);
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  padding: 7px;
+  line-height: 0;
 }
-:is(.markdown-preview-view, .markdown-source-view) p::before, :is(.markdown-preview-view, .markdown-source-view) p::after {
+:is(.markdown-preview-view, .markdown-source-view) p:is(:has(> img:only-child), :has(> .image-embed:only-child)) img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: var(--hacksidian-image-e053-radius);
+}
+:is(.markdown-preview-view, .markdown-source-view) p > .image-embed:only-child {
+  display: block;
+}
+:is(.markdown-preview-view, .markdown-source-view) p:is(:has(> img:only-child), :has(> .image-embed:only-child))::before,
+:is(.markdown-preview-view, .markdown-source-view) p:is(:has(> img:only-child), :has(> .image-embed:only-child))::after {
   content: "";
   position: absolute;
-  width: 30px;
-  height: 30px;
-  border-color: #e9c876;
+  box-sizing: border-box;
+  width: max(30px, calc(var(--hacksidian-image-e053-radius) + 14px));
+  height: max(30px, calc(var(--hacksidian-image-e053-radius) + 14px));
+  border-color: var(--hacksidian-image-e053-color);
   border-style: solid;
+  pointer-events: none;
 }
-:is(.markdown-preview-view, .markdown-source-view) p::before {
+:is(.markdown-preview-view, .markdown-source-view) p:is(:has(> img:only-child), :has(> .image-embed:only-child))::before {
   top: 0;
   left: 0;
   border-width: 7px 0 0 7px;
+  border-top-left-radius: calc(var(--hacksidian-image-e053-radius) + 7px);
 }
-:is(.markdown-preview-view, .markdown-source-view) p::after {
+:is(.markdown-preview-view, .markdown-source-view) p:is(:has(> img:only-child), :has(> .image-embed:only-child))::after {
   bottom: 0;
   right: 0;
   border-width: 0 7px 7px 0;
+  border-bottom-right-radius: calc(var(--hacksidian-image-e053-radius) + 7px);
 }
-

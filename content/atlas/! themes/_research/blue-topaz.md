@@ -88,7 +88,7 @@ Commit: `54821893b8f293f9c738580f59d4f1beec5c4284`. Основной файл: `
 - [[atlas/! hacks/composition-dialogue/composition-dialogue|Переписка]] — существующая карточка
 - [[atlas/! hacks/image-e006/image-e006|По центру]] — существующая карточка
 - [[atlas/! hacks/image-e015/image-e015|Тонкая рамка]] — существующая карточка
-- [[atlas/! hacks/image-gallery/image-gallery|Галерея из списка картинок]] — существующая карточка
+- [[atlas/! hacks/imagelist-gallery/imagelist-gallery|Галерея из списка картинок]] — существующая карточка
 - [[atlas/! hacks/tag-e010/tag-e010|Надстрочная метка]] — существующая карточка
 - [[atlas/! hacks/tag-e064/tag-e064|Радуга по позиции]] — существующая карточка
 - [[atlas/! hacks/emphasis-s14/emphasis-s14|Мягкая плашка с переносами]] — существующая карточка
@@ -259,7 +259,7 @@ Commit: `54821893b8f293f9c738580f59d4f1beec5c4284`. Основной файл: `
 | Deactivate image zooming | `image-zoom` | Есть карточка | Подтверждено правилом CSS. Крупный просмотр изображения при нажатии | [код](https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3453) |
 | Obsidian default image position | `obsidian-default-image` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-e006/image-e006\|По центру]] | [код](https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3459) |
 | Image borders | `image-border` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-e015/image-e015\|Тонкая рамка]] | [код](https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3471) |
-| Enable global image grid | `img-grid` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-gallery/image-gallery\|Галерея из списка картинок]] | [код](https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3504) |
+| Enable global image grid | `img-grid` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/imagelist-gallery/imagelist-gallery\|Галерея из списка картинок]] | [код](https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3504) |
 | Loading page style | `loading-page-style-option` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Оформление экрана загрузки | [код](https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3519) |
 | Typing style | `loading-text-typing-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Оформление экрана загрузки | [код](https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3582) |
 | Moving style | `loading-text-moving-style` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. Оформление экрана загрузки | [код](https://github.com/pkm-er/Blue-Topaz_Obsidian-css/blob/54821893b8f293f9c738580f59d4f1beec5c4284/theme.css#L3588) |

@@ -274,6 +274,14 @@
       "title": "Markdown внутри выносок",
       "file": "hacksidian-26-callin.css",
       "nativeVariables": []
+    },
+    {
+      "id": "g-imagelist",
+      "component": "imagelist",
+      "group": "imagelist",
+      "title": "Последовательности изображений",
+      "file": "hacksidian-27-imagelist.css",
+      "nativeVariables": []
     }
   ]
 }

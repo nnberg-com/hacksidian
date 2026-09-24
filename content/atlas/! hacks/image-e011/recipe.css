@@ -1,6 +1,17 @@
 :is(.markdown-preview-view, .markdown-source-view) img {
+  /**
+   * @parameter Высота блока
+   * @label-en Frame height
+   * @type number
+   * @default 240px
+   * @unit px
+   * @min 40
+   * @max 1600
+   * @step 10
+   */
+  --hacksidian-image-e011-height: 240px;
   width: 100%;
-  height: 240px;
+  height: var(--hacksidian-image-e011-height);
   object-fit: contain;
   background: #e4e9e4;
 }

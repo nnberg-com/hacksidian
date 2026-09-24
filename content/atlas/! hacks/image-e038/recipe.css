@@ -1,8 +1,20 @@
-:is(.markdown-preview-view, .markdown-source-view) p {
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Если в имени есть…
+   * @label-en If filename contains…
+   * @type text
+   * @default "bw"
+   */
+  --hacksidian-image-e038-filename: "bw";
+}
+
+@hacksidian-image-source --hacksidian-image-e038-filename {
+:is(.markdown-preview-view, .markdown-source-view) p:has(img:--hacksidian-image-source) {
   background: #174d55;
   isolation: isolate;
 }
-:is(.markdown-preview-view, .markdown-source-view) img {
+:is(.markdown-preview-view, .markdown-source-view) img:--hacksidian-image-source {
   filter: grayscale(1) contrast(1.35);
   mix-blend-mode: screen;
+}
 }

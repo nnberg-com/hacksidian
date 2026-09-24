@@ -25,8 +25,8 @@ try{
   counts.withCss++;
   const hack={id,spec,css,path:dir+'/'+id+'.md',title:id};
   const compiled=compileHack(hack);
-  if (!/@hacksidian-(?:variants|target|heading)\b/.test(css)) assert.equal(compiled,css,id);
-  assert(!/@hacksidian-(?:variants|target|heading)\b/.test(compiled),id);
+  if (!/@hacksidian-(?:variants|target|heading|image-source)\b/.test(css)) assert.equal(compiled,css,id);
+  assert(!/@hacksidian-(?:variants|target|heading|image-source)\b/.test(compiled),id);
   const old={format:1,modules:[{id:spec.target,component:'test',css:'/* before */\n'+`/* hacksidian:hack:${id}:start */\n.old {}\n/* hacksidian:hack:${id}:end */\n`+'/* after */\n'}]};
   const next=addHack(old,hack);assert(next.changed,id);
   const start=`/* hacksidian:hack:${id}:start */\n`,end=`/* hacksidian:hack:${id}:end */`;

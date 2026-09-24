@@ -1,0 +1,16 @@
+{
+  "format": 2,
+  "target": "g-image",
+  "hasCss": true,
+  "group": "image",
+  "replaces": [
+    "image-e028",
+    "image-e029",
+    "image-e030",
+    "image-e031",
+    "image-e032",
+    "image-e033",
+    "image-e034",
+    "image-e056"
+  ]
+}

@@ -1,5 +1,52 @@
-:is(.markdown-preview-view, .markdown-source-view) img {
-  width: 13rem;
-  aspect-ratio: 3/4;
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Если в имени есть…
+   * @label-en If filename contains…
+   * @type text
+   * @default ""
+   */
+  --hacksidian-image-e010-filename: "";
+}
+
+@hacksidian-image-source --hacksidian-image-e010-filename {
+:is(.markdown-preview-view, .markdown-source-view) img:--hacksidian-image-source {
+  /**
+   * @parameter Ширина
+   * @label-en Width
+   * @type number
+   * @default 13rem
+   * @unit rem
+   * @min 1
+   * @max 100
+   * @step 0.5
+   */
+  --hacksidian-image-e010-width: 13rem;
+  /**
+   * @parameter Пропорция (ширина / высота)
+   * @label-en Aspect ratio (width / height)
+   * @type number
+   * @default 0.75
+   * @min 0.1
+   * @max 5
+   * @step 0.05
+   */
+  --hacksidian-image-e010-ratio: 0.75;
+  /**
+   * @parameter Сдвиг вправо
+   * @label-en Crop position from left
+   * @type number
+   * @default 65%
+   * @unit %
+   * @min 0
+   * @max 100
+   * @step 1
+   */
+  --hacksidian-image-e010-offset: 65%;
+  width: var(--hacksidian-image-e010-width);
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: var(--hacksidian-image-e010-ratio);
   object-fit: cover;
+  object-position: var(--hacksidian-image-e010-offset) 50%;
+}
 }

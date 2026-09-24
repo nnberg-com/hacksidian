@@ -67,7 +67,7 @@ Commit: `8c56e831e1abb1d3841c4ffdecbe06b5182fbc68`. Основной файл: `
 - [[atlas/! hacks/metadata-no-add/metadata-no-add|Без строки добавления]] — существующая карточка
 - [[atlas/! hacks/quote-panel/quote-panel|Цитата на подложке]] — существующая карточка
 - [[atlas/! hacks/callout-technical-shadow/callout-technical-shadow|Панель с тенью]] — существующая карточка
-- [[atlas/! hacks/image-gallery/image-gallery|Галерея из списка картинок]] — существующая карточка
+- [[atlas/! hacks/imagelist-gallery/imagelist-gallery|Галерея из списка картинок]] — существующая карточка
 - [[atlas/! hacks/tag-e001/tag-e001|Только акцентный цвет]] — существующая карточка
 - [[atlas/! hacks/image-e034/image-e034|Негатив]] — существующая карточка
 - [[atlas/! hacks/code-e002/code-e002|Контур без заливки]] — существующая карточка
@@ -157,7 +157,7 @@ Commit: `8c56e831e1abb1d3841c4ffdecbe06b5182fbc68`. Основной файл: `
 | Hide embed titles | `embed-hide-title` | Есть карточка | Подтверждено правилом CSS. Встроенная заметка без повторного заголовка | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2748) |
 | Disable checkbox strikethrough | `strike-lists-off` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/task-e13/task-e13\|Зачёркивание]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2932) |
 | Media width | `media-width` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-fluid/image-fluid\|Изображение по ширине заметки]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2942) |
-| Always show image grids | `img-grid` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/image-gallery/image-gallery\|Галерея из списка картинок]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2969) |
+| Always show image grids | `img-grid` | Есть карточка | Механизм уже описан в каталоге; добавлено подтверждение для этой темы. [[atlas/! hacks/imagelist-gallery/imagelist-gallery\|Галерея из списка картинок]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2969) |
 | Dim media in dark mode | `media-muted` | Есть карточка | Подтверждено правилом CSS. Приглушение ярких изображений в тёмном режиме | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2973) |
 | Disable image zoom | `zoom-off` | Есть карточка | Подтверждено правилом CSS. Крупный просмотр изображения при нажатии | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2977) |
 | Disable rounded media | `img-radius-off` | Есть карточка | Подтверждено правилом CSS. [[atlas/! hacks/image-e016/image-e016\|Мягкое скругление]] | [код](https://github.com/aaaaalexis/obsidian-baseline/blob/8c56e831e1abb1d3841c4ffdecbe06b5182fbc68/theme.css#L2981) |

@@ -1,0 +1,39 @@
+.markdown-preview-view {
+  /**
+   * @parameter Если в имени есть…
+   * @label-en If filename contains…
+   * @type text
+   * @default "banner"
+   */
+  --hacksidian-image-banner-filename: "banner";
+}
+@hacksidian-image-source --hacksidian-image-banner-filename {
+.markdown-preview-view:has(img:--hacksidian-image-source) {
+  container-type: inline-size;
+  padding-inline: 0;
+}
+.markdown-preview-view:has(img:--hacksidian-image-source) .markdown-preview-sizer {
+  padding-inline: var(--size-4-8, 32px);
+  box-sizing: border-box;
+}
+.markdown-preview-view p:has(> img:--hacksidian-image-source:only-child),
+.markdown-preview-view p:has(> .image-embed:only-child img:--hacksidian-image-source) {
+  width: 100cqw;
+  max-width: none;
+  margin-inline: calc(50% - 50cqw);
+}
+.markdown-preview-view .image-embed:has(img:--hacksidian-image-source) {
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+.markdown-preview-view img:--hacksidian-image-source {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+}

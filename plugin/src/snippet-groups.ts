@@ -28,6 +28,7 @@ export const GROUPS = [
  ['combinations', 'Сочетания выделений', []],
  ['ordered', 'Нумерованные списки', ['--list-indent','--list-spacing','--list-marker-color']],
  ['callin', 'Markdown внутри выносок', []],
+ ['imagelist', 'Последовательности изображений', []],
 ] as const;
 // Slots 01–03 are retired; retain the remaining file numbers.
 export const groupManifest = { format: 1, structure: 2, modules: GROUPS.map(([group,title,nativeVariables],i) => ({

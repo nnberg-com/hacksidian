@@ -1,0 +1,21 @@
+:is(.markdown-preview-view, .markdown-source-view) img[src*="screenshot" i] {
+  /**
+   * @parameter Скругление
+   * @label-en Corner radius
+   * @type number
+   * @default 0.5em
+   * @unit em
+   * @min 0
+   * @max 4
+   * @step 0.1
+   */
+  --hacksidian-image-technical-shadow-radius: 0.5em;
+  box-sizing: border-box;
+  max-width: calc(100% - 3em);
+  height: auto;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--hacksidian-image-technical-shadow-radius);
+  margin: 1.5em;
+  box-shadow: 0 .5em 1.2em #00000014;
+}

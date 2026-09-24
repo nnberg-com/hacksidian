@@ -1,5 +1,12 @@
 :is(.markdown-preview-view, .markdown-source-view) img {
+  /**
+   * @parameter Цвет тени
+   * @label-en Shadow color
+   * @type color
+   * @default #e9b443
+   */
+  --hacksidian-image-e020-shadow-color: #e9b443;
   border: 2px solid #243c33;
-  box-shadow: 9px 9px 0 #e9b443;
+  box-shadow: 9px 9px 0 var(--hacksidian-image-e020-shadow-color);
   width: 92%;
 }

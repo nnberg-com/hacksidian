@@ -7,7 +7,7 @@
 :is(.markdown-preview-view, .markdown-source-view) blockquote p {
   margin: 0;
 }
-:is(.markdown-preview-view, .markdown-source-view) img {
+:is(.markdown-preview-view, .markdown-source-view) blockquote img {
   filter: sepia(.25);
 }
 

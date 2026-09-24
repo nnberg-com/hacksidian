@@ -160,7 +160,7 @@
 .hacksidian-live-sample.markdown-preview-view { height: auto; min-height: 0; padding: 0; overflow: visible; }
 /* Contain fixed/absolute content effects and give responsive recipes their preview container. */
 .hacksidian-live-viewport { contain: layout paint; container-type: inline-size; container-name: preview; isolation: isolate; }
-.hacksidian-live-viewport { max-height: 60vh; }
+.hacksidian-live-viewport { height: auto; max-height: none; }
 
 .hacksidian-recommendation { margin-block: 0.75em; }
 .hacksidian-recommendation > a:first-child { font-weight: 600; }

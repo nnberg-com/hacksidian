@@ -1,0 +1,12 @@
+{
+  "format": 2,
+  "target": "g-imagelist",
+  "hasCss": true,
+  "group": "imagelist",
+  "replaces": [
+    "image-e068"
+  ],
+  "previousTargets": [
+    "g-image"
+  ]
+}

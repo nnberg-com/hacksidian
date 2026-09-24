@@ -1,8 +1,19 @@
-:is(.markdown-preview-view, .markdown-source-view) p {
-  background: #d9c8a4;
-}
 :is(.markdown-preview-view, .markdown-source-view) img {
+  /**
+   * @parameter Размер белой рамки
+   * @label-en White outline size
+   * @type number
+   * @default 3px
+   * @unit px
+   * @min 0
+   * @max 20
+   * @step 0.5
+   */
+  --hacksidian-image-e027-outline: 3px;
   width: 75%;
-  filter: drop-shadow(3px 0 0 white) drop-shadow(-3px 0 0 white) drop-shadow(0 3px 0 white) drop-shadow(0 -3px 0 white) drop-shadow(3px 6px 3px #0003);
+  filter: drop-shadow(var(--hacksidian-image-e027-outline) 0 0 white)
+    drop-shadow(calc(-1 * var(--hacksidian-image-e027-outline)) 0 0 white)
+    drop-shadow(0 var(--hacksidian-image-e027-outline) 0 white)
+    drop-shadow(0 calc(-1 * var(--hacksidian-image-e027-outline)) 0 white)
+    drop-shadow(3px 6px 3px #0003);
 }
-

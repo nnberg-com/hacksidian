@@ -1,4 +1,0 @@
-:is(.markdown-preview-view, .markdown-source-view) img {
-  filter: sepia(1) hue-rotate(145deg) saturate(.7);
-}
-

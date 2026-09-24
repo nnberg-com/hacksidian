@@ -1,4 +1,4 @@
-# Категории приёмов • `24`
+# Категории приёмов • `25`
 
 ```mermaid
 ---
@@ -61,8 +61,11 @@ root(( ))
 		table
 		:::internal-link
 	_media(( ))
-		image
-		:::internal-link
+		_im(( ))
+			image
+			:::internal-link
+			imagelist
+			:::internal-link
 		iframe
 		:::internal-link
 
@@ -72,8 +75,8 @@ root(( ))
 - **В строке** → [[emphasis|выделения текста (bold, italic, …)]] — [[combinations|сочетания выделений]] — [[strike|зачёркивание]] — [[inline-code|код в строке]] — [[tag|теги]]
 - **Ссылки** → [[link|ссылки]] — [[footnote|сноски]]
 - **Списки** → [[ordered|нумерованные]] — [[unordered|маркированные]] — [[task|задачи]] — [[taskplus|задачи +]]
-- **Блоки** → [[code|блоки кода]] — [[quote|цитаты]] — ==[[callout|выноски]]== — [[callin|Markdown внутри выносок]] — [[composition|композиции]] — [[table|таблицы]]
-- **Медиа** → [[image|изображения]] — [[iframe|Iframe]]
+- **Блоки** → ==[[code|блоки кода]]== — [[quote|цитаты]] — ==[[callout|выноски]]== — [[callin|Markdown внутри выносок]] — [[composition|композиции]] — [[table|таблицы]]
+- **Медиа** → [[image|изображения]] — [[imagelist|последовательности изображений]] — [[iframe|Iframe]]
 
 > Заголовки, кнопки и живые примеры в категориях собираются блоком кода с меткой `hacksidian-category`
 

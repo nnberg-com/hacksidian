@@ -1,7 +1,30 @@
 :is(.markdown-preview-view, .markdown-source-view) img {
+  /**
+   * @parameter Угол наклона
+   * @label-en Tilt angle
+   * @type number
+   * @default -3deg
+   * @unit deg
+   * @min -45
+   * @max 45
+   * @step 0.5
+   */
+  --hacksidian-image-e085-angle: -2deg;
+  /**
+   * @parameter Тень есть/нет
+   * @label-en Shadow on/off
+   * @type select
+   * @control checkbox
+   * @default none
+   * @option 0 5px 10px #0003 | Есть | On
+   * @option none | Нет | Off
+   */
+  --hacksidian-image-e085-shadow: none;
+
   width: 90%;
   border: 12px solid white;
-  transform: rotate(-3deg);
+  box-shadow: var(--hacksidian-image-e085-shadow);
+  transform: rotate(var(--hacksidian-image-e085-angle));
   border-radius: calc(var(--radius-s) * 2);
 }
 @media (max-width:600px) {
@@ -12,4 +35,3 @@
     border-radius: 0;
   }
 }
-

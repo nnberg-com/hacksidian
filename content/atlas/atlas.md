@@ -6,9 +6,9 @@
 
 [[atlas/! themes/! themes|Темы Obsidian]]
 
-1363 приёмов · 24 категории · 24 базовых CSS-сниппета. **Один приём — одна папка.** Варианты текстовой системы и палитры выбираются параметрами; их expanded-страницы позволяют сравнивать примеры.
+1348 приёмов · 25 категорий · 25 базовых CSS-сниппета. **Один приём — одна папка.** Варианты текстовой системы и палитры выбираются параметрами; их expanded-страницы позволяют сравнивать примеры.
 
-[[atlas/! categories/! categories|Группы приёмов]]: 23 категории разметки и одна категория палитр. Техническое поле `category` сохраняет ID категории.
+[[atlas/! categories/! categories|Группы приёмов]]: 24 категории разметки и одна категория палитр. Техническое поле `category` сохраняет ID категории.
 
 В каждой папке `! hacks/<ID>` находятся карточка, пример Markdown, единый `recipe.css` и описание целевого сниппета `hack.json`. Локальные ресурсы и необязательные HTML-модели находятся здесь же.
 
@@ -576,18 +576,18 @@
 - [[atlas/! hacks/iframe-e049/iframe-e049|Прозрачность требует участия документа]]
 - [[atlas/! hacks/iframe-e050/iframe-e050|Внешний overflow не убирает внутренний скролл]]
 
-## Изображения · 95
+## Изображения · 75
 
+- [[atlas/! hacks/image-caption/image-caption|Подпись соседним абзацем]]
+- [[atlas/! hacks/image-crop/image-crop|Единый формат кадра]]
 - [[atlas/! hacks/image-e001/image-e001|Естественные пропорции]]
 - [[atlas/! hacks/image-e002/image-e002|На всю колонку]]
 - [[atlas/! hacks/image-e003/image-e003|Маленькое без растягивания]]
-- [[atlas/! hacks/image-e004/image-e004|Небольшая виньетка]]
 - [[atlas/! hacks/image-e005/image-e005|По левому краю]]
 - [[atlas/! hacks/image-e006/image-e006|По центру]]
 - [[atlas/! hacks/image-e007/image-e007|По правому краю]]
-- [[atlas/! hacks/image-e008/image-e008|Квадрат с обрезкой]]
 - [[atlas/! hacks/image-e009/image-e009|Широкий панорамный кадр]]
-- [[atlas/! hacks/image-e010/image-e010|Вертикальный кадр]]
+- [[atlas/! hacks/image-e010/image-e010|Масштаб с обрезкой]]
 - [[atlas/! hacks/image-e011/image-e011|Целиком в заданном формате]]
 - [[atlas/! hacks/image-e012/image-e012|Фокус смещён к краю]]
 - [[atlas/! hacks/image-e013/image-e013|Ограничение высоты]]
@@ -605,21 +605,11 @@
 - [[atlas/! hacks/image-e025/image-e025|Наклонённый снимок]]
 - [[atlas/! hacks/image-e026/image-e026|Тень по прозрачному силуэту]]
 - [[atlas/! hacks/image-e027/image-e027|Белая наклейка]]
-- [[atlas/! hacks/image-e028/image-e028|Чёрно-белая]]
-- [[atlas/! hacks/image-e029/image-e029|Сепия]]
-- [[atlas/! hacks/image-e030/image-e030|Приглушённые цвета]]
-- [[atlas/! hacks/image-e031/image-e031|Высокий контраст]]
-- [[atlas/! hacks/image-e032/image-e032|Тёплый оттенок]]
-- [[atlas/! hacks/image-e033/image-e033|Холодное тонирование]]
-- [[atlas/! hacks/image-e034/image-e034|Негатив]]
-- [[atlas/! hacks/image-e035/image-e035|Мягкий фокус]]
 - [[atlas/! hacks/image-e036/image-e036|Полупрозрачная иллюстрация]]
-- [[atlas/! hacks/image-e037/image-e037|Рисунок на цветной бумаге]]
 - [[atlas/! hacks/image-e038/image-e038|Двухцветная печать]]
 - [[atlas/! hacks/image-e039/image-e039|Пиксельная графика]]
 - [[atlas/! hacks/image-e040/image-e040|Круг]]
 - [[atlas/! hacks/image-e041/image-e041|Овал]]
-- [[atlas/! hacks/image-e042/image-e042|Арка]]
 - [[atlas/! hacks/image-e043/image-e043|Органическая форма]]
 - [[atlas/! hacks/image-e044/image-e044|Ромб]]
 - [[atlas/! hacks/image-e045/image-e045|Шестиугольник]]
@@ -633,7 +623,6 @@
 - [[atlas/! hacks/image-e053/image-e053|Фотоальбомные уголки]]
 - [[atlas/! hacks/image-e054/image-e054|Стопка отпечатков]]
 - [[atlas/! hacks/image-e055/image-e055|Затемнённые края]]
-- [[atlas/! hacks/image-e056/image-e056|Тонирующий слой]]
 - [[atlas/! hacks/image-e057/image-e057|Печатный растр]]
 - [[atlas/! hacks/image-e058/image-e058|Подпись отдельным абзацем]]
 - [[atlas/! hacks/image-e059/image-e059|Подпись с линейкой]]
@@ -643,13 +632,6 @@
 - [[atlas/! hacks/image-e063/image-e063|Обтекание справа]]
 - [[atlas/! hacks/image-e064/image-e064|Текст по окружности]]
 - [[atlas/! hacks/image-e065/image-e065|Нумерация иллюстраций]]
-- [[atlas/! hacks/image-e066/image-e066|Два отдельных абзаца рядом]]
-- [[atlas/! hacks/image-e067/image-e067|Контактный лист]]
-- [[atlas/! hacks/image-e068/image-e068|Горизонтальная фотолента]]
-- [[atlas/! hacks/image-e069/image-e069|Фотолента с остановками]]
-- [[atlas/! hacks/image-e070/image-e070|Асимметричная сетка]]
-- [[atlas/! hacks/image-e071/image-e071|Коллаж с перекрытием]]
-- [[atlas/! hacks/image-e072/image-e072|Чередование наклона]]
 - [[atlas/! hacks/image-e073/image-e073|Цвет при наведении]]
 - [[atlas/! hacks/image-e074/image-e074|Приподнять и выпрямить]]
 - [[atlas/! hacks/image-e075/image-e075|Приближение внутри кадра]]
@@ -662,16 +644,28 @@
 - [[atlas/! hacks/image-e082/image-e082|Стиль по title]]
 - [[atlas/! hacks/image-e083/image-e083|Стиль по пути файла]]
 - [[atlas/! hacks/image-e084/image-e084|Изображение внутри цитаты]]
-- [[atlas/! hacks/image-e085/image-e085|Адаптация к узкому экрану]]
+- [[atlas/! hacks/image-e085/image-e085|Изображение под углом]]
 - [[atlas/! hacks/image-e087/image-e087|Печатная версия]]
-- [[atlas/! hacks/image-caption/image-caption|Подпись соседним абзацем]]
-- [[atlas/! hacks/image-crop/image-crop|Единый формат кадра]]
+- [[atlas/! hacks/image-filter/image-filter|Фильтр]]
 - [[atlas/! hacks/image-float/image-float|Иллюстрация с обтеканием]]
-- [[atlas/! hacks/image-fluid/image-fluid|Изображение по ширине заметки]]
+- [[atlas/! hacks/image-fluid/image-fluid|Изображение в пределах заметки]]
 - [[atlas/! hacks/image-frame/image-frame|Рамка и паспарту]]
-- [[atlas/! hacks/image-gallery/image-gallery|Галерея из списка картинок]]
 - [[atlas/! hacks/image-linked/image-linked|Ссылка-картинка без текстового декора]]
-- [[atlas/! hacks/image-strip/image-strip|Горизонтальная фотолента]]
+- [[atlas/! hacks/image-technical-shadow/image-technical-shadow|Рамка и тень для screenshot]]
+
+- [[atlas/! hacks/image-banner/image-banner|Баннер]]
+
+## Последовательности изображений · 9
+
+- [[atlas/! hacks/imagelist-e066/imagelist-e066|Два отдельных абзаца рядом]]
+- [[atlas/! hacks/imagelist-e067/imagelist-e067|Контактный лист]]
+- [[atlas/! hacks/imagelist-e068/imagelist-e068|Горизонтальная фотолента с обрезкой]]
+- [[atlas/! hacks/imagelist-e069/imagelist-e069|Фотолента с остановками]]
+- [[atlas/! hacks/imagelist-e070/imagelist-e070|Асимметричная сетка]]
+- [[atlas/! hacks/imagelist-e071/imagelist-e071|Коллаж с перекрытием]]
+- [[atlas/! hacks/imagelist-e072/imagelist-e072|Чередование наклона]]
+- [[atlas/! hacks/imagelist-gallery/imagelist-gallery|Галерея из списка картинок]]
+- [[atlas/! hacks/imagelist-strip/imagelist-strip|Горизонтальная фотолента]]
 
 ## Инлайн-код · 76
 

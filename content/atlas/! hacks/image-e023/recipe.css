@@ -1,5 +1,25 @@
 :is(.markdown-preview-view, .markdown-source-view) img {
+  /**
+   * @parameter Начальный цвет
+   * @label-en Start color
+   * @type color
+   * @default #cf664a
+   */
+  --hacksidian-image-e023-start: #cf664a;
+  /**
+   * @parameter Средний цвет
+   * @label-en Middle color
+   * @type color
+   * @default #e6be57
+   */
+  --hacksidian-image-e023-middle: #e6be57;
+  /**
+   * @parameter Конечный цвет
+   * @label-en End color
+   * @type color
+   * @default #367365
+   */
+  --hacksidian-image-e023-end: #367365;
   border: 9px solid;
-  border-image: linear-gradient(130deg,#cf664a,#e6be57,#367365) 1;
+  border-image: linear-gradient(130deg, var(--hacksidian-image-e023-start), var(--hacksidian-image-e023-middle), var(--hacksidian-image-e023-end)) 1;
 }
-

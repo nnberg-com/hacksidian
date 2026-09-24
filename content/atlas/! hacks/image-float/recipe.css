@@ -1,16 +1,62 @@
-:is(.markdown-preview-view, .markdown-source-view) {
+.markdown-preview-view {
+  /**
+   * @parameter Картинка слева: если в имени есть…
+   * @label-en Image on the left: filename contains…
+   * @type text
+   * @default "left"
+   */
+  --hacksidian-image-float-left: "left";
+  /**
+   * @parameter Картинка справа: если в имени есть…
+   * @label-en Image on the right: filename contains…
+   * @type text
+   * @default "right"
+   */
+  --hacksidian-image-float-right: "right";
+}
+
+@hacksidian-image-source --hacksidian-image-float-left {
+.markdown-preview-view p:has(img:--hacksidian-image-source) {
   display: flow-root;
 }
-@container preview (min-width:430px) {
-  :is(.markdown-preview-view, .markdown-source-view) p:has(> img:only-child) {
+.markdown-preview-view p img:--hacksidian-image-source {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: .4em;
+}
+@media (min-width:430px) {
+  .markdown-preview-view p > img:--hacksidian-image-source,
+  .markdown-preview-view p > .image-embed:has(img:--hacksidian-image-source) {
     float: left;
     width: 43%;
     margin: .2em 1.2em .6em 0;
   }
+  .markdown-preview-view p > .image-embed img:--hacksidian-image-source {
+    width: 100%;
+  }
 }
-:is(.markdown-preview-view, .markdown-source-view) img {
-  display: block;
-  width: 100%;
-  border-radius: .4em;
 }
 
+@hacksidian-image-source --hacksidian-image-float-right {
+.markdown-preview-view p:has(img:--hacksidian-image-source) {
+  display: flow-root;
+}
+.markdown-preview-view p img:--hacksidian-image-source {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: .4em;
+}
+@media (min-width:430px) {
+  .markdown-preview-view p > img:--hacksidian-image-source,
+  .markdown-preview-view p > .image-embed:has(img:--hacksidian-image-source) {
+    float: right;
+    width: 43%;
+    margin: .2em 0 .6em 1.2em;
+  }
+  .markdown-preview-view p > .image-embed img:--hacksidian-image-source {
+    width: 100%;
+  }
+}
+}

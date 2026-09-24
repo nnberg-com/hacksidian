@@ -1,5 +1,31 @@
 :is(.markdown-preview-view, .markdown-source-view) img {
-  box-shadow: 0 0 0 4px #fff,0 0 0 8px #cb714d,0 0 0 12px #dfc277;
+  /**
+   * @parameter Внутренний контур
+   * @label-en Inner outline
+   * @type color
+   * @default #ffffff
+   */
+  --hacksidian-image-e022-inner: #ffffff;
+  /**
+   * @parameter Средний контур
+   * @label-en Middle outline
+   * @type color
+   * @default #cb714d
+   */
+  --hacksidian-image-e022-middle: #cb714d;
+  /**
+   * @parameter Внешний контур
+   * @label-en Outer outline
+   * @type color
+   * @default #dfc277
+   */
+  --hacksidian-image-e022-outer: #dfc277;
+  box-shadow: 0 0 0 4px var(--hacksidian-image-e022-inner),
+    0 0 0 8px var(--hacksidian-image-e022-middle),
+    0 0 0 12px var(--hacksidian-image-e022-outer);
+  display: block;
+  box-sizing: border-box;
   width: 88%;
+  max-width: calc(100% - 24px);
+  margin: 12px;
 }
-
