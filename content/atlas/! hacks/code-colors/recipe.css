@@ -23,7 +23,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-color-normal-source: var(--hacksidian-code-color-normal);
+  --hacksidian-code-color-normal-source: contrast;
 
   /**
    * @parameter Комментарий — свой цвет
@@ -57,7 +57,7 @@
    * @type color
    * @default #9b286d
    */
-  --hacksidian-code-color-keyword: #d43bb5;
+  --hacksidian-code-color-keyword: #ff9a47;
 
   /**
    * @parameter Ключевое слово — источник
@@ -75,7 +75,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-color-keyword-source: var(--hacksidian-code-color-keyword);
+  --hacksidian-code-color-keyword-source: var(--color-yellow);
 
   /**
    * @parameter Строка — свой цвет
@@ -83,7 +83,7 @@
    * @type color
    * @default #28713e
    */
-  --hacksidian-code-color-string: #28713e;
+  --hacksidian-code-color-string: #fefbe5;
 
   /**
    * @parameter Строка — источник
@@ -101,7 +101,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-color-string-source: var(--color-yellow);
+  --hacksidian-code-color-string-source: var(--hacksidian-code-color-string);
 
   /**
    * @parameter Число и логическое значение — свой цвет
@@ -109,7 +109,7 @@
    * @type color
    * @default #7248a5
    */
-  --hacksidian-code-color-value: #a16be7;
+  --hacksidian-code-color-value: #8f50e3;
 
   /**
    * @parameter Число и логическое значение — источник
@@ -135,7 +135,7 @@
    * @type color
    * @default #8b5b12
    */
-  --hacksidian-code-color-function: #ac5209;
+  --hacksidian-code-color-function: #b0ae9c;
 
   /**
    * @parameter Функция и класс — источник
@@ -161,7 +161,7 @@
    * @type color
    * @default #ab3832
    */
-  --hacksidian-code-color-operator: #ab3832;
+  --hacksidian-code-color-operator: #ac5209;
 
   /**
    * @parameter Оператор — источник
@@ -179,7 +179,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-color-operator-source: var(--color-purple);
+  --hacksidian-code-color-operator-source: var(--hacksidian-code-color-operator);
 
   /**
    * @parameter Свойство и параметр — свой цвет
@@ -187,7 +187,7 @@
    * @type color
    * @default #087a85
    */
-  --hacksidian-code-color-property: #3fb3cd;
+  --hacksidian-code-color-property: #0aa0bb;
 
   /**
    * @parameter Свойство и параметр — источник
@@ -213,7 +213,7 @@
    * @type color
    * @default #245da6
    */
-  --hacksidian-code-color-variable: #245da6;
+  --hacksidian-code-color-variable: #0aa0bb;
 
   /**
    * @parameter Переменная — источник
@@ -231,7 +231,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-color-variable-source: var(--color-blue);
+  --hacksidian-code-color-variable-source: var(--hacksidian-code-color-variable);
 
   /**
    * @parameter Пунктуация — свой цвет
@@ -265,7 +265,7 @@
    * @type color
    * @default #ab3832
    */
-  --hacksidian-code-color-tag: #ab3832;
+  --hacksidian-code-color-tag: #8f50e3;
 
   /**
    * @parameter Тег и константа — источник
@@ -283,7 +283,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-color-tag-source: var(--color-orange);
+  --hacksidian-code-color-tag-source: var(--color-yellow);
 
   /**
    * @parameter Регулярное выражение и важное — свой цвет
@@ -291,7 +291,7 @@
    * @type color
    * @default #a44d14
    */
-  --hacksidian-code-color-important: #a44d14;
+  --hacksidian-code-color-important: #fefbe5;
 
   /**
    * @parameter Регулярное выражение и важное — источник

@@ -24,13 +24,33 @@
    * @option var(--text-muted) | Приглушённый текст
    * @option var(--background-modifier-border) | Рамка темы
    */
-  --hacksidian-code-e054-color-1: var(--hacksidian-code-e054-color-1-custom);
+  --hacksidian-code-e054-color-1: var(--color-yellow);
 
 }
 
-:is(.markdown-preview-view, .markdown-source-view) pre > code.language-sh::before {
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-sh,.language-bash,.language-shell)[class]::before,
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-sh,.language-bash,.language-shell)[class] > .hacksidian-source-line:first-child::before {
   content: "$ ";
+  display: inline;
+  margin: 0;
+  font: inherit;
   color: var(--hacksidian-code-e054-color-1);
   user-select: none;
 }
 
+/* Wrapped source lines are blocks: the prompt belongs inside the first line. */
+:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-sh,.language-bash,.language-shell)[class]:has(> .hacksidian-source-line)::before {
+  content: none;
+  display: none;
+}
+
+/* Also support an already installed code-language that still uses code::before. */
+@container style(--hacksidian-code-language-color) {
+  :is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-sh,.language-bash,.language-shell))::before {
+    content: "Shell";
+    display: block;
+    margin-block-end: .7em;
+    color: var(--hacksidian-code-language-color);
+    font: .72em var(--font-interface);
+  }
+}

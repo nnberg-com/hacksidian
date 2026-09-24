@@ -10,7 +10,12 @@ export function prepareCodeLanguageLabels(root: HTMLElement): void {
   if (root.matches('pre > code')) nodes.push(root);
   for (const node of nodes) {
     const label = codeLanguageLabel(node.className);
-    if (label) node.setAttribute('data-hacksidian-language', label);
-    else node.removeAttribute('data-hacksidian-language');
+    // Keep the code attribute for existing recipes; pre owns the language label
+    // so code::before remains available for shell prompts and other decorations.
+    for (const target of [node, node.parentElement]) {
+      if (!target) continue;
+      if (label) target.setAttribute('data-hacksidian-language', label);
+      else target.removeAttribute('data-hacksidian-language');
+    }
   }
 }

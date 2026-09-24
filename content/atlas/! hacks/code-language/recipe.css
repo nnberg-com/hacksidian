@@ -1,109 +1,134 @@
-:is(.markdown-preview-view, .markdown-source-view) pre {
-  padding: 1em;
-  background: var(--background-secondary);
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Метка языка — свой цвет
+   * @label-en Language label — custom color
+   * @type color
+   * @default #808080
+   */
+  --hacksidian-code-language-custom-color: #999786;
+  /**
+   * @parameter Метка языка — цвет
+   * @label-en Language label — color
+   * @type select
+   * @default var(--text-muted)
+   * @option var(--text-muted) | Приглушённый текст темы
+   * @option var(--text-normal) | Основной текст темы
+   * @option var(--text-faint) | Слабый текст темы
+   * @option var(--text-accent) | Акцент темы
+   * @option var(--color-red) | Красный
+   * @option var(--color-orange) | Оранжевый
+   * @option var(--color-yellow) | Жёлтый
+   * @option var(--color-green) | Зелёный
+   * @option var(--color-cyan) | Циан
+   * @option var(--color-blue) | Синий
+   * @option var(--color-purple) | Фиолетовый
+   * @option var(--color-pink) | Розовый
+   * @option var(--hacksidian-code-language-custom-color) | Свой цвет
+   */
+  --hacksidian-code-language-color: var(--text-muted);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code[data-hacksidian-language]::before {
+:is(.markdown-preview-view, .markdown-source-view) pre[data-hacksidian-language]::before {
   content: attr(data-hacksidian-language);
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-sh,.language-bash,.language-shell)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-sh,.language-bash,.language-shell))::before {
   content: "Shell";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-python,.language-py)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-python,.language-py))::before {
   content: "Python";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-css)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-css))::before {
   content: "CSS";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-javascript,.language-js)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-javascript,.language-js))::before {
   content: "JavaScript";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-typescript,.language-ts)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-typescript,.language-ts))::before {
   content: "TypeScript";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-html,.language-markup)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-html,.language-markup))::before {
   content: "HTML";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-json)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-json))::before {
   content: "JSON";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-yaml,.language-yml)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-yaml,.language-yml))::before {
   content: "YAML";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-markdown,.language-md)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-markdown,.language-md))::before {
   content: "Markdown";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-c)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-c))::before {
   content: "C";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-cpp)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-cpp))::before {
   content: "C++";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-lua)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-lua))::before {
   content: "Lua";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-awk,.language-gawk)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-awk,.language-gawk))::before {
   content: "AWK";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }
-:is(.markdown-preview-view, .markdown-source-view) pre > code:is(.language-kconfig)::before {
+:is(.markdown-preview-view, .markdown-source-view) pre:has(> code:is(.language-kconfig))::before {
   content: "Kconfig";
   display: block;
   margin-block-end: .7em;
-  color: var(--text-muted);
+  color: var(--hacksidian-code-language-color);
   font: .72em var(--font-interface);
 }

@@ -12,7 +12,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-language-sh: var(--color-green);
+  --hacksidian-code-language-sh: var(--color-yellow);
   /**
    * @parameter python — цвет палитры
    * @type select
@@ -26,7 +26,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-language-python: var(--color-blue);
+  --hacksidian-code-language-python: var(--color-cyan);
   /**
    * @parameter c — цвет палитры
    * @type select
@@ -40,7 +40,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-language-c: var(--color-orange);
+  --hacksidian-code-language-c: var(--color-green);
   /**
    * @parameter awk — цвет палитры
    * @type select
@@ -193,7 +193,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-language-javascript: var(--color-yellow);
+  --hacksidian-code-language-javascript: var(--color-red);
   /**
    * @parameter typescript — цвет палитры
    * @type select
@@ -207,7 +207,7 @@
    * @option var(--color-purple) | Фиолетовый
    * @option var(--color-pink) | Розовый
    */
-  --hacksidian-code-language-typescript: var(--color-cyan);
+  --hacksidian-code-language-typescript: var(--color-purple);
   /**
    * @parameter kconfig — цвет палитры
    * @type select
