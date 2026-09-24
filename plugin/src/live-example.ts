@@ -93,6 +93,9 @@ export class LiveExample extends MarkdownRenderChild {
       this.previewEl.createEl('hr', { cls: 'hacksidian-live-separator' });
       const viewport = this.previewEl.createDiv({ cls: 'hacksidian-live-viewport' });
       const sample = viewport.createDiv({ cls: 'markdown-preview-view markdown-rendered hacksidian-live-sample' }); sample.id = id;
+      const pageSized = /\.markdown-preview-sizer|\.is-readable-line-width/.test(css);
+      if (pageSized) sample.addClass('is-readable-line-width');
+      const content = pageSized ? sample.createDiv({ cls: 'markdown-preview-sizer hacksidian-live-page' }) : sample;
       // Keep checkbox experiments local; don't let the renderer write to the source Markdown.
       owner.registerDomEvent(sample, 'click', event => {
         const target = event.target as HTMLInputElement | null;
@@ -121,7 +124,7 @@ export class LiveExample extends MarkdownRenderChild {
       this.previewEl.createEl('hr', { cls: 'hacksidian-live-separator' });
       const update = () => { style.textContent = preview.enabled ? scoped : ''; };
       owner.register(preview.subscribe(update)); update();
-      await MarkdownRenderer.render(this.plugin.app, parameterMarkdown(markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, ''), css), sample, `${this.directory}/markdown.md`, owner);
+      await MarkdownRenderer.render(this.plugin.app, parameterMarkdown(markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, ''), css), content, `${this.directory}/markdown.md`, owner);
       if (this.stopped || epoch !== this.epoch) return;
       sample.querySelectorAll<HTMLInputElement>('input[type=checkbox]').forEach(input => { input.disabled = false; });
       if (/:target\b/.test(css)) this.previewEl.createEl('small', { text: ru ? 'Нажмите ссылку или номер сноски внутри примера: эффект появится у выбранной цели.' : 'Click a link or footnote number inside the example to select its target.' });

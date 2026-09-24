@@ -3,12 +3,12 @@
    * @parameter Цвет выделения
    * @label-en Selection color
    * @type select
-   * @default var(--color-purple)
+   * @default var(--color-green)
    * @option var(--color-red) | Красный | Red
    * @option var(--color-orange) | Оранжевый | Orange
    * @option var(--color-yellow) | Жёлтый | Yellow
    * @option var(--color-green) | Зелёный | Green
-   * @option var(--color-cyan) | Cyan | Cyan
+   * @option var(--color-cyan) | Голубой | Cyan
    * @option var(--color-blue) | Синий | Blue
    * @option var(--color-purple) | Фиолетовый | Purple
    * @option var(--color-pink) | Розовый | Pink

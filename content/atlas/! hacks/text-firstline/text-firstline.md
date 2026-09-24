@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_text
-title: Выразительная первая строка
+title: Первая строка капителью
 category: text
 sources: []
 format: markdown

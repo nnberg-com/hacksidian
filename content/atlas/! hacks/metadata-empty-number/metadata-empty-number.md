@@ -8,6 +8,7 @@ sources:
   - https://forum.obsidian.md/t/minimal-properties/104415
 format: properties
 themes: []
+favourite: false
 ---
 
 ```hacksidian-id

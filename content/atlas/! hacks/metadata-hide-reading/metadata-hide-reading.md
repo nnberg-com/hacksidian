@@ -8,7 +8,7 @@ sources:
   - https://forum.obsidian.md/t/properties-option-to-hide-in-reading-view/66186/2
   - https://obsidian.md/changelog/page/12/
 format: properties
-favourite: false
+favourite: true
 ---
 
 ```hacksidian-id

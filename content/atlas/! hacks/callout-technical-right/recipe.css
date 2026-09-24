@@ -42,7 +42,7 @@
    * @max 100
    * @step 0.5
    */
-  --hacksidian-callout-technical-right-width: 40px;
+  --hacksidian-callout-technical-right-width: 10px;
   /**
    * @parameter Скругление линии
    * @label-en Line corner radius

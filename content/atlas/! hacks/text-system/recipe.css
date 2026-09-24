@@ -15,7 +15,7 @@
    * @option rutter | По Раттеру — ритм строки
    * @option uswds | USWDS — стандартная сборка
    */
-  --hacksidian-text-system-choice: uswds;
+  --hacksidian-text-system-choice: primer;
   @hacksidian-variants --hacksidian-text-system-choice {
     @variant carbon {
       --hacksidian-text-system-leading: 1.5;

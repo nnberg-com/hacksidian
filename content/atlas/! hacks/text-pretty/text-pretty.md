@@ -2,11 +2,12 @@
 tags:
   - hacksidian_technique
   - hacksidian_text
-title: Более аккуратные окончания абзацев
+title: Без висячих строк в конце абзаца
 category: text
 sources: []
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id

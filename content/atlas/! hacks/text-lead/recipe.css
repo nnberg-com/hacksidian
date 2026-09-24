@@ -1,6 +1,15 @@
+.markdown-preview-view {
+  /**
+   * @parameter Увеличение размера
+   * @label-en Font size multiplier
+   * @type number
+   * @default 1.22
+   * @min 1
+   * @max 2
+   * @step 0.01
+   */
+  --hacksidian-lead-scale: 1.22;
+}
 .markdown-preview-view > h1 + p, .markdown-preview-view .el-h1 + .el-p > p {
-  font-size: calc(var(--font-text-size) * 1.22);
-  line-height: var(--line-height-normal);
-  font-weight: var(--font-medium);
-  color: var(--text-normal);
+  font-size: calc(var(--font-text-size) * var(--hacksidian-lead-scale));
 }

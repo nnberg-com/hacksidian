@@ -1,9 +1,9 @@
-:is(.markdown-preview-view, .markdown-source-view) p:has(+ ul), :is(.markdown-preview-view, .markdown-source-view) .el-p:has(+ .el-ul) > p {
+:is(.markdown-preview-view, .markdown-source-view) p:has(+ :is(ul, ol)), :is(.markdown-preview-view, .markdown-source-view) .el-p:has(+ :is(.el-ul, .el-ol)) > p {
   font-weight: var(--font-bold);
   margin-block-end: .25em;
   color: var(--interactive-accent);
 }
-:is(.markdown-preview-view, .markdown-source-view) p + ul, :is(.markdown-preview-view, .markdown-source-view) .el-p + .el-ul > ul {
+:is(.markdown-preview-view, .markdown-source-view) p + :is(ul, ol), :is(.markdown-preview-view, .markdown-source-view) .el-p + :is(.el-ul, .el-ol) > :is(ul, ol) {
   margin-block-start: .25em;
 }
 

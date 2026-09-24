@@ -2,5 +2,8 @@
   "format": 2,
   "target": "g-text",
   "hasCss": true,
-  "group": "text"
+  "group": "text",
+  "replaces": [
+    "text-initial-letter"
+  ]
 }

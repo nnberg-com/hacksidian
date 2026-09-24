@@ -4,19 +4,20 @@ tags:
 title: Текстовая система
 category: text
 sources:
-  - "https://carbondesignsystem.com/elements/typography/type-sets/"
-  - "https://www.dmkpress.com/upload/iblock/b5f/ajo1tfftyk2yebgba53x9k9jdms1dor1.pdf#page=9"
-  - "https://fluent2.microsoft.design/typography"
-  - "https://ctan.org/pkg/memoir"
-  - "https://spencermortensen.com/articles/typographic-scale/"
-  - "https://nostarch.com/download/samples/modernweb_ch6.pdf#page=6"
-  - "https://github.com/oreillymedia/atlas_tech1c_theme/blob/master/epub/epub.css"
-  - "https://cdn.jsdelivr.net/npm/@primer/css@22.3.1/dist/base.css"
-  - "https://webtypography.net/2.2.2"
-  - "https://cdn.jsdelivr.net/npm/@uswds/uswds@3.14.0/dist/css/uswds.css"
-  - "sources.md"
+  - https://carbondesignsystem.com/elements/typography/type-sets/
+  - https://www.dmkpress.com/upload/iblock/b5f/ajo1tfftyk2yebgba53x9k9jdms1dor1.pdf#page=9
+  - https://fluent2.microsoft.design/typography
+  - https://ctan.org/pkg/memoir
+  - https://spencermortensen.com/articles/typographic-scale/
+  - https://nostarch.com/download/samples/modernweb_ch6.pdf#page=6
+  - https://github.com/oreillymedia/atlas_tech1c_theme/blob/master/epub/epub.css
+  - https://cdn.jsdelivr.net/npm/@primer/css@22.3.1/dist/base.css
+  - https://webtypography.net/2.2.2
+  - https://cdn.jsdelivr.net/npm/@uswds/uswds@3.14.0/dist/css/uswds.css
+  - sources.md
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id

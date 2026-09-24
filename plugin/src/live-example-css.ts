@@ -42,7 +42,6 @@ export function scopeLiveExample(css: string, id: string): string {
       if (prefix && !/^(?:(?:body|html|\.theme-light)(?:\.theme-light)?\s*)+$/.test(prefix)) throw new Error('Requires external container: ' + prefix);
       const nextCombinator = nodes.slice(index + 1).find(n => n.type === 'combinator');
       if (nextCombinator && !['', '>'].includes(nextCombinator.value.trim())) throw new Error('Selector escapes preview through a sibling');
-      if (/\.markdown-preview-sizer|\.is-readable-line-width/.test(selector.toString())) throw new Error('Requires document navigation or page sizing');
       selector.walkPseudos(pseudo => { if (pseudo.value === ':target') pseudo.replaceWith(selectorParser().astSync('[data-hacksidian-target]').first.first.clone()); });
       anchor.replaceWith(selectorParser.id({ value: id }));
       keep.push(selector.toString());

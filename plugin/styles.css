@@ -274,3 +274,5 @@ button.hacksidian-favourite-toggle:focus-visible { outline: 2px solid var(--inte
 .hacksidian-chat-example > .hacksidian-live-example { margin-top: calc(var(--p-spacing, 1rem) * 0.5); }
 
 .hacksidian-metadata-model { display:block; width:100%; min-height:140px; border:0; background:var(--background-primary); }
+
+.hacksidian-live-sample > .hacksidian-live-page { width: 100%; max-width: var(--file-line-width); min-height: 0; margin-inline: auto; padding: 0; }

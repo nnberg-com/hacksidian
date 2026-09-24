@@ -1,5 +1,15 @@
+:is(.markdown-preview-view, .markdown-source-view) {
+  /**
+   * @parameter Знак окончания
+   * @label-en End mark
+   * @type text
+   * @default "◆"
+   * @maxlength 16
+   */
+  --hacksidian-endmark-symbol: "◆";
+}
 :is(.markdown-preview-view, .markdown-source-view) > p:last-child::after, :is(.markdown-preview-view, .markdown-source-view) .el-p:not(:has(~ .el-p)) > p::after {
-  content: " ◆";
+  content: " " var(--hacksidian-endmark-symbol);
   color: var(--interactive-accent);
   font-size: .7em;
   white-space: nowrap;

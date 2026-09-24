@@ -12,7 +12,7 @@ themes:
   - prism
   - velocity
   - aura
-favourite: false
+favourite: true
 ---
 
 ```hacksidian-id

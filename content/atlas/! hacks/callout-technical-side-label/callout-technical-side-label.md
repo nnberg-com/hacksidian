@@ -8,6 +8,7 @@ sources:
   - https://help.obsidian.md/callouts
 format: markdown
 themes: []
+favourite: true
 ---
 
 ```hacksidian-id

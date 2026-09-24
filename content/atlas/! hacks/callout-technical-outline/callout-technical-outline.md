@@ -14,6 +14,7 @@ themes:
   - tokyo-night
   - ultra-lobster
   - composer
+favourite: true
 ---
 
 ```hacksidian-id

@@ -1,8 +1,58 @@
-.markdown-preview-view > p:first-child::first-letter, .markdown-preview-view .el-p:not(.el-p ~ .el-p) > p::first-letter {
+.markdown-preview-view {
+  /**
+   * @parameter Высота буквицы в строках
+   * @label-en Drop cap height in lines
+   * @type number
+   * @default 3
+   * @min 2
+   * @max 6
+   * @step 1
+   */
+  --hacksidian-dropcap-lines: 2;
+  /**
+   * @parameter Расстояние до текста
+   * @label-en Gap to text
+   * @type number
+   * @default 8px
+   * @unit px
+   * @min 0
+   * @max 40
+   * @step 1
+   */
+  --hacksidian-dropcap-gap: 8px;
+  /**
+   * @parameter Жирность буквицы
+   * @label-en Drop cap weight
+   * @type select
+   * @default inherit
+   * @option inherit | Как у текста | Same as text
+   * @option 300 | Лёгкая — 300 | Light — 300
+   * @option 400 | Обычная — 400 | Regular — 400
+   * @option 500 | Средняя — 500 | Medium — 500
+   * @option 600 | Полужирная — 600 | Semibold — 600
+   * @option 700 | Жирная — 700 | Bold — 700
+   * @option 800 | Очень жирная — 800 | Extra bold — 800
+   * @option 900 | Максимальная — 900 | Black — 900
+   */
+  --hacksidian-dropcap-weight: inherit;
+}
+.markdown-preview-view > p:first-of-type::first-letter, .markdown-preview-view .el-p:not(.el-p ~ .el-p) > p::first-letter {
   float: inline-start;
   font-family: inherit;
-  font-size: 4em;
-  line-height: calc(var(--line-height-normal) * .57);
-  margin: .05em .12em 0 0;
-  color: var(--text-normal);
+  font-weight: var(--hacksidian-dropcap-weight);
+  font-size: calc(1em * var(--hacksidian-dropcap-lines) * 1.333333);
+  line-height: .85;
+  margin: .05em 0 0;
+  margin-inline-end: var(--hacksidian-dropcap-gap);
+  color: inherit;
+}
+@supports (initial-letter: 3) {
+  .markdown-preview-view > p:first-of-type::first-letter, .markdown-preview-view .el-p:not(.el-p ~ .el-p) > p::first-letter {
+    float: none;
+    font-size: inherit;
+    line-height: inherit;
+    initial-letter: var(--hacksidian-dropcap-lines);
+    margin: 0;
+    margin-inline-end: var(--hacksidian-dropcap-gap);
+  }
 }

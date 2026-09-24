@@ -9,6 +9,7 @@ sources:
 format: markdown
 themes:
   - baseline
+favourite: true
 ---
 
 ```hacksidian-id

@@ -52,3 +52,15 @@ test('green selection is configured from fresh local options despite an older pu
  expect(patch.css).toContain('--hacksidian-note-selection-color: var(--color-green);');
  expect(patch.css).toContain('background: var(--hacksidian-note-selection-color)');
 });
+
+test.each(['text-selection-custom', 'text-lead-color'])('%s applies every palette color from its declared parameter', async id => {
+ const source=readFileSync(new URL(`../../content/atlas/! hacks/${id}/recipe.css`,import.meta.url),'utf8');
+ const record:CatalogEntry={...entry,id,path:`atlas/! hacks/${id}/${id}.md`};
+ const snapshots=await collectRecommendationParameters([record],async()=>source);
+ const variable=id==='text-lead-color'?'--hacksidian-lead-color':'--hacksidian-note-selection-color';
+ for(const color of ['red','orange','yellow','green','cyan','blue','purple','pink']) {
+  const patch=recommendationParameterPatch([{id,reason:'Color',instructions:'',parameterChanges:[{variable,input:`var(--color-${color})`}]}],snapshots,[record],[id])!;
+  expect(patch.css).toContain(`${variable}: var(--color-${color});`);
+  expect(patch.css).toContain(`var(${variable})`);
+ }
+});

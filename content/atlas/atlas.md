@@ -1432,8 +1432,7 @@
 - [[atlas/! hacks/text-justify/text-justify|Выравнивание по ширине]]
 - [[atlas/! hacks/text-pretty/text-pretty|Более аккуратные окончания абзацев]]
 - [[atlas/! hacks/text-firstline/text-firstline|Выразительная первая строка]]
-- [[atlas/! hacks/text-dropcap/text-dropcap|Буквица с обтеканием]]
-- [[atlas/! hacks/text-initial-letter/text-initial-letter|Буквица заданной глубины]]
+- [[atlas/! hacks/text-dropcap/text-dropcap|Буквица]]
 - [[atlas/! hacks/text-raised-initial/text-raised-initial|Приподнятая начальная буква]]
 - [[atlas/! hacks/text-hanging-punctuation/text-hanging-punctuation|Кавычки за краем полосы]]
 - [[atlas/! hacks/text-oldstyle/text-oldstyle|Книжные цифры]]
@@ -1444,7 +1443,7 @@
 - [[atlas/! hacks/text-print-lines/text-print-lines|Строки абзаца на границе страницы]]
 - [[atlas/! hacks/text-print-ink/text-print-ink|Экономная печатная палитра]]
 - [[atlas/! hacks/text-book-composition/text-book-composition|Книжное эссе]]
-- [[atlas/! hacks/text-editorial-composition/text-editorial-composition|Редакционная заметка]]
+- [[atlas/! hacks/text-editorial-composition/text-editorial-composition|Первая строка увеличенным шрифтом]]
 - [[atlas/! hacks/text-manual-composition/text-manual-composition|Компактная запись]]
 - [[atlas/! hacks/text-letter-composition/text-letter-composition|Личное письмо]]
 
@@ -1458,7 +1457,7 @@
 - [[atlas/! hacks/text-indent-book/text-indent-book|Красная строка с книжным шрифтом]]
 - [[atlas/! hacks/text-lead-color/text-lead-color|Цветной лид после H1]]
 - [[atlas/! hacks/text-print-flow/text-print-flow|Разрывы страниц и висячие строки]]
-- [[atlas/! hacks/text-rhythm/text-rhythm|Ритм по типу соседнего блока]]
+- [[atlas/! hacks/text-rhythm/text-rhythm|Сближение семантически близких блоков]]
 - [[atlas/! hacks/text-selection-custom/text-selection-custom|Собственный цвет выделения мышью]]
 - [[atlas/! hacks/text-wrap/text-wrap|Сбалансированный набор]]
 

@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_text
-title: Поля и размер текста на узком экране
+title: Уменьшение текста на узком экране
 category: text
 sources: []
 format: markdown

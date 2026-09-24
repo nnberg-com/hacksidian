@@ -2,7 +2,7 @@
 tags:
   - hacksidian_technique
   - hacksidian_text
-title: Акцент на первой строке
+title: Первая строка жирным
 category: text
 sources:
   - https://raw.githubusercontent.com/oxalorg/sakura/master/css/sakura.css

@@ -39,3 +39,10 @@ test('target state stays local including targets inside has selectors',()=>{
  const css=scopeLiveExample('.markdown-preview-view .footnotes:has(li:target) li:target { outline: 2px solid red; }','hacksidian-live-target');
  expect(css).not.toContain(':target');expect(css).toContain(':has(li[data-hacksidian-target])');expect(css).toContain('#hacksidian-live-target');
 });
+
+test('page width rules stay inside a readable preview and exclude editor rules', () => {
+ const result = scopeLiveExample('.markdown-preview-view.is-readable-line-width .markdown-preview-sizer, .markdown-source-view.mod-cm6.is-readable-line-width .cm-content { max-width: calc(var(--file-line-width) * 0.8); }', 'hacksidian-live-page');
+ expect(result).toContain('#hacksidian-live-page.is-readable-line-width .markdown-preview-sizer');
+ expect(result).not.toContain('.cm-content');
+ expect(liveExampleIssue('text', 'Paragraph', '.markdown-preview-view.is-readable-line-width .markdown-preview-sizer { max-width: 40ch; }')).toBeNull();
+});

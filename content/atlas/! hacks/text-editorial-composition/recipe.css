@@ -1,9 +1,4 @@
-.markdown-preview-view, .markdown-source-view.mod-cm6 .cm-scroller {
-  line-height: calc(var(--line-height-normal) * 1.1);
-}
-.markdown-preview-view > p:first-child, .markdown-preview-view .el-p:not(.el-p ~ .el-p) > p {
-  font-size: calc(var(--font-text-size) * 1.18);
-}
-.markdown-preview-view p {
-  margin-block: calc(var(--p-spacing) * 1.2);
+.markdown-preview-view > p:first-of-type::first-line,
+.markdown-preview-view .el-p:not(.el-p ~ .el-p) > p::first-line {
+  font-size: 1.18em;
 }
