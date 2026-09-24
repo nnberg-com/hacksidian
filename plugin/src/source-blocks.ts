@@ -1,4 +1,5 @@
 import { registerExpandedExamples } from './expanded-example';
+import { categoryPage } from './category-page';
 import { registerLiveExamples } from './live-example';
 import { ParameterControls } from './parameter-controls';
 import { previewState } from './preview-state';
@@ -52,7 +53,7 @@ export class TechniqueBlock extends MarkdownRenderChild {
         if (!this.embedded) {
         const nav = this.containerEl.createDiv({ cls: 'hacksidian-card-nav' });
         if (typeof metadata.category === 'string' && /^[a-z0-9-]+$/.test(metadata.category)) {
-          const categoryPath = `${root}/! categories/${metadata.category}.md`;
+          const categoryPath = `${root}/${categoryPage(metadata.category)}`;
           const categoryTitle = this.plugin.app.metadataCache.getCache(categoryPath)?.frontmatter?.title || metadata.category;
           this.internalLink(nav, String(categoryTitle), categoryPath, owner);
         }

@@ -13,6 +13,7 @@ test('Inline Dataview category counters count immediate recipe folders and agree
   counts[category]=(counts[category]??0)+1;
  }
  for(const [category,count] of Object.entries(counts)){
+  if(category.startsWith('plugin-'))continue; // Plugin pages do not use inline Dataview counters.
   const page=fs.readFileSync(path.join(atlas,'! categories',category+'.md'),'utf8');
   expect(parse(page.match(/^---\n([\s\S]*?)\n---/)![1])).not.toHaveProperty('group');
   expect(page).not.toContain('dv.current()');

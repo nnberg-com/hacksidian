@@ -2,6 +2,7 @@ import {test,expect} from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import {parse} from 'yaml';
+import {categoryPage} from '../src/category-page';
 import {groupManifest} from '../src/snippet-groups';
 import {addHack} from '../src/hacks';
 const repo=path.resolve(import.meta.dirname,'../..');
@@ -21,7 +22,7 @@ test('catalog recipes use their category prefix and compile into the matching gr
   expect(meta.tags,id).toContain('hacksidian_technique');
   expect(meta.tags,id).not.toContain('hacksidian_note');
   expect(groupManifest.modules.some(m=>m.id===spec.target),id).toBe(true);
-  expect(fs.existsSync(path.join(atlas,'! categories',spec.group+'.md')),id).toBe(true);
+  expect(fs.existsSync(path.join(atlas,categoryPage(spec.group))),id).toBe(true);
   const css=fs.readFileSync(path.join(dir,'recipe.css'),'utf8');
   const hack={id,title:meta.title,path:id+'.md',spec,css};
   const empty={format:1 as const,modules:[{id:spec.target,component:spec.group,css:'/* destination */'}]};

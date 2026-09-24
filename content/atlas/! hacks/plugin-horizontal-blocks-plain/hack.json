@@ -1,0 +1,9 @@
+{
+  "format": 2,
+  "target": "g-plugin-horizontal-blocks",
+  "hasCss": true,
+  "group": "plugin-horizontal-blocks",
+  "requirements": [
+    "Horizontal Blocks (horizontal-blocks), структура версии 1.1.2; режим чтения или отрисованный блок в Live Preview."
+  ]
+}

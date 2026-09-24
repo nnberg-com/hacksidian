@@ -282,6 +282,14 @@
       "title": "Последовательности изображений",
       "file": "hacksidian-27-imagelist.css",
       "nativeVariables": []
+    },
+    {
+      "id": "g-plugin-horizontal-blocks",
+      "component": "plugin-horizontal-blocks",
+      "group": "plugin-horizontal-blocks",
+      "title": "Horizontal Blocks",
+      "file": "hacksidian-plugin-horizontal-blocks.css",
+      "nativeVariables": []
     }
   ]
 }

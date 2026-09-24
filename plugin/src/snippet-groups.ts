@@ -30,11 +30,18 @@ export const GROUPS = [
  ['callin', 'Markdown внутри выносок', []],
  ['imagelist', 'Последовательности изображений', []],
 ] as const;
+// Plugin collections live separately from Markdown categories and use unnumbered files.
+export const PLUGIN_GROUPS = [
+ ['plugin-horizontal-blocks', 'Horizontal Blocks', []],
+] as const;
 // Slots 01–03 are retired; retain the remaining file numbers.
-export const groupManifest = { format: 1, structure: 2, modules: GROUPS.map(([group,title,nativeVariables],i) => ({
+export const groupManifest = { format: 1, structure: 2, modules: [...GROUPS.map(([group,title,nativeVariables],i) => ({
  id: `g-${group}`, component: group, group, title, file: `hacksidian-${String(i === 0 ? 0 : i + 3).padStart(2,'0')}-${group}.css`,
  nativeVariables: [...nativeVariables],
-})) };
+})), ...PLUGIN_GROUPS.map(([group,title,nativeVariables]) => ({
+ id: `g-${group}`, component: group, group, title, file: `hacksidian-${group}.css`,
+ nativeVariables: [...nativeVariables],
+}))] };
 
 function owner(selector: string, source: string): string {
  if (source === 'm-90-hide-note-header') return /metadata|frontmatter/.test(selector) ? 'metadata' : 'composition';
@@ -99,7 +106,8 @@ export function splitLegacyStyle(style: ModularStyle): ModularStyle {
  for(const [name,d] of settings)if(name.startsWith('--cmr-color-'))palette.append({prop:name,...d});
  roots.get('palette')!.prepend(palette);
  return {format:1,modules:groupManifest.modules.map(entry=>{
-  const root=roots.get(entry.group)!;
+  const root=roots.get(entry.group as typeof GROUPS[number][0]);
+  if (!root) return {id:entry.id,component:entry.group,css:''};
   const needed=new Set<string>();
   const collect=(value:string)=>{for(const match of value.matchAll(/var\(\s*(--[\w-]+)/g))if(settings.has(match[1])&&!match[1].startsWith('--cmr-color-')&&!needed.has(match[1])){needed.add(match[1]);collect(settings.get(match[1])!.value);}};
   root.walkDecls(d=>collect(d.value));
